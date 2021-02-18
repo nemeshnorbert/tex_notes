@@ -1,0 +1,138 @@
+%\title{Топологически инъективные C*-алгебры}
+\documentclass[12pt]{article}
+\usepackage[left=2cm,right=2cm,
+top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=blue, pdfborder={0 0 0}]{hyperref}
+
+%\pagestyle{plain}
+
+\begin{document}
+
+\begin{center}
+
+\Large \textbf{Топологически инъективные $C^*$-алгебры}\\[0.5cm]
+\small {Н. Т. Немеш}\\[0.5cm]
+
+\end{center}
+\thispagestyle{empty}
+
+\textbf{Аннотация:} В данной заметке дан критерий топологической инъективности $AW^*$-алгебры как правого банахова модуля над собой. Также дано необходимое условие топологической инъективности произвольной $C^*$-алгебры. 
+
+\medskip
+\textbf{Ключевые слова:} топологическая инъективность, метрическая инъективность, $AW^*$-алгебра, $C^*$-алгебра, свойство l.u.st.
+
+\medskip
+\textbf{Abstract:} In this short note a criterion of topological injectivity of an $AW^*$-algebra as a right Banach module over itself is given. A necessary condition for a $C^*$-algebra to be topologically injective is obtained.
+
+\medskip
+\textbf{Keywords:} topological injectivity, metric injectivity, $AW^*$-algebra, $C^*$-algebra, the l.u.st. property.
+
+\bigskip
+
+Во многих категориях функционального анализа инъективные объекты часто оказываются тесно связанными с $C^*$-алгебрами. Например, 1-инъективные банаховы пространства являются $C^*$-алгебрами \cite{NachThOfHahnBanachType}, \cite{GooProjInNorLinSp}, \cite{KellBanSpWithExtProp}, \cite{HasumiExtPropComplBanSp}, инъективные операторные пространства являются углами инъективных $C^*$-алгебр [\cite{RuanOpSp}, теорема 6.1.6]. Среди различных типов инъективности нам понадобятся два: метрический и топологический. Первый требует существования продолжения морфизма с сохранением нормы, а второй требует существования какого-нибудь ограниченного продолжения. В этой заметке исследуется вопрос метрической и топологической инъективности $C^*$-алгебр как правых модулей над собой\footnote{Работа выполнена при поддержке Российского фонда фундаментальных исследований (грант номер 15-01-08392).}. Эти два типа инъективности банаховых модулей изучены значительно меньше, чем хорошо известная относительная инъективность, определенная Хелемским в \cite{HelemSheinbergFlatBanModAndAmenBanAlg}.
+
+В дальнейшем $A$ обозначает необязательно унитальную банахову алгебру. Через $A_+$ мы обозначим унитизацию $A$ как банаховой алгебры. 
+Если $A$ --- $C^*$-алгебра, то ее унитизацию как $C^*$-алгебры будем обозначать $A_\#$. 
+$A$-морфизмом будем называть непрерывный морфизм правых банаховых $A$-модулей. Сформулируем два определения инъективности, которые упоминались ранее для категории банаховых модулей:
+
+\medskip
+\textbf{Определение 1.} (\cite{HelMetrFrQMod}, определение 4.3) \textit{Правый $A$-модуль $J$ называется метрически инъективным, если для любого изометрического $A$-морфизма $\xi:Y\to X$ и любого $A$-морфизма $\phi:Y\to J$ существует $A$-морфизм $\psi:X\to J$ такой, что $\psi\xi=\phi$  и $\Vert\psi\Vert=\Vert\phi\Vert$.}
+
+\medskip
+\textbf{Определение 2.} (\cite{HelMetrFrQMod}, определение 4.3) \textit{Правый $A$-модуль $J$ называется топологически инъективным, если для любого топологически инъективного $A$-морфизма $\xi:Y\to X$ и любого $A$-морфизма $\phi:Y\to J$ существует $A$-морфизм $\psi:X\to J$ такой, что $\psi\xi=\phi$.}
+
+\medskip
+Далее символ $\bigoplus_\infty$ означает $\ell_\infty$-сумму банаховых пространств. Стандартный пример метрически и топологически инъективного $A$-модуля --- это $\bigoplus{}_\infty\{A_+^*:\lambda\in\Lambda\}$, то есть $\ell_\infty$-сумма копий банахова пространства $A_+^*$ в количестве равном мощности множества $\Lambda$. В терминологии Хелемского такие модули называются метрически косвободными \cite{HelMetrFrQMod}. Простейший способ проверки топологической инъективности некоего модуля --- это доказательство того, что он дополняем как подмодуль в некотором метрически косвободном $A$-модуле. В случае метрической инъективности требуется $1$-дополняемость, то есть существование проектора нормы $1$ являющегося морфизмом правых $A$-модулей. Любой банахов модуль можно изометрически вложить как подмодуль в некоторый метрически косвободный модуль.
+
+Необходимым условием инъективности $C^*$-алгебры является унитальность. Действительно, так как $A$ инъективна, то она дополняема как подмодуль в своей унитизации $A_\#$ посредством некоторого проектора $P:A_\#\to A_\#$. Более того, $P$ является морфизмом правых $A$-модулей, поэтому образ единицы алгебры $A_\#$ под действием $P$ есть левая единица в $A$. Так как $A$ --- $C^*$-алгебра, то она имеет и двустороннюю единицу. Теперь из работ Хаманы \cite{HamInjEnvBanMod} и Такесаки \cite{TakHanBanThAndJordDecomOfModMap} следует:
+
+\medskip
+\textbf{Предложение 3.} (Хамана, Такесаки) \textit{$C^*$-алгебра метрически инъективна как правый модуль над собой тогда и только тогда, когда она является коммутативной $AW^*$-алгеброй.}
+
+\medskip
+Отметим, что в оригинальной статье утверждение было доказано для левых модулей, но его легко модифицировать и для правых модулей.
+
+Таким образом, вопрос о метрической инъективности $C^*$-алгебр решен полностью. Перейдем к топологической инъективности. Здесь нам понадобится банахово-геометрическое свойство l.u.st [\cite{DiestAbsSumOps}, параграф 17]. Самое короткое его определение звучит так: банахово пространство $E$ обладает свойством l.u.st. если $E^{**}$ изоморфно дополняемому подпространству некоторой банаховой решетки. 
+
+Будем считать, что $C^*$-алгебра $A$ реализована как конкретная $C^*$-алгебра на некотором гильбертовом пространстве $H$. Тогда $A$ можно считать подмодулем в правом $A$-модуле $F:=\bigoplus_\infty\{H^*:f\in H^*, \Vert f\Vert\leq 1\}$ посредством вложения
+$$
+I:A\to\bigoplus_\infty\{H^*:f\in H^*, \Vert f\Vert\leq 1\}:a\mapsto \bigoplus_\infty\{a^*(f):f\in H^*, \Vert f\Vert\leq 1\}.
+$$
+Отметим, что $F$ является банаховой решеткой, а значит имеет свойство l.u.st [\cite{DiestAbsSumOps}, теорема 17.1]. Если $A$ --- топологически инъективная $C^*$-алгебра, то она дополняема в $F$. Как легко видеть, свойство l.u.st. наследуется дополняемыми подпространствами. Отсюда получается следующее необходимое условие топологической инъективности. 
+
+\medskip
+\textbf{Предложение 4.} \textit{Пусть $A$ --- $C^*$-алгебра, топологически инъективная как правый $A$-модуль. Тогда $A$ обладает свойством l.u.st.}
+
+\medskip
+Известно, что всякая полная матричная алгебра $M_n(\mathbb{C})$ $1$-дополняема как банахово пространство в любой объемлющей $C^*$-алгебре \cite{LauLoyWillisAmnblOfBanAndCStarAlgsOfLCG}.
+Отсюда и из результатов Гордона и Льюиса \cite{GorLewAbsSmOpAndLocUncondStrct} следует, что $C^*$-алгебры со свойством l.u.st не могут содержать полную матричную алгебру $M_n(\mathbb{C})$ как ${}^*$-подалгебру для произвольного $n\in\mathbb{N}$. Как следствие, $A^{**}$ не может содержать $M_\infty:=\bigoplus_\infty\{M_n(\mathbb{C}):n\in\mathbb{N}\}$ как ${}^*$-подалгебру. Теперь, из [\cite{LauLoyWillisAmnblOfBanAndCStarAlgsOfLCG}, теорема 2.5] следует, что все неприводимые представления $A$ конечномерны и их размерность не превосходит общей константы. $C^*$-алгебры с таким свойством называют субоднородными. Для них есть своя теорема представления: они являются замкнутыми ${}^*$-подалгебрами матричных алгебр $M_n(C(K))$ для некоторого компактного хаусдорфова пространства $K$ и некоторого натурального числа $n$ [\cite{BlackadarOpAlg}, предложение IV.1.4.3]. Из этой теоремы представления, нестрого говоря, следует, что топологически инъективные $C^*$-алгебры почти коммутативны. Отметим, что по предложению 3 все метрически инъективные $C^*$-алгебры коммутативны.
+
+Теперь приведем несколько примеров топологически инъективных $C^*$-алгебр.
+
+\medskip
+\textbf{Предложение 5.} \textit{Пусть $H$ --- конечномерное гильбертово пространство. Тогда $\mathcal{B}(H)$ топологически инъективен как правый $\mathcal{B}(H)$-модуль.}
+
+\medskip
+Из сказанного ранее следует, что для бесконечномерного $H$ предложение 5 неверно.
+
+\medskip
+\textbf{Предложение 6.} \textit{Пусть $K$ --- стоуново пространство. Тогда $C(K)$ топологически инъективен как правый $C(K)$-модуль.}
+
+\medskip
+Этот предложение легко следует из того факта, что всякий метрически инъективный модуль топологически инъективен. Оба эти примера обобщает следующее предложение:
+
+\medskip
+\textbf{Предложение 7.} \textit{Пусть $K$ --- стоуново пространство и $n\in\mathbb{N}$, тогда $M_n(C(K))$ топологически инъективен как правый $M_n(C(K))$-модуль.}
+
+\medskip
+Доказательство состоит из трех шагов. На первом шаге для каждой точки $s\in K$ рассматривается правый $M_n(C(K))$-модуль $M_n(\mathbb{C}_s)$ c внешним умножением определенным по формуле $(x\cdot a)_{i,j}=\sum_{k=1}^n x_{i,k}a_{k,j}(s)$ для всех $x\in M_n(\mathbb{C}_s)$, $a\in M_n(C(K))$. Из аменабельности $M_n(C(K))$ легко вывести, что $M_n(C(K))$-модуль $M_n(\mathbb{C}_s)$ топологически инъективен. На втором шаге доказывается, что произведение $\bigoplus{}_\infty\{M_n(\mathbb{C}_s):s\in K\}$ топологически инъективно как $M_n(C(K))$-модуль. На третьем шаге остается показать, что $M_n(C(K))$ является дополняемым подмодулем в $\bigoplus{}_\infty\{M_n(\mathbb{C}_s):s\in K\}$.
+
+Отметим, что все упомянутые примеры принадлежат к более узкому классу $C^*$-алгебр, а именно к классу $AW^*$-алгебр. И если ограничиться рассмотрением только $AW^*$-алгебр, то можно доказать следующий критерий.
+
+\medskip
+\textbf{Теорема 8.} \textit{Пусть $A$ --- $C^*$-алгебра. Тогда следующие условия эквивалентны:
+\newline
+$i)$ $A$ --- $AW^*$-алгебра, топологически инъективная как правый $A$-модуль;
+\newline
+$ii)$ $A$ изоморфна как $C^*$-алгебра алгебре $\bigoplus_\infty\{M_{n_i}(C(K_i)):i=1,\ldots,n\}$ для некоторого конечного набора стоуновых пространств $(K_i)_{i=1,\ldots,n}$ и натуральных чисел $(n_i)_{i=1,\ldots,n}$.}
+
+\medskip
+Идея доказательства основывается на предложениях 4, 7 и дихотомии Смита-Уильямса \cite{SmithDecompPropCStarAlg}. Они показали, что $AW^*$-алгебра либо изоморфна как $C^*$-алгебра алгебре $\bigoplus_\infty\{M_{n_i}(C(K_i)):i=1,\ldots,n\}$ для некоторого конечного набора стоуновых пространств $(K_i)_{i=1,\ldots,n}$ и натуральных чисел $(n_i)_{i=1,\ldots,n}$, либо содержит $M_\infty$ как ${}^*$-подалгебру. 
+
+Для полного описания топологически инъективных $C^*$-алгебр теперь хотелось бы показать, что все они являются $AW^*$-алгебрами. Но похоже, что это --- сложная задача даже в коммутативном случае. Пока ни в одной стандартной категории функционального анализа, начиная с категории банаховых пространств, не получено полного описания топологически инъективных объектов.
+
+\begin{thebibliography}{999}
+\bibitem{NachThOfHahnBanachType}
+\textit{L. Nachbin.} A theorem of the Hahn-Banach type for linear transformations, Transactions of the American Mathematical Society, (1950), 28--46
+\bibitem{GooProjInNorLinSp}
+\textit{D. Goodner.} Projections in normed linear spaces, Transactions of the American Mathematical Society, (1950), 89--108
+\bibitem{KellBanSpWithExtProp}
+\textit{J. L. Kelley.} Banach spaces with the extension property, Transactions of the American Mathematical Society, (1952), 323--326
+\bibitem{HasumiExtPropComplBanSp}
+\textit{M. Hasumi.} The extension property of complex Banach spaces, Tohoku Mathematical Journal, Second Series, 10:2 (1958), 135--142
+\bibitem{RuanOpSp} 
+\textit{E. G. Effros, Z.-J. Ruan.} Operator spaces, Oxford University Press, (2000)
+\bibitem{HelemSheinbergFlatBanModAndAmenBanAlg}
+\textit{А. Я. Хелемский.} Плоские банаховы модули и аменабельные алгебры, Труды Московского математического общества, 47:0 (1984), 179--218
+\bibitem{HelMetrFrQMod}
+\textit{А. Я. Хелемский.} Метрическая свобода и проективность для классических и квантовых нормированных модулей, Матем. сб., 204:7 (2013), 127–-158 
+\bibitem{HamInjEnvBanMod} 
+\textit{M. Hamana.} Injective envelopes of Banach modules, T{\^o}hoku Mathematical Journal, 30:3 (1978), 439--453
+\bibitem{TakHanBanThAndJordDecomOfModMap} 
+\textit{M. Takesaki.} On the Hahn-Banach type theorem and the Jordan decomposition of module linear mapping over some operator algebras, Kodai Mathematical Seminar Reports, 12:1 (1960), 1--10
+\bibitem{DiestAbsSumOps} 
+\textit{J. Diestel, H. Jarchow, A. Tonge.} Absolutely summing operators, Cambridge University Press, 43 (1995)
+\bibitem{LauLoyWillisAmnblOfBanAndCStarAlgsOfLCG}
+\textit{A.T.-M. Lau, R. J. Loy, G. A. Willis.} Amenability of Banach and $\it{C^*}$-algebras on locally compact groups, Studia Mathematica, 119:2, (1996), 161--178
+\bibitem{GorLewAbsSmOpAndLocUncondStrct} 
+\textit{Y. Gordon, D. R. Lewis.} Absolutely summing operators and local unconditional structures, Acta Mathematica, 133:1 (1974), 27--48
+\bibitem{BlackadarOpAlg} 
+\textit{B. Blackadar.} Operator algebras, Springer, 122 (2006)
+\bibitem{SmithDecompPropCStarAlg} 
+\textit{R. R. Smith, D. P. Williams.} The decomposition property for $\it{C^*}$-algebras, J. Operator Theory, 16 (1986), 51--74
+\end{thebibliography}
+\end{document}
