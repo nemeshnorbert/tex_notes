@@ -1,0 +1,582 @@
+%\title{Geometry of projective, injective and flat Banach modules}
+
+\documentclass[12pt]{article}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathrsfs}
+%\usepackage[english, russian]{babel}
+\usepackage[matrix,arrow,curve]{xy}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=blue, pdfborder={0 0 0}]{hyperref}
+
+% My definitions
+\newcommand{\projtens}{\mathbin{\widehat{\otimes}}}
+\newcommand{\convol}{\ast}
+\newcommand{\projmodtens}[1]{\mathbin{\widehat{\otimes}}_{#1}}
+\newcommand{\isom}[1]{\mathop{\mathbin{\cong}}\limits_{#1}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\renewenvironment{proof}{\paragraph{Proof.}}{\hfill$\square$\medskip}
+
+\begin{document}
+
+\begin{flushleft}
+\Large \textbf{Geometry of projective, injective and flat\\ Banach modules\footnote{This research was supported by the Russian Foundation for Basic Research (grant No. 15-01-08392).}}\\[0.5cm]
+\end{flushleft}
+\begin{flushright}
+\normalsize \textbf{N. T. Nemesh}\\[0.5cm]
+\end{flushright}
+\begin{flushleft}
+\small {UDC 517.986.22}\\[0.5cm]
+\end{flushleft}
+
+\thispagestyle{empty}
+
+\textbf{Keywords:} projectivity, injectivity, flatness, annihilator module, the Dunford-Pettis property.
+\medskip
+
+\textbf{Abstract:} In this paper we prove general facts on metrically and topologically projective, injective and flat Banach modules. We prove theorems pointing to the close connection between metric, topological Banach homology with geometry of Banach spaces. For example, in geometric terms we give complete description of projective, injective and flat annihilator modules. We also show, that for algebras with geometric structure of $\mathscr{L}_1$- or $\mathscr{L}_\infty$-space all its homologically trivial modules possess the Dunford-Pettis property.
+\medskip
+
+%----------------------------------------------------------------------------------------
+%	Introduction
+%----------------------------------------------------------------------------------------
+
+\section{Introduction}
+\label{SectionIntroduction}
+
+The notions of projective, injective and flat module are the three pillars of the building of homological algebra. Method of homological algebra were incorporated in functional analysis by Helemskii and his school. Helemskii studied special version of relative homology mixing altogether algebra and topology. There existed other versions of homological algebra of functional analysis, e. g. metric and topological ones, but their active investigation started only a few years ago. In this paper we shall prove several theorems revealing deep interconnection of Banach geometry with metric and topological homology.
+
+A few words on notation. Further by $A$ we denote a not necessarily unital Banach algebra with contractive bilinear multiplication operator. By $A_+$ we denote the standard unitization of $A$ as Banach algebra. Symbol $A_\times$ denotes conditional unitization, that is $A_\times=A$ if $A$ is unital and $A_\times=A_+$ otherwise. We shall consider only Banach modules with contractive outer action, denoted by ``$\cdot$''. Finally, continuous morphisms of $A$-modules we shall call $A$-morphisms. By $\mathbf{Ban}$ we denote the category of Banach spaces with bounded operators in the role of morphisms. If one takes only contractive operators in the role of morphisms, one gets the category $\mathbf{Ban}_1$. Symbol $A-\mathbf{mod}$ stands for the category of left Banach $A$-modules with $A$-morphisms. By $A-\mathbf{mod}_1$ we denote the subcategory of $A-\mathbf{mod}$ with the same object, but contractive morphisms only. In what follows, we present some parts in parallel fashion by listing the respective options in order, inclosed and separate like this: $\langle$~... / ...~$\rangle$. For example, a real number $x$ is called $\langle$~positive / non negative~$\rangle$ if $\langle$~$x>0$ / $x\geq 0$~$\rangle$.
+
+Let us recall some basic definitions and facts from relative Banach homology. We say that a morphism $\xi:X\to Y$ of left $A$-modules $X$ and $Y$ is a relatively admissible epimorphism if it admits a right inverse bounded linear operator. A left $A$-module $P$ is called relatively projective if for any relatively admissible  epimorphism $\xi:X\to Y$ and for any $A$-morphism $\phi:P\to Y$ there exists an $A$-morphism $\psi:P\to X$ such that the diagram
+$$
+\xymatrix{
+& {X} \ar[d]^{\xi}\\
+{P} \ar@{-->}[ur]^{\psi} \ar[r]^{\phi} &{Y}}
+$$
+is commutative. Similarly,  we say that a morphism $\xi:Y\to X$ of right $A$-modules $X$ and $Y$ is a relatively admissible monomorphism if it admits a left inverse bounded linear operator. A right $A$-module $J$ is called relatively injective if for any relatively admissible  monomorphism $\xi:Y\to X$ and for any $A$-morphism $\phi:Y\to J$ there exists an $A$-morphism $\psi:X\to J$ such that the diagram
+$$
+\xymatrix{
+& {X} \ar@{-->}[dl]_{\psi} \\
+{J} &{Y} \ar[l]_{\phi} \ar[u]_{\xi}}
+$$
+is commutative. 
+
+A special class of relatively $\langle$~projective / injective~$\rangle$ $A$-modules is the so-called relatively $\langle$~free / cofree~$\rangle$ modules. These are modules of the form $\langle$~$A_+\projtens E$ / $\mathcal{B}(A_+,E)$~$\rangle$ for some Banach space $E$. Their main feature is the following: an $A$-module is relatively $\langle$~projective / injective~$\rangle$ iff it is a retract of relatively $\langle$~free / cofree~$\rangle$ $A$-module. 
+
+Metric and topological homology can be described via general categorical point of view.
+
+In \cite{HelMetrFrQMod} Helemskii introduced the notion of rigged category, that allows conveniently express and prove many basic properties of homologically trivial objects. We give a brief introduction into this theory. By $\mathbf{Set}$ we shall denote the category of sets. The fact that objects $X$ and $Y$ of category $\mathbf{C}$ are isomorphic we shall express as $X\isom{\mathbf{C}}Y$.
+
+Let $\mathbf{C}$ and $\mathbf{D}$ be two fixed categories. An ordered pair ($\mathbf{C}, \square:\mathbf{C}\to\mathbf{D}$), where $\square$ is a faithful covariant functor, is called a rigged category. We say that a morphism $\xi$ in $\mathbf{C}$ is $\square$-admissible epimorphism if $\square (\xi)$ is a retraction in $\mathbf{D}$. An object $P$ in $\mathbf{C}$ is called $\square$-projective, if for every $\square$-admissible epimorphism $\xi$ in $\mathbf{C}$ the map $\operatorname{Hom}_{\mathbf{C}}(P,\xi)$ is surjective. An object $F$ in $\mathbf{C}$ is called $\square$-free with base $M$ in  $\mathbf{D}$, if there exists an isomorphism of functors $\operatorname{Hom}_{\mathbf{D}}(M,\square(-))\cong\operatorname{Hom}_{\mathbf{C}}(F,-)$. A rigged category $(\mathbf{C},\square)$ is called  freedom-loving [\cite{HelMetrFrQMod}, definition 2.10], if every object in $\mathbf{D}$ is a base of some $\square$-free object in $\mathbf{C}$. We may summarize results of propositions 2.3, 2.11  and 2.12 in \cite{HelMetrFrQMod} as follows:
+
+$i)$ any retract of $\square$-projective object is $\square$-projective;
+
+$ii)$ any $\square$-admissible epimorphism into $\square$-projective object is a retraction;
+
+$iii)$ any $\square$-free object is $\square$-projective;
+
+$iv)$ if $(\mathbf{C},\square)$ is freedom-loving rigged category, then any object is $\square$-projective iff it is a retract of $\square$-free object;
+
+$v)$ the coproduct of the family of $\square$-projective objects is $\square$-projective.
+
+By $\mathbf{C}^{o}$ we shall denote the category opposite to $\mathbf{C}$. The opposite rigged category of $(\mathbf{C}, \square)$ 
+is a rigged category $(\mathbf{C}^{o},\square^{o}:\mathbf{C}^{o}\to\mathbf{D}^{o})$. 
+Thus by passing to the opposite rigged category we may define admissible monomorphisms, injectivity and cofreedom. A morphism $\xi$ in called $\square$-admissible monomorphism if it is $\square^o$-admissible epimorphism. An object $J$ in $\mathbf{C}$ is called $\square$-injective if it is $\square^o$-projective. An object $F$ in $\mathbf{C}$ is called $\square$-cofree if it is $\square^o$-free. Finally, we say that $(\mathbf{C}, \square)$ is cofreedom-loving if $(\mathbf{C}^{o}, \square^{o})$ is freedom-loving. This gives us analogs of results as above for injectivity and cofreedom.
+
+Now consider faithful functor $\square_{rel}:A-\mathbf{mod}\to\mathbf{Ban}$ that just `forgets'' the module structure. One can easily see that $(A-\mathbf{mod},\square_{rel})$ is a rigged category whose $\square_{rel}$-admissible $\langle$~epimorphisms / monomorphisms~$\rangle$ are exactly relatively admissible $\langle$~epimorphisms / monomorphisms~$\rangle$ and $\langle$~$\square_{rel}$-projective / $\square_{rel}$-injective~$\rangle$ objects are exactly relatively $\langle$~projective / injective~$\rangle$ $A$-modules. Even more all $\langle$~$\square_{rel}$-free / $\square_{rel}$-cofree~$\rangle$ objects are isomorphic in $A-\mathbf{mod}$ to $\langle$~$A_+\projtens E$ / $\mathcal{B}(A_+,E)$ ~$\rangle$ for some Banach space $E$. This example shows, that relative theory perfectly fits into the realm of rigged categories.
+
+We shall apply this scheme for metric and topological theory in the next chapter. These two theories put much weaker restrictions on their admissible morphisms.
+
+%----------------------------------------------------------------------------------------
+%	Projectivity, injectivity and flatness
+%----------------------------------------------------------------------------------------
+
+\section{Projectivity, injectivity and flatness}
+\label{SectionProjectivityInjectivityAndFlatness}
+
+
+%----------------------------------------------------------------------------------------
+%	Metric and topological projectivity
+%----------------------------------------------------------------------------------------
+
+\subsection{Metric and topological projectivity}
+\label{SubSectionMetricAndTopologicalProjectivity}
+
+While studying metric and topological projectivity we shall consider two wide classes of epimorphisms: strictly coisometric and topologically surjective $A$-morphisms. By $\langle$~$B_E$ / $B_E^\circ$~$\rangle$ we shall denote the $\langle$~closed / open~$\rangle$ unit ball of $E$. We say that a bounded linear operator $T:E\to F$ is $\langle$~strictly coisometric / topologically surjective~$\rangle$ if $\langle$~$B_F=T(B_E)$ / $B_F^\circ\subset cT(B_E^\circ)$~$\rangle$. In what follows $A$ denotes a not necessary unital Banach algebra. 
+
+\begin{definition}[\cite{HelMetrFrQMod}, definition 1.4]\label{MetTopProjMod} An $A$-module $P$ is called $\langle$~metrically / topologically~$\rangle$ projective if for any $\langle$~strictly coisometric / topologically surjective~$\rangle$ $A$-morphism $\xi:X\to Y$ and for any $A$-morphism $\phi:P\to Y$ there exists an $A$-morphism $\psi:P\to X$ such that $\langle$~$\xi\psi=\phi$ and $\Vert\psi\Vert=\Vert\phi\Vert$ / $\xi\psi=\phi$~$\rangle$.
+\end{definition}
+
+Now we are aiming to apply the general scheme of rigged categories to metric and topological projectivity. In \cite{HelMetrFrQMod} and \cite{ShtTopFrClassicQuantMod} there were constructed two faithful functors 
+$$
+\square_{met}:A-\mathbf{mod}_1\to\mathbf{Set},
+\qquad
+\square_{top}:A-\mathbf{mod}\to\mathbf{HNor}.
+$$
+Here $\mathbf{HNor}$ denotes the category of so called hemi-normed spaces. We shall not give the definition. Existence of this category is enough for our needs. In the cited papers it was proved that an $A$-morphism $\xi$ is $\langle$~strictly coisometric / topologically surjective~$\rangle$ iff it is $\langle$~$\square_{met}$-admissible / $\square_{top}$-admissible~$\rangle$ epimorphism and an $A$-module $P$ is $\langle$~metrically / topologically~$\rangle$ projective iff it is $\langle$~$\square_{met}$-projective / $\square_{top}$-projective~$\rangle$. Thus we immediately get the following proposition.
+
+\begin{proposition}\label{RetrMetTopProjIsMetTopProj} Any retract of $\langle$~metrically / topologically~$\rangle$ projective module in $\langle$~$A-\mathbf{mod}_1$ / $A-\mathbf{mod}$~$\rangle$ is again $\langle$~metrically / topologically~$\rangle$ projective.
+\end{proposition}
+
+It was also shown that the rigged category $\langle$~$(A-\mathbf{mod}_1,\square_{met})$ / $(A-\mathbf{mod},\square_{top})$~$\rangle$ is freedom loving and that $\langle$~$\square_{met}$-free / $\square_{top}$-free~$\rangle$ modules are isomorphic in $\langle$~$A-\mathbf{mod}_1$ / $A-\mathbf{mod}$~$\rangle$ to $A_+\projtens \ell_1(\Lambda)$ for some set $\Lambda$. Even more, for any $A$-module $X$ there exists a $\langle$~$\square_{met}$-admissible / $\square_{top}$-admissible~$\rangle$ epimorphism
+$$
+\pi_X^+:A_+\projtens \ell_1(B_X):a\projtens \delta_x\mapsto a\cdot x
+$$
+Here $\delta_x$ stands for the function in $\ell_1(B_X)$ that equals $1$ at point $x$ and $0$ otherwise. As the consequence of general results on rigged categories we get the following criterion.
+
+\begin{proposition}\label{MetTopProjModViaCanonicMorph}
+The module $P$ is $\langle$~metrically / topologically~$\rangle$ projective iff $\pi_P^+$ is a retraction in $\langle$~$A-\mathbf{mod}_1$ / $A-\mathbf{mod}$~$\rangle$.
+\end{proposition}
+
+Since $\langle$~$\square_{met}$-free / $\square_{top}$-free~$\rangle$ modules are the same up to isomorphisms in $A-\mathbf{mod}$ and any retraction in $A-\mathbf{mod}_1$ is a retraction in $A-\mathbf{mod}$, then from proposition \ref{RetrMetTopProjIsMetTopProj} we see that any metrically projective $A$-module is topologically projective. Recall that every relatively projective module is a retract in $A-\mathbf{mod}$ of $A_+\projtens E$ for some Banach space $E$, therefore every topologically projective $A$-module is relatively projective. We summarize all these observations in the following proposition.
+
+\begin{proposition}\label{MetProjIsTopProjAndTopProjIsRelProj} Every metrically projective module is topologically projective and every topologically projective module is relatively projective.
+\end{proposition}
+
+Note that the category of Banach spaces may be regarded as the category of left Banach modules over zero algebra. As the results we get the definition of $\langle$~metrically / topologically~$\rangle$ projective Banach space. All the results mentioned above hold for this type of projectivity. Both types of projective objects are described by now. In \cite{KotheTopProjBanSp} K{\"o}the proved that all topologically projective Banach spaces are topologically isomorphic to $\ell_1(\Lambda)$ for some index set $\Lambda$. Using result of Grothendieck from \cite{GrothMetrProjFlatBanSp} Helemskii showed that metrically projective Banach spaces are isometrically isomorphic to $\ell_1(\Lambda)$ for some index set $\Lambda$ [\cite{HelMetrFrQMod}, proposition 3.2]. 
+
+We proceed to discussion of modules. It is easy to show by definition that $A$-module $A_\times$ is metrically and topologically projective. But in general it is more convenient to prove metric or topological projectivity by solving retraction problem for $\pi_P^+$. As the following two proposition shows, this retraction problem can be reduced to simpler ones.
+
+\begin{proposition}\label{NonDegenMetTopProjCharac}  Let $P$ be an essential $A$-module, that is the linear span of $A\cdot P$ is dense in $P$. Then $P$ is $\langle$~metrically / topologically~$\rangle$ projective iff the map $\pi_P:A\projtens\ell_1(B_P):a\projtens\delta_x\mapsto a\cdot x$ is a retraction in $\langle$~$A-\mathbf{mod}_1$ / $A-\mathbf{mod}$~$\rangle$.
+\end{proposition} 
+\begin{proof} The proof is the same as in [\cite{HelBanLocConvAlg}, proposition	 7.1.14].
+\end{proof}
+
+\begin{proposition}\label{MetTopProjUnderChangeOfAlg} Let $I$ be a closed subalgebra of $A$ and $P$ be an $A$-module which is essential as $I$-module. Then
+
+$i)$ if $I$ is a left ideal of $A$ and $P$ is $\langle$~metrically / topologically~$\rangle$  projective $I$-module, then $P$ is $\langle$~metrically / topologically~$\rangle$ projective $A$-module;
+
+$ii)$ if $I$ is a $\langle$~$1$-complemented / complemented~$\rangle$ right ideal of $A$ and $P$ is $\langle$~metrically / topologically~$\rangle$ projective $A$-module, then $P$ is $\langle$~metrically / topologically~$\rangle$ projective $I$-module.
+\end{proposition}
+\begin{proof} The proof is similar to the one given in [\cite{RamsHomPropSemgroupAlg}, proposition 2.3.3] for the case of relative Banach homology.
+\end{proof}
+
+We shall list several constructions preserving projectivity of modules. Here and further by $\bigoplus_p\{E_\lambda:\lambda\in\Lambda\}$ we denote the $\ell_p$-sum of the family of Banach spaces $(E_\lambda)_{\lambda\in\Lambda}$. When $p=0$ we consider $c_0$-sum. If all spaces $(E_\lambda)_{\lambda\in\Lambda}$ are Banach $A$-modules, then their $\ell_p$- or $c_0$-sum also have a natural structure of $A$-module with componentwise outer action. It is worth to mention that $\langle$~an arbitrary / only finite~$\rangle$ family of modules have the categorical coproduct in $\langle$~$A-\mathbf{mod}_1$ / $A-\mathbf{mod}$~$\rangle$ which is in fact their $\bigoplus_1$-sum. This is reason why we make additional assumption in the second paragraph of the next proposition.
+
+\begin{proposition}\label{MetTopProjModCoprod} Let $(P_\lambda)_{\lambda\in\Lambda}$ be a family of $A$-modules. Then 
+
+$i)$ $\bigoplus_1\{P_\lambda:\lambda\in\Lambda\}$ is metrically projective iff for all $\lambda\in\Lambda$ the $A$-module $P_\lambda$ is metrically projective;
+
+$ii)$ if for some $C>1$ and all $\lambda\in\Lambda$ the $A$-morphism $\pi_{P_\lambda}^+$ admits a right inverse morphism of norm at most $C$ then $\bigoplus_1\{P_\lambda:\lambda\in\Lambda\}$ is topologically projective.
+\end{proposition}
+\begin{proof} Denote $P:=\bigoplus_1\{P_\lambda:\lambda\in\Lambda\}$.
+
+$i)$ If $P$ is metrically projective, then by proposition \ref{RetrMetTopProjIsMetTopProj} for each $\lambda\in\Lambda$ the $A$-module $P_\lambda$ is metrically projective as retract of $P$ via the natural projection $p_\lambda:P\to P_\lambda$. Conversely, if all modules $(P_\lambda)_{\lambda\in\Lambda}$ are metrically projective, then by general categorical scheme so does their categorical coproduct $P$ in $A-\mathbf{mod}_1$.
+
+$ii)$ Assume that $P_\lambda$ is topologically projective for all $\lambda\in\Lambda$. From assumption it follows that $\bigoplus_1\{\pi_{P_\lambda}^+:\lambda\in\Lambda\}$ is a retraction in $A-\mathbf{mod}$. As the result $\bigoplus_1\{P_\lambda:\lambda\in\Lambda\}$ is a retract of 
+$$
+\bigoplus\nolimits_1\left\{A_+\projtens \ell_1(B_{P_\lambda}):\lambda\in\Lambda\right\}
+\isom{A-\mathbf{mod}_1}
+\bigoplus\nolimits_1\left\{\bigoplus\nolimits_1\{A_+:\lambda'\in B_{P_\lambda}\}:\lambda\in\Lambda\right\}
+$$
+$$
+\isom{A-\mathbf{mod}_1}
+\bigoplus\nolimits_1\{A_+:\lambda\in\Lambda_0\}
+$$
+in $A-\mathbf{mod}$ where $\Lambda_0=\bigcup_{\lambda\in\Lambda}B_{P_\lambda}$. Therefore, by proposition \ref{RetrMetTopProjIsMetTopProj} the $A$-module $P$ is topologically projective as retract of  topologically projective $A$-module.
+\end{proof}
+
+\begin{corollary}\label{MetTopProjTensProdWithl1} Let $P$ be an $A$-module and $\Lambda$ be an arbitrary set. Then $P\projtens \ell_1(\Lambda)$ is $\langle$~metrically / topologically~$\rangle$ projective iff $P$ is $\langle$~metrically / topologically~$\rangle$ projective.
+\end{corollary}
+
+In order to understand the difference between metric, topological and relative homology we shall consider two more examples about ideals and cyclic modules.
+
+\begin{proposition}\label{GoodCommIdealMetTopProjIsUnital} Let $I$ be an ideal of commutative Banach algebra $A$. Assume $I$ admits $\langle$~contractive / bounded~$\rangle$ approximate identity. Then $I$ is $\langle$~metrically / topologically~$\rangle$ projective as $A$-module iff $I$ admits $\langle$~the identity of norm $1$ / the identity~$\rangle$.
+\end{proposition}
+\begin{proof} See [\cite{NemMetTopProjIdBanAlg}, theorem 1].
+\end{proof}
+
+This result shows, that metrically and topologically projective ideals with bounded approximate identities have compact spectrum. At the same time there exist a lot of examples of relatively projective ideals with ``only'' paracompact spectrum  [\cite{HelHomolBanTopAlg}, theorem 3.7].
+
+The next proposition is an obvious modification of the algebraic characterization of projective cyclic modules. 
+
+
+\begin{proposition}\label{MetTopProjCycModCharac} Let $I$ be a left ideal in $A_\times $. Then the following are equivalent:
+
+$i)$ $A_\times /I$ is $\langle$~metrically / topologically~$\rangle$ projective as $A$-module $\langle$~and the natural quotient map $\pi:A_\times \to A_\times /I$ is a strict coisometry /~$\rangle$;
+
+$ii)$ there exists an idempotent $p\in I$ such that $I=A_\times  p$ $\langle$~and $\Vert e_{A_\times }-p\Vert= 1$ /~$\rangle$
+\end{proposition}
+\begin{proof} Using a somewhat different terminology this fact is proved in [\cite{WhiteInjmoduAlg}, proposition 2.11].
+\end{proof}
+
+
+%----------------------------------------------------------------------------------------
+%	Metric and topological injectivity
+%----------------------------------------------------------------------------------------
+
+\subsection{Metric and topological injectivity}
+\label{SubSectionMetricAndTopologicalInjectivity}
+
+As one can easily guess, in the study of metric and topological injectivity we shall exploit two wide classes of monomorphisms: isometric and topologically injective $A$-morphisms. Recall that a bounded linear operator $T:E\to F$ is called topologically injective if for some $c\geq 0$ and all $x\in E$ holds $c\Vert T(x)\Vert\geq \Vert x\Vert$. Unless otherwise stated we shall consider injectivity of right modules.
+
+\begin{definition}[\cite{HelMetrFrQMod}, definition 4.3]\label{MetTopInjMod} An $A$-module $J$ is called $\langle$~metrically / topologically~$\rangle$ injective if for any $\langle$~isometric / topologically injective~$\rangle$ $A$-morphism $\xi:Y\to X$ and any $A$-morphism $\phi:Y\to J$ there exists an $A$-morphism $\psi:X\to J$ such that $\langle$~$\psi\xi=\phi$  and $\Vert\psi\Vert=\Vert\phi\Vert$ / $\psi\xi=\phi$~$\rangle$.
+\end{definition}
+
+In \cite{HelMetrFrQMod} and \cite{ShtTopFrClassicQuantMod} there were constructed two faithful functors:
+$$
+\square_{met}^d:A-\mathbf{mod}_1\to\mathbf{Set},
+\qquad
+\square_{top}^d:A-\mathbf{mod}\to\mathbf{HNor}.
+$$
+In the same papers it was proved that, firstly, an $A$-morphism $\xi$ is $\langle$~isometric / topologically injective~$\rangle$ iff it is $\langle$~$\square_{met}^d$-admissible / $\square_{top}^d$-admissible~$\rangle$ monomorphism and, secondly, an $A$-module $J$ is $\langle$~metrically / topologically~$\rangle$ injective iff it is $\langle$~$\square_{met}^d$-injective / $\square_{top}^d$-injective~$\rangle$. Thus, from general categorical scheme we immediately get the following proposition.
+
+\begin{proposition}\label{RetrMetTopInjIsMetTopInj} Any retract of $\langle$~metrically / topologically~$\rangle$ injective module in $\langle$~$A-\mathbf{mod}_1$ / $A-\mathbf{mod}$~$\rangle$ is again $\langle$~metrically / topologically~$\rangle$ injective.
+\end{proposition}
+
+It was also shown that the rigged category $\langle$~$(\mathbf{mod}_1-A,\square_{met}^d)$ / $(\mathbf{mod}-A,\square_{top}^d)$~$\rangle$ is cofreedom loving and that $\langle$~$\square_{met}^d$-cofree / $\square_{top}^d$-cofree~$\rangle$ modules are isomorphic in $\langle$~$\mathbf{mod}_1-A$ / $\mathbf{mod}-A$~$\rangle$ to $\mathcal{B}(A_+, \ell_\infty(\Lambda))$ for some set $\Lambda$. Even more, for any $A$-module $X$ there exists a $\langle$~$\square_{met}^d$-admissible / $\square_{top}^d$-admissible~$\rangle$ monomorphism
+$$
+\rho_X^+:X\to\mathcal{B}(A_+,\ell_\infty(B_{X^*})):x\mapsto(a\mapsto(f\mapsto f(x\cdot a)))
+$$
+As the consequence of general results on rigged categories we get
+
+\begin{proposition}\label{MetTopInjModViaCanonicMorph}
+The module $J$ is $\langle$~metrically / topologically~$\rangle$ injective iff $\rho_J^+$ is a coretraction in $\langle$~$\mathbf{mod}_1-A$ / $\mathbf{mod}-A$~$\rangle$.
+\end{proposition}
+
+Using the same argument as in the case of projective modules we can state the following.
+
+\begin{proposition}\label{MetInjIsTopInjAndTopInjIsRelInj} Every metrically injective module is topologically injective and every topologically injective module is relatively injective.
+\end{proposition}
+
+If we regard the category of Banach spaces as the category of right Banach modules over zero algebra, we may speak of $\langle$~metrically / topologically~$\rangle$ injective Banach spaces. All results mentioned above hold for this type of injectivity. An equivalent definition says that a Banach space is $\langle$~metrically / topologically~$\rangle$ injective if it is $\langle$~contractively complemented / complemented ~$\rangle$ in any ambient Banach space. The typical examples of metrically injective Banach spaces are $L_\infty$-spaces. Only metrically injective Banach spaces are completely understood --- these spaces are isometrically isomorphic to $C(K)$-space for some extremely disconnected compact Hausdorff space $K$ [\cite{LaceyIsomThOfClassicBanSp}, theorem 3.11.6]. Usually such topological spaces are referred to as Stonean spaces.  For the contemporary results on topologically injective Banach spaces see [\cite{JohnLinHandbookGeomBanSp}, chapter 40].
+
+Let us proceed to discussion of modules. And again a simple fact: an $A$-module $A_\times^*$ is metrically and topologically injective. It is easy to prove by definition with the aid of Hahn-Banach theorem. By analogy with projective modules, one can reduce the study of injectivity to a simpler coretraction problems.
+
+\begin{proposition}\label{NonDegenMetTopInjCharac}  Let $J$ be a faithful $A$-module, that is an equality $x\cdot A=\{0\}$ implies $x=0$. Then $J$ is $\langle$~metrically / topologically~$\rangle$ injective iff the map $\rho_J:J\to\mathcal{B}(A,\ell_\infty(B_{J^*})):x\mapsto(a\mapsto(f\mapsto f(x\cdot a)))$ is a coretraction in $\langle$~$\mathbf{mod}_1-A$ / $\mathbf{mod}-A$~$\rangle$.
+\end{proposition} 
+\begin{proof} The proof is similar to the one given in [\cite{DalPolHomolPropGrAlg}, proposition 1.7] for the case of relative injectivity.
+\end{proof}
+
+\begin{proposition}\label{MetTopInjUnderChangeOfAlg} Let $I$ be a closed subalgebra of $A$ and $J$ be a right $A$-module which is faithful as $I$-module. Then
+
+$i)$ if $I$ is left ideal of $A$ and $J$ is $\langle$~metrically / topologically~$\rangle$  injective $I$-module, then $J$ is $\langle$~metrically / topologically~$\rangle$ injective $A$-module;
+
+$ii)$ if $I$ is a $\langle$~$1$-complemented  / complemented~$\rangle$ right ideal of $A$ and $J$ is $\langle$~metrically / topologically~$\rangle$ injective $A$-module, then $J$ is $\langle$~metrically / topologically~$\rangle$ injective $I$-module.
+\end{proposition}
+\begin{proof} The proof is easily modifiable from [\cite{RamsHomPropSemgroupAlg}, proposition 2.3.4].
+\end{proof}
+
+Now we shall discuss several constructions that preserve metric and topological injectivity. It is worth to mention that $\langle$~arbitrary / only finite~$\rangle$ family of objects in $\langle$~$\mathbf{mod}_1-A$ / $\mathbf{mod}-A$~$\rangle$ have the categorical product which in fact is their $\bigoplus_\infty$-sum. This is the reason why we make additional assumption in the second paragraph of the next proposition.
+
+\begin{proposition}\label{MetTopInjModProd} Let $(J_\lambda)_{\lambda\in\Lambda}$ be a family of $A$-modules. Then 
+
+$i)$ $\bigoplus_\infty\{J_\lambda:\lambda\in\Lambda\}$ is metrically injective iff for all $\lambda\in\Lambda$ the $A$-module $J_\lambda$ is metrically injective;
+
+$ii)$ if for some $C>1$ and all $\lambda\in\Lambda$ the $A$-morphism $\rho_{J_\lambda}^+$ admits a left inverse of norm at most $C$ then $\bigoplus_\infty\{J_\lambda:\lambda\in\Lambda\}$ is topologically injective.
+\end{proposition}
+\begin{proof} The proof goes along the lines of \ref{MetTopProjModCoprod}. The only difference is the usage of another isomorphism: $\mathcal{B}(A_+,\ell_\infty(\Lambda))\isom{\mathbf{mod}_1-A}\bigoplus_\infty\{A_+^*:\lambda\in\Lambda\}$.
+\end{proof}
+
+\begin{corollary}\label{MetTopInjlInftySum} Let $J$ be an $A$-module and $\Lambda$ be an arbitrary set. Then $\bigoplus_\infty\{J:\lambda\in\Lambda\}$ is $\langle$~metrically / topologically~$\rangle$ injective iff $J$ is $\langle$~metrically / topologically~$\rangle$ injective.
+\end{corollary}
+
+For injectivity we have one more way to construct injective modules.
+
+\begin{proposition}\label{MapsFroml1toMetTopInj} Let $J$ be an $A$-module and $\Lambda$ be an arbitrary set. Then $\mathcal{B}(\ell_1(\Lambda),J)$ is $\langle$~metrically / topologically~$\rangle$ injective iff $J$ is $\langle$~metrically / topologically~$\rangle$ injective.
+\end{proposition}
+\begin{proof} 
+Assume $\mathcal{B}(\ell_1(\Lambda), J)$ is $\langle$~metrically / topologically~$\rangle$ injective. Take any $\lambda\in\Lambda$ and consider contractive $A$-morphisms $i_\lambda:J\to\mathcal{B}(\ell_1(\Lambda),J):x\mapsto(f\mapsto f(\lambda)x)$ and $p_\lambda:\mathcal{B}(\ell_1(\Lambda),J)\to J:T\mapsto T(\delta_\lambda)$. Clearly, $p_\lambda i_\lambda=1_J$, so by proposition \ref{RetrMetTopInjIsMetTopInj} the $A$-module $J$ is $\langle$~metrically / topologically~$\rangle$ injective as retract in $\langle$~$\mathbf{mod}_1-A$ / $\mathbf{mod}-A$~$\rangle$ of $\langle$~metrically / topologically~$\rangle$ injective $A$-module $\mathcal{B}(\ell_1(\Lambda),J)$.
+
+Conversely, since $J$ is $\langle$~metrically / topologically~$\rangle$ injective, by proposition \ref{MetTopInjModViaCanonicMorph} the $A$-morphism $\rho_J^+$ is a coretraction in $\langle$~$\mathbf{mod}_1-A$ / $\mathbf{mod}-A$~$\rangle$. Apply the functor $\mathcal{B}(\ell_1(\Lambda),-)$ to this coretraction to get another coretraction $\mathcal{B}(\ell_1(\Lambda),\rho_J^+)$. Note that 
+$$
+\mathcal{B}(\ell_1(\Lambda),\ell_\infty(B_{J^*}))\isom{\mathbf{Ban}_1}(\ell_1(\Lambda)\projtens \ell_1(B_{J^*}))^*\isom{\mathbf{Ban}_1}\ell_1(\Lambda\times B_{J^*})^*\isom{\mathbf{Ban}_1}\ell_\infty(\Lambda\times B_{J^*}),
+$$ 
+so we have an isometric isomorphism of Banach modules:
+$$
+\mathcal{B}(\ell_1(\Lambda),\mathcal{B}(A_+,\ell_\infty(B_{J^*})))\isom{\mathbf{mod}_1-A}\mathcal{B}(A_+,\mathcal{B}(\ell_1(\Lambda),\ell_\infty(B_{J^*}))\isom{\mathbf{mod}_1-A}\mathcal{B}(A_+,\ell_\infty(\Lambda\times B_{J^*})).
+$$
+Therefore $\mathcal{B}(\ell_1(\Lambda),J)$ is a retract of $\mathcal{B}(A_+,\ell_\infty(\Lambda\times B_{J^*}))$ in $\langle$~$\mathbf{mod}_1-A$ / $\mathbf{mod}-A$~$\rangle$, i.e. a retract of $\langle$~metrically / topologically~$\rangle$ injective $A$-module. By proposition \ref{RetrMetTopInjIsMetTopInj} the $A$-module $\mathcal{B}(\ell_1(\Lambda), J)$ is $\langle$~metrically / topologically~$\rangle$ injective.
+\end{proof}
+
+%----------------------------------------------------------------------------------------
+%	Metric and topological flatness
+%----------------------------------------------------------------------------------------
+
+\subsection{Metric and topological flatness}
+\label{SubSectionMetricAndTopologicalFlatness}
+
+To save the homogeneity of notation we call metrically flat $A$-modules of \cite{HelMetrFlatNorMod} where they were named extremely flat. By $\projmodtens{A}$ we shall denote the projective module tensor product of Banach modules. The same symbol is used to denote the respective functor.
+
+\begin{definition}[\cite{HelMetrFlatNorMod}, I]\label{MetTopFlatMod} A left $A$-module $F$ is called $\langle$~metrically / topologically~$\rangle$ flat if for each $\langle$~isometric / topologically injective~$\rangle$ $A$-morphism $\xi:X\to Y$ of right $A$-modules the operator $\xi\projmodtens{A} 1_F:X\projmodtens{A} F\to Y\projmodtens{A} F$ is $\langle$~isometric / topologically injective~$\rangle$.
+\end{definition}
+
+Before giving examples we need to give the definition of $\mathscr{L}_1$-space. If $E$ and $F$ --- two topologically isomorphic Banach spaces, then their Banach-Mazur distance is defined by the formula 
+$$
+d_{BM}(E,F):=\inf\{\Vert T\Vert\Vert T^{-1}\Vert: T \in \mathcal{B}(E,F) \mbox{ --- a topological isomorphism}\}.
+$$ 
+Let $\mathcal{F}$ be some family of finite dimensional Banach spaces. A Banach space $E$ is said to have $\mathcal{F}$-local structure if for some $C\geq 1$ and each finite dimensional subspace $F$ of $E$ there exists a finite dimensional subspace $G$ of $E$ containing $F$ with $d_{BM}(G,H)\leq C$ for some $H$ in $\mathcal{F}$. One of the most important examples of this type is so called $\mathscr{L}_p$-spaces. The $\mathscr{L}_p$-spaces were defined for the first time in the pioneering work \cite{LinPelAbsSumOpInLpSpAndApp} and became an indispensable tool in the local theory of Banach spaces. For a given $1\leq p\leq +\infty$ we say that a Banach space $E$ is an $\mathscr{L}_{p}$-space if it has an $\mathcal{F}$-local structure for the class $\mathcal{F}$ of finite dimensional $\ell_p$-spaces. We will mainly concern in $\mathscr{L}_1$- and $\mathscr{L}_\infty$-spaces. 
+
+Again, regard the category of Banach spaces as the category of left Banach modules over zero algebra, then we get the definition of $\langle$~metrically / topologically~$\rangle$ flat Banach space. From Grothendieck's paper \cite{GrothMetrProjFlatBanSp} it follows that any metrically flat Banach space is isometrically isomorphic to $L_1(\Omega,\mu)$ for some measure space $(\Omega,\Sigma,\mu)$. For topologically flat Banach spaces, in contrast with topologically injective ones, we also have a criterion [\cite{StegRethNucOpL1LInfSp}, theorem V.1]: a Banach space is topologically flat iff it is an $\mathscr{L}_1$-space.
+
+It is well known that an $A$-module $F$ is relatively flat iff $F^*$ is relatively injective [\cite{HelBanLocConvAlg}, theorem 7.1.42]. Next proposition is an obvious analog of this result.
+
+\begin{proposition}\label{MetTopFlatCharac} The $A$-module $F$ is $\langle$~metrically / topologically~$\rangle$ flat iff $F^*$ is $\langle$~metrically / topologically~$\rangle$ injective.
+\end{proposition}
+
+Combining proposition \ref{MetTopFlatCharac} with propositions  \ref{RetrMetTopInjIsMetTopInj} and \ref{MetInjIsTopInjAndTopInjIsRelInj} we get the following.
+
+\begin{proposition}\label{RetrMetTopFlatIsMetTopFlat} Any retract of $\langle$~metrically / topologically~$\rangle$ flat module in $\langle$~$A-\mathbf{mod}_1$ / $A-\mathbf{mod}$~$\rangle$ is again $\langle$~metrically / topologically~$\rangle$ flat.
+\end{proposition}
+
+\begin{proposition}\label{MetFlatIsTopFlatAndTopFlatIsRelFlat} Every metrically flat module is topologically flat and every topologically flat module is relatively flat.
+\end{proposition}
+
+Note a one more useful corollary of proposition \ref{MetTopFlatCharac}.
+
+\begin{proposition}\label{MetTopFlatUnderChangeOfAlg} Let $I$ be a closed subalgebra of $A$ and $F$ be an $A$-module which is essential as $I$-module. Then
+
+$i)$ if $I$ is a left ideal of $A$ and $F$ is $\langle$~metrically / topologically~$\rangle$  flat $I$-module, then $F$ is $\langle$~metrically / topologically~$\rangle$ flat $A$-module;
+
+$ii)$ if $I$ is $\langle$~$1$-complemented / complemented~$\rangle$ right ideal of $A$ and $F$ is $\langle$~metrically / topologically~$\rangle$ flat $A$-module, then $F$ is $\langle$~metrically / topologically~$\rangle$ flat $I$-module.
+\end{proposition}
+\begin{proof} Note that the dual of essential module is faithful. Now the result follows from propositions \ref{MetTopFlatCharac} and \ref{MetTopInjUnderChangeOfAlg}.
+\end{proof}
+
+\begin{proposition}\label{DualMetTopProjIsMetrInj} Let $P$ be a $\langle$~metrically / topologically~$\rangle$ projective $A$-module, and $\Lambda$ be an arbitrary set. Then $\mathcal{B}(P,\ell_\infty(\Lambda))$ is $\langle$~metrically / topologically~$\rangle$ injective $A$-module. In particular, $P^*$ is $\langle$~metrically / topologically~$\rangle$ injective $A$-module.
+\end{proposition}
+\begin{proof} From proposition \ref{MetTopProjModViaCanonicMorph} we know that $\pi_P^+$ is a retraction in $\langle$~$A-\mathbf{mod}_1$ / $A-\mathbf{mod}$~$\rangle$. Then $A$-morphism $\rho^+=\mathcal{B}(\pi_P^+,\ell_\infty(\Lambda))$ is a coretraction in $\langle$~$\mathbf{mod}_1-A$ / $\mathbf{mod}-A$~$\rangle$. Note that, $\mathcal{B}(A_+\projtens\ell_1(B_P),\ell_\infty(\Lambda))\isom{\mathbf{mod}_1-A}\mathcal{B}(A_+,\mathcal{B}(\ell_1(B_P),\ell_\infty(\Lambda)))\isom{\mathbf{mod}_1-A}\mathcal{B}(A_+,\ell_\infty(B_P\times\Lambda))$. Thus we showed that $\rho^+$ is coretraction from $\mathcal{B}(P,\ell_\infty(\Lambda))$ into $\langle$~metrically / topologically~$\rangle$ injective $A$-module. By proposition \ref{RetrMetTopInjIsMetTopInj} the $A$-module $\mathcal{B}(P,\ell_\infty(\Lambda))$ is $\langle$~metrically / topologically~$\rangle$ injective. To prove the last claim, just set $\Lambda=\mathbb{N}_1$.
+\end{proof}
+
+As the consequence of propositions \ref{MetTopFlatCharac} and \ref{DualMetTopProjIsMetrInj} we get the following.
+
+\begin{proposition}\label{MetTopProjIsMetTopFlat} Every $\langle$~metrically / topologically~$\rangle$ projective module is $\langle$~metrically / topologically~$\rangle$ flat.
+\end{proposition}
+
+As we shall see later $\langle$~metric / topological~$\rangle$ flatness is a weaker property than $\langle$~metric / topological~$\rangle$ projectivity.
+
+\begin{proposition}\label{MetTopFlatModCoProd} Let $(F_\lambda)_{\lambda\in\Lambda}$ be family of $A$-modules. Then 
+
+$i)$ $\bigoplus_1\{F_\lambda:\lambda\in\Lambda\}$ is metrically flat iff for all $\lambda\in\Lambda$ the $A$-module $F_\lambda$ is metrically flat;
+
+$ii)$ if for some $C>1$ and all $\lambda\in\Lambda$ the $A$-morphism $\rho_{F_\lambda^*}^+$ admits a left inverse morphism of norm at most $C$ then the $A$-module $\bigoplus_1\{F_\lambda:\lambda\in\Lambda\}$ is topologically flat.
+\end{proposition}
+\begin{proof} By proposition \ref{MetTopFlatCharac} an $A$-module $F$ is $\langle$~metrically / topologically~$\rangle$ flat iff $F^*$ is $\langle$~metrically / topologically~$\rangle$ injective. It is remains to apply proposition \ref{MetTopInjModProd} with $J_\lambda=F_\lambda^*$ for all $\lambda\in\Lambda$ and recall that 
+$$
+\left(\bigoplus_1\{ F_\lambda:\lambda\in\Lambda\}\right)^*\isom{\mathbf{mod}_1-A}\bigoplus_\infty\{ F_\lambda^*:\lambda\in\Lambda\}.
+$$
+\end{proof}
+
+Further we shall discuss necessary conditions of metric and topological flatness of ideals and cyclic modules. The proof of the following proposition is absolutely identical to that of relative Banach homology [\cite{HelBanLocConvAlg}, theorem 7.1.45].
+
+\begin{proposition}\label{MetTopFlatIdealsInUnitalAlg} Let $I$ be a left ideal of $A_\times $ and $I$ has a right $\langle$~contractive / bounded~$\rangle$ approximate identity. Then $I$ is $\langle$~metrically / topologically~$\rangle$ flat.
+\end{proposition}
+
+Now we are able to give an example of a metrically flat module which is not even topologically projective. Clearly $\ell_\infty(\mathbb{N})$-module $c_0(\mathbb{N})$ is not unital as ideal but admits a contractive approximate identity. By theorem \ref{GoodCommIdealMetTopProjIsUnital} it is not topologically projective, but it is metrically flat by proposition \ref{MetTopFlatIdealsInUnitalAlg}.
+
+The ``metric'' part of the following proposition is a slight modification of [\cite{WhiteInjmoduAlg}, proposition 4.11]. The case of topological flatness was solved by Helemskii in [\cite{HelHomolBanTopAlg}, theorem VI.1.20].
+
+\begin{proposition}\label{MetTopFlatCycModCharac} Let $I$ be a left proper ideal of $A_\times $. Then the following are equivalent:
+
+$i)$ $A_\times /I$ is $\langle$~metrically / topologically~$\rangle$ flat $A$-module;
+
+$ii)$ $I$ has a right bounded approximate identity $(e_\nu)_{\nu\in N}$ $\langle$~with $\sup_{\nu\in N}\Vert e_{A_\times }-e_\nu\Vert\leq 1$ /~$\rangle$
+\end{proposition}
+
+It is worth to mention that every operator algebra $A$ (not necessary self adjoint) with contractive approximate identity has a contractive approximate identity $(e_\nu)_{\nu\in N}$ such that $\sup_{\nu\in N}\Vert e_{A_\#}-e_\nu\Vert\leq 1$ and even $\sup_{\nu\in N}\Vert e_{A_\#}-2e_\nu\Vert\leq 1$. Here $A_\#$ is a unitization of $A$ as operator algebra. For details see \cite{PosAndApproxIdinBanAlg}, \cite{BleContrAppIdInOpAlg}.
+
+Again we shall compare our result on metric and topological flatness of cyclic modules with their relative counterpart. Helemeskii and Sheinberg showed [\cite{HelHomolBanTopAlg}, theorem VII.1.20] that a cyclic module is relatively flat if $I$ admits a right bounded approximate identity. In case when $I^\perp$ is complemented in $A_\times^*$ the converse is also true. In topological theory we don't need this assumption, so we have a criterion. Metric flatness of cyclic modules is a much stronger property due to specific restriction on the norm of approximate identity. As we shall see in the next section, it is so restrictive that it doesn't allow to construct any non zero annihilator metrically projective, injective or flat module over a non zero Banach algebra.
+
+%----------------------------------------------------------------------------------------
+%	The impact of Banach geometry
+%----------------------------------------------------------------------------------------
+
+\section{The impact of Banach geometry}
+\label{SectionTheImpactOfBanachGeometry}
+
+
+%----------------------------------------------------------------------------------------
+%	Homologically trivial annihilator modules
+%----------------------------------------------------------------------------------------
+
+\subsection{Homologically trivial annihilator modules}
+\label{SubSectionHomoligicallyTrivialAnnihilatorModules}
+
+In this section we concentrate on the study of metrically and topologically projective, injective and flat annihilator modules, that is modules with zero outer action. Unless otherwise stated, all Banach spaces in this section are regarded as annihilator modules. Note the obvious fact that we shall often use in this section: any bounded linear operator between annihilator $A$-modules is an $A$-morphism.
+
+\begin{proposition}\label{AnnihCModIsRetAnnihMod} Let $X$ be a non zero annihilator $A$-module. Then $\mathbb{C}$ is a retract of $X$ in $A-\mathbf{mod}_1$.
+\end{proposition}
+\begin{proof} Take any $x_0\in X$ with $\Vert x_0\Vert=1$ and using Hahn-Banach theorem choose $f_0\in X^*$ such that $\Vert f_0\Vert=f_0(x_0)=1$. Consider linear operators $\pi:X\to \mathbb{C}:x\mapsto f_0(x)$, $\sigma:\mathbb{C}\to X:z\mapsto zx_0$. It is easy to check that $\pi$ and $\sigma$ are contractive $A$-morphisms and what is more $\pi\sigma=1_\mathbb{C}$. In other words $\mathbb{C}$ is a retract of $X$ in $A-\mathbf{mod}_1$.
+\end{proof}
+
+Now it is time to recall that any Banach algebra $A$ can always be regarded as proper maximal ideal of $A_+$, and what is more $\mathbb{C}\isom{A-\mathbf{mod}_1} A_+/A$. If we regard $\mathbb{C}$ as a right annihilator $A$-module we also have $\mathbb{C}\isom{\mathbf{mod}_1-A}(A_+/A)^*$. 
+
+\begin{proposition}\label{MetTopProjModCCharac} An annihilator $A$-module $\mathbb{C}$ is $\langle$~metrically / topologically~$\rangle$ projective iff $\langle$~$A=\{0\}$ / $A$ has right identity~$\rangle$.
+\end{proposition}
+\begin{proof} 
+It is enough to study $\langle$~metric / topological~$\rangle$ projectivity of $A_+/A$. Since the natural quotient map $\pi:A_+\to A_+/A$ is a strict coisometry, then by proposition \ref{MetTopProjCycModCharac} $\langle$~metric / topological~$\rangle$ projectivity of $A_+/A$ is equivalent to existence of idempotent $p\in A$ such that $A=A_+p$ $\langle$~and  $\Vert e_{A_+}-p\Vert=1$ /~$\rangle$. $\langle$~It is remains to note that $\Vert e_{A_+}-p\Vert=1$ iff $p=0$ which is equivalent to $A=A_+p=\{0\}$. /~$\rangle$
+\end{proof}
+
+\begin{proposition}\label{MetTopProjOfAnnihModCharac} Let $P$ be a non zero  annihilator $A$-module. Then the following are equivalent:
+
+$i)$ $P$ is $\langle$~metrically / topologically~$\rangle$ projective $A$-module;
+
+$ii)$ $\langle$~$A=\{0\}$ / $A$ has right identity~$\rangle$ and $P$ is a $\langle$~metrically / topologically~$\rangle$ projective Banach space, that is $\langle$~$P\isom{\mathbf{Ban}_1}\ell_1(\Lambda)$ / $P\isom{\mathbf{Ban}}\ell_1(\Lambda)$~$\rangle$ for some set $\Lambda$.
+\end{proposition}
+\begin{proof} $i)$$\implies$$ ii)$ By propositions \ref{RetrMetTopProjIsMetTopProj} and \ref{AnnihCModIsRetAnnihMod} the $A$-module $\mathbb{C}$ is $\langle$~metrically / topologically~$\rangle$ projective as retract of $\langle$~metrically / topologically~$\rangle$ projective module $P$. Proposition \ref{MetTopProjModCCharac} gives that $\langle$~$A=\{0\}$ / $A$ has right identity~$\rangle$.  By corollary \ref{MetTopProjTensProdWithl1} the annihilator $A$-module $\mathbb{C}\projtens\ell_1(B_P)\isom{A-\mathbf{mod}_1}\ell_1(B_P)$ is $\langle$~metrically / topologically~$\rangle$ projective. Consider strict coisometry $\pi:\ell_1(B_P)\to P$ well defined by equality $\pi(\delta_x)=x$. Since $P$ and $\ell_1(B_P)$ are annihilator modules, then $\pi$ is also an $A$-module map. Since $P$ is $\langle$~metrically / topologically~$\rangle$ projective, then the $A$-morphism $\pi$ has a right inverse morphism $\sigma$ in $\langle$~$A-\mathbf{mod}_1$ / $A-\mathbf{mod}$~$\rangle$. Therefore $\sigma\pi$ is a $\langle$~contractive / bounded~$\rangle$ projection from $\langle$~metrically / topologically~$\rangle$ projective Banach space $\ell_1(B_P)$ onto $P$, so $P$ is a $\langle$~metrically / topologically~$\rangle$ projective Banach space too. Now by $\langle$~[\cite{HelMetrFrQMod}, proposition 3.2] / results of \cite{KotheTopProjBanSp}~$\rangle$ the Banach space $P$ is isomorphic to $\ell_1(\Lambda)$ in $\langle$~$\mathbf{Ban}_1$ / $\mathbf{Ban}$~$\rangle$ for some set $\Lambda$. 
+
+$ii)$$\implies$$ i)$ By proposition \ref{MetTopProjModCCharac} the annihilator $A$-module $\mathbb{C}$ is $\langle$~metrically / topologically~$\rangle$ projective. Therefore by corollary \ref{MetTopProjTensProdWithl1} the annihilator $A$-module $\mathbb{C}\projtens\ell_1(\Lambda)\isom{A-\mathbf{mod}_1}\ell_1(\Lambda)$ is $\langle$~metrically / topologically~$\rangle$ projective too.
+\end{proof}
+
+\begin{proposition}\label{MetTopInjModCCharac} A right annihilator $A$-module $\mathbb{C}$ is $\langle$~metrically / topologically~$\rangle$ injective iff $\langle$~$A=\{0\}$ / $A$ has right bounded approximate identity~$\rangle$.
+\end{proposition}
+\begin{proof} Because of proposition \ref{MetTopFlatCharac} it is enough to study $\langle$~metric / topological~$\rangle$ flatness of $A_+/A$. By proposition \ref{MetTopFlatCycModCharac} this is equivalent to existence of right bounded approximate identity $(e_\nu)_{\nu\in N}$ in $A$ $\langle$~and $\sup_{\nu\in N}\Vert e_{A_+}-e_\nu\Vert\leq 1$ /~$\rangle$. $\langle$~It is remains to note that $\Vert e_{A_+}-e_\nu\Vert\leq 1$ iff $e_\nu=0$ which is equivalent to $A=\{0\}$. /~$\rangle$
+\end{proof}
+
+\begin{proposition}\label{MetTopInjOfAnnihModCharac} Let $J$ be a non zero right annihilator $A$-module. Then the following are equivalent:
+
+$i)$ $J$ is $\langle$~metrically / topologically~$\rangle$ injective $A$-module;
+
+$ii)$ $\langle$~$A=\{0\}$ / $A$ has a right bounded approximate identity~$\rangle$ and $J$ is a $\langle$~metrically / topologically~$\rangle$ injective Banach space $\langle$~that is $J\isom{\mathbf{Ban}_1}C(K)$ for some Stonean space $K$ /~$\rangle$.
+\end{proposition}
+\begin{proof} $i)$$\implies$$ ii)$  By propositions \ref{RetrMetTopInjIsMetTopInj} and \ref{AnnihCModIsRetAnnihMod} the $A$-module $\mathbb{C}$ is $\langle$~metrically / topologically~$\rangle$ injective as retract of $\langle$~metrically / topologically~$\rangle$ injective module $J$. Proposition \ref{MetTopInjModCCharac} gives that $\langle$~$A=\{0\}$ / $A$ has a right bounded approximate identity~$\rangle$. By proposition \ref{MapsFroml1toMetTopInj} the annihilator $A$-module $\mathcal{B}(\ell_1(B_{J^*}),\mathbb{C})\isom{\mathbf{mod}_1-A}\ell_\infty(B_{J^*})$ is $\langle$~metrically / topologically~$\rangle$ injective. Consider isometry $\rho:J\to\ell_\infty(B_{J^*})$ well defined by $\rho(x)(f)=f(x)$. Since $J$ and $\ell_\infty(B_{J^*})$ are annihilator modules, then $\rho$ is also an $A$-module map. Since $J$ is $\langle$~metrically / topologically~$\rangle$ injective, then the $A$-morphism $\rho$ has a left inverse morphism $\tau$ in $\langle$~$\mathbf{mod}_1-A$ / $\mathbf{mod}-A$~$\rangle$. Therefore $\rho\tau$ is a $\langle$~contractive / bounded~$\rangle$ projection from $\langle$~metrically / topologically~$\rangle$ injective Banach space $\ell_\infty(B_{J^*})$ onto $J$, so $J$ is a $\langle$~metrically / topologically~$\rangle$ injective Banach space too. $\langle$~From  [\cite{LaceyIsomThOfClassicBanSp}, theorem 3.11.6] the Banach space $J$ is isometrically isomorphic to $C(K)$ for some Stonean space $K$. /~$\rangle$ 
+
+$ii)$$\implies$$ i)$ By proposition \ref{MetTopInjModCCharac} the annihilator $A$-module $\mathbb{C}$ is $\langle$~metrically / topologically~$\rangle$ injective. By proposition \ref{MapsFroml1toMetTopInj} the annihilator $A$-module $\mathcal{B}(\ell_1(B_{J^*}),\mathbb{C})\isom{\mathbf{mod}_1-A}\ell_\infty(B_{J^*})$ is $\langle$~metrically / topologically~$\rangle$ injective too. Since $J$ is a $\langle$~metrically / topologically~$\rangle$ injective Banach space and there an isometric embedding $\rho:J\to \ell_\infty(B_{J^*})$, then $J$ is a retract of $\ell_\infty(B_{J^*})$ in $\langle$~$\mathbf{Ban}_1$ / $\mathbf{Ban}$~$\rangle$. Recall, that $J$ and $\ell_\infty(B_{J^*})$ are annihilator modules, so in fact we have a retraction in $\langle$~$\mathbf{mod}_1-A$ / $\mathbf{mod}-A$~$\rangle$. By proposition \ref{RetrMetTopInjIsMetTopInj} the $A$-module $J$ is $\langle$~metrically / topologically~$\rangle$ injective.
+\end{proof}
+
+\begin{proposition}\label{MetTopFlatAnnihModCharac} Let $F$ be a non zero annihilator $A$-module. Then the following are equivalent:
+
+$i)$ $F$ is $\langle$~metrically / topologically~$\rangle$ flat $A$-module;
+
+$ii)$ $\langle$~$A=\{0\}$ / $A$ has a right bounded approximate identity~$\rangle$ and $F$ is a $\langle$~metrically / topologically~$\rangle$ flat Banach space, that is $\langle$~$F\isom{\mathbf{Ban}_1}L_1(\Omega,\mu)$ for some measure space $(\Omega, \Sigma, \mu)$ / $F$ is an $\mathscr{L}_1$-space~$\rangle$.
+\end{proposition}
+\begin{proof} By $\langle$~[\cite{GrothMetrProjFlatBanSp}, theorem 1] / [\cite{StegRethNucOpL1LInfSp}, theorem VI.6]~$\rangle$ the Banach space $F^*$ is $\langle$~metrically / topologically~$\rangle$ injective iff $\langle$~$F\isom{\mathbf{Ban}_1}L_1(\Omega,\mu)$ for some measure space $(\Omega, \Sigma, \mu)$ / $F$ is an $\mathscr{L}_1$-space~$\rangle$. Now the equivalence follows from propositions \ref{MetTopInjOfAnnihModCharac} and \ref{MetTopFlatCharac}.
+\end{proof}
+
+We obliged to compare these results with similar ones in relative theory. From $\langle$~[\cite{RamsHomPropSemgroupAlg}, proposition 2.1.7] / [\cite{RamsHomPropSemgroupAlg}, proposition 2.1.10]~$\rangle$ we know that an annihilator $A$-module over Banach algebra $A$ is relatively $\langle$~projective / flat~$\rangle$ iff $A$ has $\langle$~a right identity / a right bounded approximate identity~$\rangle$.   
+In metric and topological theory, in comparison with relative one, homological triviality of annihilator modules puts restrictions not only on the algebra itself but on the geometry of the module too. These geometric restrictions forbid existence of certain homologically excellent algebras. One of the most important properties of relatively $\langle$~contractible / amenable~$\rangle$ Banach algebra is $\langle$~projectivity / flatness~$\rangle$ of all (and in particular of all annihilator) left Banach modules over it. In a sharp contrast in metric and topological theories such algebras can't exist.
+
+\begin{proposition} There is no Banach algebra $A$ such that all $A$-modules are  $\langle$~metrically / topologically~$\rangle$ flat. A fortiori, there is no such Banach algebras that all $A$-modules are $\langle$~metrically / topologically~$\rangle$ projective.
+\end{proposition}
+\begin{proof} Consider any infinite dimensional $\mathscr{L}_2$-space $X$ (say $\ell_2(\mathbb{N})$) as an annihilator $A$-module. From [\cite{DefFloTensNorOpId}, corollary 23.3(4)] we know that $X$ is not an $\mathscr{L}_1$-space. Therefore by proposition \ref{MetTopFlatAnnihModCharac} the $A$-module $X$ is not topologically flat. By proposition \ref{MetFlatIsTopFlatAndTopFlatIsRelFlat} it is not metrically flat. Now from proposition \ref{MetTopProjIsMetTopFlat} we see that $X$ is neither metrically nor topologically projective.
+\end{proof}
+
+%----------------------------------------------------------------------------------------
+%	Homologically trivial modules over Banach algebras with specific geometry
+%----------------------------------------------------------------------------------------
+
+\subsection{Homologically trivial modules over Banach algebras with specific geometry}
+\label{SubSectionHomologicallyTrivialModulesOverBanachAlgebrasWithSpecificGeometry}
+
+The purpose of this section is to convince our reader that homologically trivial modules over certain Banach algebras have similar geometric structure of those algebras. For the case of metric theory the following proposition was proved by Graven in \cite{GravInjProjBanMod}.
+
+\begin{proposition}\label{TopProjInjFlatModOverL1Charac} Let $A$ be a Banach algebra which is isomorphic in $\langle$~$\mathbf{Ban}_1$ / $\mathbf{Ban}$~$\rangle$ to $L_1(\Theta,\nu)$ for some measure space $(\Theta,\Sigma,\nu)$. Then
+
+$i)$ if $P$ is a $\langle$~metrically / topologically~$\rangle$ projective $A$-module, then $P$ is a $\langle$~$L_1$-space / retract of $L_1$-space~$\rangle$.
+
+$ii)$ if $J$ is a $\langle$~metrically / topologically~$\rangle$ injective $A$-module, then  $J$ is a $\langle$~$C(K)$-space for some Stonean space $K$ / topologically injective Banach space~$\rangle$.
+
+$iii)$ if $F$ is a $\langle$~metrically / topologically~$\rangle$ flat $A$-module, then $F$ is an $\langle$~$L_1$-space / $\mathscr{L}_1$-space~$\rangle$.
+\end{proposition}
+\begin{proof} 
+
+Denote by $(\Theta',\Sigma',\nu')$ the measure space $(\Theta,\Sigma,\nu)$ with singleton atom adjoined, then $A_+\isom{\mathbf{Ban}_1} L_1(\Theta',\nu')$.
+
+$i)$ Since $P$ is a $\langle$~metrically / topologically~$\rangle$ projective $A$-module, then by proposition \ref{MetTopProjModViaCanonicMorph} it is a retract of $A_+\projtens \ell_1(B_P)$ in $\langle$~$A-\mathbf{mod}_1$ / $A-\mathbf{mod}$~$\rangle$. Let $\mu_c$ be the counting measure on $B_P$, then by Grothendieck's theorem [\cite{HelLectAndExOnFuncAn}, theorem 2.7.5]
+$$
+A_+\projtens\ell_1(B_P)
+\isom{\mathbf{Ban}_1}L_1(\Theta',\nu')\projtens L_1(B_P,\mu_c)
+\isom{\mathbf{Ban}_1}L_1(\Theta'\times B_P,\nu'\times \mu_c)
+$$
+Therefore $P$ is a retract of $L_1$-space in $\langle$~$\mathbf{Ban}_1$ / $\mathbf{Ban}$~$\rangle$. It is remains to recall that any retract of $L_1$-space in $\mathbf{Ban}_1$ is an $L_1$-space [\cite{LaceyIsomThOfClassicBanSp}, theorem 6.17.3].
+
+$ii)$ Since $J$ is $\langle$~metrically / topologically~$\rangle$ injective $A$-module, then by proposition \ref{MetTopInjModViaCanonicMorph} it is a retract of $\mathcal{B}(A_+,\ell_\infty(B_{J^*}))$ in $\langle$~$\mathbf{mod}_1-A$ / $\mathbf{mod}-A$~$\rangle$. Let $\mu_c$ be the counting measure on $B_{J^*}$, then by Grothendieck's theorem [\cite{HelLectAndExOnFuncAn}, theorem 2.7.5]
+$$
+\mathcal{B}(A_+,\ell_\infty(B_{J^*}))
+\isom{\mathbf{Ban}_1}(A_+\projtens \ell_1(B_{J^*}))^*
+\isom{\mathbf{Ban}_1}(L_1(\Theta',\nu')\projtens L_1(B_P,\mu_c))^*
+$$
+$$
+\isom{\mathbf{Ban}_1}L_1(\Theta'\times B_P,\nu'\times \mu_c)^*
+\isom{\mathbf{Ban}_1}L_\infty(\Theta'\times B_P,\nu'\times \mu_c)
+$$
+Therefore $J$ is a retract of $L_\infty$-space in $\langle$~$\mathbf{Ban}_1$ / $\mathbf{Ban}$~$\rangle$. Since $L_\infty$-space is $\langle$~metrically / topologically~$\rangle$ injective Banach space, then so does its retract $J$. It is remains to recall that every metrically injective Banach space is a $C(K)$-space for some Stonean space $K$ [\cite{LaceyIsomThOfClassicBanSp}, theorem 3.11.6].
+
+$iii)$  By $\langle$~[\cite{GrothMetrProjFlatBanSp}, theorem 1] / [\cite{StegRethNucOpL1LInfSp}, theorem VI.6]~$\rangle$ the Banach space $F^*$ is injective in $\langle$~$\mathbf{Ban}_1$ / $\mathbf{Ban}$~$\rangle$ iff $F$ is an $\langle$~$L_1$-space / $\mathscr{L}_1$-space~$\rangle$. Now the implication follows from paragraph $ii)$ and proposition \ref{MetTopFlatCharac}.
+\end{proof}
+
+\begin{proposition}\label{TopProjInjFlatModOverMthscrL1SpCharac} Let $A$ be a Banach algebra which is topologically isomorphic as Banach space to some $\mathscr{L}_1$-space. Then any topologically $\langle$~projective / injective / flat~$\rangle$ $A$-module is an $\langle$~$\mathscr{L}_1$-space / $\mathscr{L}_\infty$-space / $\mathscr{L}_1$-space~$\rangle$.
+\end{proposition}
+\begin{proof} If $A$ is an $\mathscr{L}_1$-space, then so does $A_+$. 
+
+Let $P$ be a topologically projective $A$-module. Then by proposition \ref{MetTopProjModViaCanonicMorph} it is a retract of $A_+\projtens \ell_1(B_P)$ in $A-\mathbf{mod}$ and a fortiori in $\mathbf{Ban}$. Since $\ell_1(B_P)$ is an $\mathscr{L}_1$-space, then so does $A_+\projtens\ell_1(B_P)$ as projective tensor product of $\mathscr{L}_1$-spaces [\cite{GonzDPPInTensProd}, proposition 1]. Therefore $P$ is an $\mathscr{L}_1$-space as retract of $\mathscr{L}_1$-space [\cite{BourgNewClOfLpSp}, proposition 1.28].
+
+Let $J$ be a topologically injective $A$-module, then by proposition \ref{MetTopInjModViaCanonicMorph} it is a retract of $\mathcal{B}(A_+,\ell_\infty(B_{J^*}))$ $\isom{\mathbf{mod}_1-A}(A_+\projtens\ell_1(B_{J^*}))^*$ in $\mathbf{mod}-A$ and a fortiori in $\mathbf{Ban}$. As we showed in the previous paragraph $A_+\projtens\ell_1(B_{J^*})$ is an $\mathscr{L}_1$-space, therefore its dual $\mathcal{B}(A_+,\ell_\infty(B_{J^*}))$ is an $\mathscr{L}_\infty$-space [\cite{BourgNewClOfLpSp}, proposition 1.27]. It is remains to recall that any retract of $\mathscr{L}_\infty$-space is again an $\mathscr{L}_\infty$-space [\cite{BourgNewClOfLpSp}, proposition 1.28].
+
+Finally, let $F$ be a topologically flat $A$-module, then $F^*$ is topologically injective $A$-module by proposition \ref{MetTopFlatCharac}. From previous paragraph it follows that $F^*$ is an $\mathscr{L}_\infty$-space. By theorem VI.6 in \cite{StegRethNucOpL1LInfSp} we get that $F$ is an $\mathscr{L}_1$-space.
+\end{proof}
+
+Now we proceed to the discussion of the Dunford-Pettis property. A bounded linear operator $T:E\to F$ is called weakly compact if it maps the unit ball of $E$ into a relatively weakly compact subset of $F$. A bounded linear operator is called completely continuous if the image of any weakly compact subset of $E$ is norm compact in $F$. A Banach space $E$ is said to have the Dunford-Pettis property if any weakly compact operator from $E$ to any Banach space $F$ is completely continuous. There is a simple internal characterization of the Dunford-Pettis property [\cite{KalAlbTopicsBanSpTh}, theorem 5.4.4]: a Banach space $E$ has the Dunford-Pettis property if $\lim_n f_n(x_n)=0$ for all sequences $(x_n)_{n\in\mathbb{N}}\subset E$ and $(f_n)_{n\in\mathbb{N}}\subset E^*$, that both weakly converge to $0$. Now it is easy to deduce, that if a Banach space $E^*$ has the Dunford-Pettis property, then so does $E$.  Any $\mathscr{L}_1$-space or $\mathscr{L}_\infty$-space has the Dunford-Pettis property [\cite{BourgNewClOfLpSp}, proposition 1.30]. In particular, all $L_1$-spaces and $C(K)$-spaces have this property. The Dunford-Pettis property passes to complemented subspaces [\cite{FabHabBanSpTh}, proposition 13.44]. 
+
+Further we shall exploit one result of Bourgain on Banach spaces with specific local structure. In [\cite{BourgOnTheDPP}, theorem 5] he proved that all duals of a Banach space with $E_p$-local structure have the Dunford-Pettis property. Here $E_p$ denotes the class of  $\bigoplus_\infty$-sums of $p$ copies of $p$-dimensional $\ell_1$-spaces for some natural number $p$. By $\mathcal{L}_{\infty,1}$ we denote the class of finite $\bigoplus_\infty$-sums of finite dimensional $\ell_1$-spaces. It easy to verify that result of Bourgain also holds for Banach spaces with $\mathcal{L}_{\infty,1}$-local structure.
+
+\begin{proposition}\label{C0SumOfL1SpHaveDPP} Let $\{(\Omega_\lambda,\Sigma_\lambda,\mu_\lambda):\lambda\in\Lambda\}$ be a family of measure spaces. Then $\bigoplus_0\{L_1(\Omega_\lambda,\mu_\lambda):\lambda\in\Lambda\}$ has the $\mathcal{L}_{\infty,1}$-local structure.
+\end{proposition}
+\begin{proof} 
+For each $\lambda\in\Lambda$ let $L_1^0(\Omega_\lambda,\mu_\lambda)$ be a dense subspace of $L_1(\Omega_\lambda,\mu_\lambda)$ spanned by characteristic functions of measurable sets in $\Sigma_\lambda$.  Denote $E=\bigoplus_0\{L_1(\Omega_\lambda,\mu_\lambda):\lambda\in\Lambda\}$ and let $E_0$ be a not necessarily closed subspace of finitely supported tuples in $E$ with entries in $L_1^0(\Omega_\lambda,\mu_\lambda)$.
+
+Fix arbitrary $\epsilon>0$ and finite dimensional subspace $F$ of $E$. Since $F$ is finite dimensional, then there exists a bounded projection $Q:E\to E$ on $F$. Choose $\delta>0$ such that $\delta\Vert Q\Vert<1$ and $(1+\delta\Vert Q\Vert)(1-\delta\Vert Q\Vert)^{-1}<1+\epsilon$. Note that $B_F$ is compact, because $F$ is finite dimensional. Therefore there exists a finite $\delta/2$-net $(x_k)_{k\in\mathbb{N}_n}\subset E_0$ for $B_F$. For each $k\in\mathbb{N}_n$ we have $x_k=\bigoplus_0\{x_{k,\lambda}:\lambda\in\Lambda\}$ where $x_{k,\lambda}=\sum_{j=1}^{m_{k,\lambda}}d_{k,j,\lambda}\chi_{D_{j,k,\lambda}}$ for some complex numbers $(d_{j,k,\lambda})_{j\in\mathbb{N}_{m_{k,\lambda}}}$ and measurable sets $(D_{j,k,\lambda})_{j\in\mathbb{N}_{m_{k,\lambda}}}$ of finite measure. Let $(C_{i,\lambda})_{i\in\mathbb{N}_{m_\lambda}}$ be the set of all pairwise intersections of elements in $(D_{j,k,\lambda})_{j\in\mathbb{N}_{m_{k,\lambda}}}$ excluding sets of measure zero. Then $x_{k,\lambda}=\sum_{i=1}^{m_\lambda} c_{i,k,\lambda}\chi_{C_{i,\lambda}}$ for some some complex numbers $(c_{j,k,\lambda})_{j\in\mathbb{N}_{m_{\lambda}}}$. Denote $\Lambda_k=\{\lambda\in\lambda:x_{k,\lambda}\neq 0\}$. By definition of $E_0$ the set $\Lambda_k$ is finite for each $k\in\mathbb{N}_n$. Consider also a finite set $\Lambda_0=\bigcup_{k\in\mathbb{N}_n}\Lambda_k$. For each $\lambda\in\Lambda_0$ we define a contractive projection 
+$$
+P_\lambda:L_1(\Omega_\lambda,\mu_\lambda)\to L_1(\Omega_\lambda,\mu_\lambda):x_\lambda\mapsto \sum_{i=1}^{m_\lambda}\left( \mu(C_{i,\lambda})^{-1}\int_{C_{i,\lambda}}x_\lambda(\omega)d\mu_\lambda(\omega)\right)\chi_{C_{i,\lambda}}
+$$
+It is easy to check that $P(\chi_{C_{i,\lambda}})=\chi_{C_{i,\lambda}}$ for all $i\in\mathbb{N}_{m_\lambda}$. Therefore $P(x_{k,\lambda})=x_{k,\lambda}$ for all $k\in\mathbb{N}_n$. Since sets $(C_{i,\lambda})_{i\in\mathbb{N}_{m_\lambda}}$ are disjoint and of positive measure, then $\operatorname{Im}(P_\lambda)\isom{\mathbf{Ban}_1}\ell_1(\mathbb{N}_{m_\lambda})$. For $\lambda\in\Lambda\setminus\Lambda_0$ we set $P_\lambda=0$ and consider projection $P:=\bigoplus_0\{P_\lambda:\lambda\in\Lambda\}$. By construction it is contractive with $\operatorname{Im}(P)\isom{\mathbf{Ban}_1}\bigoplus_0\{\ell_1(\mathbb{N}_{m_\lambda}):\lambda\in\Lambda_0\}\in\mathcal{L}_{\infty,1}$. Consider arbitrary $x\in B_F$, then there exists a $k\in\mathbb{N}_n$ such that $\Vert x-x_k\Vert\leq \delta/2$. Then $\Vert P(x)-x\Vert=\Vert P(x)-P(x_k)+x_k-x\Vert\leq\Vert P\Vert\Vert x-x_k\Vert+\Vert x_k-x\Vert\leq\delta$.
+
+Given projections $P$ and $Q$ consider operator $I:=1_E+PQ-Q$. Clearly, $\Vert 1_E-I\Vert=\Vert PQ-Q\Vert\leq \delta\Vert Q\Vert$. Therefore $I$ is a topological isomorphism by standard trick with von Neumann series [\cite{KalAlbTopicsBanSpTh},  proposition A.2]. Even more, $I^{-1}=\sum_{p=0}^\infty(1_E-I)^p$, so
+$$
+\Vert I^{-1}\Vert\leq\sum_{p=0}^\infty\Vert 1_E-I\Vert^p\leq\sum_{p=0}^\infty(\delta\Vert Q\Vert)^p=(1-\delta\Vert Q\Vert)^{-1},
+\quad
+\Vert I\Vert\leq\Vert 1_E\Vert+\Vert I-1_E\Vert\leq 1+\delta\Vert Q\Vert
+$$
+Note that $PI=P+P^2Q-PQ=P+PQ-PQ=P$, so for all $x\in F$ holds 
+$$
+I(x)=x+P(Q(x))-Q(x)=x+P(x)-x=P(x)=P(P(x))=P(I(x))
+$$
+and $x=(I^{-1}PI)(x)$. The latter means that $F$ is contained in the image of bounded projection $R=I^{-1}PI$. Denote this image by $F_0$ and consider birestricted topological isomorphism $I_0=I|_{F_0}^{\operatorname{Im}(P)}$. Since $\Vert I_0\Vert\Vert I_0^{-1}\Vert\leq\Vert I\Vert\Vert I^{-1}\Vert\leq(1+\delta\Vert Q\Vert)(1-\delta\Vert Q\Vert)^{-1}<1+\epsilon$, then $d_{BM}(F_0,\operatorname{Im}(P))<1+\epsilon$. Finally we showed that for any finite dimensional subspace of $E$ there exists a subspace $F_0$ of $E$ containing $F$ such that $d_{BM}(F_0,U)<1+\epsilon$ for some $U\in\mathcal{L}_{\infty,1}$. This means that $E$ has the $\mathcal{L}_{\infty,1}$-local structure.
+\end{proof}
+
+\begin{proposition}\label{ProdOfL1SpHaveDPP} Let $\{(\Omega_\lambda,\Sigma_\lambda,\mu_\lambda):\lambda\in\Lambda\}$ be a family of measure spaces. Then $\bigoplus_\infty\{L_1(\Omega_\lambda,\mu_\lambda):\lambda\in\Lambda\}$ has the Dunford-Pettis property.
+\end{proposition}
+\begin{proof} From proposition \ref{C0SumOfL1SpHaveDPP} we know that the Banach space $F:=\bigoplus_0\{L_1(\Omega_\lambda,\mu_\lambda):\lambda\in\Lambda\}$ has the $\mathcal{L}_{\infty,1}$-local structure. Then by theorem 5 in \cite{BourgOnTheDPP} all duals of $F$ have the Dunford-Pettis property. As the consequence $F^{**}=\left(\bigoplus_0\{L_1(\Omega_\lambda,\mu_\lambda):\lambda\in\Lambda\}\right)^{**}$ $\isom{\mathbf{Ban}_1}\bigoplus_\infty\{L_1(\Omega_\lambda,\mu_\lambda)^{**}:\lambda\in\Lambda\}$ has the Dunford-Pettis property. From [\cite{DefFloTensNorOpId}, proposition B10] we know that each $L_1$-space is contractively complemented in its second dual. For each $\lambda\in\Lambda$ by $P_\lambda$ we denote the respective projection for the space $L_1(\Omega_\lambda,\mu_\lambda)^{**}$. Thus the Banach space $\bigoplus_\infty\{L_1(\Omega_\lambda,\mu_\lambda):\lambda\in\Lambda\}$ is contractively complemented in $F^{**}\isom{\mathbf{Ban}_1}\bigoplus_\infty\{L_1(\Omega_\lambda,\mu_\lambda)^{**}:\lambda\in\Lambda\}$ via projection $\bigoplus_\infty \{P_\lambda:\lambda\in\Lambda\}$. Since $F^{**}$ has the Dunford-Pettis property, then by [\cite{FabHabBanSpTh}, proposition 13.44] so does its complemented subspace $\bigoplus_\infty\{L_1(\Omega_\lambda,\mu_\lambda):\lambda\in\Lambda\}$.
+\end{proof}
+
+\begin{proposition}\label{ProdOfDualsOfMthscrLInftySpHaveDPP} Let $E$ be an $\mathscr{L}_\infty$-space and $\Lambda$ be an arbitrary set. Then $\bigoplus_\infty\{E^*:\lambda\in\Lambda\}$ has the Dunford-Pettis property.
+\end{proposition}
+\begin{proof} Since $E$ is an $\mathscr{L}_\infty$-space, then $E^*$ is complemented in some $L_1$-space [\cite{LinPelAbsSumOpInLpSpAndApp}, proposition 7.4]. That is there exists a bounded linear projection $P:L_1(\Omega,\mu)\to L_1(\Omega,\mu)$ with image topologically isomorphic to $E$. In this case $\bigoplus_\infty\{ E^*:\lambda\in\Lambda\}$ is complemented in $\bigoplus_\infty\{ L_1(\Omega,\mu):\lambda\in\Lambda\}$ via projection $\bigoplus_\infty\{P:\lambda\in\Lambda\}$. The space $\bigoplus_\infty\{ L_1(\Omega,\mu):\lambda\in\Lambda\}$ has the Dunford-Pettis property by proposition \ref{ProdOfL1SpHaveDPP}. By proposition 13.44 in \cite{FabHabBanSpTh} so does $\bigoplus_\infty\{ E^*:\lambda\in\Lambda\}$ as complemented subspace of $\bigoplus_\infty\{ L_1(\Omega,\mu):\lambda\in\Lambda\}$.
+\end{proof}
+
+\begin{theorem}\label{TopProjInjFlatModOverMthscrL1OrLInftySpHaveDPP} Let $A$ be a Banach algebra which is an $\mathscr{L}_1$-space or $\mathscr{L}_\infty$-space as Banach space. Then any topologically projective, injective or flat $A$-module has the Dunford-Pettis property.
+\end{theorem}
+\begin{proof} Assume $A$ is an $\mathscr{L}_1$-space. Note that any $\mathscr{L}_1$ and $\mathscr{L}_\infty$-space has the Dunford-Pettis property [\cite{BourgNewClOfLpSp}, proposition 1.30]. Now the result follows from proposition \ref{TopProjInjFlatModOverMthscrL1SpCharac}.
+
+Assume $A$ is an $\mathscr{L}_\infty$-space, then so does $A_+$. Let $J$ be a topologically injective $A$-module, then by proposition \ref{MetTopInjModViaCanonicMorph} it is a retract of 
+$$
+\mathcal{B}(A_+,\ell_\infty(B_{J^*}))\isom{\mathbf{mod}_1-A}(A_+\projtens\ell_1(B_{J^*}))^*\isom{\mathbf{mod}_1-A}
+\left(\bigoplus\nolimits_1\{ A_+:\lambda\in B_{J^*}\}\right)^*\isom{\mathbf{mod}_1-A}
+\bigoplus\nolimits_\infty\{ A_+^*:\lambda\in B_{J^*}\}
+$$ 
+in $\mathbf{mod}-A$ and a fortiori in $\mathbf{Ban}$. By proposition \ref{ProdOfDualsOfMthscrLInftySpHaveDPP} this space has the Dunford-Pettis property. As $J$ is its retract, then $J$ also has this property [\cite{FabHabBanSpTh}, proposition 13.44]. 
+
+If $F$ is a topologically flat $A$-module, then $F^*$ is a topologically injective $A$-module by proposition \ref{MetTopFlatCharac}. By previous paragraph $F^*$ has the Dunford-Pettis property and so does $F$.
+
+If $P$ is a topologically projective $A$-module, it is also topologically flat by proposition \ref{MetTopProjIsMetTopFlat}. From previous paragraph it follows that $P$ has the Dunford-Pettis property.
+\end{proof}
+
+\begin{corollary}\label{NoInfDimRefMetTopProjInjFlatModOverMthscrL1OrLInfty} Let $A$ be a Banach algebra which $\mathscr{L}_1$-space or $\mathscr{L}_\infty$-space as Banach space. Then there is no topologically projective, injective or flat infinite dimensional reflexive $A$-modules. A fortiori there is no metrically projective, injective or flat infinite dimensional reflexive $A$-modules.
+\end{corollary}
+\begin{proof} From theorem \ref{TopProjInjFlatModOverMthscrL1OrLInftySpHaveDPP} we know that any topologically injective $A$-module has the Dunford-Pettis property. On the other hand there is no infinite dimensional reflexive Banach spaces with the Dunford-Pettis property. Thus we get the desired result regarding topological injectivity. Since dual of reflexive module is reflexive, from proposition \ref{MetTopFlatCharac} we get the result for topological flatness. It is remains to recall that by proposition \ref{MetTopProjIsMetTopFlat}  every topologically projective module is topologically flat. To prove the last claim note that metric $\langle$~projectivity / injectivity / flatness~$\rangle$ implies topological $\langle$~projectivity / injectivity / flatness~$\rangle$ by proposition $\langle$~\ref{MetProjIsTopProjAndTopProjIsRelProj} / \ref{MetInjIsTopInjAndTopInjIsRelInj} / \ref{MetFlatIsTopFlatAndTopFlatIsRelFlat}~$\rangle$.
+\end{proof}
+
+Note that in relative theory there are examples of infinite dimensional relatively projective injective and flat reflexive modules over Banach algebras that are $\mathscr{L}_1$- or $\mathscr{L}_\infty$-spaces. Here are two examples. The first one is about convolution algebra $L_1(G)$ on a locally compact group $G$ with Haar measure. It is an $\mathscr{L}_1$-space. In [\cite{DalPolHomolPropGrAlg}, \S6] and \cite{RachInjModAndAmenGr} it was proved that for $1<p<+\infty$ the $L_1(G)$-module $L_p(G)$ is relatively $\langle$~projective / injective / flat~$\rangle$ iff $G$ is $\langle$~compact / amenable / amenable~$\rangle$. Note that any compact group is amenable [\cite{PierAmenLCA}, proposition 3.12.1], so in case $G$ is compact $L_p(G)$ is relatively projective injective and flat for all $1<p<+\infty$.  The second example is about $\mathscr{L}_\infty$-space $c_0(\Lambda)$. The algebra $C_0(\Lambda)$ is relatively biprojective and amenable, so all $c_0(\Lambda)$-modules $\ell_p(\Lambda)$ for $1<p<\infty$ are relatively projective injective and flat. 
+
+\bibliographystyle{unsrt}
+\bibliography{bibliography}
+\end{document}
