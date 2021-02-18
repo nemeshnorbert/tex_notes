@@ -1,0 +1,71 @@
+%%% Макет страницы %%%
+\oddsidemargin=-13pt
+\topmargin=-66pt
+\headheight=12pt
+\headsep=38pt
+\textheight=732pt
+\textwidth=484pt
+\marginparsep=14pt
+\marginparwidth=43pt
+\footskip=14pt
+\marginparpush=7pt
+\hoffset=0pt
+\voffset=0pt
+%\paperwidth=597pt
+%\paperheight=845pt
+\parindent=1.5cm                  % Размер табуляции (для красной строки) в начале каждого абзаца
+\renewcommand{\baselinestretch}{1.25}
+\newfloat{scheme}{tb}{sch}
+
+%%% Кодировки и шрифты %%%
+\ifxetex
+  \setmainlanguage{russian}
+  \setotherlanguage{english}
+  \defaultfontfeatures{Ligatures=TeX,Mapping=tex-text}
+  \setmainfont{Times New Roman}
+  \newfontfamily\cyrillicfont{Times New Roman}
+  \setsansfont{Arial}
+  \newfontfamily\cyrillicfontsf{Arial}
+  \setmonofont{Courier New}
+  \newfontfamily\cyrillicfonttt{Courier New}
+\else
+  \IfFileExists{pscyr.sty}{\renewcommand{\rmdefault}{ftm}}{}
+\fi
+
+% Мои определения
+\newcommand{\projtens}{\mathbin{\widehat{\otimes}}}
+\newcommand{\convol}{\ast}
+\newcommand{\projmodtens}[1]{\mathbin{\widehat{\otimes}}_{#1}}
+\newcommand{\isom}[1]{\mathop{\mathbin{\cong}}\limits_{#1}}
+
+\newtheorem*{theorem*}{Теорема}
+\newtheorem*{problem*}{Проблема}
+
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{lemma}[theorem]{Лемма}
+\newtheorem{proposition}[theorem]{Предложение}
+\newtheorem{remark}[theorem]{Замечание}
+\newtheorem{corollary}[theorem]{Следствие}
+\newtheorem{definition}[theorem]{Определение}
+\newtheorem{example}[theorem]{Пример}
+\renewenvironment{proof}{\paragraph{Доказательство.}}{\hfill$\square$\medskip}
+
+%%% Выравнивание и переносы %%%
+\sloppy
+\clubpenalty=10000
+\widowpenalty=10000
+
+%%% Изображения %%%
+\graphicspath{{images/}}          % Пути к изображениям
+
+%%% Цвета гиперссылок %%%
+\definecolor{linkcolor}{rgb}{0,0,1}
+\definecolor{citecolor}{rgb}{0,0,1}
+\definecolor{urlcolor}{rgb}{0,0,1}
+\hypersetup{
+    colorlinks, linkcolor={linkcolor},
+    citecolor={citecolor}, urlcolor={urlcolor}
+}
+
+%%% Шаблон %%%
+\newcommand{\todo}[1]{\textcolor{blue}{#1}}
