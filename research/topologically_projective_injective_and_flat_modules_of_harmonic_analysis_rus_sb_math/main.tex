@@ -1,0 +1,1462 @@
+\documentclass{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage[tbtags]{amsmath}
+\usepackage{amsfonts,amssymb,mathrsfs,amscd}
+%для подключения графики используются стандартные команды, но кроме файла *.eps
+%необходимо наличие в текущей директории соответствующего файла *.pdf
+%-------------------------------------------------
+\usepackage[hyper]{msb-a}
+\JournalName{МАТЕМАТИЧЕСКИЙ СБОРНИК}
+%\JournalName{}
+%Пустой аргумент приводит к исчезновению всех атрибутов журнала "Математический
+%сборник", файл можно представить в любой другой журнал
+%-------------------------------------------------
+\numberwithin{equation}{section}
+%-------------------------------------------------
+\theoremstyle{plain}
+\newtheorem{theorem}{Теорема}
+\newtheorem{lemma}{Лемма}[section]
+\newtheorem{propos}{Предложение}
+%-------------------------------------------------
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}
+\newtheorem{proof}{Доказательство}\def\theproof{}
+\newtheorem{remark}{Замечание}
+%-------------------------------------------------
+% Мои определения
+\newcommand{\projtens}{\mathbin{\widehat{\otimes}}}
+\newcommand{\convol}{\ast}
+\newcommand{\projmodtens}[1]{\mathbin{\widehat{\otimes}}_{#1}}
+\newcommand{\isom}{\mathop{\mathbin{\cong}}}
+\begin{document}
+%-------------------------------------------------
+\title{Топологически проективные, инъективные и плоские модули гармонического анализа}
+\author[N.\,T.~Nemesh]{Н.\,Т.~Немеш}
+\address{Московский государственный университет им.~М.\,В.~Ломоносова}
+\email{nemeshnorbert@yandex.ru}
+
+\date{31.10.2019}
+\udk{517.968.22}
+
+\maketitle
+
+\begin{fulltext}
+
+\begin{abstract} В работе изучаются гомологически тривиальные модули 
+гармонического анализа на локально компактной группе $G$. Для $L_1(G)$- и 
+$M(G)$-модулей $C_0(G)$, $L_p(G)$ и $M(G)$ даны критерии метрической и 
+топологической проективности, инъективности и плоскости. В большинстве случаев 
+модули обладающие этими свойствами должны быть конечномерными.
+
+Библиография: 18 названий.
+\end{abstract}
+
+\begin{keywords} 
+Банахов модуль, проективность, инъективность, плоскость, гармонический анализ.
+\end{keywords}
+
+\markright{Гомологически тривиальные модули гармонического анализа}
+
+\footnotetext[0]{Работа выполнена при поддержке РФФИ (грант No. 19-01-00447).}
+
+%----------------------------------------------------------------------------------------
+%   Introduction	
+%----------------------------------------------------------------------------------------
+
+\section{Введение}\label{SectionIntroduction}
+
+История банаховой гомологии начинается еще в 50-х годах прошлого века. 
+Один из основных вопросов этой науки: является ли данный банахов модуль 
+гомологически тривиальным, то есть проективным, инъективным или плоским? 
+В качестве примера успешного ответа на этот вопрос можно привести работы 
+Дейлса, Полякова, Рахера и Рамсдена 
+\cite{DalPolHomolPropGrAlg, RamsHomPropSemgroupAlg, RachInjModAndAmenGr}, 
+где они дали критерии гомологической тривиальности для классических модулей 
+гармонического анализа. Следует сказать, что все эти результаты были получены 
+для относительной банаховой гомологии. В этой статье мы ответим на те же 
+самые вопросы, но для двух менее изученных версий банаховой гомологии --- 
+метрической и топологической. Метрическая банахова гомология была впервые 
+рассматрена в работе Гравена \cite{GravInjProjBanMod}, где он применяет передовые, 
+на тот момент, гомологические и банахово-геометрические методы для изучения 
+модулей гармонического анализа. Понятия топологической банаховой гомологии 
+были определены в работе Уайта \cite{WhiteInjmoduAlg}. На первый взгляд, 
+эта теория кажется намного менее ограничительной чем метрическая, но, как 
+мы скоро увидим, это совсем не так.
+
+%----------------------------------------------------------------------------------------
+%	Preliminaries on Banach homoloogy
+%----------------------------------------------------------------------------------------
+
+
+\section{Предварительные сведения по банаховой гомологии}\label{SectionPreliminariesOnBanachHomology}
+
+В дальнейшем, в предложениях мы будем использовать сразу несколько вариантов, 
+последовательно перечисляя их и заключая в скобки таким образом: 
+$\langle$~... / ...~$\rangle$. Например, число $x$ называется 
+$\langle$~положительным / неотрицательным~$\rangle$ если 
+$\langle$~$x>0$ / $x\geq 0$~$\rangle$.
+
+Если не оговорено иначе, все банаховы пространства рассматриваются над полем 
+комплексных чисел. Пусть $E$ --- банахово пространство, тогда через $B_E$ мы будем 
+обозначать замкнутый единичный шар в $E$. Если $F$ --- еще одно банахово 
+пространство, то мы будем говорить, что линейный оператор $T:E\to F$ является 
+\emph{$\langle$~изометрическим / $c$-топологически инъективным~$\rangle$} если 
+$\langle$~$\Vert T(x)\Vert=\Vert x\Vert$ / $c\Vert T(x)\Vert\geq\Vert x\Vert$~$\rangle$ 
+для всех $x\in E$. Аналогично, $T$ называется \emph{$\langle$~строго коизометрическим / 
+строго $c$-топологически сюръективным~$\rangle$} если $\langle$~$T(B_E)=B_F$ / 
+$c T(B_E)\supset B_F$~$\rangle$. В некоторых случаях, мы будем опускать константу $c$. 
+Для обозначения $\ell_p$-суммы банаховых пространств мы будем использовать 
+символ $\bigoplus_p$, и $\projtens$ для проективного тензорного произведения. 
+
+Далее, через $A$ мы будем обозначать произвольную банахову алгебру. Символом $A_+$ мы 
+обозначим стандартную унитализацию $A$. Мы будем рассматривать банаховы модули только 
+с сжимающим билинейным оператором внешнего умножения. Банахов $A$-модуль $X$ будем 
+называть $\langle$~существенным / верным / аннуляторным~$\rangle$ если 
+$\langle$~линейная оболочка множетсва $A\cdot X$ плотна в $X$ / $a\cdot X=\{0\}$ 
+влечет $a=0$ / $A\cdot X=\{0\}$~$\rangle$. Всякий 
+ограниченный линейный оператор являющийся морфизмом $A$-модулей мы будем называть 
+$A$-морфизмом. Символ $A-\mathbf{mod}$ будет обозначать категорию левых банаховых 
+$A$-модулей с $A$-морфизмами в качестве стрелок. Через $A-\mathbf{mod}_1$ мы обозначим 
+подкатегорию $A-\mathbf{mod}$ с теми же объектами, но лишь сжимающими $A$-морфизмами. 
+Аналогичные категории для правых $A$-модулей будем обозначать через $\mathbf{mod}-A$ 
+и $\mathbf{mod}_1-A$, соответственно. Символом $\isom$ мы будем обозначать изоморфизм 
+объектов в категории. Через $\projtens_A$ мы обозначим функтор модульного тензорного 
+произведения, а стандартный функтор морфизмов через $\operatorname{Hom}$. Теперь мы 
+можем дать наши основные определения.
+
+\begin{definition} Левый банахов $A$-модуль $P$ называется
+\emph{$\langle$~метрически / $C$-топологически / $C$-относительно~$\rangle$ проективным} 
+если функтор морфизмов $\langle$~$\operatorname{Hom}_{A-\mathbf{mod}_1}(P,-)$ / $\operatorname{Hom}_{A-\mathbf{mod}}(P,-)$ / 
+$\operatorname{Hom}_{A-\mathbf{mod}}(P,-)$~$\rangle$ переводит 
+$\langle$~строго коизометрические морфизмы / строго $c$-топологически сюръективные 
+морфизмы / морфизмы с правым обратным оператором нормы не более $c$~$\rangle$ в 
+$\langle$~строго коизометрические / строго $c C$-топологически сюръективные / 
+строго $c C$-топологически сюръективные~$\rangle$ операторы.
+\end{definition}
+
+\begin{definition} Правый банахов $A$-модуль $J$ называется \emph{$\langle$~метрически / 
+$C$-топологически / $C$-относительно~$\rangle$ инъективным} если функтор морфизмов $\langle$~$\operatorname{Hom}_{\mathbf{mod}_1-A}(-,J)$ / 
+$\operatorname{Hom}_{\mathbf{mod}-A}(-,J)$ / 
+$\operatorname{Hom}_{\mathbf{mod}-A}(-,J)$~$\rangle$ переводит $\langle$~строго 
+изометрические морфизмы / $c$-топологически инъективные морфизмы / морфизмы с 
+левым обратным оператором нормы не более $c$~$\rangle$ в 
+$\langle$~строго коизометрические / строго $c C$-топологически сюръективные / 
+строго $c C$-топологически сюръективные~$\rangle$ операторы.
+\end{definition}
+
+\begin{definition} Левый банахов $A$-модуль $F$ называется \emph{$\langle$~метрически / 
+$C$-топологически / $C$-относительно~$\rangle$ плоским} если функтор $-\projtens_A F$ 
+переводит $\langle$~изометрические морфизмы / $c$-топологически инъективные морфизмы / 
+морфизмы с левым обратным оператором нормы не более $c$~$\rangle$ в 
+$\langle$~изометрические / $cC$-топологически инъективные / $cC$-топологически 
+инъективные~$\rangle$ операторы.
+\end{definition}
+
+Для краткости мы будем называть банахов модуль \emph{$\langle$~топологически / 
+относительно~$\rangle$} проективным, инъективным или плоским если он 
+$\langle$~$C$-топологически / $C$-относительно~$\rangle$ проективный, инъективный 
+или плоский для некоторого $C>0$.
+
+Эти определения были изложены, в несколько иной форме, Гравеном для метрической 
+теории \cite{GravInjProjBanMod},  Уайтом для топологической теории 
+\cite{WhiteInjmoduAlg} и Хелемским для относительной \cite{HelemHomolDimNorModBanAlg}. 
+В работе Уайта топологически проективные инъективные и плоские модули назывались 
+соответственно строго проективными, инъективными и плоскими. Следует отметить, 
+что понятие строго плоского плоского и строго инъективного модуля еще раньше 
+были даны Хелемским в \cite[параграф~VII.1]{HelBanLocConvAlg}. Основы метрической, 
+топологической и относительной теории можно найти в \cite{NemGeomProjInjFlatBanMod}. 
+Мы будем активно использовать результаты этой статьи.
+
+%----------------------------------------------------------------------------------------
+%	Preliminaries on harmonic analysis
+%----------------------------------------------------------------------------------------
+
+\section{Предварительные сведения по гармоническому анализу}
+\label{SectionPreliminariesOnHarmonicAnalysis} 
+
+Пусть $G$ --- локально компактная группа с единицей $e_G$. Левая мера Хаара на $G$ 
+будет обозначаться через $m_G$, а символ $\Delta_G$ будет использоваться для 
+модулярной функции группы $G$. Для $\langle$~бесконечной дискретной / 
+компактной~$\rangle$ группы $G$ мы будем нормировать меру $m_G$ так чтобы она 
+была $\langle$~считающей / вероятностной~$\rangle$ мерой. В дальнейшем для всех 
+$1\leq p\leq+\infty$ через $L_p(G)$ мы будем обозначать лебегово пространство функций 
+интегрируемых со степенью $p$ по отношению к мере Хаара.
+
+Мы будем рассматривать $L_1(G)$ как банахову алгебру со сверткой в качестве умножения. 
+Эта банахова алгебра обладает сжимающей двусторонней аппроксимативной единицей 
+\cite[теорема~3.3.23]{DalBanAlgAutCont}. Очевидно, алгебра $L_1(G)$ унитальна 
+тогда и только тогда, когда группа $G$ дискретна. В этом случае индикаторная 
+функция $e_G$, обозначим ее $\delta_{e_G}$, является единицей в $L_1(G)$. Аналогично, 
+пространство комплексных конечных регулярных борелевских мер $M(G)$ со сверткой в 
+качестве умножения становится унитальной банаховой алгеброй. Роль единицы играет 
+мера Дирака $\delta_{e_G}$ сосредоточенная на $e_G$. Более того, $M(G)$ --- это 
+копроизведение, в смысле теории категорий, в $L_1(G)-\mathbf{mod}_1$ 
+(но не в $M(G)-\mathbf{mod}_1$) двустороннего идеала $M_a(G)$ мер абсолютно непрерывных 
+по отношению к $m_G$ и подалгебры $M_s(G)$ состоящей из мер сингулярных по отношению 
+к $m_G$. Заметим, что $M_a(G)\isom L_1(G)$ в $M(G)-\mathbf{mod}_1$ и $M_s(G)$ --- 
+аннуляторный $L_1(G)$-модуль. Наконец, $M(G)=M_a(G)$ тогда и только тогда, когда 
+группа $G$ дискретна.
+
+Теперь приступим к обсуждению стандартных левых и правых модулей над алгебрами 
+$L_1(G)$ и $M(G)$. Отметим, что банахова алгебра $L_1(G)$ является двусторонним 
+идеалом в $M(G)$ посредством изометрического $M(G)$-морфизма левых и правых модулей 
+$i:L_1(G)\to M(G):f\mapsto f m_G$. Следовательно, достаточно определить все модульные 
+структуры над алгеброй $M(G)$. Для любых $1\leq p<+\infty$, 
+$f\in L_p(G)$ и $\mu\in M(G)$ положим по определению
+\[
+(\mu\convol_p f)(s)=\int_G f(t^{-1}s)d\mu(t),
+\qquad\qquad
+(f\convol_p \mu)(s)=\int_G f(st^{-1})\Delta_G(t^{-1})^{1/p}d\mu(t)
+\]
+Эти внешние умножения превращают все банаховы пространства $L_p(G)$ для 
+$1\leq p<+\infty$ в левые и правые $M(G)$-модули. Отметим, что для $p=1$ и 
+$\mu\in M_a(G)$ мы получаем обычное определение свертки. Для $1<p\leq +\infty$, 
+$f\in L_p(G)$ и $\mu\in M(G)$ мы определим
+\[
+(\mu\cdot_p f)(s)=\int_G \Delta_G(t)^{1/p}f(st)d\mu(t),
+\qquad\qquad
+(f\cdot_p \mu)(s)=\int_G f(ts)d\mu(t)
+\]
+Эти внешние умножения задают на всех пространствах $L_p(G)$ для $1<p\leq+\infty$ 
+структуру левых и правых $M(G)$-модулей. Этот специальный выбор внешних умножений 
+хорошо согласуется с двойственностью. Действительно, имеет место изоморфизм 
+$(L_p(G),\convol_p)^*\isom (L_{p^*}(G),\cdot_{p^*})$ в $\mathbf{mod}_1-M(G)$ для 
+всех $1\leq p<+\infty$. Тут мы полагаем по определению, что $p^*=p/(p-1)$ если 
+$1<p<+\infty$ и $p^*=+\infty$ если $p=1$. Наконец, банахово пространство $C_0(G)$ 
+также становится левым и правым $M(G)$-модулей с $\cdot_\infty$ в качестве 
+внешнего умножения. Более того, $C_0(G)$ является левым и правым $M(G)$-подмодулем 
+$L_\infty(G)$, причем  $(C_0(G),\cdot_\infty)^*\isom (M(G),\convol)$ в 
+$M(G)-\mathbf{mod}_1$.
+
+Через $\widehat{G}$ мы будем обозначать дуальную группу группы $G$. Любой характер 
+$\gamma\in\widehat{G}$ задает непрерывный характер  
+\[
+\varkappa_\gamma^L:L_1(G)\to\mathbb{C}:f\mapsto \int_G f(s)\overline{\gamma(s)}d m_G(s),
+\quad
+\varkappa_\gamma^M:M(G)\to\mathbb{C}:\mu\mapsto\int_{G} \overline{\gamma(s)}d\mu(s).
+\]
+на $L_1(G)$ и $M(G)$ соответственно. Символом $\mathbb{C}_\gamma$ мы будем обозначать 
+левый и правый аугментационный $L_1(G)$- или $M(G)$-модуль. Его внешние умножения 
+определяются равенствами
+\[
+f\cdot_{\gamma}z=z\cdot_{\gamma}f=\varkappa_\gamma^L(f)z,
+\qquad
+\mu\cdot_{\gamma}z=z\cdot_{\gamma}\mu=\varkappa_\gamma^M(\mu)z
+\]
+для $f\in L_1(G)$, $\mu\in M(G)$ и $z\in\mathbb{C}$. 
+
+Одно из многих определений аменабельной группы говорит, что локально компактная 
+группа $G$ является аменабельной если существует $L_1(G)$-морфизм правых модулей $M:L_\infty(G)\to\mathbb{C}_{e_{\widehat{G}}}$ такой что $M(\chi_G)=1$ 
+\cite[раздел~VII.2.5]{HelBanLocConvAlg}. Мы даже можем предполагать, что 
+функционал $M$ сжимающий \cite[замечание~VII.1.54]{HelBanLocConvAlg}.
+
+Все результаты этого раздела, для которых не было указано ссылок, подробно 
+описаны в \cite[раздел~3.3]{DalBanAlgAutCont}.
+
+%----------------------------------------------------------------------------------------
+%	L_1(G)-modules
+%----------------------------------------------------------------------------------------
+
+\section{\texorpdfstring{$L_1(G)$}{L1(G)}-модули}
+\label{SubSectionL1GModules}
+
+Метрические гомологические свойства стандартных $L_1(G)$-модулей гармонического 
+анализа впервые были изучены в \cite{GravInjProjBanMod}. Мы обобщим эти идеи на 
+случай топологической банаховой гомологии. Чтобы прояснить определения мы начнем 
+с общего результата об инъективности. Будет поучительно доказать его по определению.
+
+\begin{propos}\label{AlgDualWithApproxIdIsMetrInj} Пусть $A$ --- банахова алгебра 
+со сжимающей правой аппроксимативной единицей, тогда правый $A$-модуль $A^*$ 
+метрически инъективен. 
+\end{propos}
+\begin{proof} Пусть $\xi:Y\to X$ --- изометрический $A$-морфизм правых $A$-модулей 
+$X$ и $Y$ и пусть задан сжимающий $A$-морфизм $\phi: Y\to A^*$. По предположению 
+$A$ обладает сжимающей аппроксимативной единицей, назовем ее $(e_\nu)_{\nu\in N}$. 
+Для каждого $\nu\in N$ определим ограниченный линейный функционал
+$f_\nu:Y\to\mathbb{C}:y\to \phi(y)(e_\nu)$. По теореме Хана-Банаха существует 
+ограниченный линейный функционал $g_\nu:X\to\mathbb{C}$ такой что $g_\nu\xi=f_\nu$ 
+и $\Vert g_\nu\Vert=\Vert f_\nu\Vert$. Легко проверить, что 
+$\psi_\nu: X\to A^*:x\mapsto(a\mapsto g_\nu(x\cdot a))$ есть $A$-морфизм правых 
+модулей такой, что $\Vert\psi_\nu\Vert\leq\Vert\phi\Vert$ и 
+$\psi_\nu(\xi(y))(a)=\phi(y)(a e_\nu)$ для всех $y\in Y$ и $a\in A$. Поскольку 
+направленность $(\psi_\nu)_{\nu\in N}$ ограничена по норме, существует
+поднаправленность $(\psi_\mu)_{\mu\in M}$ с таким же ограничением на нормы, которая 
+сходится в слабо${}^*$-операторной топологии к некоторому оператору $\psi:X\to A^*$.
+Легко видеть, что $\psi$ является морфизмом правых $A$-модулей причем $\psi\xi=\phi$ и $\Vert\psi\Vert\leq\Vert\phi\Vert$. Поскольку $\phi$ произвольно, отображение $\operatorname{Hom}_{\mathbf{mod}_1-A}(\xi, A^*)$ строго коизометрично. 
+Следовательно, модуль $A^*$ метрически инъективен.
+\end{proof}
+
+\begin{propos}\label{LInfIsL1MetrInj} Пусть $G$ --- локально компактная группа.
+Тогда $L_\infty(G)$ метрически и топологически инъективен как $L_1(G)$-модуль. 
+Как следствие, $L_1(G)$-модуль $L_1(G)$ метрически и топологически плоский.
+\end{propos}
+\begin{proof} Так как $L_1(G)$ обладает сжимающей аппроксимативной единицей, то 
+по предложению \ref{AlgDualWithApproxIdIsMetrInj} правый $L_1(G)$-модуль 
+$L_1(G)^*$ метрически инъективен. Как следствие, он топологически инъективен 
+\cite[предложение~2.14]{NemGeomProjInjFlatBanMod}. Осталось напомнить, что 
+$L_\infty(G)\isom L_1(G)^*$ в $\mathbf{mod}_1-L_1(G)$. Результат о плоскости 
+$L_1(G)$ следует из \cite[предложение~2.21]{NemGeomProjInjFlatBanMod}.
+\end{proof}
+
+\begin{propos}\label{OneDimL1ModMetTopProjCharac} Пусть $G$ --- локально 
+компактная группа и $\gamma\in\widehat{G}$. Тогда следующие условия эквивалентны:
+\begin{enumerate}
+    \item $G$ компактна;
+    \label{OneDimL1ModMetTopProjCharac:i}
+    \item $\mathbb{C}_\gamma$ --- метрически проективный $L_1(G)$-модуль;
+    \label{OneDimL1ModMetTopProjCharac:ii}
+    \item $\mathbb{C}_\gamma$ --- топологически проективный $L_1(G)$-модуль.
+    \label{OneDimL1ModMetTopProjCharac:iii}
+\end{enumerate}
+\end{propos}
+\begin{proof} \ref{OneDimL1ModMetTopProjCharac:i}) $\Longrightarrow$ 
+\ref{OneDimL1ModMetTopProjCharac:ii}), \ref{OneDimL1ModMetTopProjCharac:iii}) 
+$\Longrightarrow$ \ref{OneDimL1ModMetTopProjCharac:i}) Доказательство 
+аналогично \cite[теорема~4.2]{GravInjProjBanMod}. 
+
+\ref{OneDimL1ModMetTopProjCharac:ii}) $\Longrightarrow$ 
+\ref{OneDimL1ModMetTopProjCharac:iii}) Импликация следует из 
+\cite[предложение~2.4]{NemGeomProjInjFlatBanMod}.
+\end{proof}
+
+\begin{propos}\label{OneDimL1ModMetTopInjFlatCharac} Пусть $G$ --- локально 
+компактная группа и $\gamma\in\widehat{G}$. Тогда следующие условия эквивалентны:
+\begin{enumerate}
+    \item $G$ аменабельна;
+    \label{OneDimL1ModMetTopInjFlatCharac:i}
+    \item $\mathbb{C}_\gamma$ --- метрически инъективный $L_1(G)$-модуль;
+    \label{OneDimL1ModMetTopInjFlatCharac:ii}
+    \item $\mathbb{C}_\gamma$ --- топологически инъективный $L_1(G)$-модуль.
+    \label{OneDimL1ModMetTopInjFlatCharac:iii}
+    \item $\mathbb{C}_\gamma$ --- метрически плоский $L_1(G)$-модуль;
+    \label{OneDimL1ModMetTopInjFlatCharac:iv}
+    \item $\mathbb{C}_\gamma$ --- топологически плоский $L_1(G)$-модуль.
+    \label{OneDimL1ModMetTopInjFlatCharac:v}
+\end{enumerate}
+\end{propos}
+\begin{proof} \ref{OneDimL1ModMetTopInjFlatCharac:i}) $\Longrightarrow$
+\ref{OneDimL1ModMetTopInjFlatCharac:ii}), \ref{OneDimL1ModMetTopInjFlatCharac:iii}) 
+$\Longrightarrow$ \ref{OneDimL1ModMetTopInjFlatCharac:i}) Доказательство аналогично 
+\cite[теорема~4.5]{GravInjProjBanMod}.
+
+\ref{OneDimL1ModMetTopInjFlatCharac:ii}) $\Longrightarrow$ 
+\ref{OneDimL1ModMetTopInjFlatCharac:iii}) Импликация следует из 
+\cite[предложение~2.14]{NemGeomProjInjFlatBanMod}.
+
+\ref{OneDimL1ModMetTopInjFlatCharac:ii}) $\Longrightarrow$
+\ref{OneDimL1ModMetTopInjFlatCharac:iv}), \ref{OneDimL1ModMetTopInjFlatCharac:iii}) 
+$\Longrightarrow$ \ref{OneDimL1ModMetTopInjFlatCharac:v}) Напомним, что 
+$\mathbb{C}_\gamma^*\isom \mathbb{C}_\gamma$ в $\mathbf{mod}_1-L_1(G)$, поэтому 
+все эквивалентности следуют из трех предыдущих пунктов и того факта что плоские 
+модули это в точности модули чьи сопряженные модули инъективны 
+\cite[предложение~2.21]{NemGeomProjInjFlatBanMod}.
+\end{proof}
+
+В следующем предложении мы займемся изучением специальных идеалов банаховой 
+алгебры $L_1(G)$, а именно идеалов вида $L_1(G)\convol\mu$ для некоторой 
+идемпотентной меры $\mu$. На самом деле, этот класс идеалов в случае 
+коммутативной группы совпадает с классом левых идеалов $L_1(G)$ 
+обладающих правой аппроксимативной единицей.
+
+\begin{theorem}\label{CommIdealByIdemMeasL1MetTopProjCharac} Пусть $G$ --- 
+локально компактная группа и $\mu\in M(G)$ --- идемпотентная мера, то есть 
+$\mu\convol\mu=\mu$. Допустим, что левый идеал $I=L_1(G)\convol\mu$ 
+банаховой алгебры $L_1(G)$ топологически проективен как $L_1(G)$-модуль. 
+Тогда $\mu=p m_G$ для некоторого $p\in I$.
+\end{theorem}
+\begin{proof} Рассмотрим произвольный морфизм $L_1(G)$-модулей 
+$\phi:I\to L_1(G)$. Определим $L_1(G)$-морфизм 
+$\phi':L_1(G)\to L_1(G):x\mapsto\phi(x\convol\mu)$. 
+По теореме Венделя \cite[теорема~1]{WendLeftCentrzrs}, существует 
+мера $\nu\in M(G)$ такая что $\phi'(x)=x\convol\nu$ для всех 
+$x\in L_1(G)$. В частности, $\phi(x)=\phi(x\convol\mu)=\phi'(x)=x\convol\nu$ 
+для любого $x\in I$. Отсюда следует, что 
+$\psi:I\to I:x\mapsto\nu\convol x$ --- морфизм правых $I$-модулей такой, что 
+$\phi(x)y=x\psi(y)$ для всех $x,y\in I$. Из 
+\cite[лемма~2, пункт~\textup{(ii)}]{NemMetTopProjIdBanAlg} следует, что 
+идеал $I$ обладает правой единицей, скажем $e\in I$. Тогда 
+$x\convol\mu=x\convol\mu\convol e$ для всех $x\in L_1(G)$. Две меры 
+равны если их свертки со всеми функциями из $L_1(G)$ совпадают 
+\cite[следствие~3.3.24]{DalBanAlgAutCont}, поэтому 
+$\mu=\mu\convol e m_G$. Так как $e\in I\subset L_1(G)$, то 
+$\mu=\mu\convol e m_G\in M_a(G)$. Положим $p=\mu\convol e\in I$, 
+тогда $\mu=p m_G$.
+\end{proof}
+
+Для случая метрической проективности наша гипотеза состоит в том, что 
+левый идеал вида $L_1(G)\convol \mu$ для идемпотентной меры $\mu$ 
+метрически проективен как $L_1(G)$-модуль тогда и только тогда, когда 
+$\mu=p m_G$ для $p\in I$ нормы 1. В \cite{GravInjProjBanMod} Гравен 
+дал критерий метрической проективности $L_1(G)$-модуля $L_1(G)$. 
+Теперь мы можем получить этот результат как простое следствие.
+
+\begin{theorem}\label{L1ModL1MetTopProjCharac} Пусть $G$ --- локально 
+компактная группа. Тогда следующие условия эквивалентны:
+\begin{enumerate}
+    \item $G$ дискретна;
+    \label{L1ModL1MetTopProjCharac:i}
+    \item $L_1(G)$ --- метрически проективный $L_1(G)$-модуль;
+    \label{L1ModL1MetTopProjCharac:ii}
+    \item $L_1(G)$ --- топологически проективный $L_1(G)$-модуль.
+    \label{L1ModL1MetTopProjCharac:iii}
+\end{enumerate}
+\end{theorem}
+\begin{proof} \ref{L1ModL1MetTopProjCharac:i}) $\Longrightarrow$ 
+\ref{L1ModL1MetTopProjCharac:ii}) Если группа $G$ дискретна, 
+то $L_1(G)$ --- унитальная алгебра с единицей нормы $1$. Из 
+\cite[предложение~7]{NemMetTopProjIdBanAlg} мы получаем, что 
+$L_1(G)$ метрически проективен как $L_1(G)$-модуль.
+
+\ref{L1ModL1MetTopProjCharac:ii}) $\Longrightarrow$ 
+\ref{L1ModL1MetTopProjCharac:iii}) Импликация следует из 
+\cite[предложение~2.4]{NemGeomProjInjFlatBanMod}.
+
+\ref{L1ModL1MetTopProjCharac:iii}) $\Longrightarrow$ 
+\ref{L1ModL1MetTopProjCharac:i}) Очевидно, $\delta_{e_G}$ --- идемпотентная 
+мера. Так как $L_1(G)=L_1(G)\convol \delta_{e_G}$ --- метрически проективный 
+$L_1(G)$-модуль, то из предложения \ref{CommIdealByIdemMeasL1MetTopProjCharac} 
+следует, что $\delta_{e_G}=f m_G$ для некоторого $f\in L_1(G)$. Это возможно 
+только если группа $G$ дискретна.
+\end{proof}
+
+Стоит отметить, что $L_1(G)$-модуль $L_1(G)$ относительно проективен для любой 
+локально компактной группы $G$ \cite[упражнение~7.1.17]{HelBanLocConvAlg}.
+
+\begin{propos}\label{L1MetTopProjAndMetrFlatOfMeasAlg} Пусть $G$ --- локально 
+компактная группа. Тогда следующие условия эквивалентны:
+\begin{enumerate}
+    \item $G$ дискретна;
+    \label{L1MetTopProjAndMetrFlatOfMeasAlg:i}
+    \item $M(G)$ --- метрически проективный $L_1(G)$-модуль;
+    \label{L1MetTopProjAndMetrFlatOfMeasAlg:ii}
+    \item $M(G)$ --- топологически проективный $L_1(G)$-модуль;
+    \label{L1MetTopProjAndMetrFlatOfMeasAlg:iii}
+    \item $M(G)$ --- метрически плоский $L_1(G)$-модуль.
+    \label{L1MetTopProjAndMetrFlatOfMeasAlg:iv}
+\end{enumerate}
+\end{propos}
+\begin{proof} 
+\ref{L1MetTopProjAndMetrFlatOfMeasAlg:i}) $\Longrightarrow$ 
+\ref{L1MetTopProjAndMetrFlatOfMeasAlg:ii}) Как известно, $M(G)\isom L_1(G)$ 
+в $L_1(G)-\mathbf{mod}_1$ когда группа $G$ дискретна, поэтому результат 
+следует из теоремы \ref{L1ModL1MetTopProjCharac}. 
+
+\ref{L1MetTopProjAndMetrFlatOfMeasAlg:ii}) $\Longrightarrow$ 
+\ref{L1MetTopProjAndMetrFlatOfMeasAlg:iii}) Импликация следует из 
+\cite[предложение~2.4]{NemGeomProjInjFlatBanMod}.
+
+\ref{L1MetTopProjAndMetrFlatOfMeasAlg:ii}) $\Longrightarrow$ 
+\ref{L1MetTopProjAndMetrFlatOfMeasAlg:iv}) Импликация следует из 
+\cite[предложение~2.26]{NemGeomProjInjFlatBanMod}.
+
+\ref{L1MetTopProjAndMetrFlatOfMeasAlg:iii}) $\Longrightarrow$ 
+\ref{L1MetTopProjAndMetrFlatOfMeasAlg:i}) Так как 
+$M(G)\isom L_1(G)\bigoplus_1 M_s(G)$ в $L_1(G)-\mathbf{mod}_1$, то модуль $M_s(G)$ 
+топологически проективен как ретракт топологически проективного модуля 
+\cite[предложение~2.2]{NemGeomProjInjFlatBanMod}. Заметим, что 
+$M_s(G)$ --- аннуляторный $L_1(G)$-модуль, следовательно алгебра $L_1(G)$ 
+обладает правой единицей \cite[предложение~3.3]{NemGeomProjInjFlatBanMod}. 
+Поскольку $L_1(G)$ также обладает двусторонней аппроксимативной единицей, 
+то алгебра $L_1(G)$ унитальна. Отсюда следует, что группа $G$ дискретна.
+
+\ref{L1MetTopProjAndMetrFlatOfMeasAlg:iv}) $\Longrightarrow$ 
+\ref{L1MetTopProjAndMetrFlatOfMeasAlg:i}) Поскольку 
+$M(G)\isom L_1(G)\bigoplus_1 M_s(G)$ в $L_1(G)-\mathbf{mod}_1$, то 
+$M_s(G)$ --- метрически плоский модуль как ретракт метрически плоского 
+модуля \cite[предложение~2.27]{NemGeomProjInjFlatBanMod}. Так как $M_s(G)$ 
+является аннуляторным $L_1(G)$-модулем над ненулевой алгеброй $L_1(G)$, 
+то $M_s(G)$ должен быть нулевым модулем 
+\cite[предложение~3.6]{NemGeomProjInjFlatBanMod}. Это возможно только 
+если $G$ --- дискретная группа.
+\end{proof}
+
+\begin{propos}\label{MeasAlgIsL1TopFlat} Пусть $G$ --- локально компактная 
+группа. Тогда $L_1(G)$-\\модуль $M(G)$ топологически плоский.
+\end{propos}
+\begin{proof} Напомним, что банахово пространство $M(G)$ является 
+$L_1$-пространством и тем более $\mathscr{L}_1^g$-пространством 
+\cite[пункт~3.13, упражнение~4.7(b)]{DefFloTensNorOpId}. Так как 
+пространство $M_s(G)$ дополняемо в $M(G)$, то $M_s(G)$ так же является 
+$\mathscr{L}_1^g$-пространством \cite[следствие~23.2.1(2)]{DefFloTensNorOpId}. 
+Более того $M_s(G)$ --- аннуляторный $L_1(G)$-модуль, значит 
+он топологически плоский $L_1(G)$-модуль 
+\cite[предложение~3.6]{NemGeomProjInjFlatBanMod}. 
+По предложению \ref{LInfIsL1MetrInj} топологически плоским является и 
+$L_1(G)$-модуль $L_1(G)$. Снова используя изоморфизм 
+$M(G)\isom L_1(G)\bigoplus_1 M_s(G)$ в $L_1(G)-\mathbf{mod}_1$, мы заключаем, 
+что $L_1(G)$-модуль $M(G)$ топологически плоский как сумма 
+топологически плоских модулей \cite[предложение~2.27]{NemGeomProjInjFlatBanMod}.
+\end{proof}
+
+%----------------------------------------------------------------------------------------
+%	M(G)-modules
+%----------------------------------------------------------------------------------------
+
+\section{\texorpdfstring{$M(G)$}{M(G)}-модули}
+\label{SubSectionMGModules}
+
+Мы приступаем к обсуждению стандартных $M(G)$-модулей гармонического анализа. 
+Как мы увидим, большая часть результатов может быть получена из предыдущих 
+теорем и утверждений для $L_1(G)$-модулей.
+
+\begin{propos}\label{MGMetTopProjInjFlatRedToL1} Пусть $G$ --- локально компактная 
+группа и $X$ --- $\langle$~существенный / верный / существенный~$\rangle$ 
+$L_1(G)$-модуль. Тогда,
+\begin{enumerate}
+    \item $X$ является метрически 
+    $\langle$~проективным / инъективным / плоским~$\rangle$ $M(G)$-модулем 
+    тогда и только тогда когда он метрически 
+    $\langle$~проективный / инъективный / плоский~$\rangle$ как $L_1(G)$-модуль;
+    \label{MGMetTopProjInjFlatRedToL1:i}
+    \item $X$ является топологически 
+    $\langle$~проективным / инъективным / плоским~$\rangle$ $M(G)$-модулем 
+    тогда и только тогда, когда он топологически 
+    $\langle$~проективный / инъективный / плоский~$\rangle$ как $L_1(G)$-модуль.
+    \label{MGMetTopProjInjFlatRedToL1:ii}
+\end{enumerate}
+\end{propos}
+\begin{proof} Напомним, что $L_1(G)$ --- двусторонний 1-дополняемый идеал алгебры 
+$M(G)$. Теперь утверждения пунктов \ref{MGMetTopProjInjFlatRedToL1:i}) и 
+\ref{MGMetTopProjInjFlatRedToL1:ii}) следуют из 
+$\langle$~\cite[предложение~2.6]{NemGeomProjInjFlatBanMod} / 
+\cite[предложение~2.16]{NemGeomProjInjFlatBanMod} / 
+\cite[предложение~2.24]{NemGeomProjInjFlatBanMod}~$\rangle$.
+\end{proof} 
+
+Здесь следует упомянуть, что $L_1(G)$-модули $C_0(G)$, $L_p(G)$ для $1\leq p<\infty$ 
+и $\mathbb{C}_\gamma$ для $\gamma\in\widehat{G}$ суть существенные модули, а 
+$C_0(G)$, $M(G)$, $L_p(G)$ для $1\leq p\leq \infty$ и $\mathbb{C}_\gamma$ 
+для $\gamma\in\widehat{G}$ суть верные $L_1(G)$-модули. 
+
+\begin{propos}\label{MGModMGMetTopProjFlatCharac} Пусть $G$ --- локально компактная 
+группа. Тогда $M(G)$ метрически и топологически проективен как $M(G)$-модуль. 
+Как следствие, он является метрически и топологически плоским $M(G)$-модулем.
+\end{propos} 
+\begin{proof} Так как $M(G)$ --- унитальная алгебра с единицей нормы 1, то 
+$\langle$~метрическая / топологическая~$\rangle$ проективность $M(G)$ следует 
+из \cite[предложение~7]{NemMetTopProjIdBanAlg}, поскольку $M(G)$ можно 
+рассмотреть унитальный как идеал алгебры $M(G)$. Остается напомнить что всякий 
+$\langle$~метрически / топологически~$\rangle$ проективный модуль также 
+является $\langle$~метрически / топологически~$\rangle$ плоским 
+\cite[предложение~2.26]{NemGeomProjInjFlatBanMod}.
+\end{proof}
+
+%----------------------------------------------------------------------------------------
+%	Banach geometric restrictions
+%----------------------------------------------------------------------------------------
+
+\section{Ограничения банаховой геометрии}
+\label{SubSectionBanachGeometricRestriction}
+
+В этом разделе мы покажем, что многие модули гармонического анализа не могут 
+быть метрически или топологически проективными, инъективными или плоским 
+по причинам своей плохой банаховой геометрии. В метрической теории для 
+бесконечномерных $L_1(G)$-модулей $L_p(G)$, $M(G)$ и $C_0(G)$ это было 
+сделано в \cite[теоремы~4.12--4.14]{GravInjProjBanMod}.
+ 
+\begin{propos}\label{StdModAreNotRetrOfL1LInf} Пусть $G$ --- бесконечная 
+локально компактная группа. Тогда
+\begin{enumerate}
+    \item банаховы пространства $L_1(G)$, $C_0(G)$, $M(G)$ и 
+    $L_\infty(G)^*$ не являются топологически инъективными;
+    \label{StdModAreNotRetrOfL1LInf:i}
+    \item банаховы пространства $C_0(G)$ и $L_\infty(G)$ не 
+    дополняемы ни в одном \\$L_1$-пространстве.
+    \label{StdModAreNotRetrOfL1LInf:ii}
+\end{enumerate}
+\end{propos}
+\begin{proof}
+Так как $G$ --- бесконечная группа, то все рассматриваемые банаховы 
+пространства бесконечномерны.
+
+\ref{StdModAreNotRetrOfL1LInf:i}) Если бесконечномерное банахово пространство 
+топологически инъективно, то оно содержит копию $\ell_\infty(\mathbb{N})$ 
+\cite[следствие~1.1.4]{RosOnRelDisjFamOfMeas}, и как следствие 
+копию $c_0(\mathbb{N})$. Банахово пространство $L_1(G)$ слабо 
+секвенциально полно \cite[следствие~III.C.14]{WojBanSpForAnalysts}, 
+поэтому из \cite[следствие~5.2.11]{KalAlbTopicsBanSpTh} мы знаем, 
+что оно не может содержать копию $c_0(\mathbb{N})$. Таким образом, 
+банахово пространство $L_1(G)$ не топологически инъективно. Допустим, 
+что пространство $M(G)$ топологически инъективно, тогда инъективно и 
+его дополняемое подпространство $M_a(G)$, изоморфное $L_1(G)$. Это 
+противоречит рассуждениям выше. Из 
+\cite[следствие~3]{LauMingComplSubspInLInfOfG} известно, что банахово 
+пространство $C_0(G)$ не дополняемо в $L_\infty(G)$, следовательно оно 
+не может быть топологически инъективным. Напомним, что пространство 
+$L_1(G)$ дополняемо в $L_\infty(G)^*$, которое в свою очередь 
+изометрически изоморфно $L_1(G)^{**}$ \cite[предложение~B10]{DefFloTensNorOpId}. 
+Следовательно, если банахово пространство $L_\infty(G)^*$ топологически 
+инъективно, то $L_1(G)$ тоже будет инъективным. Это противоречит 
+рассуждениям выше.
+
+\ref{StdModAreNotRetrOfL1LInf:ii}) Допустим, $C_0(G)$ является ретрактом 
+некоторого $L_1$-пространства, тогда пространство $M(G)$, которое, как 
+известно, изометрически изоморфно $C_0(G)^*$, будет ретрактом некоторого 
+$L_\infty$-пространства. Следовательно, $M(G)$ --- топологически 
+инъективное банахово пространство. Это противоречит пункту
+\ref{StdModAreNotRetrOfL1LInf:i}). Так как пространство 
+$\ell_\infty(\mathbb{N})$ вкладывается в $L_\infty(G)$, то существует 
+и вложение пространства $c_0(\mathbb{N})$. Если $L_\infty(G)$ ретракт 
+некоторого $L_1$-пространства, то такое $L_1$-пространство будет содержать 
+копию $c_0(\mathbb{N})$. Как было показано в пункте 
+\ref{StdModAreNotRetrOfL1LInf:i}) это невозможно.
+\end{proof}
+
+С этого момента через $A$ мы будем обозначать одну из алгебр $L_1(G)$ 
+или $M(G)$. Напомним, что $L_1(G)$ и $M(G)$ являются  $L_1$-пространствами.
+
+\begin{propos}\label{StdModAreNotL1MGMetTopProjInjFlat} Пусть $G$ --- 
+бесконечная локально компактная группа. Тогда
+\begin{enumerate}
+    \item $A$-модули $C_0(G)$ и $L_\infty(G)$ не являются ни 
+    метрически ни топологически проективными;
+    \label{StdModAreNotL1MGMetTopProjInjFlat:i}
+    \item $A$-модули $L_1(G)$, $C_0(G)$, $M(G)$ и $L_\infty(G)^*$ 
+    не являются ни метрически ни топологически инъективными;
+    \label{StdModAreNotL1MGMetTopProjInjFlat:ii}
+    \item $A$-модули $L_\infty(G)$ и $C_0(G)$ не являются 
+    ни метрически ни топологически плоскими.
+    \label{StdModAreNotL1MGMetTopProjInjFlat:iii}
+    \item $A$-модули $L_p(G)$ для $1<p<\infty$ не являются 
+    ни метрически ни топологически проективными, инъективными 
+    или плоскими.
+    \label{StdModAreNotL1MGMetTopProjInjFlat:iv}
+\end{enumerate}
+\end{propos}
+\begin{proof} \ref{StdModAreNotL1MGMetTopProjInjFlat:i}) Каждый метрически 
+или топологически проективный $A$-модуль дополняем в некотором 
+$L_1$-пространстве \cite[предложение~3.8]{NemGeomProjInjFlatBanMod}. 
+Остается применить пункт \ref{StdModAreNotRetrOfL1LInf:ii}) предложения
+\ref{StdModAreNotRetrOfL1LInf}.
+
+\ref{StdModAreNotL1MGMetTopProjInjFlat:ii}) Каждый метрически или 
+топологически инъективный $A$-модуль является топологически 
+инъективным банаховым пространством 
+\cite[предложение~3.8]{NemGeomProjInjFlatBanMod}. Теперь результат 
+следует из пункта \ref{StdModAreNotRetrOfL1LInf:i}) предложения 
+\ref{StdModAreNotRetrOfL1LInf}.
+
+\ref{StdModAreNotL1MGMetTopProjInjFlat:iii}) Напомним, что 
+$C_0(G)^*\isom M(G)$ в $\mathbf{mod}_1-A$. Теперь достаточно 
+скомбинировать результаты пункта 
+\ref{StdModAreNotL1MGMetTopProjInjFlat:i}) и тот факт, что 
+модуль сопряженный к плоскому инъективен 
+\cite[предложение~2.21]{NemGeomProjInjFlatBanMod}.
+
+\ref{StdModAreNotL1MGMetTopProjInjFlat:iv}) Так как пространства 
+$L_p(G)$ рефлексивны для $1<p<\infty$ то достаточно применить 
+\cite[следствие~3.14]{NemGeomProjInjFlatBanMod}.
+\end{proof}
+
+Осталось рассмотреть метрические и топологические гомологические 
+свойства $A$-модулей для конечной группы $G$.
+
+\begin{propos}\label{LpFinGrL1MGMetrInjProjCharac} Пусть $G$ --- 
+нетривиальная конечная группа и $1\leq p\leq +\infty$. Тогда $A$-модуль 
+$L_p(G)$ является метрически 
+$\langle$~проективным / инъективным~$\rangle$ тогда и только тогда, 
+когда $\langle$~$p=1$ / $p=+\infty$~$\rangle$.
+\end{propos}
+\begin{proof} 
+Допустим, что $A$-модуль $L_p(G)$ метрически 
+$\langle$~проективен / инъективен~$\rangle$. Поскольку пространство 
+$L_p(G)$ конечномерно, то в силу 
+$\langle$~проективности / инъективности~$\rangle$ должны существовать 
+изометрические изоморфизмы 
+$\langle$~$L_p(G)\isom \ell_1(\mathbb{N}_n)$ / 
+$L_p(G)\isom \ell_\infty(\mathbb{N}_n)$ ~$\rangle$ 
+\cite[предложение~3.8, пункты~\textup{(i)}, \textup{(ii)}]{NemGeomProjInjFlatBanMod}, 
+где $n=\operatorname{Card}(G)>1$. Теперь воспользуемся результатом 
+теоремы 1 из \cite{LyubIsomEmdbFinDimLp} для банаховых пространств над 
+полем $\mathbb{C}$: если для $2\leq m\leq k$ и $1\leq r,s\leq \infty$, 
+существует изометрическое вложение из $\ell_r(\mathbb{N}_m)$ в 
+$\ell_s(\mathbb{N}_k)$, то либо $r=2$, $s\in 2\mathbb{N}$ либо $r=s$. 
+Таким образом, $\langle$~$p=1$ / $p=+\infty$~$\rangle$. Обратная импликация 
+легко следует из $\langle$~теоремы \ref{L1ModL1MetTopProjCharac} / 
+предложения \ref{LInfIsL1MetrInj}~$\rangle$.
+\end{proof}
+
+\begin{propos}\label{StdModFinGrL1MGMetrInjProjFlatCharac} 
+Пусть $G$ --- конечная группа. Тогда,
+\begin{enumerate}
+    \item $A$-модули $C_0(G)$ и $L_\infty(G)$ метрически инъективны;
+    \label{StdModFinGrL1MGMetrInjProjFlatCharac:i}
+    \item $A$-модули $C_0(G)$ и $L_p(G)$ для $1<p\leq +\infty$ 
+    метрически проективны тогда и только тогда, когда группа $G$ тривиальна;
+    \label{StdModFinGrL1MGMetrInjProjFlatCharac:ii}
+    \item $A$-модули $M(G)$ и $L_p(G)$ для $1\leq p< +\infty$ 
+    метрически инъективны тогда и только тогда, когда группа $G$ тривиальна;
+    \label{StdModFinGrL1MGMetrInjProjFlatCharac:iii}
+    \item $A$-модули $C_0(G)$ и $L_p(G)$ для $1<p\leq +\infty$ 
+    метрически плоские тогда и только тогда, когда группа $G$ тривиальна.
+    \label{StdModFinGrL1MGMetrInjProjFlatCharac:iv}
+\end{enumerate}
+\end{propos}
+\begin{proof}
+\ref{StdModFinGrL1MGMetrInjProjFlatCharac:i}) Так как группа $G$ конечна, то 
+$C_0(G)=L_\infty(G)$. Теперь необходимый результат следует из 
+предложения \ref{LInfIsL1MetrInj}.
+
+\ref{StdModFinGrL1MGMetrInjProjFlatCharac:i}) Если группа $G$ тривиальна, 
+то есть $G=\{e_G\}$, то $L_p(G)=C_0(G)=L_1(G)$. Осталось 
+воспользоваться пунктом \ref{StdModFinGrL1MGMetrInjProjFlatCharac:i}). 
+Если группа $G$ нетривиальна, то достаточно вспомнить, что 
+$C_0(G)=L_\infty(G)$ и использовать предложение \ref{LpFinGrL1MGMetrInjProjCharac}.
+
+\ref{StdModFinGrL1MGMetrInjProjFlatCharac:iii}) Если $G=\{e_G\}$, 
+то $M(G)=L_p(G)=L_\infty(G)$ и можно снова использовать пункт
+\ref{StdModFinGrL1MGMetrInjProjFlatCharac:i}). Если группа $G$ нетривиальна, 
+то можно применить предложение \ref{LpFinGrL1MGMetrInjProjCharac} поскольку 
+в этом случае $M(G)=L_1(G)$.
+
+\ref{StdModFinGrL1MGMetrInjProjFlatCharac:iv}) Из пункта 
+\ref{StdModFinGrL1MGMetrInjProjFlatCharac:iii}) следует, что для 
+$1\leq p<+\infty$ модули $L_p(G)$ метрически инъективны тогда и только тогда, 
+когда группа $G$ тривиальна. Напомним, что банахов модуль плоский тогда и 
+только тогда, когда его сопряженный модуль инъективен 
+\cite[предложение~2.21]{NemGeomProjInjFlatBanMod}. Теперь результат 
+для модулей $L_p(G)$ следует из отождествления $L_p(G)^*\isom L_{p^*}(G)$ 
+в $\mathbf{mod}_1-L_1(G)$ для $1\leq p^*< +\infty$. Аналогично 
+используя характеризацию плоских модулей и изоморфизмы 
+$C_0(G)^*\isom M(G)\isom L_1(G)$ в $\mathbf{mod}_1-L_1(G)$ мы получаем 
+критерий инъективности для $M(G)$.
+\end{proof}
+
+Следует сказать, что если бы мы рассматривали все банаховы пространства 
+над полем действительных чисел, то модули $L_\infty(G)$ и $L_1(G)$ 
+были бы метрически проективны и инъективны соответственно, для группы $G$ 
+состоящей из двух элементов. Причина в том, что $L_\infty(\mathbb{Z}_2)\isom \mathbb{R}_{\gamma_0}\bigoplus\nolimits_1\mathbb{R}_{\gamma_1}$ в 
+$L_1(\mathbb{Z}_2)-\mathbf{mod}_1$ и $L_1(\mathbb{Z}_2)\isom \mathbb{R}_{\gamma_0}\bigoplus\nolimits_\infty\mathbb{R}_{\gamma_1}$ в 
+$\mathbf{mod}_1-L_1(\mathbb{Z}_2)$. Здесь, $\mathbb{Z}_2$ обозначает 
+единственную группу из двух элементов и 
+$\gamma_0,\gamma_1\in\widehat{\mathbb{Z}_2}$ -- ее характеры задаваемые 
+равенствами $\gamma_0(0)=\gamma_0(1)=\gamma_1(0)=-\gamma_1(1)=1$.
+
+\begin{propos}\label{StdModFinGrL1MGTopInjProjFlatCharac} Пусть $G$ --- конечная группа. 
+Тогда $C_0(G)$, $M(G)$ и $L_p(G)$ для $1\leq p\leq +\infty$ являются топологически 
+проективными, инъективными и плоскими $A$-модулями.
+\end{propos} 
+\begin{proof}
+Для конечной группы $G$ мы имеем $M(G)=L_1(G)$ и $C_0(G)=L_\infty(G)$, поэтому 
+модули $C_0(G)$ и $M(G)$ не требуют специального рассмотрения. Поскольку 
+$M(G)=L_1(G)$, мы можем ограничиться случаем $A=L_1(G)$. Тождественное 
+отображение $i:L_1(G)\to L_p(G):f\mapsto f$ является топологическим 
+изоморфизмом банаховых пространств, так как $L_1(G)$ и $L_p(G)$ для 
+$1\leq p<+\infty$ имеют одинаковую размерность. Так как группа $G$ конечна, 
+то она унимодулярна. Поэтому, совпадают внешние умножения в 
+$(L_1(G),\convol)$ и $(L_p(G),\convol_p)$ для $1\leq p<+\infty$. 
+Следовательно $i$ --- изоморфизм в $L_1(G)-\mathbf{mod}$ и 
+$\mathbf{mod}-L_1(G)$. Аналогично можно показать, что модули 
+$(L_\infty(G),\cdot_\infty)$ и $(L_p(G),\cdot_p)$ для 
+$1<p\leq+\infty$ изоморфны в $L_1(G)-\mathbf{mod}$ и 
+$\mathbf{mod}-L_1(G)$. Наконец, легко проверить, что модули 
+$(L_1(G),\convol)$ и $(L_\infty(G),\cdot_\infty)$ изоморфны в 
+$L_1(G)-\mathbf{mod}$ и $\mathbf{mod}-L_1(G)$ посредством изоморфизма 
+$j:L_1(G)\to L_\infty(G):f\mapsto(s\mapsto f(s^{-1}))$. Таким образом, 
+все рассматриваемые модули попарно изоморфны. Осталось вспомнить, что по 
+теореме \ref{L1ModL1MetTopProjCharac} и предложению 
+\ref{LInfIsL1MetrInj} модуль $L_1(G)$ является топологически проективным 
+и плоским, и  по предложению \ref{LInfIsL1MetrInj} модуль  $L_\infty(G)$ 
+является топологически инъективным.
+\end{proof}
+
+В таблице \ref{HomolTrivModMetTh}, приведенной ниже, собраны результаты о 
+гомологических свойствах модулей гармонического анализа для метрической, 
+топологической и относительной теории. Каждая ячейка таблицы содержит 
+условие при котором модуль обладает соответствующим свойством и ссылки 
+на доказательства. Стрелка $\Longrightarrow$ обозначает, что на данный 
+момент известно только необходимое условие. Стоит сказать, что результаты 
+для модулей $L_p(G)$, где $1<p<\infty$, верны для обоих типов внешнего 
+умножения $\convol_p$ и $\cdot_p$. Формулировки и доказательства теорем о 
+гомологической тривиальности модулей $\mathbb{C}_\gamma$ в случае 
+относительной теории будут такими же как и в предложениях 
+\ref{OneDimL1ModMetTopProjCharac} и \ref{OneDimL1ModMetTopInjFlatCharac}, 
+но на самом деле эти результаты давно известны. Например, критерий о 
+проективности $\mathbb{C}_\gamma$ дан в 
+\cite[теорема~IV.5.13]{HelBanLocConvAlg}, а инъективности в 
+\cite[теорема~2.5]{JohnCohomolBanAlg}. Для алгбер $L_1(G)$ и $M(G)$ 
+понятия $\langle$~проективности / инъективности / плоскости~$\rangle$ 
+совпадают во всех трех теориях для модулей $\langle$~$M(G)$ и 
+$\mathbb{C}_\gamma$ / $L_\infty(G)$, $C_0(G)$ и $\mathbb{C}_\gamma$ / 
+$L_1(G)$ и $\mathbb{C}_\gamma$~$\rangle$. Наконец, плоские $M(G)$-модули 
+$M(G)$ так же имеют одно и то же описание в метрической, топологической 
+и относительной теории.
+
+\begin{table}[ht]
+    \centering
+    \caption{Гомологически тривиальные модули гармонического анализа}
+    \label{ThreeTheoriesComparisonTable}
+    \begin{tiny}
+        \setlength{\tabcolsep}{0.5em}{
+        \begin{tabular}{|c|c|c|c|c|c|c|}
+            \hline
+                 & 
+                 \multicolumn{3}{c|}{$L_1(G)$-модули} & 
+                 \multicolumn{3}{c|}{$M(G)$-модули} \\
+            \hline
+                 & 
+                 Проективность & 
+                 Инъективность & 
+                 Плоскость & 
+                 Проективность & 
+                 Инъективность & 
+                 Плоскость \\
+            \hline
+                 \multicolumn{7}{c}{\textbf{Метрическая теория}} \\
+            \hline
+                $L_1(G)$ & 
+                \shortstack{
+                    $G$ дискретна \\ 
+                    \ref{L1ModL1MetTopProjCharac}
+                } & 
+                \shortstack{
+                    $G=\{e_G\}$ \\ 
+                    \ref{StdModAreNotL1MGMetTopProjInjFlat}, 
+                    \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+                } &
+                \shortstack{
+                    $G$ любая \\ 
+                    \ref{LInfIsL1MetrInj}
+                } &
+                \shortstack{
+                    $G$ дискретна \\ 
+                    \ref{L1ModL1MetTopProjCharac},
+                    \ref{MGMetTopProjInjFlatRedToL1}
+                } &
+                \shortstack{
+                    $G=\{e_G\}$ \\
+                    \ref{StdModAreNotL1MGMetTopProjInjFlat},
+                    \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+                } & 
+                \shortstack{
+                    $G$ любая \\
+                    \ref{LInfIsL1MetrInj},
+                    \ref{MGMetTopProjInjFlatRedToL1}
+                } \\
+            \hline
+                 $L_p(G)$ & 
+                 \shortstack{
+                    $G=\{e_G\}$ \\ 
+                    \ref{StdModAreNotL1MGMetTopProjInjFlat},
+                    \ref{LpFinGrL1MGMetrInjProjCharac}
+                } &
+                \shortstack{
+                    $G=\{e_G\}$ \\ 
+                    \ref{StdModAreNotL1MGMetTopProjInjFlat},
+                    \ref{LpFinGrL1MGMetrInjProjCharac}
+                } & 
+                \shortstack{
+                    $G=\{e_G\}$ \\
+                    \ref{StdModAreNotL1MGMetTopProjInjFlat},
+                    \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+                } & 
+                \shortstack{
+                    $G=\{e_G\}$ \\ 
+                    \ref{StdModAreNotL1MGMetTopProjInjFlat},
+                    \ref{LpFinGrL1MGMetrInjProjCharac}
+                } & 
+                \shortstack{
+                    $G=\{e_G\}$ \\ 
+                    \ref{StdModAreNotL1MGMetTopProjInjFlat},
+                    \ref{LpFinGrL1MGMetrInjProjCharac}
+                } & 
+                \shortstack{
+                    $G=\{e_G\}$ \\ 
+                    \ref{StdModAreNotL1MGMetTopProjInjFlat},
+                    \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+                } \\
+            \hline
+                $L_\infty(G)$ & 
+                \shortstack{$
+                    G=\{e_G\}$ \\ 
+                    \ref{StdModAreNotL1MGMetTopProjInjFlat},
+                    \ref{LpFinGrL1MGMetrInjProjCharac}
+                } & 
+                \shortstack{
+                    $G$ любая  \\ 
+                    \ref{LInfIsL1MetrInj}
+                } & 
+                \shortstack{
+                    $G=\{e_G\}$ \\ 
+                    \ref{StdModAreNotL1MGMetTopProjInjFlat},
+                    \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+                } & 
+                \shortstack{
+                    $G=\{e_G\}$ \\ 
+                    \ref{StdModAreNotL1MGMetTopProjInjFlat},
+                    \ref{LpFinGrL1MGMetrInjProjCharac}
+                } & 
+                \shortstack{
+                    $G$ любая  \\ 
+                    \ref{LInfIsL1MetrInj},
+                    \ref{MGMetTopProjInjFlatRedToL1}
+                } & 
+                \shortstack{
+                    $G=\{e_G\}$ \\ 
+                    \ref{StdModAreNotL1MGMetTopProjInjFlat},
+                    \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+                } \\ 
+            \hline
+                $M(G)$ & 
+                \shortstack{
+                    $G$ дискретна  \\ 
+                    \ref{L1MetTopProjAndMetrFlatOfMeasAlg}
+                } & 
+                \shortstack{
+                    $G=\{e_G\}$ \\ 
+                    \ref{StdModAreNotL1MGMetTopProjInjFlat},
+                    \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+                } & 
+                \shortstack{
+                    $G$ дискретна  \\ 
+                    \ref{MeasAlgIsL1TopFlat}
+                } & 
+                \shortstack{
+                    $G$ любая  \\ 
+                    \ref{MGModMGMetTopProjFlatCharac}
+                } & 
+                \shortstack{
+                    $G=\{e_G\}$ \\ 
+                    \ref{StdModAreNotL1MGMetTopProjInjFlat},
+                    \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+                } & 
+                \shortstack{
+                    $G$ любая  \\ 
+                    \ref{MGModMGMetTopProjFlatCharac}
+                } \\ 
+            \hline
+                $C_0(G)$ & 
+                \shortstack{
+                    $G=\{e_G\}$ \\         
+                    \ref{StdModAreNotL1MGMetTopProjInjFlat},
+                    \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+                } & 
+                \shortstack{
+                    $G$ конечна  \\ 
+                    \ref{StdModAreNotL1MGMetTopProjInjFlat},
+                    \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+                } & 
+                \shortstack{
+                    $G=\{e_G\}$ \\ 
+                    \ref{StdModAreNotL1MGMetTopProjInjFlat},
+                    \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+                } & 
+                \shortstack{
+                    $G=\{e_G\}$ \\ 
+                    \ref{StdModAreNotL1MGMetTopProjInjFlat},
+                    \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+                } & 
+                \shortstack{
+                    $G$ конечна  \\ 
+                    \ref{StdModAreNotL1MGMetTopProjInjFlat},
+                    \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+                } & 
+                \shortstack{
+                    $G=\{e_G\}$ \\ 
+                    \ref{StdModAreNotL1MGMetTopProjInjFlat},
+                    \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+                } \\ 
+            \hline
+                $\mathbb{C}_\gamma$ & 
+    			\shortstack{
+    				$G$ компактна  \\ \ref{OneDimL1ModMetTopProjCharac}
+    			} & 
+    			\shortstack{
+    				$G$ аменабельна  \\ 
+    				\ref{OneDimL1ModMetTopInjFlatCharac}
+    			} & 
+    			\shortstack{
+    				$G$ аменабельна  \\ 
+    				\ref{OneDimL1ModMetTopInjFlatCharac}
+    			} & 
+    			\shortstack{
+    				$G$ компактна  \\ 
+    				\ref{OneDimL1ModMetTopProjCharac},
+    				\ref{MGMetTopProjInjFlatRedToL1}
+    			} & 
+    			\shortstack{
+    				$G$ аменабельна  \\ 
+    				\ref{OneDimL1ModMetTopInjFlatCharac},
+    				\ref{MGMetTopProjInjFlatRedToL1}
+    			} & 
+    			\shortstack{
+    				$G$ аменабельна  \\ 
+    				\ref{OneDimL1ModMetTopInjFlatCharac},
+    				\ref{MGMetTopProjInjFlatRedToL1}
+    			} \\ 
+            \hline
+                \multicolumn{7}{c}{\textbf{Топологическая теория}} \\
+            \hline
+                $L_1(G)$ & 
+    			\shortstack{
+    				$G$ дискретна \\ 
+    				\ref{L1ModL1MetTopProjCharac}
+    			} & 
+    			\shortstack{
+    				$G$ конечна \\ 
+    				\ref{StdModAreNotL1MGMetTopProjInjFlat}, 
+    				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
+    			} & 
+    			\shortstack{
+    				$G$ любая \\ 
+    				\ref{LInfIsL1MetrInj}
+    			} & 
+    			\shortstack{
+    				$G$ дискретна \\ 
+    				\ref{L1ModL1MetTopProjCharac},
+    				\ref{MGMetTopProjInjFlatRedToL1}
+    			} & 
+    			\shortstack{
+    				$G$ конечна \\ 
+    				\ref{StdModAreNotL1MGMetTopProjInjFlat}, 
+    				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
+    			} & 
+    			\shortstack{
+    				$G$ любая \\ 
+    				\ref{LInfIsL1MetrInj},
+    				\ref{MGMetTopProjInjFlatRedToL1}
+    			} \\ 
+            \hline
+                $L_p(G)$ & 
+    			\shortstack{
+    				$G$ конечна \\ 
+    				\ref{StdModAreNotL1MGMetTopProjInjFlat},
+    				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
+    			} & 
+    			\shortstack{
+    				$G$ конечна \\ 
+    				\ref{StdModAreNotL1MGMetTopProjInjFlat},
+    				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
+    			} & 
+    			\shortstack{
+    				$G$ конечна \\ 
+    				\ref{StdModAreNotL1MGMetTopProjInjFlat},
+    				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
+    			} & 
+    			\shortstack{
+    				$G$ конечна \\ 
+    				\ref{StdModAreNotL1MGMetTopProjInjFlat},
+    				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
+    			} & 
+    			\shortstack{
+    				$G$ конечна \\ 
+    				\ref{StdModAreNotL1MGMetTopProjInjFlat},
+    				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
+    			} & 
+    			\shortstack{
+    				$G$ конечна \\ 
+    				\ref{StdModAreNotL1MGMetTopProjInjFlat},
+    				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
+    			} \\ 
+            \hline
+                $L_\infty(G)$ & 
+    			\shortstack{
+    				$G$ конечна \\ 
+    				\ref{StdModAreNotL1MGMetTopProjInjFlat},
+    				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
+    			} & 
+    			\shortstack{
+    				$G$ любая \\ 
+    				\ref{LInfIsL1MetrInj}
+    			} & 
+    			\shortstack{
+    				$G$ конечна \\ 
+    				\ref{StdModAreNotL1MGMetTopProjInjFlat},
+    				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
+    			} & 
+    			\shortstack{
+    				$G$ конечна \\ 
+    				\ref{StdModAreNotL1MGMetTopProjInjFlat},
+    				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
+    			} & 
+    			\shortstack{
+    				$G$ любая \\ 
+    				\ref{LInfIsL1MetrInj},
+    				\ref{MGMetTopProjInjFlatRedToL1}
+    			} & 
+    			\shortstack{
+    				$G$ конечна \\ 
+    				\ref{StdModAreNotL1MGMetTopProjInjFlat},
+    				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
+    			} \\ 
+            \hline
+                $M(G)$ & 
+    			\shortstack{
+    				$G$ дискретна \\ 
+    				\ref{L1MetTopProjAndMetrFlatOfMeasAlg}
+    			} & 
+    			\shortstack{
+    				$G$ конечна \\ 
+    				\ref{StdModAreNotL1MGMetTopProjInjFlat},
+    				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
+    			} & 
+    			\shortstack{
+    				$G$ любая \\ 
+    				\ref{MeasAlgIsL1TopFlat}
+    			} & 
+    			\shortstack{
+    				$G$ любая \\ 
+    				\ref{MGModMGMetTopProjFlatCharac}
+    			} & 
+    			\shortstack{
+    				$G$ конечна \\ 
+    				\ref{StdModAreNotL1MGMetTopProjInjFlat},
+    				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
+    			} & 
+    			\shortstack{
+    				$G$ любая \\ 
+    				\ref{MGModMGMetTopProjFlatCharac}
+    			} \\ 
+            \hline
+                $C_0(G)$ & 
+    			\shortstack{
+    				$G$ конечна \\ 
+    				\ref{StdModAreNotL1MGMetTopProjInjFlat},
+    				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
+    			} & 
+    			\shortstack{
+    				$G$ конечна \\ 
+    				\ref{StdModAreNotL1MGMetTopProjInjFlat},
+    				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
+    			} & 
+    			\shortstack{
+    				$G$ конечна \\ 
+    				\ref{StdModAreNotL1MGMetTopProjInjFlat},
+    				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
+    			} & 
+    			\shortstack{
+    				$G$ конечна \\ 
+    				\ref{StdModAreNotL1MGMetTopProjInjFlat},
+    				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
+    			} & 
+    			\shortstack{
+    				$G$ конечна \\ 
+    				\ref{StdModAreNotL1MGMetTopProjInjFlat},
+    				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
+    			} & 
+    			\shortstack{
+    				$G$ конечна \\ 
+    				\ref{StdModAreNotL1MGMetTopProjInjFlat},
+    				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
+    			} \\ 
+            \hline
+                $\mathbb{C}_\gamma$ & 
+    			\shortstack{
+    				$G$ компактна \\ 
+    				\ref{OneDimL1ModMetTopProjCharac}
+    			} & 
+    			\shortstack{
+    				$G$ аменабельна \\ 
+    				\ref{OneDimL1ModMetTopInjFlatCharac}
+    			} & 
+    			\shortstack{
+    				$G$ аменабельна \\ 
+    				\ref{OneDimL1ModMetTopInjFlatCharac}
+    			} & 
+    			\shortstack{
+    				$G$ компактна \\ 
+    				\ref{OneDimL1ModMetTopProjCharac},
+    				\ref{MGMetTopProjInjFlatRedToL1}
+    			} & 
+    			\shortstack{
+    				$G$ аменабельна \\ 
+    				\ref{OneDimL1ModMetTopInjFlatCharac},
+    				\ref{MGMetTopProjInjFlatRedToL1}
+    			} & 
+    			\shortstack{
+    				$G$ аменабельна \\ 
+    				\ref{OneDimL1ModMetTopInjFlatCharac},
+    				\ref{MGMetTopProjInjFlatRedToL1}
+    			} \\ 
+            \hline
+                \multicolumn{7}{c}{\textbf{Относительная теория}} \\
+            \hline
+                $L_1(G)$ & 
+    			\shortstack{
+    				$G$ любая \\ \cite{DalPolHomolPropGrAlg}, \S 6
+    			} & 
+    			\shortstack{
+    				$G$ аменабельна \\  и дискретна \\ \cite{DalPolHomolPropGrAlg}, \S 6
+    			} & 
+    			\shortstack{
+    				$G$ любая \\ \cite{DalPolHomolPropGrAlg}, \S 6
+    			} & 
+    			\shortstack{
+    				$G$ любая \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
+    			} & 
+    			\shortstack{
+    				$G$ аменабельна \\  и дискретна \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
+    			} & 
+    			\shortstack{
+    				$G$ любая \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
+    			} \\ 
+            \hline
+                $L_p(G)$ & 
+    			\shortstack{
+    				$G$ компактна \\ \cite{DalPolHomolPropGrAlg}, \S 6
+    			} & 
+    			\shortstack{
+    				$G$ аменабельна \\ \cite{RachInjModAndAmenGr}
+    			} & 
+    			\shortstack{
+    				$G$ аменабельна \\ \cite{RachInjModAndAmenGr}
+    			} & 
+    			\shortstack{
+    				$G$ компактна \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
+    			} & 
+    			\shortstack{
+    				$G$ аменабельна \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5, \cite{RachInjModAndAmenGr}
+    			} & 
+    			\shortstack{
+    				$G$ аменабельна \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
+    			} \\
+            \hline
+                $L_\infty(G)$ & 
+    			\shortstack{
+    				$G$ конечна \\ \cite{DalPolHomolPropGrAlg}, \S 6
+    			} & 
+    			\shortstack{
+    				$G$ любая \\ \cite{DalPolHomolPropGrAlg}, \S 6
+    			} & 
+    			\shortstack{
+    				$G$ аменабельна \\ \cite{DalPolHomolPropGrAlg}, \S 6
+    			} & 
+    			\shortstack{
+    				$G$ конечна \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
+    			} & 
+    			\shortstack{
+    				$G$ любая \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
+    			} & 
+    			\shortstack{
+    				$G$ аменабельна \\ ($\Longrightarrow$)\cite{RamsHomPropSemgroupAlg}, \S 3.5
+    			} \\ 
+            \hline
+                $M(G)$ & 
+    			\shortstack{
+    				$G$ дискретна \\ \cite{DalPolHomolPropGrAlg}, \S 6
+    			} & 
+    			\shortstack{
+    				$G$ аменабельна \\ \cite{DalPolHomolPropGrAlg}, \S 6
+    			} & 
+    			\shortstack{
+    				$G$ любая \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
+    			} & 
+    			\shortstack{
+    				$G$ любая \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
+    			} & 
+    			\shortstack{
+    				$G$ аменабельна \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
+    			} & 
+    			\shortstack{
+    				$G$ любая \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
+    			} \\ 
+            \hline
+                $C_0(G)$ & 
+    			\shortstack{
+    				$G$ компактна \\ \cite{DalPolHomolPropGrAlg}, \S 6
+    			} & 
+    			\shortstack{
+    				$G$ конечна \\ \cite{DalPolHomolPropGrAlg}, \S 6
+    			} & 
+    			\shortstack{
+    				$G$ аменабельна \\ \cite{DalPolHomolPropGrAlg}, \S 6
+    			} & 
+    			\shortstack{
+    				$G$ компактна \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
+    			} & 
+    			\shortstack{
+    				$G$ конечна \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
+    			} & 
+    			\shortstack{
+    				$G$ аменабельна \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
+    			} \\ 
+            \hline
+                $\mathbb{C}_\gamma$ & 
+    			\shortstack{
+    				$G$ компактна \\ 
+    				\ref{OneDimL1ModMetTopProjCharac}
+    			} & 
+    			\shortstack{
+    				$G$ аменабельна \\ 
+    				\ref{OneDimL1ModMetTopInjFlatCharac}
+    			} & 
+    			\shortstack{
+    				$G$ аменабельна \\ 
+    				\ref{OneDimL1ModMetTopInjFlatCharac}
+    			} & 
+    			\shortstack{
+    				$G$ компактна \\ 
+    				\ref{OneDimL1ModMetTopProjCharac},
+    				\ref{MGMetTopProjInjFlatRedToL1}
+    			} & 
+    			\shortstack{
+    				$G$ аменабельна \\ 
+    				\ref{OneDimL1ModMetTopInjFlatCharac},
+    				\ref{MGMetTopProjInjFlatRedToL1}
+    			} & 
+    			\shortstack{
+    				$G$ аменабельна \\ 
+    				\ref{OneDimL1ModMetTopInjFlatCharac},
+    				\ref{MGMetTopProjInjFlatRedToL1}
+    			} \\                   
+            \hline
+            \end{tabular}
+        }
+    \end{tiny}
+    \label{HomolTrivModMetTh}
+\end{table}
+
+
+\end{fulltext}
+\begin{thebibliography}{99}
+
+%
+\RBibitem{DalPolHomolPropGrAlg}
+\by H.\,G.~Dales, M.\,E.~Polyakov 
+\paper Homological properties of modules over group algebras
+\jour Proc. Lond.  Math. Soc. 
+\vol 89
+\issue 2 
+\yr 2004 
+\pages 390--426
+
+%
+\RBibitem{RamsHomPropSemgroupAlg}
+\by P.~Ramsden 
+\thesis Homological properties of semigroup algebras
+\publaddr The University of Leeds 
+\yr 2009
+
+\RBibitem{RachInjModAndAmenGr}
+\by G.~Racher 
+\paper Injective modules and amenable groups
+\jour Comment. Math. Helv. 
+\vol 88
+\issue 4 
+\yr 2013 
+\pages 1023--1031
+
+\RBibitem{GravInjProjBanMod}
+\by A.\,W.\,M.~Graven 
+\paper Injective and projective Banach modules
+\jour Indag. Math.
+\publ Elsevier 
+\vol 82
+\issue 1 
+\yr 1979
+\pages 253--272
+
+\RBibitem{WhiteInjmoduAlg}
+\by M.\,C.~White
+\paper Injective modules for uniform algebras
+\jour Proc. London Math. Soc. 
+\vol 73
+\issue 1
+\yr 1996
+\pages 155--184
+
+\RBibitem{HelemHomolDimNorModBanAlg}
+\by А.\,Я.~Хелемский 
+\paper О гомологической размерности нормированных модулей над банаховыми алгебрами
+\jour Матем. Сб. 
+\vol 81
+\issue 3
+\yr 1970
+\pages 430--444
+
+\RBibitem{NemGeomProjInjFlatBanMod}
+\by Н.\,Т.~Немеш 
+\paper Геометрия проективных, инъективных и плоских банаховых модулей
+\jour Фундамент. и прикл. матем.
+\vol 21
+\issue 3
+\yr 2016
+\pages 161--184
+
+\RBibitem{HelBanLocConvAlg}
+\by А.\,Я.~Хелемский 
+\book Банаховы и полинормированные алгебры: общая теория, представления, гомологии. 
+\publ Наука
+\yr 1989
+
+\RBibitem{DalBanAlgAutCont}
+\by H.\,G.~Dales 
+\book Banach algebras and automatic continuity
+\publ Clarendon Press
+\yr 2000
+
+\RBibitem{NemMetTopProjIdBanAlg}
+\by Н.\,Т.~Немеш 
+\paper Метрически и топологически проективные идеалы банаховых алгебр
+\jour Матем. заметки
+\vol 99 
+\issue 4
+\pages 526--536
+
+\RBibitem{WendLeftCentrzrs}
+\by J.\,G.~Wendel 
+\paper Left centralizers and isomorphisms of group algebras
+\jour Pacific J. Math. 
+\vol 2
+\issue 3
+\yr 1952
+\pages 251--261
+
+\RBibitem{DefFloTensNorOpId}
+\by A.~Defant, K.~Floret
+\book Tensor norms and operator ideals 
+\vol 176
+\publ Elsevier
+\yr 1992
+
+\RBibitem{RosOnRelDisjFamOfMeas}
+\by H.~Rosenthal
+\paper On relatively disjoint families of measures, with some applications to Banach space theory
+\jour Stud. Math. 
+\vol 37
+\issue 1
+\yr 1970
+\pages 13--36
+
+\RBibitem{WojBanSpForAnalysts}
+\by P.~Wojtaszczyk 
+\book Banach spaces for analysts 
+\publ Cambridge University Press
+\vol 25
+\yr 1996
+
+\RBibitem{KalAlbTopicsBanSpTh}
+\by F.~Albiac, N.\,J.~Kalton 
+\book Topics in Banach space theory
+\vol 233
+\publ Springer
+\yr 2006
+
+\RBibitem{LauMingComplSubspInLInfOfG}
+\by A.\,T.-M.~Lau,  V.~Losert
+\paper Complementation of certain subspaces of $\it{L_\infty(G)}$ of a locally compact group
+\jour Pacific J. Math
+\vol 141
+\issue 2
+\yr 1990
+\pages 295--310
+
+\RBibitem{LyubIsomEmdbFinDimLp}
+\by Yu.\,I.~Lyubich, O.\,A.~Shatalova
+\paper Isometric embeddings of finite-dimensional $\ell_p$-spaces over the quaternions
+\jour St. Petersburg Math. J.
+\vol 16
+\issue 1
+\yr 2005
+\pages 9--24
+
+\RBibitem{JohnCohomolBanAlg}
+\by B.~Johnson
+\book Cohomology in Banach Algebras 
+\publ Memoirs Series
+\yr 1972
+
+\end{thebibliography}
+\end{document}
