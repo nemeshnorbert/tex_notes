@@ -1,0 +1,480 @@
+%\title{Метрически и топологически проективные идеалы банаховых алгебр}
+\documentclass[12pt]{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage[tbtags]{amsmath}
+\usepackage{amsfonts,amssymb}
+
+\usepackage{mathrsfs}
+\usepackage[paper]{mz2ewin}
+\usepackage{graphicx}
+
+\let\rom=\textup
+
+\def\thesubsection{\arabic{subsection}}
+\numberwithin{equation}{subsection}
+
+\theoremstyle{plain}
+\newtheorem{corollary}{Следствие}
+\newtheorem{lemma}{Лемма}
+\newtheorem{proposition}{Предложение}
+\newtheorem{theorem}{Теорема}
+\newtheorem{definition}{Определение}
+
+\newenvironment{proof}{Доказательство.}{}
+
+\newcommand{\projtens}{\mathbin{\widehat{\otimes}}}
+\newcommand{\convol}{\ast}
+\newcommand{\projmodtens}[1]{\mathbin{\widehat{\otimes}}_{#1}}
+\newcommand{\isom}[1]{\mathop{\mathbin{\cong}}\limits_{#1}}
+
+\overfullrule5pt
+%\mag1096
+\mag1300
+\begin{document}
+
+\udk{517.986.22}
+
+\date{??.??.????\\
+Исправленный вариант\\ ??.??.????}
+
+\author{Н.\,Т.~Немеш}
+\address{Московский государственный университет \\им. М. В. Ломоносова}
+\email{nemeshnorbert@yandex.ru}
+
+\title{Метрически и топологически проективные идеалы банаховых алгебр}
+\markboth{Н.\,Т.~Немеш}{Метрически и топологически проективные идеалы}
+
+\maketitle
+
+\begin{fulltext}
+\begin{abstract}
+
+В данной статье даются необходимые условия метрической и топологической проективности замкнутых идеалов банаховых алгебр. В случае коммутативных банаховых алгебр получен критерий метрической и топологической проективности идеалов, обладающих ограниченной аппроксимативной единицей. Основной результат работы: замкнутый идеал произвольной $C^*$-алгебры метрически или топологически проективен тогда и только тогда, когда он обладает самосопряженной правой единицей.
+
+Библиография: 13 названий.
+\end{abstract}
+
+\footnotetext{Работа выполнена при поддержке Российского фонда фундаментальных исследований (грант \No~15-01-08392).}
+
+\section{Введение}\label{MetricAndTopologicalProjectivity}
+
+Понятия проективного, инъективного и плоского модуля играют фундаментальную роль в гомологической алгебре. Первые функционально-аналитические версии этих понятий появились 45 лет назад \cite{HelemHomolDimNorModBanAlg} и были успешно применены для исследования дифференцирований и расширений банаховых алгебр и изучения аменабельных алгебр. В последнее время с ростом интереса к теории операторных пространств \cite{WittstockOpVersionHahnBanachTh}, \cite{EffOzawRuanInjAndNuclOpSp}, \cite{ForrestProjOpSpAlmstPeriodAndComplCmplmntdIdInFourierAlg}, началось активное исследование новых типов гомологически тривиальных объектов --- метрически и топологически проективных, инъективных и плоских модулей. В этой работе на примере идеалов банаховых алгебр мы покажем, что метрическая и топологическая проективность тесно связаны и являются значительно более сильными свойствами, чем относительная проективность.
+
+Для формулировки точных определений нам понадобится небольшая подготовка. Через $B_E$ мы будем обозначать замкнутый единичный шар пространства $E$. Пусть $E$ и $F$ --- банаховы пространства. Ограниченный линейный оператор $T:E\to F$ будем называть топологически сюръективным если $B_F\subset cT(B_E)$ для некоторого $c>0$. По теореме Банаха об открытом отображении топологическая сюръективность оператора эквивалентна сюръективности. Если же $T(B_E)=B_F$, то оператор $T$ будем называть строго коизометрическим. 
+
+Здесь и далее символ $A$ будет обозначать не обязательно унитальную банахову алгебру со сжимающим билинейным оператором умножения. Мы будем рассматривать только левые банаховы модули со сжимающим билинейным оператором внешнего умножения, обозначаемого точкой ``$\cdot$''. Наконец, непрерывные морфизмы левых $A$-модулей мы будем называть $A$-морфизмами.
+
+Сформулируем три, пожалуй, самых важных для нас определения проективного банахова модуля. Пусть $P$, $X$ и $Y$ --- банаховы модули, а $\phi:P\to Y$ и $\xi:X\to Y$ --- $A$-морфизмы. Напомним, что $A$-морфизм $\psi:P\to X$ называется продолжением $\phi$ вдоль $\xi$ если $\xi\psi=\phi$. 
+
+\begin{definition}\label{MetProjMod} $A$-модуль $P$ называется метрически проективным, если для любого строго коизометрического $A$-морфизма $\xi:X\to Y$ каждый $A$-морфизм $\phi:P\to Y$ обладает продолжением $\psi:P\to X$ вдоль $\xi$ таким, что $\Vert\psi\Vert=\Vert\phi\Vert$.
+\end{definition}
+
+\begin{definition}\label{TopProjMod} $A$-модуль $P$ называется топологически проективным, если для любого топологически сюръективного $A$-морфизма $\xi:X\to Y$ и любого\newline 
+$A$-морфизма $\phi:P\to Y$ существует продолжение вдоль $\xi$.
+\end{definition}
+
+\begin{definition}\label{RelProjMod} $A$-модуль $P$ называется относительно проективным, если \newline для любого $A$-морфизма $\xi:X\to Y$, обладающего правым обратным оператором, и любого $A$-морфизма $\phi:P\to Y$ существует продолжение вдоль $\xi$.
+\end{definition}
+
+Изначально эти определения были даны Хелемским \cite{HelemHomolDimNorModBanAlg}, \cite{HelMetrFrQMod} и Гравеном \cite{GravInjProjBanMod}.
+
+На самом деле, все эти типы проективности можно изучать с общих позиций. В работе \cite{HelMetrFrQMod} Хелемским была построена теория оснащенных категорий, позволившая единообразно доказывать многие утверждения о проективных банаховых модулях. Мы дадим определения и кратко перечислим некоторые результаты об оснащенных категориях. Через $\mathbf{Set}$ мы будем обозначать категорию множеств. Тот факт что объекты $X$ и $Y$ категории $\mathbf{C}$ изоморфны мы будем записывать как $X\isom{\mathbf{C}}Y$. Пусть $\mathbf{C}$ и $\mathbf{D}$ --- две фиксированные категории. Пара ($\mathbf{C}, \square:\mathbf{C}\to\mathbf{D}$), где $\square$ --- верный (то есть не склеивающий морфизмы) ковариантный функтор, называется оснащенной категорией. Морфизм $\xi$ в $\mathbf{C}$ называется $\square$-допустимым эпиморфизмом если $\square (\xi)$ --- ретракция в $\mathbf{D}$. Объект $P$ в $\mathbf{C}$ называется $\square$-проективным, если для каждого $\square$-допустимого эпиморфизма $\xi$ в $\mathbf{C}$ отображение $\operatorname{Hom}_{\mathbf{C}}(P,\xi)$ сюръективно. Объект $F$ в $\mathbf{C}$ называется $\square$-свободным с базой $M$ в  $\mathbf{D}$, если существует изоморфизм $\operatorname{Hom}_{\mathbf{D}}(M,\square(X))\isom{\mathbf{Set}}\operatorname{Hom}_{\mathbf{C}}(F,X)$ естественный по $X$. Оснащенная категория $(\mathbf{C},\square)$ называется свободолюбивой, если каждый объект в $\mathbf{D}$ является базой некоторого $\square$-свободного объекта из $\mathbf{C}$. Имеют место следующие утверждения \cite{HelMetrFrQMod}:
+
+\begin{proposition}\label{RiggCatResults} Пусть $(\mathbf{C},\square)$ --- оснащенная категория. Тогда
+
+$i)$ любой ретракт $\square$-проективного объекта $\square$-проективен;
+
+$ii)$ любой $\square$-допустимый эпиморфизм в $\square$-проективный объект есть ретракция;
+
+$iii)$ любой $\square$-свободный объект $\square$-проективен;
+
+$iv)$ если $(\mathbf{C},\square)$ --- свободолюбивая оснащенная категория, то любой объект $\square$-\newline проективен тогда и только тогда, когда он есть ретракт $\square$-свободного объекта;
+\end{proposition}
+
+Теперь мы продемонстрируем применение оснащенных категорий для изучения проективности банаховых модулей.  Через $\mathbf{Ban}$ мы будем обозначать категорию банаховых пространств с ограниченными операторами в роли морфизмов. Если рассматривать в роли морфизмов только сжимающие операторы, то мы получим еще одну категорию обозначаемую $\mathbf{Ban}_1$. Через $A-\mathbf{mod}$ мы обозначим категорию левых банаховых $A$-модулей с ограниченными $A$-морфизмами в роли морфизмов. Через $A-\mathbf{mod}_1$ мы обозначим подкатегорию $A-\mathbf{mod}$ c теми же объектами, но только лишь сжимающими морфизмами. 
+
+В дальнейшем, в предложениях мы будем использовать сразу несколько фраз, последовательно перечисляя их и заключая в скобки таким образом: $\langle$~.../...~$\rangle$. Например: число $x$ называется $\langle$~положительным / неотрицательным~$\rangle$ если $\langle$~$x>0$ / $x\geq 0$~$\rangle$.
+
+В работах Хелемского \cite{HelMetrFrQMod} и Штейнера \cite{ShtTopFrClassicQuantMod} были построены три верных функтора:
+$$
+\square_{met}:A-\mathbf{mod}_1\to\mathbf{Set},\qquad
+\square_{top}:A-\mathbf{mod}\to\mathbf{HNor},\qquad
+\square_{rel}:A-\mathbf{mod}\to\mathbf{Ban}.
+$$
+Здесь $\mathbf{HNor}$ --- это категория так называемых полунормированных пространств введенных Штейнером. Мы не будем подробно объяснять как действуют эти функторы. Нам достаточно их существования. Для оснащенных категорий $(A-\mathbf{mod}_1,\square_{met})$, $(A-\mathbf{mod},\square_{top})$ и $(A-\mathbf{mod},\square_{rel})$ было доказано, что 
+
+$i)$ $A$-морфизм $\xi$ $\langle$~строго коизометричен / топологически сюръективен / имеет правый обратный оператор~$\rangle$ тогда и только тогда, когда он $\langle$~$\square_{met}$-допустимый / $\square_{top}$-допустимый / $\square_{rel}$-допустимый~$\rangle$ эпиморфизм;
+
+$ii)$ $A$-модуль $P$ является $\langle$~метрически / топологически / относительно~$\rangle$ проективным тогда и только тогда, когда он $\langle$~$\square_{met}$-проективен / $\square_{top}$-проективен / $\square_{rel}$-проективен~$\rangle$.
+
+Как следствие, из пункта $i)$ предложения \ref{RiggCatResults} мы получаем:
+
+\begin{proposition}\label{RetrMetTopProjIsMetTopProj} Всякий ретракт $\langle$~метрически / топологически / относительно~$\rangle$ проективного модуля в $\langle$~$A-\mathbf{mod}_1$ / $A-\mathbf{mod}$ / $A-\mathbf{mod}$~$\rangle$ снова $\langle$~метрически / топологически / относительно~$\rangle$ проективен.
+\end{proposition}
+
+В \cite{HelMetrFrQMod} и \cite{ShtTopFrClassicQuantMod} также было доказано, что оснащенная категория $\langle$~$(A-\mathbf{mod}_1,\square_{met})$ / $(A-\mathbf{mod},\square_{top})$ / $(A-\mathbf{mod},\square_{rel})$~$\rangle$ свободолюбива, и что $\langle$~$\square_{met}$-свободные / $\square_{top}$-свободные / $\square_{rel}$-свободные~$\rangle$ модули изоморфны в $\langle$~$A-\mathbf{mod}_1$ / $A-\mathbf{mod}$ / $A-\mathbf{mod}$~$\rangle$ модулям вида $\langle$~$A_+\projtens \ell_1(\Lambda)$ / $A_+\projtens \ell_1(\Lambda)$ / $A_+\projtens E$~$\rangle$. Здесь $A_+$ обозначает стандартную унитизацию банаховой алгебры $A$, а символ $\projtens$ обозначает проективное тензорное произведение банаховых пространств. Так как $A_+\isom{A-\mathbf{mod}_1}A_+\projtens\mathbb{C}\isom{A-\mathbf{mod}_1}A_+\projtens\ell_1(\{1\})$, то из сказанного выше и пункта $iii)$ предложения \ref{RiggCatResults} мы немедленно получаем еще один результат.
+
+\begin{proposition}\label{UnitalAlgIsMetTopProj} $A$-модуль $A_+$ метрически, топологически и  относительно проективен.
+\end{proposition} 
+
+Заметим, что $\langle$~$\square_{met}$-свободные / $\square_{top}$-свободные~$\rangle$ модули совпадают с точностью до изоморфизма в $A-\mathbf{mod}$ и всякая ретракция в $A-\mathbf{mod}_1$ есть ретракция в $A-\mathbf{mod}$. Поэтому из предложения \ref{RetrMetTopProjIsMetTopProj} мы видим, что любой метрически проективный $A$-модуль топологически проективен. Заметим, также, что всякий $\square_{top}$-свободный модуль является $\square_{rel}$-свободным. Следовательно, каждый топологически проективный $A$-модуль будет относительно проективным. Мы резюмируем эти результаты в следующем предложении.
+
+\begin{proposition}\label{MetProjIsTopProjAndTopProjIsRelProj} Каждый метрически проективный модуль является топологически проективным и каждый топологически проективный модуль является относительно проективным.
+\end{proposition}
+
+Обратные утверждения, вообще говоря, неверны.
+
+
+Легко проверить, что для любого $A$-модуля $X$ линейный оператор
+$$
+\pi_X^+:A_+\projtens \ell_1(B_X):a\projtens \delta_x\mapsto a\cdot x
+$$
+является $\langle$~$\square_{met}$-допустимым / $\square_{top}$-допустимым~$\rangle$ эпиморфизмом. Здесь, через $\delta_x$ мы обозначаем функцию из $\ell_1(B_X)$ равную $1$ в точке $x$ и $0$ в остальных точках. Теперь из пунктов $ii)$ и $iv)$ предложения \ref{RiggCatResults} мы получаем:
+
+\begin{proposition}\label{MetTopProjModViaCanonicMorph}
+Модуль $P$ $\langle$~метрически / топологически~$\rangle$ проективен тогда и только тогда, когда  $\pi_P^+$ --- ретракция в $\langle$~$A-\mathbf{mod}_1$ / $A-\mathbf{mod}$~$\rangle$.
+\end{proposition}
+
+Нам понадобится еще один критерий проективности. С небольшими модификациями его доказательство повторяет рассуждения предложения 7.1.14 из \cite{HelBanLocConvAlg}.
+
+\begin{proposition}\label{NonDegenMetTopProjCharac} Пусть $P$ --- существенный $A$-модуль, то есть линейная оболочка $A\cdot P$ плотна в $P$. Тогда $P$ $\langle$~метрически / топологически~$\rangle$ проективен тогда и только тогда, когда отображение $\pi_P:A\projtens\ell_1(B_P):a\projtens\delta_x\mapsto a\cdot x$ есть ретракция в $\langle$~$A-\mathbf{mod}_1$ / $A-\mathbf{mod}$~$\rangle$.
+\end{proposition} 
+
+%=================Проективность идеалов банаховых алгебр====================
+\section{Проективность идеалов банаховых алгебр}
+\label{MetricAndTopologicalProjectivityOfIdeals}
+
+Далее все рассматриваемые идеалы банаховых алгебр предполагаются замкнутыми. Наше исследование мы начнем с простого наблюдения.
+
+\begin{proposition}\label{UnIdeallIsMetTopProj}
+Пусть $I$ --- левый идеал банаховой алгебры $A$ и $I=Ap$ для некоторого $\langle$~идемпотента $p\in I$ нормы $1$ / идемпотента $p\in I$~$\rangle$. Тогда $I$ $\langle$~метрически / топологически~$\rangle$ проективен как $A$-модуль;
+\end{proposition}
+\begin{proof} 
+Очевидно, что $I$ есть ретракт $A_+$ в $\langle$~$A-\mathbf{mod}_1$ / $A-\mathbf{mod}$~$\rangle$ посредством $A$-морфизма $\pi:A_+\to I:x\mapsto xp$ Теперь результат следует из предложений \ref{RetrMetTopProjIsMetTopProj} и \ref{UnitalAlgIsMetTopProj}.
+\end{proof}
+
+Чтобы получить главный результат этого параграфа нам нужны две подготовительные леммы.
+
+\begin{lemma}\label{ImgOfAMorphFromBiIdToA} Пусть $I$ --- двусторонний идеал банаховой алгебры $A$, существенный как левый $I$-модуль и пусть задан $A$-морфизм $\phi:I\to A$. Тогда $\operatorname{Im}(\phi)\subset I$.
+\end{lemma}
+\begin{proof} Так как $I$ --- правый идеал, то $\phi(ab)=a\phi(b)\in I$ для всех $a,b\in I$. Поэтому $\phi(I\cdot I)\subset I$. Так как $I$ --- существенный левый $I$-модуль, то $I=\operatorname{cl}_A(\operatorname{span}(I\cdot I))$ и $\operatorname{Im}(\phi)\subset\operatorname{cl}_A(\operatorname{span}\phi(I\cdot I))=\operatorname{cl}_A(\operatorname{span}I)=I$.
+\end{proof}
+
+\begin{lemma}\label{GoodIdealMetTopProjIsUnital} Пусть $I$ --- левый идеал банаховой алгебры $A$. Допустим, выполнено одно из следующих условий:
+
+$(*)$ $I$ имеет левую $\langle$~сжимающую / ограниченную~$\rangle$ аппроксимативную единицу, и для любого морфизма $\phi:I\to A$ левых $A$-модулей найдется морфизм $\psi:I\to I$ правых $I$-модулей со свойством $\phi(x)y=x\psi(y)$ для всех $x,y\in I$.
+
+$(**)$ $I$ имеет правую $\langle$~сжимающую / ограниченную~$\rangle$ аппроксимативную единицу, и существует $\langle$~$C=1$ / $C\geq 1$~$\rangle$ такое, что для любого морфизма $\phi:I\to A$ левых $A$-модулей найдется морфизм $\psi:I\to I$ правых $I$-модулей со свойствами $\Vert\psi\Vert\leq C\Vert\phi\Vert$ и $\phi(x)y=x\psi(y)$ для всех $x,y\in I$.
+
+Тогда следующие условия эквивалентны:
+
+$i)$ $I$ $\langle$~метрически / топологически~$\rangle$ проективен как $A$-модуль;
+
+$ii)$ $I$ обладает $\langle$~правой единицей нормы $1$ / правой единицей~$\rangle$.
+\end{lemma} 
+\begin{proof} $i)$$\implies$$ii)$ Если выполнено $(*)$ или $(**)$, то $I$ обладает односторонней аппроксимативной единицей. Следовательно, $I$ --- существенный левый $I$-модуль и тем более существенный $A$-модуль. По предложению \ref{NonDegenMetTopProjCharac}, существует правый обратный $A$-морфизм $\sigma:I\to A\projtens \ell_1(B_I)$ к $\pi_I$ в $\langle$~$A-\mathbf{mod}_1$ / $A-\mathbf{mod}$~$\rangle$. Для каждого $d\in B_I$ рассмотрим $A$-морфизм $p_d:A\projtens \ell_1(B_I)\to A:a\projtens \delta_x\mapsto \delta_x(d)a$ и $\sigma_d=p_d\sigma$. Тогда $\sigma(x)=\sum_{d\in B_I}\sigma_d(x)\projtens \delta_d$ для всех $x\in I$. Напомним, что $A\projtens\ell_1(B_I)$ изометрически изоморфно $\ell_1$-сумме копий алгебры $A$ в количестве равном мощности $B_I$, то есть $A\projtens\ell_1(B_I)\isom{\mathbf{Ban}_1}\bigoplus_1\{A:d\in B_I\}$ Из этого отождествления мы получаем $\Vert\sigma(x)\Vert=\sum_{d\in B_I} \Vert\sigma_d(x)\Vert$ для всех $x\in I$. Так как $\sigma$ --- правый обратный морфизм к $\pi_I$ то $x=\pi_I(\sigma(x))=\sum_{d\in B_I}\sigma_d(x)d$ для всех $x\in I$. 
+
+Предположим, выполнено условие $(*)$. Тогда для каждого $d\in B_I$ существует морфизм правых $I$-модулей $\tau_d:I\to I$ такой, что $\sigma_d(x)d=x\tau_d(d)$ для всех $x\in I$.  Пусть $(e_\nu)_{\nu\in N}$ --- левая $\langle$~сжимающая / ограниченная~$\rangle$ аппроксимативная единица в $I$ ограниченная по норме константой $D$. Поскольку $\tau_d(d)\in I$ для всех $d\in B_I$, то для любого конечного множества $S\subset B_I$ выполнено
+$$
+\sum_{d\in S}\Vert \tau_d(d)\Vert
+=\sum_{d\in S}\lim_{\nu}\Vert e_\nu \tau_d(d) \Vert
+=\lim_{\nu}\sum_{d\in S}\Vert e_\nu \tau_d(d)\Vert
+=\lim_{\nu}\sum_{d\in S}\Vert \sigma_d(e_\nu)d \Vert
+$$
+$$
+\leq\liminf_{\nu}\sum_{d\in S}\Vert\sigma_d(e_\nu)\Vert\Vert d\Vert 
+\leq\liminf_{\nu}\sum_{d\in S}\Vert\sigma_d(e_\nu)\Vert
+\leq\liminf_{\nu}\sum_{d\in B_I}\Vert\sigma_d(e_\nu)\Vert
+$$
+$$
+=\liminf_{\nu}\Vert\sigma(e_\nu)\Vert
+\leq\Vert\sigma\Vert\liminf_{\nu}\Vert e_\nu\Vert
+\leq D\Vert\sigma\Vert.
+$$
+
+Теперь предположим что, выполнено условие $(**)$. Из предположения, для каждого $d\in B_I$ существует морфизм правых $I$-модулей $\tau_d:I\to I$ такой, что $\sigma_d(x)d=x\tau_d(d)$ для всех $x\in I$ и $\Vert\tau_d\Vert\leq C\Vert\sigma_d\Vert$. Пусть $(e_\nu)_{\nu\in N}$ --- правая $\langle$~сжимающая / ограниченная~$\rangle$ аппроксимативная единица в $I$ ограниченная по норме некоторой константой $D$. Для всех $x\in I$ выполнено
+$$
+\Vert\sigma_d(x)\Vert
+=\Vert\sigma_d(\lim_\nu x e_\nu)\Vert
+=\lim_\nu\Vert x\sigma_d(e_\nu)\Vert
+\leq\Vert x\Vert\liminf_\nu\Vert\sigma_d(e_\nu)\Vert,
+$$
+поэтому $\Vert\sigma_d\Vert\leq \liminf_\nu\Vert\sigma_d(e_\nu)\Vert$. Тогда для всех конечных множеств $S\subset B_I$ выполнено
+$$
+\sum_{d\in S}\Vert \tau_d(d)\Vert
+\leq \sum_{d\in S}\Vert \tau_d\Vert\Vert d\Vert
+\leq C\sum_{d\in S}\Vert \sigma_d\Vert
+\leq C\sum_{d\in S}\liminf_\nu \Vert \sigma_d(e_\nu)\Vert
+$$
+$$
+\leq C\liminf_{\nu}\sum_{d\in S}\Vert \sigma_d(e_\nu) \Vert
+\leq C\liminf_{\nu}\sum_{d\in B_I}\Vert \sigma_d(e_\nu) \Vert
+=C\liminf_{\nu}\Vert\sigma(e_\nu)\Vert
+$$
+$$
+\leq C\Vert\sigma\Vert\liminf_{\nu}\Vert e_\nu\Vert
+\leq CD\Vert\sigma\Vert.
+$$
+
+Для обоих предположений $(*)$ и $(**)$ мы доказали, что число $\sum_{d\in S}\Vert \tau_d(d)\Vert$ ограничено $\langle$~единицей / некоторой константой~$\rangle$ для любого конечного множества $S\subset B_I$. Следовательно, существует $p=\sum_{d\in B_I}\tau_d(d)\in I$ со свойством $\langle$~$\Vert p\Vert\leq 1$ / $\Vert p\Vert< \infty$~$\rangle$. Более того, для всех $x\in I$ выполнено $x=\sum_{d\in B_I}\sigma_d(x)d=\sum_{d\in B_I}x\tau_d(d)=xp$, то есть $p$ --- правая единица в $I$. 
+
+$ii)$$\implies$$i)$ Пусть $p\in I$  --- правая единица для $I$, тогда $I=Ap$. Теперь из предложения \ref{UnIdeallIsMetTopProj} мы получаем, что идеал $I$ $\langle$~метрически / топологически~$\rangle$ проективен как $A$-модуль.
+\end{proof}
+
+\begin{theorem}\label{GoodCommIdealMetTopProjIsUnital} Пусть $I$ --- идеал коммутативной банаховой алгебры $A$ и $I$ имеет $\langle$~сжимающую / ограниченную~$\rangle$ аппроксимативную единицу. Тогда $I$ $\langle$~метрически / топологически~$\rangle$ проективен как $A$-модуль тогда и только тогда, когда $I$ имеет $\langle$~единицу нормы $1$ / единицу~$\rangle$.
+\end{theorem} 
+\begin{proof} Поскольку $A$ коммутативна, то для любого $A$-морфизма $\phi:I\to A$ и любых $x,y\in I$ выполнено $\phi(x)y=x\phi(y)$. Так как $I$ имеет ограниченную аппроксимативную единицу и $I$ коммутативен, то мы можем применить лемму \ref{ImgOfAMorphFromBiIdToA}, чтобы заключить $\phi(y)\in I$. Теперь выполнено условие $(*)$ леммы \ref{GoodIdealMetTopProjIsUnital}, и мы получаем желаемую равносильность.
+\end{proof}
+
+В относительной теории нет аналогичного критерия проективности идеалов. Наиболее общий результат такого типа дает лишь необходимое условие: если идеал $I$ коммутативной банаховой алгебры $A$ относительно проективен как $A$-модуль, то $I$ имеет паракомпактный спектр [\cite{HelHomolBanTopAlg}, теорема IV.3.6]. 
+
+Отметим, что существование ограниченной аппроксимативной единицы не является необходимым условием для топологической проективности идеала коммутативной банаховой алгебры. Действительно, рассмотрим банахову алгебру  $A_0(\mathbb{D})$ --- идеал алгебры на диске состоящий из функций исчезающих в нуле. Комбинируя предложения 4.3.5 и 4.3.13 параграф $iii)$ из \cite{DalBanAlgAutCont} мы заключаем, что $A_0(\mathbb{D})$ не имеет ограниченных аппроксимативных единиц. С другой стороны, из [\cite{HelBanLocConvAlg}, пример IV.2.2] мы знаем, что $A_0(\mathbb{D})\isom{A_0(\mathbb{D})-\mathbf{mod}} A_0(\mathbb{D})_+$, поэтому согласно предложению \ref{UnitalAlgIsMetTopProj}, $A_0(\mathbb{D})$ --- топологически проективный $A_0(\mathbb{D})$-модуль.
+
+
+%=================Проективность идеалов $C^*$-алгебр====================
+\section{Проективность идеалов $C^*$-алгебр}
+\label{ProjectiveIdealsOfCStarAlgebras}
+
+Чтобы получить описание метрически и топологически проективных левых идеалов $C^*$-алгебр нам понадобится следующая лемма.
+
+\begin{lemma}\label{ContFuncCalcOnIdealOfCStarAlg} Пусть $I$ --- левый идеал унитальной $C^*$-алгебры $A$. Пусть $a\in I$ --- самосопряженный элемент, и пусть $E$ --- действительное подпространство исчезающих в нуле действительнозначных функций из $C(\operatorname{sp}_A(a))$. Тогда существует изометрический гомоморфизм $\operatorname{RCont}_a^0:E\to I$ корректно определенный равенством $\operatorname{RCont}_a^0(f)=a$, где $f:\operatorname{sp}_A(a)\to\mathbb{C}:t\mapsto t$.
+\end{lemma}
+\begin{proof} Через $\mathbb{R}_0[t]$ мы обозначим действительное линейное подпространство в $E$, состоящее из многочленов исчезающих в нуле. Так как $I$ --- левый идеал в $A$ и многочлен $p\in\mathbb{R}_0[t]$ не имеет свободного члена, то $p(a)\in I$. Следовательно, корректно определен $\mathbb{R}$-линейный гомоморфизм алгебр $\operatorname{RPol}_a^0:\mathbb{R}_0[t]\to I:p\mapsto p(a)$. Из непрерывного функционального исчисления для любого многочлена $p$ выполнено $\Vert p(a)\Vert=\Vert p|_{\operatorname{sp}_A(a)}\Vert_\infty$, поэтому $\Vert\operatorname{RPol}_a^0(p)\Vert=\Vert p|_{\operatorname{sp}_A(a)}\Vert_\infty$. Значит, $\operatorname{RPol}_a^0$ изометричен. Так как $\mathbb{R}_0[t]$ плотно в $E$ и $I$ полно, то $\operatorname{RPol}_a^0$ имеет изометрическое продолжение $\operatorname{RCont}_a^0:E\to I$, которое является $\mathbb{R}$-линейным гомоморфизмом. 
+\end{proof}
+
+Следующее доказательство основано на идеях Блечера и Каниа. В [\cite{BleKanFinGenCStarAlgHilbMod}, лемма 2.1] они доказали, что любой алгебраически конечно порожденный левый идеал $C^*$-алгебры является главным.  
+
+\begin{theorem}\label{LeftIdealOfCStarAlgMetTopProjCharac} Пусть $I$ --- левый идеал $C^*$-алгебры $A$. Тогда следующие условия эквивалентны:
+
+$i)$ $I=Ap$ для некоторого самосопряженного идемпотента $p\in I$;
+
+$ii)$ $I$ --- метрически проективный $A$-модуль;
+
+$iii)$ $I$ --- топологически проективный $A$-модуль.
+\end{theorem}
+\begin{proof} $i)$ $\implies$ $ii)$ Так как $p$ --- самосопряженный идемпотент, то $\Vert p\Vert=1$, поэтому из пункта $i)$ предложения \ref{UnIdeallIsMetTopProj} следует, что идеал $I$ метрически проективен как $A$-модуль.
+
+$ii)$ $\implies$ $iii)$ Импликация следует из предложения \ref{MetProjIsTopProjAndTopProjIsRelProj}.
+
+$iii)$ $\implies$ $i)$ Пусть $(e_\nu)_{\nu\in N}$ --- правая сжимающая аппроксимативная единица идеала $I$ (существующая согласно, например [\cite{HelBanLocConvAlg}, теорема 4.7.79]). Так как идеал $I$ имеет правую аппроксимативную единицу, то он является существенным левым $I$-модулем, и тем более существенным левым $A$-модулем. По предложению \ref{NonDegenMetTopProjCharac} морфизм $\pi_I$ имеет правый обратный $A$-морфизм $\sigma:I\to A\projtens \ell_1(B_I)$. Для каждого $d\in B_I$ рассмотрим $A$-морфизмы $p_d:A\projtens \ell_1(B_I)\to A:a\projtens \delta_x\mapsto \delta_x(d)a$ и $\sigma_d=p_d\sigma$. Тогда $\sigma(x)=\sum_{d\in B_I}\sigma_d(x)\projtens \delta_d$ для всех $x\in I$. Из отождествления $A\projtens\ell_1(B_I)\isom{\mathbf{Ban}_1}\bigoplus_1\{ A:d\in B_I\}$, для всех $x\in I$ мы имеем $\Vert\sigma(x)\Vert=\sum_{d\in B_I} \Vert\sigma_d(x)\Vert$. Так как $\sigma$ суть правый обратный морфизм к $\pi_I$, то $x=\pi_I(\sigma(x))=\sum_{d\in B_I}\sigma_d(x)d$ для всех $x\in I$. 
+
+Для всех $x\in I$ мы имеем
+$$
+\Vert\sigma_d(x)\Vert=\Vert\sigma_d(\lim_\nu xe_\nu)\Vert=\lim_\nu\Vert x\sigma_d(e_\nu)\Vert \leq\Vert x\Vert\liminf_\nu\Vert\sigma_d(e_\nu)\Vert,
+$$ 
+поэтому $\Vert\sigma_d\Vert\leq \liminf_\nu\Vert\sigma_d(e_\nu)\Vert$. Тогда для любого конечного множества $S\subset B_I$ выполнено
+$$
+\sum_{d\in S}\Vert \sigma_d\Vert
+\leq \sum_{d\in S}\liminf_\nu\Vert \sigma_d(e_\nu)\Vert
+\leq \liminf_\nu\sum_{d\in S}\Vert \sigma_d(e_\nu)\Vert
+\leq \liminf_\nu\sum_{d\in B_I}\Vert \sigma_d(e_\nu) \Vert
+$$
+$$
+=\liminf_{\nu}\Vert\sigma(e_\nu)\Vert
+\leq \Vert\sigma\Vert\liminf_{\nu}\Vert e_\nu\Vert
+\leq \Vert\sigma\Vert.
+$$
+Так как конечное множество $S\subset B_I$ произвольно, то сумма $\sum_{d\in B_I}\Vert\sigma_d\Vert$ конечна. Как следствие, сумма $\sum_{d\in B_I}\Vert\sigma_d\Vert^2$ тоже конечна. 
+
+Теперь будем рассматривать алгебру $A$ как идеал в своей унитизации $A_\#$ как $C^*$-алгебры. Тогда $I$ также идеал в $A_\#$. Зафиксируем натуральное число $m\in\mathbb{N}$ и действительное число $\epsilon>0$. Тогда существует конечное множество $S\subset B_I$ такое, что $\sum_{d\in B_I\setminus S}\Vert\sigma_d\Vert<\epsilon$. Обозначим мощность этого множества через $N$. Рассмотрим положительный элемент $b=\sum_{d\in B_I}\Vert\sigma_d\Vert^2 d^*d\in I$. Из леммы \ref{ContFuncCalcOnIdealOfCStarAlg} мы знаем, что $b^{1/m}\in I$, поэтому $b^{1/m}=\sum_{d\in B_I}\sigma_d(b^{1/m})d$. Из непрерывного функционального исчисления следует, что $\Vert b^{1/m}\Vert=\sup_{t\in\operatorname{sp}_{A_\#}(b)} t^{1/m}\leq\Vert b\Vert^{1/m}$, тогда $\limsup_{m\to\infty}\Vert b^{1/m}\Vert\leq 1$. Следовательно, $\Vert b^{1/m}\Vert\leq 2$ для достаточно больших $m$. Положим $\varsigma_d:=\sigma_d(b^{1/m})$, $u:=\sum_{d\in S}\varsigma_d d$ и $v:=\sum_{d\in B_I\setminus S}\varsigma_d d$. Тогда 
+$$
+b^{2/m}=(b^{1/m})^*b^{1/m}=u^*u+u^*v+v^*u+v^*v.
+$$
+Ясно, что $\varsigma_d^*\varsigma_d\leq \Vert \varsigma_d\Vert^2 e_{A_\#}\leq \Vert \sigma_d\Vert^2\Vert b^{1/m}\Vert^2 e_{A_\#}\leq 4\Vert \sigma_d\Vert^2 e_{A_\#}$. Для любых $x,y\in A$ всегда выполнено $x^*x+y^*y-(x^*y+y^*x)=(x-y)^*(x-y)\geq 0$, и поэтому 
+$$
+d^*\varsigma_d^* \varsigma_c c+c^*\varsigma_c^* \varsigma_d d
+\leq d^*\varsigma_d^*\varsigma_d d + c^*\varsigma_c^*\varsigma_c c
+\leq 4\Vert \sigma_d\Vert^2 d^*d+4\Vert \sigma_c\Vert^2 c^*c
+$$
+для всех $c,d\in B_I$. Просуммируем эти неравенства по $c\in S$ и $d\in S$, тогда
+$$
+\begin{aligned}
+\sum_{c\in S}\sum_{d\in S}c^*\varsigma_c^* \varsigma_d d
+&=\frac{1}{2}\left(\sum_{c\in S}\sum_{d\in S}d^*\varsigma_d^* \varsigma_c c+\sum_{c\in S}\sum_{d\in S}c^*\varsigma_c^* \varsigma_d d\right)\\
+&\leq\frac{1}{2}\left(4 N\sum_{d\in S} \Vert \sigma_d\Vert^2 d^*d+
+4 N\sum_{c\in S} \Vert \sigma_c\Vert^2 c^*c\right)\\
+&=4 N\sum_{d\in S} \Vert \sigma_d\Vert^2 d^*d.
+\end{aligned}
+$$
+Следовательно,
+$$
+u^*u
+=\left(\sum_{c\in S}\varsigma_c c\right)^*\left(\sum_{d\in S}\varsigma_d d\right)
+=\sum_{c\in S}\sum_{d\in S}c^*\varsigma_c^* \varsigma_d d
+\leq N\sum_{d\in S} 4\Vert \sigma_d\Vert^2 d^*d
+\leq 4N b.
+$$
+Заметим, что
+$$
+\Vert u\Vert
+\leq \sum_{d\in S}\Vert\varsigma_d\Vert\Vert d\Vert
+\leq \sum_{d\in S}2\Vert\sigma_d\Vert
+\leq 2\Vert\sigma\Vert,
+\qquad
+\Vert v\Vert
+\leq \sum_{d\in B_I\setminus S}\Vert\varsigma_d\Vert\Vert d\Vert
+\leq \sum_{d\in B_I\setminus S}2\Vert\sigma_d\Vert
+\leq 2\epsilon;
+$$
+поэтому $\Vert u^*v+v^*u\Vert\leq 8\Vert\sigma\Vert\epsilon$ и $\Vert v^*v\Vert\leq 4\epsilon^2$. Так как $u^*v+v^*u$ и $v^*v$ ---  самосопряженные элементы, то $u^*v+v^*u\leq 8\Vert\sigma\Vert\epsilon e_{A_\#}$ и $v^*v\leq 4\epsilon^2 e_{A_\#}$
+Таким образом, для любого $\epsilon>0$ и достаточно большого $m$ выполнено 
+$$
+b^{2/m}
+=u^*u+u^*v+v^*u+v^*v
+\leq 4Nb+\epsilon(8\Vert\sigma\Vert+4\epsilon)e_{A_\#}.
+$$
+
+Другими словами, $g_m(b)\geq 0$ для непрерывной функции $g_m:\mathbb{R}_+\to\mathbb{R}:t\mapsto 4Nt+\epsilon(8\Vert\sigma\Vert+4\epsilon)-t^{2/m}$. Теперь выберем $\epsilon>0$ так, чтобы $M:=\epsilon(8\Vert\sigma\Vert+4\epsilon)<1$. По теореме об отображении спектра [\cite{HelLectAndExOnFuncAn}, теорема 6.4.2] мы получаем $g_m(\operatorname{sp}_{A_\#}(b))=\operatorname{sp}_{A_\#}(g_m(b))\subset\mathbb{R}_+$. Легко проверить, что $g_m$ имеет только одну точку экстремума $t_{0,m}=(2Nm)^{\frac{m}{2-m}}$, где она достигает минимума. Так как $\lim_{m\to\infty} g_m(t_{0,m})=M-1<0$, $g_m(0)=M>0$ и $\lim_{t\to\infty} g_m(t)=+\infty$, то для достаточно больших $m$ функция $g_m$ имеет ровно два корня: $t_{1,m}\in(0,t_{0,m})$ и $t_{2,m}\in(t_{0,m},+\infty)$. Следовательно, решением неравенства $g_m(t)\geq 0$ будет $t\in[0,t_{1,m}]\cup[t_{2,m},+\infty)$. Значит, $\operatorname{sp}_{A_\#}(b)\subset[0,t_{1,m}]\cup[t_{2,m},+\infty)$ для всех достаточно больших $m$. Так как $\lim_{m\to\infty} t_{0,m}=0$, то так же $\lim_{m\to\infty} t_{1,m}=0$. Заметим, что $g_m(1)=4N+M-1>0$ для достаточно больших $m$, и поэтому $t_{2,m}\leq 1$. Следовательно, $\operatorname{sp}_{A_\#}(b)\subset\{0\}\cup[1,+\infty)$.
+
+Рассмотрим непрерывную функцию $h:\mathbb{R}_+\to\mathbb{R}:t\mapsto\min(1, t)$. Тогда по лемме \ref{ContFuncCalcOnIdealOfCStarAlg} мы получаем идемпотент $p=h(b)=\operatorname{RCont}_b^0(h)\in I$, такой, что его норма $\Vert p\Vert=\sup_{t\in\operatorname{sp}_{A_\#}(b)}|h(t)|\leq 1$. Следовательно, $p$ --- самосопряженный идемпотент. Так как $h(t)t=th(t)=t$ для всех $t\in \operatorname{sp}_{A_\#}(b)$, то $bp=pb=b$. Последнее равенство влечет
+$$
+0=(e_{A_\#}-p)b(e_{A_\#}-p)=\sum_{d\in B_I}(\Vert\sigma_d\Vert d(e_{A_\#}-p))^*\Vert\sigma_d\Vert d(e_{A_\#}-p).
+$$
+Так как правая часть этого равенства неотрицательна, то $d=dp$ для всех $d\in B_I$, для которых $\sigma_d\neq 0$. Наконец, для всех $x\in I$ мы получаем $xp=\sum_{d\in B_I}\sigma_d(x)dp=\sum_{d\in B_I}\sigma_d(x)d=x$, то есть $I=Ap$ для некоторого самосопряженного идемпотента $p\in I$.
+\end{proof}
+
+Следует отметить, что в относительной теории нет аналогичного описания относительной проективности левых идеалов $C^*$-алгебр. Хотя известно, что для случая сепарабельных $C^*$-алгебр (то есть для $C^*$-алгебр сепарабельных как банахово пространство) все левые идеалы относительно проективны. В [\cite{LykProjOfBanAndCStarAlgsOfContFld}, параграф 6] можно найти хороший обзор последних результатов на эту тему.
+
+\begin{corollary}\label{BiIdealOfCStarAlgMetTopProjCharac} Пусть $I$ --- двусторонний идеал $C^*$-алгебры $A$. Тогда следующие условия эквивалентны:
+
+$i)$ $I$ унитален;
+
+$ii)$ $I$ метрически проективен как $A$-модуль;
+
+$iii)$ $I$ топологически проективен как $A$-модуль.
+\end{corollary}
+\begin{proof} Идеал $I$ имеет двустороннюю сжимающую аппроксимативную единицу [\cite{HelBanLocConvAlg}, теорема 4.7.79]. Следовательно, $I$ имеет правую единицу тогда и только тогда, когда он унитален. Теперь все эквивалентности следуют из теоремы \ref{LeftIdealOfCStarAlgMetTopProjCharac}. 
+\end{proof}
+
+\begin{corollary}\label{IdealofCommCStarAlgMetTopProjCharac} Пусть $L$ --- хаусдорфово локально компактное пространство, и пусть $I$ --- идеал в $C_0(L)$. Тогда следующие условия эквивалентны:
+
+$i)$ гельфандовский спектр идеала $I$ компактен;
+
+$ii)$ $I$ метрически проективный $C_0(L)$-модуль;
+
+$iii)$ $I$ топологически проективный $C_0(L)$-модуль.
+\end{corollary}
+\begin{proof} Обозначим спектр идеала через $\operatorname{Spec}(I)$. По теореме Гельфанда - Наймарка $I\isom{\mathbf{Ban}_1}C_0(\operatorname{Spec}(I))$; следовательно, идеал $I$ полупрост как банахова алгебра. Отсюда, в силу теоремы Шилова об идемпотентах, идеал $I$ унитален тогда и только тогда, когда $\operatorname{Spec}(I)$ компактен. Осталось применить следствие \ref{BiIdealOfCStarAlgMetTopProjCharac}. 
+\end{proof}
+
+Отметим, что класс \textit{относительно} проективных идеалов в $C_0(L)$ намного шире. Известно, что идеал $I$ в алгебре $C_0(L)$ относительно проективен тогда и только тогда, когда его спектр паракомпактен [\cite{HelHomolBanTopAlg}, глава IV,\S\S 2-3].
+
+
+%=================Список литературы====================
+\end{fulltext}
+\begin{thebibliography}{99}
+
+\RBibitem{HelemHomolDimNorModBanAlg}
+\by А.\,Я.~Хелемский
+\paper О гомологической размерности нормированных модулей над банаховыми алгебрами
+\jour Математический сборник
+\vol 81
+\number 3
+\yr 1970
+\pages 430--444
+
+\RBibitem{WittstockOpVersionHahnBanachTh}
+\by G.~Wittstock
+\paper Injectivity of the module tensor product of semi-Ruan modules
+\jour Journal of Operator Theory
+\vol 65
+\number 1
+\pages 87
+\yr 2011
+
+\RBibitem{EffOzawRuanInjAndNuclOpSp}
+\paper On injectivity and nuclearity for operator spaces
+\by E.\,G.~Effros, N.~Ozawa, Z.\,J.~Ruan
+\jour Duke Mathematical Journal
+\vol 110
+\number 3
+\pages 489--521
+\yr 2001
+
+\RBibitem{ForrestProjOpSpAlmstPeriodAndComplCmplmntdIdInFourierAlg}
+\paper Projective operator spaces, almost periodicity and completely complemented ideals in the Fourier algebra
+\by B.~Forrest
+\jour Rocky Mountain J. Math.
+\vol 41
+\number 1
+\pages 155--176
+\yr 2011
+
+\RBibitem{HelMetrFrQMod}
+\by А.\,Я.~Хелемский
+\paper Метрическая свобода и проективность для классических и квантовых нормированных модулей
+\jour Матем. сб.
+\vol 204
+\number 7
+\yr 2013
+\pages 450-469
+
+\RBibitem{GravInjProjBanMod}
+\by A.\,W.\,M.~Graven
+\paper Injective and projective Banach modules
+\jour Indagationes Mathematicae (Proceedings)
+\vol 82
+\number 1
+\yr 1979
+\pages 253--272
+
+\RBibitem{ShtTopFrClassicQuantMod}
+\by С.\,М.~Штейнер
+\paper Топологическая свобода для классических и квантовых нормированных модулей
+\jour Вестник Самарского государственного университета
+\vol 9/1(110)
+\pages 49--57
+\year 2013
+
+
+\RBibitem{HelHomolBanTopAlg}
+\by А.\,Я.~Хелемский
+\book Гомология в банаховых и топологических алгебрах
+\publaddr М.
+\publ изд-во МГУ
+\yr 1986
+
+\RBibitem{DalBanAlgAutCont}
+\by H.\,G.~Dales
+\book Banach algebras and automatic continuity
+\publ Clarendon Press
+\yr 2000
+
+\RBibitem{HelBanLocConvAlg}
+\by А.\,Я.~Хелемский
+\book Банаховы и полинормированные алгебры: общая теория, представления, гомологии
+\publaddr M.
+\publ Наука
+\yr 1989
+
+\RBibitem{BleKanFinGenCStarAlgHilbMod}
+\by D.\,P.~Blecher, T.\,~Kania
+\paper Finite generation in $\it{C^*}$-algebras and Hilbert $\it{C^*}$-modules
+\jour Studia Mathematica
+\vol 224
+\number 2
+\yr 2014
+\pages 143--151
+
+\RBibitem{HelLectAndExOnFuncAn}
+\by А.\,Я.~Хелемский
+\book Лекции по функциональному анализу
+\publaddr М.
+\publ МЦНМО
+\yr 2015
+
+
+\RBibitem{LykProjOfBanAndCStarAlgsOfContFld}
+\by D.\,~Cushing, Z.\,A.~Lykova
+\paper Projectivity of Banach and $\it{C^*}$-algebras of continuous fields
+\jour The Quarterly Journal of Mathematics
+\vol 64
+\number 2
+\yr 2013
+\pages 341--371
+
+\end{thebibliography}
+\end{document}
