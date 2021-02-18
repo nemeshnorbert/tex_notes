@@ -1,0 +1,592 @@
+%\title{Гомологическая тривиальность категории модулей $L_p$}
+\documentclass[11pt,twoside]{article}
+
+\def\No{123}
+\def\wdeb{0}
+
+\usepackage{amsfonts}
+\usepackage{amsfonts,amssymb,amsmath,amsbsy,amsthm,amscd}
+
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{mathrsfs}
+\usepackage{allerree}	
+
+\newtheorem{Theorem}{Теорема}%[section]
+\newtheorem{Proposition}[Theorem]{Предложение}
+\newtheorem{Definition}[Theorem]{Определение}
+
+\newenvironment{Proof}{{\bf Доказательство.}}{}
+
+
+\begin{document}
+
+\cleanbegin
+
+\def\udk{517.986.225}
+\ltitle{Гомологическая тривиальность категории модулей $L_p$}
+{H.\,T.~Немеш\footnote[1]
+{{\it Немеш Норберт Тиборович}, e-mail:nemeshnorbert@yandex.ru.}}
+
+
+\iabstract{
+В статье дано полное описание топологически инъективных, топологически сюръективных, изометрических и коизометрических операторов умножения на функцию, действующих между $L_p$-пространствами $\sigma$-конечных пространств с мерой. 
+Доказано, что все такие операторы обратимы слева или справа. Как следствие доказано, что в категории, состоящей из $L_p$-пространств для всех $p\in[1,+\infty]$, рассмотренных как левые банаховы модули над алгеброй ограниченных измеримых функций, все объекты являются метрически и топологически проективными, инъективными и плоскими модулями.}
+{оператор умножения, $L_p$-пространства, проективность, инъективность, плоскость.}
+{ 
+We prove that all objects of the category of $L_p$-spaces considered as Banach modules over the algebra of bounded measurable functions are projective, injective and flat.
+}
+{multiplication operator, $L_p$-spaces, projectivity, injectivity, flatness.}
+
+
+\textbf{1. Введение.} В работе [1] А.Я. Хелемский дал определения метрически и топологически проективных и инъективных банаховых модулей над произвольной банаховой алгеброй. В работах [2, 3] дано прозрачное описание метрически проективных и плоских модулей над алгебрами последовательностей. Очевидно, дальнейшим развитием этой программы было бы решение аналогичных задач для алгебр измеримых функций. Уже в случае модулей, являющихся лебеговскими $L_p$-пространствами, мы сталкиваемся с проблемой отсутствия конкретного значения в точке у функции (точнее, у класса эквивалентности). Таким образом, уже класс лебеговских пространств представляет интерес. В данной работе мы покажем, что эти пространства, рассмотренные как банаховы модули над алгеброй ограниченных измеримых функций, гомологически тривиальны по отношению к категории, из этих пространств состоящей.
+
+Пусть $(\Omega,\Sigma)$ --- измеримое пространство. Через $B(\Omega)$ мы обозначаем банахову алгебру ограниченных комплекснозначных измеримых функций на $\Omega$ с $\sup$-нормой. Через $M(\Omega)$ мы обозначаем множество положительных $\sigma$-аддитивных $\sigma$-конечных мер на $\Omega$. Очевидно, что для каждой меры $\mu\in M(\Omega)$ и каждого $p\in[1,+\infty]$ пространство $L_p(\Omega,\mu)$ является левым, правым и двусторонним банаховым $B(\Omega)$-модулем с поточечным внешним умножением. Так как алгебра $B(\Omega)$ коммутативна, то без ограничения общности мы будем рассматривать только левые модули. Через $B(\Omega)$-$\mathbf{modLp}$ мы обозначим категорию левых банаховых $B(\Omega)$-модулей, состоящую из пространств $L_p(\Omega,\mu)$ для некоторых мер $\mu\in M(\Omega)$. Морфизмы в $B(\Omega)$-$\mathbf{modLp}$ суть морфизмы банаховых $B(\Omega)$-модулей. Здесь и далее если $\mathbf{C}$ --- некоторая категория банаховых пространств или банаховых модулей с операторами в роли морфизмов, то $\mathbf{C}_1$ --- это категория с теми же объектами и лишь сжимающими морфизмами. Ключевым для нас будет следующий результат [4, теорема 4.1].
+
+%\label{LpModMorphCharac}
+\textbf{Теорема 1.} Пусть $\Omega$ --- локально компактное топологическое пространство, $p,q\in[1,+\infty]$ и $\mu,\nu\in M(\Omega)$. Тогда существуют банахово пространство $L_{p,q,\mu,\nu}(\Omega)$, состоящее из некоторых борелевских комплекснозначных функций на $\Omega$, и изометрический изоморфизм
+$$
+\mathcal{I}_{p,q,\mu,\nu}: L_{p,q,\mu,\nu}(\Omega)\to \operatorname{Hom}_{B(\Omega)\!-\!\mathbf{modLp}}(L_p(\Omega,\mu),L_q(\Omega,\nu)),g\mapsto (f\mapsto g\cdot f).
+$$	
+
+
+Эта теорема была доказана для локально компактных пространств $\Omega$ с борелевской $\sigma$-алеброй, но сходное доказательство работает и для произвольных измеримых пространств. Итак, морфизмы категории $B(\Omega)$-$\mathbf{modLp}$ --- это операторы умножения. Поэтому для описания метрически и топологически проективных, инъективных и плоских модулей достаточно знать строение допустимых эпиморфизмов и мономорфизмов в  категориях $B(\Omega)$-$\mathbf{modLp}_1$ и $B(\Omega)$-$\mathbf{modLp}$. Другими словами, нам требуется описание топологически сюръективных, топологически инъективных, коизометрических и изометрических операторов умножения между $L_p$-пространствами.
+
+Все стандартные факты и определения теории меры мы берем из монографии [5]. В дальнейшем мы будем рассматривать только $\sigma$-конечные положительные $\sigma$-аддитивные меры. Следовательно, мы можем считать, что все атомы имеют конечную меру и каждое атомическое пространство содержит не более чем счетное число атомов.
+
+Все линейные пространства в настоящей работе рассматриваются над полем $\mathbb{C}$.
+Для заданного измеримого пространства $(\Omega,\Sigma)$ через $L_0(\Omega,\Sigma)$ мы обозначаем линейное пространство измеримых комплекснозначных функций на  $\Omega$. Для $p=\infty$ мы по определению полагаем $1/p=0$. Все равенства и неравенства понимаются с точностью до множеств меры $0$. Напомним, что каждое пространство с мерой имеет атомическую и неатомическую часть, т.е. существуют атомическая мера $\mu_1:\Sigma\to[0,+\infty]$ и неатомическая мера $\mu_2:\Sigma\to[0,+\infty]$, такие, что $\mu=\mu_1+\mu_2$ и $\mu_1\perp\mu_2$ (т.е. существуют такие дизъюнктные измеримые множества $\Omega_a^{\mu},\Omega_{na}^{\mu}\in\Sigma$, что $\mu_1(\Omega_{na}^{\mu})=\mu_2(\Omega_a^{\mu})=0$ и $\Omega=\Omega_a^{\mu}\bigcup\Omega_{na}^{\mu}$). 
+
+С позиций функционального анализа, точки в атоме неотличимы и ограничение любой функции из $L_p$ на атом есть постоянная функция. Действительно, если $\Omega'$ --- атом, то для почти всех $\omega'\in\Omega'$ имеем $f(\omega')=\mu(\Omega')^{-1}\int_{\Omega'} f(\omega)d\mu(\omega)$. Отсюда мы получаем изометрический изоморфизм:
+$J_p:L_p(\Omega',\mu|_{\Omega'})\to \ell_p(\{1\}):f\mapsto\left(1\mapsto \mu(\Omega')^{1/p-1}\int_{\Omega'} f(\omega)d\mu(\omega)\right)$
+Следовательно, если атомическое пространство представлено в виде дизъюнктного объединения своих атомов $\{\Omega_\lambda:\lambda:\in\Lambda\}$, то имеет место изометрический изоморфизм
+$\widetilde{I}_p:L_p(\Omega,\mu)\to \ell_p(\Lambda):f\mapsto\left (\lambda\mapsto J_p(f|_{\Omega_\lambda})(1)\right)$.
+
+Классификация $L_p$-пространств неатомических мер несколько сложнее, но она нам не понадобится. Нам достаточно знать, что меры измеримых подмножеств в неатомических пространствах с мерой в некотором смысле меняются непрерывно, а именно если $E$ --- измеримое множество положительной меры, не содержащее атомов, то для любого $t\in[0,\mu(E)]$  существует измеримое подмножество $F\subset E$, такое, что $\mu(F)=t$.
+  Также напомним теорему Лебега о разложении мер: если $(\Omega,\Sigma,\mu)$, $(\Omega,\Sigma,\nu)$ --- два пространства с мерой, то существуют неотрицательная измеримая функция $\rho_{\nu,\mu}$, $\sigma$-конечная мера $\nu_s:\Sigma\to[0,+\infty]$ и множество $\Omega_s^{\nu,\mu}\in\Sigma$, такие, что $\nu=\rho_{\nu,\mu}\cdot\mu+\nu_s$ и $\mu\perp\nu_s$ (т.е.  $\mu(\Omega_s^{\nu,\mu})=\nu_s(\Omega_c^{\nu,\mu})=0$ для $\Omega_c^{\nu,\mu}=\Omega\setminus \Omega_s^{\nu,\mu}$). Наконец, напомним, что для любой положительной функции $\rho\in L_0(\Omega,\Sigma)$ на пространстве с мерой $(\Omega,\Sigma,\mu)$ имеет место изометрический изоморфизм $\bar{I}_p:L_p(\Omega,\mu)\to L_p(\Omega,\rho\cdot\mu):f\mapsto \rho^{-1/p}\cdot f$.
+
+
+
+
+
+
+
+
+
+\textbf{2. Классификация операторов умножения.} Пусть $(\Omega,\Sigma,\mu)$ и $(\Omega,\Sigma,\nu)$ --- два пространства с мерой и одной и той же $\sigma$-алгеброй измеримых множеств. Для заданной функции $g\in L_0(\Omega,\Sigma)$ и чисел $p,q\in[1,+\infty]$ мы определяем оператор умножения
+$$
+M_g:L_p(\Omega,\mu)\to L_q(\Omega,\nu), f\mapsto g\cdot f.
+$$ 
+Конечно, требуются определенные ограничения на $g$, $\mu$ и $\nu$, чтобы оператор $M_g$ был корректно определен, но мы предполагаем, что это всегда выполнено. Для заданного $E\in\Sigma$ через $M_g^E$ мы обозначаем оператор
+$$
+M_g^E:L_p(E,\mu|_E)\to L_q(E,\nu|_E),f\mapsto g|_E\cdot f.
+$$
+Он корректно определен, так как равенство $f|_{\Omega\setminus E}=0$ влечет $M_g(f)|_{\Omega\setminus E}=0$. Как простое следствие данной импликации мы получаем следующие утверждения:
+
+$(i)$ $\operatorname{Ker}(M_g)=\{f\in L_p(\Omega,\mu):f|_{\Omega\setminus Z_g}=0\}$, т.е. оператор $M_g$ инъективен, если и только если $\mu(Z_g)=0$;
+
+$(ii)$ $\operatorname{Im}(M_g)\subset\{h\in L_q(\Omega,\mu): h|_{Z_g}=0\}$, поэтому если оператор $M_g$ сюръективен, то $\mu(Z_g)=0$.
+
+Здесь мы использовали обозначение $Z_g=g^{-1}(\{0\})$. Мы хотим классифицировать операторы умножения в соответствии со следующим определением.
+
+%\label{DefNorOpType} 
+\textbf{Определение 1.} Если $ T:E\to F$ --- ограниченный линейный оператор между нормированными пространствами $E$ и $F$, то $ T$ называется:
+
+$(i)$ \textit{$c$-топологически инъективным}, если $\Vert x\Vert_E\leq c\Vert  T(x)\Vert_F$ для всех $x \in E$; 
+
+$(ii)$ \textit{строго $c$-топологически сюръективным}, если для любого $y\in F$ существует вектор $x \in E$, такой, что $ T(x) = y$ и $\Vert x \Vert_E \leq c \Vert y \Vert_F$; 
+
+$(iii)$ \textit{$c$-топологически сюръективным}, если для любого $c'>c$ и любого $y\in F$ существует вектор $x \in E$, такой, что $ T(x) = y$ и $\Vert x \Vert_E < c' \Vert y \Vert_F$; 
+
+$(iv)$ \textit{(строго) коизометрическим}, если он (строго) $1$-топологически сюръективен с нормой не более $1$.
+
+
+Если конкретное значение константы $c$ для нас не важно, то мы будем просто говорить, что оператор топологически инъективный или топологически сюръективный. 
+Для заданного измеримого множества $E\in \Sigma$ и функции $f\in L_0(E,\Sigma|_{E})$ через $\widetilde{f}$ мы обозначим продолжение функции $f$, такое, что $\widetilde{f}|_E=f$ и $\widetilde{f}|_{\Omega\setminus E}=0$. Далее, нам пригодится следующее простое равенство:
+$$
+\Vert f\Vert_{L_p(\Omega,\mu)}=\left\Vert\left(\Vert f|_{\Omega_\lambda}\Vert_{L_p(\Omega_\lambda,\mu|_{\Omega_\lambda})}:\lambda\in\Lambda\right)\right\Vert_{\ell_p(\Lambda)},
+$$
+верное для любого представления $\Omega$ в виде дизъюнктного объединения измеримых подмножеств $\{\Omega_\lambda:\lambda\in\Lambda\}$. Хотя мы и не нашли нижеследующего результата в литературе, мы не будем его доказывать, так как он является простой проверкой определений.
+
+%\label{MultOpDecompDecomp} 
+\textbf{Предложение 1.} Пусть $(\Omega,\Sigma,\mu)$, $(\Omega,\Sigma,\nu)$ --- два пространства с мерой и $p,q\in[1,+\infty]$. Допустим, имеется представление $\Omega=\bigcup_{\lambda\in\Lambda}\Omega_\lambda$ в виде конечного дизъюнктного объединения измеримых подмножеств. Тогда: 
+
+$(i)$ оператор $M_g$ топологически инъективен тогда и только тогда, когда операторы
+$M_g^{\Omega_\lambda}$ топологически инъективны для всех $\lambda\in\Lambda$;
+
+$(ii)$ оператор $M_g$ топологически сюръективен тогда и только тогда когда, операторы 
+$M_g^{\Omega_\lambda}$ топологически сюръективны для всех $\lambda\in\Lambda$;
+
+$(iii)$ если $M_g$ изометричен, то таковы и $M_g^{\Omega_\lambda}$ для всех $\lambda\in\Lambda$;
+
+$(iv)$ если $M_g$ коизометричен, то таковы и $M_g^{\Omega_\lambda}$ для всех $\lambda\in\Lambda$.
+
+%\label{MultOpCharacBtwnTwoSingMeasSp} 
+\textbf{Предложение 2.} Пусть $(\Omega,\Sigma,\mu)$, $(\Omega,\Sigma,\nu)$ --- два пространства с мерой, $p,q\in[1,+\infty]$ и $g\in L_0(\Omega,\Sigma)$. Если $\mu\perp\nu$, то $M_g\in\mathcal{B}(L_p(\Omega,\mu), L_q(\Omega,\nu))$ есть нулевой оператор.
+
+\textbf{Доказательство.} В силу того, что $\mu\perp\nu$, существует множество $\Omega_s^{\nu,\mu}\in\Sigma$, такое, что $\mu(\Omega_s^{\nu,\mu})=\nu(\Omega_c^{\nu,\mu})=0$, где $\Omega_c^{\nu,\mu}=\Omega\setminus\Omega_s^{\nu,\mu}$. Так как $\mu(\Omega_s^{\nu,\mu})=0$, то  $\chi_{\Omega_c^{\nu,\mu}}=\chi_{\Omega}$ в $L_p(\Omega,\mu)$ и  $\chi_{\Omega_c^{\nu,\mu}}=0$ в $L_q(\Omega,\nu)$. Следовательно, для любого $f\in L_p(\Omega,\mu)$ мы имеем $M_g(f)=M_g(f\cdot \chi_{\Omega})=M_g(f\cdot \chi_{\Omega_c^{\nu,\mu}})=g\cdot f\cdot\chi_{\Omega_c^{\nu,\mu}}=0$. Отметим, что равенство  $M_g=0$ не влечет $g=0$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Напомним следующий простой факт: линейный оператор $M_g:L_p(\Omega,\mu)\to L_p(\Omega,\mu)$ ограничен и корректно определен тогда и только тогда, когда $g\in L_\infty(\Omega,\mu)$. Как следствие оператор $M_g$ является изоморфизмом тогда и только тогда, когда $C\geq |g|\geq c$ для некоторых $C,c>0$. 
+
+Легко проверить, что для атомического пространства с мерой $(\Omega,\Sigma,\mu)$ оператор $\widetilde{M}_{\widetilde{g}}:=\widetilde{I}_q M_g\widetilde{I}_p^{-1}\in\mathcal{B}(\ell_p(\Lambda),\ell_q(\Lambda))$ есть оператор умножения на функцию  $\widetilde{g}:\Lambda\to\mathbb{C}:\lambda\mapsto\mu(\Omega_\lambda)^{1/q-1/p-1}\int_{\Omega_\lambda}g(\omega)d\mu(\omega)$, где $\{\Omega_\lambda:\lambda\in\Lambda\}$ есть не более чем счетное семейство непересекающихся атомов в $\Omega$. Поскольку $\widetilde{I}_p$ и $\widetilde{I}_q$  являются изометрическими изоморфизмами, оператор $M_g$ топологически инъективен тогда и только тогда, когда $\widetilde{M}_{\widetilde{g}}$ топологически инъективен. 
+
+%\label{TopInjMultOpCharacOnPureAtomMeasSp} 
+\textbf{Предложение 3.} Пусть $(\Omega,\Sigma,\mu)$ --- атомическое пространство с мерой, $p,q\in[1,+\infty]$ и $g\in L_0(\Omega,\Sigma)$. Тогда следующие условия эквивалентны:
+
+$(i)$ $M_g\in\mathcal{B}(L_p(\Omega,\mu),L_q(\Omega,\mu))$ --- топологически инъективный оператор;
+
+$(ii)$ $|g|\geq c$ для некоторого $c>0$, при этом если $p\neq q$, то пространство $(\Omega,\Sigma,\mu)$ имеет конечное число атомов.
+
+
+\textbf{Доказательство.} $(i)$$\implies$$(ii)$. Из предположения получаем, что оператор $\widetilde{M}_{\widetilde{g}}$ топологически инъективен, т.е. $\Vert\widetilde{M}_{\widetilde{g}}(x)\Vert_{\ell_q(\Lambda)}\geq c\Vert x\Vert_{\ell_p(\Lambda)}$ для всех $x\in\ell_p(\Lambda)$ и некоторого $c>0$. Пусть $\{\Omega_\lambda:\lambda\in\Lambda\}$ --- не более чем счетное разложение $\Omega$ на непересекающиеся атомы. Мы рассмотрим два случая.
+
+1) Пусть $p\neq q$. Допустим, что множество $\Lambda$ счетно. Если $p,q<+\infty$, то мы приходим к противоречию, так как по теореме Питта [6, следствие 2.1.6] не существует вложения между пространствами $\ell_p(\Lambda)$ и $\ell_q(\Lambda)$ для счетного $\Lambda$ и $p,q\in[1,+\infty)$, $p\neq q$. 
+
+Если $1\leq p<+\infty$ и $q=+\infty$, то рассмотрим произвольное конечное подмножество $F\subset\Lambda$. Тогда мы имеем неравенства $
+\sup_{\lambda\in\Lambda}|\widetilde{g}(\lambda)|
+\geq\Vert\widetilde{M}_{\widetilde{g}}\left(\sum\nolimits_{\lambda\in F}e_\lambda\right)\Vert_{\ell_\infty(\Lambda)}
+\geq c\left\Vert\sum\nolimits_{\lambda\in F}e_\lambda\right\Vert_{\ell_p(\Lambda)}
+=c\operatorname{Card}(F)^{1/p}$. Так как множество $\Lambda$ счетно, то $\sup_{\lambda\in\Lambda}|\widetilde{g}(\lambda)|\geq c\sup_{F\subset\Lambda}\operatorname{Card}(F)^{1/p}=+\infty$. С другой стороны, поскольку $\widetilde{M}_{\widetilde{g}}$ --- ограниченный оператор, мы получаем, что $\sup_{\lambda\in\Lambda}|\widetilde{g}(\lambda)|
+\leq\sup_{\lambda\in\Lambda}\Vert\widetilde{M}_{\widetilde{g}}\Vert\Vert e_\lambda\Vert_{\ell_p(\Lambda)}
+=\Vert\widetilde{M}_{\widetilde{g}}\Vert<+\infty$. Противоречие. 
+
+Если $1\leq q<+\infty$ и $p=+\infty$, то из топологической инъективности $\widetilde{M}_{\widetilde{g}}$ следует наличие вложения несепарабельного пространства $l_\infty(\Lambda)\cong\operatorname{Im}(\widetilde{M}_{\widetilde{g}})$ в сепарабельное пространство $\ell_q(\Lambda)$. Противоречие. Во всех случаях мы получили противоречие, значит, пространство $(\Omega,\Sigma,\mu)$ имеет лишь конечное число атомов. Мы знаем, что $g$ однозначно определяется своими значениями $k_\lambda\in\mathbb{C}$ на атомах. Для того чтобы оператор $M_g$ был по крайней мере инъективным, все эти значения должны быть ненулевыми. Так как множество $\Lambda$ конечно, то мы получаем, что $|g|\geq c:=\min_{\lambda\in\Lambda}|k_\lambda|>0$. 
+
+2) Пусть $p=q$, тогда для всех $\lambda\in\Lambda$ и $\omega\in\Omega_\lambda$ мы имеем $|g(\omega)|=|\widetilde{g}(\lambda)|
+=\Vert \widetilde{M}_{\widetilde{g}}(e_\lambda)\Vert_{\ell_q(\Lambda)}
+\geq c\Vert e_\lambda\Vert_{\ell_p(\Lambda)}
+=c$. Поскольку $\Omega=\bigcup_{\lambda\in\Lambda}\Omega_\lambda$, мы получаем $|g|\geq c$.
+
+$(ii)$$\implies$$ (i)$. Из предположения легко получить, что $|\widetilde{g}|\geq c$. Если $p\neq q$, то мы дополнительно предполагаем, что $(\Omega,\Sigma,\mu)$ имеет конечное число атомов. Следовательно, пространство $L_p(\Omega,\mu)$ конечномерно и оператор $M_g$ топологически инъективен, так как $g$ не принимает нулевых значений на атомах. Если $p=q$, то тогда, очевидно, из ограничений на $g$ получаем, что $M_{g}$ топологически инъективен.
+
+
+%\label{TopInjMultOpCharacOnNonAtomMeasSp} 
+\textbf{Предложение 4.} Пусть $(\Omega,\Sigma,\mu)$ --- пространство с мерой, не содержащее атомов, $p,q\in[1,+\infty]$ и $g\in L_0(\Omega,\Sigma)$. Тогда следующие условия эквивалентны:
+
+$(i)$ $M_g\in\mathcal{B}(L_p(\Omega,\mu),L_q(\Omega,\mu))$ --- топологически инъективный оператор;
+
+$(ii)$ $|g|\geq c$ для некоторого $c>0$, и $p=q$.
+
+
+\textbf{Доказательство.} $(i)$$\implies$$ (ii)$. Согласно условию $\Vert M_g(f)\Vert_{L_q(\Omega,\mu)}\geq c\Vert f\Vert_{L_p(\Omega,\mu)}$ для всех $f\in L_p(\Omega,\mu)$ и некоторого $c>0$. Мы рассмотрим три случая. 
+
+Пусть $p>q$, тогда существуют $C>0$ и множество $E\in\Sigma$ положительной меры, такие, что $|g|_E|\leq C$, иначе $M_g$ не определен корректно. Возьмем произвольную последовательность $\{E_n:n\in\mathbb{N}\}\subset\Sigma$ подмножеств $E$, такую, что $\mu(E_n)=2^{-n}$. Заметим, что
+$$
+c
+\leq\Vert M_g(\chi_{E_n})\Vert_{L_q(\Omega,\mu)}/\Vert \chi_{E_n}\Vert_{L_p(\Omega,\mu)}
+\leq C\Vert\chi_{E_n}\Vert_{L_q(\Omega,\mu)}/\Vert \chi_{E_n}\Vert_{L_p(\Omega,\mu)}
+\leq C\mu(E_n)^{1/q-1/p}.
+$$
+Поэтому из неравенства $p>q$ мы получим противоречие, так как
+$$
+c
+\leq\inf_{n\in\mathbb{N}}C\mu(E_n)^{1/q-1/p}
+=\\=C\inf_{n\in\mathbb{N}} 2^{n(1/p-1/q)}=0.
+$$ 
+Теперь пусть $p<q$, тогда существуют $c'>0$ и множество $E\in\Sigma$ положительной меры, такие, что $|g|_E|>c'$, иначе $g=0$ и оператор $M_g$ не будет топологически инъективным. Возьмем произвольную последовательность $\{E_n:n\in\mathbb{N}\}\subset\Sigma$  подмножеств $E$, такую, что $\mu(E_n)=2^{-n}$. Заметим, что
+$$
+\Vert M_g\Vert
+\geq \Vert M_g(\chi_{E_n})\Vert_{L_q(\Omega,\mu)}/\Vert \chi_{E_n}\Vert_{L_p(\Omega,\mu)}
+\geq c'\Vert\chi_{E_n}\Vert_{L_q(\Omega,\mu)}/\Vert \chi_{E_n}\Vert_{L_p(\Omega,\mu)}
+\geq c'\mu(E_n)^{1/q-1/p}.
+$$
+Поэтому из неравенства $p<q$ мы получим противоречие, так как 
+$$
+\Vert M_g\Vert
+\geq\sup_{n\in\mathbb{N}}c'\mu(E_n)^{1/q-1/p}\\
+\geq c'\sup_{n\in\mathbb{N}}2^{n(1/p-1/q)}
+=+\infty.
+$$ 
+Наконец, пусть $p=q$. Фиксируем $c'<c$. Допустим, что найдется множество $E\in\Sigma$ положительной меры, такое, что $|g|_{E}|<c'$. Тогда $\Vert M_g(\chi_{E})\Vert_{L_p(\Omega,\mu)}
+=\Vert g \cdot\chi_{E}\Vert_{L_p(\Omega,\mu)}
+\leq c' \Vert \chi_{E}\Vert_{L_p(\Omega,\mu)}
+<c\Vert \chi_{E}\Vert_{L_p(\Omega,\mu)}$. Противоречие. Так как $c'<c$ произвольно, то мы заключаем, что $|g|_E|\geq c$ для любого множества $E\in\Sigma$ положительной меры. Значит, $|g|\geq c$. 
+
+$(ii)$$\implies$$ (i)$. Импликация очевидна.
+
+%\label{TopInjMultOpCharacBtwnTwoContMeasSp} 
+\textbf{Предложение 5.} Пусть $(\Omega,\Sigma,\mu)$ --- произвольное пространство с мерой, $p,q\in[1,+\infty]$ и $g,\rho\in L_0(\Omega,\Sigma)$, причем $\rho$ --- неотрицательная функция. Тогда следующие условия эквивалентны:
+
+$(i)$ $M_g\in\mathcal{B}(L_p(\Omega,\mu),L_q(\Omega,\rho\cdot\mu))$ --- топологически инъективный оператор;
+
+$(ii)$ $M_g\in\mathcal{B}(L_p(\Omega,\mu),L_q(\Omega,\rho\cdot\mu))$ --- топологический изоморфизм;
+
+$(iii)$ функция $\rho$ положительна, $|g\cdot \rho^{1/q}|\geq c$ для некоторого $c>0$, при этом если $p\neq q$, то пространство $(\Omega,\Sigma,\mu)$ состит из конечного числа атомов.
+
+\textbf{Доказательство.} $(i)$$\implies$$ (iii)$. Так как $M_g(\chi_{\rho^{-1}(\{0\})})=0$ в $L_q(\Omega,\rho\cdot\mu)$ и оператор $M_g$ топологически инъективен, то функция $\rho$ должна быть положительной. Следовательно, корректно определен изометрический изоморфизм $\bar{I}_q:L_q(\Omega,\mu)\to L_q(\Omega,\rho\cdot\mu),f\mapsto \rho^{-1/q}\cdot f$. Тогда оператор $M_{g\cdot\rho^{1/q}}=\bar{I}_q^{-1} M_g\in\mathcal{B}(L_p(\Omega,\mu),L_q(\Omega,\mu))$ также топологически инъективен. Рассмотрим представление $\Omega=\Omega_a^{\mu}\cup\Omega_{na}^{\mu}$ пространства $\Omega$ в виде объединения атомической и неатомической части. По предложению  1 оператор $M_{g\cdot\rho^{1/q}}$ топологически инъективен тогда и только тогда, когда топологически инъективны операторы $M_{g\cdot\rho^{1/q}}^{\Omega_a^{\mu}}$ и $M_{g\cdot\rho^{1/q}}^{\Omega_{na}^{\mu}}$. Осталось воспользоваться предложениями 3, 4.
+
+$(iii)$$\implies$$ (i)$. Используя предложения 3, 4, мы видим, что оператор $M_{g\cdot\rho^{1/q}}$ топологически инъективен. Так как функция $\rho$ положительна, то существует изометрический изоморфизм $\bar{I}_q$. Следовательно, оператор $M_g=\bar{I}_q M_{g\cdot\rho^{1/q}}$ также топологически инъективен.
+
+$(i)$$\implies$$ (ii)$. Как мы показали ранее, оператор $M_{g\cdot\rho^{1/q}}$ топологически инъективен и $\bar{I}_q$ является изометрическим изоморфизмом. Если $p=q$, то из предыдущих рассуждений следует, что $|{g\cdot\rho^{1/q}}|\geq c>0$. Также мы имеем неравенство $C\geq |{g\cdot\rho^{1/q}}|$ для некоторого $C>0$, поскольку $M_{{g\cdot\rho^{1/q}}}$ ограничен. Таким образом, $M_{{g\cdot\rho^{1/q}}}$ является топологическим изоморфизмом. Если $p\neq q$, то по предыдущим рассуждениям пространство $(\Omega,\Sigma,\mu)$ состоит из конечного числа атомов и функция $g\cdot\rho^{1/q}$ не принимает нулевых значений ни на одном атоме. Следовательно, $M_{g\cdot\rho^{1/q}}$ --- инъективный оператор между конечномерными пространствами одинаковой размерности $\operatorname{Card}(\Lambda)$, поэтому он является изоморфизмом. Значит, $M_g=\bar{I}_q M_{g\cdot\rho^{1/q}}$ является топологическим изоморфизмом как композиция топологических изоморфизмов.
+
+$(ii)$$\implies$$ (i)$. Импликация очевидна.
+
+
+%\label{TopInjMultOpCharacBtwnTwoMeasSp} 
+\textbf{Теорема 2.} Пусть $(\Omega,\Sigma,\mu)$, $(\Omega,\Sigma,\nu)$ --- два пространства с мерой, $p,q\in[1,+\infty]$ и $g\in L_0(\Omega,\Sigma)$. Тогда следующие условия эквивалентны:
+
+$(i)$ $M_g\in\mathcal{B}(L_p(\Omega,\mu), L_q(\Omega,\nu))$ --- топологически инъективный оператор;
+
+$(ii)$ $M_g^{\Omega_c^{\nu,\mu}}$ --- топологически инъективный оператор;
+
+$(iii)$ функция $\rho_{\nu,\mu}|_{\Omega_c^{\nu,\mu}}$ положительна, $|g\cdot\rho_{\nu,\mu}^{1/q}|_{\Omega_c^{\nu,\mu}}|\geq c$ для некоторого $c>0$, если $p\neq q$, то пространство $(\Omega,\Sigma,\mu)$ состоит из конечного числа атомов.
+
+\textbf{Доказательство.} По предложению 1, оператор $M_g$ топологически инъективен тогда и только тогда, когда операторы $M_g^{\Omega_c^{\nu,\mu}}:L_p(\Omega_c^{\nu,\mu},\mu|_{\Omega_c^{\nu,\mu}})\to L_q(\Omega_c^{\nu,\mu},\rho_{\nu,\mu}\cdot\mu|_{\Omega_c^{\nu,\mu}})$ и $M_g^{\Omega_s^{\nu,\mu}}:L_p(\Omega_s^{\nu,\mu},\mu|_{\Omega_s^{\nu,\mu}})\to L_q(\Omega_s^{\nu,\mu},\nu_s|_{\Omega_s^{\nu,\mu}})$ топологически инъективны. По предложению 2, оператор $M_g^{\Omega_s^{\nu,\mu}}$ нулевой. Так как $\mu(\Omega_s^{\nu,\mu})=0$, то пространство $L_p(\Omega_s^{\nu,\mu},\mu|_{\Omega_s^{\nu,\mu}})=\{0\}$, поэтому оператор $M_g^{\Omega_s^{\nu,\mu}}$ топологически инъективен. Следовательно, топологическая инъективность $M_g$ эквивалентна топологической инъективности оператора  $M_g^{\Omega_c^{\nu,\mu}}$. Осталось применить предложение 5.
+
+%\label{TopInjMultOpDescBtwnTwoMeasSp} 
+\textbf{Теорема 3.} Пусть $(\Omega,\Sigma,\mu)$, $(\Omega,\Sigma,\nu)$ --- два пространства с мерой, $p,q\in[1,+\infty]$ и $g\in L_0(\Omega,\Sigma)$. Тогда следующие условия эквивалентны:
+
+$(i)$ $M_g\in\mathcal{B}(L_p(\Omega,\mu),L_q(\Omega,\nu))$ --- топологически инъективный оператор;
+
+$(ii)$ $M_{\chi_{\Omega_c^{\nu,\mu}}/g}\in\mathcal{B}(L_q(\Omega,\nu), L_p(\Omega,\mu))$ --- топологически сюръективный левый обратный оператор к $M_g$.
+
+\textbf{Доказательство.} $(i)$$\implies$$ (ii)$. Из условия следует, что оператор $M_g^{\Omega_c^{\nu,\mu}}$ топологически инъективен. По предложению 5 оператор $M_g^{\Omega_c^{\nu,\mu}}$ обратим и, очевидно,  $(M_g^{\Omega_c^{\nu,\mu}})^{-1}=M_{1/g}^{\Omega_c^{\nu,\mu}}$. Оператор $M_{\chi_{\Omega_c^{\nu,\mu}}/g}$ ограничен, поскольку для любого $h\in L_q(\Omega,\nu)$ мы имеем 
+$$
+\Vert M_{\chi_{\Omega_c^{\nu,\mu}}/g}(h)\Vert_{L_p(\Omega,\mu)}=
+\Vert M_{1/g}^{\Omega_c^{\nu,\mu}}(h|_{\Omega_c^{\nu,\mu}})\Vert_{L_p(\Omega_c^{\nu,\mu},\mu|_{\Omega_c^{\nu,\mu}})}
+\leq\Vert M_{1/g}^{\Omega_c^{\nu,\mu}}\Vert\Vert h|_{\Omega_c^{\nu,\mu}}\Vert_{L_q(\Omega_c^{\nu,\mu},\nu|_{\Omega_c^{\nu,\mu}})}
+\leq\Vert M_{1/g}^{\Omega_c^{\nu,\mu}}\Vert\Vert h\Vert_{L_q(\Omega,\nu)}.
+$$
+Так как $\mu(\Omega\setminus\Omega_c^{\nu,\mu})=0$, то $\chi_{\Omega_c^{\nu,\mu}}=\chi_{\Omega}$ в $L_p(\Omega,\mu)$, поэтому для всех $f\in L_p(\Omega,\mu)$ выполнено $M_{\chi_{\Omega_c^{\nu,\mu}}/g}(M_g(f))=f\cdot\chi_{\Omega_c^{\nu,\mu}}=f\cdot\chi_{\Omega}=f$. Это означает, что $M_g$ имеет левый обратный оператор умножения. Он топологически сюръективен, так как для любого $f\in L_p(\Omega,\mu)$ мы можем рассмотреть функцию $h=M_g(f)$ и получить,  что $M_{\chi_{\Omega_c^{\nu,\mu}}/g}(h)=f$ и $\Vert h\Vert_{L_q(\Omega,\nu)}\leq\Vert M_g\Vert\Vert f\Vert_{L_p(\Omega,\mu)}$. 
+
+$(ii)$$\implies$$ (i)$. Импликация очевидна.
+
+%\label{IsomMultOpCharacBtwnTwoContMeasSp} 
+\textbf{Предложение 6.} Пусть $(\Omega,\Sigma,\mu)$ --- пространство с мерой, $p,q\in[1,+\infty]$ и $g,\rho\in L_0(\Omega,\Sigma)$, причем $\rho$ --- неотрицательная функция. Тогда следующие условия эквивалентны:
+
+(i) $M_g\in\mathcal{B}(L_p(\Omega,\mu), L_q(\Omega,\rho\cdot\mu))$ --- изометрический оператор;
+
+$(ii)$ $M_g$ --- изометрический изоморфизм;
+
+$(iii)$ функция $\rho$ положительна, $|g\cdot \rho^{1/q}|=\mu(\Omega)^{1/p-1/q}$, при этом если $p\neq q$, то пространство $(\Omega,\Sigma,\mu)$ состоит из одного атома.
+
+\textbf{Доказательство.} $(i)$$\implies$$ (iii)$. Согласно условию, оператор $M_g$ топологически инъективен. Тогда по теореме 2 функция $\rho$ положительна, и поэтому имеет место изометрический изоморфизм $\bar{I}_q:L_q(\Omega,\mu)\to L_q(\Omega,\rho\cdot\mu),f\mapsto \rho^{-1/q}\cdot f$. Следовательно, оператор $M_{g\cdot\rho^{1/q}}=\bar{I}_q^{-1} M_g\in\mathcal{B}(L_p(\Omega,\mu), L_q(\Omega,\mu))$ изометричен как композиция изометрий. Введем обозначение $\bar{g}=g\cdot\rho^{1/q}$. Мы рассмотрим два случая. 
+
+Пусть $p=q$. Допустим, существует множество $E\in\Sigma$ положительной меры, такое, что $|\bar{g}|_E|<1$, тогда $\Vert M_{\bar{g}}(\chi_E)\Vert_{L_p(\Omega,\mu)}
+=\Vert \bar{g}\cdot\chi_E\Vert_{L_p(\Omega,\mu)}
+<\Vert\chi_E\Vert_{L_p(\Omega,\mu)}
+=\Vert M_{\bar{g}}(\chi_E)\Vert_{L_p(\Omega,\mu)}$.
+Противоречие, следовательно, $|\bar{g}|\geq 1$. Аналогично можно показать, что $|\bar{g}|\leq 1$, значит, $|g\cdot\rho^{1/q}|=1=\mu(\Omega)^{1/p-1/q}$. 
+
+Пусть $p\neq q$. По теореме 2, пространство $(\Omega,\Sigma,\mu)$ состоит из конечного числа атомов. Предположим, что есть, по крайней мере, два различных атома $\Omega_1$ и $\Omega_2$. Рассмотрим функции $h_\lambda=\Vert\chi_{\Omega_\lambda}\Vert_{L_p(\Omega,\mu)}^{-1}\chi_{\Omega_\lambda}$, где $\lambda\in\{1,2\}$. Так как $h_1h_2=0$, то $
+\Vert M_{\bar{g}}(h_1)+M_{\bar{g}}(h_2)\Vert_{L_q(\Omega,\mu)}
+=\Vert h_1+h_2\Vert_{L_p(\Omega,\mu)}
+=2^{1/p}$. Аналогично $
+\Vert M_{\bar{g}}(h_1)+M_{\bar{g}}(h_2)\Vert_{L_q(\Omega,\mu)}
+=\left\Vert\left(\Vert M_{\bar{g}}(h_\lambda)\Vert_{L_q(\Omega,\mu)}:\lambda\in\{1,2\}\right)\right\Vert_{\ell_q(\{1,2\})}
+=2^{1/q}$. Мы получили противоречие, так как $p\neq q$. Таким образом, пространство $(\Omega,\Sigma,\mu)$ состоит из одного атома. Через $c$ мы обозначим константное значение функции $\bar{g}$, тогда легко проверить, что $\Vert M_{\bar{g}}(f)\Vert_{L_q(\Omega,\mu)}
+=\mu(\Omega)^{1/q-1/p}|c|\Vert f\Vert_{L_p(\Omega,\mu)}$. Следовательно $|g\cdot\rho^{1/q}|=|\bar{g}|=\mu(\Omega)^{1/p-1/q}$.
+
+$(iii)$$\implies$$ (i)$. Проверяется непосредственно.
+
+$(i)$$\implies$$ (ii)$. В силу предположения оператор $M_g$ топологически инъективен, и по предложению 5 он является изоморфизмом, который согласно условию изометричен.
+
+$(ii)$$\implies$$ (i)$. Импликация очевидна.
+
+
+%\label{IsomMultOpCharacBtwnTwoMeasSp} 
+\textbf{Теорема 4.} Пусть $(\Omega,\Sigma,\mu)$, $(\Omega,\Sigma,\nu)$ --- два пространства с мерой, $p,q\in[1,+\infty]$ и $g\in L_0(\Omega,\Sigma)$. Тогда следующие условия эквивалентны:
+
+$(i)$ $M_g\in\mathcal{B}(L_p(\Omega,\mu),L_q(\Omega,\nu))$ --- изометрический оператор; 
+
+$(ii)$ $M_g^{\Omega_c^{\nu,\mu}}$ --- изометрический оператор;
+
+$(iii)$ функция $\rho_{\nu,\mu}|_{\Omega_c^{\nu,\mu}}$ положительна, $|g\cdot \rho_{\nu,\mu}^{1/q}|_{\Omega_c^{\nu,\mu}}|=\mu(\Omega_c^{\nu,\mu})^{1/p-1/q}$, при этом если $p\neq q$, то пространство $(\Omega,\Sigma,\mu)$ состоит из одного атома.
+
+\textbf{Доказательство.} $(i)$$\implies$$ (ii)$. Следует из предложения 1. 
+
+$(ii)$$\implies$$ (i)$. Рассмотрим произвольную функцию $f\in L_p(\Omega,\mu)$. Так как $\mu(\Omega\setminus\Omega_c^{\nu,\mu})=0$, то $\chi_{\Omega_c^{\nu,\mu}}=\chi_{\Omega}$ в $L_p(\Omega,\mu)$. Как следствие $f=f\chi_{\Omega}=f\chi_{\Omega_c^{\nu,\mu}}=f\chi_{\Omega_c^{\nu,\mu}}\chi_{\Omega_c^{\nu,\mu}}$ и
+$$
+\Vert M_g(f)\Vert_{L_q(\Omega,\nu)}
+=\Vert M_g(f\chi_{\Omega_c^{\nu,\mu}})\chi_{\Omega_c^{\nu,\mu}}\Vert_{L_q(\Omega,\nu)}
+=\Vert M_g^{\Omega_c^{\nu,\mu}}(f|_{\Omega_c^{\nu,\mu}})\Vert_{L_q(\Omega_c^{\nu,\mu},\nu|_{\Omega_c^{\nu,\mu}})}
+=\Vert f|_{\Omega_c^{\nu,\mu}}\Vert_{L_p(\Omega_c^{\nu,\mu},\mu|_{\Omega_c^{\nu,\mu}})}.
+$$
+Так как $\mu(\Omega\setminus\Omega_c^{\nu,\mu})=0$, то $\Vert M_g(f)\Vert_{L_q(\Omega,\nu)}=\Vert f|_{\Omega_c^{\nu,\mu}}\Vert_{L_p(\Omega_c^{\nu,\mu},\mu|_{\Omega_c^{\nu,\mu}})}=\Vert f\Vert_{L_p(\Omega,\mu)}$, значит оператор $M_g$ изометричен.
+
+$(ii)\Longleftrightarrow (iii)$. Следует из предложения 6.
+
+%\label{IsomMultOpDescBtwnTwoMeasSp} 
+\textbf{Теорема 5.} Пусть $(\Omega,\Sigma,\mu)$, $(\Omega,\Sigma,\nu)$ --- два пространства с мерой, $p,q\in[1,+\infty]$ и $g\in L_0(\Omega,\Sigma)$. Тогда следующие условия эквивалентны:
+
+$(i)$ $M_g\in\mathcal{B}(L_p(\Omega,\mu),L_q(\Omega,\nu))$ --- изометрический оператор;
+
+$(ii)$ $M_{\chi_{\Omega_c^{\nu,\mu}}/g}\in\mathcal{B}(L_q(\Omega,\nu), L_p(\Omega,\mu))$ --- строго коизометрический левый обратный оператор к $M_g$.
+
+
+\textbf{Доказательство.} $(i)$$\implies$$ (ii)$. По предложению 1 оператор $M_g^{\Omega_c^{\nu,\mu}}$ изометричен, и тогда по предложению 6 он обратим, причем, очевидно, что  $(M_g^{\Omega_c^{\nu,\mu}})^{-1}=M_{1/g}^{\Omega_c^{\nu,\mu}}$. Так как оператор $M_g^{\Omega_c^{\nu,\mu}}$ изометричен, то таков же и его обратный. Оператор $M_{\chi_{\Omega_c^{\nu,\mu}}/g}$ сжимающий, поскольку для всех $h\in L_q(\Omega,\nu)$ выполнено $\Vert M_{\chi_{\Omega_c^{\nu,\mu}}/g}(h)\Vert_{L_p(\Omega,\mu)}=
+\Vert M_{1/g}^{\Omega_c^{\nu,\mu}}(h|_{\Omega_c^{\nu,\mu}})\Vert_{L_p(\Omega_c^{\nu,\mu},\mu|_{\Omega_c^{\nu,\mu}})}
+=\Vert h|_{\Omega_c^{\nu,\mu}}\Vert_{L_q(\Omega_c^{\nu,\mu},\nu|_{\Omega_c^{\nu,\mu}})}
+\leq \Vert h \Vert_{L_q(\Omega,\nu)}$. Так как $\mu(\Omega\setminus\Omega_c^{\nu,\mu})=0$, то $\chi_{\Omega_c^{\nu,\mu}}=\chi_{\Omega}$ в $L_p(\Omega,\mu)$, поэтому для любой функции $f\in L_p(\Omega,\mu)$ мы имеем $M_{\chi_{\Omega_c^{\nu,\mu}}/g}(M_g(f))=f\cdot\chi_{\Omega_c^{\nu,\mu}}=f\cdot\chi_{\Omega}=f$. Это значит, что $M_g$ имеет левый обратный оператор умножения. Рассмотрим произвольную функцию $f\in L_p(\Omega,\mu)$, тогда для $h=M_g(f)$ выполнено $M_{\chi_{\Omega_c^{\nu,\mu}}/g}(h)=f$ и $\Vert h\Vert_{L_q(\Omega,\nu)}\leq\Vert f\Vert_{L_p(\Omega,\mu)}$. Следовательно, оператор $M_{\chi_{\Omega_c^{\nu,\mu}}/g}$ строго $1$-топологически сюръективный, но он также сжимающий и, значит, строго коизометрический.
+
+$(ii)$$\implies$$ (i)$. Для произвольной функции $f\in L_p(\Omega,\mu)$ найдется функция  $h\in L_q(\Omega,\nu)$, такая, что $M_{\chi_{\Omega_c^{\nu,\mu}}/g}(h)=f$ и $\Vert h\Vert_{L_q(\Omega,\nu)}\leq \Vert f\Vert_{L_p(\Omega,\mu)}$. Следовательно, выполнено неравенство 
+$$
+\Vert M_g(f)\Vert_{L_q(\Omega,\nu)}
+=\Vert M_g(M_{\chi_{\Omega_c^{\nu,\mu}}/g}(h))\Vert_{L_q(\Omega,\nu)}
+=\Vert \chi_{\Omega_c^{\nu,\mu}}h\Vert_{L_q(\Omega,\nu)}
+\leq\Vert h\Vert_{L_q(\Omega,\nu)}
+\leq\Vert f\Vert_{L_p(\Omega,\mu)}.
+$$
+С другой стороны, $M_{\chi_{\Omega_c^{\nu,\mu}}/g}$ сжимающий оператор и левый обратный оператор к  $M_g$, поэтому $\Vert f\Vert_{L_p(\Omega,\mu)}
+=\Vert M_{\chi_{\Omega_c^{\nu,\mu}}/g}(M_g(f))\Vert_{L_p(\Omega,\mu)}
+\leq\Vert M_g(f)\Vert_{L_q(\Omega,\nu)}$. Так как функция $f$ произвольна, то из обоих неравенств мы заключаем, что оператор $M_g$ изометричен.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Описание топологически сюръективных операторов умножения получить несколько проще. Мы покажем, что все такие операторы обратимы справа. Большинство доказательств аналогичны доказательствам для топологически инъективных операторов.
+
+%\label{TopSurMultOpCharacBtwnTwoContMeasSp} 
+\textbf{Предложение 7.} Пусть $(\Omega,\Sigma,\nu)$ --- пространство с мерой, $p,q\in[1,+\infty]$ и $g,\rho\in L_0(\Omega,\Sigma)$, причем $\rho$ --- неотрицательная функция. Тогда следующие условия эквивалентны:
+
+$(i)$ $M_g\in\mathcal{B}(L_p(\Omega,\rho\cdot\nu),L_q(\Omega,\nu))$ --- топологически сюръективный оператор;
+
+$(ii)$ $M_g$ --- топологический изоморфизм;
+
+$(iii)$ функция $\rho$ положительна, $|g\cdot \rho^{-1/p}|\geq c$ для некоторого $c>0$, при этом если $p\neq q$, то пространство $(\Omega,\Sigma,\mu)$ состоит из конечного числа атомов.
+
+
+\textbf{Доказательство.} $(i)$$\implies$$(iii)$. Рассмотрим множество $E=\rho^{-1}(\{0\})$, тогда, очевидно, $\chi_E=0$ в $L_q(\Omega,\rho\cdot\mu)$. Теперь для любой функции $f\in L_p(\Omega,\rho\cdot\nu)$ имеем $M_g(f)\chi_E=M_g(f\cdot\chi_E)=0$ в $L_q(\Omega,\nu)$, следовательно, $\operatorname{Im}(M_g)\subset\{h\in L_q(\Omega,\nu): h|_E=0\}$. Так как оператор $M_g$ сюръективен, то $\nu(E)=0$. Значит, $\rho$ --- положительная функция и корректно определен изометрический изоморфизм $\bar{I}_p:L_p(\Omega,\nu)\to L_p(\Omega,\rho\cdot\nu),f\mapsto \rho^{-1/p}\cdot f$. Поскольку $M_g$ топологически сюръективен, то таков же и $M_{g\cdot\rho^{-1/p}}=M_g \bar{I}_p\in\mathcal{B}(L_p(\Omega,\nu),L_q(\Omega,\nu))$. В частности, оператор $M_{g\cdot\rho^{-1/p}}$ сюръективен и, как было отмечено в начале статьи, инъективен. Таким образом, $M_{g\cdot\rho^{-1/p}}$ биективен, и по теореме Банаха об обратном операторе $M_g$ --- изоморфизм. Осталось применить предложение 5.
+
+$(iii)$$\implies$$ (i)$. Из предложения 5 следует, что оператор $M_{g\cdot\rho^{-1/p}}$ топологически сюръективен и корректно определен изометрический изоморфизм $\bar{I}_p$. Таким образом, $M_g= M_{g\cdot\rho^{-1/p}}\bar{I}_p^{-1}$ также топологически сюръективен.
+
+$(i)$$\implies$$ (ii)$. Как мы показали ранее, оператор $M_{g\cdot\rho^{1/q}}$ топологически сюръективен и $\bar{I}_q$ является изометрическим изоморфизмом. По предложению 5 оператор $M_{g\cdot\rho^{1/q}}$ --- топологический изоморфизм. Таким образом, $M_g=\bar{I}_q M_{g\cdot\rho^{1/q}}$ тоже является топологическим изоморфизмом как композиция топологических изоморфизмов.
+
+$(ii)$$\implies$$ (i)$. Импликация очевидна.
+
+
+%\label{TopSurMultOpCharacBtwnTwoMeasSp} 
+\textbf{Теорема 6.} Пусть $(\Omega,\Sigma,\mu)$, $(\Omega,\Sigma,\nu)$ --- два пространства с мерой, $p,q\in[1,+\infty]$ и $g\in L_0(\Omega,\Sigma)$. Тогда следующие условия эквивалентны:
+
+$(i)$ $M_g\in\mathcal{B}(L_p(\Omega,\mu), L_q(\Omega,\nu))$ --- топологически сюръективный оператор;
+
+$(ii)$ $M_g^{\Omega_c^{\mu,\nu}}$ --- топологический изоморфизм;
+
+$(iii)$ функция $\rho_{\mu,\nu}|_{\Omega_c^{\mu,\nu}}$ неотрицательна, $|g\cdot\rho_{\mu,\nu}^{-1/p}|_{\Omega_c^{\mu,\nu}}|\geq c$ для некоторого $c>0$, при этом если $p\neq q$, то пространство $(\Omega,\Sigma,\mu)$ состоит из конечного числа атомов.
+
+\textbf{Доказательство.} По предложению 1 оператор $M_g$ топологически сюръективен тогда и только тогда, когда операторы $M_g^{\Omega_c^{\mu,\nu}}:L_p(\Omega_c^{\mu,\nu},\rho_{\mu,\nu}\cdot\nu|_{\Omega_c^{\mu,\nu}})\to L_q(\Omega_c^{\mu,\nu},\nu|_{\Omega_c^{\mu,\nu}})$ и $M_g^{\Omega_s^{\mu,\nu}}:L_p(\Omega_s^{\mu,\nu},\mu_s|_{\Omega_s^{\mu,\nu}})\to L_q(\Omega_s^{\mu,\nu},\nu|_{\Omega_s^{\mu,\nu}})$ топологически сюръективны. По предложению 2 оператор $M_g^{\Omega_s^{\mu,\nu}}$ нулевой. Так как $\nu(\Omega_s^{\mu,\nu})=0$, то пространство $L_p(\Omega_s^{\mu,\nu},\nu|_{\Omega_s^{\mu,\nu}})=\{0\}$, следовательно, $M_g^{\Omega_s^{\mu,\nu}}$ топологически сюръективен. Таким образом, топологическая сюръективность оператора $M_g$ эквивалентна топологической сюръективности  $M_g^{\Omega_c^{\mu,\nu}}$. Теперь остается применить предложение 7.
+
+
+%\label{TopSurMultOpDescBtwnTwoMeasSp} 
+\textbf{Теорема 7.} Пусть $(\Omega,\Sigma,\mu)$, $(\Omega,\Sigma,\nu)$ --- два пространства с мерой, $p,q\in[1,+\infty]$ и $g\in L_0(\Omega,\Sigma)$. Тогда следующие условия эквивалентны:
+
+$(i)$ $M_g\in\mathcal{B}(L_p(\Omega,\mu),L_q(\Omega,\nu))$ --- топологически сюръективный оператор;
+
+$(ii)$ $M_{\chi_{\Omega_c^{\mu,\nu}}/g}\in\mathcal{B}(L_q(\Omega,\nu), L_p(\Omega,\mu))$ --- топологически инъективный правый обратный оператор к $M_g$.
+
+\textbf{Доказательство.} $(i)$$\implies$$ (ii)$. Из условия следует, что оператор $M_g^{\Omega_c^{\mu,\nu}}$ топологически сюръективен. По предложению 7 оператор $M_g^{\Omega_c^{\mu,\nu}}$ обратим, причем, очевидно, $(M_g^{\Omega_c^{\mu,\nu}})^{-1}=M_{1/g}^{\Omega_c^{\mu,\nu}}$. Оператор $M_{\chi_{\Omega_c^{\mu,\nu}}/g}$ ограничен, поскольку для любого $h\in L_q(\Omega,\nu)$ выполнено 
+$$
+\Vert M_{\chi_{\Omega_c^{\mu,\nu}}/g}(h)\Vert_{L_p(\Omega,\mu)}=
+\Vert M_{1/g}^{\Omega_c^{\mu,\nu}}(h|_{\Omega_c^{\mu,\nu}})\Vert_{L_p(\Omega_c^{\mu,\nu},\mu|_{\Omega_c^{\mu,\nu}})}
+\leq\Vert M_{1/g}^{\Omega_c^{\mu,\nu}}\Vert\Vert h|_{\Omega_c^{\mu,\nu}}\Vert_{L_q(\Omega_c^{\mu,\nu},\nu|_{\Omega_c^{\mu,\nu}})}
+\leq\Vert M_{1/g}^{\Omega_c^{\mu,\nu}}\Vert\Vert h\Vert_{L_q(\Omega,\nu)}.
+$$ 
+Так как $\nu(\Omega\setminus\Omega_c^{\mu,\nu})=0$, то $\chi_{\Omega_c^{\mu,\nu}}=\chi_{\Omega}$, поэтому $M_g(M_{\chi_{\Omega_c^{\mu,\nu}}/g}(h))=h\cdot\chi_{\Omega_c^{\mu,\nu}}=h\cdot\chi_{\Omega}=h$. Это означает, что $M_g$ имеет правый обратный оператор умножения. Он топологически инъективен, поскольку для любой функции $h\in L_q(\Omega,\nu)$ выполнено неравенство $\Vert M_{\chi_{\Omega_c^{\mu,\nu}}/g}(h)\Vert_{L_p(\Omega,\mu)}
+\geq\Vert M_g\Vert\Vert M_g(M_{\chi_{\Omega_c^{\mu,\nu}}/g}(h))\Vert_{L_q(\Omega,\nu)}
+\geq\Vert M_g\Vert\Vert h\Vert_{L_q(\Omega,\nu)}$.
+
+$(ii)$$\implies$$ (i)$. Импликация очевидна.
+
+%\label{CoisomMultOpCharacBtwnTwoContMeasSp} 
+\textbf{Предложение 8.} Пусть $(\Omega,\Sigma,\nu)$ --- пространство с мерой, $p,q\in[1,+\infty]$ и $g,\rho\in L_0(\Omega,\Sigma)$, причем $\rho$ --- неотрицательная функция. Тогда следующие условия эквивалентны:
+
+$(i)$ $M_g\in\mathcal{B}(L_p(\Omega,\rho\cdot\nu),L_q(\Omega,\nu))$ --- коизометрический оператор;
+
+$(ii)$ $M_g$ --- изометрический изоморфизм;
+
+$(iii)$ функция $\rho$ неотрицательна, $|g\cdot \rho^{-1/p}|=\mu(\Omega)^{1/p-1/q}$, при этом если $p\neq q$, то пространство $(\Omega,\Sigma,\mu)$ состоит из одного атома.
+
+\textbf{Доказательство.} $(i)$$\implies$$ (iii)$. По условию оператор $M_g$ топологически сюръективен, и по предложению 7 функция $\rho$ положительна. Таким образом, имеет место изометрический изоморфизм $\bar{I}_p:L_p(\Omega,\nu)\to L_p(\Omega,\rho\cdot\nu),f\mapsto \rho^{-1/p}\cdot f$. Так как оператор $M_g$ коизометричен, то таков же и оператор $M_{g\cdot \rho^{-1/p}}=M_g\bar{I}_p\in\mathcal{B}(L_p(\Omega,\nu),L_q(\Omega,\nu))$. В частности, оператор $M_{g\cdot \rho^{-1/p}}$ сюръективен, следовательно, как отмечалось выше, инъективен. Заметим, что инъективные коизометрические операторы изометричны. Осталось применить предложение 6.
+
+$(iii)$$\implies$$ (i)$. Проверяется непосредственно.
+
+$(i)$$\implies$$ (ii)$. Ввиду предположения оператор $M_g$ топологически сюръективен. По предложению 7 он изоморфизм, следовательно, биективен. Осталось напомнить, что всякая биективная коизометрия есть изометрический изоморфизм.
+
+$(ii)$$\implies$$ (i)$. Импликация очевидна.
+
+%\label{CoisomMultOpCharacBtwnTwoMeasSp} 
+\textbf{Теорема 8.} Пусть $(\Omega,\Sigma,\mu)$, $(\Omega,\Sigma,\nu)$ --- два пространства с мерой, $p,q\in[1,+\infty]$ и $g\in L_0(\Omega,\Sigma)$. Тогда следующие условия эквивалентны:
+
+$(i)$ $M_g\in\mathcal{B}(L_p(\Omega,\mu), L_q(\Omega,\nu))$ --- коизометрический оператор;
+
+$(ii)$ $M_g^{\Omega_c^{\mu,\nu}}$ --- изометрический изоморфизм;
+
+$(iii)$ функция $\rho_{\mu,\nu}|_{\Omega_c^{\mu,\nu}}$ положительна, $|g\cdot\rho_{\mu,\nu}^{-1/p}|_{\Omega_c^{\mu,\nu}}|=\mu(\Omega_c^{\mu,\nu})^{1/p-1/q}$, при этом если $p\neq q$, то пространство $(\Omega,\Sigma,\mu)$ состоит из одного атома.
+
+\textbf{Доказательство.} $(i)$$\implies$$ (ii)$. Следует из предложений 1 и 8.
+
+$(ii)$$\implies$$ (i)$. Рассмотрим произвольную функцию $h\in L_q(\Omega,\nu)$, тогда существует функция $f\in L_p(\Omega_c^{\mu,\nu},\mu|_{\Omega_c^{\mu,\nu}})$, такая, что $M_g^{\Omega_c^{\mu,\nu}}(f)=h|_{\Omega_c^{\mu,\nu}}$. По предложению 2 оператор $M_g^{\Omega_s^{\mu,\nu}}$ нулевой, поэтому
+$M_g(\widetilde{f})
+=\widetilde{M_g^{\Omega_c^{\mu,\nu}}(\widetilde{f}|_{\Omega_c^{\mu,\nu}})}+\widetilde{M_g^{\Omega_s^{\mu,\nu}}(\widetilde{f}|_{\Omega_s^{\mu,\nu}})}
+=\widetilde{h|_{\Omega_c^{\mu,\nu}}}$.
+Так как $\nu(\Omega_s^{\mu,\nu})=0$, то $h=\widetilde{h|_{\Omega_c^{\mu,\nu}}}$. Таким образом, мы нашли функцию $\widetilde{f}\in L_p(\Omega,\mu)$, такую, что $M_g(\widetilde{f})=h$ и $\Vert \widetilde{f}\Vert_{L_p(\Omega,\mu)}=\Vert f\Vert_{L_p(\Omega_c^{\mu,\nu},\mu|_{\Omega_c^{\mu,\nu}})}=\Vert h|_{\Omega_c^{\mu,\nu}}\Vert_{L_q(\Omega_c^{\mu,\nu},\nu|_{\Omega_c^{\mu,\nu}})}\leq\Vert h\Vert_{L_q(\Omega,\nu)}$. Поскольку функция $h$ произвольна, то оператор $M_g$ является $1$-топологически сюръективным. Для любой функции $f\in L_p(\Omega,\mu)$ выполнено 
+$$
+\Vert M_g(f)\Vert_{L_q(\Omega,\nu)}
+=\Vert\widetilde{M_g^{\Omega_c^{\mu,\nu}}(f|_{\Omega_c^{\mu,\nu}})}+\widetilde{M_g^{\Omega_s^{\mu,\nu}}(f|_{\Omega_s^{\mu,\nu}})}\Vert_{L_q(\Omega,\nu)}
+=\Vert\widetilde{M_g^{\Omega_c^{\mu,\nu}}
+(f|_{\Omega_c^{\mu,\nu}})}\Vert_{L_q(\Omega,\nu)}=
+$$
+$$
+=\Vert M_g^{\Omega_c^{\mu,\nu}}(f|_{\Omega_c^{\mu,\nu}})\Vert_{L_q(\Omega_c^{\mu,\nu},\nu|_{\Omega_c^{\mu,\nu}})}
+=\Vert f|_{\Omega_c^{\mu,\nu}}\Vert_{L_p(\Omega_c^{\mu,\nu},\mu|_{\Omega_c^{\mu,\nu}})}
+\leq\Vert f \Vert_{L_p(\Omega,\mu)}.
+$$ 
+Так как $f$ --- произвольная функция, то $M_g$ сжимающий оператор, но он также $1$-топологически сюръективен. Таким образом, $M_g$ коизометричен.
+
+$(ii)\Longleftrightarrow (iii)$. Следует из предложения 8.
+
+%\label{CoisomMultOpDescBtwnTwoMeasSp} 
+\textbf{Теорема 9.} Пусть  $(\Omega,\Sigma,\mu)$, $(\Omega,\Sigma,\nu)$ --- два пространства с мерой, $p,q\in[1,+\infty]$ и $g\in L_0(\Omega,\Sigma)$. Тогда следующие условия эквивалентны:
+
+$(i)$ $M_g\in\mathcal{B}(L_p(\Omega,\mu),L_q(\Omega,\nu))$ --- коизометрический оператор;
+
+$(ii)$ $M_{\chi_{\Omega_c^{\mu,\nu}}/g}\in\mathcal{B}(L_q(\Omega,\nu), L_p(\Omega,\mu))$ --- изометрический правый обратный оператор к $M_g$.
+
+\textbf{Доказательство.} $(i)$$\implies$$ (ii)$. Из предложения 1 следует, что оператор $M_g^{\Omega_c^{\mu,\nu}}$ коизометричен. По предложению 8 оператор $M_g^{\Omega_c^{\mu,\nu}}$ изометричен, обратим и, очевидно, $(M_g^{\Omega_c^{\mu,\nu}})^{-1}=M_{1/g}^{\Omega_c^{\mu,\nu}}$. Оператор  $M_{\chi_{\Omega_c^{\mu,\nu}}/g}$ сжимающий, так как для любой функции $h\in L_q(\Omega,\nu)$ выполнено неравенство $\Vert M_{\chi_{\Omega_c^{\mu,\nu}}/g}(h)\Vert_{L_p(\Omega,\mu)}=
+\Vert M_{1/g}^{\Omega_c^{\mu,\nu}}(h|_{\Omega_c^{\mu,\nu}})\Vert_{L_p(\Omega_c^{\mu,\nu},\mu|_{\Omega_c^{\mu,\nu}})}
+=\Vert h|_{\Omega_c^{\mu,\nu}}\Vert_{L_q(\Omega_c^{\mu,\nu},\nu|_{\Omega_c^{\mu,\nu}})}
+\leq\Vert h\Vert_{L_q(\Omega,\nu)}$. Поскольку $\nu(\Omega\setminus\Omega_c^{\mu,\nu})=0$, то $\chi_{\Omega_c^{\mu,\nu}}=\chi_{\Omega}$, поэтому для любой функции $h\in L_q(\Omega,\nu)$ выполнено $M_g(M_{\chi_{\Omega_c^{\mu,\nu}}/g}(h))=h\cdot\chi_{\Omega_c^{\mu,\nu}}=h\cdot\chi_{\Omega}=h$. Это означает, что $M_g$ имеет правый обратный оператор умножения. Рассмотрим произвольную функцию $h\in L_q(\Omega,\nu)$, тогда $\Vert M_{\chi_{\Omega_c^{\mu,\nu}}/g}(h)\Vert_{L_p(\Omega,\mu)}
+\geq\Vert M_g\Vert\Vert M_g(M_{\chi_{\Omega_c^{\mu,\nu}}/g}(h))\Vert_{L_q(\Omega,\nu)}\\
+\geq\Vert h\Vert_{L_q(\Omega,\nu)}$. Так как $h$ --- произвольная функция, то оператор $M_{\chi_{\Omega_c^{\mu,\nu}}/g}$ является $1$-топологически инъективным, но он также сжимающий, следовательно, изометрический.
+
+$(ii)$$\implies$$ (i)$. Рассмотрим произвольную функцию $h\in L_q(\Omega,\nu)$ и функцию $f=M_{\chi_{\Omega_c^{\mu,\nu}}/g}(h)$. Тогда $M_g(f)=M_g(M_{\chi_{\Omega_c^{\mu,\nu}}/g}(h))=h$ и $\Vert f\Vert_{L_p(\Omega,\mu)}\leq\Vert h\Vert_{L_q(\Omega,\nu)}$. Так как $h$ --- произвольная функция, то $M_g$ строго $1$-топологически сюръективен. Пусть $f\in L_p(\Omega,\mu)$. Ввиду изометричности оператора $M_{\chi_{\Omega_c^{\mu,\nu}}/g}$ имеем $\Vert M_g(f)\Vert_{L_q(\Omega,\nu)}
+=\Vert M_{\chi_{\Omega_c^{\mu,\nu}}/g}(M_g(f))\Vert_{L_p(\Omega,\mu)}
+=\Vert f\chi_{\Omega_c^{\mu,\nu}}\Vert_{L_p(\Omega,\mu)}
+\leq\Vert f\Vert_{L_p(\Omega,\mu)}$. Раз $f$ --- произвольная функция, то $M_g$ --- сжимающий оператор, но он также строго $1$-топологически сюръективен, следовательно, строго коизометричен.
+
+Из доказательства видно, что каждый коизометрический оператор умножения строго коизометричен. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\textbf{3. Гомологическая тривиальность категории $B(\Omega)$-модулей $L_p$.} Результаты пп. 1, 2 могут быть сформулированы следующим образом:
+
+
+$i)$ все строго коизометрические и изометрические морфизмы в $B(\Omega)$-$\mathbf{modLp}_1$ суть в точности ретракции и коретракции соответственно;
+
+$ii)$ все топологически сюръективные и топологически инъективные морфизмы в $B(\Omega)$-$\mathbf{modLp}$ суть в точности ретракции и коретракции соответственно.
+
+Теперь напомним определения проективности, инъективности и плоскости из работ [1---3]. Через $\mathbf{Set}$ мы обозначаем категорию множеств, а через $\mathbf{Ban}$ категорию банаховых простраств. 
+
+\textbf{Определение 2.} Пусть $\mathbf{C}$ --- некоторая категория левых $A$-модулей над банаховой алгеброй $A$. Тогда $A$-модуль $X$ в $\mathbf{C}$ называется
+
+$i)$ \textit{метрически (топологически) проективным}, если ковариантный функтор $F_p:=\operatorname{Hom}_{\mathbf{C}}(X,-):\mathbf{C}\to\mathbf{Ban}_1$ ($F_p:=\operatorname{Hom}_{\mathbf{C}}(X,-):\mathbf{C}\to\mathbf{Ban}$) переводит всякий строго коизометрический (топологически сюръективный) морфизм $\xi$ в строго коизометрический (топологически сюръективный);
+
+$ii)$ \textit{метрически (топологически) инъективным}, если контравариантный функтор $F_i:=\operatorname{Hom}_{\mathbf{C}}(-,X):\mathbf{C}\to\mathbf{Ban}_1$ ($F_i:=\operatorname{Hom}_{\mathbf{C}}(-,X):\mathbf{C}\to\mathbf{Ban}$) переводит всякий изометрический (топологически инъективный) морфизм $\xi$ в строго коизометрический (топологически сюръективный);
+
+$iii)$ \textit{метрически (топологически) плоским}, если ковариантный функтор $F_f:=-\widehat{\otimes}_{B(\Omega)}X:\mathbf{C}\to\mathbf{Ban}_1$ ($F_f:=-\widehat{\otimes}_{B(\Omega)}X:\mathbf{C}\to\mathbf{Ban}$) переводит всякий изометрический (топологически инъективный) морфизм $\xi$ в изометрию (топологически инъективный оператор).
+
+\textbf{Теорема 10.} Пусть $(\Omega,\Sigma)$ --- измеримое пространство и $\mu\in M(\Omega)$, тогда $L_p(\Omega,\mu)$ --- метрически (топологически) проективный, инъективный и плоский модуль в $B(\Omega)$-$\mathbf{modLp}_1$ ($B(\Omega)$-$\mathbf{modLp}$).
+
+\textbf{Доказательство.} Мы проведем доказательство лишь для первого случая, поскольку для второго случая доказательства аналогичны. Обозначим $X=L_p(\Omega,\mu)$ и $\mathbf{C}=B(\Omega)$-$\mathbf{modLp}_1$.  
+
+Так как любой строго коизометрический морфизм $\xi$ в $\mathbf{C}$ есть ретракция, то морфизм $F_p(\xi)$ --- ретракция в $\mathbf{Ban}_1$, а значит, строго коизометричен. Поскольку морфизм $\xi$ произволен, то модуль $X$ метрически проективен.
+
+Так как любой изометрический морфизм $\xi$ в $\mathbf{C}$ есть коретракция, то морфизм $F_i(\xi)$ --- ретракция в $\mathbf{Ban}_1$, а значит, строго коизометричен. Поскольку морфизм $\xi$ произволен, то модуль $X$ метрически инъективен.
+
+Так как любой изометрический морфизм $\xi$ в $\mathbf{C}$ есть коретракция, то морфизм $F_f(\xi)$ --- коретракция в $\mathbf{Ban}_1$, и в частности изометрия. Поскольку морфизм $\xi$ произволен, то модуль $X$ метрически плоский.
+
+
+\newpage
+
+
+\textbf{\spisoklit}
+{\small\wrefdef{4}
+
+\wref{1}
+{Хелемский А.Я.}
+Метрическая свобода и проективность для классических и квантовых нормированных модулей
+// Матем. сб. 2013. \textbf{204}, №7. 127-158.
+
+\wref{2}
+{Helemskii A.Ya.}
+Extreme version of projectivity for normed modules over sequence algebras
+// Can. J. Math. 2013. \textbf{65}. 559-574.
+
+\wref{3}
+{Helemskii A.Ya.}
+Metric version of flatness and Hahn-Banach type theorems
+for normed modules over sequence algebras
+// Stud. Math. 2011. \textbf{206}, №2. 135-160.
+
+\wref{4}
+{Хелемский А.Я.}
+Тензорные произведения и мультипликаторы модулей $L_p$ на локально компактных пространствах с мерой 
+// Матем. зам. 2014. \textbf{96}, №3. 450–469.
+
+
+\wref{5}
+{Богачев В.И.}
+Основы теории меры. 2-е изд. М.; Ижевск: РХД, 2006.
+
+\wref{6}
+{Albiac F., Kalton N.J.}
+Topics in Banach space theory. Springer Inc. New-York, 2006.
+
+\postupila{13.02.2015}
+
+}
+\lend
+
+
+\end{document}
