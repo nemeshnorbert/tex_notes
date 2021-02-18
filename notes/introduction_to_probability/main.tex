@@ -1,0 +1,684 @@
+%\title{Intro to probability}
+\documentclass[10pt]{article}
+\usepackage[left=2cm,right=2cm,
+top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage[utf8]{inputenc} 
+\usepackage[final]{graphicx} 
+\usepackage{mathrsfs}
+
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{proposition}{Proposition}
+\newtheorem*{remark}{Remark}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{definition}{Definition}
+\newtheorem*{example}{Example}
+
+
+
+\begin{document}
+\section{Probability}
+
+\subsection{Foundations}
+
+\subsubsection{Events}
+
+Explanation and notation
+
+1. $\varnothing$ - is an event that never happens
+
+2. $\Omega$ - all elementary events
+
+3. Some $\sigma$-algebra on $\Omega$. Its elements are called events.
+
+4. Let $A$, $B$ be some events (may be composite events). Then 
+\begin{itemize}
+\item $A\cap B$ - both $A$ and $B$ happened;
+\item $A\cup B$ - at least $A$ or $B$ or both happened;
+\item $A\setminus B$ - $A$ happened, but$B$ didn't happen;
+\item $\overline{A}$ -  $A$ didn't happen;
+\item $A\triangle B$ - either $A$ or $B$ happened but not both.
+\end{itemize}
+
+4. Note $2^\Omega$ denotes all events, or in other words all subsets in $\Omega$.
+
+\begin{example}
+
+Suppose we are given a fair dice with six sides. Let $\Omega=\{\omega_1,\omega_2,\ldots.\omega_6\}$ be 6 possible outcomes. and let $A=\{\omega_1, \omega_3\}$ and $B=\{\omega_3,\omega_4,\omega_5\}$ be some events. Then
+\begin{align}
+A\cap B&=\{\omega_3\}\\
+A\cup B&=\{\omega_1,\omega_3,\omega_4,\omega_5\}\\
+A\setminus B&=\{\omega_1\}\\
+B\setminus A&=\{\omega_4,\omega_4\}\\
+\overline{A}&=\{\omega_4,\omega_5,\omega_6,\omega_2\}\\
+\overline{B}&=\{\omega_1,\omega_2,\omega_6\}
+\end{align} 
+\end{example}
+
+\begin{proposition} De Morgan's laws
+
+\begin{align}
+\overline{\bigcup_{i=1}^n A_i}=\bigcap_{i=1}^n\overline{A_i}\\
+\overline{\bigcap_{i=1}^n A_i}=\bigcup_{i=1}^n\overline{A_i}\\
+\end{align}
+
+In particular,
+\begin{align}
+\overline{A\cup B}=\overline{A}\cap\overline{B}\\
+\overline{A\cap B}=\overline{A}\cup\overline{B}
+\end{align}
+
+\end{proposition}
+
+\subsubsection{Probability space}
+
+Probability space is a triple $(\Omega, \mathcal{F}, \mathbb{P})$, where $\Omega$ - is a set of elementary events and $\mathbb{P}:\mathcal{F}\to [0,1]$ - is a probability function satisfying axioms of pobability.
+
+Axioms of probability:
+\begin{align}
+\mathbb{P}(\varnothing)&=0\\
+\mathbb{P}(\Omega)&=1\\
+\mathbb{P}(A\cup B)&=\mathbb{P}(A)+\mathbb{P}(B) \mbox{ whenever } A,B\in\mathcal{F}\quad A\cap B=\varnothing
+\end{align}
+
+Properties
+\begin{align}
+\mathbb{P}(\overline{A})&=1-\mathbb{P}(A)\\
+\mathbb{P}(A\cup B)&=\mathbb{P}(A)+\mathbb{P}(B)-\mathbb{P}(A\cap B)\\
+\mathbb{P}(A\cup B\cup C)&=\mathbb{P}(A)+\mathbb{P}(B)+\mathbb{P}(C)-\mathbb{P}(A\cap B)-\mathbb{P}(B\cap C)-\mathbb{P}(C\cap A)+\mathbb{P}(A\cap B\cap C)
+\end{align}
+
+Inclusion exclusion principle
+
+\begin{align}
+\mathbb{P}\left(\bigcup_{i=1}^n A_i\right)=\mathbb{P}(A_1\cup A_2\cup \ldots \cup A_n)
+&=\sum_{i_1} \mathbb{P}(A_{i_1})\\
+&-\sum_{i_1<i_2}\mathbb{P}(A_{i_1}\cap A_{i_2})\\
+&+\sum_{i_1<i_2<i_3}\mathbb{P}(A_{i_1}\cap A_{i_2}\cap A_{i_3})\\
+&\ldots\\
+&+(-1)^{k-1}\sum_{i_1<i_2<\ldots<i_k}\mathbb{P}(A_{i_1}\cap A_{i_2}\cap\ldots\cap A_{i_k})\\
+&\ldots\\
+&+(-1)^{n-1}\mathbb{P}(A_{i_1}\cap\ldots\cap A_{i_n})
+\end{align}
+
+\subsubsection{Examples of probability spaces}
+
+\begin{example}
+A fair dice with six sides.
+
+We have
+$$
+\Omega=\{\omega_1,\omega_2,\ldots.\omega_6\}
+$$
+where $\omega_i$ - is an elementary event where we scored $i$ points.
+$$
+\mathcal{F}=2^\Omega=\{\varnothing,\{\omega_1\},\ldots,\{\omega_6\},\{\omega_1,\omega_2\},\{\omega_1,\omega_3\},\ldots\{\omega_5,\omega_6\},\{\omega_1,\omega_2,\omega_3\},\ldots,\{\omega_1,\omega_2,\ldots,\omega_6\}\}
+$$
+$$
+\mathbb{P}(\omega_1)=\mathbb{P}(\omega_2)=\ldots=\mathbb{P}(\omega_6)=\frac{1}{6}
+$$
+As the consequence
+$$
+\mathbb{P}(\{\omega_1, \omega_4,\omega_2\})=\mathbb{P}(\omega_1)+\mathbb{P}(\omega_4)+\mathbb{P}(\omega_2)=\frac{3}{6}=\frac{1}{2}
+$$
+\end{example}
+
+\begin{example}
+
+Assume we are given a \textbf{nonfair} dice with six sides.
+
+We have
+$$
+\Omega=\{\omega_1,\omega_2,\ldots.\omega_6\}
+$$
+where $\omega_i$ - is an elementary event where we scored $i$ points.
+\begin{align}
+\mathbb{P}(\omega_1)&=0.9\\
+\mathbb{P}(\omega_2)&=\ldots=\mathbb{P}(\omega_6)=0.02
+\end{align}
+
+\end{example}
+
+\begin{example} Bernoulli trials. 
+
+a) Tossing a coin (1 trial). Probability space
+$$
+\Omega=\{0, 1\},\qquad \mathcal{F}=2^{\Omega}
+$$
+$$
+\mathbb{P}(\{0\})=p,\qquad \mathbb{P}(\{1\})=1-p
+$$
+
+b) Tossing a coin ($n$ trials). Probability space
+
+$\Omega$ --- all $n$-tuples of zeros and ones, that is
+$$
+\Omega=\{
+(0,0,\ldots,0,0),
+(0,0,\ldots,0,1),
+(0,0,\ldots,1,0),
+(0,0,\ldots,1,1),
+\ldots,
+(1,1,\ldots,1)
+\}
+$$
+$$
+\mathcal{F}=2^\Omega
+$$
+There are $2^n$ elementary events here.
+
+Let $A$ be an elementary event, say $A=(0,1,0,1,1,1,0,0,0,1,0,1,1,,\ldots,0)$ with $k$ heads and $n-k$ - tails.
+
+$$
+\mathbb{P}(A)=p^k(1-p)^{n-k}
+$$
+
+Consider event $B_k$: there were $k$ heads after $n$ tosses. What's probability of $B$?
+$$
+\mathbb{P}(B_k)=C_n^kp^k(1-p)^{n-k}
+$$
+Because $B_k$ consist of $C_n^k$ elementary events each with $k$ heads and $n-k$ tails.
+
+Consider event $C_k$: there were at least $k$ heads with $n$ tosses. Clearly,
+$$
+C_k=B_k\cup B_{k+1}\cup\ldots\cup B_n
+$$
+$$
+\mathbb{P}(C_k)
+=\mathbb{P}(B_k\cup B_{k+1}\cup\ldots\cup B_n)
+=\sum_{i=k}^n \mathbb{P}(B_i)
+=\sum_{i=k}^n C_n^ip^i(1-p)^{n-i}
+$$
+Consider event $D_k$: there were less than $k$ heads with $n$ tosses. 
+
+$$
+\mathbb{P}(D_k)=\sum_{i=0}^{k-1}C_n^ip^i(1-p)^{n-i}
+$$
+
+\end{example}
+
+\subsubsection{Conditional probability}
+
+\begin{definition} Conditional probability $\mathbb{P}(A|B)$ of event $A$ given $B$ has happened defined as
+\begin{align}
+\mathbb{P}(A|B)=\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}
+\end{align}
+\end{definition}
+
+Law of total probability. Assume $B_1\cup B_2\cup\ldots\cup B_n=\Omega$ and all $B_i$'s are disjoint
+\begin{align}
+\mathbb{P}(A)
+&=\mathbb{P}(A\cap B_1)+\mathbb{P}(A\cap B_2)+\ldots+\mathbb{P}(A\cap B_n)\\
+&=\mathbb{P}(A| B_1)\mathbb{P}(B_1)+\mathbb{P}(A| B_2)\mathbb{P}(B_2)+\ldots+\mathbb{P}(A| B_n)\mathbb{P}(B_n)\\
+\end{align}
+
+Corollaries
+
+\begin{align}
+\mathbb{P}(A|C)
+&=\mathbb{P}(A|B_1,C)\mathbb{P}(B_1)+\mathbb{P}(A|B_2,C)\mathbb{P}(B_2)+\ldots+\mathbb{P}(A|B_n,C)\mathbb{P}(B_n)\\
+&=\mathbb{P}(A\cap B_1|C)+\mathbb{P}(A\cap B_2|C)+\ldots+\mathbb{P}(A\cap B_n|C)
+\end{align}
+
+\begin{align}
+\mathbb{P}(A)
+&=\mathbb{P}(A|B)\mathbb{P}(B)+\mathbb{P}(A|\overline{B})\mathbb{P}(\overline{B})\\
+&=\mathbb{P}(A\cap B)+\mathbb{P}(A\cap\overline{B})
+\end{align}
+
+Bayes' rules
+
+\begin{align}
+\mathbb{P}(A|B)&=\frac{\mathbb{P}(B|A)\mathbb{P}(A)}{\mathbb{P}(B)}\\
+\mathbb{P}(A|B,C)&=\frac{\mathbb{P}(B|A,C)\mathbb{P}(A|C)}{\mathbb{P}(B|C)}
+\end{align}
+
+\subsubsection{Independent events}
+
+\begin{definition}
+We say that events $A_1,\ldots,A_n$ are independent if for any distinct indices $1<i_1<\ldots<i_k<n$ holds
+\begin{align}
+\mathbb{P}(A_{i_1}\cap A_{i_2}\cap\ldots\cap A_{i_k})=\mathbb{P}(A_{i_1})\mathbb{P}(A_{i_2})\ldots\mathbb{P}(A_{i_k})
+\end{align}
+\end{definition}
+
+In particular, events $A$ and $B$ are independent if and only if one of the following holds
+\begin{itemize}
+\item $\mathbb{P}(A\cap B)=\mathbb{P}(A)\mathbb{P}(B)$
+\item $\mathbb{P}(A|B)=\mathbb{P}(A)$
+\item $\mathbb{P}(B|A)=\mathbb{P}(B)$
+\end{itemize}
+
+
+
+\subsection{Random variables}
+
+Random variable (RV for short) is an $\mathcal{F}$-measurable function $X:\Omega\to\mathbb{R}$.
+
+\subsubsection{Distribution}
+
+\begin{definition} Cumulative distribution function (CDF) of an RV $X$ is defined as
+\begin{align}
+F_X(t)=\mathbb{P}(\{X\leq t\})=\mathbb{P}(\{\omega\in\Omega:X(\omega)\leq t\})
+\end{align}
+\end{definition}
+
+Properties of CDF
+
+\begin{itemize}
+\item $F_X(t)$ is a non-decreasing function
+\item $F_X(t)\to 0$ as $t\to-\infty$
+\item $F_X(t)\to 1$ as $t\to 1$
+\item for any $c$ we have $F(t)\to F(c)$ as $t\to c+0$
+\end{itemize}
+
+It is clear from definition, that
+\begin{align}
+\mathbb{P}(\{a< X\leq b\})=F_X(b)-F_X(a)
+\end{align}
+
+An RV is called continuous random variable (CRV) if its CDF is absolutely continuous. If an RV is not continuous it is called discrete random variable (DRV).
+
+For any CRV $X$ we always have $\mathbb{P}(X=t)=0$, so
+\begin{align}
+\mathbb{P}(X\leq t)=\mathbb{P}(X<t)=F_X(t)
+\end{align}
+
+\begin{definition}
+Let $X$ be a CRV, then its probability density function (PDF) is defined as
+$$
+f_X(t)=\frac{d}{dt}F_X(t)
+$$
+Let $X$ be a DRV, then its probability density function (PDF) is defined as
+$$
+f_X(t)=\mathbb{P}(X=t)
+$$
+\end{definition}
+
+Properties of PDF
+\begin{itemize}
+\item $f_X(t)$ is non-negative
+\item If $X$ is a CRV, then
+\begin{align}
+\int_{-\infty}^\infty f_X(t)dt=1
+\end{align}
+\item if $X$ is a DRV, then
+\begin{align}
+\sum_{t} f_X(t)=1
+\end{align}
+\end{itemize}
+
+Transition from PDF to CDF
+\begin{itemize}
+\item If $X$ is a CRV, then
+\begin{align}
+F_X(t)=\int_{-\infty}^t f_X(s)ds
+\end{align}
+\item If $X$ is a DRV, then
+\begin{align}
+F_X(t)=\sum_{s<t}f_X(s)
+\end{align}
+\end{itemize}
+
+\subsubsection{Independent random variables}
+
+\begin{definition} We say that two RV's $X$ and $Y$ are independent if
+\begin{align}
+\mathbb{P}(X\in A, Y\in B)=\mathbb{P}(X\in A)\mathbb{P}(Y\in B)
+\end{align}
+for all $A\subset\mathbb{R}$, $B\subset\mathbb{R}$. 
+\end{definition}
+
+In particular two DRV $X$ and $Y$ are independent if and only if
+\begin{align}
+\mathbb{P}(X=t, Y=s)=\mathbb{P}(X=t)\mathbb{P}(Y=s)
+\end{align}
+
+
+\subsubsection{Joint and conditional distribution}
+
+\begin{definition} Joint CDF of two RV's $X$, $Y$ is defined as
+\begin{align}
+F_{X,Y}(t,s)=\mathbb{P}(X<t,Y<s)
+\end{align}
+\end{definition}
+It is immediate from definition, that for independent RV's we have
+\begin{align}
+F_{X,Y}(t,s)=F_X(t)F_Y(s)
+\end{align}
+
+\begin{definition} A joint PDF of two CRV's $X$, $Y$ is defined as
+\begin{align}
+f_{X,Y}(t,s)=\frac{d}{dt}\frac{d}{ds}F_{X,Y}(s,t)=\frac{d}{ds}\frac{d}{dt}F_{X,Y}(s,t)
+\end{align}
+A joint PDF of two DRV's $X$, $Y$ is defined as
+\begin{align}
+f_{X,Y}(t,s)=\mathbb{P}(X=t,Y=s)
+\end{align}
+\end{definition}
+
+
+\subsubsection{Expected value and around it}
+
+\begin{definition} Expected value of an RV $X$ is defined as
+\begin{align}
+\mathbb{E}[X]=\int_{\Omega} X(\omega)\mathbb{P}(\omega)
+\end{align}
+\end{definition}
+
+In particular for any DRV we have
+\begin{align}
+\mathbb{E}[X]=\sum_{\omega\in\Omega}X(\omega)\mathbb{P}(\omega)
+\end{align}
+
+\begin{example}
+A fair dice with six sides. Let $X$ be a random variable such that $X(\omega_i)=i^2$, then
+\begin{align}
+\mathbb{E}[X]
+&=X(\omega_1)\mathbb{P}(\omega_1)+X(\omega_2)\mathbb{P}(\omega_2)+\ldots+X(\omega_6)\mathbb{P}(\omega_6)\\
+&=X(\omega_1)\cdot\frac{1}{6}+X(\omega_2)\cdot\frac{1}{6}+\ldots+X(\omega_6)\cdot\frac{1}{6}\\
+&=\frac{X(\omega_1)+\ldots+X(\omega_6)}{6}\\
+&=\frac{1^2+2^2+\ldots+6^2}{6}\\
+&=\frac{91}{6}\\
+&\approx 15.16
+\end{align}
+\end{example} 
+
+\begin{example}
+A \textbf{nonfair} dice with six sides. Let $X$ be a random variable such that $X(\omega_i)=i^2$, then
+\begin{align}
+\mathbb{E}[X]
+&=X(\omega_1)\mathbb{P}(\omega_1)+X(\omega_2)\mathbb{P}(\omega_2)+\ldots+X(\omega_6)\mathbb{P}(\omega_6)\\
+&=X(\omega_1)\cdot 0.9+X(\omega_2)\cdot 0.02+\ldots+X(\omega_6)\cdot 0.02\\
+&=2.7\\
+\end{align}
+\end{example} 
+
+Properties of expectation
+
+\begin{align}
+\mathbb{E}[X+Y]&=\mathbb{E}[X]+\mathbb{E}[Y]\\
+\mathbb{E}[aX]&=a\mathbb{E}[X]\quad a=\operatorname{const}\\
+\mathbb{E}[a]&=a\quad a=\operatorname{const}
+\end{align}
+
+Efficient ways to find expectations
+\begin{itemize}
+\item If $X$ is a CRV, then
+\begin{align}
+\mathbb{E}[X]=\int_{-\infty}^\infty tf_X(t)dt
+\end{align}
+\item If $X$ is a DRV, then
+\begin{align}
+\mathbb{E}[X]=\sum_t tf_X(t)=\sum_t t\mathbb{P}(X=t)
+\end{align}
+\end{itemize}
+
+\begin{proposition} Law of unconsious statistcian (LOTUS for short)
+For X - DRV with values $\{x_1,x_2,\ldots\}$. consider DRV $Y=g(X)$ with values $\{y_1,y_2,\ldots\}$. Then
+\begin{align}
+\mathbb{E}[g(X)]
+&=\sum_{i=1}^\infty y_i\mathbb{P}(Y=y_i)\\
+&=\sum_{i=1}^\infty g(x_i)\mathbb{P}(X=x_i)
+\end{align}
+For X - CRV with PDF $f_X(t)$ consider CRV $Y=g(X)$ with PDF $f_Y(t)$. Then
+\begin{align}
+\mathbb{E}[g(X)]
+&=\int_{-\infty}^{\infty} tf_Y(t)dt\\
+&=\int_{-\infty}^{\infty} g(t)f_X(t)dt\\
+\end{align}
+\end{proposition}
+
+\begin{example} Let $X\sim U[-1,2]$. Find $\mathbb{E}[X^2]$ using LOTUS and without it. 
+Using LOTUS
+\begin{align}
+\mathbb{E}[X^2]=\int_{-\infty}^\infty t^2 f_X(t)dt=\int_{-1}^{2} t^2 \frac{1}{2-(-1)}dt=\frac{1}{3}\frac{t^3}{3}\Biggl|_{-1}^2=1
+\end{align}
+\end{example}
+
+In the second case we had to derive PDF for $Y=X^2$
+\begin{align}
+F_Y(t)
+&=\mathbb{P}(Y<t)
+=\mathbb{P}(X^2<t)
+=\begin{cases}
+\mathbb{P}(-\sqrt{t}<X<\sqrt{t}) & \mbox { if } t>0\\
+\mathbb{P}(\varnothing) & \mbox { if } t\leq 0
+\end{cases}
+=\begin{cases}
+\mathbb{P}(-\sqrt{t}<X<\sqrt{t}) & \mbox { if } t>0\\
+\mathbb{P}(\varnothing) & \mbox { if } t\leq 0
+\end{cases}\\
+&=\begin{cases}
+\mathbb{P}(\Omega) & \mbox { if } t\geq 4\\
+\mathbb{P}(-1\leq X<\sqrt{t})  & \mbox { if } 1\leq t\leq 4\\
+\mathbb{P}(-\sqrt{t}<X<\sqrt{t}) & \mbox { if } 0<t<1\\
+\mathbb{P}(\varnothing) & \mbox { if } t\leq 0
+\end{cases}
+=\begin{cases}
+1 & \mbox { if } t\geq 4\\
+\int_{-1}^{\sqrt{t}} f_X(s)ds  & \mbox { if } 1\leq t\leq 4\\
+\int_{-\sqrt{t}}^{\sqrt{t}}f_X(s)ds & \mbox { if } 0<t<1\\
+0 & \mbox { if } t\leq 0
+\end{cases}\\
+&=\begin{cases}
+1 & \mbox { if } t\geq 4\\
+\int_{-1}^{\sqrt{t}} \frac{1}{3}ds  & \mbox { if } 1\leq t\leq 4\\
+\int_{-\sqrt{t}}^{\sqrt{t}}\frac{1}{3}ds & \mbox { if } 0<t<1\\
+0 & \mbox { if } t\leq 0
+\end{cases}
+=\begin{cases}
+1 & \mbox { if } t\geq 4\\
+\frac{\sqrt{t}+1}{3}ds  & \mbox { if } 1\leq t\leq 4\\
+\frac{2\sqrt{t}}{3}ds & \mbox { if } 0<t<1\\
+0 & \mbox { if } t\leq 0
+\end{cases}\\
+\end{align}
+Now we are able to find PDF of $Y$
+\begin{align}
+f_Y(t)
+&=\frac{d}{dt} F_Y(t)
+=\begin{cases}
+0 & \mbox { if } t\geq 4\\
+\frac{1}{6\sqrt{t}}  & \mbox { if } 1\leq t\leq 4\\
+\frac{1}{3\sqrt{t}} & \mbox { if } 0<t<1\\
+0 & \mbox { if } t\leq 0
+\end{cases}\\
+\end{align}
+
+\begin{align}
+\mathbb{E}[X^2]
+&=\int_{-\infty}^{\infty} t f_Y(t)dt
+=\int_0^1 t\frac{1}{3\sqrt{t}}dt+\int_1^4 t\frac{1}{6\sqrt{t}}dt
+=\frac{1}{3}\int_0^1 \sqrt{t}dt+\frac{1}{6}\int_1^4 \sqrt{t}dt\\
+&=\frac{1}{3}\frac{t^{3/2}}{3/2}\Biggl|_0^1 +\frac{1}{6}\frac{t^{3/2}}{3/2}\Biggl|_1^4
+=\frac{2}{9}t^{3/2}\Biggl|_0^1 +\frac{2}{18}t^{3/2}\Biggl|_1^4 
+=1
+\end{align}
+
+\subsubsection{Variance, deviation, moments}
+
+\begin{definition}
+Let $X$ be an RV then
+\begin{itemize}
+\item its variance is defined as
+\begin{align}
+\mathbb{V}[X]=\mathbb{E}[(X-\mathbb{E}[X])^2]
+\end{align}
+\item its standard deviation is defined as
+\begin{align}
+\mathbb{SD}[X]=\sqrt{\mathbb{V}[X]}
+\end{align}
+\item its $k$-th moment is defined as
+\begin{align}
+\mu_k(X)=\mathbb{E}[X^k]
+\end{align}
+\end{itemize}
+\end{definition}
+
+Other ways to find variance and moments
+
+\begin{itemize}
+\item For any RV holds
+\begin{align}
+\mathbb{V}[X]=\mathbb{E}[X^2]-\mathbb{E}[X]^2=\mu_2(X)-\mu_1(X)^2
+\end{align}
+\item If $X$ is a CRV, then
+\begin{align}
+\mathbb{V}[X]
+&=\int_{-\infty}^\infty(t-\mathbb{E}[X])^2f_X(t)dt
+=\int_{-\infty}^\infty t^2 f_X(t)dt-\left(\int_{-\infty}^\infty t f_X(t)dt\right)^2\\
+\mu_k(X)&=\int_{-\infty}^\infty t^k f_X(t)dt
+\end{align}
+\item If $X$ is a DRV, then
+\begin{align}
+\mathbb{V}[X]
+&=\sum_t (t-\mathbb{E}[X])^2\mathbb{P}(X=t)
+=\sum_t t^2 \mathbb{P}(X=t)-\left(\sum_t t \mathbb{P}(X=t)\right)^2\\
+\mu_k(X)&=\sum_t t^k \mathbb{P}(X=t)
+\end{align}
+\end{itemize}
+
+\begin{definition} Let $X$ and $Y$ be two RV's, then
+\begin{itemize}
+\item Their covariation is defined as
+\begin{align}
+Cov(X,Y)=\mathbb{E}[(X-\mathbb{E}[X])(Y-\mathbb{E}[Y])]
+\end{align}
+\item Their correlation is defined as
+\begin{align}
+Corr(X,Y)=\frac{Cov(X,Y)}{\sqrt{\mathbb{V}[X]\mathbb{V}[Y]}}
+\end{align}
+\end{itemize}
+\end{definition}
+
+Other ways to find correlation and covariation
+
+\begin{itemize}
+\item If $X$ and $Y$ are RVs, then
+\begin{align}
+Cov(X, Y)=\mathbb{E}[XY]-\mathbb{E}[X]\mathbb{E}[Y]
+\end{align}
+In particular,
+\begin{align}
+Cov(X,X)=\mathbb{E}[X^2]-\mathbb{E}[X]^2=\mathbb{V}[X]
+\end{align}
+\item If $X$ and $Y$ are CRVs, then
+\begin{align}
+Cov(X,Y)=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} ts f_{X,Y}(ts)dtds-\left(\int_{-\infty}^{\infty} tf_X(t)dt\right)\left(\int_{-\infty}^{\infty} sf_Y(s)ds\right)
+\end{align}
+\item If $X$ and $Y$ are DRVs, then
+\begin{align}
+Cov(X,Y)=\sum_t\sum_s ts \mathbb{P}(X=t,Y=s)-\left(\sum_t t\mathbb{P}(X=t)\right)\left(\sum_s s\mathbb{P}(Y=s)\right)
+\end{align}
+\end{itemize}
+
+Properties of variance and covariation
+\begin{itemize}
+\item For any RVs $X_1,\ldots,X_n$ holds
+\begin{align}
+\mathbb{V}[\sum_{i=1}^n X_i]=\sum_{i=1}^n\mathbb{V}[X_i]+2\sum_{i<j}Cov(X_i,X_j)
+\end{align}
+In particular,
+\begin{align}
+\mathbb{V}[X+Y]=\mathbb{V}[X]+\mathbb{V}[Y]+2Cov(X, Y)
+\end{align}
+\item If $X$ and $Y$ are independent RVs, then
+\begin{align}
+Cov(X,Y)&=\mathbb{E}[XY]-\mathbb{E}[X]\mathbb{E}[Y]=0\\
+\mathbb{V}[X+Y]&=\mathbb{V}[X]+\mathbb{V}[Y]
+\end{align}
+\end{itemize}
+
+
+\subsubsection{Moment generating function}
+
+\begin{definition}
+Let $X$ be a RV, then its moment generating function (MGF for short) is defined as
+\begin{align}
+M_X(t)=\mathbb{E}[e^{tX}]
+\end{align}
+\end{definition}
+
+Other ways to compute MGF
+
+\begin{itemize}
+\item If $X$ is a CRV, then
+\begin{align}
+M_X(t)=\int_{-\infty}^\infty e^{ts}f_X(s)ds
+\end{align}
+\item If $X$ is a DRV, then
+\begin{align}
+M_X(t)=\sum_s e^{ts}\mathbb{P}(X=s)
+\end{align}
+\end{itemize}
+
+Why the name?
+
+\begin{proposition}
+\begin{align}
+\mu_k(X)=\frac{d^k}{dt^k}M_X(t)\Biggl|_{t=0}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+On the one hand
+\begin{align}
+M_X(t)
+&=\mathbb{E}[e^{tX}]
+=\mathbb{E}[\sum_{k=0}^\infty\frac{t^k X^k}{k!}]
+=\sum_{k=0}^\infty\frac{t^k}{k!}\mathbb{E}[X^k]
+=\sum_{k=0}^\infty\frac{t^k}{k!}\mu_k(X)
+\end{align}
+On the other hand, by Taylor series expansion
+\begin{align}
+M_X(t)=\sum_{k=0}^\infty\frac{t^k}{k!} \frac{d^k}{dt^k}M_X(t)\Biggl|_{t=0}
+\end{align}
+And we get the desired result.
+\end{proof}
+
+\begin{example} Let $X\sim \operatorname{Expo}(\lambda)$, that is
+
+\begin{align}
+f_X(t)=
+\begin{cases}
+\lambda e^{-\lambda t} & \mbox{ if } t>0\\
+0 & \mbox{otherwise}
+\end{cases}
+\end{align}
+
+Find moment generating function of X. Find first and second moments of $X$, find variance of $X$.
+
+\begin{align}
+M_X(t)
+=\int_{-\infty}^\infty e^{ts} f_X(s)ds
+=\int_{0}^\infty e^{ts} \lambda e^{-\lambda s}ds
+=\lambda\int_{0}^\infty e^{(t-\lambda) s}ds
+=\lambda\frac{1}{t-\lambda} e^{(t-\lambda) s}\Biggl|_{0}^\infty=\begin{cases}
+\frac{\lambda}{\lambda-t}& \mbox{ if } t<\lambda\\
++\infty& \mbox{ if } t>\lambda\\
+\end{cases}
+\end{align}
+
+\begin{align}
+\mu_1(X)
+&=\mathbb{E}[X^1]
+=\frac{d}{dt}M_X(t)\Biggl|_{t=0}
+=\frac{\lambda}{(\lambda-t)^2}\Biggl|_{t=0}
+=\frac{1}{\lambda}\\
+\mu_2(X)
+&=\mathbb{E}[X^2]
+=\frac{d^2}{dt^2}M_X(t)\Biggl|_{t=0}
+=\frac{2\lambda}{(\lambda-t)^3}\Biggl|_{t=0}
+=\frac{2}{\lambda^2}\\
+\mathbb{V}[X]
+&=\mathbb{E}[X^2]-\mathbb{E}[X]^2
+=\mu_2(X)-\mu_1(X)^2
+=\frac{2}{\lambda^2}-\left(\frac{1}{\lambda}\right)^2=\frac{1}{\lambda^2}
+\end{align}
+\end{example}
+
+
+
+\end{document}
