@@ -1,0 +1,352 @@
+%\title{Topologically flat Banach modules}
+\documentclass[12pt]{article}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+% \usepackage[russian]{babel}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=blue, pdfborder={0 0 0}]{hyperref}
+
+%----------------------------------------------------------------------------------------
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\newcommand{\projtens}{\mathbin{\widehat{\otimes}}}
+\newcommand{\convol}{\ast}
+\newcommand{\projmodtens}[1]{\mathbin{\widehat{\otimes}}_{#1}}
+\newcommand{\isom}[1]{\mathop{\mathbin{\cong}}\limits_{#1}}
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{center}
+\Large \textbf{Topologically flat Banach modules}\\[0.5cm]
+\small {N. T. Nemesh}\footnote{This research was supported by the Russian Foundation of Basic Research (grant No. 15-01-08392)}\\[0.5cm]
+\end{center}
+
+\thispagestyle{empty}
+
+\medskip
+\textbf{Abstract:} Several necessary conditions of topological flatness of Banach modules are given in this paper. The main result of the paper is as follows: a Banach module over relatively amenable Banach algebra which is topologically flat as Banach space is topologically flat as Banach module. Finally, we provide few examples of topologically flat modules among classical modules of analysis.
+
+\medskip
+\textbf{Keywords:} Banach module, topological flatness, amenability, $\mathcal{L}_1^g$-space, $\mathcal{L}_\infty^g$-space.
+
+\bigskip
+
+%----------------------------------------------------------------------------------------
+%	Introduction
+%----------------------------------------------------------------------------------------
+
+\section{Introduction}
+\label{SectionIntroduction}
+
+Amenability, injectivity, and flatness have always been deeply interconnected subjects of Banach homology. We shall demonstrate a crucial role of relative amenabilty in topological Banach homology. In some cases, we shall even give a complete characterization of topologically flat Banach modules as $\mathcal{L}_1^g$-spaces. Note that by result of Retherford the latter spaces are exactly topologically flat Banach spaces \cite{StegRethNucOpL1LInfSp}.
+
+In what follows, we present some parts in a parallel fashion by listing the respective options in order, enclosed and separate like this: $\langle$~... / ...~$\rangle$. For example, a real number $x$ is called $\langle$~positive / non-negative~$\rangle$ if $\langle$~$x>0$ / $x\geq 0$~$\rangle$. We use $:=$ symbol to denote equality by definition.
+
+All Banach spaces are defined over complex field. Let $E$ be a Banach space. By $B_E$ we denote the closed unit ball of $E$. Symbol $\operatorname{cl}_E(S)$ stands for the closure of the set $S$ in $E$. If $F$ is another Banach space, then a bounded linear operator $T:E\to F$ is called $\langle$~isometric / $c$-topologically injective~$\rangle$ if $\langle$~$\Vert T(x)\Vert=\Vert x\Vert$ / $c\Vert T(x)\Vert\geq\Vert x\Vert$~$\rangle$ for all $x\in E$. Similarly, $T$ is called $\langle$~strictly coisometric / strictly $c$-topologically surjective~$\rangle$ if $\langle$~$T(B_E)=B_F$ / $c T(B_E)\supset B_F$~$\rangle$. In some cases the constant $c$ is omitted. We use symbol $\bigoplus_p$ for $\ell_p$-sum of Banach spaces, and $\projtens$ for the projective tensor product of Banach spaces. In this paper we shall often encounter so called $\mathcal{L}_p^g$-spaces, which are a slight refinement of $\mathcal{L}_p$-spaces defined by Lindenstrauss and Pelczynski in their pioneering work \cite{LinPelAbsSumOpInLpSpAndApp}. We say that $E$ is an $\mathcal{L}_{p,C}^g$-space if for any $\epsilon>0$ and any finite dimensional subspace $F$ of $E$ there exists a finite dimensional $\ell_p$-space $G$ and two bounded linear operators $S:F\to G$, $T:G\to E$ such that $TS|^F=1_F$ and $\Vert T\Vert\Vert S\Vert\leq C+\epsilon$. If $E$ is an $\mathcal{L}_{p,C}^g$-space for some $C\geq 1$ we simply say, that $E$ is an $\mathcal{L}_p^g$-space.
+
+Further, by $A$ we denote a not necessarily unital Banach algebra with contractive bilinear multiplication operator. By $A_+$ we denote the standard unitization of $A$ as a Banach algebra. Symbol $A_\times$ denotes conditional unitization, that is $A_\times=A$ if $A$ is unital and $A_\times=A_+$ otherwise. The symbol $A_\#$ stands for the unitization of operator algebra $A$. We say that an approximate identity $(e_\nu)_{\nu\in N}$ of $A$ is $c$-bounded if norms of its elements are bounded by $c$. If an approximate identity is $1$-bounded it is called contractive.
+
+We shall consider only Banach modules with a contractive outer action, denoted by ``$\cdot$''. A Banach $A$-module $X$ is called $\langle$~annihilator / essential~$\rangle$ if $\langle$~$A\cdot X=\{0\}$ / $X_{ess}:=\operatorname{cl}_X(\operatorname{span}(A\cdot X))=X$~$\rangle$. A continuous morphisms of $A$-modules is called an $A$-morphisms. An $A$-morphism $\xi$ is called $\langle$~$c$-retraction / $c$-coretraction / $c$-isomorphism~$\rangle$ if it has $\langle$~a right inverse / a left inverse / the inverse~$\rangle$ $A$-morphism $\eta$ such that $\Vert\xi\Vert\Vert\eta\Vert\leq c$.
+
+By $\mathbf{Ban}$ we denote the category of Banach spaces with bounded operators in the role of morphisms. If one takes only contractive operators in the role of morphisms, one gets the category $\mathbf{Ban}_1$. The symbol $A-\mathbf{mod}$ stands for the category of left Banach $A$-modules with $A$-morphisms. By $A-\mathbf{mod}_1$ we denote the subcategory of $A-\mathbf{mod}$ with the same objects, but contractive morphisms only. Respective categories of right modules are denoted by $\mathbf{mod}-A$ and $\mathbf{mod}_1-A$. Note that for $A=\{0\}$ the category $A-\mathbf{mod}$ is naturally isomorphic to $\mathbf{Ban}$. Monomorphisms of all aforementioned categories are characterized as injective operators, epimorphisms as operators with dense range. By $\projtens_A$ we denote the functor of projective module tensor product and by $\operatorname{Hom}$ the usual morphism functor.
+
+In this paper we shall discuss three versions of Banach homology. The essential trait of these theories is that they deal only with complexes composed of admissible morphisms. By choosing different classes of admissible morphisms we get different types of Banach homology. We say that a monomorphism $\xi$ is $\langle$~metrically / $c$-topologically / $c$-relatively~$\rangle$ admissible if it $\langle$~is isometric / is $c$-topologically injective / admits a left inverse operator of norm at most $c$~$\rangle$. Now we can give our main definitions.
+
+\begin{definition} A Banach $A$-module $J$ is \emph{$\langle$~metrically / $C$-topologically / $C$-relatively~$\rangle$ injective} if the functor $\langle$~$\operatorname{Hom}_{\mathbf{mod}_1-A}(-,J)$ / $\operatorname{Hom}_{\mathbf{mod}-A}(-,J)$ / $\operatorname{Hom}_{\mathbf{mod}-A}(-,J)$~$\rangle$ maps $\langle$~metrically / $c$-topologically / $c$-relatively~$\rangle$ admissible monomorphisms to $\langle$~strictly coisometric / strictly $cC$-topologically surjective / strictly $cC$-topologically surjective~$\rangle$ operators.
+\end{definition}
+
+We shall say that a Banach module is $\langle$~topologically / relatively~$\rangle$ injective if it is $\langle$~$C$-topologically / $C$-relatively~$\rangle$ injective for some $C>0$.
+
+\begin{definition} A Banach $A$-module $F$ is \emph{$\langle$~metrically / $C$-topologically / $C$-relatively~$\rangle$ flat} if the functor $-\projtens_A F$ maps $\langle$~metrically / $c$-topologically / $c$-relatively~$\rangle$ admissible monomorphisms to $\langle$~isometric / $cC$-topologically injective / $cC$-topologically injective~$\rangle$ operators.
+\end{definition}
+
+We shall say that a Banach module is $\langle$~topologically / relatively~$\rangle$ flat if it is $\langle$~$C$-topologically / $C$-relatively~$\rangle$ flat for some $C>0$.
+
+Sometimes we omit constants and simply say, for example, topologically injective module, instead of $C$-topologically injective. Originally, a slightly different form of these definitions was given by Graven for metric theory \cite{GravInjProjBanMod}, by White for topological theory \cite{WhiteInjmoduAlg} and by Helemskii for relative theory \cite{HelemHomolDimNorModBanAlg}. An overview of basics in these theories is given in \cite{NemGeomProjInjFlatBanMod}. Below we shall list some relevant results from that paper.
+
+These three Banach homology theories are closely related. For example, every metrically injective module is topologically injective, and every topologically injective module is relatively injective. The same inclusions hold for flatness. Flatness and injectivity are interconnected thanks to the following criteria: a Banach module is $C$-flat iff its dual module is $C$-injective. A typical example of $\langle$~metrically / $1$-topologically / $1$-relatively~$\rangle$ injective module is $\langle$~$\mathcal{B}(A_\times, \ell_\infty(\Lambda))$ / $\mathcal{B}(A_\times, \ell_\infty(\Lambda))$ / $\mathcal{B}(A_\times, E)$~$\rangle$ for $\langle$~some set $\Lambda$ / some set $\Lambda$ / some Banach space $E$~$\rangle$. In particular, the right $A$-module $A_\times^*$ is metrically, topologically and relatively injective. Several categorical operations preserve injectivity and flatness. For example,
+\begin{enumerate}[i)]
+\item a $\bigoplus_\infty$-sum of $\langle$~metrically / $C$-topologically~$\rangle$ injective modules is again $\langle$~metrically / $C$-topologically~$\rangle$ injective;
+
+\item a $c$-retract of $C$-topologically injective module is $cC$-topologically injective. The same two statements are valid for flat modules too;
+
+\item a $\bigoplus_1$-sum of $\langle$~metrically / $C$-topologically~$\rangle$ flat modules is again $\langle$~metrically / $C$-topologically~$\rangle$ flat.
+\end{enumerate}
+
+As a simple corollary we get that $1$-topologically $\langle$ injective / flat $\rangle$ modules are metrically $\langle$ injective / flat $\rangle$.  Next two propositions from \cite{NemGeomProjInjFlatBanMod} are not folklore, and for readers' convenience are cited here.
+\begin{proposition}\label{MetTopFlatAnnihModCharac} Let $F$ be a non zero annihilator $A$-module. Then the following are equivalent:
+\begin{enumerate}[i)]
+\item $F$ is $\langle$~metrically / $C$-topologically~$\rangle$ flat $A$-module;
+\item $\langle$~$A=\{0\}$ / $A$ has a right $(C-1)$-bounded approximate identity~$\rangle$ and $F$ is a $\langle$~metrically / $C$-topologically~$\rangle$ flat Banach space, that is $\langle$~$F\isom{\mathbf{Ban}_1}L_1(\Omega,\mu)$ for some measure space $(\Omega, \Sigma, \mu)$ / $F$ is an $\mathcal{L}_{1,C}^g$-space~$\rangle$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}\label{TopProjInjFlatModOverMthscrL1SpCharac} Let $A$ be a Banach algebra which is topologically isomorphic as Banach space to some $\mathcal{L}_1^g$-space. Then any topologically $\langle$~projective / injective / flat~$\rangle$ $A$-module is an $\langle$~$\mathcal{L}_1^g$-space / $\mathcal{L}_\infty^g$-space / $\mathcal{L}_1^g$-space~$\rangle$.
+\end{proposition}
+
+%----------------------------------------------------------------------------------------
+%	Main results
+%----------------------------------------------------------------------------------------
+
+\section{Main results}
+\label{SectionMainResults}
+
+We start with a technical result on the structure of dual Banach modules.
+
+\begin{proposition}\label{DualBanModDecomp} Let $B$ be a unital Banach algebra, $A$ be its subalgebra with two-sided bounded approximate identity $(e_\nu)_{\nu\in N}$ and $X$ be a left Banach $B$-module. Denote $c_1=\sup_{\nu\in N}\Vert e_\nu\Vert$, $c_2=\sup_{\nu\in N}\Vert e_B-e_\nu\Vert$ and $X_{ess}=\operatorname{cl}_X(\operatorname{span}(A\cdot X))$. Then
+\begin{enumerate}[i)]
+\item $X^*$ is $c_2(c_1+1)$-isomorphic as a right $A$-module to $X_{ess}^*\bigoplus_\infty (X/X_{ess})^*$;
+\item $\langle$~$X_{ess}^*$ / $(X/X_{ess})^*$~$\rangle$ is a $\langle$ $c_1$-retract / $c_2$-retract~$\rangle$ of $A$-module of $X^*$;
+\item if $X$ is an $\mathcal{L}_{1,C}^g$-space, then $\langle$~$X_{ess}$ / $X/X_{ess}$~$\rangle$ is an $\langle$~$\mathcal{L}_{1,c_1C}^g$-space / $\mathcal{L}_{1,c_2C}^g$-space~$\rangle$.
+\end{enumerate}
+\end{proposition}
+\begin{proof} $i)$ Define the natural embedding $\rho:X_{ess}\to X:x\mapsto x$ and the quotient map  $\pi:X\to X/X_{ess}:x\mapsto x+X_{ess}$. Let $\mathfrak{F}$ be the section filter on $N$ and let $\mathfrak{U}$ be an ultrafilter dominating $\mathfrak{F}$. For a fixed $f\in X ^*$ and $x\in X $ we have $|f(x-e_\nu\cdot x)|\leq\Vert f\Vert\Vert e_B - e_\nu\Vert\Vert x\Vert\leq c_2\Vert f\Vert\Vert x\Vert$ i.e. $(f(x-e_\nu\cdot x))_{\nu\in N}$ is a bounded net of complex numbers. Therefore we have a well defined limit $\lim_{\mathfrak{U}}f(x-e_\nu\cdot x)$ along ultrafilter $\mathfrak{U}$. Since $(e_\nu)_{\nu\in N}$ is a two-sided approximate identity for $A$ and $\mathfrak{U}$ contains the section filter then for all $x\in X_{ess}$ we have $\lim_{\mathfrak{U}}f(x-e_\nu\cdot x)=\lim_{\nu}f(x-e_\nu\cdot x)=0$. Therefore for each $f\in X ^*$ we have a well defined map $\tau(f):X /X_{ess}\to \mathbb{C}:x+X_{ess}\mapsto \lim_{\mathfrak{U}} f(x-e_\nu\cdot x)$. Clearly this is a linear functional, and from inequalities above we see that its norm is bounded by $c_2\Vert f\Vert$. Now it is routine to check that $\tau:X^*\to (X/ X_{ess})^*:f\mapsto \tau(f)$ is an $A$-morphism with norm not greater than $c_2$. Similarly, one can show that $\sigma:X_{ess}^*\to X^*:h\mapsto(x\mapsto \lim_{\mathfrak{U}}h(e_\nu\cdot x))$ is an $A$-morphism with norm not greater than $c_1$. It is easy to check that $\tau \pi^*=1_{(X/X_{ess})^*}$, $\rho^*\sigma=1_{X_{ess}^*}$ and  $\pi^*\tau+\sigma\rho^*=1_{X^*}$. From this equalities, one can see, that the maps
+\[
+\xi:X^*\to X_{ess}^*\bigoplus{}_\infty (X/X_{ess})^*:f\mapsto \rho^*(f)\oplus{}_\infty \tau(f),
+\]
+\[
+\eta:X_{ess}^*\bigoplus{}_\infty (X/X_{ess})^*\to X^*:h\oplus{}_\infty g\mapsto \pi^*(h)+\sigma(g)
+\]
+are isomorphism of right $A$-modules with $\Vert\xi \Vert\leq c_2$ and $\Vert \eta\Vert\leq c_1+1$. Hence, $X^*$ is $c_2(c_1+1)$-isomorphic in $\mathbf{mod}-A$ to $X_{ess}^*\bigoplus_\infty (X/X_{ess})^*$.
+
+$ii)$ Both results immediately follow from equalities $\rho^*\sigma=1_{X_{ess}^*}$, $\tau \pi^*=1_{(X/X_{ess})^*}$ and estimates $\Vert \rho^*\Vert\Vert \sigma\Vert\leq c_1$, $\Vert\tau\Vert\Vert \pi^*\Vert\leq c_2$.
+
+$iii)$ Now consider case when $X$ is an $\mathcal{L}_{1,C}^g$-space. Then $X^*$ is an $\mathcal{L}_{\infty,C}^g$-space \cite[corollary 23.2.1(1)]{DefFloTensNorOpId}. As $\langle$~$X_{ess}^*$ / $(X/X_{ess})^*$~$\rangle$ is $\langle$~$c_1$-complemented / $c_2$-complemented~$\rangle$ in $X^*$ it is an $\langle$~$\mathcal{L}_{\infty,c_1C}^g$-space / $\mathcal{L}_{\infty,c_2C}^g$-space~$\rangle$ by \cite[corollary 23.2.1(1)]{DefFloTensNorOpId}. Again we apply \cite[corollary 23.2.1(1)]{DefFloTensNorOpId} to conclude that $\langle$~$X_{ess}$  / $X/X_{ess}$~$\rangle$ is an $\langle$~$\mathcal{L}_{1,c_1C}^g$-space / $\mathcal{L}_{1,c_2C}^g$-space~$\rangle$.
+\end{proof}
+
+\begin{proposition}\label{TopFlatModCharac} Let $A$ be a Banach algebra with two-sided $c$-bounded approximate identity and $F$ be a left $A$-module. Then
+\begin{enumerate}[i)]
+\item if $F$ is $C$-topologically flat $A$-module, then $F_{ess}$ is $(1+c)C$-topologically flat $A$-module and $F/F_{ess}$ is an $\mathcal{L}_{1,(1+c)C}^g$-space;
+\item if $F_{ess}$ is $C_1$-topologically flat $A$-module and $F/F_{ess}$ is an $\mathcal{L}_{1,C_1}^g$-space, then $F$ is $(1+c)^2\max(C_1, C_2)$-topologically flat $A$-module;
+\item $F$ is topologically flat $A$-module iff $F_{ess}$  is topologically flat $A$-module and $F/F_{ess}$ is an $\mathcal{L}_1^g$-space.
+\end{enumerate}
+\end{proposition}
+\begin{proof} We regard $A$ as closed subalgebra of unital Banach algebra $B:=A_+$. Then $F$ is unital left $B$-module. Using notation of proposition \ref{DualBanModDecomp} we may say that $c_1=c$ and $c_2=1+c$, so the right $A$-modules $F_{ess}^*$ and $(F/F_{ess})^*$ are $(1+c)$-retracts of $F^*$.
+
+$i)$ From assumption we have that $F^*$ is $C$-topologically injective. Therefore its retracts $F_{ess}^*$ and $F/F_{ess}^*$ are $(1+c)C$-topologically injective, and $F_{ess}$ and $F/F_{ess}$ are $(1+c)C$-topologically flat. It remains to note that $F/F_{ess}$ is an annihilator $A$-module, so by proposition \ref{MetTopFlatAnnihModCharac} it is an $\mathcal{L}_{1,(1+c)C}^g$-space.
+
+$ii)$ Again, from assumption we have that right $A$-modules $F_{ess}^*$ and $(F/F_{ess})^*$ are $C_1$- and $C_2$-topologically injective respectively. So their $\bigoplus_\infty$-sum is $\max(C_1,C_2)$-topologically injective. By proposition \ref{DualBanModDecomp} this sum is $(1+c)^2$-isomorphic to $F^*$ in $\mathbf{mod}-A$. Therefore $F^*$ is $(1+c)^2\max(C_1, C_2)$-topologically injective $A$-module, which means that $F$ is $(1+c)^2\max(C_1, C_2)$-topologically flat.
+
+$iii)$ The result immediately follows from paragraphs $i)$ and $ii)$.
+\end{proof}
+
+Before proceeding to the key proposition of the paper we shall recall one of the numerous equivalent definitions of relatively amenable Banach algebra: a Banach algebra $A$ is called relatively $c$-amenable if there exists a so- called approximate diagonal $(d_\nu)_{\nu\in N}\subset A\projtens A$ bounded in norm by $c$ with the properties:
+\[
+\lim_\nu(a\cdot d_\nu-d_\nu\cdot a)=0,\qquad \lim_\nu a \Pi_A(d_\nu)=\lim_\nu\Pi_A(d_\nu)a=a
+\]
+where $\Pi_A:A\projtens A\to A:a\projtens b\mapsto ab$. A Banach algebra $A$ is called relatively amenable if it is $c$-relatively amenable for some $c>0$.
+
+\begin{proposition}\label{MetTopEssL1FlatModAoverAmenBanAlg} Let $A$ be a relatively $\langle$~$1$-amenable / $c$-amenable~$\rangle$ Banach algebra and $F$ be an essential Banach $A$-module which is an $\langle$~$L_1$-space / $\mathcal{L}_{1,C}^g$-space~$\rangle$. Then $F$ is a $\langle$~metrically / $c^2C$-topologically~$\rangle$ flat $A$-module.
+\end{proposition}
+\begin{proof} Consider morphism of $A$-modules $\pi_F:A\projtens \ell_1(B_F)\to F:a\projtens \delta_x\mapsto a\cdot x$. We shall show that its adjoint is a coretraction. Let $(d_\nu)_{\nu\in N}$ be an approximate diagonal for $A$ with norm bound at most $c$. Recall, that $(\Pi_A(d_\nu))_{\nu\in N}$ is a two-sided $\langle$~contractive / $c$-bounded~$\rangle$ approximate identity for $A$. Since $F$ is essential left $A$-module, then $\lim_{\nu}\Pi_A(d_\nu)\cdot x=x$ for all $x\in F$ \cite[proposition 0.3.15]{HelHomolBanTopAlg}. As the consequence $c\pi_F(B_{A\projtens\ell_1(B_F)})$ is dense in $B_F$. Then for all $f\in F^*$ we have
+\[
+\Vert\pi_F^*(f)\Vert
+=\sup\{|f(\pi_F(u))|:u\in B_{A\projtens\ell_1(B_F)}\}
+=\sup\{|f(x)|:x\in \operatorname{cl}_F(\pi_F(B_{A\projtens\ell_1(B_F)}))\}
+\]
+\[
+\geq\sup\{c^{-1}|f(x)|:x\in B_F\}=c^{-1}\Vert f\Vert.
+\]
+This means, that $\pi_F^*$ is $c$-topologically injective. By assumption $F$ is an $\langle$~$L_1$-space / $\mathcal{L}_{1,C}^g$-space~$\rangle$, then by $\langle$~\cite[theorem 1]{GrothMetrProjFlatBanSp} / remark after \cite[corollary 23.5(1)]{DefFloTensNorOpId}~$\rangle$ the Banach space $F^*$ is $\langle$~metrically / $C$-topologically~$\rangle$ injective. Since operator $\pi_F^*$ is $\langle$~isometric / $c$-topologically injective~$\rangle$, then there exists a linear operator $R:(A\projtens\ell_1(B_F))^*\to F^*$ of norm $\langle$~at most $1$ / at most $cC$~$\rangle$ such that $R\pi_F^*=1_{F^*}$.
+
+Fix $h\in (A\projtens\ell_1(B_F))^*$ and $x\in F$. Consider bilinear functional $M_{h,x}:A\times A\to\mathbb{C}:(a,b)\mapsto R(h\cdot a)(b\cdot x)$. Clearly, $\Vert M_{h,x}\Vert\leq\Vert R\Vert\Vert h\Vert\Vert x\Vert$. By universal property of the projective tensor product we have a bounded linear functional $m_{h,x}:A\projtens A\to\mathbb{C}:a\projtens b\mapsto R(h\cdot a)(b\cdot x)$. Note that $m_{h,x}$ is linear in $h$ and $x$. Even more, for any $u\in A\projtens A$, $a\in A$ and $f\in F^*$ we have $m_{\pi_F^*(f),x}(u)=f(\Pi_A(u)\cdot x)$, $m_{h\cdot a,x}(u)=m_{h,x}(a\cdot u)$, $m_{h,a\cdot x}(u)=m_{h,x}(u\cdot a)$. It easily checked for elementary tensors. Then it is enough to recall that their linear span is dense in $A\projtens A$.
+
+Let $\mathfrak{F}$ be the section filter on $N$ and let $\mathfrak{U}$ be an ultrafilter dominating $\mathfrak{F}$. For any $h\in (A\projtens\ell_1(B_F))^*$ and $x\in F$ we have $|m_{h,x}(d_\nu)|\leq c\Vert R\Vert\Vert h\Vert\Vert x\Vert$, i.e. $(m_{h,x}(d_\nu))_{\nu\in N}$ is a bounded net of complex numbers. Therefore we have a well defined limit $\lim_{\mathfrak{U}}m_{h,x}(d_\nu)$ along ultrafilter $\mathfrak{U}$. Consider linear operator $\tau:(A\projtens\ell_1(B_F))^*\to F^*:h\mapsto(x\mapsto\lim_{\mathfrak{U}}m_{h,x}(d_\nu))$. From norm estimates for $m_{h,x}$ it follows that $\tau$ is bounded with $\Vert\tau\Vert\leq c\Vert R\Vert$. For all $a\in A$, $x\in F$ and $h\in (A\projtens\ell_1(B_F))^*$ we have
+\[
+\tau(h\cdot a)(x)-(\tau(h)\cdot a)(x)
+=\tau(h\cdot a)(x)-\tau(h)(a\cdot x)
+\]
+\[
+=\lim_{\mathfrak{U}}m_{h\cdot a,x}(d_\nu)-\lim_{\mathfrak{U}}m_{h,a\cdot x}(d_\nu)
+=\lim_{\mathfrak{U}}m_{h,x}(a\cdot d_\nu)-m_{h,x}(d_\nu\cdot a)
+\]
+\[
+=m_{h,x}\left(\lim_{\mathfrak{U}}(a\cdot d_\nu-d_\nu\cdot a)\right)
+=m_{h,x}\left(\lim_{\nu}(a\cdot d_\nu-d_\nu\cdot a)\right)
+=m_{h,x}(0)
+=0.
+\]
+Therefore $\tau$ is a morphism of right $A$-modules. Now for all $f\in F^*$ and $x\in F$ we have
+\[
+(\tau(\pi_F^*)(f))(x)
+=\lim_{\mathfrak{U}}m_{\pi_F^*(f),x}(d_\nu)
+=\lim_{\mathfrak{U}}f(\Pi_A(d_\nu)\cdot x)
+\]
+\[
+=\lim_{\nu}f(\Pi_A(d_\nu)\cdot x)
+=f\left(\lim_{\nu}\Pi_A(d_\nu)\cdot x\right)
+=f(x).
+\]
+So $\tau\pi_F^*=1_{F^*}$. This means that $F^*$ is a $\langle$~$1$-retract / $c^2 C$-retract~$\rangle$ of $(A\projtens\ell_1(B_F))^*$
+ in $\langle$~$\mathbf{mod}_1-A$ / $\mathbf{mod}-A$~$\rangle$. The latter $A$-module is $\langle$~metrically / $1$-topologically~$\rangle$ injective, because $(A_+\projtens\ell_1(B_F))^*\isom{\mathbf{mod}_1-A}\mathcal{B}(A_+,\ell_\infty(B_F))$, and therefore so does its retract $F^*$. The latter is equivalent to $\langle$~metric / $c^2 C$-topological~$\rangle$ flatness of $F$.
+\end{proof}
+
+\begin{theorem}\label{TopL1FlatModAoverAmenBanAlg} Let $A$ be a relatively $c$-amenable Banach algebra and $F$ be a left Banach $A$-module which as Banach space is an $\mathcal{L}_{1, C}^g$-space. Then $F$ is $(1+c)^2C\max(c^2,(1+c))$-topologically flat $A$-module. In other words, a Banach module over relatively amenable algebra which is topologically injective as Banach space is topologically injective as Banach module.
+\end{theorem}
+\begin{proof} Since $A$ is amenable it admits a two-sided $c$-bounded approximate identity. By proposition \ref{DualBanModDecomp} the annihilator $A$-module $F/F_{ess}$ is an $\mathcal{L}_{1,1+c}^g$-space. From proposition \ref{MetTopEssL1FlatModAoverAmenBanAlg} we get that the essential $A$-module $F_{ess}$ is $c^2 C$-topologically flat. Now the result follows from proposition \ref{TopFlatModCharac}.
+\end{proof}
+
+We must point out here that in relative Banach homology any left Banach module over relatively amenable Banach algebra is relatively flat \cite[theorem 7.1.60]{HelBanLocConvAlg}. Topological theory (not to mention the metric one) is so restrictive that in some cases, as the following proposition shows, we can obtain a complete characterization of all flat modules.
+
+\begin{proposition}\label{TopFlatModAoverAmenL1BanAlgCharac} Let $A$ be a relatively amenable Banach algebra which as Banach space is an $\mathcal{L}_1^g$-space. Then for a Banach $A$-module $F$ the following are equivalent:
+\begin{enumerate}[i)]
+\item $F$ is topologically flat $A$-module;
+\item $F$ is an $\mathcal{L}_1^g$-space.
+\end{enumerate}
+\end{proposition}
+\begin{proof} The equivalence follows from proposition \ref{TopProjInjFlatModOverMthscrL1SpCharac} and theorem \ref{TopL1FlatModAoverAmenBanAlg}.
+\end{proof}
+
+%----------------------------------------------------------------------------------------
+%	A few examples
+%----------------------------------------------------------------------------------------
+
+\section{A few examples}
+\label{SectionAFewExamples}
+
+In this section, we shall give several examples and non-examples of topologically flat modules.
+
+For the beginning consider the convolution algebra $A=L_1(G)$ of an amenable locally compact group $G$. This algebra is relatively amenable \cite[proposition VII.1.86]{HelBanLocConvAlg}, and clearly it is an $\mathcal{L}_1^g$-space. By proposition \ref{TopFlatModAoverAmenL1BanAlgCharac} any Banach $A$-module which looks like an $\mathcal{L}_1^g$-space is topologically flat. Examples include finite-dimensional modules, complemented ideals of $L_1(G)$ and the measure algebra $M(G)$.
+
+\begin{example} For a locally compact space $S$ the $C_0(S)$-module $M(S)$ is metrically flat.
+\end{example}
+\begin{proof}
+Note that the algebra $C_0(S)$ of continuous functions vanishing at infinity is relatively amenable \cite[theorem 7.1.87]{HelBanLocConvAlg}. Even more, it is relatively $1$-amenable as any amenable $C^*$-algebra \cite[example 2]{RundeAmenConstFour}. Also recall that the measure algebra $M(S)$ is an essential $C_0(S)$-module isometrically isomorphic to $L_1$-space (see discussion after \cite[proposition 2.14]{DalLauSecondDualOfMeasAlg}). It remains to apply proposition \ref{MetTopEssL1FlatModAoverAmenBanAlg}.
+\end{proof}
+
+
+It may seem that the topological flatness arises only when either module or its algebra is an $\mathcal{L}_1^g$-space. This is not true as the following proposition shows.
+
+\begin{proposition}\label{MetTopFlatIdealsInUnitalAlg} Let $I$ be a left ideal of $A_\times $ and $I$ has a right $\langle$~contractive / $c$-bounded~$\rangle$ approximate identity. Then $I$ is $\langle$~metrically / $c$-topologically~$\rangle$ flat.
+\end{proposition}
+\begin{proof} Let $\mathfrak{F}$ be the section filter on $N$ and let $\mathfrak{U}$ be an ultrafilter dominating $\mathfrak{F}$. It is routine to check that $\sigma:A_\times ^*\to I^*:f\mapsto (a\mapsto \lim_{\mathfrak{U}}f(ae_\nu))$ is an $A$-morphism with norm $\langle$~at most $1$ / at most $c$~$\rangle$. Let $\rho:I\to A_\times$ be the natural embedding, then for all $f\in A_\times^*$ and $a\in I$ holds
+\[
+\rho^*(\sigma(f))(a)
+=\sigma(f)(\rho(a))
+=\sigma(f)(a)
+=\lim_{\mathfrak{U}}f(a e_\nu)
+=\lim_{\nu}f(a e_\nu)
+=f(\lim_{\nu}a e_\nu)
+=f(a),
+\]
+i.e. $\sigma:I^*\to A_\times^*$ is a $\langle$~$1$-coretraction / $c$-coretraction~$\rangle$. The right $A$-module $A_\times ^*$ is $\langle$~metrically / $1$-topologically~$\rangle$ injective, hence its $\langle$~$1$-retract / $c$-retract~$\rangle$ $I^*$ is $\langle$~metrically / $c$-topologically~$\rangle$ injective. So we conclude that the $A$-module $I$ is $\langle$~metrically / $c$-topologically~$\rangle$ flat.
+\end{proof}
+
+The aforementioned result holds true for relative Banach homology too \cite[proposition 7.1.45]{HelBanLocConvAlg}, so to justify previous proposition we need an example of relatively flat but not topologically flat ideal.
+
+\begin{example} There exists an ideal of $L_1(\mathbb{T})$ isomorphic to a Hilbert space, which is relatively flat, but not topologically flat.
+\end{example}
+\begin{proof}
+Denote $A=L_1(\mathbb{T})$. It is known, that $A$ has a translation invariant infinite dimensional closed subspace $I$ isomorphic to a Hilbert space \cite[page 52]{RosProjTransInvSbspLpG}. By \cite[proposition 1.4.7]{KaniBanAlg} we have that $I$ is a two-sided ideal of $A$, as any translation invariant subspace of $A$. By \cite[section 23.3]{DefFloTensNorOpId} this ideal is not an $\mathcal{L}_1^g$-space. So from proposition \ref{TopFlatModAoverAmenL1BanAlgCharac} we get that $I$ is not topologically flat as $A$-module. We claim that it is still relatively flat. Since $\mathbb{T}$ is a compact group, then it is amenable \cite[proposition 3.12.1]{PierAmenLCA}. Thus $A$ is relatively amenable \cite[proposition VII.1.86]{HelBanLocConvAlg}, so all left ideals of $A$ are relatively flat \cite[proposition VII.1.60(I)]{HelBanLocConvAlg}. In particular, $I$ is relatively flat.
+\end{proof}
+
+Here is an example where amenability is not required to get a topologically flat module.
+
+\begin{example} For a locally compact group $G$ the $L_1(G)$-module $M(G)$ is topologically flat.
+\end{example}
+\begin{proof}
+Since $M(G)$ is an $L_1$-space it is a fortiori an $\mathcal{L}_1^g$-space. Since the $L_1(G)$-module $M_s(G)$ of measures singular with respect to Haar measure is $1$-complemented in $M(G)$, then $M_s(G)$ is an $\mathcal{L}_1^g$-space too. Note that $M_s(G)$ is an annihilator $L_1(G)$-module, then from proposition \ref{MetTopFlatAnnihModCharac} we have that $M_s(G)$ is topologically flat $L_1(G)$-module. The $L_1(G)$-module $L_1(G)$ is also topologically flat by proposition \ref{MetTopFlatIdealsInUnitalAlg}. As $M(G)\isom{L_1(G)-\mathbf{mod}_1}L_1(G)\bigoplus_1 M_s(G)$, then $M(G)$ is topologically flat $L_1(G)$-module too.
+\end{proof}
+
+For the big source of non-examples we shall consider $C^*$-algebras. Intuitively it is clear that they are ``far'' from $\mathcal{L}_1^g$-spaces and there should be a lot of non-examples. We can find them even among $C^*$-algebras and their ideals. We start from a preparatory proposition.
+
+\begin{proposition}\label{CStarAlgIsL1IfFinDim} Let $A$ be a $C^*$-algebra, then $A$ is an $\langle$~$L_1$-space / $\mathcal{L}_1^g$-space~$\rangle$ iff $\langle$~$\operatorname{dim}(A)\leq 1$ / $A$ is finite dimensional~$\rangle$.
+\end{proposition}
+\begin{proof} Assume $A$ is an $\mathcal{L}_1^g$-space, then $A^{**}$ is complemented in some $L_1$-space \cite[corollary 23.2.1(2)]{DefFloTensNorOpId}. Since $A$ isometrically embeds in its second dual we may regard $A$ as a closed subspace of some $L_1$-space. Any $L_1$-space is weakly sequentially complete \cite[corollary III.C.14]{WojBanSpForAnalysts}. The property of being weakly sequentially complete is preserved by closed subspaces, therefore $A$ is weakly sequentially complete too. By proposition 2 in \cite{SakWeakCompOpOnOpAlg} every weakly sequentially complete $C^*$-algebra is finite dimensional, hence $A$ is finite dimensional. Conversely, if $A$ is finite dimensional it is an $\mathcal{L}_1^g$-space as any finite-dimensional Banach space.
+
+Assume $A$ is an $L_1$-space and, a fortiori, an $\mathcal{L}_1^g$-space. As was noted above $A$ is a finite dimensional, so $A\isom{\mathbf{Ban}_1}\ell_1^n$ for $n=\operatorname{dim}(A)$. On the other hand, $A$ is a finite dimensional $C^*$-algebra, so it is isometrically isomorphic to $\bigoplus_\infty\{ \mathcal{B}(\ell_2^{n_k}):k\in\{1,\ldots,m\}\}$ for some natural numbers $n_1,\ldots,n_m$ \cite[theorem III.1.1]{DavCSatrAlgByExmpl}. Assume $\operatorname{dim}(A)>1$, then $A$ contains an isometric copy of $\ell_\infty^2$. Therefore we have an isometric embedding of $\ell_\infty^2$ into $\ell_1^n$. This is impossible by theorem 1 from \cite{LyubIsomEmdbFinDimLp}. Therefore $\operatorname{dim}(A)\leq 1$.
+\end{proof}
+
+\begin{proposition}\label{CStarAlgIsTopFlatOverItsIdeal} Let $I$ be a proper two-sided ideal of a  $C^*$-algebra $A$. Then the following are equivalent:
+\begin{enumerate}[i)]
+\item $A$ is $\langle$~metrically / topologically~$\rangle$ flat $I$-module;
+\item $\langle$~$\operatorname{dim}(A)=1$, $I=\{0\}$ / $A/I$ is finite dimensional ~$\rangle$.
+\end{enumerate}
+\end{proposition}
+\begin{proof} We may regard $I$ as an  ideal of unitazation $A_\#$ of $A$. Since $I$ is a two-sided ideal, then it has a contractive approximate identity $(e_\nu)_{\nu\in N}$ such that $0\leq e_\nu\leq e_{A_\#}$ \cite[proposition 4.7.79]{HelBanLocConvAlg}. As the corollary $\sup_{\nu\in N}\Vert e_{A_\#}-e_\nu\Vert\leq 1$. Since $I$ has an approximate identity we also have $A_{ess}:=\operatorname{cl}_A(\operatorname{span}(IA))=I$. Since $I$ is a two sided ideal then $A/I$ is a $C^*$-algebra \cite[theorem 4.7.81]{HelBanLocConvAlg}.
+
+Assume, $A$ is a metrically flat $I$-module. Since $\sup_{\nu\in N}\Vert e_{A_\#}-e_\nu\Vert\leq 1$, then paragraph $ii)$ of proposition \ref{DualBanModDecomp} tells us that $(A/A_{ess})^*=(A/I)^*$ is a retract of $A^*$ in $\mathbf{mod}_1-I$. Hence $A/I$ is metrically flat $I$-module. Since this is an annihilator module, then from proposition \ref{MetTopFlatAnnihModCharac} it follows that $I=\{0\}$ and $A/I$ is an $L_1$-space. Now from proposition \ref{CStarAlgIsL1IfFinDim} we get that $\operatorname{dim}(A/I)\leq 1$. Since $A$ contains a proper ideal $I=\{0\}$, then $\operatorname{dim}(A)=1$. Conversely, if $I=\{0\}$ and $\operatorname{dim}(A)=1$, then we have an annihilator $I$-module $A$ which is isometrically isomorphic to $\ell_1^1$. By proposition \ref{MetTopFlatAnnihModCharac} it is metrically flat.
+
+By proposition \ref{TopFlatModCharac} the $I$-module $A$ is topologically flat iff $A_{ess}=I$ and $A/A_{ess}=A/I$ are topologically flat $I$-modules. By proposition \ref{MetTopFlatIdealsInUnitalAlg} the ideal $I$ is topologically flat $I$-module, since $I$ admits a contractive approximate identity. By proposition \ref{MetTopFlatAnnihModCharac} the annihilator $I$-module $A/I$ is topologically flat iff it is an $\mathcal{L}_1^g$-space. By proposition \ref{CStarAlgIsL1IfFinDim} this is equivalent to $A/I$ being finite dimensional.
+\end{proof}
+
+As an immediate corollary, we get that the module $\mathcal{B}(H)$ of bounded operators on an infinite dimensional separable Hilbert space $H$ over the algebra $\mathcal{K}(H)$ of compact operators is not topologically flat. Note that it is still relatively flat since $\mathcal{K}(H)$ is relatively amenable \cite[VII.1.89]{HelBanLocConvAlg} and all modules over a relatively amenable Banach algebra are relatively flat \cite[VII.1.60(I)]{HelBanLocConvAlg}.
+
+
+\begin{thebibliography}{999}
+
+\bibitem{DalLauSecondDualOfMeasAlg}
+\textit{H. G. Dales, A.T.-M. Lau, D. Strauss.} Second duals of measure algebras, Dissertationes Math. (Rozprawy Mat.) 481 (2012) 1--121.
+%
+\bibitem{DavCSatrAlgByExmpl}
+\textit{K. R. Davidson.} $\it{C^*}$-algebras by example (American Mathematical Society, Vol. 6, 1996).
+%
+\bibitem{DefFloTensNorOpId}
+\textit{A. Defant, K. Floret.} Tensor norms and operator ideals (Elsevier, Vol. 176, 1992).
+%
+\bibitem{GravInjProjBanMod}
+\textit{A. W. M. Graven.} Injective and projective Banach modules, Indag. Math. (Proceedings) 82 (1979) 253--272.
+%
+\bibitem{GrothMetrProjFlatBanSp}
+\textit{A. Grothendieck.} Une caract{\'e}risation vectorielle-m{\'e}trique des espaces $\it{L}_1$, Canad. J. Math 7 (1955) 552--561.
+%
+\bibitem{HelemHomolDimNorModBanAlg}
+\textit{А. Я. Хелемский.} О гомологической размерности нормированных модулей над банаховыми алгебрами, Матем. сборник 81 (1970) 430-444.
+%
+\bibitem{HelHomolBanTopAlg}
+\textit{А. Я. Хелемский.} Гомология в банаховых и топологических алгебрах (М.:изд-во МГУ, 1986).
+%
+\bibitem{HelBanLocConvAlg}
+\textit{А. Я. Хелемский.} Банаховы и полинормированные алгебры: общая теория, представления, гомологии (М.:Наука, 1989).
+%
+\bibitem{KaniBanAlg}
+\textit{E. Kaniuth.} A course in commutative Banach algebras (Springer, Vol. 246, 2009).
+%
+\bibitem{LinPelAbsSumOpInLpSpAndApp}
+\textit{J. Lindenstrauss, A. Pelczynski.} Absolutely summing operators in $\mathcal{L}_p$-spaces and their applications, Studia Mathematica 29 (1968) 275--326.
+%
+\bibitem{LyubIsomEmdbFinDimLp}
+\textit{Yu. I. Lyubich, O. A. Shatalova.} Isometric embeddings of finite-dimensional $\ell_p$-spaces over the quaternions, St. Petersburg Math. J. 16 (2005) 9--24.
+%
+\bibitem{NemGeomProjInjFlatBanMod}
+\textit{Н.Т. Немеш.} Геометрия проективных, инъективных и плоских банаховых модулей, Фундамент. и прикл. матем. 21(3) (2016) 161--184.
+%
+\bibitem{PierAmenLCA}
+\textit{J.-P. Pier.} Amenable locally compact groups (Wiley-Interscience, 1984).
+%
+\bibitem{RosProjTransInvSbspLpG}
+\textit{H. P. Rosenthal.} Projections onto translation-invariant subspaces of $L_p(G)$, American Mathematical Society 63 (1966).
+%
+\bibitem{RundeAmenConstFour}
+\textit{V. Runde.} The amenability constant of the Fourier algebra, Proc. Amer. Math. Soc. 134 (2006) 1473--1481.
+%
+\bibitem{SakWeakCompOpOnOpAlg}
+\textit{S. Sakai.} Weakly compact operators on operator algebras, Pacific J. Math. 14 (1964) 659--664.
+%
+\bibitem{StegRethNucOpL1LInfSp}
+\textit{C. P. Stegall, J. R. Retherford.} Fully nuclear and completely nuclear operators with applications to $\mathcal{L}_1$-and $\mathcal{L}_\infty$-spaces, Transactions of the American Mathematical Society 163 (1972) 457--492.
+%
+\bibitem{WhiteInjmoduAlg}
+\textit{M.C. White.} Injective modules for uniform algebras, Proceedings of the London Mathematical Society 3 (1966) 155--184.
+%
+\bibitem{WojBanSpForAnalysts}
+\textit{P. Wojtaszczyk.} Banach spaces for analysts (Cambridge University Press, Vol. 25, 1996)
+\end{thebibliography}
+
+Norbert Nemesh, Faculty of Mechanics and Mathematics, Moscow State University, Moscow 119991 Russia
+
+\textit{E-mail address:} nemeshnorbert@yandex.ru
+
+
+\end{document}
