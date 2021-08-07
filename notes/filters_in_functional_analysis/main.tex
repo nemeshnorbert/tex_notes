@@ -1,14 +1,16 @@
 %\title{Filters in functional analysis}
 \documentclass[12pt]{article}
-\usepackage[left=2cm,right=2cm,
-top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm,
+    bindingoffset=0cm]{geometry}
 \usepackage{amssymb,amsmath}
-\usepackage[utf8]{inputenc} 
+\usepackage[utf8]{inputenc}
 \usepackage[matrix,arrow,curve]{xy}
-\usepackage[final]{graphicx} 
+\usepackage[final]{graphicx}
 \usepackage{mathrsfs}
-\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=blue, pdfborder={0 0 0}]{hyperref}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=blue,
+    pdfborder={0 0 0}]{hyperref}
 \usepackage{yhmath}
+\usepackage{enumitem}
 
 \hypersetup{frenchlinks=true}
 
@@ -28,167 +30,298 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 
 \begin{center}
 
-\Large \textbf{Filters in functional analysis}\\[0.5cm]
-\small {Nemesh N. T.}\\[0.5cm]
+    \Large \textbf{Filters in functional analysis}\\[0.5cm]
+    \small {Nemesh N. T.}\\[0.5cm]
 
 \end{center}
 
 \begin{abstract}
-In this note we give a brief introduction into the theory of filters. Then we demonstrate several applications of filters in the proof of inevitably non-constructive theorems of functional analysis.
+    In this note we give a brief introduction into the theory of filters. Then
+    we demonstrate several applications of filters in the proof of inevitably
+    non-constructive theorems of functional analysis.
 \end{abstract}
 
 \section{Set theoretic preliminaries}
 
-For a given set $M$ by $\mathcal{P}(M)$ we denote the set of all its subsets. By $\mathcal{P}_0(M)$ we denote the set of all its finite subsets.
+For a given set $M$ by $\mathcal{P}(M)$ we denote the set of all its subsets. By
+$\mathcal{P}_0(M)$ we denote the set of all its finite subsets.
 
-\begin{definition}\label{DefFilter} Let $M$ be a set, a family $\mathcal{F}\subset\mathcal{P}(M)$ with the following properties
-
-$i)$ $A,B\in\mathcal{F}\implies A\cap B\in\mathcal{F}$
-
-$ii)$ $A\in\mathcal{F}, A\subset B\implies B\in\mathcal{F}$
-
-$iii)$ $\varnothing\notin\mathcal{F}$
-
-is called a filter on the set $M$.
+\begin{definition}\label{DefFilter} Let $M$ be a set, a family
+    $\mathcal{F}\subset\mathcal{P}(M)$ with the following properties
+    \begin{enumerate}[label = (\roman*)]
+        \item $A,B\in\mathcal{F}\implies A\cap B\in\mathcal{F}$
+        \item $A\in\mathcal{F}, A\subset B\implies B\in\mathcal{F}$
+        \item $\varnothing\notin\mathcal{F}$
+    \end{enumerate}
+    is called a filter on the set $M$.
 \end{definition}
 
-\begin{remark}\label{RemAnyFilterContainsItsSet} Directly from these axioms it follows that for a filter $\mathcal{F}$ on a set $M$ we have
+\begin{remark}\label{RemAnyFilterContainsItsSet} Directly from these axioms it
+    follows that for a filter $\mathcal{F}$ on a set $M$ we have
+    \begin{enumerate}[label = (\roman*)]
+        \item $M\in\mathcal{F}$
+        \item $A_1,\ldots A_n\in\mathcal{F}\implies A_1\cap\ldots\cap
+                  A_n\in\mathcal{F}$
 
-$i)$ $M\in\mathcal{F}$
-
-$ii)$ $A_1,\ldots A_n\in\mathcal{F}\implies A_1\cap\ldots\cap A_n\in\mathcal{F}$
-
-$iii)$ $A\in\mathcal{F}\implies M\setminus A\notin\mathcal{F}$
-
+        \item $A\in\mathcal{F}\implies M\setminus A\notin\mathcal{F}$
+    \end{enumerate}
 \end{remark}
 
-\begin{definition}\label{DefFilterTypes} Let $\mathcal{F}$ be a filter on the set $M$, then 
-
-$i)$ $\mathcal{F}$ is called free if $\bigcap\mathcal{F}=\varnothing$
-
-$ii)$ $\mathcal{F}$ is called fixed if $\bigcap\mathcal{F}=\{m\}$, for some $m\in M$
+\begin{definition}\label{DefFilterTypes} Let $\mathcal{F}$ be a filter on the
+    set $M$, then
+    \begin{enumerate}[label = (\roman*)]
+        \item $\mathcal{F}$ is called free if $\bigcap\mathcal{F}=\varnothing$
+        \item $\mathcal{F}$ is called fixed if $\bigcap\mathcal{F}=\{m\}$, for
+              some $m\in M$
+    \end{enumerate}
 \end{definition}
 
-\begin{definition}\label{DefFilterBase} Let $M$ be a set, then a family $\mathcal{B}\subset\mathcal{P}(M)$ is called a filterbase if
-
-$i)$ $\mathcal{B}\neq\varnothing$
-
-$ii)$ $\varnothing\notin\mathcal{B}$
-
-$iii)$ $A,B\in\mathcal{B}\implies \exists C\in\mathcal{B}\quad C\subset A\cap B$
+\begin{definition}\label{DefFilterBase} Let $M$ be a set, then a family
+    $\mathcal{B}\subset\mathcal{P}(M)$ is called a filterbase if
+    \begin{enumerate}[label = (\roman*)]
+        \item $\mathcal{B}\neq\varnothing$
+        \item $\varnothing\notin\mathcal{B}$
+        \item $A,B\in\mathcal{B}\implies \exists C\in\mathcal{B}\quad C\subset
+                  A\cap B$
+    \end{enumerate}
 \end{definition}
 
-\begin{proposition}\label{PrFilterFromFilterBase} Let $\mathcal{B}$ be a filterbase on the set $M$, then the family
-$$
-\mathcal{F}_{\mathcal{B}}=\{A\in\mathcal{P}(M):\exists B\in\mathcal{B}: B\subset A\}
-$$
-is a filter on $M$.
+\begin{proposition}\label{PrFilterFromFilterBase} Let $\mathcal{B}$ be a
+    filterbase on the set $M$, then the family
+    $$
+        \mathcal{F}_{\mathcal{B}}=
+        \{A\in\mathcal{P}(M):\exists B\in\mathcal{B}: B\subset A\}
+    $$
+    is a filter on $M$.
 \end{proposition}
 \begin{proof} Obvious.
 \end{proof}
 
 Thus we can describe filters via their filterbases.
 
-\begin{example}\label{ExFrechetFilter} A family $\mathcal{F}_0(M)=\{A\in\mathcal{P}(M):\operatorname{Card}(M\setminus A)<\aleph_0\}$ is a filter called Frechet filter. Clearly, this is a free filter.
+\begin{example}\label{ExFrechetFilter} A family
+    $\mathcal{F}_0(M)=\{A\in\mathcal{P}(M):\operatorname{Card}(M\setminus
+        A)<\aleph_0\}$ is a filter called Frechet filter. Clearly, this is a free
+    filter.
 \end{example}
 
-\begin{example}\label{ExSectionFilter} Let $(N,\leq )$ be a directed set, then the family $\mathcal{B}_N=\{\{\nu'\in N:\nu\leq\nu'\}:\nu\in N\}$ is a filterbase. The respective filter $\mathcal{F}_N=\mathcal{F}_{\mathcal{B}_N}$ is called a section filter or a filter of tails.
+\begin{example}\label{ExSectionFilter} Let $(N,\leq )$ be a directed set, then
+    the family $\mathcal{B}_N=\{ \{\nu'\in N:\nu\leq\nu'\}:\nu\in N\}$ is a
+    filterbase. The respective filter
+    $\mathcal{F}_N=\mathcal{F}_{\mathcal{B}_N}$ is called a section filter or a
+    filter of tails.
 \end{example}
 
-\begin{example}\label{ExNeighbourhoodsFilter} Let $(X,\tau )$ be a topological space, and $x\in X$. Then the set of open neighbourhoods $\mathcal{N}(x)$ of $x$ is a filterbase. The respective filter $\mathcal{F}_{\mathcal{N}(x)}$ is called a neighbourhoods filter.
+\begin{example}\label{ExNeighbourhoodsFilter} Let $(X,\tau )$ be a topological
+    space, and $x\in X$. Then the set of open neighbourhoods $\mathcal{N}(x)$ of
+    $x$ is a filterbase. The respective filter $\mathcal{F}_{\mathcal{N}(x)}$ is
+    called a neighbourhoods filter.
 \end{example}
 
 Clearly, any filter has the finite intersection property.
 
-\begin{definition} Let $\mathcal{I}$ be a family of subsets of $M$. We say that $F$ has the finite intersection property (f.i.p. for short) if $A\cap B\in \mathcal{I}$ whenever $A,B\in \mathcal{I}$. 
+\begin{definition} Let $\mathcal{I}$ be a family of subsets of $M$. We say that
+    $F$ has the finite intersection property (f.i.p.\ for short) if $A\cap B\in
+        \mathcal{I}$ whenever $A,B\in \mathcal{I}$.
 \end{definition}
 
-\begin{proposition} Let $\mathcal{I}$ be a non-empty family of subsets of a set $M$ with finite intersection property, then 
-$$
-\mathcal{I}_{\cap}:=\big\{\cap \mathcal{A} : \mathcal{A}\subset\mathcal{P}_0(\mathcal{I})\big\}
-$$
-is a filterbase on $M$.
-\end{proposition} 
-\begin{proof} Since $\mathcal{I}$ is not empty there is a set $A\in\mathcal{I}$. Consider $\mathcal{A}=\{A\}\in\mathcal{P}_0(\mathcal{I})$, then $A=\cap\mathcal{A}\in\mathcal{I}_{\cap}$, so $\mathcal{I}_{\cap}\neq\varnothing$. Suppose, $\varnothing \notin \mathca{I}_{\cap}$, then there is a finite family $\mathcal{A}\subset\mathcal{P}_0(\mathcal{I})$ with $\cap\mathcal{A}=\varnothing$. This contradicts finite intersection property of $\mathcal{I}_{\cap}$, hence $\varnothing \notin \mathca{I}_{\cap}$. Finally, let $A_1, A_2\in\mathcal{I}_{\cap}$, then $A=\cap\mathcal{A}_1$ and $A_2=\cap\mathcal{A}_2$ for some $\mathcal{A}_1,\mathcal{A}_2\in\mathcal{P}_0(\mathcal{I})$. Clearly, $\mathcal{A}:=\mathcal{A}_1\cup\mathcal{A}_2\in\mathcal{P}_0(\mathcal{I})$, so $A:=\cap\mathcal{A}\in\mathcal{I}_{\cap}$ and, obviously $A\subset A_1\cap A_2$.
+\begin{proposition} Let $\mathcal{I}$ be a non-empty family of subsets of a set
+    $M$ with finite intersection property, then
+    $$
+        \mathcal{I}_{\cap}:=\big \{\cap \mathcal{A} :
+        \mathcal{A}\subset\mathcal{P}_0(\mathcal{I})\big \}
+    $$
+    is a filterbase on $M$.
+\end{proposition}
+\begin{proof} Since $\mathcal{I}$ is not empty there is a set $A\in\mathcal{I}$.
+    Consider $\mathcal{A}=\{A \}\in\mathcal{P}_0(\mathcal{I})$, then
+    $A=\cap\mathcal{A}\in\mathcal{I}_{\cap}$, so
+    $\mathcal{I}_{\cap}\neq\varnothing$. Suppose, $\varnothing \notin
+        \mathcal{I}_{\cap}$, then there is a finite family
+    $\mathcal{A}\subset\mathcal{P}_0(\mathcal{I})$ with
+    $\cap\mathcal{A}=\varnothing$. This contradicts finite intersection property
+    of $\mathcal{I}_{\cap}$, hence $\varnothing \notin \mathcal{I}_{\cap}$.
+    Finally, let $A_1, A_2\in\mathcal{I}_{\cap}$, then $A=\cap\mathcal{A}_1$ and
+    $A_2=\cap\mathcal{A}_2$ for some
+    $\mathcal{A}_1,\mathcal{A}_2\in\mathcal{P}_0(\mathcal{I})$. Clearly,
+    $\mathcal{A}:=\mathcal{A}_1\cup\mathcal{A}_2\in\mathcal{P}_0(\mathcal{I})$,
+    so $A:=\cap\mathcal{A}\in\mathcal{I}_{\cap}$ and, obviously $A\subset
+        A_1\cap A_2$.
 \end{proof}
 
-\begin{example}\label{ExFilterGenBySet} Let $A$ be a non-empty subset of a set $M$, then the family $F_A=\{B\in\mathcal{P}(M):A\subset B\}$ is a filter, called a filter generated by set $A$.
+\begin{example}\label{ExFilterGenBySet} Let $A$ be a non-empty subset of a set
+    $M$, then the family $F_A=\{B\in\mathcal{P}(M):A\subset B\}$ is a filter,
+    called a filter generated by set $A$.
 \end{example}
 
-\begin{remark}\label{RemDescOfFiltersOnFiniteSets} Every filter $\mathcal{F}$ on a finite set $M$ is of the form $\mathcal{F}_{A}$. Indeed, $\mathcal{F}$ is a finite set, then $A=\bigcap\mathcal{F}$ is finite intersection of elements of $\mathcal{F}$, so $A\in\mathcal{F}$. Therefore any $B\in\mathcal{F}$ contains $A$, and $\mathcal{F}\subset\mathcal{F}_A$. On the other hand any $B\in\mathcal{P}(M)$ that contains $A\in\mathcal{F}$ is in $\mathcal{F}$ by definition of filter. So $\mathcal{F}_A\subset\mathcal{F}$.
+\begin{remark}\label{RemDescOfFiltersOnFiniteSets} Every filter $\mathcal{F}$ on
+    a finite set $M$ is of the form $\mathcal{F}_{A}$. Indeed, $\mathcal{F}$ is
+    a finite set, then $A=\bigcap\mathcal{F}$ is finite intersection of elements
+    of $\mathcal{F}$, so $A\in\mathcal{F}$. Therefore any $B\in\mathcal{F}$
+    contains $A$, and $\mathcal{F}\subset\mathcal{F}_A$. On the other hand any
+    $B\in\mathcal{P}(M)$ that contains $A\in\mathcal{F}$ is in $\mathcal{F}$ by
+    definition of filter. So $\mathcal{F}_A\subset\mathcal{F}$.
 \end{remark}
 
 
-\begin{definition}\label{DefFilterComparsion} Let $\mathcal{F}_1$, $\mathcal{F}_2$ be two filter on a set $M$. We say that $\mathcal{F}_2$ dominates $\mathcal{F}_1$ and write $\mathcal{F}_1\leq \mathcal{F}_2$ if $\mathcal{F}_1\subset\mathcal{F}_2$.
+\begin{definition}\label{DefFilterComparsion} Let $\mathcal{F}_1$,
+    $\mathcal{F}_2$ be two filter on a set $M$. We say that $\mathcal{F}_2$
+    dominates $\mathcal{F}_1$ and write $\mathcal{F}_1\leq \mathcal{F}_2$ if
+    $\mathcal{F}_1\subset\mathcal{F}_2$.
 \end{definition}
 
-\begin{remark} Let $\mathscr{F}$ be a family of filters on $M$, then $\mathcal{F}=\bigcap \mathscr{F}$ is a filter. Clearly $\mathcal{F}$ is dominated by any filter of $\mathscr{F}$.
+\begin{remark} Let $\mathscr{F}$ be a family of filters on $M$, then
+    $\mathcal{F}=\bigcap \mathscr{F}$ is a filter. Clearly $\mathcal{F}$ is
+    dominated by any filter of $\mathscr{F}$.
 \end{remark}
 
-\begin{definition}\label{DefUltraFilter} A filter $\mathcal{U}$ on a set $M$ is called an ultrafilter if any filter that dominates $\mathcal{U}$ equals $\mathcal{U}$.
+\begin{definition}\label{DefUltraFilter} A filter $\mathcal{U}$ on a set $M$ is
+    called an ultrafilter if any filter that dominates $\mathcal{U}$ equals
+    $\mathcal{U}$.
 \end{definition}
 
-\begin{remark}\label{RemFixedFilterIsAnUltraFilter} It is easy to see that any fixed filter is an ultrafilter, but there are free ultrafilters too.
+\begin{remark}\label{RemFixedFilterIsAnUltraFilter} It is easy to see that any
+    fixed filter is an ultrafilter, but there are free ultrafilters too.
 \end{remark}
 
 Now we present a very important lemma --- an ultrafilter lemma.
 
-\begin{lemma}\label{LemExistenceOfUltraFilters} Let $\mathcal{F}$ be a filter on a set $M$, then there exists an ultrafilter $\mathcal{U}$ that dominates $\mathcal{F}$.
+\begin{lemma}\label{LemExistenceOfUltraFilters} Let $\mathcal{F}$ be a filter on
+    a set $M$, then there exists an ultrafilter $\mathcal{U}$ that dominates
+    $\mathcal{F}$.
 \end{lemma}
-\begin{proof} Let $\mathscr{F}$ be a set of filters on $M$ that dominate $\mathcal{F}$. It is easy to check that any linearly ordered chain $\mathscr{C}\subset \mathscr{F}$ has a maximal element $\bigcup\mathscr{C}$. By Zorn's lemma $\mathscr{F}$ has a maximal element $\mathcal{U}$. By construction this is an ultrafilter that dominates $\mathcal{F}$.
+\begin{proof} Let $\mathscr{F}$ be a set of filters on $M$ that dominate
+    $\mathcal{F}$. It is easy to check that any linearly ordered chain
+    $\mathscr{C}\subset \mathscr{F}$ has a maximal element $\bigcup\mathscr{C}$.
+    By Zorn's lemma $\mathscr{F}$ has a maximal element $\mathcal{U}$. By
+    construction this is an ultrafilter that dominates $\mathcal{F}$.
 \end{proof}
+
 
 Note: the ultrafilter lemma is weaker than the axiom of choice.
 
-\begin{proposition}\label{PrUltraFilterCharac} Let $\mathcal{F}$ be a filter on a set $M$. Then the following are equivalent:
-
-$i)$ $A_1\cup\ldots\cup A_n\in\mathcal{F}\implies\exists i\in\{1,\ldots,n\}\quad A_i\in\mathcal{F}$;
-
-$ii)$ $A\cup B\in\mathcal{F}\implies (A\in\mathcal{F})\vee (B\in\mathcal{F})$;
-
-$iii)$ $(A\in\mathcal{F})\vee(M\setminus A\in\mathcal{F})$;
-
-$iv)$ $\mathcal{F}$ is an ultrafilter;
+\begin{proposition}\label{PrUltraFilterCharac} Let $\mathcal{F}$ be a filter on
+    a set $M$. Then the following are equivalent:
+    \begin{enumerate}[label = (\roman*)]
+        \item $A_1\cup\ldots\cup A_n\in\mathcal{F}\implies\exists i\in
+                  \{1,\ldots,n\}\quad A_i\in\mathcal{F}$;
+        \item $A\cup B\in\mathcal{F}\implies (A\in\mathcal{F})\vee
+                  (B\in\mathcal{F})$;
+        \item $(A\in\mathcal{F})\vee(M\setminus A\in\mathcal{F})$;
+        \item $\mathcal{F}$ is an ultrafilter;
+    \end{enumerate}
 \end{proposition}
-\begin{proof} $i)\implies ii)$ Obvious
+\begin{proof} $(i)\implies (ii)$ Obvious
 
-$ii)\implies iii)$ Note that $M=A\cup(M\setminus A)$ and recall that $M\in\mathcal{F}$.
+    $(ii)\implies (iii)$ Note that $M=A\cup(M\setminus A)$ and recall that
+    $M\in\mathcal{F}$.
 
-$iii)\implies iv)$ Let $\mathcal{G}$ be a filter on $M$ dominating $\mathcal{F}$. Consider arbitrary $A\in\mathcal{G}$, then $M\setminus A\notin\mathcal{G}$ and a fortiori $M\setminus A\notin\mathcal{F}$. By assumption $A\in\mathcal{F}$. Since $A\in\mathcal{G}$ is arbitray $\mathcal{F}$ dominates $\mathcal{G}$, but by construction $\mathcal{G}$ dominates $\mathcal{F}$. Hence $\mathcal{G}=\mathcal{F}$ and therefore $\mathcal{F}$ is an ultrafilter.
+    $(iii)\implies (iv)$ Let $\mathcal{G}$ be a filter on $M$ dominating
+    $\mathcal{F}$. Consider arbitrary $A\in\mathcal{G}$, then $M\setminus
+        A\notin\mathcal{G}$ and a fortiori $M\setminus A\notin\mathcal{F}$. By
+    assumption $A\in\mathcal{F}$. Since $A\in\mathcal{G}$ is arbitray
+    $\mathcal{F}$ dominates $\mathcal{G}$, but by construction $\mathcal{G}$
+    dominates $\mathcal{F}$. Hence $\mathcal{G}=\mathcal{F}$ and therefore
+    $\mathcal{F}$ is an ultrafilter.
 
-$iv)\implies ii)$ Assume that $A\notin\mathcal{F}$ and $B\notin\mathcal{F}$. One can easily check that $\mathcal{G}=\{C\in\mathcal{P}(M):A\cup C\in\mathcal{F}\}$ is a filter on $M$. A moment thought shows that $B\in\mathcal{G}$ and $\mathcal{G}$ dominates $\mathcal{F}$. Since $B\notin \mathcal{F}$, then $\mathcal{F}$ is not an ultrafilter.
+    $(iv)\implies (ii)$ Assume that $A\notin\mathcal{F}$ and
+    $B\notin\mathcal{F}$. One can easily check that
+    $\mathcal{G}=\{C\in\mathcal{P}(M):A\cup C\in\mathcal{F}\}$ is a filter on
+    $M$. A moment thought shows that $B\in\mathcal{G}$ and $\mathcal{G}$
+    dominates $\mathcal{F}$. Since $B\notin \mathcal{F}$, then $\mathcal{F}$ is
+    not an ultrafilter.
 
-$ii)\implies i)$ Obvious induction on $n$.
+    $(ii)\implies (i)$ Obvious induction on $n$.
 \end{proof}
 
-\begin{remark}\label{RemDescOfUltrafiltersOnFiniteSets}
-Any ultrafilter $\mathcal{U}$ on a finite set $M$ is fixed. As we noted above $\mathcal{U}=\mathcal{F}_A$ for some $A\in\mathcal{U}$. If $\operatorname{Card}(A)>1$, then $A$ has a proper subset $B$ and $\mathcal{F}_B$ dominates $\mathcal{F}_A=\mathcal{U}$ while not equal to $\mathcal{U}$. Hence $\mathcal{U}$ is not an ultrafilter, contradiction. Therefore $A$ is a singleton and $\mathcal{U}$ is fixed.
+\begin{remark}\label{RemDescOfUltrafiltersOnFiniteSets} Any ultrafilter
+    $\mathcal{U}$ on a finite set $M$ is fixed. As we noted above
+    $\mathcal{U}=\mathcal{F}_A$ for some $A\in\mathcal{U}$. If
+    $\operatorname{Card}(A)>1$, then $A$ has a proper subset $B$ and
+    $\mathcal{F}_B$ dominates $\mathcal{F}_A=\mathcal{U}$ while not equal to
+    $\mathcal{U}$. Hence $\mathcal{U}$ is not an ultrafilter, contradiction.
+    Therefore $A$ is a singleton and $\mathcal{U}$ is fixed.
 \end{remark}
 
-\begin{proposition}\label{PrFreeUltraFilterCharac} An ultrafilter $\mathcal{U}$ on a infinite set $M$. Then $\mathcal{U}$ is free iff it dominates Frechet filter on $M$.
+\begin{proposition}\label{PrFreeUltraFilterCharac} An ultrafilter $\mathcal{U}$
+    on a infinite set $M$. Then $\mathcal{U}$ is free iff it dominates Frechet
+    filter on $M$.
 \end{proposition}
-\begin{proof} Assume $\mathcal{F}_0(M)\not\subset\mathcal{U}$, then there exists $A=\{m_1,\ldots,m_n\}\in\mathcal{P}_0(M)$ such that $M\setminus A\notin \mathcal{U}$. Therefore $A\in\mathcal{U}$. Since $A=\{m_1\}\cup\ldots\cup\{m_n\}$, then $\{m_i\}\in\mathcal{U}$ for some $i\in\{1,\ldots,n\}$. Thereofore $\mathcal{F}_{\{m_i\}}\subset\mathcal{U}$. Since $\mathcal{F}_{\{m_i\}}$ is an ultrafilter, then $\mathcal{U}=\mathcal{F}_{\{m_i\}}$ and $\bigcap\mathcal{U}=\{m_i\}\neq\varnothing$. Thus $\mathcal{U}$ is not an ultrafilter.
+\begin{proof} Assume $\mathcal{F}_0(M)\not\subset\mathcal{U}$, then there exists
+    $A=\{m_1,\ldots,m_n\}\in\mathcal{P}_0(M)$ such that $M\setminus A\notin
+        \mathcal{U}$. Therefore $A\in\mathcal{U}$. Since $A=\{m_1\}\cup\ldots\cup
+        \{m_n\}$, then $\{m_i\}\in\mathcal{U}$ for some $i\in \{1,\ldots,n\}$.
+    Thereofore $\mathcal{F}_{\{m_i\}}\subset\mathcal{U}$. Since
+    $\mathcal{F}_{\{m_i\}}$ is an ultrafilter, then
+    $\mathcal{U}=\mathcal{F}_{\{m_i\}}$ and
+    $\bigcap\mathcal{U}=\{m_i\}\neq\varnothing$. Thus $\mathcal{U}$ is not an
+    ultrafilter.
 
-Conversely, if $\mathcal{U}$ contains Frechet filter, then $\bigcap\mathcal{U}\subset\bigcap\mathcal{F}_0(M)=\varnothing$. Therefore $\mathcal{U}$ is free.
+    Conversely, if $\mathcal{U}$ contains Frechet filter, then
+    $\bigcap\mathcal{U}\subset\bigcap\mathcal{F}_0(M)=\varnothing$. Therefore
+    $\mathcal{U}$ is free.
 \end{proof}
 
-\begin{proposition}\label{PrImageAndPreimageOfAFilter} Let $\varphi:M\to N$ be a map between sets $M$ and $N$. Then
-
-$i)$ If $\mathcal{F}$ is a filter on $M$, then $\varphi_{\rightarrow}[\mathcal{F}]:=\{\varphi(A):A\in\mathcal{F}\}$ is a filter base on $N$.
-
-$ii)$ If $\mathcal{F}$ is a filter on $M$, then $\varphi_{\leftarrow}[\mathcal{F}]=\{P\in\mathcal{P}(N):\varphi^{-1}(P)\in\mathcal{F}\}$ is a filter on $N$.
-
-$iii)$ $\varphi_{\rightarrow}[\mathcal{F}]$ is generated by $\varphi_{\leftarrow}[\mathcal{F}]$
-
-$iii)$ If $\mathcal{F}$ is an ultrafilter on $M$, then $\varphi_{\leftarrow}[\mathcal{F}]$ is an ultrafilter on $N$.
+\begin{proposition}\label{PrImageAndPreimageOfAFilter} Let $\varphi:M\to N$ be a
+    map between sets $M$ and $N$. Then
+    \begin{enumerate}[label = (\roman*)]
+        \item If $\mathcal{F}$ is a filter on $M$, then
+              $\varphi_{\rightarrow}[\mathcal{F}]:=\{\varphi(A):A\in\mathcal{F}\}$
+              is a filter base on $N$.
+        \item If $\mathcal{F}$ is a filter on $M$, then
+              $\varphi_{\leftarrow}[\mathcal{F}]=
+                  \{P\in\mathcal{P}(N):\varphi^{-1}(P)\in\mathcal{F}\}$ is a filter
+              on $N$.
+        \item $\varphi_{\rightarrow}[\mathcal{F}]$ is generated by
+              $\varphi_{\leftarrow}[\mathcal{F}]$
+        \item If $\mathcal{F}$ is an ultrafilter on $M$, then
+              $\varphi_{\leftarrow}[\mathcal{F}]$ is an ultrafilter on $N$.
+    \end{enumerate}
 \end{proposition}
-\begin{proof} $i)$ Let $P_1,P_2\in\varphi_{\rightarrow}[\mathcal{F}]$, then $P_1=\varphi(A_1)$, $P_2=\varphi(A_2)$, then there exists $P_3=\varphi(A_1\cap A_2)\in\varphi_{\rightarrow}[\mathcal{F}]$ such that $P_3\subset\varphi(A_1)\cap\varphi(A_2)=P_1\cap P_2$. Since $M\in\mathcal{F}$, then $\varphi(M)\in\varphi_{\rightarrow}[\mathcal{F}]$ and $\varphi_{\rightarrow}[\mathcal{F}]\neq\varnothing$. If $\varnothing\in\varphi_{\rightarrow}[\mathcal{F}]$, then $\varnothing=\varphi(A)$ for some $A\in\mathcal{F}$. In fact, $A=\varnothing$, contradiction. So $\varnothing\notin\varphi_{\rightarrow}[\mathcal{F}]$. Therefore $\varphi_{\rightarrow}[\mathcal{F}]$ is a filter base on $N$.
+\begin{proof} $(i)$ Let $P_1,P_2\in\varphi_{\rightarrow}[\mathcal{F}]$, then
+    $P_1=\varphi(A_1)$, $P_2=\varphi(A_2)$, then there exists
+    $P_3=\varphi(A_1\cap A_2)\in\varphi_{\rightarrow}[\mathcal{F}]$ such that
+    $P_3\subset\varphi(A_1)\cap\varphi(A_2)=P_1\cap P_2$. Since
+    $M\in\mathcal{F}$, then $\varphi(M)\in\varphi_{\rightarrow}[\mathcal{F}]$
+    and $\varphi_{\rightarrow}[\mathcal{F}]\neq\varnothing$. If
+    $\varnothing\in\varphi_{\rightarrow}[\mathcal{F}]$, then
+    $\varnothing=\varphi(A)$ for some $A\in\mathcal{F}$. In fact,
+    $A=\varnothing$, contradiction. So
+    $\varnothing\notin\varphi_{\rightarrow}[\mathcal{F}]$. Therefore
+    $\varphi_{\rightarrow}[\mathcal{F}]$ is a filter base on $N$.
 
-$ii)$ Let $P_1,P_2\in\varphi_{\leftarrow}[\mathcal{F}]$. Then $\varphi^{-1}(P_1)\in\mathcal{F}$, $\varphi^{-1}(P_2)\in\mathcal{F}$ and $\varphi^{-1}(P_1\cap P_2)=\varphi^{-1}(P_1)\cap\varphi^{-1}(P_1)\in\mathcal{F}$, i.e. $P_1\cap P_2\in\varphi_{\leftarrow}[\mathcal{F}]$ Consider arbitrary $A\in\varphi_{\leftarrow}[\mathcal{F}]$ and $B\in\mathcal{P}(M)$ such that $A\subset B$. Since $A\in\varphi_{\leftarrow}[\mathcal{F}]$, then $\varphi^{-1}(A)\in\mathcal{F}$. Since $A\subset B$, then $\varphi^{-1}(B)\supset\varphi^{-1}(A)$. Therefore $B\in\varphi_{\leftarrow}[\mathcal{F}]$. Finally, if $\varnothing\in\mathcal{G}$, then $\varnothing=\varphi^{-1}(\varnothing)\in\mathcal{F}$. Contradiction, so $\varnothing\notin\varphi_{\leftarrow}[\mathcal{F}]$. Therefore $\varphi_{\leftarrow}[\mathcal{F}]$ is a filer on $N$.
+    $(ii)$ Let $P_1,P_2\in\varphi_{\leftarrow}[\mathcal{F}]$. Then
+    $\varphi^{-1}(P_1)\in\mathcal{F}$, $\varphi^{-1}(P_2)\in\mathcal{F}$ and
+    $\varphi^{-1}(P_1\cap
+        P_2)=\varphi^{-1}(P_1)\cap\varphi^{-1}(P_1)\in\mathcal{F}$, i.e. $P_1\cap
+        P_2\in\varphi_{\leftarrow}[\mathcal{F}]$ Consider arbitrary
+    $A\in\varphi_{\leftarrow}[\mathcal{F}]$ and $B\in\mathcal{P}(M)$ such that
+    $A\subset B$. Since $A\in\varphi_{\leftarrow}[\mathcal{F}]$, then
+    $\varphi^{-1}(A)\in\mathcal{F}$. Since $A\subset B$, then
+    $\varphi^{-1}(B)\supset\varphi^{-1}(A)$. Therefore
+    $B\in\varphi_{\leftarrow}[\mathcal{F}]$. Finally, if
+    $\varnothing\in\mathcal{G}$, then
+    $\varnothing=\varphi^{-1}(\varnothing)\in\mathcal{F}$. Contradiction, so
+    $\varnothing\notin\varphi_{\leftarrow}[\mathcal{F}]$. Therefore
+    $\varphi_{\leftarrow}[\mathcal{F}]$ is a filer on $N$.
 
-$iii)$ Let $P\in\varphi_{\rightarrow}[\mathcal{F}]$, then $P=\varphi(A)$ for some $A\in\mathcal{F}$. Note that $\varphi^{-1}(P)\supset A\in\mathcal{F}$, so $\varphi^{-1}(P)\in\mathcal{F}$ and $P\in\varphi_{\rightarrow}[\mathcal{F}]$. This means that $\varphi_{\rightarrow}[\mathcal{F}]\subset \varphi_{\leftarrow}[\mathcal{F}]$. Take any $P\in \varphi_{\leftarrow}[\mathcal{F}]$, then $A=\varphi^{-1}(P)\in\mathcal{F}$ and $\varphi(A)\in\varphi_{\rightarrow}[\mathcal{F}]$. Clearly, $\varphi(A)\subset P$. Since $P$ is arbitrary we conclude that $\varphi_{\leftarrow}[\mathcal{F}]$ is generated by $\varphi_{\rightarrow}[\mathcal{F}]$.
+    $(iii)$ Let $P\in\varphi_{\rightarrow}[\mathcal{F}]$, then $P=\varphi(A)$
+    for some $A\in\mathcal{F}$. Note that $\varphi^{-1}(P)\supset
+        A\in\mathcal{F}$, so $\varphi^{-1}(P)\in\mathcal{F}$ and
+    $P\in\varphi_{\rightarrow}[\mathcal{F}]$. This means that
+    $\varphi_{\rightarrow}[\mathcal{F}]\subset
+        \varphi_{\leftarrow}[\mathcal{F}]$. Take any $P\in
+        \varphi_{\leftarrow}[\mathcal{F}]$, then $A=\varphi^{-1}(P)\in\mathcal{F}$
+    and $\varphi(A)\in\varphi_{\rightarrow}[\mathcal{F}]$. Clearly,
+    $\varphi(A)\subset P$. Since $P$ is arbitrary we conclude that
+    $\varphi_{\leftarrow}[\mathcal{F}]$ is generated by
+    $\varphi_{\rightarrow}[\mathcal{F}]$.
 
-$iv)$ Assume $P\notin\varphi_{\leftarrow}[\mathcal{F}]$, then $\varphi^{-1}(P)\notin\mathcal{F}$. As $\mathcal{F}$ is an ultrafilter, then $\varphi^{-1}(N\setminus P)=M\setminus\varphi^{-1}(P)\in\mathcal{F}$. Hence $N\setminus P\in\varphi_{\leftarrow}[\mathcal{F}]$. Thus $\varphi_{\leftarrow}[\mathcal{F}]$ is an ultrfilter.
+    $(iv)$ Assume $P\notin\varphi_{\leftarrow}[\mathcal{F}]$, then
+    $\varphi^{-1}(P)\notin\mathcal{F}$. As $\mathcal{F}$ is an ultrafilter, then
+    $\varphi^{-1}(N\setminus P)=M\setminus\varphi^{-1}(P)\in\mathcal{F}$. Hence
+    $N\setminus P\in\varphi_{\leftarrow}[\mathcal{F}]$. Thus
+    $\varphi_{\leftarrow}[\mathcal{F}]$ is an ultrfilter.
 \end{proof}
 
 
@@ -203,159 +336,261 @@ $iv)$ Assume $P\notin\varphi_{\leftarrow}[\mathcal{F}]$, then $\varphi^{-1}(P)\n
 
 \section{Filters in topology}
 
-\begin{definition}\label{DefLimitAlongFilter} Let $\mathcal{F}$ be a filter on  a set $M$, and $\varphi:M\to X$ be a map from $M$ to the topological space $X$. We say that $x$ is a limit of $\varphi$ along $\mathcal{F}$ and write $x\in\lim_{\mathcal{F}} \varphi(m)$ if
-$$
-\mathcal{N}(x)\subset \varphi_{\leftarrow}[\mathcal{F}]
-$$
-which is equivalent to
-$$
-\forall U\in\mathcal{N}(x)\quad \varphi^{-1}(U)\in\mathcal{F}
-$$
+\begin{definition}\label{DefLimitAlongFilter} Let $\mathcal{F}$ be a filter on a
+    set $M$, and $\varphi:M\to X$ be a map from $M$ to the topological space
+    $X$. We say that $x$ is a limit of $\varphi$ along $\mathcal{F}$ and write
+    $x\in\lim_{\mathcal{F}} \varphi(m)$ if
+    $$
+        \mathcal{N}(x)\subset \varphi_{\leftarrow}[\mathcal{F}]
+    $$
+    which is equivalent to
+    $$
+        \forall U\in\mathcal{N}(x)\quad \varphi^{-1}(U)\in\mathcal{F}
+    $$
 \end{definition}
 
 \begin{remark}\label{RemReductionFromLimitAlongFilter}
 
-$i)$ If $\mathcal{F}=\mathcal{F}_0(\mathbb{N})$, then we get the usual limit of a sequence. 
-
-$ii)$ If $M$ is a topological space and $\mathcal{F}=\mathcal{N}(m)$, then we get the usual definition of limit of function between topological spaces.
-
-$iii)$ If $M$ is a directed set and $\mathcal{F}=\mathcal{F}_M$ we get the definition of a limit of the net $(\varphi_m)_{m\in M}$.
+    $(i)$ If $\mathcal{F}=\mathcal{F}_0(\mathbb{N})$, then we get the usual
+    limit of a sequence. $(ii)$ If $M$ is a topological space and
+    $\mathcal{F}=\mathcal{N}(m)$, then we get the usual definition of limit of
+    function between topological spaces. $(iii)$ If $M$ is a directed set and
+    $\mathcal{F}=\mathcal{F}_M$ we get the definition of a limit of the net
+    ${(\varphi_m)}_{m\in M}$.
 \end{remark}
 
-\begin{remark}\label{RemOnCheckingTheDefinitionOfLimit} Let $b$ be a prebase of topology $\tau$ of a topological space $X$. Since all open sets are unions of finite intersections of elements of b, then it is enough to check the definition of limit along the filter not for all neighbourhoods of the point but just for elements of prebase.
+\begin{remark}\label{RemOnCheckingTheDefinitionOfLimit} Let $b$ be a prebase of
+    topology $\tau$ of a topological space $X$. Since all open sets are unions
+    of finite intersections of elements of b, then it is enough to check the
+    definition of limit along the filter not for all neighbourhoods of the point
+    but just for elements of prebase.
 \end{remark}
 
-\begin{remark}\label{RemLimitOfAConst} If $\varphi(m)=x$ for all $m\in M$ and some $x\in X$, then for any filter $\mathcal{F}$ we have $\lim_{\mathcal{F}}\varphi(m)=x$. Indeed for any $U\in\mathcal{N}(x)$ we have $\varphi^{-1}(U)=M\in\mathcal{F}$.
+\begin{remark}\label{RemLimitOfAConst} If $\varphi(m)=x$ for all $m\in M$ and
+    some $x\in X$, then for any filter $\mathcal{F}$ we have
+    $\lim_{\mathcal{F}}\varphi(m)=x$. Indeed for any $U\in\mathcal{N}(x)$ we
+    have $\varphi^{-1}(U)=M\in\mathcal{F}$.
 \end{remark}
 
-\begin{remark}\label{RemLimitAlongFilterGeneratedByASet} If $\mathcal{F}=\mathcal{F}_A$ for some $A\in\mathcal{P}_0(M)$, then $\varphi(A)\subset \operatorname{cl}_X(\{x\})$. Indeed, for any $U\in\mathcal{N}(x)$ we have $A\subset\varphi^{-1}(U)$. This is equivalent to $\varphi(A)\subset\operatorname{cl}_X(\{x\})$. If $A=\{m\}$ we get that the limit along the fixed ultrafilter $\mathcal{F}_{\{m\}}$ always equals $\operatorname{cl}_X(\varphi(m))$.
+\begin{remark}\label{RemLimitAlongFilterGeneratedByASet} If
+    $\mathcal{F}=\mathcal{F}_A$ for some $A\in\mathcal{P}_0(M)$, then
+    $\varphi(A)\subset \operatorname{cl}_X(\{x\})$. Indeed, for any
+    $U\in\mathcal{N}(x)$ we have $A\subset\varphi^{-1}(U)$. This is equivalent
+    to $\varphi(A)\subset\operatorname{cl}_X(\{x\})$. If $A=\{m\}$ we get that
+    the limit along the fixed ultrafilter $\mathcal{F}_{\{m\}}$ always equals
+    $\operatorname{cl}_X(\varphi(m))$.
 \end{remark}
 
-\begin{proposition}\label{PrChangeOfFilterInLimit} Let $\mathcal{F}_1, \mathcal{F}_2$ be two filters on a set $M$ and $\varphi:M\to X$ be a map from $M$ to the topological space $X$. If $\mathcal{F}_2$ dominates $\mathcal{F}_1$, then 
-$$
-\lim_{\mathcal{F}_1}\varphi(m)\subset\lim_{\mathcal{F}_2}\varphi(m)
-$$
+\begin{proposition}\label{PrChangeOfFilterInLimit} Let $\mathcal{F}_1,
+        \mathcal{F}_2$ be two filters on a set $M$ and $\varphi:M\to X$ be a map
+    from $M$ to the topological space $X$. If $\mathcal{F}_2$ dominates
+    $\mathcal{F}_1$, then
+    $$
+        \lim_{\mathcal{F}_1}\varphi(m)\subset\lim_{\mathcal{F}_2}\varphi(m)
+    $$
 \end{proposition}
 \begin{proof} Obvious.
 \end{proof}
 
-\begin{proposition}\label{RemUniqueLimitAlongFilter} In a Hausdorff topological space, if a limit along the filter exists it is unique. In this case we will write $x=\lim_{\mathcal{F}}\varphi(m)$
+\begin{proposition}\label{RemUniqueLimitAlongFilter} In a Hausdorff topological
+    space, if a limit along the filter exists it is unique. In this case we will
+    write $x=\lim_{\mathcal{F}}\varphi(m)$
 \end{proposition}
-\begin{proof} Let $x,y\in\lim_{\mathcal{F}}\varphi(m)$. Assume $x\neq y$. Since $X$ is a Hausdorff space, then there exist $U\in\mathcal{N}(x)$ and $V\in\mathcal{N}(y)$ such that $U\cap V=\varnothing$. Since $x,y\in\lim_{\mathcal{F}}\varphi(m)$, then $\varphi^{-1}(U),\varphi^{-1}(V)\in\mathcal{F}$. In particular, $\varnothing=\varphi^{-1}(U\cap V)=\varphi^{-1}(U)\cap\varphi^{-1}(V)\in\mathcal{F}$. Contradiction, so $x=y$.
+\begin{proof} Let $x,y\in\lim_{\mathcal{F}}\varphi(m)$. Assume $x\neq y$. Since
+    $X$ is a Hausdorff space, then there exist $U\in\mathcal{N}(x)$ and
+    $V\in\mathcal{N}(y)$ such that $U\cap V=\varnothing$. Since
+    $x,y\in\lim_{\mathcal{F}}\varphi(m)$, then
+    $\varphi^{-1}(U),\varphi^{-1}(V)\in\mathcal{F}$. In particular,
+    $\varnothing=\varphi^{-1}(U\cap
+        V)=\varphi^{-1}(U)\cap\varphi^{-1}(V)\in\mathcal{F}$. Contradiction, so
+    $x=y$.
 \end{proof}
 
-\begin{proposition}\label{PrLimitAlongUltrafilterIntoTheCompact} Let $\mathcal{U}$ be an ultrafilter on a set $M$. Let $\varphi:M\to X$ be a map from $M$ into a compact topological space $X$. Then $\lim_{\mathcal{F}}\varphi(m)$ exists.
+\begin{proposition}\label{PrLimitAlongUltrafilterIntoTheCompact} Let
+    $\mathcal{U}$ be an ultrafilter on a set $M$. Let $\varphi:M\to X$ be a map
+    from $M$ into a compact topological space $X$. Then
+    $\lim_{\mathcal{F}}\varphi(m)$ exists.
 \end{proposition}
-\begin{proof} Suppose no point in $x\in X$ is a limit of $\varphi$ along $\mathcal{U}$. Hence for every $x\in X$ there is a neighbourhood $U_x\in\mathcal{N}(x)$ such that $\varphi^{-1}(U_x)\notin\mathcal{U}$. By compactness of $X$ a cover $\{U_x:x\in X\}$ have a finite subcover $\{U_{x_k}:k\in\{1,\ldots,n\}\}$. Note that
-$$
-\varphi^{-1}(U_{x_1})\cup\ldots\cup\varphi^{-1}(U_{x_k})
-=\varphi^{-1}(X)=M\in\mathcal{F}
-$$
-Since $\mathcal{U}$ is an ultrfilter, then $U_{x_i}\in\mathcal{U}$ for some $i\in\{1,\ldots,n\}$. Contradiction. Hence there exists an $x\in X$ such that $x\in\lim_{\mathcal{F}}\varphi(m)$.
+\begin{proof} Suppose no point in $x\in X$ is a limit of $\varphi$ along
+    $\mathcal{U}$. Hence for every $x\in X$ there is a neighbourhood
+    $U_x\in\mathcal{N}(x)$ such that $\varphi^{-1}(U_x)\notin\mathcal{U}$. By
+    compactness of $X$ a cover $\{U_x:x\in X\}$ have a finite subcover
+    $\{U_{x_k}:k\in \{1,\ldots,n\} \}$. Note that
+    $$
+        \varphi^{-1}(U_{x_1})\cup\ldots\cup\varphi^{-1}(U_{x_k})
+        =\varphi^{-1}(X)=M\in\mathcal{F}
+    $$
+    Since $\mathcal{U}$ is an ultrfilter, then $U_{x_i}\in\mathcal{U}$ for some
+    $i\in \{1,\ldots,n\}$. Contradiction. Hence there exists an $x\in X$ such
+    that $x\in\lim_{\mathcal{F}}\varphi(m)$.
 \end{proof}
 
-\begin{corollary}\label{PrLimitOfASequenceAlongUltrafilter} Let $(x_\nu)_{\nu\in N}$ be a bounded net in $\mathbb{C}$ and $\mathcal{U}$ be an ultrafilter dominating section filter on $N$, then $\lim_{\mathcal{U}}x_\nu$ exists and unique.
+
+\begin{corollary}\label{PrLimitOfASequenceAlongUltrafilter} Let
+    ${(x_\nu)}_{\nu\in N}$ be a bounded net in $\mathbb{C}$ and
+    $\mathcal{U}$ be an ultrafilter dominating section filter on
+    $N$, then $\lim_{\mathcal{U}}x_\nu$ exists and unique.
 \end{corollary}
-\begin{proof} Existence follows from proposition \ref{PrLimitAlongUltrafilterIntoTheCompact}. Uniqueness follows from proposition \ref{RemUniqueLimitAlongFilter}.
+\begin{proof} Existence follows from
+    proposition~\ref{PrLimitAlongUltrafilterIntoTheCompact}. Uniqueness follows
+    from proposition~\ref{RemUniqueLimitAlongFilter}.
 \end{proof}
 
 
-\begin{proposition}\label{PrFiltersUnderContinuousFunctions} Let $\mathcal{F}$ be a filter on a set $M$, $X$ and $Y$ be two topological spaces. Assume we are given a map $\varphi:M\to X$ and a continuous map $g: X\to Y$. Then 
-$$
-g\left(\lim_{\mathcal{F}}\varphi(m)\right)\subset\lim_{\mathcal{F}}g(\varphi(m))
-$$
+\begin{proposition}\label{PrFiltersUnderContinuousFunctions} Let $\mathcal{F}$
+    be a filter on a set $M$, $X$ and $Y$ be two topological spaces. Assume we
+    are given a map $\varphi:M\to X$ and a continuous map $g: X\to Y$. Then
+    $$
+        g\left(\lim_{\mathcal{F}}\varphi(m)\right)\subset\lim_{\mathcal{F}}g(\varphi(m))
+    $$
 \end{proposition}
-\begin{proof} Let $x\in\lim_{\mathcal{F}}\varphi(m)$. For any $U\in\mathcal{N}(x)$ we have $\varphi^{-1}(U)\in\mathcal{F}$. Let $V\in\mathcal{N}(g(x))$, then $g^{-1}(V)\in\mathcal{N}(x)$ and therefore
-$$
-(g\circ\varphi)^{-1}(V)=\varphi^{-1}(g^{-1}(V))\in\mathcal{F}
-$$
-Since $V\in\mathcal{N}(x)$ is arbitrary, then $g(x)\in\lim_{\mathcal{F}}(g\circ\varphi)(m)=\lim_{\mathcal{F}}g(\varphi(m))$
+\begin{proof} Let $x\in\lim_{\mathcal{F}}\varphi(m)$. For any
+    $U\in\mathcal{N}(x)$ we have $\varphi^{-1}(U)\in\mathcal{F}$. Let
+    $V\in\mathcal{N}(g(x))$, then $g^{-1}(V)\in\mathcal{N}(x)$ and therefore
+    $$
+        {(g\circ\varphi)}^{-1}(V)=\varphi^{-1}(g^{-1}(V))\in\mathcal{F}
+    $$
+    Since $V\in\mathcal{N}(x)$ is arbitrary, then
+    $g(x)\in\lim_{\mathcal{F}}(g\circ\varphi)(m)=\lim_{\mathcal{F}}g(\varphi(m))$
 \end{proof}
 
-For a given family of topological spaces $(X_\lambda)_{\lambda\in \Lambda}$ by $\prod_{\lambda\in \Lambda}X_\lambda$ we denote their Tychonoff's product. By $\pi_\lambda:\prod_{\lambda\in \Lambda}X_\lambda\to X_\lambda$ and $i_\lambda:X_\lambda\to \prod_{\lambda\in \Lambda}X_\lambda$ we denote the natural projections and injections respectively. A prebase of this topology is $\{i_{\lambda}(U_\lambda):\lambda\in\Lambda, x\in X_\lambda, U_\lambda\in \mathcal{N}(x_\lambda)\}$.
+For a given family of topological spaces ${(X_\lambda)}_{\lambda\in \Lambda}$ by
+$\prod_{\lambda\in \Lambda}X_\lambda$ we denote their Tychonoff's product. By
+$\pi_\lambda:\prod_{\lambda\in \Lambda}X_\lambda\to X_\lambda$ and
+$i_\lambda:X_\lambda\to \prod_{\lambda\in \Lambda}X_\lambda$ we denote the
+natural projections and injections respectively. A prebase of this topology is
+$\{i_{\lambda}(U_\lambda):\lambda\in\Lambda, x\in X_\lambda, U_\lambda\in
+    \mathcal{N}(x_\lambda)\}$.
 
-\begin{proposition}\label{PrTopProdAndFilters}
-Let $\mathcal{F}$ be a filter on a set $M$, $(X_\lambda)_{\lambda\in \Lambda}$ be a family of topological spaces. Assume we are given a map $\varphi:M\to \prod_{i\in I}X_i$, then
-$$
-\lim_{\mathcal{F}}\varphi(m)=\prod_{\lambda\in\Lambda}\lim_{\mathcal{F}}\pi_\lambda(\varphi(m))
-$$
+\begin{proposition}\label{PrTopProdAndFilters} Let $\mathcal{F}$ be a filter on
+    a set $M$, ${(X_\lambda)}_{\lambda\in \Lambda}$ be a family of topological
+    spaces. Assume we are given a map $\varphi:M\to \prod_{i\in I}X_i$, then
+    $$
+        \lim_{\mathcal{F}}\varphi(m)=\prod_{\lambda\in\Lambda}\lim_{\mathcal{F}}\pi_\lambda(\varphi(m))
+    $$
 \end{proposition}
 \begin{proof} Let $x\in X=\prod_{i\in I}X_i$. Then
-$$
-\begin{aligned}
-x\in \lim_{\mathcal{F}}\varphi(m)
-&\Longleftrightarrow
-\forall U\in\mathcal{N}(x)\quad\varphi^{-1}(U)\in\mathcal{F}\\
-&\Longleftrightarrow
-\forall \lambda\in\Lambda\quad\forall U_\lambda\in\mathcal{N}(x_\lambda)\quad\varphi^{-1}(i_\lambda(U_\lambda))\in\mathcal{F}\\
-&\Longleftrightarrow
-\forall \lambda\in\Lambda\quad\forall U_\lambda\in\mathcal{N}(x_\lambda)\quad\varphi^{-1}(\pi^{-1}_\lambda(U_\lambda))\in\mathcal{F}\\
-&\Longleftrightarrow
-\forall \lambda\in\Lambda\quad x_\lambda\in\lim_{\mathcal{F}}\pi_\lambda(\varphi(m))\\
-&\Longleftrightarrow
-x\in\prod_{\lambda\in\Lambda}\lim_{\mathcal{F}}\pi_\lambda(\varphi(m))
-\end{aligned}
-$$
+    $$
+        \begin{aligned}
+            x\in \lim_{\mathcal{F}}\varphi(m)
+             & \Longleftrightarrow
+            \forall U\in\mathcal{N}(x)\quad\varphi^{-1}(U)\in\mathcal{F}                                                                         \\
+             & \Longleftrightarrow
+            \forall \lambda\in\Lambda\quad\forall U_\lambda\in\mathcal{N}(x_\lambda)\quad\varphi^{-1}(i_\lambda(U_\lambda))\in\mathcal{F}        \\
+             & \Longleftrightarrow
+            \forall \lambda\in\Lambda\quad\forall U_\lambda\in\mathcal{N}(x_\lambda)\quad\varphi^{-1}(\pi^{-1}_\lambda(U_\lambda))\in\mathcal{F} \\
+             & \Longleftrightarrow
+            \forall \lambda\in\Lambda\quad x_\lambda\in\lim_{\mathcal{F}}\pi_\lambda(\varphi(m))                                                 \\
+             & \Longleftrightarrow
+            x\in\prod_{\lambda\in\Lambda}\lim_{\mathcal{F}}\pi_\lambda(\varphi(m))
+        \end{aligned}
+    $$
 \end{proof}
 
-\begin{remark}\label{RemBasicPropertiesOfLimitsAlngFilters}
-As a consequence of two previous proposition we see that limits along filters act much like the usual limits. We can substitute Tychonoff's product in the role of $X$ in the proposition \ref{PrFiltersUnderContinuousFunctions}. Therefore we can handle limits along filters for several variables in the limit. For example
-$$
-\lim_{\mathcal{F}}g(\varphi_1(m), \varphi_2(m))
-=g(\lim_{\mathcal{F}}\varphi_1(m), \lim_{\mathcal{F}}\varphi_2(m))
-$$
-As the consequence, limit along any filter for a scalar valued functions is linear and multiplicative. 
+\begin{remark}\label{RemBasicPropertiesOfLimitsAlngFilters} As a consequence of
+    two previous proposition we see that limits along filters act much like the
+    usual limits. We can substitute Tychonoff's product in the role of $X$ in
+    the proposition~\ref{PrFiltersUnderContinuousFunctions}. Therefore we can
+    handle limits along filters for several variables in the limit. For example
+    $$
+        \lim_{\mathcal{F}}g(\varphi_1(m), \varphi_2(m))
+        =g(\lim_{\mathcal{F}}\varphi_1(m), \lim_{\mathcal{F}}\varphi_2(m))
+    $$
+    As the consequence, limit along any filter for a scalar valued functions is
+    linear and multiplicative.
 \end{remark}
 
-\begin{proposition} Let $\mathcal{F}$ be a filter on a set $M$. Assume we are given two maps $\varphi:M\to\mathbb{R}$ and $\psi:M\to\mathbb{R}$ such that there exist $\lim_{\mathcal{F}}\varphi(m)$ and $\lim_{\mathcal{F}}\psi(m)$. Then
-$$
-\forall m\in M\quad\varphi(m)\leq\psi(m) \implies 
-\lim_{\mathcal{F}}\varphi(m)\leq\lim_{\mathcal{F}}\psi(m)
-$$
+\begin{proposition} Let $\mathcal{F}$ be a filter on a set $M$. Assume we are
+    given two maps $\varphi:M\to\mathbb{R}$ and $\psi:M\to\mathbb{R}$ such that
+    there exist $\lim_{\mathcal{F}}\varphi(m)$ and $\lim_{\mathcal{F}}\psi(m)$.
+    Then
+    $$
+        \forall m\in M\quad\varphi(m)\leq\psi(m) \implies
+        \lim_{\mathcal{F}}\varphi(m)\leq\lim_{\mathcal{F}}\psi(m)
+    $$
 \end{proposition}
 \begin{proof} Assume $\lim_{\mathcal{F}}\varphi(m)-\lim_{\mathcal{F}}\psi(m)=
-\lim_{\mathcal{F}}(\varphi(m)-\psi(m))=a>0$. Consider $U=(a/2,3a/2)\in\mathcal{N}(a)$, then $(\varphi-\psi)^{-1}(U)\in\mathcal{F}$. On the other hand $(\varphi-\psi)^{-1}(U)=\varnothing$ because $\varphi(m)\leq\psi(m)$ for all $m\in M$. Therefore $\varnothing\in\mathcal{F}$. Contradiction, hence $\lim_{\mathcal{F}}\varphi(m)\leq\lim_{\mathcal{F}}\psi(m)$.
+        \lim_{\mathcal{F}}(\varphi(m)-\psi(m))=a>0$. Consider
+    $U=(a/2,3a/2)\in\mathcal{N}(a)$, then
+    ${(\varphi-\psi)}^{-1}(U)\in\mathcal{F}$. On the other hand
+    ${(\varphi-\psi)}^{-1}(U)=\varnothing$ because $\varphi(m)\leq\psi(m)$
+    for all $m\in M$. Therefore $\varnothing\in\mathcal{F}$. Contradiction,
+    hence $\lim_{\mathcal{F}}\varphi(m)\leq\lim_{\mathcal{F}}\psi(m)$.
 \end{proof}
 
-\begin{definition}\label{DefClusterPointAlongTheFilter} Let $\mathcal{F}$ be a filter on  a set $M$, and $\varphi:M\to X$ be a map from $M$ to a topological space $X$. We say that a point $x\in X$ is a cluster point of $\varphi$ along filter $\mathcal{F}$ is
-$$
-\forall U\in\mathcal{N}(x)\quad \forall A\in\mathcal{F} \quad \varphi^{-1}(U)\cap A\neq\varnothing
-$$
+\begin{definition}\label{DefClusterPointAlongTheFilter} Let $\mathcal{F}$ be a
+    filter on  a set $M$, and $\varphi:M\to X$ be a map from $M$ to a
+    topological space $X$. We say that a point $x\in X$ is a cluster point of
+    $\varphi$ along filter $\mathcal{F}$ is
+    $$
+        \forall U\in\mathcal{N}(x)\quad \forall A\in\mathcal{F} \quad \varphi^{-1}(U)\cap A\neq\varnothing
+    $$
 \end{definition}
 
-\begin{proposition}\label{PrClusterPointAlongTheFilterCharac} Let $\mathcal{F}$ be a filter on  a set $M$, and $\varphi:M\to X$ be a map from $M$ to the topological space $X$. Then the set of cluster point of $\varphi$ along filter $\mathcal{F}$ equals
-$$
-\bigcap_{A\in\mathcal{F}} \operatorname{cl}_X(\varphi(A))
-$$
+\begin{proposition}\label{PrClusterPointAlongTheFilterCharac} Let $\mathcal{F}$
+    be a filter on  a set $M$, and $\varphi:M\to X$ be a map from $M$ to the
+    topological space $X$. Then the set of cluster point of $\varphi$ along
+    filter $\mathcal{F}$ equals
+    $$
+        \bigcap_{A\in\mathcal{F}} \operatorname{cl}_X(\varphi(A))
+    $$
 \end{proposition}
 \begin{proof} This is just manipulations with definitions:
-$$
-\begin{aligned}
-x\in \bigcap_{A\in\mathcal{F}} \operatorname{cl}_X(\varphi(A))
-&\Longleftrightarrow
-\forall A\in\mathcal{F} \quad \forall U\in\mathcal{N}(x) \quad U\cap \varphi(A)\neq\varnothing\\
-&\Longleftrightarrow
-\forall U\in\mathcal{N}(x)\quad \forall A\in\mathcal{F} \quad \varphi^{-1}(U)\cap A\neq\varnothing\\
-\end{aligned}
-$$
+    $$
+        \begin{aligned}
+            x\in \bigcap_{A\in\mathcal{F}} \operatorname{cl}_X(\varphi(A))
+             & \Longleftrightarrow
+            \forall A\in\mathcal{F} \quad \forall U\in\mathcal{N}(x) \quad U\cap \varphi(A)\neq\varnothing     \\
+             & \Longleftrightarrow
+            \forall U\in\mathcal{N}(x)\quad \forall A\in\mathcal{F} \quad \varphi^{-1}(U)\cap A\neq\varnothing \\
+        \end{aligned}
+    $$
 \end{proof}
 
-\begin{proposition}\label{PrClusterPointAlongTheFilterCriterion} Let $\mathcal{F}$ be a filter on  a set $M$, and $\varphi:M\to X$ be a map from $M$ to a topological space $X$. Then $x\in X$ is a cluster point of $\varphi$ along filter $\mathcal{F}$ iff there exists an ultrafilter $\mathcal{G}$ dominating $\mathcal{F}$ such that $x\in\lim_{\mathcal{G}}\varphi(m)$
+\begin{proposition}\label{PrClusterPointAlongTheFilterCriterion} Let
+    $\mathcal{F}$ be a filter on  a set $M$, and $\varphi:M\to X$ be a map from
+    $M$ to a topological space $X$. Then $x\in X$ is a cluster point of
+    $\varphi$ along filter $\mathcal{F}$ iff there exists an ultrafilter
+    $\mathcal{G}$ dominating $\mathcal{F}$ such that
+    $x\in\lim_{\mathcal{G}}\varphi(m)$
 \end{proposition}
-\begin{proof} $\Longrightarrow$ Consider family $\mathcal{B}=\{\varphi^{-1}(U)\cap A: A\in\mathcal{F}, U\in\mathcal{N}(x)\}$. Since $x$ is a cluster point of $\varphi$ along $\varphi$, then $\mathcal{B}$ is non-empty and doesn't contain an empty set. If $A,B\in\mathcal{F}$ and $U,V\in\mathcal{N}(x)$ then 
-$$
-(\varphi^{-1}(U)\cap A)\cap(\varphi^{-1}(V)\cap B)
-=\varphi^{-1}(U\cap V)\cap (A\cap B) 
-$$
-Since $U\cap V\in\mathcal{N}(x)$ and $A\cap B\in\mathcal{F}$, then by definition of  cluster point of $\varphi$ along the filter $\mathcal{F}$ the intersection is non-empty. As the consequence $\mathcal{B}$ is a filter base. Let $\mathcal{G}$ be an ultrafilter containing it, then $\mathcal{G}$ dominates $\mathcal{F}$. Indeed, for any $A\in\mathcal{F}$, $U\in\mathcal{N}(x)$ we have $\varphi^{-1}(U)\cap A\in\mathcal{B}\subset\mathcal{G}$, so $A\in\mathcal{G}$ because $\varphi^{-1}(U)\cap A\subset A$. For the same reason $\varphi^{-1}(U)\in\mathcal{G}$. Since $U$ is arbitrary $x\in\lim_{\mathcal{G}}\varphi(m)$ 
+\begin{proof} $\Longrightarrow$ Consider family
+    $\mathcal{B}=\{\varphi^{-1}(U)\cap A: A\in\mathcal{F},
+        U\in\mathcal{N}(x)\}$. Since $x$ is a cluster point of $\varphi$ along
+    $\varphi$, then $\mathcal{B}$ is non-empty and doesn't contain an empty set.
+    If $A,B\in\mathcal{F}$ and $U,V\in\mathcal{N}(x)$ then
+    $$
+        (\varphi^{-1}(U)\cap A)\cap(\varphi^{-1}(V)\cap B)
+        =\varphi^{-1}(U\cap V)\cap (A\cap B)
+    $$
+    Since $U\cap V\in\mathcal{N}(x)$ and $A\cap B\in\mathcal{F}$, then by
+    definition of  cluster point of $\varphi$ along the filter $\mathcal{F}$ the
+    intersection is non-empty. As the consequence $\mathcal{B}$ is a filter
+    base. Let $\mathcal{G}$ be an ultrafilter containing it, then $\mathcal{G}$
+    dominates $\mathcal{F}$. Indeed, for any $A\in\mathcal{F}$,
+    $U\in\mathcal{N}(x)$ we have $\varphi^{-1}(U)\cap
+        A\in\mathcal{B}\subset\mathcal{G}$, so $A\in\mathcal{G}$ because
+    $\varphi^{-1}(U)\cap A\subset A$. For the same reason
+    $\varphi^{-1}(U)\in\mathcal{G}$. Since $U$ is arbitrary
+    $x\in\lim_{\mathcal{G}}\varphi(m)$
 
-$\Longleftarrow$  For each $U\in\mathcal{N}(x)$ we have $\varphi^{-1}(U)\in\mathcal{G}$ If $A\in\mathcal{F}\subset \mathcal{G}$, then $\varphi^{-1}(U)\cap A\in\mathcal{G}$ which implies $\varphi^{-1}(U)\cap A\neq \varnothing$.
-Since $U\in\mathcal{N}(x)$ is arbitrary, then $x$ is a cluster point of $\varphi$ along $\mathcal{F}$.
+    $\Longleftarrow$  For each $U\in\mathcal{N}(x)$ we have
+    $\varphi^{-1}(U)\in\mathcal{G}$ If $A\in\mathcal{F}\subset \mathcal{G}$,
+    then $\varphi^{-1}(U)\cap A\in\mathcal{G}$ which implies
+    $\varphi^{-1}(U)\cap A\neq \varnothing$. Since $U\in\mathcal{N}(x)$ is
+    arbitrary, then $x$ is a cluster point of $\varphi$ along $\mathcal{F}$.
 \end{proof}
 
-\begin{corollary}\label{CorClusterPintAreLimitsAlongUltrafilters} Let $\mathcal{F}$ be a filter on  a set $M$, and $\varphi:M\to X$ be a map from $M$ to a compact Hausdorff space $X$. Then $\lim_{\mathcal{F}} \varphi(m)$ is the only cluster point of $\varphi$ along $\mathcal{F}$
+\begin{corollary}\label{CorClusterPintAreLimitsAlongUltrafilters} Let
+    $\mathcal{F}$ be a filter on  a set $M$, and $\varphi:M\to X$ be a map from
+    $M$ to a compact Hausdorff space $X$. Then $\lim_{\mathcal{F}} \varphi(m)$
+    is the only cluster point of $\varphi$ along $\mathcal{F}$
 \end{corollary}
-\begin{proof} Consider ultrafilter $\mathcal{G}$ dominating filter $\mathcal{F}$. By proposition \ref{PrLimitAlongUltrafilterIntoTheCompact} there exists an $x\in\lim_{\mathcal{G}}\varphi(m)$. It is unique because $X$ is Hausdorff. Now we apply proposition \ref{PrClusterPointAlongTheFilterCriterion}. 
+\begin{proof} Consider ultrafilter $\mathcal{G}$ dominating filter
+    $\mathcal{F}$. By proposition~\ref{PrLimitAlongUltrafilterIntoTheCompact}
+    there exists an $x\in\lim_{\mathcal{G}}\varphi(m)$. It is unique because $X$
+    is Hausdorff. Now we apply
+    proposition~\ref{PrClusterPointAlongTheFilterCriterion}.
 \end{proof}
 
 
@@ -365,159 +600,278 @@ Since $U\in\mathcal{N}(x)$ is arbitrary, then $x$ is a cluster point of $\varphi
 
 Now we present a short proof of Banach-Alaoglu theorem.
 
-\begin{proposition}\label{PrBanachAlaoglu} Let $E$ be a normed space, then the unit ball $B_{E^*}$ of $E^*$ is weak${}^*$ compact.
+\begin{proposition}\label{PrBanachAlaoglu} Let $E$ be a normed space, then the
+    unit ball $B_{E^*}$ of $E^*$ is weak${}^*$ compact.
 \end{proposition}
-\begin{proof} It is enough to show that every net $(f_\nu)_{\nu\in N}\subset B_{E^*}$ have weak${}^*$ convergent subnet. Consider ultrafilter dominating section filter of the directed set $N$. For each $x\in X$ the set $\{f_\nu(x):\nu\in N\}$ is bounded in $\mathbb{C}$, so by proposition \ref{PrLimitOfASequenceAlongUltrafilter} we have a well defined map $f: X\to\mathbb{C}: x\mapsto\lim_{\mathcal{U}}f_\nu(x)$. By remark \ref{RemBasicPropertiesOfLimitsAlngFilters} it is a bounded linear functional. Thus we proved that $f$ is limit of $1_{E^*}$ anlong $\mathcal{U}$ in $(E^*,\sigma(E^*, E))$. By proposition \ref{PrClusterPointAlongTheFilterCriterion}  we have that $f$ is a cluster point of $1_{E^*}$ along $\mathcal{F}_N$, because $\mathcal{U}$ is an ultrafilter that dominates section filter $\mathcal{F}_N$. Therefore $f$ is an accumulation point of $(f_\nu)_{\nu\in N}$. 
+\begin{proof} It is enough to show that every net ${(f_\nu)}_{\nu\in N}\subset
+        B_{E^*}$ have weak${}^*$ convergent subnet. Consider ultrafilter
+    dominating section filter of the directed set $N$. For each $x\in X$ the
+    set $\{f_\nu(x):\nu\in N\}$ is bounded in $\mathbb{C}$, so by
+    proposition~\ref{PrLimitOfASequenceAlongUltrafilter} we have a well
+    defined map $f:X\to\mathbb{C}: x\mapsto\lim_{\mathcal{U}}f_\nu(x)$. By
+    remark~\ref{RemBasicPropertiesOfLimitsAlngFilters} it is a bounded
+    linear functional. Thus we proved that $f$ is limit of $1_{E^*}$ anlong
+    $\mathcal{U}$ in $(E^*,\sigma(E^*, E))$. By
+    proposition~\ref{PrClusterPointAlongTheFilterCriterion} we have that $f$
+    is a cluster point of $1_{E^*}$ along $\mathcal{F}_N$, because
+    $\mathcal{U}$ is an ultrafilter that dominates section filter
+    $\mathcal{F}_N$. Therefore $f$ is an accumulation point of
+    ${(f_\nu)}_{\nu\in N}$.
 \end{proof}
 
-Here is one more application of ultrafilters to show existence of so called Banach limits.
+Here is one more application of ultrafilters to show existence of so called
+Banach limits.
 
-\begin{definition}\label{DefBanachLimit} A linear functional $f\in(\ell_\infty)^*$ is called a Banach limit if it satisfies the following conditions:
-
-$i)$ $f$ extend the linear functional $f_0:c\to\mathbb{C}:x\mapsto \lim_{n\to\infty} x(n)$.
-
-$ii)$ $\Vert f\Vert=1$ and $\liminf_{n\to\infty}x(n)\leq f(x)\leq \limsup_{n\to\infty} x(n)$.
-
-$iii)$ $f(S(x))=f(x)$ for all $x\in\ell_\infty$ where $S:\ell_\infty\to\ell_\infty$ is a left shift operator.
-
-$iv)$ $f(x)\geq 0$ for all $x\geq 0$, $x\in\ell_\infty$.
+\begin{definition}\label{DefBanachLimit} A linear functional
+    $f\in{({\ell}_\infty)}^*$ is called a Banach limit if it satisfies the
+    following conditions:
+    \begin{enumerate}[label = (\roman*)]
+        \item $f$ extend the linear functional $f_0:c\to\mathbb{C}:x\mapsto
+                  \lim_{n\to\infty} x(n)$.
+        \item $\Vert f\Vert=1$ and $\liminf_{n\to\infty}x(n)\leq f(x)\leq
+                  \limsup_{n\to\infty} x(n)$.
+        \item $f(S(x))=f(x)$ for all $x\in\ell_\infty$ where
+              $S:\ell_\infty\to\ell_\infty$ is a left shift operator.
+        \item $f(x)\geq 0$ for all $x\geq 0$, $x\in\ell_\infty$.
+    \end{enumerate}
 \end{definition}
 
 \begin{proposition}\label{PrBanachLimitExists} A Banach limit exists.
 \end{proposition}
-\begin{proof} For each $x\in \ell_\infty$ and $n\in\mathbb{N}$ consider number $f_n(x)=\frac{1}{n}\sum_{k=1}^n x(k)$. We have the following properties for this family of functionals
+\begin{proof} For each $x\in \ell_\infty$ and $n\in\mathbb{N}$ consider number
+    $f_n(x)=\frac{1}{n}\sum_{k=1}^n x(k)$. We have the following properties for
+    this family of functionals
 
-$i')$ By Caezaro theorem $\lim_{n\to\infty} f_n(x)=\lim_{n\to\infty}x(n)$ for all $x\in c$. 
+    $(i')$ By Caezaro theorem $\lim_{n\to\infty} f_n(x)=\lim_{n\to\infty}x(n)$
+    for all $x\in c$.
 
-$ii')$ $|f_n(x)|\leq \Vert x\Vert$ for all $x\in\ell_\infty$ and $n\in\mathbb{N}$. Even more, for all real valued $x\in\ell_\infty$ anf $\varepsilon>0$ there exist an $N\in\mathbb{N}$ such that $\liminf_{n\to\infty} x(n)-\varepsilon<|f_n(x)|\leq\limsup_{n\to\infty}x(n)+\varepsilon$ for all $n>N$.
+    $(ii')$ $|f_n(x)|\leq \Vert x\Vert$ for all $x\in\ell_\infty$ and
+    $n\in\mathbb{N}$. Even more, for all real valued $x\in\ell_\infty$ anf
+    $\varepsilon>0$ there exist an $N\in\mathbb{N}$ such that
+    $\liminf_{n\to\infty}
+        x(n)-\varepsilon<|f_n(x)|\leq\limsup_{n\to\infty}x(n)+\varepsilon$ for all
+    $n>N$.
 
-$iii')$ $\lim_{n\to\infty} (f_n(S(x))-f_n(x))=0$ for all $x\in\ell_\infty$
+    $(iii')$ $\lim_{n\to\infty} (f_n(S(x))-f_n(x))=0$ for all $x\in\ell_\infty$
 
-$iv')$ $f_n(x)\geq 0$ for all $x\in\ell_\infty$
+    $(iv')$ $f_n(x)\geq 0$ for all $x\in\ell_\infty$
 
-Now we proceed to the proof of paragraphs $i)-iv)$.
+    Now we proceed to the proof of paragraphs $(i)-(iv)$.
 
-$i)$ Now $i')$ gives that $(f_n(x))_{n\in\mathbb{N}}$ is bounded sequence in $\mathbb{C}$ for any fixed $x\in\ell_\infty$. Therefore we have a well defined limit $f(x)=\lim_{\mathcal{U}}f_n(x)$ along an ultrafilter $\mathcal{U}$ domintaiting section filter on $\mathbb{N}$. Since $\mathcal{U}$  dominates section filter on $\mathbb{N}$, so
-$f(x)=\lim_{n\to\infty}f_n(x)=\lim_{n\to\infty} x(n)$ for all $x\in c$.  
+    $(i)$ Now $(i')$ gives that ${(f_n(x))}_{n\in\mathbb{N}}$ is bounded
+    sequence in $\mathbb{C}$ for any fixed $x\in\ell_\infty$. Therefore we have
+    a well defined limit $f(x)=\lim_{\mathcal{U}}f_n(x)$ along an ultrafilter
+    $\mathcal{U}$ domintaiting section filter on $\mathbb{N}$. Since
+    $\mathcal{U}$  dominates section filter on $\mathbb{N}$, so
+    $f(x)=\lim_{n\to\infty}f_n(x)=\lim_{n\to\infty} x(n)$ for all $x\in c$.
 
-$ii)$ Taking the limit along $\mathcal{U}$ in $ii')$ we get that $|f(x)|\leq\Vert x\Vert$ for all $x\in\ell_\infty$, i.e. $\Vert f\Vert\leq 1$. Since $f$ extend and $f_0$, and $\Vert f_0\Vert=1$, then $\Vert f\Vert=1$. Again taking the limit along $\mathcal{U}$ in the second inequaity of $ii')$ we get $\liminf_{n\to\infty} x(n)-\varepsilon< f(x) \leq\limsup_{n\to\infty}x(n)+\varepsilon$ for all $\varepsilon>0$. Since $\varepsilon>0$ is arbitrary we get the desired inequality.
+    $(ii)$ Taking the limit along $\mathcal{U}$ in $(ii')$ we get that
+    $|f(x)|\leq\Vert x\Vert$ for all $x\in\ell_\infty$, i.e. $\Vert f\Vert\leq
+        1$. Since $f$ extend and $f_0$, and $\Vert f_0\Vert=1$, then $\Vert
+        f\Vert=1$. Again taking the limit along $\mathcal{U}$ in the second
+    inequaity of $(ii')$ we get $\liminf_{n\to\infty} x(n)-\varepsilon< f(x)
+        \leq\limsup_{n\to\infty}x(n)+\varepsilon$ for all $\varepsilon>0$. Since
+    $\varepsilon>0$ is arbitrary we get the desired inequality.
 
-$iii)$ Since $\mathcal{U}$ dominates section filter on $\mathbb{N}$ we have
-$f(S(x))-f(x)=\lim_{\mathcal{U}}(f_n(S(x))-f_n(x))=\lim_{n\to\infty}(f_n(S(x))-f_n(x))=0$. 
+    $(iii)$ Since $\mathcal{U}$ dominates section filter on $\mathbb{N}$ we have
+    $f(S(x))-f(x)=\lim_{\mathcal{U}}(f_n(S(x))-f_n(x))=\lim_{n\to\infty}(f_n(S(x))-f_n(x))=0$.
 
-$iv)$ Again taking the limit along $\mathcal{U}$ in inequality of $iv')$ we get $f(x)\geq 0$ for all $x\geq 0$, $x\in\ell_\infty$.
+    $(iv)$ Again taking the limit along $\mathcal{U}$ in inequality of $(iv')$
+    we get $f(x)\geq 0$ for all $x\geq 0$, $x\in\ell_\infty$.
 \end{proof}
 
-\begin{remark}\label{RemValueOfTheBanachLimit} Usually it is impossible to find the value of a Banach limit for a given sequence in $\ell_\infty$. But there could be exceptions. Consider sequence $x\in\ell_\infty(\mathbb{N})$ given by the formula $x(n)=(1+(-1)^n)/2$. Clearly, $x+S(x)=1_{\mathbb{N}}$, so for any Banach limit $f$ we have $1=f(1_{\mathbb{N}})=f(x+S(x))=f(x)+f(S(x))=2f(x)$. Therefore, $f(x)=1/2$.
+\begin{remark}\label{RemValueOfTheBanachLimit} Usually it is impossible to find
+    the value of a Banach limit for a given sequence in $\ell_\infty$. But there
+    could be exceptions. Consider sequence $x\in\ell_\infty(\mathbb{N})$ given
+    by the formula $x(n)=(1+{(-1)}^n)/2$. Clearly, $x+S(x)=1_{\mathbb{N}}$, so
+    for any Banach limit $f$ we have
+    $1=f(1_{\mathbb{N}})=f(x+S(x))=f(x)+f(S(x))=2f(x)$. Therefore, $f(x)=1/2$.
 \end{remark}
 
 Now we need to remind a well known definition from topology
 
-\begin{definition}\label{DefStoneCechCompactificationOfDiscerteSet} Let $S$ be a discrete set. Then by $\beta S$ we denote the set of ultrafilters on $S$. The prebase of the topology of $\beta S$ is given by $\{\mathcal{F}\in\beta S:A\notin\mathcal{F}\}$ for some $A\in\mathcal{P}(S)$.
+\begin{definition}\label{DefStoneCechCompactificationOfDiscerteSet} Let $S$ be a
+    discrete set. Then by $\beta S$ we denote the set of ultrafilters on $S$.
+    The prebase of the topology of $\beta S$ is given by $\{\mathcal{F}\in\beta
+        S:A\notin\mathcal{F}\}$ for some $A\in\mathcal{P}(S)$.
 \end{definition}
 
 One can show that
 
-$i)$ $\beta S$ is an extremelly disconnected compact Hausdorff topological space
+$(i)$ $\beta S$ is an extremelly disconnected compact Hausdorff topological
+space
 
-$ii)$ $S$ may be identified with the set of fixed ultrafilters on $S$ and this set is dense in $\beta S$
+$(ii)$ $S$ may be identified with the set of fixed ultrafilters on $S$ and this
+set is dense in $\beta S$
 
-$iii)$ $\beta$ is freedom functor from the category of descrete spaces into the category of extremelly disconnected compact Hausdorff topological spaces.
+$(iii)$ $\beta$ is freedom functor from the category of descrete spaces into the
+category of extremelly disconnected compact Hausdorff topological spaces.
 
-\begin{proposition} The spectrum of the commutative Banach algebra $\ell_\infty(S)$ is homeomorphic to $\beta S$.
+\begin{proposition} The spectrum of the commutative Banach algebra
+    $\ell_\infty(S)$ is homeomorphic to $\beta S$.
 \end{proposition}
-\begin{proof} Take any ultrafilter $\mathcal{U}\in\beta S$, then we have a well defined bounded character $f:\ell_\infty(S)\to\mathbb{C}:x\mapsto\lim_{\mathcal{U}}x(s)$. It remains to show that any bounded character is of this form. Let $f$ be a nonzero multiplicative functional on $\ell_\infty(S)$. Since $f(1_S)=f(1_S^2)=f(1_S)^2$, we get that $f(1_S)=1$ (it cannot be zero, because then $f=0$). Now let $a\in\ell_\infty(S)$ such that $a(s)\in\{0,1\}$ for all $s\in S$. Write $\alpha=f(a)$. As $a(1-a)=0$, we have $0=f(a(1-a))=f(a)f(1-a)=\alpha(1-\alpha)$. So either $\alpha=0$ or $\alpha=1$. Note that we can write $a=1_A$ where $A=\{s\in S: a(s)=1\}$. Now define $
-\mathcal U=\{A\in\mathcal{P}(S):\ f(1_A)=1\}$. In fact, $\mathcal U$ is an ultrafilter. Indeed,
+\begin{proof} Take any ultrafilter $\mathcal{U}\in\beta S$, then we have a well
+    defined bounded character
+    $f:\ell_\infty(S)\to\mathbb{C}:x\mapsto\lim_{\mathcal{U}}x(s)$. It remains
+    to show that any bounded character is of this form. Let $f$ be a nonzero
+    multiplicative functional on $\ell_\infty(S)$. Since
+    $f(1_S)=f(1_S^2)={f(1_S)}^2$, we get that $f(1_S)=1$ (it cannot be zero,
+    because then $f=0$). Now let $a\in\ell_\infty(S)$ such that $a(s)\in
+        \{0,1\}$ for all $s\in S$. Write $\alpha=f(a)$. As $a(1-a)=0$, we have
+    $0=f(a(1-a))=f(a)f(1-a)=\alpha(1-\alpha)$. So either $\alpha=0$ or
+    $\alpha=1$. Note that we can write $a=1_A$ where $A=\{s\in S: a(s)=1\}$. Now
+    define $ \mathcal U=\{A\in\mathcal{P}(S):\ f(1_A)=1\}$. In fact, $\mathcal
+        U$ is an ultrafilter. Indeed,
 
-$i)$ $S\in\mathcal U$ (since $f(1_S)=1$)
+    $(i)$ $S\in\mathcal U$ (since $f(1_S)=1$)
 
-$ii)$ $A\in\mathcal{U}$ iff $S\setminus A\notin\mathcal{U}$ because $1_A 1_{S\setminus A}=0$
+    $(ii)$ $A\in\mathcal{U}$ iff $S\setminus A\notin\mathcal{U}$ because $1_A
+        1_{S\setminus A}=0$
 
-$iii)$ If $A,B\in\mathcal{U}$, then $A\cap B\in\mathcal{U}$ because $1_{A\cap B}=1_A 1_B$
+    $(iii)$ If $A,B\in\mathcal{U}$, then $A\cap B\in\mathcal{U}$ because
+    $1_{A\cap B}=1_A 1_B$
 
-$iv)$ If $A\in\mathcal U$ and $A\subset B$, then $B\in\mathcal U$ because $1_A=1_A 1_B$
-\newline
-Now let $c\in\ell_\infty$ be positive, i.e. $0\leq c\leq 1$. Define sets
-$$
-A_j^{(n)}=\left\{s\in S:\ \frac{j}{2^n}\leq c(s)<\frac{(j+1)}{2^n}\right\}
-$$
-for $j=\{0,\ldots,2^n-1\}$. For a given $s\in S$, these sets are pairwise disjoint and $\bigcup_{j=0}^{2^n-1}A_j^{(n)}=S\in\mathcal{U}$.
-As $\mathcal{U}$ is an ultrafilter, for each $n\in\mathbb{N}$ there is exactly one $j(n)\in\mathbb{N}$ such that $A_{j(n)}^{(n)}\in\mathcal U$, and none of the others is. Define
-$$
-c_n=\sum_{j=0}^{2^n-1}\,\frac{j}{2^n}\,1_{A_j^{(n)}}.
-$$
-By construction, $\Vert c-c_n\Vert\leq 2^{-n}$, so $c_n\to c$ in $\ell_\infty(S)$. As $f$ is continuous, we have  
-$$
-f(c)
-=\lim_{n\to\infty} f(c_n)
-=\lim_{n\to\infty}\sum_{j=0}^{2^n-1}\frac{j}{2^n}f(1_{A_j^{(n)}})
-=\lim_{n\to\infty}\frac{j(n)}{2^n},
-=\lim_{n\to\infty} c(j(n))
-=\lim_{\mathcal U}\ c(n).
-$$
-The last step is to extend $f$ by linearity to all of $\ell_\infty(S)$. Therefore we showed that
-$$
-\Phi:\operatorname{Spec}(\ell_\infty(S))\to \beta S:f\mapsto \mathcal{U}
-$$
-is a bijection. We claim this is a homeomorphism. Take any element $G$ of prebase of the topology of $\beta S$, then $G=\{\mathcal{F}\in\beta S: A\notin\mathcal{F}\}$ for some $A\in\mathcal{P}(S)$. As was shown above $A\in\mathcal{U}\in\beta S$ iff $f(1_A)=1$ for $f=\Phi^{-1}(\mathcal{U})$. Therefore $\Phi^{-1}(G)=\{f\in\operatorname{Spec}(\ell_\infty(S)): f(1_A)\neq 1\}$ which is open in $(\ell_\infty(S),\sigma(\ell_\infty(S)^*,\ell_\infty(S)))$ and therefore in $\operatorname{Spec}(\ell_\infty(S))$. Since $G$ is an arbitrary element of prebase of the topology of $\beta S$, then $\Phi$ is continuous. Since $\operatorname{Spec}(\ell_\infty(S))$ and $\beta S$ are Hausdorff compacts and $\Phi$ is a bijection, then $\Phi$ is a homeomorphism.
+    $(iv)$ If $A\in\mathcal U$ and $A\subset B$, then $B\in\mathcal U$ because
+    $1_A=1_A 1_B$
+    \newline
+    Now let $c\in\ell_\infty$ be positive, i.e. $0\leq c\leq 1$. Define sets
+    $$
+        A_j^{(n)}=\left \{s\in S:
+        \ \frac{j}{2^n}\leq c(s)<\frac{(j+1)}{2^n}\right \}
+    $$
+    for $j=\{0,\ldots,2^n-1\}$. For a given $s\in S$, these sets are pairwise
+    disjoint and $\bigcup_{j=0}^{2^n-1}A_j^{(n)}=S\in\mathcal{U}$. As
+    $\mathcal{U}$ is an ultrafilter, for each $n\in\mathbb{N}$ there is exactly
+    one $j(n)\in\mathbb{N}$ such that $A_{j(n)}^{(n)}\in\mathcal U$, and none of
+    the others is. Define
+    $$
+        c_n=\sum_{j=0}^{2^n-1}\,\frac{j}{2^n}\,1_{A_j^{(n)}}.
+    $$
+    By construction, $\Vert c-c_n\Vert\leq 2^{-n}$, so $c_n\to c$ in
+    $\ell_\infty(S)$. As $f$ is continuous, we have
+    $$
+        f(c)
+        =\lim_{n\to\infty} f(c_n)
+        =\lim_{n\to\infty}\sum_{j=0}^{2^n-1}\frac{j}{2^n}f(1_{A_j^{(n)}})
+        =\lim_{n\to\infty}\frac{j(n)}{2^n},
+        =\lim_{n\to\infty} c(j(n))
+        =\lim_{\mathcal U}\ c(n).
+    $$
+    The last step is to extend $f$ by linearity to all of $\ell_\infty(S)$.
+    Therefore we showed that
+    $$
+        \Phi:\operatorname{Spec}(\ell_\infty(S))\to \beta S:f\mapsto \mathcal{U}
+    $$
+    is a bijection. We claim this is a homeomorphism. Take any element $G$ of
+    prebase of the topology of $\beta S$, then $G=\{\mathcal{F}\in\beta S:
+        A\notin\mathcal{F}\}$ for some $A\in\mathcal{P}(S)$. As was shown above
+    $A\in\mathcal{U}\in\beta S$ iff $f(1_A)=1$ for $f=\Phi^{-1}(\mathcal{U})$.
+    Therefore $\Phi^{-1}(G)=\{f\in\operatorname{Spec}(\ell_\infty(S)):
+        f(1_A)\neq 1\}$ which is open in
+    $({\ell}_\infty(S),\sigma({\ell_\infty(S)}^*,\ell_\infty(S)))$ and therefore
+    in $\operatorname{Spec}(\ell_\infty(S))$. Since $G$ is an arbitrary element
+    of prebase of the topology of $\beta S$, then $\Phi$ is continuous. Since
+    $\operatorname{Spec}(\ell_\infty(S))$ and $\beta S$ are Hausdorff compacts
+    and $\Phi$ is a bijection, then $\Phi$ is a homeomorphism.
 \end{proof}
 
-This correspondence is of use in the measure theory too. For example, one can check that for a given ultrafilter $\mathcal{U}$, the map
+This correspondence is of use in the measure theory too. For example, one can
+check that for a given ultrafilter $\mathcal{U}$, the map
 $$
-\mu:\mathcal{P}(\mathbb{N})\to\mathbb{R}:A\mapsto\begin{cases} 1 &\quad\mbox{ if } A\in\mathcal{U}\\ 0&\quad\mbox{ otherwise }\end{cases}
+    \mu:\mathcal{P}(\mathbb{N})\to\mathbb{R}:A\mapsto\begin{cases} 1
+         & \quad\mbox{ if } A\in\mathcal{U} \\ 0&\quad\mbox{ otherwise }\end{cases}
 $$
-is a finitely additive measure on $\mathbb{N}$. The functional $f\in L_\infty(\mathbb{N}, \mu)^*$ corresponding to this measure is just the limit along the ultrafilter $\mathcal{U}$.
+is a finitely additive measure on $\mathbb{N}$. The functional $f\in
+    {L_\infty(\mathbb{N}, \mu)}^*$ corresponding to this measure is just the
+limit along the ultrafilter $\mathcal{U}$.
 
-Another example of the finitely additive measure is the following. For example, for a given $A\in\mathcal{P}(\mathbb{N})$ define $d_n(A)=\frac{1}{n}\operatorname{Card}(A\cap \{1,\ldots,n\})$. By propositions \ref{CorClusterPintAreLimitsAlongUltrafilters} and \ref{PrClusterPointAlongTheFilterCharac} the set $\bigcap_{S\in\mathcal{U}}\operatorname{cl}_{\mathbb{R}}(\{d_n(A):n\in\mathcal{S}\})$ is a singleton. Hence it is of the form $\{\mu(A)\}$. We claim that
+Another example of a finitely additive measure is as follows. For example, for a
+given $A\in\mathcal{P}(\mathbb{N})$ define
+$d_n(A)=\frac{1}{n}\operatorname{Card}(A\cap \{1,\ldots,n\})$. By
+propositions~\ref{CorClusterPintAreLimitsAlongUltrafilters}
+and~\ref{PrClusterPointAlongTheFilterCharac} the set
+$\bigcap_{S\in\mathcal{U}}\operatorname{cl}_{\mathbb{R}}(\{d_n(A):n\in\mathcal{S}\})$
+is a singleton. Hence it is of the form $\{\mu(A)\}$. We claim that
 $$
-\mu:\mathcal{P}(\mathbb{N})\to\mathbb{R}:A\mapsto\mu(A)
+    \mu:\mathcal{P}(\mathbb{N})\to\mathbb{R}:A\mapsto\mu(A)
 $$
-is a finitely additive measure on $\mathbb{N}$. It is easy to understand if one notes that this measure correspond to the Banach limit on $\ell_\infty$ constructed in proposition \ref{PrBanachLimitExists}.
+is a finitely additive measure on $\mathbb{N}$. It is easy to understand if one
+notes that this measure correspond to the Banach limit on ${\ell}_\infty$
+constructed in proposition~\ref{PrBanachLimitExists}.
 
-Now we proceed to the one of the numerous applications of ultrafilters in the local theory of Banach spaces.
+Now we proceed to the one of the numerous applications of ultrafilters in the
+local theory of Banach spaces.
 
-\begin{proposition} Let $E$ be a Banach space, such that for any its $n$-dimensional subspace $F$ there exists an isomorphism 
-$T:F\to \ell_2^n$ with the property $\Vert T\Vert\Vert T^{-1}\Vert\leq C$. Then $E$ is isomorphic to some Hilbert space.
+\begin{proposition} Let $E$ be a Banach space, such that for any its
+    $n$-dimensional subspace $F$ there exists an isomorphism $T:F\to \ell_2^n$
+    with the property $\Vert T\Vert\Vert T^{-1}\Vert\leq C$. Then $E$ is
+    isomorphic to some Hilbert space.
 \end{proposition}
 \begin{proof}
-We can find a family of linearly independent vectors $\{x_\lambda:\lambda\in\Lambda\}$  such that we have the following representation $E=\mathrm{cl}_E\left(\mathrm{span}\{x_\lambda:\lambda\in\Lambda\}\right)$. Denote $E_S=\mathrm{span}\{x_\lambda:\lambda\in S\}$ for finite subset $S$ in $\Lambda$, then
-$$
-E=\mathrm{cl}_E(E_\infty)\quad\text{where}\quad E_\infty=\bigcup\limits_{S\in\mathcal{P}_0(\Lambda)} E_S
-$$ 
-Fix $S\in\mathcal{P}_0(\Lambda)$, then by assumption there exists an operator $T_S:E_S\to\ell_2^n$ (where $n=\operatorname{Card}(S)$) such that $\Vert T_S\Vert\Vert T_S^{-1}\Vert\leq C$. After suitable rescaling of $T_S$ we can assume that $\Vert T_S\Vert\leq 1$ and $\Vert T_S^{-1}\Vert< C$. Consider function
-$$
-\langle\cdot, \cdot\rangle_{E_S}: E_S\times E_S\to\mathbb{R}:(x,y)\mapsto \langle T_S(x),T_S(y)\rangle_{\ell_2^n} 
-$$
-Since $T_S$ is an isomorphism this map is inner product, and what is more
-\begin{equation}\label{EquivNorm}
-C^{-2}\Vert x\Vert^2\leq \langle x, x\rangle_{E_S}\leq\Vert x\Vert^2
-\end{equation}
-As the strange consequence for a fixed $x\in E_\infty$ the sequence $\{\langle x, x\rangle_{E_S}:S\in\mathcal{P}_0(\Lambda)\}$ is a subset of Hausdorff compact $[0, \Vert x\Vert^2]\subset\mathbb{R}$.
+    We can find a family of linearly independent vectors
+    $\{x_\lambda:\lambda\in\Lambda \}$  such that we have the following
+    representation
+    $E=\mathrm{cl}_E\left(\mathrm{span}\{x_\lambda:\lambda\in\Lambda \}\right)$.
+    Denote $E_S=\mathrm{span}\{x_\lambda:\lambda\in S\}$ for finite subset $S$
+    in $\Lambda$, then
+    $$
+        E=\mathrm{cl}_E(E_\infty)\quad\text{where}\quad
+        E_\infty=\bigcup\limits_{S\in\mathcal{P}_0(\Lambda)} E_S
+    $$
+    Fix $S\in\mathcal{P}_0(\Lambda)$, then by assumption there exists an
+    operator $T_S:E_S\to\ell_2^n$ (where $n=\operatorname{Card}(S)$) such that
+    $\Vert T_S\Vert\Vert T_S^{-1}\Vert\leq C$. After suitable rescaling of $T_S$
+    we can assume that $\Vert T_S\Vert\leq 1$ and $\Vert T_S^{-1}\Vert< C$.
+    Consider function
+    $$
+        \langle\cdot, \cdot\rangle_{E_S}:
+        E_S\times E_S\to\mathbb{R}:(x,y)\mapsto
+        \langle T_S(x),T_S(y)\rangle_{\ell_2^n}
+    $$
+    Since $T_S$ is an isomorphism this map is inner product, and what is more
+    \begin{equation}\label{EquivNorm}
+        C^{-2}\Vert x\Vert^2\leq \langle x, x\rangle_{E_S}\leq\Vert x\Vert^2
+    \end{equation}
+    As the strange consequence for a fixed $x\in E_\infty$ the sequence
+    $\{\langle x, x\rangle_{E_S}:S\in\mathcal{P}_0(\Lambda)\}$ is a subset of
+    Hausdorff compact $[0, \Vert x\Vert^2]\subset\mathbb{R}$.
 
-On a directed set $(\mathcal{P}_0(\Lambda),\subset)$ with standard ordering consider respective section filter $\mathcal{F}$ and an ultrafilter $\mathcal{U}$ dominating $\mathcal{F}$. Define the map
-$$
-\Vert\cdot\Vert_{E_\infty} :E_\infty\to\mathbb{R}: x\mapsto\lim\limits_{\mathcal{U}}\langle x, x\rangle_{E_S}^{1/2}
-$$
-It is well defined becasuse limit along ultrafiler for any sequence contained in a Hausdorff compact exists and unique.
+    On a directed set $(\mathcal{P}_0(\Lambda),\subset)$ with standard ordering
+    consider respective section filter $\mathcal{F}$ and an ultrafilter
+    $\mathcal{U}$ dominating $\mathcal{F}$. Define the map
+    $$
+        \Vert\cdot\Vert_{E_\infty} :E_\infty\to\mathbb{R}:
+        x\mapsto\lim\limits_{\mathcal{U}}\langle x, x\rangle_{E_S}^{1/2}
+    $$
+    It is well defined becasuse limit along ultrafiler for any sequence
+    contained in a Hausdorff compact exists and unique.
 
-One can check that $\Vert\cdot\Vert_{E_\infty}$ is a norm satisfying parallelogram law. By Jordan von Neumann theorem we have well defined inner product
-$$
-\langle\cdot,\cdot\rangle_{E_\infty}:E_\infty\times E_\infty\to\mathbb{C}:(x,y)\mapsto\sum\limits_{k=1}^4\frac{i^k}{4}\Vert x+i^ky\Vert_{E_\infty} 
-$$
-Since $E=\mathrm{cl}_E(E_\infty)$, there is continuous extension $\langle\cdot,\cdot\rangle_E$ of $\langle\cdot,\cdot\rangle_{E_\infty}$ to the inner product on the whole $E$. Now from \ref{EquivNorm} it follows that norm $\Vert\cdot\Vert_E$ induced by $\langle\cdot,\cdot\rangle_E$ is equivalent to the original norm of $E$. Hence identity map
-$$
-1_E:(E,\Vert\cdot\Vert)\to(E,\Vert\cdot\Vert_E):x\mapsto x
-$$
-gives the desired isomorphism. 
+    One can check that $\Vert\cdot\Vert_{E_\infty}$ is a norm satisfying
+    parallelogram law. By Jordan von Neumann theorem we have well defined inner
+    product
+    $$
+        \langle\cdot,\cdot\rangle_{E_\infty}:E_\infty\times
+        E_\infty\to\mathbb{C}:(x,y)\mapsto
+        \sum\limits_{k=1}^4\frac{i^k}{4}\Vert x+i^k y\Vert_{E_\infty}
+    $$
+    Since $E=\mathrm{cl}_E(E_\infty)$, there is continuous extension
+    $\langle\cdot,\cdot\rangle_E$ of $\langle\cdot,\cdot\rangle_{E_\infty}$ to
+    the inner product on the whole $E$. Now from~\ref{EquivNorm} it follows that
+    norm $\Vert\cdot\Vert_E$ induced by $\langle\cdot,\cdot\rangle_E$ is
+    equivalent to the original norm of $E$. Hence identity map
+    $$
+        1_E:(E,\Vert\cdot\Vert)\to(E,\Vert\cdot\Vert_E):x\mapsto x
+    $$
+    gives the desired isomorphism.
 \end{proof}
 
 \newpage
 \begin{thebibliography}{999}
-\bibitem{SlezFConvFiltNets} 
-\textit{Sleziak M.} $\mathcal{F}$-convergence, filters and nets.
-\bibitem{BourbTopGen} 
-\textit{Bourbaki N. } Eléments de mathématiques. Hermann, 1963.
-\bibitem{EngelGenTop}
-\textit{Engelking R.} General topology. Heldermann, 1989.
+    \bibitem{SlezFConvFiltNets}
+    \textit{Sleziak M.} $\mathcal{F}$-convergence, filters and nets.
+    \bibitem{BourbTopGen}
+    \textit{Bourbaki N. } Eléments de mathématiques. Hermann, 1963.
+    \bibitem{EngelGenTop}
+    \textit{Engelking R.} General topology. Heldermann, 1989.
 \end{thebibliography}
 \end{document}
