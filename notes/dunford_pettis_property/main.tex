@@ -1,18 +1,28 @@
 %\title{The Dunford-Pettis property}
 \documentclass[12pt]{article}
-\usepackage[left=2cm,right=2cm,
-top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage[
+    left=2cm,
+    right=2cm,
+    top=2cm,
+    bottom=2cm,
+    bindingoffset=0cm]{geometry}
 \usepackage{amssymb,amsmath}
 \usepackage[utf8]{inputenc}
 \usepackage[matrix,arrow,curve]{xy}
 \usepackage[final]{graphicx}
 \usepackage{mathrsfs}
-\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=blue, pdfborder={0 0 0}]{hyperref}
+\usepackage[
+    colorlinks=true,
+    urlcolor=blue,
+    linkcolor=blue,
+    citecolor=blue,
+    pdfborder={0 0 0}]{hyperref}
 \usepackage{yhmath}
+\usepackage{enumitem}
 
 \hypersetup{frenchlinks=true}
 
-\newtheorem{theorem}{Theorem}
+\newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{remark}[theorem]{Remark}
@@ -28,123 +38,177 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 
 \begin{center}
 
-\Large \textbf{Dunford-Pettis property}\\[0.5cm]
-\small {Nemesh N. T.}\\[0.5cm]
+    \Large \textbf{Dunford-Pettis property}\\[0.5cm]
+    \small {Nemesh N. T.}\\[0.5cm]
 
 \end{center}
 
 \begin{abstract}
-This is a short note on the Dunford-Pettis property was written for self-educational purposes and future reference. A few additional subjects are discussed to give a firm introduction.
+    This is a short note on the Dunford-Pettis property was written for
+    self-educational purposes and future reference. A few additional subjects
+    are discussed to give a firm introduction.
 \end{abstract}
 
 \section{Weak topologies}
 
-\begin{definition} Let $X$ be a Banach space, then the weakest topology making all functionals in $X^*$ continuous is called the weak topology.
+\begin{definition} Let $X$ be a Banach space, then the weakest topology making
+    all functionals in $X^*$ continuous is called the weak topology.
 
-If $X$ is a Banach space, then the weak${}^*$ topology on $X^*$ is the weakest topology making all functionals $\iota_X(x):X^*\to\mathbb{C}:f\mapsto f(x)$ continuous.
+    If $X$ is a Banach space, then the weak${}^*$ topology on $X^*$ is the
+    weakest topology making all functionals
+    $\iota_X(x):X^*\to\mathbb{C}:f\mapsto f(x)$ continuous.
 \end{definition}
 
-The sequences that converge in $\langle$ weak / weak${}^*$ $\rangle$ topology to $0$ we shall call $\langle$ weakly null / weakly${}^*$ null $\rangle$. A subset $A$ in $\langle$ $X$ / $X^*$ $\rangle$ is called $\langle$ weakly / weakly${}^*$ $\rangle$ bounded if $\langle$ for all $f\in X^*$ the set $\{f(x):x\in A\}$ / for all $x\in X$ the set $\{f(x):f\in A\}$ $\rangle$ is bounded in $\mathbb{C}$.
+The sequences that converge in $\langle$ weak / weak${}^*$ $\rangle$ topology to
+$0$ we shall call $\langle$ weakly null / weakly${}^*$ null $\rangle$. A subset
+$A$ in $\langle$ $X$ / $X^*$ $\rangle$ is called $\langle$ weakly / weakly${}^*$
+$\rangle$ bounded if $\langle$ for all $f\in X^*$ the set $\{f(x):x\in A\}$ /
+for all $x\in X$ the set $\{f(x):f\in A\}$ $\rangle$ is bounded in $\mathbb{C}$.
 
-We shall list the following well known properties of weak topologies. Let $X$ be a Banach space.
+We shall list the following well known properties of weak topologies. Let $X$ be
+a Banach space.
 
-\begin{itemize}
+\begin{enumerate}[label = (\roman*)]
 
-\item A subset $A$ of $X$ is weakly bounded iff it is norm bounded [\cite{FabHabBanSpTh}, theorem 3.88].
+    \item A subset $A$ of $X$ is weakly bounded iff it is norm bounded
+              [\cite{FabHabBanSpTh}, theorem 3.88].
 
-\item If $X$ is infinite dimensional, then every non empty weakly open subset of $X$ is unbounded [\cite{FabHabBanSpTh}, proposition 3.89].
+    \item If $X$ is infinite dimensional, then every non empty weakly open
+          subset of $X$ is unbounded [\cite{FabHabBanSpTh}, proposition 3.89].
 
-\item If the weak topology of $X$ is metriazable, then $X$ is finite dimensional.
+    \item If the weak topology of $X$ is metriazable, then $X$ is finite
+          dimensional.
 
-\item if $A$ is a convex subset in $X$, then the norm and the weak closure of $A$ coincide [\cite{FabHabBanSpTh}, theorem 3.45].
+    \item if $A$ is a convex subset in $X$, then the norm and the weak closure
+          of $A$ coincide [\cite{FabHabBanSpTh}, theorem 3.45].
 
-\end{itemize}
+\end{enumerate}
 
-Now we shall say a few words on weak${}^*$ topologies. Let $X$ be a Banach space.
+Now we shall say a few words on weak${}^*$ topologies. Let $X$ be a Banach
+space.
 
-\begin{itemize}
+\begin{enumerate}[label = (\roman*)]
 
-\item $B_{X^*}$ is weak${}^*$ compact [\cite{FabHabBanSpTh}, theorem 3.37]
+    \item $B_{X^*}$ is weak${}^*$ compact [\cite{FabHabBanSpTh}, theorem 3.37]
 
-\item $B_X$ is weak${}^*$ dense in $B_{X^{**}}$ [\cite{FabHabBanSpTh}, theorem 3.96]
+    \item $B_X$ is weak${}^*$ dense in $B_{X^{**}}$ [\cite{FabHabBanSpTh},
+                  theorem 3.96]
 
-\end{itemize}
+\end{enumerate}
 
-We proceed to discussion of weak compactness in Banach spaces. A subset $A$ of $X$ is called $\langle$ weakly / relatively weakly $\rangle$ compact if $\langle$ $A$ / the weak closure of $A$ $\rangle$ is compact in the weak topology of $X$.
+We proceed to discussion of weak compactness in Banach spaces. A subset $A$ of
+$X$ is called $\langle$ weakly / relatively weakly $\rangle$ compact if
+$\langle$ $A$ / the weak closure of $A$ $\rangle$ is compact in the weak
+topology of $X$.
 
-Again we list basic properties of weakly compact sets. Let $X$ be a Banach space.
+Again we list basic properties of weakly compact sets. Let $X$ be a Banach
+space.
 
-\begin{itemize}
+\begin{enumerate}[label = (\roman*)]
 
-\item Any weakly compact set in $X$ is norm closed and norm bounded.
+    \item Any weakly compact set in $X$ is norm closed and norm bounded.
 
-\item $B_X$ is weakly compact iff $X$ is reflexive [\cite{FabHabBanSpTh}, theorem 3.111]
+    \item $B_X$ is weakly compact iff $X$ is reflexive [\cite{FabHabBanSpTh},
+                  theorem 3.111]
 
-\item if $X$ is reflexive, then any bounded set is relatively weakly compact
+    \item if $X$ is reflexive, then any bounded set is relatively weakly compact
 
-\item if $X$ is reflexive, then for any bounded linear operator $T:X\to Y$ the set $T(B_X)$ is weakly compact.
+    \item if $X$ is reflexive, then for any bounded linear operator $T:X\to Y$
+          the set $T(B_X)$ is weakly compact.
 
-\end{itemize}
+\end{enumerate}
 
-\begin{definition} Let $A$ be a subset of a topological space $M$, then $A$ is called
+\begin{definition} Let $A$ be a subset of a topological space $M$, then $A$ is
+    called
 
-$i)$ $\langle$ sequentially / relatively sequentially $\rangle$ compact if every sequence in $A$ has a subsequence convergent to a point $\langle$ in $A$ / in $M$ $\rangle$.
+    \begin{enumerate}[label = (\roman*)]
+        \item $\langle$ sequentially / relatively sequentially $\rangle$ compact
+              if every sequence in $A$ has a subsequence convergent to a point
+              $\langle$ in $A$ / in $M$ $\rangle$.
 
-$ii)$ $\langle$ countably / relatively countably $\rangle$ compact if every sequence in $A$ has a subnet convergent to a point $\langle$ in $A$ / in $M$ $\rangle$.
+        \item $\langle$ countably / relatively countably $\rangle$ compact if
+              every sequence in $A$ has a subnet convergent to a point $\langle$
+              in $A$ / in $M$ $\rangle$.
+    \end{enumerate}
 \end{definition}
 
-Countable compactness is implied by both compactness and sequential compactness. If $M$ is metriazable, then all three concepts coincide, but the converse is not true. For example $B_{\ell_\infty^*}$ with weak${}^*$ topology is compact by Banach-Alaoglu theorem, but not sequentially weak${}^*$ compact, because the sequence of functionals $e_n^*:\ell_\infty\to\mathbb{C}:x\mapsto x(n)$ has no convergent subsequence. Though weak topology of Banach space is not metriazable in general its bounded subsets behave much like they are metriazable. They indeed metriazable if $X$ is separable.
+Countable compactness is implied by both compactness and sequential compactness.
+If $M$ is metriazable, then all three concepts coincide, but the converse is not
+true. For example $B_{\ell_\infty^*}$ with weak${}^*$ topology is compact by
+Banach-Alaoglu theorem, but not sequentially weak${}^*$ compact, because the
+sequence of functionals $e_n^*:\ell_\infty\to\mathbb{C}:x\mapsto x(n)$ has no
+convergent subsequence. Though weak topology of Banach space is not metriazable
+in general its bounded subsets behave much like they are metriazable. They
+indeed metriazable if $X$ is separable.
 
-\begin{theorem}[Eberlein-Smulian] Let $A$ be a subset of a Banach space $X$. The following are equivalent
-
-$i)$ $A$ is $\langle$ weakly / relatively weakly $\rangle$ compact
-
-$ii)$ $A$ is $\langle$ weakly / relatively weakly $\rangle$ sequentially compact
-
-$iii)$ $A$ is $\langle$ weakly / relatively weakly $\rangle$ countably compact
+\begin{theorem}[Eberlein-Smulian] Let $A$ be a subset of a Banach space $X$. The
+    following are equivalent
+    \begin{enumerate}[label = (\roman*)]
+        \item $A$ is $\langle$ weakly / relatively weakly $\rangle$ compact
+        \item $A$ is $\langle$ weakly / relatively weakly $\rangle$ sequentially
+              compact
+        \item $A$ is $\langle$ weakly / relatively weakly $\rangle$ countably
+              compact
+    \end{enumerate}
 \end{theorem}
 \begin{proof} See [\cite{KalAlbTopicsBanSpTh}, theorem 1.6.3]
 \end{proof}
 
 Here are some examples of characterization of relatively weakly compact subsets:
 
-\begin{definition} A subset of $A$ of a Banach space $L_1(\Omega,\mu)$ is called equi-integrable if for any $\varepsilon>0$ there exists a $\delta>0$ such that for any measurable subset $E$ of $\Omega$ with $\mu(E)<\delta$ and any $f\in A$ holds
-$$
-\int_E |f(\omega)|d\mu(\omega)<\varepsilon
-$$
+\begin{definition} A subset of $A$ of a Banach space $L_1(\Omega,\mu)$ is called
+    equi-integrable if for any $\varepsilon>0$ there exists a $\delta>0$ such
+    that for any measurable subset $E$ of $\Omega$ with $\mu(E)<\delta$ and any
+    $f\in A$ holds
+    $$
+        \int_E |f(\omega)|d\mu(\omega)<\varepsilon
+    $$
 \end{definition}
 
-\begin{theorem}[Dunford, Pettis] A bounded subset $A$ of $L_1(\Omega,\mu)$ is relatively weakly compact iff it is equi-integrable.
+\begin{theorem}[Dunford, Pettis] A bounded subset $A$ of $L_1(\Omega,\mu)$ is
+    relatively weakly compact iff it is equi-integrable.
 \end{theorem}
 \begin{proof} See [\cite{KalAlbTopicsBanSpTh}, 5.2.9].
 \end{proof}
 
-By $M(K)$ we denote the Banach space of complex Borel regular measures on a Hausdorff compact $K$.
+By $M(K)$ we denote the Banach space of complex Borel regular measures on a
+Hausdorff compact $K$.
 
-\begin{definition} A subset $A$ of a Banach space $M(K)$ is said to be uniformly regular if for any open subset $U$ in $K$ and any $\varepsilon>0$, there is a compact set $H$ in $U$ such that $\sup_{\mu\in A}|\mu|(U\setminus H)<\varepsilon$.
+\begin{definition} A subset $A$ of a Banach space $M(K)$ is said to be uniformly
+    regular if for any open subset $U$ in $K$ and any $\varepsilon>0$, there is
+    a compact set $H$ in $U$ such that $\sup_{\mu\in A}|\mu|(U\setminus
+        H)<\varepsilon$.
 \end{definition}
 
-\begin{theorem}[Grothendieck] A bounded subset $A$ of $M(K)$ is relatively weakly compact iff it is uniformly regular.
+\begin{theorem}[Grothendieck] A bounded subset $A$ of $M(K)$ is relatively
+    weakly compact iff it is uniformly regular.
 \end{theorem}
 \begin{proof} See [\cite{KalAlbTopicsBanSpTh}, 5.3.2]
 \end{proof}
 
 \section{Classes of bounded linear operators}
 
-Note: by $\mathcal{B}(X,Y)$ we denote the Banach space of all bounded linear operators between Banach spaces $X$ and $Y$.
+Note: by $\mathcal{B}(X,Y)$ we denote the Banach space of all bounded linear
+operators between Banach spaces $X$ and $Y$.
 
-\begin{definition} A bounded linear operator $T:X\to Y$ between Banach space $X$ and $Y$ is called
+\begin{definition} A bounded linear operator $T:X\to Y$ between Banach space $X$
+    and $Y$ is called
+    \begin{enumerate}[label = (\roman*)]
+        \item compact if $T(B_X)$ is relatively compact in $Y$
 
-$i)$ compact if $T(B_X)$ is relatively compact in $Y$
+        \item weakly compact if $T(B_X)$ is relatively weakly compact in $Y$
 
-$ii)$ weakly compact if $T(B_X)$ is relatively weakly compact in $Y$
+        \item completely continuous if $T(W)$ is compact in $Y$ for any weakly
+              compact subset $W$ of $X$
+    \end{enumerate}
 
-$iii)$ completely continuous if $T(W)$ is compact in $Y$ for any weakly compact subset $W$ of $X$
-
-By $\langle$ $\mathcal{K}(X,Y)$ / $\mathcal{W}(X,Y)$ / $\mathcal{CC}(X,Y)$ $\rangle$ we denote the Banach space of $\langle$ compact / weakly compact / completely continuous $\rangle$ operators.
+    By $\langle$ $\mathcal{K}(X,Y)$ / $\mathcal{W}(X,Y)$ / $\mathcal{CC}(X,Y)$
+    $\rangle$ we denote the Banach space of $\langle$ compact / weakly compact /
+    completely continuous $\rangle$ operators.
 \end{definition}
 
-\begin{proposition} A bounded linear operator is completely continuous iff it is weak-to-norm sequentially  continuous.
+\begin{proposition} A bounded linear operator is completely continuous iff it is
+    weak-to-norm sequentially  continuous.
 \end{proposition}
 \begin{proof} See [\cite{KalAlbTopicsBanSpTh}, 5.4.2].
 \end{proof}
@@ -153,119 +217,197 @@ Just for comparison we mention the following fact
 
 \begin{proposition} Let $X$ and $Y$ be two Banach spaces. Then
 
-$i)$ a linear operator $T:X\to Y$ is bounded iff $T$ is weak-to-weak continuous;
+    \begin{enumerate}[label = (\roman*)]
+        \item a linear operator $T:X\to Y$ is bounded iff $T$ is weak-to-weak
+              continuous;
 
-$ii)$ if $T:X\to Y$ is a bounded linear operator, then $T^*$ is weak${}^*$-to-weak${}^*$ continuous;
+        \item if $T:X\to Y$ is a bounded linear operator, then $T^*$ is
+              weak${}^*$-to-weak${}^*$ continuous;
 
-$iii)$ if $S:Y^*\to X^*$ is weak${}^*$-to-weak${}^*$ continuous then $S=T^*$ for some bounded linear operator $T:X\to Y$.
+        \item if $S:Y^*\to X^*$ is weak${}^*$-to-weak${}^*$ continuous then
+              $S=T^*$ for some bounded linear operator $T:X\to Y$.
 
-$iv)$ if $T:X\to Y$ is weak-to-norm continuous, then it is a finite rank operator
+        \item if $T:X\to Y$ is weak-to-norm continuous, then it is a finite rank
+              operator
+    \end{enumerate}
 \end{proposition}
-\begin{proof} $i)$ See [\cite{DunfSchwLinOpsVol1}, theorem 5.3.15].
+\begin{proof} $(i)$ See [\cite{DunfSchwLinOpsVol1}, theorem 5.3.15].
 
-$ii)$ Straightforward.
+    $(ii)$ Straightforward.
 
-$iii)$ See [\cite{FabHabBanSpTh}, exercise 3.60]
+    $(iii)$ See [\cite{FabHabBanSpTh}, exercise 3.60]
 
-$iv)$ See [\cite{FabHabBanSpTh}, exercise 15.3]
+    $(iv)$ See [\cite{FabHabBanSpTh}, exercise 15.3]  % chktex 15
 \end{proof}
 
-\begin{proposition} For any Banach spaces $X$ and $Y$we have isometric inclusions
-$$
-\xymatrix{
-                                                   & \mathcal{W}(X,Y) \ar@{^{(}->}[dr]  &                   \\
-\mathcal{K}(X,Y) \ar@{^{(}->}[ur] \ar@{^{(}->}[dr] &                                    &  \mathcal{B}(X,Y) \\
-                                                   & \mathcal{CC}(X,Y) \ar@{^{(}->}[ur] &                   \\
-}
-$$
+\begin{proposition} For any Banach spaces $X$ and $Y$we have isometric
+    inclusions
+    \begin{enumerate}[label = (\roman*)]
+        \item $\mathcal{K}(X,Y)\subset\mathcal{W}(X,Y)\subset\mathcal{B}(X,Y)$
+        \item $\mathcal{K}(X,Y)\subset\mathcal{CC}(X,Y)\subset\mathcal{B}(X,Y)$
+    \end{enumerate}
 \end{proposition}
-\begin{proof} The only non-trivial inclusion here is $\mathcal{K}(X,Y)\hookrightarrow \mathcal{CC}(X,Y)$. See [\cite{FabHabBanSpTh}, exercise 1.77].
+\begin{proof} The only non-trivial inclusion here is
+    $\mathcal{K}(X,Y)\hookrightarrow \mathcal{CC}(X,Y)$. See
+        [\cite{FabHabBanSpTh}, exercise 1.77].
 \end{proof}
 
-\begin{theorem}[Schauder] A bounded linear operator between Banach spaces is compact iff its adjoint is compact.
+\begin{theorem}[Schauder] A bounded linear operator between Banach spaces is
+    compact iff its adjoint is compact.
 \end{theorem}
-\begin{proof} See theorem 15.3 in \cite{FabHabBanSpTh}
+\begin{proof} See theorem 15.3 in~\cite{FabHabBanSpTh}
 \end{proof}
 
-\begin{theorem}[Davis, Figel, Johnson, Pelczynski] A bounded linear operator $T:X\to Y$ is weakly compact iff there exists a reflexive Banach space $Z$ and bounded linear operators $R:X\to Z$, $Q:Z\to Y$ such that $T=QR$, that is $T$ factors through a reflexive Banach space.
+\begin{theorem}[Davis, Figel, Johnson, Pelczynski] A bounded linear operator
+    $T:X\to Y$ is weakly compact iff there exists a reflexive Banach space $Z$
+    and bounded linear operators $R:X\to Z$, $Q:Z\to Y$ such that $T=QR$, that
+    is $T$ factors through a reflexive Banach space.
 \end{theorem}
-\begin{proof} Necessity is proved in [\cite{FabHabBanSpTh}, theorem 13.33]. The converse is obvious. Indeed, since $X$ is reflexive, then $Q$ is weakly compact and so does $T=QR$.
+\begin{proof} Necessity is proved in [\cite{FabHabBanSpTh}, theorem 13.33]. The
+    converse is obvious. Indeed, since $X$ is reflexive, then $Q$ is weakly
+    compact and so does $T=QR$.
 \end{proof}
 
-\begin{theorem}[Gantmacher] Let $T:X\to Y$ be a bounded linear operator between Banach spaces $X$ and $Y$. Then the following are equivalent
+\begin{theorem}[Gantmacher] Let $T:X\to Y$ be a bounded linear operator between
+    Banach spaces $X$ and $Y$. Then the following are equivalent
 
-$i)$ $T$ is weakly compact;
+    \begin{enumerate}[label = (\roman*)]
+        \item $T$ is weakly compact;
 
-$ii)$ $T^{**}(X^{**})\subset Y$;
+        \item $T^{**}(X^{**})\subset Y$;
 
-$iii)$ $T^*$ is weak${}^*$-to-weak continuous;
+        \item $T^*$ is weak${}^*$-to-weak continuous;
 
-$iv)$ $T^*$ is weakly compact.
+        \item $T^*$ is weakly compact.
+    \end{enumerate}
 \end{theorem}
-\begin{proof} $i)\implies ii)$ It is enough to check that all elements of $T^{**}(X^{**})$ are weak${}^*$-continuous.
+\begin{proof} $(i)\implies (ii)$ It is enough to check that all elements of
+    $T^{**}(X^{**})$ are weak${}^*$-continuous.
 
-$ii)\implies iii)$ Straightforward.
+    $(ii)\implies (iii)$ Straightforward.
 
-$iii)\implies iv)$ By Davis-Jhonson-Figel-Pelczynski theorem $T$ factors through a reflexive space. Clearly, so does $T^*$.
+    $(iii)\implies (iv)$ By Davis-Jhonson-Figel-Pelczynski theorem $T$ factors
+    through a reflexive space. Clearly, so does $T^*$.
 
 
 \end{proof}
 
 \section{The Dunford-Pettis property}
 
-\begin{definition} We say that a Banach space has the Dunford-Pettis property if $\mathcal{W}(X,Y)\subset \mathcal{CC}(X,Y)$ for any Banach space $Y$.
+\begin{definition}
+    We say that a Banach space $X$ has the Dunford-Pettis property if
+    $\mathcal{W}(X,Y)\subset \mathcal{CC}(X,Y)$ for any Banach space $Y$.
 \end{definition}
 
-Directly from definition it follows that the square of any weakly compact operator on a Banach space with Dunford-Pettis property is necessarily compact. If $X$ is reflexive Banach space, then $1_X$ is weakly compact. Therefore $X$ has the  Dunford-Pettis property iff $1_X$ is compact. The latter is possible only for finite dimensional $X$. In other words, for infinite dimensional reflexive Banach space $X$ the operator $1_X$ provides an example of weakly compact but not completely continuous operator.
+Directly from definition it follows that the square of any weakly compact
+operator on a Banach space with Dunford-Pettis property is necessarily compact.
+If $X$ is reflexive Banach space, then $1_X$ is weakly compact. Therefore $X$
+has the  Dunford-Pettis property iff $1_X$ is compact. The latter is possible
+only for finite dimensional $X$. In other words, for infinite dimensional
+reflexive Banach space $X$ the operator $1_X$ provides an example of weakly
+compact but not completely continuous operator.
 
-\begin{theorem} A Banach space $X$ has the Dunford-Pettis property iff for any weakly null sequences $(x_n)_{n\in\mathbb{N}}\subset X$, $(x_n^*)_{n\in\mathbb{N}}\subset X^*$ holds $\lim_n x_n^*(x_n)=0$.
+\begin{theorem} A Banach space $X$ has the Dunford-Pettis property iff for any
+    weakly null sequences ${(x_n)}_{n\in\mathbb{N}}\subset X$,
+    ${(x_n^*)}_{n\in\mathbb{N}}\subset X^*$ holds $\lim_n x_n^*(x_n)=0$.
 \end{theorem}
-\begin{proof} Let $Y$ be a Banach space and $T:X\to Y$ a weakly compact operator.
-Let us suppose that $T$ is not Dunford-Pettis. Then there is weakly null sequence $(x_n)_{n\in\mathbb{N}}$ in $X$ such that for some $\delta>0$ holds $\Vert T(x_n)\Vert\geq \delta$ for all $n\in\mathbb{N}$. Pick $(y_n^*)_{n\in\mathbb{N}}\subset Y^*$ such that $y^*(T(x_n))=\Vert T(x_n)\Vert$ and $\Vert y_n\Vert=1$ for all $n\in\mathbb{N}$. By Gantmacher’s theorem $T^*$ is weakly compact hence $T^*(B_{Y^*})$ is a relatively weakly compact subset of $X^*$. By the Eberlein-Smulian theorem the sequence $T^*(y_n^*)\subset T^*(B_{Y^*})$ can be assumed weakly convergent to some $x^*\in X^*$. Then $(T^*(y_n^*)-x^*)_{n\in\mathbb{N}}$ is weakly null. Therefore, the Dunford-Pettis property of $X$ gives that
-$$
-(T^*(y_n^*)-x^*)(x_n)\to_n 0
-$$
-when $n\to\infty$. Note that $x^*(x_n)\to_n 0$ since $(x_n)_{n\in\mathbb{N}}$ is weakly null. Therefore $\Vert T(x_n)\Vert=T^*(y_n)(x_n)\to_n 0$. Contradiction.
+\begin{proof} Let $Y$ be a Banach space and $T:X\to Y$ a weakly compact
+    operator. Let us suppose that $T$ is not Dunford-Pettis. Then there is
+    weakly null sequence ${(x_n)}_{n\in\mathbb{N}}$ in $X$ such that for some
+    $\delta>0$ holds $\Vert T(x_n)\Vert\geq \delta$ for all $n\in\mathbb{N}$.
+    Pick ${(y_n^*)}_{n\in\mathbb{N}}\subset Y^*$ such that $y^*(T(x_n))=\Vert
+        T(x_n)\Vert$ and $\Vert y_n\Vert=1$ for all $n\in\mathbb{N}$. By
+    Gantmacher’s theorem $T^*$ is weakly compact hence $T^*(B_{Y^*})$ is a
+    relatively weakly compact subset of $X^*$. By the Eberlein-Smulian theorem
+    the sequence $T^*(y_n^*)\subset T^*(B_{Y^*})$ can be assumed weakly
+    convergent to some $x^*\in X^*$. Then ${(T^*(y_n^*)-x^*)}_{n\in\mathbb{N}}$ is
+    weakly null. Therefore, the Dunford-Pettis property of $X$ gives that
+    $$
+        (T^*(y_n^*)-x^*)(x_n)\to_n 0
+    $$
+    when $n\to\infty$. Note that $x^*(x_n)\to_n 0$ since
+    ${(x_n)}_{n\in\mathbb{N}}$ is weakly null. Therefore $\Vert
+        T(x_n)\Vert=T^*(y_n)(x_n)\to_n 0$. Contradiction.
 
-For the converse, let $(x_n)_{n\in\mathbb{N}}\subset X$ and $(x_n^*)_{n\in\mathbb{N}}\subset X^*$ be weakly null sequences. Consider the operator
-$$
-T:X \to c_0: x\mapsto (x_n^*(x))_{n\in\mathbb{N}}
-$$
-The adjoint operator $T^*$ of $T$ satisfies $T^*(e_k)=x_k^*$ for all $k\in\mathbb{N}$, where $(e_k)_{k\in\mathbb{N}}$ denotes the canonical basis of $\ell_1$. This implies that $T^*(B_{\ell_1})$ is contained in the convex hull of the weakly null sequence $(x_n^*)_{n\in\mathbb{N}}$. Therefore $T^*$ is weakly compact, hence by Gantmacher’s theorem so is $T$. As $T$ is weakly compact, $T$ is also Dunford-Pettis by the hypothesis. Therefore $(T(x_n))_{n\in\mathbb{N}}$ is norm null sequence. Since
-$$
-|x_n^*(x_n)|\leq\max_k |x_k^*(x_n)|=\Vert T(x_n)\Vert
-$$
-then $(x_n^*(x_n))_{n\in\mathbb{N}}$ is norm null sequence too.
+    For the converse, let ${(x_n)}_{n\in\mathbb{N}}\subset X$ and
+    ${(x_n^*)}_{n\in\mathbb{N}}\subset X^*$ be weakly null sequences.
+    Consider the operator
+    $$
+        T:X \to c_0: x\mapsto {(x_n^*(x))}_{n\in\mathbb{N}}
+    $$
+    The adjoint operator $T^*$ of $T$ satisfies $T^*(e_k)=x_k^*$ for all
+    $k\in\mathbb{N}$, where ${(e_k)}_{k\in\mathbb{N}}$ denotes the canonical basis
+    of $\ell_1$. This implies that $T^*(B_{\ell_1})$ is contained in the convex
+    hull of the weakly null sequence ${(x_n^*)}_{n\in\mathbb{N}}$. Therefore $T^*$
+    is weakly compact, hence by Gantmacher’s theorem so is $T$. As $T$ is weakly
+    compact, $T$ is also Dunford-Pettis by the hypothesis. Therefore
+    ${(T(x_n))}_{n\in\mathbb{N}}$ is norm null sequence. Since
+    $$
+        |x_n^*(x_n)|\leq\max_k |x_k^*(x_n)|=\Vert T(x_n)\Vert
+    $$
+    then ${(x_n^*(x_n))}_{n\in\mathbb{N}}$ is norm null sequence too.
 \end{proof}
 
-Any Banach space $X$ with the Schur property (that is any weakly null sequence is norm null sequence) has the Dunford-Pettis property. Indeed, let $(x_n)_{n\in\mathbb{N}}\subset X$ and $(x_n^*)_{n\in\mathbb{N}}\subset X^*$ be weakly null sequences. Since $(x_n^*)_{n\in\mathbb{N}}$ is weakly null it is norm bounded by some constant $C$. The Schur property of $X$ gives that $(x_n)_{n\in\mathbb{N}}$ is norm null, so $|x_n^*(x_n)|\leq C\Vert x_n\Vert\to_n 0$. In particular $\ell_1$ has the Dunford-Pettis property.
+Any Banach space $X$ with the Schur property (that is any weakly null sequence
+is norm null sequence) has the Dunford-Pettis property. Indeed, let
+${(x_n)}_{n\in\mathbb{N}}\subset X$ and ${(x_n^*)}_{n\in\mathbb{N}}\subset X^*$ be
+weakly null sequences. Since ${(x_n^*)}_{n\in\mathbb{N}}$ is weakly null it is
+norm bounded by some constant $C$. The Schur property of $X$ gives that
+${(x_n)}_{n\in\mathbb{N}}$ is norm null, so $|x_n^*(x_n)|\leq C\Vert x_n\Vert\to_n
+    0$. In particular $\ell_1$ has the Dunford-Pettis property.
 
-\begin{example} Consider operator $T:L_1([0,1])\to C([0,1]):x\mapsto\left(t\mapsto\int_0^t x(s)ds\right)$. One can show that for the sequence $x_n(t)=2n(\chi_{[1/2-1/n,1/2]}-\chi_{[1/2,1/2+1/n]})$ the sequence $T(x_n)$ has no weakly convergent subsequence. So $T$ is not weakly compact. Using Arzela-Ascoli criterion of compactness in $C([0,1])$ and Dunford-Pettis criterion of weak compactness in $L_1([0,1])$ it is routine to check that $T$ is completely continuous.
+\begin{example} Consider operator $T:L_1([0,1])\to
+        C([0,1]):x\mapsto\left(t\mapsto\int_0^t x(s)ds\right)$. One can show
+    that for the sequence
+    $x_n(t)=2n(\chi_{[1/2-1/n,1/2]}-\chi_{[1/2,1/2+1/n]})$ the sequence
+    $T(x_n)$ has no weakly convergent subsequence. So $T$ is not weakly
+    compact. Using Arzela-Ascoli criterion of compactness in $C([0,1])$ and
+    Dunford-Pettis criterion of weak compactness in $L_1([0,1])$ it is
+    routine to check that $T$ is completely continuous.
 \end{example}
 
 \begin{proposition} If $X^*$ has the Dunford-Pettis property, then so does $X$.
 \end{proposition}
-\begin{proof} Let $(x_n)_{n\in\mathbb{N}}\subset X$ and $(x_n^*)_{n\in\mathbb{N}}\subset X^*$ be weakly null sequences. Take arbitrary $x^{***}\in X^{***}$, then since $(x_n)_{n\in\mathbb{N}}$ is weakly null, then $x^{***}(\iota_X(x_n))=\iota_X^*(x^{***})(x_n)\to_n 0$. Therefore $(\iota_X(x_n))_{n\in\mathbb{N}}\subset X^{**}$ is weakly null sequence. Since $X^*$ has the Dunford-Pettis property, then $x_n^*(x_n)=\iota_X(x_n)(x_n^*)\to_n 0$. Therefore $X$ has the Dunford-Pettis property.
+\begin{proof} Let ${(x_n)}_{n\in\mathbb{N}}\subset X$ and
+    ${(x_n^*)}_{n\in\mathbb{N}}\subset X^*$ be weakly null sequences. Take
+    arbitrary $x^{***}\in X^{***}$, then since ${(x_n)}_{n\in\mathbb{N}}$ is
+    weakly null, then $x^{***}(\iota_X(x_n))=\iota_X^*(x^{***})(x_n)\to_n 0$.
+    Therefore ${(\iota_X(x_n))}_{n\in\mathbb{N}}\subset X^{**}$ is weakly null
+    sequence. Since $X^*$ has the Dunford-Pettis property, then
+    $x_n^*(x_n)=\iota_X(x_n)(x_n^*)\to_n 0$. Therefore $X$ has the
+    Dunford-Pettis property.
 \end{proof}
 
-\begin{proposition} The Dunford-Pettis property is inherited by complemented subspaces of Banach spaces.
+\begin{proposition} The Dunford-Pettis property is inherited by complemented
+    subspaces of Banach spaces.
 \end{proposition}
-\begin{proof} Let $Y$ be a complemented subspace of $X$ with bounded linear projection $P:X\to Y$. Let $(y_n)_{n\in\mathbb{N}}\subset Y$ and $(y_n^*)_{n\in\mathbb{N}}\subset Y^*$ be weakly null sequences. Then $(y_n)_{n\in\mathbb{N}}$ is a weakly null in $X$. Since $P^*$ is bounded, then it is weak-to-weak continuous, so from assumption $(P^*(y_n))_{n\in\mathbb{N}}$ is weakly null in $X^*$. Since $X$ has the Dunford-Pettis property, then
-$$
-y_n^*(y_n)=y_n^*(P(y_n))=P^*(y_n^*)(y_n)\to_n 0
-$$
-Therefore $Y$ has the Dunford-Pettis property.
+\begin{proof} Let $Y$ be a complemented subspace of $X$ with bounded linear
+    projection $P:X\to Y$. Let ${(y_n)}_{n\in\mathbb{N}}\subset Y$ and
+    ${(y_n^*)}_{n\in\mathbb{N}}\subset Y^*$ be weakly null sequences. Then
+    ${(y_n)}_{n\in\mathbb{N}}$ is a weakly null in $X$. Since $P^*$ is bounded,
+    then it is weak-to-weak continuous, so from assumption
+    ${(P^*(y_n))}_{n\in\mathbb{N}}$ is weakly null in $X^*$. Since $X$ has the
+    Dunford-Pettis property, then
+    $$
+        y_n^*(y_n)=y_n^*(P(y_n))=P^*(y_n^*)(y_n)\to_n 0
+    $$
+    Therefore $Y$ has the Dunford-Pettis property.
 \end{proof}
 
-Proving a certain Banach space has the Dunford-Pettis property is always a challenge. Most proofs require understanding of weakly null sequences of dual spaces. It is known since the times of Grothendieck that $L_1$ spaces and $C(K)$-spaces have the Dunford-Pettis property.
+Proving a certain Banach space has the Dunford-Pettis property is always a
+challenge. Most proofs require understanding of weakly null sequences of dual
+spaces. It is known since the times of Grothendieck that $L_1$ spaces and
+$C(K)$-spaces have the Dunford-Pettis property.
 
 \newpage
 \begin{thebibliography}{999}
-\bibitem{FabHabBanSpTh}
-\textit{Fabian M., Habala P.} Banach space theory. Springer, 2011.
-\bibitem{KalAlbTopicsBanSpTh}
-\textit{Albiac F., Kalton N. J.} Topics in Banach space theory. Springer, 2006, vol 233.
-\bibitem{DunfSchwLinOpsVol1}
-\textit{Dunford N. Schwartz J.T.} Linear operators. Wiley-interscience New York, 1971, vol 1.
+    \bibitem{FabHabBanSpTh}
+    \textit{Fabian M., Habala P.} Banach space theory. Springer, 2011.
+    \bibitem{KalAlbTopicsBanSpTh}
+    \textit{Albiac F., Kalton N. J.} Topics in Banach space theory. Springer,
+    2006, vol 233.
+    \bibitem{DunfSchwLinOpsVol1}
+    \textit{Dunford N. Schwartz J.T.} Linear operators. Wiley-interscience New
+    York, 1971, vol 1.
 \end{thebibliography}
 \end{document}
