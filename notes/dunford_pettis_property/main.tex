@@ -1,23 +1,12 @@
 %\title{The Dunford-Pettis property}
 \documentclass[12pt]{article}
-\usepackage[
-    left=2cm,
-    right=2cm,
-    top=2cm,
-    bottom=2cm,
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm,
     bindingoffset=0cm]{geometry}
 \usepackage{amssymb,amsmath}
 \usepackage[utf8]{inputenc}
-\usepackage[matrix,arrow,curve]{xy}
-\usepackage[final]{graphicx}
 \usepackage{mathrsfs}
-\usepackage[
-    colorlinks=true,
-    urlcolor=blue,
-    linkcolor=blue,
-    citecolor=blue,
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=blue,
     pdfborder={0 0 0}]{hyperref}
-\usepackage{yhmath}
 \usepackage{enumitem}
 
 \hypersetup{frenchlinks=true}
@@ -38,7 +27,7 @@
 
 \begin{center}
 
-    \Large \textbf{Dunford-Pettis property}\\[0.5cm]
+    \Large \textbf{The Dunford-Pettis property}\\[0.5cm]
     \small {Nemesh N. T.}\\[0.5cm]
 
 \end{center}
@@ -320,8 +309,8 @@ compact but not completely continuous operator.
     Gantmacher’s theorem $T^*$ is weakly compact hence $T^*(B_{Y^*})$ is a
     relatively weakly compact subset of $X^*$. By the Eberlein-Smulian theorem
     the sequence $T^*(y_n^*)\subset T^*(B_{Y^*})$ can be assumed weakly
-    convergent to some $x^*\in X^*$. Then ${(T^*(y_n^*)-x^*)}_{n\in\mathbb{N}}$ is
-    weakly null. Therefore, the Dunford-Pettis property of $X$ gives that
+    convergent to some $x^*\in X^*$. Then ${(T^*(y_n^*)-x^*)}_{n\in\mathbb{N}}$
+    is weakly null. Therefore, the Dunford-Pettis property of $X$ gives that
     $$
         (T^*(y_n^*)-x^*)(x_n)\to_n 0
     $$
@@ -330,18 +319,18 @@ compact but not completely continuous operator.
         T(x_n)\Vert=T^*(y_n)(x_n)\to_n 0$. Contradiction.
 
     For the converse, let ${(x_n)}_{n\in\mathbb{N}}\subset X$ and
-    ${(x_n^*)}_{n\in\mathbb{N}}\subset X^*$ be weakly null sequences.
-    Consider the operator
+    ${(x_n^*)}_{n\in\mathbb{N}}\subset X^*$ be weakly null sequences. Consider
+    the operator
     $$
         T:X \to c_0: x\mapsto {(x_n^*(x))}_{n\in\mathbb{N}}
     $$
     The adjoint operator $T^*$ of $T$ satisfies $T^*(e_k)=x_k^*$ for all
-    $k\in\mathbb{N}$, where ${(e_k)}_{k\in\mathbb{N}}$ denotes the canonical basis
-    of $\ell_1$. This implies that $T^*(B_{\ell_1})$ is contained in the convex
-    hull of the weakly null sequence ${(x_n^*)}_{n\in\mathbb{N}}$. Therefore $T^*$
-    is weakly compact, hence by Gantmacher’s theorem so is $T$. As $T$ is weakly
-    compact, $T$ is also Dunford-Pettis by the hypothesis. Therefore
-    ${(T(x_n))}_{n\in\mathbb{N}}$ is norm null sequence. Since
+    $k\in\mathbb{N}$, where ${(e_k)}_{k\in\mathbb{N}}$ denotes the canonical
+    basis of $\ell_1$. This implies that $T^*(B_{\ell_1})$ is contained in the
+    convex hull of the weakly null sequence ${(x_n^*)}_{n\in\mathbb{N}}$.
+    Therefore $T^*$ is weakly compact, hence by Gantmacher’s theorem so is $T$.
+    As $T$ is weakly compact, $T$ is also Dunford-Pettis by the hypothesis.
+    Therefore ${(T(x_n))}_{n\in\mathbb{N}}$ is norm null sequence. Since
     $$
         |x_n^*(x_n)|\leq\max_k |x_k^*(x_n)|=\Vert T(x_n)\Vert
     $$
@@ -350,11 +339,11 @@ compact but not completely continuous operator.
 
 Any Banach space $X$ with the Schur property (that is any weakly null sequence
 is norm null sequence) has the Dunford-Pettis property. Indeed, let
-${(x_n)}_{n\in\mathbb{N}}\subset X$ and ${(x_n^*)}_{n\in\mathbb{N}}\subset X^*$ be
-weakly null sequences. Since ${(x_n^*)}_{n\in\mathbb{N}}$ is weakly null it is
-norm bounded by some constant $C$. The Schur property of $X$ gives that
-${(x_n)}_{n\in\mathbb{N}}$ is norm null, so $|x_n^*(x_n)|\leq C\Vert x_n\Vert\to_n
-    0$. In particular $\ell_1$ has the Dunford-Pettis property.
+${(x_n)}_{n\in\mathbb{N}}\subset X$ and ${(x_n^*)}_{n\in\mathbb{N}}\subset X^*$
+be weakly null sequences. Since ${(x_n^*)}_{n\in\mathbb{N}}$ is weakly null it
+is norm bounded by some constant $C$. The Schur property of $X$ gives that
+${(x_n)}_{n\in\mathbb{N}}$ is norm null, so $|x_n^*(x_n)|\leq C\Vert
+    x_n\Vert\to_n 0$. In particular $\ell_1$ has the Dunford-Pettis property.
 
 \begin{example} Consider operator $T:L_1([0,1])\to
         C([0,1]):x\mapsto\left(t\mapsto\int_0^t x(s)ds\right)$. One can show
