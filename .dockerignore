@@ -1,0 +1,41 @@
+# TeX, snapshot, and latexmk generated files
+*.aux
+*.dep
+*.fdb_latexmk
+*.log
+*.out
+*.synctex.gz
+*.pdf
+*.fls
+*.bbl
+*.blg
+*.acn
+*.acr
+*.alg
+*.toc
+*.lot
+*.lof
+*.ist
+*.idx
+*.glo
+*.glg
+*.gls
+*.bcf
+run.xml
+
+# MacOS
+.DS_Store
+
+# VSCode
+.vscode-server/
+.vscode/
+
+# Linux
+.bash_history
+.ssh/
+.gitconfig
+.viminfo
+.vim/
+
+# Build files directory
+out/
