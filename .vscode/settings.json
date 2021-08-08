@@ -1,0 +1,38 @@
+{
+    // Adds default settings.json values into a
+    // container/machine specific settings file.
+    // Editor
+    "editor.formatOnSave": true,
+    // File settings
+    "files.eol": "\n",
+    "files.associations": {
+        "*.tex": "latex"
+    },
+    // Latex-workshop
+    "latex-workshop.chktex.enabled": true,
+    "latex-workshop.chktex.run": "onType",
+    "latex-workshop.latex.outDir": "./out",
+    "latex-workshop.latex.clean.subfolder.enabled": true,
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+    "latex-workshop.latexindent.args": [
+        "-c",
+        "%DIR%/",
+        "%TMPFILE%",
+        "-y",
+        "defaultIndent: '    '"
+    ],
+    "latex-workshop.view.pdf.viewer": "none",
+    "latex-workshop.chktex.args.active": [
+        "-wall",
+        "-n22",
+        "-n30",
+        "-e16",
+        "-n44",
+        "-n45",
+        "-n46",
+        "-q"
+    ],
+    // Rewrap
+    "rewrap.wrappingColumn": 80,
+    "rewrap.autoWrap.enabled": true
+}
