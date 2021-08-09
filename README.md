@@ -17,4 +17,4 @@ TODO:
 
 2. Refactor tex code in research directory
 
-3. Add code from overleaf to sandbox directory
+3. Refactor tex code in sandbox directory
