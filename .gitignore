@@ -21,7 +21,8 @@
 *.glg
 *.gls
 *.bcf
-run.xml
+*.run.xml
+.texlive2019/
 
 # MacOS
 .DS_Store
