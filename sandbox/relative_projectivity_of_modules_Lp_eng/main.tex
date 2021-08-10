@@ -1,4 +1,4 @@
- %\title{Relative projectivity of modules L_p}
+% chktex-file 35
  \documentclass[12pt]{article}
  \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
  \usepackage{amssymb}
@@ -7,11 +7,12 @@
  \usepackage{enumerate}
  \usepackage[T1,T2A]{fontenc}
  \usepackage[utf8]{inputenc}
- % \usepackage[russian]{babel}
  \usepackage[matrix,arrow,curve]{xy}
- \usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=blue, pdfborder={0 0 0}]{hyperref}
+ \usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=blue,
+     pdfborder={0 0 0}]{hyperref}
+\usepackage{enumitem}
 
- %----------------------------------------------------------------------------------------
+ %------------------------------------------------------------------------------
  \newtheorem{theorem}{Theorem}[section]
  \newtheorem{lemma}[theorem]{Lemma}
  \newtheorem{proposition}[theorem]{Proposition}
@@ -24,7 +25,7 @@
  \newcommand{\convol}{\ast}
  \newcommand{\projmodtens}[1]{\mathbin{\widehat{\otimes}}_{#1}}
  \newcommand{\isom}[1]{\mathop{\mathbin{\cong}}\limits_{#1}}
- %----------------------------------------------------------------------------------------
+ %------------------------------------------------------------------------------
 
 \begin{document}
 
@@ -36,417 +37,934 @@
 \thispagestyle{empty}
 
 \medskip
-\textbf{Abstract:} In this paper we give criteria of relative projectivity of $L_p$-spaces regarded as left Banach modules over the algebras of bounded measurable functions ($1\leq p\leq +\infty$) and the algebra of continuous functions vanishing at infinity ($1\leq p< +\infty$). The main result is as follows: for a locally compact Hausdorff space $S$ and a locally finite inner compact regular Borel measure $\mu$ relative projectivity of $C_0(S)$-module $L_\infty(S,\mu)$ forces $\mu$ to be inner open regular with pseudocompact support.
+\textbf{Abstract:} In this paper we give criteria of relative projectivity of
+$L_p$-spaces regarded as left Banach modules over the algebras of bounded
+measurable functions ($1\leq p\leq +\infty$) and the algebra of continuous
+functions vanishing at infinity ($1\leq p< +\infty$). The main result is as
+follows: for a locally compact Hausdorff space $S$ and a locally finite inner
+compact regular Borel measure $\mu$ relative projectivity of $C_0(S)$-module
+$L_\infty(S,\mu)$ forces $\mu$ to be inner open regular with pseudocompact
+support.
 \medskip
 
-\textbf{Keywords:} projective module, $L_p$-space, atom, normal measure, pseudocompact space.
+\textbf{Keywords:} projective module, $L_p$-space, atom, normal measure,
+pseudocompact space.
 
 \bigskip
 
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 %	Introduction
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
-\section{Introduction}
-\label{SectionIntroduction}
+\section{Introduction}\label{SectionIntroduction}
 
-The main question of Banach homology sounds like this: what is the homological dimension of a given Banach algebra $A$?
-To solve this problem one needs to answer another question: is a given Banach $A$-module $X$ projective? For many modules of analysis the answers are known. Still there are examples of classical modules of analysis for which this question is not addressed, for example the $L_p$-spaces. We shall regard Lebesgue's spaces as left Banach modules over the algebra of vanishing at infinity continuous functions defined on a locally compact Hausdorff space $S$ and as modules over the algebra of bounded measurable functions. We shall give necessary and sufficient conditions for relative projectivity of these spaces. Special attention must be paid to the case of projective $L_\infty$ modules. The reason is that one of the main results of Banach homology - the global dimension theorem [\cite{HelHomolBanTopAlg}, предложение V.2.21] is based on the fact that the homological dimension of the module of bounded sequences over the algebra of vanishing sequences equals 2. In particular this module is not projective. As we shall see this behaviour is typical for most modules $L_\infty$. Before we proceed to the main topic we shall give a few definitions.
+The main question of Banach homology sounds like this: what is the homological
+dimension of a given Banach algebra $A$? To solve this problem one needs to
+answer another question: is a given Banach $A$-module $X$ projective? For many
+modules of analysis the answers are known. Still there are examples of classical
+modules of analysis for which this question is not addressed, for example the
+$L_p$-spaces. We shall regard Lebesgue's spaces as left Banach modules over the
+algebra of vanishing at infinity continuous functions defined on a locally
+compact Hausdorff space $S$ and as modules over the algebra of bounded
+measurable functions. We shall give necessary and sufficient conditions for
+relative projectivity of these spaces. Special attention must be paid to the
+case of projective $L_\infty$ modules. The reason is that one of the main
+results of Banach homology --- the global dimension
+theorem~[\cite{HelHomolBanTopAlg}, proposition V.2.21] is based on the fact that
+the homological dimension of the module of bounded sequences over the algebra of
+vanishing sequences equals 2. In particular this module is not projective. As we
+shall see this behaviour is typical for most modules $L_\infty$. Before we
+proceed to the main topic we shall give a few definitions.
 
 
 
-Let $M$ be a subset of a set $N$, then $\chi_M$ denotes the indicator function of $M$. If $f:N\to L$ is an arbitrary function, then $f|_M$ denotes its restriction to $M$. The symbol $1_M$ denotes the identity map on $M$.
+Let $M$ be a subset of a set $N$, then $\chi_M$ denotes the indicator function
+of $M$. If $f:N\to L$ is an arbitrary function, then $f|_M$ denotes its
+restriction to $M$. The symbol $1_M$ denotes the identity map on $M$.
 
-Let $S$ be an arbitrary topological space and $M$ be its subset. Then $\operatorname{cl}_S(M)$ and $\operatorname{int}_S(M)$ denote the closure and the interior of $M$ in $S$.
+Let $S$ be an arbitrary topological space and $M$ be its subset. Then
+$\operatorname{cl}_S(M)$ and $\operatorname{int}_S(M)$ denote the closure and
+the interior of $M$ in $S$.
 
-All Banach spaces in this paper are considered over the complex field. For a given Banach spaces $X$ and $Y$ by $X\oplus_1 Y$ we denote their $\ell_1$-sum and by $X\projtens Y$ their projective tensor product. We say that a Banach space $X$ is complemented in $Y$ if $X$ is a subspace of $Y$ and there exists a bounded linear operator $P:Y\to Y$ such that $P|_X=1_X$ and $\operatorname{Im}(P)=X$. For $1\leq p\leq +\infty$ and a given measure space $(X,\mu)$ by $L_p(X,\mu)$ we shall denote the Banach space of equivalence classes of $p$-integrable (or essentially bounded if $p=+\infty$) functions on $X$. Elements of $L_p(X,\mu)$ are denoted by $[f]$. Note that all $L_p$-spaces have the approximation property.
+All Banach spaces in this paper are considered over the complex field. For a
+given Banach spaces $X$ and $Y$ by $X\oplus_1 Y$ we denote their $\ell_1$-sum
+and by $X\projtens Y$ their projective tensor product. We say that a Banach
+space $X$ is complemented in $Y$ if $X$ is a subspace of $Y$ and there exists a
+bounded linear operator $P:Y\to Y$ such that $P|_X=1_X$ and
+$\operatorname{Im}(P)=X$. For $1\leq p\leq +\infty$ and a given measure space
+$(X,\mu)$ by $L_p(X,\mu)$ we shall denote the Banach space of equivalence
+classes of $p$-integrable (or essentially bounded if $p=+\infty$) functions on
+$X$. Elements of $L_p(X,\mu)$ are denoted by $[f]$. Note that all $L_p$-spaces
+have the approximation property.
 
-For a given Banach algebra $A$ by $A_+:=A\oplus_1 \mathbb{C}$ we denote its standard unitization. We shall consider only left Banach modules with contractive outer action $\cdot:A\times X\to X$. If $A$ is a Banach algebra with the unit $e$, then a Banach $A$-module $X$ is called unital if $e\cdot x=x$ for all $x\in X$. For a given Banach $A$-module $X$ its essential part $X_{ess}$ is the closed linear span of the set $A\cdot X$. We say that the module $X$ is essential if $X=X_{ess}$. Clearly, any unital Banach module is essential. Let $X$ and $Y$ be two Banach $A$-modules, then a map $\phi:X\to Y$ is an $A$-morphism if it is a continuous $A$-module map. Banach $A$-modules and $A$-morphisms form a category which we denote by $A-\mathbf{mod}$.
+For a given Banach algebra $A$ by $A_+:=A\oplus_1 \mathbb{C}$ we denote its
+standard unitization. We shall consider only left Banach modules with
+contractive outer action $\cdot:A\times X\to X$. If $A$ is a Banach algebra with
+the unit $e$, then a Banach $A$-module $X$ is called unital if $e\cdot x=x$ for
+all $x\in X$. For a given Banach $A$-module $X$ its essential part $X_{ess}$ is
+the closed linear span of the set $A\cdot X$. We say that the module $X$ is
+essential if $X=X_{ess}$. Clearly, any unital Banach module is essential. Let
+$X$ and $Y$ be two Banach $A$-modules, then a map $\phi:X\to Y$ is an
+$A$-morphism if it is a continuous $A$-module map. Banach $A$-modules and
+$A$-morphisms form a category which we denote by $A-\mathbf{mod}$.
 
-The category $A$-mod has its own notion of projectivity. An $A$-morphism $\xi:X\to Y$ is called admissible if there exists a right inverse bounded linear operator $\eta:Y\to X$, i.e if $\xi\eta=1_Y$. A Banach $A$-module $P$ is called relatively projective if for any admissible $A$-morphism $\xi:X\to Y$ and any $A$-morphism $\phi:P\to Y$ there exists an $A$-morphism $\psi:P\to X$ making the diagram
+The category $A$-mod has its own notion of projectivity. An $A$-morphism
+$\xi:X\to Y$ is called admissible if there exists a right inverse bounded linear
+operator $\eta:Y\to X$, i.e if $\xi\eta=1_Y$. A Banach $A$-module $P$ is called
+relatively projective if for any admissible $A$-morphism $\xi:X\to Y$ and any
+$A$-morphism $\phi:P\to Y$ there exists an $A$-morphism $\psi:P\to X$ making the
+diagram
 $$
     \xymatrix{
-    & {X} \ar[d]^{\xi}\\
-    {P} \ar@{-->}[ur]^{\psi} \ar[r]^{\phi} &{Y}}
+    & {X} \ar[d]^{\xi}\\  % chktex 3
+    {P} \ar@{-->}[ur]^{\psi} \ar[r]^{\phi} &{Y}}  % chktex 3
 $$
-commutative. Instead of checking by definition one may show that a Banach module $P$ is relatively projective by constructing an $A$-morphism $\sigma:P\to A_+\projtens P$ which is a right inverse for the canonical $A$-morphism $\pi_P^+:A_+\projtens P\to P:(a\oplus_1 z)\projtens x\mapsto a\cdot x+z x$ [\cite{HelHomolBanTopAlg}, proposition IV.1.1]. If a Banach module $P$ is essential then it is projective if and only if the canonical $A$-morphism $\pi_P:A\projtens P\to P: a\projtens x\mapsto a\cdot x$ has a right inverse $A$-morphism [\cite{HelHomolBanTopAlg}, proposition IV.1.2].
+commutative. Instead of checking by definition one may show that a Banach module
+$P$ is relatively projective by constructing an $A$-morphism $\sigma:P\to
+    A_+\projtens P$ which is a right inverse for the canonical $A$-morphism
+$\pi_P^+:A_+\projtens P\to P:(a\oplus_1 z)\projtens x\mapsto a\cdot x+z x$
+[\cite{HelHomolBanTopAlg}, proposition IV.1.1]. If a Banach module $P$ is
+essential then it is projective if and only if the canonical $A$-morphism
+$\pi_P:A\projtens P\to P: a\projtens x\mapsto a\cdot x$ has a right inverse
+$A$-morphism [\cite{HelHomolBanTopAlg}, proposition IV.1.2].
 
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 %	Necessary conditions
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
-\section{Necessary conditions for relative projectivity}
-\label{NecessaryConditions}
+\section{Necessary conditions for relative
+  projectivity}\label{NecessaryConditions}
 
-In this section we shall show that for a relatively projective $A$-module $X$ its essential part is complemented and $A$-valued $A$-morphisms separate points of the essential part. These necessary conditions will play a key role in this paper.
+In this section we shall show that for a relatively projective $A$-module $X$
+its essential part is complemented and $A$-valued $A$-morphisms separate points
+of the essential part. These necessary conditions will play a key role in this
+paper.
 
-\begin{proposition}\label{MorphDecomp} Let $X$ be a Banach $A$-module and $E$ be a Banach space. Let $j_E:A_+\projtens E\to (A\projtens E)\oplus_1 E$ denote the natural isomorphism. Then for any $A$-morphism $\sigma:X\to A_+\projtens E$ there exist bounded linear operators $\sigma_1:X\to A\projtens E$, $\sigma_2:X\to E$ such that
+\begin{proposition}\label{MorphDecomp} Let $X$ be a Banach $A$-module and $E$ be
+    a Banach space. Let $j_E:A_+\projtens E\to (A\projtens E)\oplus_1 E$ denote
+    the natural isomorphism. Then for any $A$-morphism $\sigma:X\to A_+\projtens
+        E$ there exist bounded linear operators $\sigma_1:X\to A\projtens E$,
+    $\sigma_2:X\to E$ such that
 
-    $i)$ $j_E(\sigma(x))=\sigma_1(x)\oplus_1 \sigma_2(x)$ for all $x\in X$;
+    \begin{enumerate}[label = (\roman*)]
+        \item $j_E(\sigma(x))=\sigma_1(x)\oplus_1 \sigma_2(x)$ for all $x\in X$;
+        \item $\sigma_1(a\cdot x)=a\cdot \sigma_1(x)+a\projtens \sigma_2(x)$ for
+              all $x\in X$ and $a\in A$;
+        \item $\sigma_2(a\cdot x)=0$ for all $x\in X$ and $a\in $.
 
-    $ii)$ $\sigma_1(a\cdot x)=a\cdot \sigma_1(x)+a\projtens \sigma_2(x)$ for all $x\in X$ and $a\in A$;
-
-    $iii)$ $\sigma_2(a\cdot x)=0$ for all $x\in X$ and $a\in $.
-
-    \noindent
-    As a consequence, $\sigma_1|_{X_{ess}}$ is an $A$-morphism, $\sigma_2|_{X_{ess}}=0$.
-
+              \noindent
+              As a consequence, $\sigma_1|_{X_{ess}}$ is an $A$-morphism,
+              $\sigma_2|_{X_{ess}}=0$.
+    \end{enumerate}
 \end{proposition}
-\begin{proof} Consider bounded linear operators
-    $q_1:A_+\projtens X\to A\projtens X: (a\oplus_1 z)\projtens x\mapsto a\projtens x$ and
-    $q_2:A_+\projtens X\to X: (a\oplus_1 z)\projtens x\mapsto z x$. Now define $\sigma_1=q_1\sigma$, $\sigma_2=q_2\sigma$. Clearly, $j_E=q_1\oplus_1 q_2$, hence $j_E(\sigma(x))=\sigma_1(x)\oplus_1 \sigma_2(x)$ for all $x\in X$. Note that $a\cdot u=a\cdot q_1(u)+a\projtens q_2(u)$ for all $a\in A$ and $u\in A_+\projtens X$. As $\sigma$ is an $A$-morphism, it is routine to check that $\sigma_1(a\cdot x)=a\cdot \sigma_1(x)+a\projtens \sigma_2(x)$ and $\sigma_2(a\cdot x)=0$ for all $a\in A$, $x\in X$.
+\begin{proof} Consider bounded linear operators $q_1:A_+\projtens X\to
+        A\projtens X: (a\oplus_1 z)\projtens x\mapsto a\projtens x$ and
+    $q_2:A_+\projtens X\to X: (a\oplus_1 z)\projtens x\mapsto z x$. Now
+    define $\sigma_1=q_1\sigma$, $\sigma_2=q_2\sigma$. Clearly,
+    $j_E=q_1\oplus_1 q_2$, hence $j_E(\sigma(x))=\sigma_1(x)\oplus_1
+        \sigma_2(x)$ for all $x\in X$. Note that $a\cdot u=a\cdot
+        q_1(u)+a\projtens q_2(u)$ for all $a\in A$ and $u\in A_+\projtens X$. As
+    $\sigma$ is an $A$-morphism, it is routine to check that
+    $\sigma_1(a\cdot x)=a\cdot \sigma_1(x)+a\projtens \sigma_2(x)$ and
+    $\sigma_2(a\cdot x)=0$ for all $a\in A$, $x\in X$.
 \end{proof}
 
-The following proposition is a slight generalization of [\cite{SelivBiprojBanAlg}, lemma 1.4].
+The following proposition is a slight generalization of
+    [\cite{SelivBiprojBanAlg}, lemma 1.4].
 
-\begin{proposition}\label{ProjModEssPartCompl} Let $X$ be a relatively projective Banach $A$-module. Then $X_{ess}$ is complemented in $X$ as Banach space.
+\begin{proposition}\label{ProjModEssPartCompl} Let $X$ be a relatively
+    projective Banach $A$-module. Then $X_{ess}$ is complemented in $X$ as
+    Banach space.
 \end{proposition}
-\begin{proof} Since $X$ is relatively projective there exists an $A$-morphism $\sigma:X\to A_+\projtens X$ such that $\pi_X^+\sigma=1_X$. Let $\sigma_1$ and $\sigma_2$ be bounded linear operators given by proposition \ref{MorphDecomp}. Now consider $A$-morphism $\pi_X:A\projtens X\to X:a\projtens x\mapsto a\cdot x$, then for all $x\in X$ we have $x=\pi_X^+(\sigma(x))=\pi_X(\sigma_1(x)) + \sigma_2(x)$. Consider a bounded linear operator $\eta = \pi_X\sigma_1$. Since $\sigma_2|_{X_{ess}}=0$ we have $\eta|_{X_{ess}}=1_X$. Moreover $\operatorname{Im}(\eta)\subset\operatorname{Im}(\pi_X)=X_{ess}$, therefore $\eta$ is a bounded linear projection of $X$ onto $X_{ess}$.
+\begin{proof} Since $X$ is relatively projective there exists an $A$-morphism
+    $\sigma:X\to A_+\projtens X$ such that $\pi_X^+\sigma=1_X$. Let $\sigma_1$
+    and $\sigma_2$ be bounded linear operators given by
+    proposition~\ref{MorphDecomp}. Now consider $A$-morphism $\pi_X:A\projtens
+        X\to X:a\projtens x\mapsto a\cdot x$, then for all $x\in X$ we have
+    $x=\pi_X^+(\sigma(x))=\pi_X(\sigma_1(x)) + \sigma_2(x)$. Consider a bounded
+    linear operator $\eta = \pi_X\sigma_1$. Since $\sigma_2|_{X_{ess}}=0$ we
+    have $\eta|_{X_{ess}}=1_X$. Moreover
+    $\operatorname{Im}(\eta)\subset\operatorname{Im}(\pi_X)=X_{ess}$, therefore
+    $\eta$ is a bounded linear projection of $X$ onto $X_{ess}$.
 \end{proof}
 
-\begin{proposition}\label{RelProjNecesCond} Let $A$ be a Banach algebra and $X$ be a relatively projective Banach $A$-module. Suppose, that either $A$ or $X$ possess the approximation property. Then
-
-    $i)$ for any non-zero $x\in X$ there exists an $A$-morphism $\phi:X\to A_+$ such that $\phi(x)\neq 0$;
-
-    $ii)$ for any non-zero $x\in X_{ess}$ there exists an $A$-morphism $\psi:X_{ess}\to A$ such that $\psi(x)\neq 0$.
+\begin{proposition}\label{RelProjNecesCond} Let $A$ be a Banach algebra and $X$
+    be a relatively projective Banach $A$-module. Suppose, that either $A$ or
+    $X$ possess the approximation property. Then
+    \begin{enumerate}[label = (\roman*)]
+        \item for any non-zero $x\in X$ there exists an $A$-morphism $\phi:X\to
+                  A_+$
+        \item for any non-zero $x\in X_{ess}$ there exists an $A$-morphism
+              $\psi:X_{ess}\to A$ such that $\psi(x)\neq 0$;
+    \end{enumerate}
 \end{proposition}
 \begin{proof} Let $i_E:E\projtens \mathbb{C}\to E$ be the natural isomorphism.
 
-    $i)$ Fix non-zero $x\in X$. Since $X$ is relatively projective there exists an $A$-morphism $\sigma:X\to A_+\projtens X$ such that $\pi_X^+\sigma=1_X$. Consider $u:=\sigma(x)\in A_+\projtens X$. Since $\pi_X^+(u)=x\neq 0$, then $u\neq 0$. Recall that either $A$ or $X$ has the approximation property, so there exist $f\in A_+^*$ and $g\in X^*$ such that $(f\projtens g)(u)\neq 0$ [\cite{GrothProdTenTopNucl}, corollary I.5.1, p. 168]. Consider $a:=((1_{A_+}\projtens g)(u))\in A_+\projtens\mathbb{C}$ and $F:=(f\projtens 1_{\mathbb{C}})\in A_+^*\projtens\mathbb{C}$. Since $F(a)=(f\projtens g)(u)\neq 0$, then $a\neq 0$. Now it is routine to check that the linear operator $\xi:=(1_{A_+}\projtens g)\sigma$ is an $A$-morphism. Clearly, $\xi(x)=a\neq 0$. It remains to set $\phi=i_{A_+}\xi$.
+    $(i)$ Fix non-zero $x\in X$. Since $X$ is relatively projective there exists
+    an $A$-morphism $\sigma:X\to A_+\projtens X$ such that $\pi_X^+\sigma=1_X$.
+    Consider $u:=\sigma(x)\in A_+\projtens X$. Since $\pi_X^+(u)=x\neq 0$, then
+    $u\neq 0$. Recall that either $A$ or $X$ has the approximation property, so
+    there exist $f\in A_+^*$ and $g\in X^*$ such that $(f\projtens g)(u)\neq 0$
+    [\cite{GrothProdTenTopNucl}, corollary I.5.1, p. 168]. Consider
+    $a:=((1_{A_+}\projtens g)(u))\in A_+\projtens\mathbb{C}$ and $F:=(f\projtens
+        1_{\mathbb{C}})\in A_+^*\projtens\mathbb{C}$. Since $F(a)=(f\projtens
+        g)(u)\neq 0$, then $a\neq 0$. Now it is routine to check that the linear
+    operator $\xi:=(1_{A_+}\projtens g)\sigma$ is an $A$-morphism. Clearly,
+    $\xi(x)=a\neq 0$. It remains to set $\phi=i_{A_+}\xi$.
 
-    $ii)$ Fix a non-zero $x\in X_{ess}$. Let $\xi$ be the morphism constructed in paragraph $i)$. Consider morphisms $\xi_1$ and $\xi_2$ given by proposition \ref{MorphDecomp}. Since $\xi(x)=j_{\mathbb{C}}(\xi_1(x)\oplus_1\xi_2(x))\neq 0$ and $\xi_2(x)=0$, then $\xi_1(x)\neq 0$. By the same proposition $\xi_1|_{X_{ess}}$ is an $A$-morphism, so it remains to set $\psi=i_A \xi_1|_{X_{ess}}$.
+    $(ii)$ Fix a non-zero $x\in X_{ess}$. Let $\xi$ be the morphism constructed
+    in paragraph $(i)$. Consider morphisms $\xi_1$ and $\xi_2$ given by
+    proposition~\ref{MorphDecomp}. Since
+    $\xi(x)=j_{\mathbb{C}}(\xi_1(x)\oplus_1\xi_2(x))\neq 0$ and $\xi_2(x)=0$,
+    then $\xi_1(x)\neq 0$. By the same proposition $\xi_1|_{X_{ess}}$ is an
+    $A$-morphism, so it remains to set $\psi=i_A \xi_1|_{X_{ess}}$.
 
 \end{proof}
 
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 %   Preliminaries on general measure theory
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
-\section{Preliminaries on general measure theory}
-\label{SectionPreliminariesOnGeneralMeasureTheory}
+\section{Preliminaries on general measure
+  theory}\label{SectionPreliminariesOnGeneralMeasureTheory}
 
-A comprehensive study of general measure spaces can be found in \cite{FremMeasTh2}. We follow its definitions.
+A comprehensive study of general measure spaces can be found
+in~\cite{FremMeasTh2}. We follow its definitions.
 
-Let $X$ be a set. By measure we mean a countably additive set function with values in $[0,+\infty]$ defined on a $\sigma$-algebra $\Sigma$ of measurable subsets of a set $X$. If $F$ is a measurable set, then we have a well defined measures $\mu^F:\Sigma\to[0,+\infty]:E\mapsto \mu(E\cap F)$ and $\mu_F:\Sigma_F\to[0,+\infty]: E\mapsto \mu(E)$, where $\Sigma_F=\{E\in\Sigma:E\subset F\}$. A measurable set $E$ is called an atom if $\mu(A)>0$ and for every measurable subset $B\subset A$ holds either $\mu(B)=0$ or $\mu(A\setminus B)=0$. A measure $\mu$ is called purely atomic if every measurable set of positive measure has an atom. A measure $\mu$ is semi-finite if for any measurable set $A$ of infinite measure there exists a measurable subset of $A$ with finite positive measure. A family $\mathcal{D}$ of measurable subsets of finite measure is called a decomposition of $X$ if for any measurable set $E$ $\mu(E)=\sum_{D\in\mathcal{D}}\mu(E\cap D)$ and a set $F$ is measurable whenever $F\cap D$ is measurable for all $D\in\mathcal{D}$. Finally, a measure $\mu$ is called decomposable if it is semi-finite and admits a decomposition of $X$. In fact a measure space is decomposable if and only if it is a disjoint union of finite measure spaces [\cite{FremMeasTh2}, exercise 214X(i)]. Most measures encountered in functional analysis are decomposable.
+Let $X$ be a set. By measure we mean a countably additive set function with
+values in $[0,+\infty]$ defined on a $\sigma$-algebra $\Sigma$ of measurable
+subsets of a set $X$. If $F$ is a measurable set, then we have a well defined
+measures $\mu^F:\Sigma\to[0,+\infty]:E\mapsto \mu(E\cap F)$ and
+$\mu_F:\Sigma_F\to[0,+\infty]: E\mapsto \mu(E)$, where
+$\Sigma_F=\{E\in\Sigma:E\subset F\}$. A measurable set $E$ is called an atom if
+$\mu(A)>0$ and for every measurable subset $B\subset A$ holds either $\mu(B)=0$
+or $\mu(A\setminus B)=0$. A measure $\mu$ is called purely atomic if every
+measurable set of positive measure has an atom. A measure $\mu$ is semi-finite
+if for any measurable set $A$ of infinite measure there exists a measurable
+subset of $A$ with finite positive measure. A family $\mathcal{D}$ of measurable
+subsets of finite measure is called a decomposition of $X$ if for any measurable
+set $E$ $\mu(E)=\sum_{D\in\mathcal{D}}\mu(E\cap D)$ and a set $F$ is measurable
+whenever $F\cap D$ is measurable for all $D\in\mathcal{D}$. Finally, a measure
+$\mu$ is called decomposable if it is semi-finite and admits a decomposition of
+$X$. In fact a measure space is decomposable if and only if it is a disjoint
+union of finite measure spaces [\cite{FremMeasTh2}, exercise 214X (i)]. Most
+measures encountered in functional analysis are decomposable.
 
-\begin{definition}\label{AtomCore} Let $A$ be an atom of a measure space $(X,\mu)$. Then a measurable set $C\subset A$ is called a core of $A$ if $C$ is an atom and the only measurable subsets of $C$ are $\varnothing$ and $C$. An atom $A$ is called hard if it has a core. Clearly, if core exists it is unique and in this case the core is denoted by $A^\bullet$
+\begin{definition}\label{AtomCore} Let $A$ be an atom of a measure space
+    $(X,\mu)$. Then a measurable set $C\subset A$ is called a core of $A$ if $C$
+    is an atom and the only measurable subsets of $C$ are $\varnothing$ and $C$.
+    An atom $A$ is called hard if it has a core. Clearly, if core exists it is
+    unique and in this case the core is denoted by $A^\bullet$
 \end{definition}
 
-\begin{proposition}\label{GenniunelyAtomicMeasCharac} Let $(X,\mu)$ be a non-empty finite measure space such that the only set of measure zero in $X$ is the empty set. Then $(X,\mu)$ is purely atomic and each atom is hard.
+\begin{proposition}\label{GenniunelyAtomicMeasCharac} Let $(X,\mu)$ be a
+    non-empty finite measure space such that the only set of measure zero in $X$
+    is the empty set. Then $(X,\mu)$ is purely atomic and each atom is hard.
 \end{proposition}
-\begin{proof} Let $E$ be a measurable set of positive measure. Peek any $x\in E$ and consider value $c:=\inf\{\mu(F):x\in F\in \Sigma,\; F\subset E\}$. For any $n\in\mathbb{N}$ there exists $E_n\in\Sigma$ such that $x\in E_n\subset E$ and $\mu(E_n)<c+2^{-n}$. Define $A=\bigcap\{E_n:n\in\mathbb{N}\}\subset E$, then $x\in A\in\Sigma$ and $\mu(A)=c$. By construction $A$ is not empty, so $\mu(A)>0$. Suppose $B$ is a measurable subset of $A$. If $x\in A\setminus B$, then $c
-        \leq\mu(A\setminus B)\leq\mu(A)=c$, i.e. $\mu(B)=0$. Similarly, if $x\in B$ we get $\mu(A\setminus B)=0$. Thus $A\subset E$ is an atom. Since $E$ is arbitrary, $(X,\mu)$ is purely atomic.
+\begin{proof} Let $E$ be a measurable set of positive measure. Peek any $x\in E$
+    and consider value $c:=\inf \{\mu(F):x\in F\in \Sigma,\; F\subset E\}$. For
+    any $n\in\mathbb{N}$ there exists $E_n\in\Sigma$ such that $x\in E_n\subset
+        E$ and $\mu(E_n)<c+2^{-n}$. Define $A=\bigcap \{E_n:n\in\mathbb{N}\}\subset
+        E$, then $x\in A\in\Sigma$ and $\mu(A)=c$. By construction $A$ is not empty,
+    so $\mu(A)>0$. Suppose $B$ is a measurable subset of $A$. If $x\in
+        A\setminus B$, then $c \leq\mu(A\setminus B)\leq\mu(A)=c$, i.e. $\mu(B)=0$.
+    Similarly, if $x\in B$ we get $\mu(A\setminus B)=0$. Thus $A\subset E$ is an
+    atom. Since $E$ is arbitrary, $(X,\mu)$ is purely atomic.
 
-    Now let $A$ be an atom of $(X,\mu)$. If $B\in\Sigma$ and $B\subset A$, then either $\mu(B)$ or $\mu(A\setminus B)=0$. From assumption on $(X,\mu)$ we get either $B$ or $A\setminus B$ is empty. Thus $A^\bullet=A$.
+    Now let $A$ be an atom of $(X,\mu)$. If $B\in\Sigma$ and $B\subset A$, then
+    either $\mu(B)$ or $\mu(A\setminus B)=0$. From assumption on $(X,\mu)$ we
+    get either $B$ or $A\setminus B$ is empty. Thus $A^\bullet=A$.
 \end{proof}
 
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 %	Projectivity of $B(\Sigma)$-modules L_p(X,\mu)
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
-\section{Relative projectivity of \texorpdfstring{$B(\Sigma)$}{BSigma}-modules \texorpdfstring{$L_p(X,\mu)$}{LpXmu}}
-\label{SectionRelativeProjectivityOfBSigmaModulesLpXmu}
+\section{Relative projectivity of \texorpdfstring{$B(\Sigma)$}{BSigma}-modules
+  \texorpdfstring{$L_p(X,\mu)$}{LpXmu}
+ }\label{SectionRelativeProjectivityOfBSigmaModulesLpXmu}
 
-Let $(X,\mu)$ be a measure space. By $B(\Sigma)$ we shall denote the algebra of bounded measurable functions with the  $\sup$ norm. In this section we give a criterion of projectivity of $B(\Sigma)$-modules $L_p(X,\mu)$. Speaking informally all these modules look like $\ell_\infty(\Lambda)$-modules $\ell_p(\Lambda)$ for some index set $\Lambda$.
+Let $(X,\mu)$ be a measure space. By $B(\Sigma)$ we shall denote the algebra of
+bounded measurable functions with the  $\sup$ norm. In this section we give a
+criterion of projectivity of $B(\Sigma)$-modules $L_p(X,\mu)$. Speaking
+informally all these modules look like $\ell_\infty(\Lambda)$-modules
+$\ell_p(\Lambda)$ for some index set $\Lambda$.
 
-\begin{proposition}\label{BSigmaModLpRetrProj} Let $(X,\mu)$ be a measure space. Let $1\leq p\leq +\infty$ and $L_p(X,\mu)$ be a relatively projective $B(\Sigma)$-module. Then for any measurable set $B\subset X$ the $B(\Sigma)$-module $L_p(X,\mu^B)$ is relatively projective.
+\begin{proposition}\label{BSigmaModLpRetrProj} Let $(X,\mu)$ be a measure space.
+    Let $1\leq p\leq +\infty$ and $L_p(X,\mu)$ be a relatively projective
+    $B(\Sigma)$-module. Then for any measurable set $B\subset X$ the
+    $B(\Sigma)$-module $L_p(X,\mu^B)$ is relatively projective.
 \end{proposition}
-\begin{proof} It is easy to check that for $B(\Sigma)$-morphisms $\pi:L_p(X,\mu)\to L_p(X,\mu^B):[f]\mapsto [f]\chi_B$ and $\sigma:L_p(X,\mu^B)\to L_p(X,\mu):[f]\mapsto [f]$ holds $\pi\sigma=1_{L_p(X,\mu^B)}$. In other words $L_p(X,\mu^B)$ is a retract of $L_p(X,\mu)$ in $B(\Sigma)-\mathbf{mod}$. Now the result follows from [\cite{HelBanLocConvAlg}, proposition VII.1.6].
+\begin{proof} It is easy to check that for $B(\Sigma)$-morphisms
+    $\pi:L_p(X,\mu)\to L_p(X,\mu^B):[f]\mapsto [f]\chi_B$ and
+    $\sigma:L_p(X,\mu^B)\to L_p(X,\mu):[f]\mapsto [f]$ holds
+    $\pi\sigma=1_{L_p(X,\mu^B)}$. In other words $L_p(X,\mu^B)$ is a retract of
+    $L_p(X,\mu)$ in $B(\Sigma)-\mathbf{mod}$. Now the result follows from
+        [\cite{HelBanLocConvAlg}, proposition VII.1.6].
 \end{proof}
 
-\begin{proposition}\label{LpBSigmaModNecessCond} Let $(X,\mu)$ be a decomposable measure space and $L_p(X,\mu)$ be a relatively projective $B(\Sigma)$-module. Then $(X,\mu)$ is a disjoint union of hard atoms of finite measure.
+\begin{proposition}\label{LpBSigmaModNecessCond} Let $(X,\mu)$ be a decomposable
+    measure space and $L_p(X,\mu)$ be a relatively projective
+    $B(\Sigma)$-module. Then $(X,\mu)$ is a disjoint union of hard atoms of
+    finite measure.
 \end{proposition}
-\begin{proof} Let $\mathcal{D}$ be a decomposition of $X$ onto measurable subsets of finite measure. Fix $D\in\mathcal{D}$ and denote $\nu:=\mu^D$. By proposition \ref{BSigmaModLpRetrProj} the $B(\Sigma)$-module $L_p(X,\nu)$ is relatively projective. Peek any $E\in\Sigma$ of positive measure $\nu$. Since $\nu$ is finite, so is $\nu(E)$. Then $[f]:=[\chi_E]$ is well defined and non-zero in $L_p(X,\nu)$. As $B(\Sigma)$ is a unital algebra the module $L_p(X,\nu)$ is essential. Now from proposition \ref{RelProjNecesCond} we get a $B(\Sigma)$-morphism $\psi:L_p(X,\nu)\to B(\Sigma)$ such that $\psi([f])\neq 0$. Therefore the set $F:=a^{-1}(\mathbb{C}\setminus\{0\})\in\Sigma$ is not empty. Note that $[f]=[f]\chi_E$, so $a=\psi([f]\chi_E)=\psi([f])\chi_E=a\chi_E$. Hence $a|_{X\setminus E}=0$ and $F\subset E$. Consider arbitrary measurable set $A\subset F$ with $\nu$ measure zero. Then $[\chi_A]$ is zero in $L_p(X,\nu)$ and $[\chi_A]=[\chi_E]\chi_A$. Therefore $a\chi_A=\psi([\chi_E])\chi_A=\psi([\chi_E]\chi_A)=\psi([\chi_A])=0$. As $A\subset F$ and $a$ is not zero at any point of $F$ we get $A=\varnothing$. Since $F\neq \varnothing$, then from proposition \ref{GenniunelyAtomicMeasCharac} we get that the measure space $(F,\nu_F)$ has a hard atom. Thus we have shown that any measurable set $E$ of positive $\nu$ measure has a hard atom, hence by a standard application of Zorn's lemma we get that $(X,\mu^D)$ is a disjoint union of hard atoms. The same conclusion holds for $(X,\mu_D)$. Since $\mu_D$ is finite, then so is every atom. Since $D$ is arbitrary the result follows from [\cite{FremMeasTh2}, exercise 214X(i)].
+\begin{proof} Let $\mathcal{D}$ be a decomposition of $X$ onto measurable
+    subsets of finite measure. Fix $D\in\mathcal{D}$ and denote $\nu:=\mu^D$. By
+    proposition~\ref{BSigmaModLpRetrProj} the $B(\Sigma)$-module $L_p(X,\nu)$ is
+    relatively projective. Peek any $E\in\Sigma$ of positive measure $\nu$.
+    Since $\nu$ is finite, so is $\nu(E)$. Then $[f]:=[\chi_E]$ is well defined
+    and non-zero in $L_p(X,\nu)$. As $B(\Sigma)$ is a unital algebra the module
+    $L_p(X,\nu)$ is essential. Now from proposition~\ref{RelProjNecesCond} we
+    get a $B(\Sigma)$-morphism $\psi:L_p(X,\nu)\to B(\Sigma)$ such that
+    $\psi([f])\neq 0$. Therefore the set $F:=a^{-1}(\mathbb{C}\setminus
+        \{0\})\in\Sigma$ is not empty. Note that $[f]=[f]\chi_E$, so
+    $a=\psi([f]\chi_E)=\psi([f])\chi_E=a\chi_E$. Hence $a|_{X\setminus E}=0$ and
+    $F\subset E$. Consider arbitrary measurable set $A\subset F$ with $\nu$
+    measure zero. Then $[\chi_A]$ is zero in $L_p(X,\nu)$ and
+    $[\chi_A]=[\chi_E]\chi_A$. Therefore
+    $a\chi_A=\psi([\chi_E])\chi_A=\psi([\chi_E]\chi_A)=\psi([\chi_A])=0$. As
+    $A\subset F$ and $a$ is not zero at any point of $F$ we get $A=\varnothing$.
+    Since $F\neq \varnothing$, then from
+    proposition~\ref{GenniunelyAtomicMeasCharac} we get that the measure space
+    $(F,\nu_F)$ has a hard atom. Thus we have shown that any measurable set $E$
+    of positive $\nu$ measure has a hard atom, hence by a standard application
+    of Zorn's lemma we get that $(X,\mu^D)$ is a disjoint union of hard atoms.
+    The same conclusion holds for $(X,\mu_D)$. Since $\mu_D$ is finite, then so
+    is every atom. Since $D$ is arbitrary the result follows from
+        [\cite{FremMeasTh2}, exercise 214X (i)].
 \end{proof}
 
-Let $(X,\mu)$ be a measure space and $A$ be a measurable set of finite positive measure. Then we have a well defined bounded linear functional $m_A:B(\Sigma)\to\mathbb{C}:a\mapsto \mu(A)^{-1}\int_A f(x)d\mu(x)$ of norm 1.
+Let $(X,\mu)$ be a measure space and $A$ be a measurable set of finite positive
+measure. Then we have a well defined bounded linear functional
+$m_A:B(\Sigma)\to\mathbb{C}:a\mapsto {\mu(A)}^{-1}\int_A f(x)d\mu(x)$ of norm 1.
 
-\begin{proposition}\label{HardAtomicMeasProp} Let $(X,\mu)$ be a disjoint union of the family $\mathcal{A}$ of finite hard atoms. Then
+\begin{proposition}\label{HardAtomicMeasProp} Let $(X,\mu)$ be a disjoint union
+    of the family $\mathcal{A}$ of finite hard atoms. Then
+    \begin{enumerate}[label = (\roman*)]
+        \item the set $X^\bullet:=\bigcup \{A^\bullet:A\in\mathcal{A}\}$ is
+              measurable and $\mu(X\setminus X^\bullet)=0$;
 
-    $i)$ the set $X^\bullet:=\bigcup \{A^\bullet:A\in\mathcal{A}\}$ is measurable and $\mu(X\setminus X^\bullet)=0$;
+        \item for any $A\in\mathcal{A}$ and any functions $a,b\in B(\Sigma)$
+              holds $a|_{A^\bullet}=m_{A^\bullet}(a)$ and
+              $m_{A^\bullet}(ab)=m_{A^\bullet}(a)m_{A^\bullet}(b)$;
 
-    $ii)$ for any $A\in\mathcal{A}$ and any functions $a,b\in B(\Sigma)$ holds $a|_{A^\bullet}=m_{A^\bullet}(a)$ and $m_{A^\bullet}(ab)=m_{A^\bullet}(a)m_{A^\bullet}(b)$;
+        \item for any $a\in B(\Sigma)$ there is a function $b\in B(\Sigma)$ such
+              that $b|_{X^\bullet}=0$ and a pointwise equality holds
+              $a=\sum_{A\in\mathcal{A}} m_{A^\bullet}(a)\chi_{A^\bullet} + b$;
 
-    $iii)$ for any $a\in B(\Sigma)$ there is a function $b\in B(\Sigma)$ such that $b|_{X^\bullet}=0$ and a pointwise equality holds $a=\sum_{A\in\mathcal{A}} m_{A^\bullet}(a)\chi_{A^\bullet} + b$;
-
-    $iv)$ for any $[f]\in L_p(X,\mu)$ holds $[f]=[\sum_{A\in\mathcal{A}} m_{A^\bullet}(f)\chi_{A^\bullet}]$.
+        \item for any $[f]\in L_p(X,\mu)$ holds $[f]=[\sum_{A\in\mathcal{A}}
+                  m_{A^\bullet}(f)\chi_{A^\bullet}]$.
+    \end{enumerate}
 \end{proposition}
-\begin{proof} $i)$ Since $\mathcal{A}$ is a decomposition of $X$, then $(X,\mu)$ is decomposable and $X^\bullet$ is measurable. Note that disjoint sets $A\setminus A^\bullet$ for $A\in\mathcal{A}$ are of measure zero, hence so is their union $X\setminus X^\bullet$.
+\begin{proof} $(i)$ Since $\mathcal{A}$ is a decomposition of $X$, then
+    $(X,\mu)$ is decomposable and $X^\bullet$ is measurable. Note that disjoint
+    sets $A\setminus A^\bullet$ for $A\in\mathcal{A}$ are of measure zero, hence
+    so is their union $X\setminus X^\bullet$.
 
-    $iii)$ Fix $a\in B(\Sigma)$ and $A\in \mathcal{A}$. Since $A^\bullet$ has only two measurable subsets, then $a$ is constant on $A^\bullet$. Therefore $a|_{A^\bullet}=m_{A^\bullet}(a)$. As a consequence for the measurable function $b=a-\sum_{A\in\mathcal{A}}m_{A^\bullet}(a)\chi_{A^\bullet}$ we have $b|_{X^\bullet}=0$.
+    $(iii)$ Fix $a\in B(\Sigma)$ and $A\in \mathcal{A}$. Since $A^\bullet$ has
+    only two measurable subsets, then $a$ is constant on $A^\bullet$. Therefore
+    $a|_{A^\bullet}=m_{A^\bullet}(a)$. As a consequence for the measurable
+    function $b=a-\sum_{A\in\mathcal{A}}m_{A^\bullet}(a)\chi_{A^\bullet}$ we
+    have $b|_{X^\bullet}=0$.
 
-    $iv)$ The result immediately follows from paragraph $iii)$.
+    $(iv)$ The result immediately follows from paragraph $(iii)$.
 \end{proof}
 
-\begin{proposition}\label{LpBSigmaModSuffCond} Let $1\leq p\leq +\infty$ and $(X,\mu)$ be a disjoint union of finite hard atoms. Then the $B(\Sigma)$-module $L_p(X,\mu)$ is relatively projective.
+\begin{proposition}\label{LpBSigmaModSuffCond} Let $1\leq p\leq +\infty$ and
+    $(X,\mu)$ be a disjoint union of finite hard atoms. Then the
+    $B(\Sigma)$-module $L_p(X,\mu)$ is relatively projective.
 \end{proposition}
 \begin{proof} Let $\mathcal{A}$ denote the set of hard atoms of $X$.
 
     Consider the case $p=+\infty$. Define a bounded linear operator
     $$
-        \rho:L_\infty(X,\mu)\to B(\Sigma):[f]\mapsto\sum_{A\in\mathcal{A}}m_{A^\bullet}(f)\chi_{A^\bullet}.
+        \rho:L_\infty(X,\mu)\to B(\Sigma):
+        [f]\mapsto\sum_{A\in\mathcal{A}}m_{A^\bullet}(f)\chi_{A^\bullet}.
     $$
-    From paragraph $ii)$ of proposition \ref{HardAtomicMeasProp} it follows that $\rho$ is a $B(\Sigma)$-morphism. Therefore $\sigma=\rho\projtens 1_{L_\infty(X,\mu)}$ is a $B(\Sigma)$-morphism too. From paragraph $iv)$ of proposition \ref{HardAtomicMeasProp} we get that $\pi_{L_\infty(X,\mu)}\sigma=1_{L_\infty(X,\mu)}$. Since $L_\infty(X,\mu)$ is a unital $B(\Sigma)$-module, then by [\cite{HelHomolBanTopAlg}, proposition IV.1.2] it is relatively projective.
+    From paragraph $(ii)$ of proposition~\ref{HardAtomicMeasProp} it follows
+    that $\rho$ is a $B(\Sigma)$-morphism. Therefore $\sigma=\rho\projtens
+        1_{L_\infty(X,\mu)}$ is a $B(\Sigma)$-morphism too. From paragraph $(iv)$ of
+    proposition~\ref{HardAtomicMeasProp} we get that
+    $\pi_{L_\infty(X,\mu)}\sigma=1_{L_\infty(X,\mu)}$. Since $L_\infty(X,\mu)$
+    is a unital $B(\Sigma)$-module, then by [\cite{HelHomolBanTopAlg},
+            proposition IV.1.2] it is relatively projective.
 
-    Consider the case $1\leq p<+\infty$. Let $[f]\in L_p(X,\mu)$, then from paragraph $iv)$ of proposition \ref{HardAtomicMeasProp} we get $[f]=[\sum_{A\in\mathcal{A}}m_{A^\bullet}(f)\chi_{A^\bullet}]$. Even more, since $p<+\infty$ we have $[f]=\sum_{A\in\mathcal{A}}m_{A^\bullet}(f)[\chi_{A^\bullet}]$ in $L_p(X,\mu)$. Note that the latter sum contains only countably many non-zero summands. We denote indices of these summands as $\mathcal{A}_f$. Consider arbitrary finite subset $\mathcal{F}=\{A_1,\ldots,A_n\}\subset\mathcal{A}_f$ and denote $x_k=\chi_{A_k^\bullet}$, $y_k=m_{A_k^\bullet}(f)[\chi_{A_k^\bullet}]$ for $k\in\{1,\ldots,n\}$. Let $\omega\in\mathbb{C}$ be any $n$-th root of $1$. Since $\mathcal{F}$ is a disjoint family
-    $\Vert\sum_{k=1}^n \omega^k x_k\Vert_{B(\Sigma)}\leq 1$ and $\Vert \sum_{k=1}^n\omega^k y_k\Vert_{L_p(X,\mu)}\leq\Vert f\Vert_{L_p(X,\mu)}$. Therefore by [\cite{HelHomolBanTopAlg}, proposition II.2.44] for any $f\in L_p(X,\mu)$ we have a well defined element $\sigma_f=\sum_{A\in\mathcal{A}_f} x_k\projtens y_k=\sum_{A\in\mathcal{A}} x_k\projtens y_k\in B(\Sigma)\projtens L_p(X,\mu)$ of norm not greater than $\Vert f\Vert_{L_p(X,\mu)}$. Now using paragraph $ii)$ of proposition \ref{HardAtomicMeasProp} it is easy to check that the mapping
+    Consider the case $1\leq p<+\infty$. Let $[f]\in L_p(X,\mu)$, then from
+    paragraph $(iv)$ of proposition~\ref{HardAtomicMeasProp} we get
+    $[f]=[\sum_{A\in\mathcal{A}}m_{A^\bullet}(f)\chi_{A^\bullet}]$. Even more,
+    since $p<+\infty$ we have
+    $[f]=\sum_{A\in\mathcal{A}}m_{A^\bullet}(f)[\chi_{A^\bullet}]$ in
+    $L_p(X,\mu)$. Note that the latter sum contains only countably many non-zero
+    summands. We denote indices of these summands as $\mathcal{A}_f$. Consider
+    arbitrary finite subset $\mathcal{F}=\{A_1,\ldots,A_n\}\subset\mathcal{A}_f$
+    and denote $x_k=\chi_{A_k^\bullet}$,
+    $y_k=m_{A_k^\bullet}(f)[\chi_{A_k^\bullet}]$ for $k\in \{1,\ldots,n\}$. Let
+    $\omega\in\mathbb{C}$ be any $n$-th root of $1$. Since $\mathcal{F}$ is a
+    disjoint family $\Vert\sum_{k=1}^n \omega^k x_k\Vert_{B(\Sigma)}\leq 1$ and
+    $\Vert \sum_{k=1}^n\omega^k y_k\Vert_{L_p(X,\mu)}\leq\Vert
+        f\Vert_{L_p(X,\mu)}$. Therefore by [\cite{HelHomolBanTopAlg}, proposition
+            II.2.44] for any $f\in L_p(X,\mu)$ we have a well defined element
+    $\sigma_f=\sum_{A\in\mathcal{A}_f} x_k\projtens y_k=\sum_{A\in\mathcal{A}}
+        x_k\projtens y_k\in B(\Sigma)\projtens L_p(X,\mu)$ of norm not greater than
+    $\Vert f\Vert_{L_p(X,\mu)}$. Now using paragraph $(ii)$ of
+    proposition~\ref{HardAtomicMeasProp} it is easy to check that the mapping
     $$
-        \sigma: L_p(X,\mu)\to B(\Sigma)\projtens L_p(X,\mu):[f]\mapsto \sum_{A\in\mathcal{A}}m_{A^\bullet}(f)\chi_{A^\bullet}\projtens[\chi_{A^\bullet}]
+        \sigma: L_p(X,\mu)\to B(\Sigma)\projtens L_p(X,\mu):
+        [f]\mapsto \sum_{A\in\mathcal{A}}
+        m_{A^\bullet}(f)\chi_{A^\bullet}\projtens[\chi_{A^\bullet}]
     $$
-    is a well defined $B(\Sigma)$-morphism of norm at most $1$. From paragraph $iv)$ of proposition \ref{HardAtomicMeasProp} we get that $\pi_{L_p(X,\mu)}\sigma=1_{L_p(X,\mu)}$. Since $L_p(X,\mu)$ is a unital $B(\Sigma)$-module, then by [\cite{HelHomolBanTopAlg}, proposition IV.1.2] it is relatively projective.
+    is a well defined $B(\Sigma)$-morphism of norm at most $1$. From paragraph
+    $(iv)$ of proposition~\ref{HardAtomicMeasProp} we get that
+    $\pi_{L_p(X,\mu)}\sigma=1_{L_p(X,\mu)}$. Since $L_p(X,\mu)$ is a unital
+    $B(\Sigma)$-module, then by [\cite{HelHomolBanTopAlg}, proposition IV.1.2]
+    it is relatively projective.
 \end{proof}
 
-\begin{theorem}\label{LpBSigmaModCrit} Let $(X,\mu)$ be a decomposable measure space and $1\leq p\leq +\infty$. Then the following are equivalent:
+\begin{theorem}\label{LpBSigmaModCrit} Let $(X,\mu)$ be a decomposable measure
+    space and $1\leq p\leq +\infty$. Then the following are equivalent:
+    \begin{enumerate}[label = (\roman*)]
+        \item $L_p(X,\mu)$ is a relatively projective $B(\Sigma)$-module;
 
-    $i)$ $L_p(X,\mu)$ is a relatively projective $B(\Sigma)$-module;
-
-    $ii)$ $(X,\mu)$ is a disjoint union of hard atoms of finite measure.
+        \item $(X,\mu)$ is a disjoint union of hard atoms of finite measure.
+    \end{enumerate}
 \end{theorem}
-\begin{proof} The result follows from propositions \ref{LpBSigmaModNecessCond} and \ref{LpBSigmaModSuffCond}.
+\begin{proof} The result follows from propositions~\ref{LpBSigmaModNecessCond}
+    and~\ref{LpBSigmaModSuffCond}.
 \end{proof}
 
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 %   Preliminaries on topological measure theory
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
-\section{Preliminaries on topological measure theory}
-\label{SectionPreliminariesOnTopologicalMeasureTheory}
+\section{Preliminaries on topological measure
+  theory}\label{SectionPreliminariesOnTopologicalMeasureTheory}
 
-A detailed discussion of topological measures can be found in \cite{FremMeasTh4.1}. From now we shall consider measures $\mu$ defined on the $\sigma$-algebra $Bor(S)$ of Borel sets of a topological space $S$. By $\operatorname{supp}(\mu)$ we shall denote the support of $\mu$. The measure $\mu$ is called:
+A detailed discussion of topological measures can be found
+in~\cite{FremMeasTh4.1}. From now we shall consider measures $\mu$ defined on
+the $\sigma$-algebra $Bor(S)$ of Borel sets of a topological space $S$. By
+$\operatorname{supp}(\mu)$ we shall denote the support of $\mu$. The measure
+$\mu$ is called:
+\begin{enumerate}[label = (\roman*)]
+    \item strictly positive if $\operatorname{supp}(\mu)=S$;
 
-$i)$ strictly positive if $\operatorname{supp}(\mu)=S$;
+    \item fully supported if $\mu(S\setminus\operatorname{supp}(\mu))=0$;
 
-$ii)$ fully supported if $\mu(S\setminus\operatorname{supp}(\mu))=0$;
+    \item locally finite if every point in $S$ has an open neighbourhood of
+          finite measure;
 
-$iii)$ locally finite if every point in $S$ has an open neighbourhood of finite measure;
+    \item inner compact regular if $\mu(E)=\sup \{\mu(K): K\subset E, K\mbox{ is
+                  compact}\}$ for any $E\in Bor(S)$;
 
-$iv)$ inner compact regular if $\mu(E)=\sup\{\mu(K): K\subset E, K\mbox{ is compact}\}$ for any $E\in Bor(S)$;
+    \item outer open regular if $\mu(E)=\inf \{\mu(U): E\subset U, U\mbox{ is
+                  open}\}$ for any $E\in Bor(S)$;
 
-$v)$ outer open regular if $\mu(E)=\inf\{\mu(U): E\subset U, U\mbox{ is open}\}$ for any $E\in Bor(S)$;
+    \item inner open regular if $\mu(E)=\sup \{\mu(U): U\subset E, U\mbox{ is
+                  open}\}$ for any $E\in Bor(S)$;
 
-$vi)$ inner open regular if $\mu(E)=\sup\{\mu(U): U\subset E, U\mbox{ is open}\}$ for any $E\in Bor(S)$;
+    \item residual if $\mu(E)=0$ for every Borel nowhere dense set $E$;
 
-$vii)$ residual if $\mu(E)=0$ for every Borel nowhere dense set $E$;
+    \item normal if it is residual and fully supported.
+\end{enumerate}
 
-$viii)$ normal if it is residual and fully supported.
+If $\mu$ is locally finite, then all compact sets have finite
+measure~[\cite{FremMeasTh4.1}, proposition 411G (a)]. Any finite inner compact
+regular measure is outer open regular [\cite{FremMeasTh4.1}, proposition 411X
+        (a)]. Clearly, $\mu^B$ is inner compact regular for any $B\in Bor(S)$ whenever
+$\mu$ is inner compact regular.
 
-If $\mu$ is locally finite, then all compact sets have finite measure [\cite{FremMeasTh4.1}, proposition 411G(a)]. Any finite inner compact regular measure is outer open regular [\cite{FremMeasTh4.1}, proposition 411X(a)]. Clearly, $\mu^B$ is inner compact regular for any $B\in Bor(S)$ whenever $\mu$ is inner compact regular.
+\begin{proposition}\label{InnerOpenRegMeasCharac} Let $S$ be a locally compact
+    Hausdorff space and $\mu$ be a Borel measure on $S$. Then
+    \begin{enumerate}[label = (\roman*)]
+        \item $\mu$ is inner open regular if and only if
+              $\mu(E)=\mu(\operatorname{int}_S(E))$ for $E\in Bor(S)$;
 
-\begin{proposition}\label{InnerOpenRegMeasCharac} Let $S$ be a locally compact Hausdorff space and $\mu$ be a Borel measure on $S$. Then
+        \item if $\mu$ is finite and inner open regular, then
+              $\mu(E)=\mu(\operatorname{int}_S(E))=\mu(\operatorname{cl}_S(E))$
+              and $\mu$ is residual;
 
-    $i)$ $\mu$ is inner open regular if and only if $\mu(E)=\mu(\operatorname{int}_S(E))$ for $E\in Bor(S)$;
-
-    $ii)$ if $\mu$ is finite and inner open regular, then $\mu(E)=\mu(\operatorname{int}_S(E))=\mu(\operatorname{cl}_S(E))$ and $\mu$ is residual;
-
-    $iii)$ if $\mu$ is finite, inner compact regular and inner open regular, then $\mu$ is normal;
+        \item if $\mu$ is finite, inner compact regular and inner open regular,
+              then $\mu$ is normal;
+    \end{enumerate}
 \end{proposition}
-\begin{proof} $i)$ It is enough to note that the supremum in the definition of inner open regular measure is attained at maximal open subset of $E$, which is $\operatorname{int}_S(E)$.
+\begin{proof} $(i)$ It is enough to note that the supremum in the definition of
+    inner open regular measure is attained at maximal open subset of $E$, which
+    is $\operatorname{int}_S(E)$.
 
-    $ii)$ The first equality was proved in the previous paragraph. Since $\mu$ is finite for all $E\in Bor(S)$ we have $\mu(E)=\mu(S)-\mu(\operatorname{int}_S(S\setminus E))=\mu(S)-\mu(S\setminus \operatorname{cl}_S(E))=\mu(\operatorname{cl}_S(E))$. Now consider a nowhere dense Borel set $E\subset S$, then $\mu(E)=\mu(\operatorname{cl}_S(E))=\mu(\operatorname{cl}_S(\operatorname{int}_S(E)))=\mu(\varnothing)=0$. Since $E$ is arbitrary, then $\mu$ is residual.
+    $(ii)$ The first equality was proved in the previous paragraph. Since $\mu$
+    is finite for all $E\in Bor(S)$ we have
+    $\mu(E)=\mu(S)-\mu(\operatorname{int}_S(S\setminus E))=\mu(S)-\mu(S\setminus
+        \operatorname{cl}_S(E))=\mu(\operatorname{cl}_S(E))$. Now consider a nowhere
+    dense Borel set $E\subset S$, then $\mu(E)=\mu(\operatorname{cl}_S(E))
+        =\mu(\operatorname{cl}_S(\operatorname{int}_S(E)))=\mu(\varnothing)=0$.
+    Since $E$ is arbitrary, then $\mu$ is residual.
 
-    $iii)$ Any inner compact regular measure has support and is fully supported [\cite{FremMeasTh4.1}, propositions 411C, 411N(d)]. The rest follows from paragraphs $i$ and $ii)$.
+    $(iii)$ Any inner compact regular measure has support and is fully supported
+        [\cite{FremMeasTh4.1}, propositions 411C, 411N (d)]. The rest follows
+    from paragraphs $(i)$ and $(ii)$.
 \end{proof}
 
-\begin{proposition}\label{NormalMeasCharac} Let $S$ be a locally compact Hausdorff space and $\mu$ be a Borel measure on $S$. Suppose that for any compact set $K\subset S$ with $\mu(K)>0$ there exists an open set $U\subset K$ with $\mu(U)>0$. Then
-
-    $i)$ $\mu(K)=\mu(\operatorname{int}_S(K))$ for any compact set $K\subset S$;
-
-    $ii)$ if $\mu$ is inner compact regular then $\mu$ is inner open regular.
+\begin{proposition}\label{NormalMeasCharac} Let $S$ be a locally compact
+    Hausdorff space and $\mu$ be a Borel measure on $S$. Suppose that for any
+    compact set $K\subset S$ with $\mu(K)>0$ there exists an open set $U\subset
+        K$ with $\mu(U)>0$. Then
+    \begin{enumerate}[label = (\roman*)]
+        \item $\mu(K)=\mu(\operatorname{int}_S(K))$ for any compact set
+              $K\subset S$;
+        \item if $\mu$ is inner compact regular then $\mu$ is inner open
+              regular.
+    \end{enumerate}
 \end{proposition}
-\begin{proof} Denote $K'=K\setminus \operatorname{int}_S(K)$. This is a closed subset of the compact set $K$, hence it is compact. Suppose $\mu(K')>0$, then there exists an open set $U\subset K'$ with $\mu(U)>0$. As a consequence $U\subset K$ is a non-empty open set disjoint from $\operatorname{int}_S(K)$. Contradiction, hence $\mu(K')=0$ and $\mu(K)=\mu(\operatorname{int}_S(K))$.
+\begin{proof} Denote $K'=K\setminus \operatorname{int}_S(K)$. This is a closed
+    subset of the compact set $K$, hence it is compact. Suppose $\mu(K')>0$,
+    then there exists an open set $U\subset K'$ with $\mu(U)>0$. As a
+    consequence $U\subset K$ is a non-empty open set disjoint from
+    $\operatorname{int}_S(K)$. Contradiction, hence $\mu(K')=0$ and
+    $\mu(K)=\mu(\operatorname{int}_S(K))$.
 
-    $ii)$ Fix $c<\mu(B)$. Since $\mu$ is inner compact regular, then there exists a compact set $K\subset B$ with $c<\mu(K)$. From previous paragraph we get $c<\mu(K)=\mu(\operatorname{int}_S(K))\leq\mu(\operatorname{int}_S(B))$. As $c<\mu(B)$ is arbitrary we conclude that $\mu(B)\leq\mu(\operatorname{int}_S(B))$. The inverse inequality is obvious.
+    $(ii)$ Fix $c<\mu(B)$. Since $\mu$ is inner compact regular, then there
+    exists a compact set $K\subset B$ with $c<\mu(K)$. From previous paragraph
+    we get
+    $c<\mu(K)=\mu(\operatorname{int}_S(K))\leq\mu(\operatorname{int}_S(B))$. As
+    $c<\mu(B)$ is arbitrary we conclude that
+    $\mu(B)\leq\mu(\operatorname{int}_S(B))$. The inverse inequality is obvious.
 \end{proof}
 
-\begin{proposition}\label{MeasAtomCharac} Let $S$ be a locally compact Hausdorff space and $\mu$ be a locally finite inner compact regular Borel measure on $S$. Let $A$ be an atom for $\mu$. Then
+\begin{proposition}\label{MeasAtomCharac} Let $S$ be a locally compact Hausdorff
+    space and $\mu$ be a locally finite inner compact regular Borel measure on
+    $S$. Let $A$ be an atom for $\mu$. Then
 
-    $i)$ $\mu(A)$ is finite;
+    $(i)$ $\mu(A)$ is finite;
 
-    $ii)$ there exists a point $s\in A$ such that $\mu(A)=\mu(\{s\})$.
+    $(ii)$ there exists a point $s\in A$ such that $\mu(A)=\mu(\{s\})$.
 \end{proposition}
-\begin{proof} $i)$ Since $\mu$ is inner compact regular there exists a compact set $K\subset A$ of positive measure. Since $\mu$ is locally finite $\mu(K)$ is finite. As $A$ is an atom and $\mu(K)>0$, we get $\mu(A)=\mu(K)<+\infty$.
+\begin{proof} $(i)$ Since $\mu$ is inner compact regular there exists a compact
+    set $K\subset A$ of positive measure. Since $\mu$ is locally finite $\mu(K)$
+    is finite. As $A$ is an atom and $\mu(K)>0$, we get $\mu(A)=\mu(K)<+\infty$.
 
-    $ii)$ By previous paragraph $0<\mu(A)<+\infty$. Let $\mathcal{K}$ denote the compact subsets of $A$ that have the same measure as $A$. Since $\mu$ is inner compact regular there exists a compact set $K\subset A$ of positive measure. Since $A$ is an atom we immediately get $\mu(K)=\mu(A)$, that is $K\in\mathcal{K}$. Thus $\mathcal{K}$ is not empty. Now consider two arbitrary sets $K',K''\in\mathcal{K}$. Clearly, $C:=K'\cap K''$ is a compact subset of $A$. Suppose that $\mu(C)=0$, and consider $L'=K'\setminus C$, $L''=K''\setminus C$. These are two disjoint subsets of $A$, such that $\mu(L')=\mu(L'')=\mu(A)$, so $\mu(A)\geq \mu(L'\cup L'')=2\mu(A)$. Contradiction, hence $\mu(C)>0$ and therefore $C\in\mathcal{K}$. As $K', K''\in \mathcal{K}$ are arbitrary we have shown that $\mathcal{K}$ is a family of compact sets with the finite intersection property. Therefore $K^*=\bigcap\mathcal{K}$ is not empty. Clearly, $K^*$ is compact as intersection of compact sets. Suppose $K^*$ has two distinct points $s'$ and $s''$. Consider singletons $C'=\{s'\}$ and $C''=\{s''\}$. Suppose $\mu(C')>0$, then $\mu(C')=\mu(A)$ and $C'\in\mathcal{K}$ as $A$ is an atom. This contradicts minimality of $K^*$ as $C'$ is a proper subset of $K^*$, so $\mu(C')=0$. Similarly, $\mu(C'')=0$. Consider $L=K^*\setminus (C'\cup C'')$, then $\mu(L)=\mu(K^*)=\mu(A)$. As $\mu$ is inner compact regular there exists a compact set $\hat{K}\subset L\subset A$ of positive measure, therefore $\mu(\hat{K})=\mu(A)$. By construction $\hat{K}\in\mathcal{K}$ is a proper subset of $\mathcal{K}$. This contradicts minimality of $K^*$, therefore $K^*$ is a non-empty set without two distinct points, hence a singleton. Thus $\mu(A)=\mu(K^*)=\mu(\{s\})$ for some $s\in A$.
+    $(ii)$ By previous paragraph $0<\mu(A)<+\infty$. Let $\mathcal{K}$ denote
+    the compact subsets of $A$ that have the same measure as $A$. Since $\mu$ is
+    inner compact regular there exists a compact set $K\subset A$ of positive
+    measure. Since $A$ is an atom we immediately get $\mu(K)=\mu(A)$, that is
+    $K\in\mathcal{K}$. Thus $\mathcal{K}$ is not empty. Now consider two
+    arbitrary sets $K',K''\in\mathcal{K}$. Clearly, $C:=K'\cap K''$ is a compact
+    subset of $A$. Suppose that $\mu(C)=0$, and consider $L'=K'\setminus C$,
+    $L''=K''\setminus C$. These are two disjoint subsets of $A$, such that
+    $\mu(L')=\mu(L'')=\mu(A)$, so $\mu(A)\geq \mu(L'\cup L'')=2\mu(A)$.
+    Contradiction, hence $\mu(C)>0$ and therefore $C\in\mathcal{K}$. As $K',
+        K''\in \mathcal{K}$ are arbitrary we have shown that $\mathcal{K}$ is a
+    family of compact sets with the finite intersection property. Therefore
+    $K^*=\bigcap\mathcal{K}$ is not empty. Clearly, $K^*$ is compact as
+    intersection of compact sets. Suppose $K^*$ has two distinct points $s'$ and
+    $s''$. Consider singletons $C'=\{s'\}$ and $C''=\{s''\}$. Suppose
+    $\mu(C')>0$, then $\mu(C')=\mu(A)$ and $C'\in\mathcal{K}$ as $A$ is an atom.
+    This contradicts minimality of $K^*$ as $C'$ is a proper subset of $K^*$, so
+    $\mu(C')=0$. Similarly, $\mu(C'')=0$. Consider $L=K^*\setminus (C'\cup
+        C'')$, then $\mu(L)=\mu(K^*)=\mu(A)$. As $\mu$ is inner compact regular
+    there exists a compact set $\hat{K}\subset L\subset A$ of positive measure,
+    therefore $\mu(\hat{K})=\mu(A)$. By construction $\hat{K}\in\mathcal{K}$ is
+    a proper subset of $\mathcal{K}$. This contradicts minimality of $K^*$,
+    therefore $K^*$ is a non-empty set without two distinct points, hence a
+    singleton. Thus $\mu(A)=\mu(K^*)=\mu(\{s\})$ for some $s\in A$.
 \end{proof}
 
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 %	Projectivity of $C_0(S)$-modules L_p(S,\mu)
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
-\section{Relative projectivity of \texorpdfstring{$C_0(S)$}{C0S}-modules \texorpdfstring{$L_p(S,\mu)$}{LpSmu}}
-\label{SectionRelativeProjectivityOfC0SModulesLpSmu}
+\section{Relative projectivity of \texorpdfstring{$C_0(S)$}{C0S}-modules
+  \texorpdfstring{$L_p(S,\mu)$}{LpSmu}
+ }\label{SectionRelativeProjectivityOfC0SModulesLpSmu}
 
-Results of this section are somewhat similar to the case of modules over the algebra of bounded measurable functions, but the case $p=+\infty$ doesn't seem to have a simple criterion.
+Results of this section are somewhat similar to the case of modules over the
+algebra of bounded measurable functions, but the case $p=+\infty$ doesn't seem
+to have a simple criterion.
 
-\begin{proposition}\label{LpEssC0ModCharac} Let $S$ be a locally compact Hausdorff space, $\mu$ be a locally finite Borel measure on $S$ and $1\leq p\leq+\infty$. Then
-
-    $i)$ $[f]\in L_p(S,\mu)_{ess}$ if and only if for any $\varepsilon >0$ there exists a compact set $K\subset S$ such that $\Vert [f\chi_{S\setminus K}]\Vert_{L_p(S,\mu)}< \varepsilon$;
-
-    $ii)$ if $p<+\infty$ and $\mu$ is inner compact regular, then $L_p(S,\mu)_{ess}=L_p(S,\mu)$.
-
-    In particular, for any compact set $K\subset S$ and $[f]\in L_p(S,\mu)$ holds $[f]\chi_K\in L_p(S,\mu)_{ess}$.
+\begin{proposition}\label{LpEssC0ModCharac} Let $S$ be a locally compact
+    Hausdorff space, $\mu$ be a locally finite Borel measure on $S$ and $1\leq
+        p\leq+\infty$. Then
+    \begin{enumerate}[label = (\roman*)]
+        \item $[f]\in {L_p(S,\mu)}_{ess}$ if and only if for any $\varepsilon
+                  >0$ there exists a compact set $K\subset S$ such that $\Vert
+                  [f\chi_{S\setminus K}]\Vert_{L_p(S,\mu)}< \varepsilon$;
+        \item if $p<+\infty$ and $\mu$ is inner compact regular, then
+              ${L_p(S,\mu)}_{ess}=L_p(S,\mu)$.
+    \end{enumerate}
+    In particular, for any compact set $K\subset S$ and $[f]\in L_p(S,\mu)$
+    holds $[f]\chi_K\in {L_p(S,\mu)}_{ess}$.
 \end{proposition}
 \begin{proof} The proof is a standard density argument.
 \end{proof}
 
 
-\begin{proposition}\label{MorphLpEssC0Prop} Let $S$ be a locally compact Hausdorff space and $\mu$ be a locally finite Borel measure on $S$. Assume we are given a $C_0(S)$-morphism $\psi:L_p(S,\mu)_{ess}\to C_0(S)$ with $1\leq p\leq+\infty$, a function $[f]\in L_p(S,\mu)$ and a compact set $K\subset S$. Then
+\begin{proposition}\label{MorphLpEssC0Prop} Let $S$ be a locally compact
+    Hausdorff space and $\mu$ be a locally finite Borel measure on $S$. Assume
+    we are given a $C_0(S)$-morphism $\psi:{L_p(S,\mu)}_{ess}\to C_0(S)$ with
+    $1\leq p\leq+\infty$, a function $[f]\in L_p(S,\mu)$ and a compact set
+    $K\subset S$. Then
+    \begin{enumerate}[label = (\roman*)]
+        \item if $[f]=[f]\chi_K$, then $\psi(f)|_{S\setminus K}=0$;
 
-    $i)$ if $[f]=[f]\chi_K$, then $\psi(f)|_{S\setminus K}=0$;
-
-    $ii)$ if $[f]=[f]\chi_K$ and $\psi(f)\neq 0$, then there is an open set $U\subset K$ of positive measure.
+        \item if $[f]=[f]\chi_K$ and $\psi(f)\neq 0$, then there is an open set
+              $U\subset K$ of positive measure.
+    \end{enumerate}
 \end{proposition}
-\begin{proof} $i)$ By paragraph $i)$ of proposition \ref{LpEssC0ModCharac} we have $[f]=[f]\chi_K\in L_p(S,\mu)_{ess}$, so we can speak of the function $a=\psi(f)\in C_0(S)$. Let $V$ be an open set containing $K$, then there exists a continuous function $b\in C_0(S)$ such that $b|_K=1$ and $b|_{S\setminus V}=0$ [\cite{DalesBanSpContFunDualSp}, theorem 1.4.25]. By construction $\chi_K=b\chi_K$, so $a=\psi([f])=\psi([f]\chi_K)=\psi(b[f]\chi_K)=b\psi([f]\chi_K)=b\psi([f])=ba$. As $b|_{S\setminus V}=0$ we get $a|_{S\setminus V}=0$. Since $S$ is Hausdorff and $V$ is an arbitrary open set containing $K$, then $a|_{S\setminus K}=0$.
+\begin{proof} $(i)$ By paragraph $(i)$ of proposition~\ref{LpEssC0ModCharac} we
+    have $[f]=[f]\chi_K\in {L_p(S,\mu)}_{ess}$, so we can speak of the function
+    $a=\psi(f)\in C_0(S)$. Let $V$ be an open set containing $K$, then there
+    exists a continuous function $b\in C_0(S)$ such that $b|_K=1$ and
+    $b|_{S\setminus V}=0$ [\cite{DalesBanSpContFunDualSp}, theorem 1.4.25]. By
+    construction $\chi_K=b\chi_K$, so
+    $a=\psi([f])=\psi([f]\chi_K)=\psi(b[f]\chi_K)=b\psi([f]\chi_K)=b\psi([f])=ba$.
+    As $b|_{S\setminus V}=0$ we get $a|_{S\setminus V}=0$. Since $S$ is
+    Hausdorff and $V$ is an arbitrary open set containing $K$, then
+    $a|_{S\setminus K}=0$.
 
-    $ii)$ Using notation of the previous paragraph we have $a\neq 0$ and $a|_{S\setminus K}=0$. Consider non-negative continuous function $c=|a|$, then $c\neq 0$ and $c|_{S\setminus K}=0$. Since $c\neq 0$, then the open set $U=c^{-1}((0, +\infty))$ is non-empty. Moreover, $U\subset K$ as $c|_{S\setminus K}=0$. Now peek any $s\in U$. By construction $a(s)\neq 0$. Since $\{s\}$ is a compact set there exists a continuous function $e\in C_0(S)$ such that $e(s)=1$ and $e|_{S\setminus U}=0$ [\cite{DalesBanSpContFunDualSp}, theorem 1.4.25]. Consider function $[g]=e[f]\in L_p(S,\mu)_{ess}$, then $\psi([g])\neq 0$ as $\psi([g])(s)=\psi(e[f])(s)=(e\psi([f]))(s)=e(s)\psi([f])(s)=a(s)\neq 0$. Since $\psi([g])\neq 0$, we have $[g]\neq 0$ in $L_p(S,\mu)_{ess}$. Therefore $\mu(U)>0$ because by construction $[g]\chi_{S\setminus U}=0$.
+    $(ii)$ Using notation of the previous paragraph we have $a\neq 0$ and
+    $a|_{S\setminus K}=0$. Consider non-negative continuous function $c=|a|$,
+    then $c\neq 0$ and $c|_{S\setminus K}=0$. Since $c\neq 0$, then the open set
+    $U=c^{-1}((0, +\infty))$ is non-empty. Moreover, $U\subset K$ as
+    $c|_{S\setminus K}=0$. Now peek any $s\in U$. By construction $a(s)\neq 0$.
+    Since $\{s\}$ is a compact set there exists a continuous function $e\in
+        C_0(S)$ such that $e(s)=1$ and $e|_{S\setminus U}=0$
+    [\cite{DalesBanSpContFunDualSp}, theorem 1.4.25]. Consider function
+    $[g]=e[f]\in {L_p(S,\mu)}_{ess}$, then $\psi([g])\neq 0$ as
+    $\psi([g])(s)=\psi(e[f])(s)=(e\psi([f]))(s)=e(s)\psi([f])(s)=a(s)\neq 0$.
+    Since $\psi([g])\neq 0$, we have $[g]\neq 0$ in ${L_p(S,\mu)}_{ess}$.
+    Therefore $\mu(U)>0$ because by construction $[g]\chi_{S\setminus U}=0$.
 \end{proof}
 
-\begin{proposition}\label{LpC0ModNecessCond} Let $S$ be a locally compact Hausdorff space and $\mu$ be a locally finite inner compact regular Borel measure on $S$. Let $1\leq p\leq +\infty$ and $L_p(S,\mu)$ is a relatively projective $C_0(S)$-module. Then,
+\begin{proposition}\label{LpC0ModNecessCond} Let $S$ be a locally compact
+    Hausdorff space and $\mu$ be a locally finite inner compact regular Borel
+    measure on $S$. Let $1\leq p\leq +\infty$ and $L_p(S,\mu)$ is a relatively
+    projective $C_0(S)$-module. Then,
 
-    $i)$ $\mu$ is inner open regular;
+    $(i)$ $\mu$ is inner open regular;
 
-    $ii)$ any atom of $\mu$ is an isolated point in $S$;
+    $(ii)$ any atom of $\mu$ is an isolated point in $S$;
 
-    $iii)$ if $p<+\infty$ and $\mu$ is outer open regular then $\mu$ is purely atomic.
+    $(iii)$ if $p<+\infty$ and $\mu$ is outer open regular then $\mu$ is purely
+    atomic.
 \end{proposition}
-\begin{proof} $i)$ Let $K\subset S$ be a compact set with of positive measure. Then by paragraph $i)$ of proposition \ref{LpEssC0ModCharac} the function $[f]:=[\chi_K]$ is non-zero in $L_p(S,\mu)_{ess}$. Since $C_0(S)$-module $L_p(S,\mu)$ is relatively projective, then by paragraph $ii)$ of proposition \ref{RelProjNecesCond} there exists a $C_0(S)$-morphism $\psi:L_p(S,\mu)\to C_0(S)$ such that $\psi([f])\neq 0$. Now from paragraph $ii)$ of proposition \ref{MorphLpEssC0Prop} we get that there exists an open set $U\subset K$ with $\mu(U)>0$. Since $K\subset S$ is arbitrary we are in position to apply paragraph $ii)$ of proposition \ref{NormalMeasCharac}. Hence $\mu(B)=\mu(\operatorname{int}_S(B))$ for any Borel set $B\subset S$. It remains to apply proposition \ref{InnerOpenRegMeasCharac}.
+\begin{proof} $(i)$ Let $K\subset S$ be a compact set with of positive measure.
+    Then by paragraph $(i)$ of proposition~\ref{LpEssC0ModCharac} the function
+    $[f]:=[\chi_K]$ is non-zero in ${L_p(S,\mu)}_{ess}$. Since $C_0(S)$-module
+    $L_p(S,\mu)$ is relatively projective, then by paragraph $(ii)$ of
+    proposition~\ref{RelProjNecesCond} there exists a $C_0(S)$-morphism
+    $\psi:L_p(S,\mu)\to C_0(S)$ such that $\psi([f])\neq 0$. Now from paragraph
+    $(ii)$ of proposition~\ref{MorphLpEssC0Prop} we get that there exists an
+    open set $U\subset K$ with $\mu(U)>0$. Since $K\subset S$ is arbitrary we
+    are in position to apply paragraph $(ii)$ of
+    proposition~\ref{NormalMeasCharac}. Hence
+    $\mu(B)=\mu(\operatorname{int}_S(B))$ for any Borel set $B\subset S$. It
+    remains to apply proposition~\ref{InnerOpenRegMeasCharac}.
 
-    $ii)$ Let $A$ be an atom of $\mu$. By paragraph $ii)$ of proposition \ref{MeasAtomCharac} there exists a point $s\in A$ such that $\mu(\{s\})=\mu(A)>0$. From paragraph $i)$ it follows that $\mu(\operatorname{int}_S(\{s\}))=\mu(\{s\})>0$. Therefore $\{s\}$ is an open set, i.e. $s$ is an isolated point.
+    $(ii)$ Let $A$ be an atom of $\mu$. By paragraph $(ii)$ of
+    proposition~\ref{MeasAtomCharac} there exists a point $s\in A$ such that
+    $\mu(\{s\})=\mu(A)>0$. From paragraph $(i)$ it follows that
+    $\mu(\operatorname{int}_S(\{s\}))=\mu(\{s\})>0$. Therefore $\{s\}$ is an
+    open set, i.e. $s$ is an isolated point.
 
-    $iii)$ Let $S_a^\mu$ be the set of singleton atoms of $\mu$ and $S_c^\mu=S\setminus S_a^\mu$. By paragraph $ii)$ all atoms are isolated, so $S_c^\mu$ is closed and hence Borel. Consider arbitrary compact subset $K\subset S_c^\mu$. Suppose $\mu(K)>0$, then by paragraph $i)$ of proposition \ref{LpEssC0ModCharac} the function $[f]:=[\chi_K]$ is non-zero in $L_p(S,\mu)_{ess}$. As $C_0(S)$-module $L_p(S, \mu)$ is relatively projective by paragraph $ii)$ of propositions \ref{RelProjNecesCond} and proposition \ref{MorphLpEssC0Prop} we have a $C_0(S)$-morphism $\psi:L_p(S,\mu)_{ess}\to C_0(S)$ such that $\psi([f])\neq 0$ and $\psi([f])|_{S\setminus K}=0$. Denote $a:=\psi([f])\neq 0$. Since $a|_{S\setminus K}=0$, there exists a point $s\in K$ such that $a(s)\neq 0$. Fix $\varepsilon > 0$. Note that $s$ is not an atom because $s\in K\subset S_c^\mu$, hence from outer open regularity of $\mu$ we get an open set $W\subset S$ such that $s\in W$ and $\mu(W)<\varepsilon$. Since $\{s\}$ is compact, then there exists a continuous function $b\in C_0(S)$ such that $b(s)=1$, $0\leq b\leq 1$ and $b|_{S\setminus W}=0$ [\cite{DalesBanSpContFunDualSp}, theorem 1.4.25]. As $p<+\infty$ we get $\Vert b[f]\Vert_{L_p(S,\mu)} \leq \mu(W\cap K)^{1/p}<\varepsilon^{1/p}$. Finally,
+    $(iii)$ Let $S_a^\mu$ be the set of singleton atoms of $\mu$ and
+    $S_c^\mu=S\setminus S_a^\mu$. By paragraph $(ii)$ all atoms are isolated, so
+    $S_c^\mu$ is closed and hence Borel. Consider arbitrary compact subset
+    $K\subset S_c^\mu$. Suppose $\mu(K)>0$, then by paragraph $(i)$ of
+    proposition~\ref{LpEssC0ModCharac} the function $[f]:=[\chi_K]$ is non-zero
+    in ${L_p(S,\mu)}_{ess}$. As $C_0(S)$-module $L_p(S, \mu)$ is relatively
+    projective by paragraph $(ii)$ of propositions~\ref{RelProjNecesCond} and
+    proposition~\ref{MorphLpEssC0Prop} we have a $C_0(S)$-morphism
+    $\psi:{L_p(S,\mu)}_{ess}\to C_0(S)$ such that $\psi([f])\neq 0$ and
+    $\psi([f])|_{S\setminus K}=0$. Denote $a:=\psi([f])\neq 0$. Since
+    $a|_{S\setminus K}=0$, there exists a point $s\in K$ such that $a(s)\neq 0$.
+    Fix $\varepsilon > 0$. Note that $s$ is not an atom because $s\in K\subset
+        S_c^\mu$, hence from outer open regularity of $\mu$ we get an open set
+    $W\subset S$ such that $s\in W$ and $\mu(W)<\varepsilon$. Since $\{s\}$ is
+    compact, then there exists a continuous function $b\in C_0(S)$ such that
+    $b(s)=1$, $0\leq b\leq 1$ and $b|_{S\setminus W}=0$
+    [\cite{DalesBanSpContFunDualSp}, theorem 1.4.25]. As $p<+\infty$ we get
+    $\Vert b[f]\Vert_{L_p(S,\mu)} \leq {\mu(W\cap K)}^{1/p}<\varepsilon^{1/p}$.
+    Finally,
     $$
-        |a(s)|=|a(s)b(s)|=|(ba)(s)|=|(b\psi([f]))(s)|=|\psi(b[f])(s)|\leq\Vert \psi (b[f])\Vert_{C_0(S)}\leq
+        |a(s)|=|a(s)b(s)|=|(ba)(s)|=|(b\psi([f]))(s)|=|\psi(b[f])(s)|
+        \leq\Vert \psi (b[f])\Vert_{C_0(S)}\leq
     $$
     $$
-        \leq\Vert\psi\Vert\Vert b[f]\Vert_{L_p(S,\mu)}\leq\Vert\psi\Vert\varepsilon^{1/p}
+        \leq\Vert\psi\Vert\Vert b[f]\Vert_{L_p(S,\mu)}
+        \leq\Vert\psi\Vert\varepsilon^{1/p}
     $$
-    Since $\varepsilon>0$ is arbitrary $|a(s)|=0$, but $a(s)\neq 0$ by choice of $s$. Contradiction, hence $\mu(K)=0$. As $K\subset S_c^\mu$ is arbitrary from inner compact regularity of $\mu$ we get $\mu(S_c^\mu)=0$. In other words $\mu$ is purely atomic.
+    Since $\varepsilon>0$ is arbitrary $|a(s)|=0$, but $a(s)\neq 0$ by choice of
+    $s$. Contradiction, hence $\mu(K)=0$. As $K\subset S_c^\mu$ is arbitrary
+    from inner compact regularity of $\mu$ we get $\mu(S_c^\mu)=0$. In other
+    words $\mu$ is purely atomic.
 \end{proof}
 
-\begin{proposition}\label{C0ModLpRetrProj} Let $S$ be a locally compact Hausdorff space and $\mu$ be a Borel measure on $S$. Let $1\leq p\leq +\infty$ and $L_p(S,\mu)$ be a relatively projective $C_0(S)$-module. Then for any Borel set $B\subset S$ the $C_0(S)$-module $L_p(S,\mu^B)$ is relatively projective.
+\begin{proposition}\label{C0ModLpRetrProj} Let $S$ be a locally compact
+    Hausdorff space and $\mu$ be a Borel measure on $S$. Let $1\leq p\leq
+        +\infty$ and $L_p(S,\mu)$ be a relatively projective $C_0(S)$-module. Then
+    for any Borel set $B\subset S$ the $C_0(S)$-module $L_p(S,\mu^B)$ is
+    relatively projective.
 \end{proposition}
-\begin{proof} The proof is the same as in proposition \ref{BSigmaModLpRetrProj}.
+\begin{proof} The proof is the same as in proposition~\ref{BSigmaModLpRetrProj}.
 \end{proof}
 
-\begin{theorem}\label{ReflLpC0ModCrit} Let $S$ be a locally compact Hausdorff space and $\mu$ be a decomposable inner compact regular Borel measure on $S$. Let $1\leq p< +\infty$. Then the following are equivalent:
-
-    $i)$ $L_p(S,\mu)$ is a relatively projective $C_0(S)$-module;
-
-    $ii)$ $\mu$ is purely atomic and all atoms are isolated points.
+\begin{theorem}\label{ReflLpC0ModCrit} Let $S$ be a locally compact Hausdorff
+    space and $\mu$ be a decomposable inner compact regular Borel measure on
+    $S$. Let $1\leq p< +\infty$. Then the following are equivalent:
+    \begin{enumerate}[label = (\roman*)]
+        \item $L_p(S,\mu)$ is a relatively projective $C_0(S)$-module;
+        \item $\mu$ is purely atomic and all atoms are isolated points.
+    \end{enumerate}
 \end{theorem}
-\begin{proof} $i)\implies ii)$ Let $\mathcal{D}$ be a decomposition of $S$ onto Borel subsets of finite measure. Fix $D\in\mathcal{D}$ and consider $C_0(S)$-module $L_p(S,\mu^D)$. Since $D$ has finite measure then $\mu^D$ is finite, inner compact regular and outer open regular. By proposition \ref{C0ModLpRetrProj} the $C_0(S)$-module $L_p(S,\mu^D)$ is relatively projective. So from paragraph $iii)$ of proposition \ref{LpC0ModNecessCond} we get that $\mu^D$ (and a fortiori $\mu_D$) is purely atomic and all atoms are isolated points. Since $D\in\mathcal{D}$ is arbitrary, by proposition [\cite{FremMeasTh2}, exercise 214X(i)] the measure $\mu$ is purely atomic and all atoms are isolated points.
+\begin{proof} $(i)\implies (ii)$ Let $\mathcal{D}$ be a decomposition of $S$
+    onto Borel subsets of finite measure. Fix $D\in\mathcal{D}$ and consider
+    $C_0(S)$-module $L_p(S,\mu^D)$. Since $D$ has finite measure then $\mu^D$ is
+    finite, inner compact regular and outer open regular. By
+    proposition~\ref{C0ModLpRetrProj} the $C_0(S)$-module $L_p(S,\mu^D)$ is
+    relatively projective. So from paragraph $(iii)$ of
+    proposition~\ref{LpC0ModNecessCond} we get that $\mu^D$ (and a fortiori
+    $\mu_D$) is purely atomic and all atoms are isolated points. Since
+    $D\in\mathcal{D}$ is arbitrary, by proposition [\cite{FremMeasTh2}, exercise
+            214X (i)] the measure $\mu$ is purely atomic and all atoms are isolated
+    points.
 
-    $ii)\implies i)$ Let $S_a^\mu$ denote the set of singleton atoms of $\mu$. Since all points in $S_a^\mu$ are isolated, then $S_a^\mu$ is discrete and $C_0(S_a^\mu)$ is biprojective [\cite{HelHomolBanTopAlg}, theorem 4.5.26]. Since $p<+\infty$, $\mu$ is purely atomic and all atoms are isolated points the $C_0(S_a^\mu)$-module $L_p(S,\mu)$ is  essential. Bearing all this in mind from [\cite{HelBanLocConvAlg}, proposition VII.1.60(II)] we get that the $C_0(S_a^\mu)$-module $L_p(S,\mu)$ is relatively projective. Since $S_a^\mu$ is open in $S$, then $C_0(S_a^\mu)$ is a two-sided closed ideal of $C_0(S)$. Now by [\cite{RamsHomPropSemgroupAlg}, proposition 2.3.3(i)] the $C_0(S)$-module $L_p(S,\mu)$ is relatively projective.
+    $(ii)\implies (i)$ Let $S_a^\mu$ denote the set of singleton atoms of $\mu$.
+    Since all points in $S_a^\mu$ are isolated, then $S_a^\mu$ is discrete and
+    $C_0(S_a^\mu)$ is biprojective [\cite{HelHomolBanTopAlg}, theorem 4.5.26].
+    Since $p<+\infty$, $\mu$ is purely atomic and all atoms are isolated points
+    the $C_0(S_a^\mu)$-module $L_p(S,\mu)$ is  essential. Bearing all this in
+    mind from [\cite{HelBanLocConvAlg}, proposition VII.1.60(II)] we get that
+    the $C_0(S_a^\mu)$-module $L_p(S,\mu)$ is relatively projective. Since
+    $S_a^\mu$ is open in $S$, then $C_0(S_a^\mu)$ is a two-sided closed ideal of
+    $C_0(S)$. Now by [\cite{RamsHomPropSemgroupAlg}, proposition 2.3.3(i)] the
+    $C_0(S)$-module $L_p(S,\mu)$ is relatively projective.
 \end{proof}
 
-The case of $C_0(S)$-module $L_\infty(S,\mu)$ is much harder. We shall only give two necessary but quite restrictive conditions for relative projectivity.
+The case of $C_0(S)$-module $L_\infty(S,\mu)$ is much harder. We shall only give
+two necessary but quite restrictive conditions for relative projectivity.
 
-\begin{definition}\label{WideFamilyDef} Let $S$ be a locally compact Hausdorff space and $\mu$ be a Borel measure on $S$. A family $\mathcal{F}$ of Borel subsets of $S$ is called wide if
-
-    $i)$ each element of $\mathcal{F}$ has finite positive measure and is contained in some compact subset;
-
-    $ii)$  any compact subset of $S$ intersects only finitely many sets of $\mathcal{F}$;
-
-    $iii)$  any two distinct sets in $\mathcal{F}$ do not intersect.
+\begin{definition}\label{WideFamilyDef} Let $S$ be a locally compact Hausdorff
+    space and $\mu$ be a Borel measure on $S$. A family $\mathcal{F}$ of Borel
+    subsets of $S$ is called wide if
+    \begin{enumerate}[label = (\roman*)]
+        \item each element of $\mathcal{F}$ has finite positive measure and is
+              contained in some compact subset;
+        \item  any compact subset of $S$ intersects only finitely many sets of
+              $\mathcal{F}$;
+        \item  any two distinct sets in $\mathcal{F}$ do not intersect.
+    \end{enumerate}
 \end{definition}
 
-\begin{proposition}\label{LInfEssNotCompl} Let $S$ be a locally compact Hausdorff space and $\mu$ be a Borel measure on $S$. If $S$ admits an infinite wide family $\mathcal{F}$ then the essential part of $C_0(S)$-module $L_\infty(S,\mu)$ is not complemented in $L_\infty(S,\mu)$.
+\begin{proposition}\label{LInfEssNotCompl} Let $S$ be a locally compact
+    Hausdorff space and $\mu$ be a Borel measure on $S$. If $S$ admits an
+    infinite wide family $\mathcal{F}$ then the essential part of
+    $C_0(S)$-module $L_\infty(S,\mu)$ is not complemented in $L_\infty(S,\mu)$.
 \end{proposition}
-\begin{proof} Assume that $L_\infty(S,\mu)_{ess}$ is complemented in $L_\infty(S,\mu)$, then there exists a bounded linear operator $P:L_\infty(S,\mu)\to L_\infty(S,\mu)_{ess}$ such that $P([f])=[f]$ for all $[f]\in L_\infty(S,\mu)_{ess}$. Now given a wide family $\mathcal{F}=(F_\lambda)_{\lambda\in\Lambda}$ we define a bounded linear operator
+\begin{proof} Assume that ${L_\infty(S,\mu)}_{ess}$ is complemented in
+    $L_\infty(S,\mu)$, then there exists a bounded linear operator
+    $P:L_\infty(S,\mu)\to {L_\infty(S,\mu)}_{ess}$ such that $P([f])=[f]$ for
+    all $[f]\in {L_\infty(S,\mu)}_{ess}$. Now given a wide family
+    $\mathcal{F}={(F_\lambda)}_{\lambda\in\Lambda}$ we define a bounded linear
+    operator
     $$
-        I:\ell_\infty(\Lambda)\to L_\infty(S,\mu): x\mapsto \biggl[\sum_{\lambda\in\Lambda}x_\lambda \chi_{F_\lambda}\biggr]
+        I:\ell_\infty(\Lambda)\to L_\infty(S,\mu):
+        x\mapsto\biggl[\sum_{\lambda\in\Lambda}x_\lambda \chi_{F_\lambda}\biggr]
     $$
-    which is a well because $\mathcal{F}$ is a disjoint famliy. Consider $x\in c_0(\Lambda)$. Fix $\varepsilon > 0$, then there exists a finite subset $\Lambda_0\subset\Lambda$ such that $|x_\lambda|<\varepsilon$ for all $\lambda\in\Lambda\setminus\Lambda_0$. Let $K_\lambda$ denote the compact set containing $F_\lambda$ for $\lambda\in\Lambda$. Then $K_0=\bigcup_{\lambda\in\Lambda_0}K_\lambda$ is a compact set. If $s\in S\setminus K$, then $\chi_{F_\lambda}(s)=0$ for all $\lambda\in\Lambda\setminus\Lambda_0$. Therefore $\Vert I(x)\chi_{S\setminus K}\Vert_{L_\infty(S,\mu)}=\Vert[\sum_{\lambda\in\Lambda\setminus\Lambda_0}x_\lambda\chi_{F_\lambda}] \Vert_{L_\infty(S,\mu)}=\sup_{\lambda\in\Lambda\setminus\Lambda_0}|x_\lambda|<\varepsilon$. Now by paragraph $i)$ of proposition \ref{LpEssC0ModCharac} we get that $I(x)\in L_\infty(S,\mu)_{ess}$. Next we define a bounded linear operator
+    which is a well because $\mathcal{F}$ is a disjoint famliy. Consider $x\in
+        c_0(\Lambda)$. Fix $\varepsilon > 0$, then there exists a finite subset
+    $\Lambda_0\subset\Lambda$ such that $|x_\lambda|<\varepsilon$ for all
+    $\lambda\in\Lambda\setminus\Lambda_0$. Let $K_\lambda$ denote the
+    compact set containing $F_\lambda$ for $\lambda\in\Lambda$. Then
+    $K_0=\bigcup_{\lambda\in\Lambda_0}K_\lambda$ is a compact set. If $s\in
+        S\setminus K$, then $\chi_{F_\lambda}(s)=0$ for all
+    $\lambda\in\Lambda\setminus\Lambda_0$. Therefore $\Vert
+        I(x)\chi_{S\setminus K}\Vert_{L_\infty(S,\mu)}
+        =\Vert[\sum_{\lambda\in\Lambda\setminus\Lambda_0}x_\lambda\chi_{F_\lambda}]
+        \Vert_{L_\infty(S,\mu)}
+        =\sup_{\lambda\in\Lambda\setminus\Lambda_0}|x_\lambda|<\varepsilon$. Now
+    by paragraph $(i)$ of proposition~\ref{LpEssC0ModCharac} we get that
+    $I(x)\in {L_\infty(S,\mu)}_{ess}$. Next we define a bounded linear
+    operator
     $$
-        R:L_\infty(S,\mu)\to c_0(\Lambda): [f]\mapsto \biggl(\lambda\mapsto\mu(F_\lambda)^{-1}\int_{F_\lambda} f(s)d\mu(s)\biggr)
+        R:L_\infty(S,\mu)\to c_0(\Lambda):
+        [f]\mapsto \biggl(
+        \lambda\mapsto{\mu(F_\lambda)}^{-1}\int_{F_\lambda} f(s)d\mu(s)
+        \biggr)
     $$
-    The only thing that needs clarification is the fact that $R$ has range in $c_0(\Lambda)$. Fix $[f]\in L_\infty(S,\mu)_{ess}$. Let $\varepsilon>0$. By paragraph $i)$ of proposition \ref{LpEssC0ModCharac} there exists a compact set $K\subset S$ such that $\Vert [f]\chi_{K}\Vert_{L_\infty(S,\mu)}<\varepsilon$. Consider set $\Lambda_K=\{\lambda\in\Lambda: K\cap F_\lambda\neq\varnothing\}$. By definition of $\mathcal{F}$ the set $\Lambda_K$ is finite. For any $\lambda\in\Lambda\setminus \Lambda_K$ holds $F_\lambda\cap K=\varnothing$, so $|R(f)_\lambda|\leq\varepsilon$. Since $\varepsilon>0$ is arbitrary $R([f])\in c_0(\Lambda)$. Now we define a bounded linear operator $Q=RPI$. Recall that $P([f])=[f]$ for all $[f]\in L_\infty(S,\mu)_{ess}$. Then it is easy to check that for all $x\in c_0(\Lambda)$ and $\lambda\in\Lambda$ holds $Q(x)_\lambda=x_\lambda$. Thus $Q:\ell_\infty(\Lambda)\to c_0(\Lambda)$ is a bounded linear operator such that $Q(x)=x$ for all $x\in c_0(\Lambda)$. Since $\Lambda$ is infinite we get a contradiction with Phillips' theorem \cite{PhilOnLinTran}. Therefore, $L_\infty(S,\mu)_{ess}$ is not complemented in $L_\infty(S,\mu)$.
+    The only thing that needs clarification is the fact that $R$ has range in
+    $c_0(\Lambda)$. Fix $[f]\in {L_\infty(S,\mu)}_{ess}$. Let $\varepsilon>0$.
+    By paragraph $(i)$ of proposition~\ref{LpEssC0ModCharac} there exists a
+    compact set $K\subset S$ such that $\Vert
+        [f]\chi_{K}\Vert_{L_\infty(S,\mu)}<\varepsilon$. Consider set
+    $\Lambda_K=\{\lambda\in\Lambda: K\cap F_\lambda\neq\varnothing \}$. By
+    definition of $\mathcal{F}$ the set $\Lambda_K$ is finite. For any
+    $\lambda\in\Lambda\setminus \Lambda_K$ holds $F_\lambda\cap K=\varnothing$,
+    so $|{R(f)}_\lambda|\leq\varepsilon$. Since $\varepsilon>0$ is arbitrary
+    $R([f])\in c_0(\Lambda)$. Now we define a bounded linear operator $Q=RPI$.
+    Recall that $P([f])=[f]$ for all $[f]\in {L_\infty(S,\mu)}_{ess}$. Then it
+    is easy to check that for all $x\in c_0(\Lambda)$ and $\lambda\in\Lambda$
+    holds ${Q(x)}_\lambda=x_\lambda$. Thus $Q:\ell_\infty(\Lambda)\to
+        c_0(\Lambda)$ is a bounded linear operator such that $Q(x)=x$ for all $x\in
+        c_0(\Lambda)$. Since $\Lambda$ is infinite we get a contradiction with
+    Phillips' theorem~\cite{PhilOnLinTran}. Therefore, ${L_\infty(S,\mu)}_{ess}$
+    is not complemented in $L_\infty(S,\mu)$.
 \end{proof}
 
-Now we need to remind some notions from general topology. A family $\mathcal{F}$ of subsets of a topological space $S$ is called locally finite if every point of $S$ has an open neighbourhood that intersects only finitely many sets in $\mathcal{F}$. A topological space $S$ is called pseudocompact if every locally finite family of non-empty open sets is finite.
+Now we need to remind some notions from general topology. A family $\mathcal{F}$
+of subsets of a topological space $S$ is called locally finite if every point of
+$S$ has an open neighbourhood that intersects only finitely many sets in
+$\mathcal{F}$. A topological space $S$ is called pseudocompact if every locally
+finite family of non-empty open sets is finite.
 
-\begin{proposition}\label{LInfRelProjSuppCond} Let $S$ be an locally compact Hausdorff space and $\mu$ be a locally finite Borel measure on $S$. If $L_\infty(S,\mu)$ is relatively projective as $C_0(S)$-module then $\operatorname{supp}(\mu)$ is pseudocompact.
+\begin{proposition}\label{LInfRelProjSuppCond} Let $S$ be an locally compact
+    Hausdorff space and $\mu$ be a locally finite Borel measure on $S$. If
+    $L_\infty(S,\mu)$ is relatively projective as $C_0(S)$-module then
+    $\operatorname{supp}(\mu)$ is pseudocompact.
 \end{proposition}
-\begin{proof} Denote $M:=\operatorname{supp}(\mu)$. Assume that $M$ is not pseudocompact, then there is an infinite disjoint family $\mathcal{U}$ of non-empty open sets in $M$ which is locally finite. Since $S$ is locally compact for each $U\in\mathcal{U}$ we can choose a non-empty open set $V_U$ and a compact set $K_U$ such that $V_U\subset K_U\subset  U$. We may choose $V$ such that $\mu(V)$ is finite as $\mu$ is locally finite. Even more, $\mu(V)>0$ since $V$ is an open subset of $M$. Clearly, the family $\mathcal{V}=\{V_U:U\in\mathcal{U}\}$ is infinite disjoint and locally finite. Hence for any $s\in S$ there exists on open set $W_s$ such that $s\in W_s$ and the set $\{V\in\mathcal{V}: V\cap W_s\neq\varnothing\}$ is finite.
+\begin{proof} Denote $M:=\operatorname{supp}(\mu)$. Assume that $M$ is not
+    pseudocompact, then there is an infinite disjoint family $\mathcal{U}$ of
+    non-empty open sets in $M$ which is locally finite. Since $S$ is locally
+    compact for each $U\in\mathcal{U}$ we can choose a non-empty open set $V_U$
+    and a compact set $K_U$ such that $V_U\subset K_U\subset  U$. We may choose
+    $V$ such that $\mu(V)$ is finite as $\mu$ is locally finite. Even more,
+    $\mu(V)>0$ since $V$ is an open subset of $M$. Clearly, the family
+    $\mathcal{V}=\{V_U:U\in\mathcal{U}\}$ is infinite disjoint and locally
+    finite. Hence for any $s\in S$ there exists on open set $W_s$ such that
+    $s\in W_s$ and the set $\{V\in\mathcal{V}: V\cap W_s\neq\varnothing \}$ is
+    finite.
 
-    By construction $\mathcal{V}$ is a disjoint family of sets of positive finite measure each contained in some compact set. Let $K\subset S$ be an arbitrary compact set. Then $\{W_s:s\in K\}$ is an open cover of $K$. Since $K$ is compact there exists a finite set $S_0$ such that $\{W_s:s\in S_0\}$ is a cover for $K$. Since each $W_s$ intersects only finitely many sets of $\mathcal{V}$ then so does $\bigcup_{s\in S_0}W_s$ and a fortiori so does $K$. Thus $\mathcal{V}$ is a wide family. By proposition \ref{LInfEssNotCompl} the essential part of the $C_0(S)$-module $L_\infty(S,\mu)$ is not complemented in $L_\infty(S,\mu)$. Now from proposition \ref{ProjModEssPartCompl} it follows that $L_\infty(S,\mu)$ is not a relatively projective $C_0(S)$-module. Contradiction, so $M$ is pseudocompact.
+    By construction $\mathcal{V}$ is a disjoint family of sets of positive
+    finite measure each contained in some compact set. Let $K\subset S$ be an
+    arbitrary compact set. Then $\{W_s:s\in K\}$ is an open cover of $K$. Since
+    $K$ is compact there exists a finite set $S_0$ such that $\{W_s:s\in S_0\}$
+    is a cover for $K$. Since each $W_s$ intersects only finitely many sets of
+    $\mathcal{V}$ then so does $\bigcup_{s\in S_0}W_s$ and a fortiori so does
+    $K$. Thus $\mathcal{V}$ is a wide family. By
+    proposition~\ref{LInfEssNotCompl} the essential part of the $C_0(S)$-module
+    $L_\infty(S,\mu)$ is not complemented in $L_\infty(S,\mu)$. Now from
+    proposition~\ref{ProjModEssPartCompl} it follows that $L_\infty(S,\mu)$ is
+    not a relatively projective $C_0(S)$-module. Contradiction, so $M$ is
+    pseudocompact.
 \end{proof}
 
-\begin{theorem}\label{LInfReProjNecessCond} Let $S$ be a locally compact Hausdorff space and $\mu$ be a locally finite inner compact regular Borel measure on $S$. If $L_\infty(S,\mu)$ is relatively projective as $C_0(S)$-module then $\mu$ is inner open regular and $\operatorname{supp}(\mu)$ is pseudocompact.
+\begin{theorem}\label{LInfReProjNecessCond} Let $S$ be a locally compact
+    Hausdorff space and $\mu$ be a locally finite inner compact regular Borel
+    measure on $S$. If $L_\infty(S,\mu)$ is relatively projective as
+    $C_0(S)$-module then $\mu$ is inner open regular and
+    $\operatorname{supp}(\mu)$ is pseudocompact.
 
 \end{theorem}
-\begin{proof} The result follows from propositions \ref{LpC0ModNecessCond} and \ref{LInfRelProjSuppCond}.
+\begin{proof} The result follows from propositions~\ref{LpC0ModNecessCond}
+    and~\ref{LInfRelProjSuppCond}.
 \end{proof}
 
-Even though the last theorem is not a criterion we shall say a few words on how that hypothetic criterion may look like. The last theorem puts restrictions on the topology of underlying space $S$, but it cannot determine it completely. Indeed, consider arbitrary locally compact Hausdorff space $S$ with at least one isolated points $\{s\}$. Let $\mu$ be a point mass measure at $\{s\}$. It is easy to check that the resulting $C_0(S)$-module $L_\infty(S,\mu)$ is relatively projective. Thus we shall restrict our attention to strictly positive measures.
+Even though the last theorem is not a criterion we shall say a few words on how
+that hypothetic criterion may look like. The last theorem puts restrictions on
+the topology of underlying space $S$, but it cannot determine it completely.
+Indeed, consider arbitrary locally compact Hausdorff space $S$ with at least one
+isolated points $\{s\}$. Let $\mu$ be a point mass measure at $\{s\}$. It is
+easy to check that the resulting $C_0(S)$-module $L_\infty(S,\mu)$ is relatively
+projective. Thus we shall restrict our attention to strictly positive measures.
 
-If $\mu$ is a strictly positive measure, then under assumptions of proposition \ref{LInfReProjNecessCond} the space $S$ is pseudocompact. Recall that every continuous function on a pseudocompact space is bounded [\cite{HrusPseudCompTopSp}, theorem 1.1.3(3)]. Now note that any finite inner open regular measure is residual, then by result of [\cite{ZindResMeasLocCompSp}, corollary 2.7] every measurable function on $S$ is continuous at open dense set. These facts suggest that $S$ must have a peculiar topology. Indeed, if a space $S$ has no isolated points and admits a non-zero finite normal measure then $S$ cannot be separable locally compact Hausdorff [\cite{DalesBanSpContFunDualSp}, proposition 4.7.20], locally connected locally compact Hausdorff [\cite{DalesBanSpContFunDualSp}, proposition 4.7.23], connected locally compact Hausdorff $F$-space [\cite{DalesBanSpContFunDualSp}, proposition 4.7.24], separable metrizable [\cite{FlachNormMeasTopSp}, example 1].
+If $\mu$ is a strictly positive measure, then under assumptions of
+proposition~\ref{LInfReProjNecessCond} the space $S$ is pseudocompact. Recall
+that every continuous function on a pseudocompact space is bounded
+    [\cite{HrusPseudCompTopSp}, theorem 1.1.3(3)]. Now note that any finite inner
+open regular measure is residual, then by result of
+    [\cite{ZindResMeasLocCompSp}, corollary 2.7] every measurable function on $S$ is
+continuous at open dense set. These facts suggest that $S$ must have a peculiar
+topology. Indeed, if a space $S$ has no isolated points and admits a non-zero
+finite normal measure then $S$ cannot be separable locally compact Hausdorff
+    [\cite{DalesBanSpContFunDualSp}, proposition 4.7.20], locally connected locally
+compact Hausdorff [\cite{DalesBanSpContFunDualSp}, proposition 4.7.23],
+connected locally compact Hausdorff $F$-space [\cite{DalesBanSpContFunDualSp},
+proposition 4.7.24], separable metrizable [\cite{FlachNormMeasTopSp}, example
+        1].
 
-From previous discussion it is tempting to say that $C_0(S)$ ''looks like'' $L_\infty(S,\mu)$ whenever $\mu$ is strictly positive and $L_\infty(S,\mu)$ is relatively projective. In this direction we have the following result.
+From previous discussion it is tempting to say that $C_0(S)$ ``looks like''
+$L_\infty(S,\mu)$ whenever $\mu$ is strictly positive and $L_\infty(S,\mu)$ is
+relatively projective. In this direction we have the following result.
 
-\begin{proposition}\label{LInfReProjSuffCond} Let $S$ be a hyper-Stonean space and $\mu$ be a finite strictly positive normal inner compact regular Borel measure on $S$. Then $C_0(S)$-module $L_\infty(S,\mu)$ is relatively projective.
+\begin{proposition}\label{LInfReProjSuffCond} Let $S$ be a hyper-Stonean space
+    and $\mu$ be a finite strictly positive normal inner compact regular Borel
+    measure on $S$. Then $C_0(S)$-module $L_\infty(S,\mu)$ is relatively
+    projective.
 \end{proposition}
-\begin{proof} By [\cite{DalesBanSpContFunDualSp}, corollary 4.7.6] spaces $L_\infty(S,\mu)$ and $C_0(S)$ are isomorphic as $C^*$-algebras. In particular $L_\infty(S,\mu)$ is isomorphic to $C_0(S)$ as $C_0(S)$-module. Since $S$ is compact then $C_0(S)$ is a unital algebra, so it is relatively projective as $C_0(S)$-module [\cite{HelBanLocConvAlg}, example VII.1.1].
+\begin{proof} By [\cite{DalesBanSpContFunDualSp}, corollary 4.7.6] spaces
+    $L_\infty(S,\mu)$ and $C_0(S)$ are isomorphic as $C^*$-algebras. In
+    particular $L_\infty(S,\mu)$ is isomorphic to $C_0(S)$ as $C_0(S)$-module.
+    Since $S$ is compact then $C_0(S)$ is a unital algebra, so it is relatively
+    projective as $C_0(S)$-module [\cite{HelBanLocConvAlg}, example VII.1.1].
 \end{proof}
 
-For strictly positive measures previous proposition is the only known example of relatively projective $C_0(S)$-module $L_\infty(S,\mu)$.
+For strictly positive measures previous proposition is the only known example of
+relatively projective $C_0(S)$-module $L_\infty(S,\mu)$.
 
-\section{Funding}
-\label{SectionFunding}
-This research was supported by the Russian Foundation for Basic Research (grant no. 19-01-00447).
+\section{Funding}\label{SectionFunding} This research was supported by the
+Russian Foundation for Basic Research (grant no. 19--01--00447).
 
 \begin{thebibliography}{999}
     %
     \bibitem{HelHomolBanTopAlg}
-    \textit{A. Ya. Helemskii} The homology of Banach and topological algebras, Springer, 41 (1989)
+    \textit{A. Ya. Helemskii} The homology of Banach and topological algebras,
+    Springer, 41 (1989)
     %
     %
     \bibitem{SelivBiprojBanAlg}
-    \textit{Yu. V. Selivanov} Biprojective Banach algebras, Math. USSR-Izv., 15:2 (1980), 387–399
+    \textit{Yu. V. Selivanov} Biprojective Banach algebras, Math. USSR-Izv.,
+    15:2 (1980), 387–399
     %
     %
     \bibitem{GrothProdTenTopNucl}
-    \textit{A. Grothendieck} Produits tensoriels topologiques et espaces nucl{\'e}aires, Mem. Amer. Math. Soc., №16 (1955)
+    \textit{A. Grothendieck} Produits tensoriels topologiques et espaces
+    nucl{\'e}aires, Mem. Amer. Math. Soc., №16 (1955)
     %
     %
-    \bibitem{FremMeasTh2},
-    \textit{D. H. Fremlin} Measure Theory, Vol. 2, {2003}, Torres Fremlin
+    \bibitem{FremMeasTh2}, \textit{D. H. Fremlin} Measure Theory, Vol. 2,
+    {2003}, Torres Fremlin
     %
     %
-    \bibitem{FremMeasTh4.1},
-    \textit{D. H. Fremlin} Measure Theory, Vol. 4(1), {2003}, Torres Fremlin
+    \bibitem{FremMeasTh4.1}, \textit{D. H. Fremlin} Measure Theory, Vol. 4(1),
+    {2003}, Torres Fremlin
     %
     %
     \bibitem{DalesBanSpContFunDualSp}
-    \textit{H. G. Dales, F. K. Dashiel Jr., A.T.-M. Lau, D. Strauss} Banach spaces of continuous functions as dual spaces, Berlin, Springer (2016)
+    \textit{H. G. Dales, F. K. Dashiel Jr., A.T.-M. Lau, D. Strauss} Banach
+    spaces of continuous functions as dual spaces, Berlin, Springer (2016)
     %
     %
     \bibitem{HelBanLocConvAlg}
-    \textit{A.Ya. Helemskii}, Banach and locally convex algebras. Oxford University Press, (1993)
+    \textit{A.Ya. Helemskii}, Banach and locally convex algebras. Oxford
+    University Press, (1993)
     %
     %
     \bibitem{RamsHomPropSemgroupAlg}
-    \textit{P. Ramsden} Homological properties of semigroup algebras, The University of Leeds, PhD thesis (2009)
+    \textit{P. Ramsden} Homological properties of semigroup algebras, The
+    University of Leeds, PhD thesis (2009)
     %
     %
     \bibitem{PhilOnLinTran}
-    \textit{R. S. Phillips} On linear transformations, Trans. Amer. Math. Soc. 48 (1940), 516-541
+    \textit{R. S. Phillips} On linear transformations, Trans. Amer. Math. Soc.
+    48 (1940), 516--541
     %
     %
     \bibitem{HrusPseudCompTopSp}
-    \textit{M. Hrusak, A. Tamariz-Mascarua, M. Tkachenko} Pseudocompact topological spaces. Springer (2018)
+    \textit{M. Hrusak, A. Tamariz-Mascarua, M. Tkachenko} Pseudocompact
+    topological spaces. Springer (2018)
     %
     %
     \bibitem{ZindResMeasLocCompSp}
-    \textit{O. Zindulka} Residual measures in locally compact spaces. Topology and its Applications 108, no. 3 (2000), 253-265.
+    \textit{O. Zindulka} Residual measures in locally compact spaces. Topology
+    and its Applications 108, no. 3 (2000), 253--265.
     %
     %
     \bibitem{FlachNormMeasTopSp}
-    \textit{J. Flachsmeyer} Normal and category measures on topological spaces. General Topology and its Relations to Modern Analysis and Algebra (1972), 109-116.
+    \textit{J. Flachsmeyer} Normal and category measures on topological spaces.
+    General Topology and its Relations to Modern Analysis and Algebra (1972),
+    109--116.
     %
 \end{thebibliography}
 
-Norbert Nemesh, Faculty of Mechanics and Mathematics, Moscow State University, Moscow 119991 Russia
+Norbert Nemesh, Faculty of Mechanics and Mathematics, Moscow State University,
+Moscow 119991 Russia
 
 \textit{E-mail address:} nemeshnorbert@yandex.ru
 
