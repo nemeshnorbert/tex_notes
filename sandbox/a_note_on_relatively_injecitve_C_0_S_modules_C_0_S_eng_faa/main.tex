@@ -1,4 +1,4 @@
-%\title{A note on relatively injective $C_0(S)$-modules $C_0(S)$}
+% chktex-file 35
 \documentclass[12pt]{article}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 \usepackage{amssymb}
@@ -9,9 +9,10 @@
 \usepackage[utf8]{inputenc}
 % \usepackage[russian]{babel}
 \usepackage[matrix,arrow,curve]{xy}
-\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=blue, pdfborder={0 0 0}]{hyperref}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=blue,
+    pdfborder={0 0 0}]{hyperref}
 
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
@@ -24,373 +25,538 @@
 \newcommand{\convol}{\ast}
 \newcommand{\projmodtens}[1]{\mathbin{\widehat{\otimes}}_{#1}}
 \newcommand{\isom}[1]{\mathop{\mathbin{\cong}}\limits_{#1}}
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \begin{document}
 
 \begin{center}
-    \Large \textbf{A note on relatively injective $C_0(S)$-modules $C_0(S)$}\\[0.5cm]
+    \Large \textbf{A note on relatively injective $C_0(S)$-modules
+        $C_0(S)$}\\[0.5cm]
     \small {N. T. Nemesh}\\[0.5cm]
 \end{center}
 
 \thispagestyle{empty}
 
 \medskip
-\textbf{Abstract:} In this note we discuss some necessary and some sufficient conditions for relative injectivity of the $C_0(S)$-module $C_0(S)$, where $S$ is a locally compact Hausdorff space. We also give a Banach module version of Sobczyk's theorem. The main result of the paper is as follows: if $C_0(S)$-module $C_0(S)$ is relatively injective then the equality $S=\beta(S\setminus\{s\})$ holds for any limit point $s\in S$.
+\textbf{Abstract:} In this note we discuss some necessary and some sufficient
+conditions for relative injectivity of the $C_0(S)$-module $C_0(S)$, where $S$
+is a locally compact Hausdorff space. We also give a Banach module version of
+Sobczyk's theorem. The main result of the paper is as follows: if
+$C_0(S)$-module $C_0(S)$ is relatively injective then the equality
+$S=\beta(S\setminus \{s\})$ holds for any limit point $s\in S$.
 \medskip
 
-\textbf{Keywords:} injective Banach module, $C_0(S)$-space, almost compact space.
+\textbf{Keywords:} injective Banach module, $C_0(S)$-space, almost compact
+space.
 
 \bigskip
 
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 %	Introduction
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
-\section{Introduction}
-\label{SectionIntroduction}
+\section{Introduction}\label{SectionIntroduction}
 
-Extension problems have been an important topic of functional analysis since its inception. The first example of successfully solved extension problem is the Hahn-Banach theorem \cite{HahnLinSystInLinSp,BanachOnLinFuncI,BanachOnLinFuncII}. In modern terms this theorem states that the field of complex numbers is an injective object in the category of Banach spaces. All known injective Banach spaces are isomorphic to the space of continuous functions on some compact space \cite{BlascIvorConstrInjSpCK}. This fact motivates our study of injectivity of spaces of continuous functions, but this time we consider them as Banach modules.
+Extension problems have been an important topic of functional analysis since its
+inception. The first example of successfully solved extension problem is the
+Hahn-Banach
+theorem~\cite{HahnLinSystInLinSp,BanachOnLinFuncI,BanachOnLinFuncII}. In modern
+terms this theorem states that the field of complex numbers is an injective
+object in the category of Banach spaces. All known injective Banach spaces are
+isomorphic to the space of continuous functions on some compact
+space~\cite{BlascIvorConstrInjSpCK}. This fact motivates our study of
+injectivity of spaces of continuous functions, but this time we consider them as
+Banach modules.
 
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 %	Preliminaries
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
-\section{Preliminaries}
-\label{SectionPreliminaries}
-Before we proceed to the main topic we shall give a few definitions and notations.
+\section{Preliminaries}\label{SectionPreliminaries} Before we proceed to the
+main topic we shall give a few definitions and notations.
 
-Let $M$ be a subset of a set $N$, then $\chi_M$ denotes the indicator function of $M$. If $f:N\to L$ is an arbitrary function, then $f|_M$ denotes its restriction to $M$.
+Let $M$ be a subset of a set $N$, then $\chi_M$ denotes the indicator function
+of $M$. If $f:N\to L$ is an arbitrary function, then $f|_M$ denotes its
+restriction to $M$.
 
-Let $S$ be a Hausdorff topological space. The space $S$ is called \textit{extremally disconnected} if any open subset of $S$ has open closure; \textit{Stonean} if it is extremally disconnected and compact; \textit{pseudocompact} if any continuous function on $S$ is bounded. If $S$ is non-compact locally compact, then by $\alpha S$ we denote the \textit{Alexandroff's compactification} of $S$, and by $\beta S$ we denote \textit{Stone-Cech compactification} of $S$. The \textit{Stone-Cech remainder} $\beta S\setminus S$ we denote by $S^*$. A non-compact Hausdorff topological space $S$ is called \textit{almost compact} if $\alpha S=\beta S$. A typical example of almost compact space is $[0, \omega_1)$, where $\omega_1$ is the first uncountable ordinal \cite[paragraph 1.3]{HrusPsdCompTopSp}. More on extremally disconnected, pseudocompact and amost compact spaces can be found in \cite[section 6.2]{EngkingGenTop}, \cite[section 3.10]{EngkingGenTop} and \cite[paragraph 1.3]{HrusPsdCompTopSp} respectively.
+Let $S$ be a Hausdorff topological space. The space $S$ is called
+\textit{extremally disconnected} if any open subset of $S$ has open closure;
+\textit{Stonean} if it is extremally disconnected and compact;
+\textit{pseudocompact} if any continuous function on $S$ is bounded. If $S$ is
+non-compact locally compact, then by $\alpha S$ we denote the
+\textit{Alexandroff's compactification} of $S$, and by $\beta S$ we denote
+\textit{Stone-Cech compactification} of $S$. The \textit{Stone-Cech remainder}
+$\beta S\setminus S$ we denote by $S^*$. A non-compact Hausdorff topological
+space $S$ is called \textit{almost compact} if $\alpha S=\beta S$. A typical
+example of almost compact space is $[0, \omega_1)$, % chktex 9
+where $\omega_1$ is the first uncountable ordinal~\cite[paragraph
+    1.3]{HrusPsdCompTopSp}. More on extremally disconnected, pseudocompact and amost
+compact spaces can be found in~\cite[section 6.2]{EngkingGenTop},~\cite[section
+    3.10]{EngkingGenTop} and~\cite[paragraph 1.3]{HrusPsdCompTopSp} respectively.
 
-For a given non-compact locally compact Hausdorff space $S$ we can consider filter base $\mathcal{B}_S$ consisting of complements of compact subsets of $S$. The filter $\mathcal{F}_S$ generated by $\mathcal{B}_S$ is called the \textit{Frechet filter} on $S$. Now we can introduce several functional spaces on $S$. By $C(S)$ we denote the space of continuous functions on $S$. This space is normable if $S$ is compact. By $C_b(S)$ we denote the Banach space of continuous bounded functions on $S$. Symbol $C_l(S)$ denotes the space of continuous functions that converge to a finite limit along filter $\mathcal{F}_S$. By $C_0(S)$ we denote the closed subspace of $C_l(S)$ of functions that converge to zero along $\mathcal{F}_S$ (we also say that these functions vanish at infinity). If $S$ is compact all these spaces coincide with $C(S)$.
+For a given non-compact locally compact Hausdorff space $S$ we can consider
+filter base $\mathcal{B}_S$ consisting of complements of compact subsets of $S$.
+The filter $\mathcal{F}_S$ generated by $\mathcal{B}_S$ is called the
+\textit{Frechet filter} on $S$. Now we can introduce several functional spaces
+on $S$. By $C(S)$ we denote the space of continuous functions on $S$. This space
+is normable if $S$ is compact. By $C_b(S)$ we denote the Banach space of
+continuous bounded functions on $S$. Symbol $C_l(S)$ denotes the space of
+continuous functions that converge to a finite limit along filter
+$\mathcal{F}_S$. By $C_0(S)$ we denote the closed subspace of $C_l(S)$ of
+functions that converge to zero along $\mathcal{F}_S$ (we also say that these
+functions vanish at infinity). If $S$ is compact all these spaces coincide with
+$C(S)$.
 
-Let $A$ be a Banach algebra. We shall consider only right Banach modules over $A$ with contractive outer action $\cdot:X\times A\to X$. Let $X$ and $Y$ be two right Banach $A$-modules, then a map $\phi:X\to Y$ is an \textit{$A$-morphism} if it is a continuous $A$-module map. Banach $A$-modules and $A$-morphisms form a category which we denote by $\mathbf{mod}-A$.
+Let $A$ be a Banach algebra. We shall consider only right Banach modules over
+$A$ with contractive outer action $\cdot:X\times A\to X$. Let $X$ and $Y$ be two
+right Banach $A$-modules, then a map $\phi:X\to Y$ is an \textit{$A$-morphism}
+if it is a continuous $A$-module map. Banach $A$-modules and $A$-morphisms form
+a category which we denote by $\mathbf{mod}-A$.
 
-In $\mathbf{mod}-A$ the notion of injectivity can be defined in different ways. Let $\xi:X\to Y$ be an $A$-morphism. Then it is called \textit{relatively admissible} if $\eta\circ \xi=1_X$ for some bounded linear operator $\eta:Y\to X$; \textit{topologically admissible} if $\xi$ is a linear homeomorphism on its image; \textit{metrically admissible} if $\xi$ is isometric.
-A Banach $A$-module $J$ is called \textit{relatively injective} (resp. \textit{topologically injective}, resp. \textit{metrically injective}) if for any relatively (resp. topologically, resp. metrically) admissible $A$-morphism $\xi:X\to Y$ and any $A$-morphism $\phi:X\to J$ there exists a continuous (resp. continuous, resp. continuous with the same norm as $\phi$) $A$-module map $\psi:Y\to J$ making the diagram
+In $\mathbf{mod}-A$ the notion of injectivity can be defined in different ways.
+Let $\xi:X\to Y$ be an $A$-morphism. Then it is called \textit{relatively
+    admissible} if $\eta\circ \xi=1_X$ for some bounded linear operator $\eta:Y\to
+    X$; \textit{topologically admissible} if $\xi$ is a linear homeomorphism on its
+image; \textit{metrically admissible} if $\xi$ is isometric. A Banach $A$-module
+$J$ is called \textit{relatively injective} (resp. \textit{topologically
+    injective}, resp. \textit{metrically injective}) if for any relatively (resp.
+topologically, resp.\ metrically) admissible $A$-morphism $\xi:X\to Y$ and any
+$A$-morphism $\phi:X\to J$ there exists a continuous (resp.\ continuous, resp.
+continuous with the same norm as $\phi$) $A$-module map $\psi:Y\to J$ making the
+diagram
 $$
     \xymatrix{
     & {Y} \\
-    {J} \ar@{<--}[ur]^{\psi} &{X} \ar[u]^{\xi} \ar[l]^{\phi}}
+    {J} \ar@{<--}[ur]^{\psi} &{X} \ar[u]^{\xi} \ar[l]^{\phi}}  % chktex 3
 $$
 commutative.
 
-If $A=\{0\}$, the category $\mathbf{mod}-A$ turns into the ordinary category of Banach spaces. In this case all Banach spaces are relatively injective. As for topologically and metrically injective Banach spaces, in the standard literature they are called \textit{$\mathcal{P}_\lambda$-spaces} and \textit{$\mathcal{P}_1$-spaces} respectively. To this day there is no clear description of $\mathcal{P}_\lambda$-spaces \cite[page vi]{AvilSepInjBanSp}, but for $\mathcal{P}_1$-spaces the question is closed. Any $\mathcal{P}_1$-space is isometrically isomorphic to $C(S)$-space, where $S$ is a Stonean space \cite{HasumExtPropCompBanSp}.
+If $A=\{0\}$, the category $\mathbf{mod}-A$ turns into the ordinary category of
+Banach spaces. In this case all Banach spaces are relatively injective. As for
+topologically and metrically injective Banach spaces, in the standard literature
+they are called \textit{$\mathcal{P}_\lambda$-spaces} and
+\textit{$\mathcal{P}_1$-spaces} respectively. To this day there is no clear
+description of $\mathcal{P}_\lambda$-spaces~\cite[page vi]{AvilSepInjBanSp}, but
+for $\mathcal{P}_1$-spaces the question is closed. Any $\mathcal{P}_1$-space is
+isometrically isomorphic to $C(S)$-space, where $S$ is a Stonean
+space~\cite{HasumExtPropCompBanSp}.
 
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 %   Necessary and sufficient conditions of injectivity
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
-\section{Necessary and sufficient conditions for injectivity}
-\label{SecionNecessaryAndSufficientConditionsForInjectivity}
+\section{Necessary and sufficient conditions for
+  injectivity}\label{SecionNecessaryAndSufficientConditionsForInjectivity}
 
-In this section we shall discuss necessary and sufficient conditions for the relative injectivity of $C_0(S)$-module $C_0(S)$, where $S$ is a locally compact Hausdorff space. We start from a quite restrictive sufficient condition.
+In this section we shall discuss necessary and sufficient conditions for the
+relative injectivity of $C_0(S)$-module $C_0(S)$, where $S$ is a locally compact
+Hausdorff space. We start from a quite restrictive sufficient condition.
 
-\begin{proposition}\label{SStonImplRelInjCSModCS} Let $S$ be a Stonean space. Then $C(S)$-module $C(S)$ is relatively injective.
+\begin{proposition}\label{SStonImplRelInjCSModCS} Let $S$ be a Stonean space.
+    Then $C(S)$-module $C(S)$ is relatively injective.
 \end{proposition}
-\begin{proof} Denote $A=C(S)$. Since $S$ is Stonean, then $A$ is an $AW^*$-algebra \cite[section 1, paragraph 7]{BerbBaerStRng}. It was shown in \cite[theorem 2]{TakHanBanThAndJordDecomOfModMap} that any $AW^*$-algebra is a metrically injective bimodule over itself. Careful inspection of the proof shows that the same argument is valid for the right $A$-module $A$. It remains to recall that any metrically injective module is relatively injective.
+\begin{proof} Denote $A=C(S)$. Since $S$ is Stonean, then $A$ is an
+    $AW^*$-algebra~\cite[section 1, paragraph 7]{BerbBaerStRng}. It was shown
+    in~\cite[theorem 2]{TakHanBanThAndJordDecomOfModMap} that any $AW^*$-algebra
+    is a metrically injective bimodule over itself. Careful inspection of the
+    proof shows that the same argument is valid for the right $A$-module $A$. It
+    remains to recall that any metrically injective module is relatively
+    injective.
 \end{proof}
 
-To give a rather burdensome necessary condition for relative injectivity of $C(S)$-module $C(S)$ we start from somewhat specific case.
+To give a rather burdensome necessary condition for relative injectivity of
+$C(S)$-module $C(S)$ we start from somewhat specific case.
 
-\begin{proposition}\label{RelInjCaSModCaSImplSAlmComp} Let $S$ be a non-compact locally compact Hausdorff space. Suppose $C(\alpha S)$-module $C(\alpha S)$ is relatively injective. Then $S$ is almost compact.
+\begin{proposition}\label{RelInjCaSModCaSImplSAlmComp} Let $S$ be a non-compact
+    locally compact Hausdorff space. Suppose $C(\alpha S)$-module $C(\alpha S)$
+    is relatively injective. Then $S$ is almost compact.
 \end{proposition}
-\begin{proof} Obviously $C(\alpha S)$ and $C_l(S)$ are isometrically isomorphic as Banach algebras, so $C_l(S)$-module $C_l(S)$ is relatively injective. Note that $C_0(S)$ is a two sided ideal of $C_l(S)$ consisting of functions that vanish at infinity. This ideal is complemented via projection $P:C_l(S)\to C_0(S):x\mapsto x-(\lim_{\mathcal{F}_S}x(s))\chi_{S}$. Consider an isometric embedding $\xi:C_0(S)\to C_l(S):x\mapsto x$ which is a $C_l(S)$-morphism. Since $P\circ\xi=1_{C_0(S)}$, then $\xi$ is relatively admissible.
+\begin{proof} Obviously $C(\alpha S)$ and $C_l(S)$ are isometrically isomorphic
+    as Banach algebras, so $C_l(S)$-module $C_l(S)$ is relatively injective.
+    Note that $C_0(S)$ is a two sided ideal of $C_l(S)$ consisting of functions
+    that vanish at infinity. This ideal is complemented via projection
+    $P:C_l(S)\to C_0(S):x\mapsto x-(\lim_{\mathcal{F}_S}x(s))\chi_{S}$. Consider
+    an isometric embedding $\xi:C_0(S)\to C_l(S):x\mapsto x$ which is a
+    $C_l(S)$-morphism. Since $P\circ\xi=1_{C_0(S)}$, then $\xi$ is relatively
+    admissible.
 
-    Fix $f \in C_b(S)$ and consider $C_l(S)$-morphism $\phi:C_0(S)\to C_l(S):x\mapsto f \cdot x$. Since $C_l(S)$ is relatively injective $C_l(S)$-module, then there exists a $C_l(S)$-morphism $\psi:C_l(S)\to C_l(S)$ such that $\phi=\psi\circ\xi$. In particular, for all $x\in C_0(S)$ we have $f\cdot x=\phi(x)=\psi(\xi(x))=\psi(x)=\psi(x\cdot \chi_{S})=x\cdot \psi(\chi_{S})$. Fix $s\in S$. Since $S$ is locally compact and Hausdorff, then by \cite[corollary 3.3.3]{EngkingGenTop} there exists a continuous function $e\in C_0(S)$ such that $e(s)=1$. Hence, $f(s)=f(s)e(s)=(f\cdot e)(s)=(e\cdot\psi(\chi_{S}))(s)=e(s)\psi(\chi_{S})(s)=\psi(\chi_{S})(s)$. Since $s\in S$ is arbitrary $f=\psi(\chi_{S})$. By construction $\psi(\chi_S)\in C_l(S)$, so $f\in C_l(S)$. Recall that $f\in C_b(S)$ is arbitrary, so $C_b(S)\subset C_l(S)$. This is possible only if $C_b(S)=C_l(S)$.
+    Fix $f \in C_b(S)$ and consider $C_l(S)$-morphism $\phi:C_0(S)\to
+        C_l(S):x\mapsto f \cdot x$. Since $C_l(S)$ is relatively injective
+    $C_l(S)$-module, then there exists a $C_l(S)$-morphism $\psi:C_l(S)\to
+        C_l(S)$ such that $\phi=\psi\circ\xi$. In particular, for all $x\in
+        C_0(S)$ we have $f\cdot x=\phi(x)=\psi(\xi(x))=\psi(x)=\psi(x\cdot
+        \chi_{S})=x\cdot \psi(\chi_{S})$. Fix $s\in S$. Since $S$ is locally
+    compact and Hausdorff, then by~\cite[corollary 3.3.3]{EngkingGenTop}
+    there exists a continuous function $e\in C_0(S)$ such that $e(s)=1$.
+    Hence, $f(s)=f(s)e(s)=(f\cdot
+        e)(s)=(e\cdot\psi(\chi_{S}))(s)=e(s)\psi(\chi_{S})(s)=\psi(\chi_{S})(s)$.
+    Since $s\in S$ is arbitrary $f=\psi(\chi_{S})$. By construction
+    $\psi(\chi_S)\in C_l(S)$, so $f\in C_l(S)$. Recall that $f\in C_b(S)$ is
+    arbitrary, so $C_b(S)\subset C_l(S)$. This is possible only if
+    $C_b(S)=C_l(S)$.
 
-    Note that in the category of Banach spaces $C_b(S)$ is isometrically isomorphic to $C(\beta S)$, and $C_l(S)$ is isometrically isomorphic to $C(\alpha S)$. So we conclude that Banach spaces $C(\beta S)$ and $C(\alpha S)$ are isometrically isomorphic. By Banach-Stone theorem \cite[theorem 83]{StoneBanStAppBoolRngToTop} the spaces $\alpha S$ and $\beta S$ are homeomorphic. Therefore $S$ is almost compact.
+    Note that in the category of Banach spaces $C_b(S)$ is isometrically
+    isomorphic to $C(\beta S)$, and $C_l(S)$ is isometrically isomorphic to
+    $C(\alpha S)$. So we conclude that Banach spaces $C(\beta S)$ and $C(\alpha
+        S)$ are isometrically isomorphic. By Banach-Stone theorem~\cite[theorem
+        83]{StoneBanStAppBoolRngToTop} the spaces $\alpha S$ and $\beta S$ are
+    homeomorphic. Therefore $S$ is almost compact.
 \end{proof}
 
 Now its time to introduce yet another notion of compactness.
 
-\begin{definition} A compact Hausdorff space $S$ is called uniformly compact if for every limit point $s\in S$ the space $S\setminus\{s\}$ is almost compact.
+\begin{definition} A compact Hausdorff space $S$ is called uniformly compact if
+    for every limit point $s\in S$ the space $S\setminus \{s\}$ is almost
+    compact.
 \end{definition}
 
-In other words a compact Hausdorff space $S$ is uniformly compact if for every limit point $s\in S$ we have $S=\beta(S\setminus\{s\})$.
+In other words a compact Hausdorff space $S$ is uniformly compact if for every
+limit point $s\in S$ we have $S=\beta(S\setminus \{s\})$.
 
 \begin{proposition}\label{StoneSpUnifComp} Stonean spaces are uniformly compact.
 \end{proposition}
-\begin{proof} Let $S$ be a Stonean space and $s\in S$ be its limit point. Denote $S_\circ=S\setminus\{s\}$. Since $S$ is compact and $S_\circ$ is its open subset then $S_\circ$ is locally compact. As $s$ is a limit point in $S$, then space $S_\circ$ is non-compact and $\alpha S_\circ=S$. Let $A,B\subset S_\circ$ be two completely separated subsets. By definition it means that there exists a continuous function $f:S_\circ\to\mathbb[0,1]$ such that $f|_A=\{0\}$ and $f|_B=\{1\}$. Consider disjoint open sets $U=f^{-1}([0,1/3))\subset S_\circ$ and $V=f^{-1}((1/2,1])\subset S_\circ$. Clearly, $U$ and $V$ are open in $S$. Since $S$ is extremally disconnected then $U$ and $V$ have disjoint closures in $S$. As $A\subset U$, $B\subset V$, the sets $A$ and $B$ also have disjoint closures in $S$. By theorem \cite[theorem 3.6.2]{EngkingGenTop} we get that $\beta S_\circ=\alpha S_\circ=S$.
+\begin{proof} Let $S$ be a Stonean space and $s\in S$ be its limit point. Denote
+    $S_\circ=S\setminus \{s\}$. Since $S$ is compact and $S_\circ$ is its open
+    subset then $S_\circ$ is locally compact. As $s$ is a limit point in $S$,
+    then space $S_\circ$ is non-compact and $\alpha S_\circ=S$. Let $A,B\subset
+        S_\circ$ be two completely separated subsets. By definition it means that
+    there exists a continuous function $f:S_\circ\to\mathbb[0,1]$ such that
+    $f|_A=\{0\}$ and $f|_B=\{1\}$. Consider disjoint open sets
+    $U=f^{-1}([0,1/3))\subset S_\circ$ and  % chktex 9
+    $V=f^{-1}((1/2,1])\subset S_\circ$.  % chktex 9
+    Clearly, $U$ and $V$ are open in $S$. Since $S$ is extremally disconnected
+    then $U$ and $V$ have disjoint closures in $S$. As $A\subset U$, $B\subset
+        V$, the sets $A$ and $B$ also have disjoint closures in $S$. By
+    theorem~\cite[theorem 3.6.2]{EngkingGenTop} we get that $\beta
+        S_\circ=\alpha S_\circ=S$.
 \end{proof}
 
-\begin{corollary} \label{MesSpUnifCompIffFin} A metrizable space is uniformly compact if and only if it is finite.
+\begin{corollary}\label{MesSpUnifCompIffFin} A metrizable space is uniformly
+    compact if and only if it is finite.
 \end{corollary}
-\begin{proof} Let $S$ be a metrizable space with topology induced by metric $d$. Suppose that $S$ is uniformly compact. Assume that $S$ has a limit point $s\in S$. Then the space $S_\circ=S\setminus\{s\}$ is almost compact and therefore pseudocompact \cite[proposition 1.3.10]{HrusPsdCompTopSp}. Consider continuous function $f:S_\circ\to\mathbb{R}:x\mapsto d(x,s)^{-1}$. This function is unbounded because $s\in S$ is a limit point. Therefore $S_\circ$ is not pseudocompact. Contradiction. Thus $S$ is a compact metric space without limit points, hence $S$ is finite.
+\begin{proof} Let $S$ be a metrizable space with topology induced by metric $d$.
+    Suppose that $S$ is uniformly compact. Assume that $S$ has a limit point
+    $s\in S$. Then the space $S_\circ=S\setminus \{s\}$ is almost compact and
+    therefore pseudocompact~\cite[proposition 1.3.10]{HrusPsdCompTopSp}.
+    Consider continuous function $f:S_\circ\to\mathbb{R}:x\mapsto
+        {d(x,s)}^{-1}$. This function is unbounded because $s\in S$ is a limit
+    point. Therefore $S_\circ$ is not pseudocompact. Contradiction. Thus $S$ is
+    a compact metric space without limit points, hence $S$ is finite.
 
     Conversely, if $S$ is finite it is vacuously uniformly compact.
 \end{proof}
 
 The following example is due to K. P. Hart.
 
-\begin{proposition}\label{UcountProdCompSpIsUnifComp} The Tychonoff's product of an uncountable family of compact Hausdorff spaces that are not singletons is uniformly compact.
+\begin{proposition}\label{UcountProdCompSpIsUnifComp} The Tychonoff's product of
+    an uncountable family of compact Hausdorff spaces that are not singletons is
+    uniformly compact.
 \end{proposition}
-\begin{proof} Let $\mathcal{S}=(S_\lambda)_{\lambda\in\Lambda}$ be a family of compact Hausdorff spaces. By Tychonoff's theorem their product $S$ is compact \cite[theorem 3.2.4]{EngkingGenTop}. Let $s\in S$ be a limit point in $S$. Since the spaces $S_\lambda$ are not singletons for all $\lambda\in\Lambda$, then there exists a point $s'\in S$ such that $s_\lambda\neq s'_\lambda$ for all $\lambda\in\Lambda$. Let $\Sigma(s')$ be the $\Sigma$-product of $\mathcal{S}$ at point $s'$, that is $\Sigma(s')$ consists of all points in $S$ that differ from $s'$ at at most countably many coordinates. By \cite[theorem 3.12.24(c)]{EngkingGenTop} we have $S=\beta(\Sigma(s'))$. Since $\Sigma(s')\subset S\setminus\{s\}\subset S=\beta(\Sigma(s'))$, then by \cite[corollary 3.6.9]{EngkingGenTop} $\beta(S\setminus\{s\})=\beta(\Sigma(s'))=S$. As $s\in S$ is an arbitrary limit point, then $S$ is uniformly compact.
+\begin{proof} Let $\mathcal{S}={(S_\lambda)}_{\lambda\in\Lambda}$ be a family of
+    compact Hausdorff spaces. By Tychonoff's theorem their product $S$ is
+    compact~\cite[theorem 3.2.4]{EngkingGenTop}. Let $s\in S$ be a limit point
+    in $S$. Since the spaces $S_\lambda$ are not singletons for all
+    $\lambda\in\Lambda$, then there exists a point $s'\in S$ such that
+    $s_\lambda\neq s'_\lambda$ for all $\lambda\in\Lambda$. Let $\Sigma(s')$ be
+    the $\Sigma$-product of $\mathcal{S}$ at point $s'$, that is $\Sigma(s')$
+    consists of all points in $S$ that differ from $s'$ at at most countably
+    many coordinates. By~\cite[theorem 3.12.24(c)]{EngkingGenTop} we have
+    $S=\beta(\Sigma(s'))$. Since $\Sigma(s')\subset S\setminus \{s\}\subset
+        S=\beta(\Sigma(s'))$, then by~\cite[corollary 3.6.9]{EngkingGenTop}
+    $\beta(S\setminus \{s\})=\beta(\Sigma(s'))=S$. As $s\in S$ is an arbitrary
+    limit point, then $S$ is uniformly compact.
 \end{proof}
 
-In some cases the property of being uniformly compact depends on the set of axioms of the set theory. By \textsc{ZFC} we denote the standard Zermelo-Fraenkel set theory together with the axiom of choice. By \textsc{CH}$_n$ we denote the axiom that the cardinality of continuum equals the $n$-th uncountable cardinal. Finally, \textsc{MA} stands for the Martin's axiom. For details see \cite{KunSetThIndepPrf}. On the one hand $\mathbb{N}^*$ is not uniformly compact in \textsc{ZFC + CH$_1$} \cite{FinGillExtContFuncbN}. On the other hand, it is consistent with \textsc{ZFC + MA + CH$_2$} that $\mathbb{N}^*$ is uniformly compact \cite{DouKunMillCStarEmbdDenPropSbspStoneRemN}.
+In some cases the property of being uniformly compact depends on the set of
+axioms of the set theory. By \textsc{ZFC} we denote the standard
+Zermelo-Fraenkel set theory together with the axiom of choice. By
+\textsc{CH}$_n$ we denote the axiom that the cardinality of continuum equals the
+$n$-th uncountable cardinal. Finally, \textsc{MA} stands for the Martin's axiom.
+For details see~\cite{KunSetThIndepPrf}. On the one hand $\mathbb{N}^*$ is not
+uniformly compact in \textsc{ZFC + CH$_1$}~\cite{FinGillExtContFuncbN}. On the
+other hand, it is consistent with \textsc{ZFC + MA + CH$_2$} that $\mathbb{N}^*$
+is uniformly compact~\cite{DouKunMillCStarEmbdDenPropSbspStoneRemN}.
 
 We are ready to formulate the main result of the paper.
 
-\begin{theorem}\label{RelInjCSModCSImplUnifCompS} Let $S$ be a locally compact Hausdorff space. If $C_0(S)$-module $C_0(S)$ is relatively injective, then $S$ is uniformly compact.
+\begin{theorem}\label{RelInjCSModCSImplUnifCompS} Let $S$ be a locally compact
+    Hausdorff space. If $C_0(S)$-module $C_0(S)$ is relatively injective, then
+    $S$ is uniformly compact.
 \end{theorem}
-\begin{proof} Since $C_0(S)$-module $C_0(S)$ is relatively injective from \cite[corollary 2.2.8 (i)]{RamsHomPropSemgroupAlg} we know that $C_0(S)$ has a left identity. Therefore $\chi_S\in C_0(S)$, hence $S$ is compact. Let $s$ be a non-isolated point in $S$ and $S_\circ=S\setminus\{s\}$. Since $\alpha S_\circ=S$, we see that $C(\alpha S_\circ)$-module $C(\alpha S_\circ)$ is relatively injective. By proposition \ref{RelInjCaSModCaSImplSAlmComp} the space $S_\circ$ is almost compact. Since $s\in S$ is arbitrary the space $S$ is uniformly compact.
+\begin{proof} Since $C_0(S)$-module $C_0(S)$ is relatively injective
+    from~\cite[corollary 2.2.8 (i)]{RamsHomPropSemgroupAlg} we know that
+    $C_0(S)$ has a left identity. Therefore $\chi_S\in C_0(S)$, hence $S$ is
+    compact. Let $s$ be a non-isolated point in $S$ and $S_\circ=S\setminus
+        \{s\}$. Since $\alpha S_\circ=S$, we see that $C(\alpha S_\circ)$-module
+    $C(\alpha S_\circ)$ is relatively injective. By
+    proposition~\ref{RelInjCaSModCaSImplSAlmComp} the space $S_\circ$ is almost
+    compact. Since $s\in S$ is arbitrary the space $S$ is uniformly compact.
 \end{proof}
 
-\begin{corollary}\label{CSModCSRelInjImplSHasNoConvSeq} Let $S$ be a compact metrizable space. If $C(S)$-module $C(S)$ is relatively injective then $S$ is finite.
+\begin{corollary}\label{CSModCSRelInjImplSHasNoConvSeq} Let $S$ be a compact
+    metrizable space. If $C(S)$-module $C(S)$ is relatively injective then $S$
+    is finite.
 \end{corollary}
-\begin{proof} The result directly follows from theorem \ref{RelInjCSModCSImplUnifCompS} and corollary  \ref{MesSpUnifCompIffFin}.
+\begin{proof} The result directly follows from
+    theorem~\ref{RelInjCSModCSImplUnifCompS} and
+    corollary~\ref{MesSpUnifCompIffFin}.
 \end{proof}
 
-Currently all known examples of locally compact spaces $S$ such that $C_0(S)$-module $C_0(S)$ is relatively injective are extremally disconnected. It would be interesting to get non-extremally disconnected examples, if they exist. The first candidate is the space $\mathbb{N}^*$. It is not extremally disconnected \cite[example 6.2.31]{EngkingGenTop}, but it is uniformly compact under certain set theoretic assumptions. However $C(\mathbb{N}^*)$ is not an injective Banach space \cite[corollary 2]{AmirProjContFuncSp}. Thanks to proposition \ref{UcountProdCompSpIsUnifComp} another possible candidate is an uncountable power of the discrete space $\{0, 1\}$.
+Currently all known examples of locally compact spaces $S$ such that
+$C_0(S)$-module $C_0(S)$ is relatively injective are extremally disconnected. It
+would be interesting to get non-extremally disconnected examples, if they exist.
+The first candidate is the space $\mathbb{N}^*$. It is not extremally
+disconnected~\cite[example 6.2.31]{EngkingGenTop}, but it is uniformly compact
+under certain set theoretic assumptions. However $C(\mathbb{N}^*)$ is not an
+injective Banach space~\cite[corollary 2]{AmirProjContFuncSp}. Thanks to
+proposition~\ref{UcountProdCompSpIsUnifComp} another possible candidate is an
+uncountable power of the discrete space $\{0, 1\}$.
 
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 %   A module version of Sobczyk theorem
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
-\section{A module version of Sobczyk's theorem}
-\label{SectionExamples}
+\section{A module version of Sobczyk's theorem}\label{SectionExamples}
 
-In classical Banach space theory all infinite dimensional injective Banach spaces are non-separable since all these spaces contain a copy of $\ell_\infty(\mathbb{N})$ \cite[corollary 1.1.4]{RosOnRelDisjFamOfMeas}. Sobczyk showed that $c_0$ is an injective space but among separable Banach spaces \cite[theorem 5]{SobProjmOnc0}. Later Zippin, showed  that all spaces injective in the category of separable Banach spaces are isomorphic to $c_0$ \cite{ZipSepExtProbm}.  Here we shall show that for any set $\Lambda$ the $\ell_\infty(\Lambda)$-module $c_0(\Lambda)$ is relatively injective.
-Note that by theorem \ref{RelInjCSModCSImplUnifCompS} the $c_0(\Lambda)$-module $c_0(\Lambda)$ is not relatively injective for infinite $\Lambda$.
+In classical Banach space theory all infinite dimensional injective Banach
+spaces are non-separable since all these spaces contain a copy of
+$\ell_\infty(\mathbb{N})$~\cite[corollary 1.1.4]{RosOnRelDisjFamOfMeas}. Sobczyk
+showed that $c_0$ is an injective space but among separable Banach
+spaces~\cite[theorem 5]{SobProjmOnc0}. Later Zippin, showed  that all spaces
+injective in the category of separable Banach spaces are isomorphic to
+$c_0$~\cite{ZipSepExtProbm}.  Here we shall show that for any set $\Lambda$ the
+$\ell_\infty(\Lambda)$-module $c_0(\Lambda)$ is relatively injective. Note that
+by theorem~\ref{RelInjCSModCSImplUnifCompS} the $c_0(\Lambda)$-module
+$c_0(\Lambda)$ is not relatively injective for infinite $\Lambda$.
 
-Now we need to recall a few notions from Banach space theory. A bounded linear operator $T$ is called \textit{weakly compact} if it maps bounded sets into relatively weakly compact sets. A bounded linear operator $T$ is called \textit{completely continuous} if it maps weakly convergent sequences into norm convergent sequences.
+Now we need to recall a few notions from Banach space theory. A bounded linear
+operator $T$ is called \textit{weakly compact} if it maps bounded sets into
+relatively weakly compact sets. A bounded linear operator $T$ is called
+\textit{completely continuous} if it maps weakly convergent sequences into norm
+convergent sequences.
 
-A Banach space $E$ is called a \textit{Grothendieck space} if every weak$^*$ convergent sequence in $E^*$ converges weakly. Obviously all reflexive spaces are Grothendieck spaces. A Banach space $E$ is called \textit{weakly compactly generated} if there is a weakly compact set $K\subset E$ whose linear span is dense in $E$. Typical examples of weakly compactly generated spaces are reflexive spaces and separable spaces \cite[paragraph 13.1]{FabHabBanSpTh}. Finally, we say that a Banach space $E$ has the \textit{Dunford-Pettis property} if for any weakly null $(f_n)_{n\in\mathbb{N}}\subset E^*$ and any weakly null sequence $(x_n)_{n\in\mathbb{N}}\subset E$ holds $\lim_{n\to\infty} f_n(x_n)=0$. For any compact space $S$ the Banach space $C(S)$ has the Dunford-Pettis property \cite{DunfPetLinOpSumFunc}.
+A Banach space $E$ is called a \textit{Grothendieck space} if every weak$^*$
+convergent sequence in $E^*$ converges weakly. Obviously all reflexive spaces
+are Grothendieck spaces. A Banach space $E$ is called \textit{weakly compactly
+    generated} if there is a weakly compact set $K\subset E$ whose linear span is
+dense in $E$. Typical examples of weakly compactly generated spaces are
+reflexive spaces and separable spaces~\cite[paragraph 13.1]{FabHabBanSpTh}.
+Finally, we say that a Banach space $E$ has the \textit{Dunford-Pettis property}
+if for any weakly null ${(f_n)}_{n\in\mathbb{N}}\subset E^*$ and any weakly null
+sequence ${(x_n)}_{n\in\mathbb{N}}\subset E$ holds $\lim_{n\to\infty}
+    f_n(x_n)=0$. For any compact space $S$ the Banach space $C(S)$ has the
+Dunford-Pettis property~\cite{DunfPetLinOpSumFunc}.
 
-\begin{proposition}\label{OpLInfc0CompContWeakComp} Any bounded linear operator $T:\ell_\infty(\Lambda)\to c_0(\Lambda)$ is weakly compact and even completely continuous.
+\begin{proposition}\label{OpLInfc0CompContWeakComp} Any bounded linear operator
+    $T:\ell_\infty(\Lambda)\to c_0(\Lambda)$ is weakly compact and even
+    completely continuous.
 \end{proposition}
-\begin{proof} Note that $\ell_\infty(\Lambda)$ is isometrically isomorphic to $C(\beta\Lambda)$. Since $\beta\Lambda$ is a Stonean space, then by \cite[theorem 9, p. 168]{GrothApplFabilCompCK} the space $\ell_\infty(\Lambda)$ is a Grothendieck space. The space $c_0(\Lambda)$ is weakly compactly generated \cite[paragraph 13.1 example (iii)]{FabHabBanSpTh}. Then the operator $T$ is weakly compact \cite[exercise 13.33]{FabHabBanSpTh}. Again, since the space $\ell_\infty(\Lambda)$ is a $C(S)$-space for $S=\beta\Lambda$, then it has the Dunford-Pettis property \cite[theorem 13.43]{FabHabBanSpTh}. Therefore any weakly compact operator with domain $\ell_\infty(\Lambda)$ is completely continuous \cite[proposition 13.42]{FabHabBanSpTh}.
+\begin{proof} Note that $\ell_\infty(\Lambda)$ is isometrically isomorphic to
+    $C(\beta\Lambda)$. Since $\beta\Lambda$ is a Stonean space, then
+    by~\cite[theorem 9, p. 168]{GrothApplFabilCompCK} the space
+    $\ell_\infty(\Lambda)$ is a Grothendieck space. The space $c_0(\Lambda)$ is
+    weakly compactly generated~\cite[paragraph 13.1 example
+        (iii)]{FabHabBanSpTh}. Then the operator $T$ is weakly
+    compact~\cite[exercise 13.33]{FabHabBanSpTh}. Again, since the space
+    $\ell_\infty(\Lambda)$ is a $C(S)$-space for $S=\beta\Lambda$, then it has
+    the Dunford-Pettis property~\cite[theorem 13.43]{FabHabBanSpTh}. Therefore
+    any weakly compact operator with domain $\ell_\infty(\Lambda)$ is completely
+    continuous~\cite[proposition 13.42]{FabHabBanSpTh}.
 \end{proof}
 
-\begin{proposition}\label{FrechFiltConvCharac} Let $\Lambda$ be an infinite set and $x:\Lambda\to\mathbb{C}$ be a function such that $\lim_{n\to\infty} x(\lambda_n)=0$ for all sequences $(\lambda_n)_{n\in\mathbb{N}}$ of distinct elements in $\Lambda$. Then $\lim_{\mathcal{F}_{\Lambda}}x(\lambda)=0$.
+\begin{proposition}\label{FrechFiltConvCharac} Let $\Lambda$ be an infinite set
+    and $x:\Lambda\to\mathbb{C}$ be a function such that $\lim_{n\to\infty}
+        x(\lambda_n)=0$ for all sequences ${(\lambda_n)}_{n\in\mathbb{N}}$ of
+    distinct elements in $\Lambda$. Then
+    $\lim_{\mathcal{F}_{\Lambda}}x(\lambda)=0$.
 \end{proposition}
-\begin{proof} Suppose it is not true that $\lim_{\mathcal{F}_{\Lambda}}x(\lambda)=0$. Then there exists an $\epsilon > 0$ such that for any $L\in\mathcal{F}_{\Lambda}$ there exists a $\lambda\in L$ with the property $|x(\lambda)|>\epsilon$. By induction we can construct a sequence $(\lambda_k)_{k\in\mathbb{N}}$ of distinct elements in $\Lambda$ such that $|x(\lambda_n)|\geq \epsilon$. Therefore $\lim_{k\to\infty} x(\lambda_k)\neq 0$. Contradiction.
+\begin{proof} Suppose it is not true that
+    $\lim_{\mathcal{F}_{\Lambda}}x(\lambda)=0$. Then there exists an $\epsilon >
+        0$ such that for any $L\in\mathcal{F}_{\Lambda}$ there exists a $\lambda\in
+        L$ with the property $|x(\lambda)|>\epsilon$. By induction we can construct
+    a sequence ${(\lambda_k)}_{k\in\mathbb{N}}$ of distinct elements in
+    $\Lambda$ such that $|x(\lambda_n)|\geq \epsilon$. Therefore
+    $\lim_{k\to\infty} x(\lambda_k)\neq 0$. Contradiction.
 \end{proof}
 
-\begin{proposition}\label{OpLInfc0DiagConv0} Let $\Lambda$ be an infinite set. Then for any bounded linear operator $T:\ell_\infty(\Lambda)\to c_0(\Lambda)$ holds $\lim_{\mathcal{F}_{\Lambda}}T(\chi_{\{\lambda\}})(\lambda)=0$.
+\begin{proposition}\label{OpLInfc0DiagConv0} Let $\Lambda$ be an infinite set.
+    Then for any bounded linear operator $T:\ell_\infty(\Lambda)\to
+        c_0(\Lambda)$ holds $\lim_{\mathcal{F}_{\Lambda}}T(\chi_{\{\lambda
+            \}})(\lambda)=0$.
 \end{proposition}
-\begin{proof} Take an arbitrary sequence $(\lambda_n)_{n\in\mathbb{N}}$ of distinct elements in $\Lambda$. Then $(\chi_{\{\lambda_n\}})_{n\in\mathbb{N}}$ weakly converges to 0 in $c_0(\Lambda)$, and a fortiori in $\ell_\infty(\Lambda)$. By proposition \ref{OpLInfc0CompContWeakComp} the operator $T$ is completely continuous, so $T(\chi_{\{\lambda_n\}})$ converges to 0 in norm. In particular, $\lim_{n\to\infty} T(\chi_{\{\lambda_n\}})(\lambda_n)=0$. Now from proposition \ref{FrechFiltConvCharac} we get the desired equality.
+\begin{proof} Take an arbitrary sequence ${(\lambda_n)}_{n\in\mathbb{N}}$ of
+    distinct elements in $\Lambda$. Then
+    ${(\chi_{\{\lambda_n\}})}_{n\in\mathbb{N}}$ weakly converges to 0 in
+    $c_0(\Lambda)$, and a fortiori in $\ell_\infty(\Lambda)$. By
+    proposition~\ref{OpLInfc0CompContWeakComp} the operator $T$ is completely
+    continuous, so $T(\chi_{\{\lambda_n\}})$ converges to 0 in norm. In
+    particular, $\lim_{n\to\infty} T(\chi_{\{\lambda_n\}})(\lambda_n)=0$. Now
+    from proposition~\ref{FrechFiltConvCharac} we get the desired equality.
 \end{proof}
 
-\begin{theorem}\label{RelInjLInfModc0} For any set $\Lambda$ the right $\ell_\infty(\Lambda)$-module $c_0(\Lambda)$ is relatively injective.
+\begin{theorem}\label{RelInjLInfModc0} For any set $\Lambda$ the right
+    $\ell_\infty(\Lambda)$-module $c_0(\Lambda)$ is relatively injective.
 \end{theorem}
-\begin{proof} Assume that $\Lambda$ is infinite. By \cite[proposition IV.1.39]{HelHomolBanTopAlg} it is enough to show that the morphism of right $\ell_\infty(\Lambda)$-modules $\rho:c_0(\Lambda)\to\mathcal{B}(\ell_\infty(\Lambda), c_0(\Lambda)):x\mapsto(a\mapsto x\cdot a)$ admits a left inverse. It does exist. Consider linear operator $\tau:\mathcal{B}(\ell_\infty(\Lambda), c_0(\Lambda))\to c_0(\Lambda): T\mapsto(\lambda\to T(\chi_{\{\lambda\}})(\lambda))$. By proposition \ref{OpLInfc0DiagConv0} this is a well defined linear operator. One can easily check that $\tau$ is even a contractive morphism of right $\ell_\infty(\Lambda)$-modules.
+\begin{proof} Assume that $\Lambda$ is infinite. By~\cite[proposition
+        IV.1.39]{HelHomolBanTopAlg} it is enough to show that the morphism of
+    right $\ell_\infty(\Lambda)$-modules
+    $\rho:c_0(\Lambda)\to\mathcal{B}(\ell_\infty(\Lambda),
+        c_0(\Lambda)):x\mapsto(a\mapsto x\cdot a)$ admits a left inverse. It
+    does exist. Consider linear operator
+    $\tau:\mathcal{B}(\ell_\infty(\Lambda), c_0(\Lambda))\to c_0(\Lambda):
+        T\mapsto(\lambda\to T(\chi_{\{\lambda \}})(\lambda))$. By
+    proposition~\ref{OpLInfc0DiagConv0} this is a well defined linear
+    operator. One can easily check that $\tau$ is even a contractive
+    morphism of right $\ell_\infty(\Lambda)$-modules.
 
-    If $\Lambda$ is finite it is a Stonean space. Then $c_0(\Lambda)=\ell_\infty(\Lambda)=C(\Lambda)$ and by proposition \ref{SStonImplRelInjCSModCS} the $\ell_\infty(\Lambda)$-module $c_0(\Lambda)$ is relatively injective.
+    If $\Lambda$ is finite it is a Stonean space. Then
+    $c_0(\Lambda)=\ell_\infty(\Lambda)=C(\Lambda)$ and by
+    proposition~\ref{SStonImplRelInjCSModCS} the $\ell_\infty(\Lambda)$-module
+    $c_0(\Lambda)$ is relatively injective.
 \end{proof}
 
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 %   Funding
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
-\section{Funding}
-\label{SectionFunding}
-This research was supported by the Russian Foundation for Basic Research (grant no. 19-01-00447).
+\section{Funding}\label{SectionFunding} This research was supported by the
+Russian Foundation for Basic Research (grant no. 19--01--00447).
 
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 %   Bibliography
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \begin{thebibliography}{999}
     %
     \bibitem{HahnLinSystInLinSp}
-    \textit{Hahn, H.},
-    {\"U}ber lineare Gleichungssysteme in linearen R{\"a}umen.,
-    J. Reine Angew. Math.,
-    157,
-    214--229,
-    1927.
+    \textit{Hahn, H.}, {\"U}ber lineare Gleichungssysteme in linearen
+    R{\"a}umen., J. Reine Angew. Math., 157, 214--229, 1927.
     %
     %
     \bibitem{BanachOnLinFuncI}
-    \textit{Banach, S.},
-    Sur les fonctionnelles lin{\'e}aires,
-    Stud. Math.,
-    1(1),
-    211--216,
-    1929.
+    \textit{Banach, S.}, Sur les fonctionnelles lin{\'e}aires, Stud. Math.,
+    1(1), 211--216, 1929.
     %
     %
     \bibitem{BanachOnLinFuncII}
-    \textit{Banach, S.},
-    Sur les fonctionnelles lin{\'e}aires II,
-    Stud. Math.,
-    1(1),
-    223--239,
-    1929.
+    \textit{Banach, S.}, Sur les fonctionnelles lin{\'e}aires II, Stud. Math.,
+    1(1), 223--239, 1929.
     %
     %
     \bibitem{BlascIvorConstrInjSpCK}
-    \textit{Blasco, J.L. and Ivorra, C.},
-    On constructing injective spaces of type $C(K)$,
-    Indagationes Mathematicae,
-    9(12),
-    161--172,
-    1998.
+    \textit{Blasco, J.L. and Ivorra, C.}, On constructing injective spaces of
+    type $C(K)$, Indagationes Mathematicae, 9(12), 161--172, 1998.
     %
     %
     \bibitem{EngkingGenTop}
-    \textit{Engelking, R.},
-    General topology,
-    1977.
+    \textit{Engelking, R.}, General topology, 1977.
     %
     %
     \bibitem{HrusPsdCompTopSp}
-    \textit{Hru{\v{s}}{\'a}k, M. and Tamariz-Mascar{\'u}a, A. and Tkachenko, M.},
-    Pseudocompact topological spaces,
-    Springer,
-    2018.
+    \textit{Hru{\v{s}}{\'a}k, M. and Tamariz-Mascar{\'u}a, A. and Tkachenko,
+    M.}, Pseudocompact topological spaces, Springer, 2018.
     %
     %
     %
     \bibitem{HelHomolBanTopAlg}
-    \textit{Helemskii, A. Ya.},
-    The homology of Banach and topological algebras,
-    Springer,
-    1989.
+    \textit{Helemskii, A. Ya.}, The homology of Banach and topological algebras,
+    Springer, 1989.
     %
     %
     \bibitem{AvilSepInjBanSp}
-    \textit{Avil{\'e}s, A. and S{\'a}nchez, F. C. and Castillo, J. MF. and Gonz{\'a}lez, M. and Moreno, Y.},
-    Separably injective Banach spaces,
-    17--65,
+    \textit{Avil{\'e}s, A. and S{\'a}nchez, F. C. and Castillo, J. MF.\@ and
+        Gonz{\'a}lez, M. and Moreno, Y.}, Separably injective Banach spaces, 17--65,
     2016.
     %
     %
     \bibitem{HasumExtPropCompBanSp}
-    \textit{Hasumi, M.},
-    The extension property of complex Banach spaces,
-    Tohoku Mathematical Journal, Second Series,
-    10(2),
-    135--142,
-    1958.
+    \textit{Hasumi, M.}, The extension property of complex Banach spaces, Tohoku
+    Mathematical Journal, Second Series, 10(2), 135--142, 1958.
     %
     %
     \bibitem{BerbBaerStRng}
     \textit{Berberian, S. K.}
-    Baer $^*$-rings,
-    195,
-    2010.
+    Baer $^*$-rings, 195, 2010.
     %
     %
     \bibitem{TakHanBanThAndJordDecomOfModMap}
-    \textit{Takesaki, M.},
-    On the Hahn-Banach type theorem and the Jordan decomposition of module linear mapping over some operator algebras,
-    Kodai Mathematical Seminar Reports,
-    12,
-    1--10,
-    1960.
+    \textit{Takesaki, M.}, On the Hahn-Banach type theorem and the Jordan
+    decomposition of module linear mapping over some operator algebras, Kodai
+    Mathematical Seminar Reports, 12, 1--10, 1960.
     %
     %
     \bibitem{StoneBanStAppBoolRngToTop}
-    \textit{Stone, M. H.},
-    Applications of the theory of Boolean rings to general topology,
-    Transactions of the American Mathematical Society,
-    41(3),
-    375--481,
-    1937.
+    \textit{Stone, M. H.}, Applications of the theory of Boolean rings to
+    general topology, Transactions of the American Mathematical Society, 41(3),
+    375--481, 1937.
     %
     %
     \bibitem{KunSetThIndepPrf}
-    \textit{Kunen, K.},
-    Set theory an introduction to independence proofs,
-    Elsevier,
-    2014.
+    \textit{Kunen, K.}, Set theory an introduction to independence proofs,
+    Elsevier, 2014.
     %
     %
     \bibitem{FinGillExtContFuncbN}
     \textit{Fine, N. J. and Gillman, L.}
-    Extension of continuous functions in $\beta {\mathbf{N}}$
-    Bull. Amer. Math. Soc.,
-    66,
-    376--381,
-    1960.
+    Extension of continuous functions in $\beta {\mathbf{N}}$ Bull. Amer. Math.
+    Soc., 66, 376--381, 1960.
     %
     %
     \bibitem{DouKunMillCStarEmbdDenPropSbspStoneRemN}
     \textit{van Douwen, E. and  Kunen,  K. and van Mill, J.}
     There can be $C^*$-embedded dense proper subspaces in $\beta\omega-\omega$,
-    Proc. Amer. Math. Soc.,
-    105(2),
-    462–-470,
-    1989.
+    Proc. Amer. Math. Soc., 105(2), 462–-470, 1989.
     %
     %
     \bibitem{RamsHomPropSemgroupAlg}
-    \textit{Ramsden, P.},
-    Homological properties of semigroup algebras,
-    The University of Leeds,
-    2009.
+    \textit{Ramsden, P.}, Homological properties of semigroup algebras, The
+    University of Leeds, 2009.
     %
     %
     \bibitem{AmirProjContFuncSp}
-    \textit{Amir, D.},
-    Projections onto continuous function spaces,
-    Proceedings of the American Mathematical Society,
-    15(3),
-    396--402,
-    1964.
+    \textit{Amir, D.}, Projections onto continuous function spaces, Proceedings
+    of the American Mathematical Society, 15(3), 396--402, 1964.
     %
     %
     \bibitem{RosOnRelDisjFamOfMeas}
-    \textit{Rosenthal, H.},
-    On relatively disjoint families of measures, with some applications to Banach space theory
-    Stud. Math.,
-    37(1),
-    13--36,
-    1970.
+    \textit{Rosenthal, H.}, On relatively disjoint families of measures, with
+    some applications to Banach space theory Stud. Math., 37(1), 13--36, 1970.
     %
     %
     \bibitem{SobProjmOnc0}
-    \textit{Sobczyk, A.},
-    Projection of the space ($m$) on its subspace ($c_0$),
-    Bulletin of the American Mathematical Society,
-    47(12),
-    938--947,
-    1941.
+    \textit{Sobczyk, A.}, Projection of the space ($m$) on its subspace ($c_0$),
+    Bulletin of the American Mathematical Society, 47(12), 938--947, 1941.
     %
     %
     \bibitem{ZipSepExtProbm}
-    \textit{Zippin, M.},
-    The separable extension problem,
-    Israel Journal of Mathematics,
-    26(3-4),
-    372--387,
-    1977.
+    \textit{Zippin, M.}, The separable extension problem, Israel Journal of
+    Mathematics, 26(3--4), 372--387, 1977.
     %
     %
     \bibitem{FabHabBanSpTh}
-    \textit{Fabian, M. and Habala, P. and Hajek, P. and Montesinos, V. and Zizler, V.}
-    Banach space theory. The basis for linear and non-linear analysis.
-    Springer,
+    \textit{Fabian, M. and Habala, P. and Hajek, P. and
+        Montesinos, V. and Zizler, V.}
+    Banach space theory. The basis for linear and non-linear analysis. Springer,
     2011.
     %
     %
     \bibitem{GrothApplFabilCompCK}
-    \textit{{Grothendieck, A.}},
-    Sur les applications lin{\'e}aires faiblement compactes d'espaces du type $C(K)$,
-    Canadian Journal of Mathematics,
-    5,
-    129--173,
-    1953.
+    \textit{{Grothendieck, A.}}, Sur les applications lin{\'e}aires faiblement
+    compactes d'espaces du type $C(K)$, Canadian Journal of Mathematics, 5,
+    129--173, 1953.
     %
     %
     \bibitem{DunfPetLinOpSumFunc}
-    \textit{Dunford, N. and Pettis, B. J.},
-    Linear operations on summable functions,
-    Transactions of the American Mathematical Society,
-    47(3),
-    323--392,
-    1940.
+    \textit{Dunford, N. and Pettis, B. J.}, Linear operations on summable
+    functions, Transactions of the American Mathematical Society, 47(3),
+    323--392, 1940.
     %
 \end{thebibliography}
 
-Norbert Nemesh, Faculty of Mechanics and Mathematics, Moscow State University, Moscow 119991 Russia
+Norbert Nemesh, Faculty of Mechanics and Mathematics, Moscow State University,
+Moscow 119991 Russia
 
 \textit{E-mail:} nemeshnorbert@yandex.ru
 
 
-\end{document}
+\end{document}  % chktex 17
