@@ -37,6 +37,7 @@
 .gitconfig
 .viminfo
 .vim/
+.vimrc
 .lesshst
 
 # Build files directory
