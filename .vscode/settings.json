@@ -8,6 +8,8 @@
     "files.associations": {
         "*.tex": "latex"
     },
+    // Workbench
+    "workbench.panel.defaultLocation": "bottom",
     // Latex-workshop
     "latex-workshop.chktex.enabled": true,
     "latex-workshop.chktex.run": "onType",
