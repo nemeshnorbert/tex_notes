@@ -5,6 +5,8 @@
     "editor.formatOnSave": false,
     // File settings
     "files.eol": "\n",
+    "files.trimFinalNewlines": false,
+    "files.trimTrailingWhitespace": false,
     "files.associations": {
         "*.tex": "latex"
     },
