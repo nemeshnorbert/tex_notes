@@ -1,3 +1,6 @@
+% chktex-file 19
+% chktex-file 1
+
 %%% Проверка используемого TeX-движка %%%
 \usepackage{ifxetex}
 
@@ -9,24 +12,25 @@
 %%% Математические пакеты %%%
 %\usepackage{amsthm,amsfonts,amsmath,amssymb,amscd}  % Математические дополнения от AMS
 \usepackage{amssymb,amsmath,amsthm}
-\usepackage[utf8]{inputenc} 
+\usepackage[utf8]{inputenc}
 \usepackage{mathrsfs}
 \usepackage[matrix,arrow,curve]{xy}
 
 %%% Кодировки и шрифты %%%
-\ifxetex
-  \usepackage{polyglossia}                         % Поддержка многоязычности
-  \usepackage{fontspec}                            % TrueType-шрифты
+\ifxetex  % chktex 1
+    \usepackage{polyglossia}                         % Поддержка многоязычности
+    \usepackage{fontspec}                            % TrueType-шрифты
 \else
-  \usepackage{cmap}                                % Улучшенный поиск русских слов в полученном pdf-файле
-  \usepackage[T2A]{fontenc}                        % Поддержка русских букв
-  \usepackage[utf8]{inputenc}                      % Кодировка utf8
-  \usepackage[english, russian]{babel}             % Языки: русский, английский
-  \IfFileExists{pscyr.sty}{\usepackage{pscyr}}{}   % Красивые русские шрифты
+    \usepackage{cmap}                                % Улучшенный поиск русских слов в полученном pdf-файле
+    \usepackage[T2A]{fontenc}                        % Поддержка русских букв
+    \usepackage[utf8]{inputenc}                      % Кодировка utf8
+    \usepackage[english, russian]{babel}             % Языки: русский, английский
+    \IfFileExists{pscyr.sty}{\usepackage{pscyr}}{}   % Красивые русские шрифты
 \fi
 
 %%% Оформление абзацев %%%
 \usepackage{indentfirst}                           % Красная строка
+\usepackage{enumitem}
 
 %%% Цвета %%%
 \usepackage[usenames]{color}
