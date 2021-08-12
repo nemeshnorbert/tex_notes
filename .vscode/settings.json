@@ -2,7 +2,7 @@
     // Adds default settings.json values into a
     // container/machine specific settings file.
     // Editor
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     // File settings
     "files.eol": "\n",
     "files.associations": {
