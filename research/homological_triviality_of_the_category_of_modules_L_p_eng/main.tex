@@ -284,7 +284,9 @@ zero.
         L_p(\Omega',\mu|_{\Omega'})$ we have
     $$
         \Vert J_p(f)\Vert_p
-        =\left|{\mu(\Omega')}^{1/p-1}\int_{\Omega'}f(\omega')d\mu(\omega')\right|
+        =\left|
+            {\mu(\Omega')}^{1/p-1}\int_{\Omega'}f(\omega')d\mu(\omega')
+        \right|
         =\left|{\mu(\Omega')}^{1/p-1}k\mu(\Omega')\right|
         ={\mu(\Omega')}^{1/p}|k|
         =\Vert f\Vert_{L_p(\Omega',\mu|_{\Omega'})}
@@ -293,8 +295,8 @@ zero.
 \end{proof}
 
 \begin{proposition}\label{DescOfLpSpOnPureAtomMeasSp} Let $(\Omega,\Sigma,\mu)$
-    be a $\sigma$-finite purely atomic measure space, then for $p\in[1,+\infty]$,
-    the map
+    be a $\sigma$-finite purely atomic measure space, then for 
+    $p\in[1,+\infty]$, the map
     $$
         \widetilde{I}_p:L_p(\Omega,\mu)\to \ell_p(\Lambda):
         f\mapsto\left (\lambda\mapsto J_p(f|_{\Omega_\lambda})(1)\right)
@@ -490,8 +492,9 @@ We want to classify multiplication operators according to following definitions
     for all $x \in E$ holds $\Vert x\Vert_E\leq c\Vert  T(x)\Vert_F$.
     \newline
     $(ii)$ \textit{(strictly) $c$-topologically surjective}, if for all $c'>c$
-    and  $y\in F$ there exist $x \in E$ such that $ T(x) = y$ and $\Vert x
-        \Vert_E < c' \Vert y \Vert_F$ ($\Vert x \Vert_E \leq c \Vert y \Vert_F$).
+    and  $y\in F$ there exist $x \in E$ such that $ T(x) = y$ and 
+    $\Vert x \Vert_E < c' \Vert y \Vert_F$ 
+    ($\Vert x \Vert_E \leq c \Vert y \Vert_F$).
     \newline
     $(iii)$ (strictly) coisometric, if it is contractive and (strictly)
     $1$-topologically surjective.
@@ -632,9 +635,9 @@ $\omega\in E$ and $\widetilde{f}(\omega)=0$ otherwise.
 
     $(iv)$ Fix $\lambda\in\Lambda$. Since $M_g$ is coisometric it is
     $1$-topologically surjective and contractive. So from paragraph $(ii)$ we
-    see that $M_g^{\Omega_\lambda}$ is $1$-topologically surjective. Let $f\in
-        L_p(\Omega_\lambda,\mu|_{\Omega_\lambda})$. Since $M_g$ is contractive we
-    get
+    see that $M_g^{\Omega_\lambda}$ is $1$-topologically surjective. 
+    Let $f\in L_p(\Omega_\lambda,\mu|_{\Omega_\lambda})$. 
+    Since $M_g$ is contractive we get
     $$
         \Vert M_g^{\Omega_\lambda}(f)\Vert_{
         L_q(\Omega_\lambda,\nu|_{\Omega_\lambda})}
@@ -723,10 +726,12 @@ isomorphisms or invertible from the left.
     $\sigma$-finite purely atomic measure space. Let $1\leq p,q\leq +\infty$ and
     $g\in L_0(\Omega,\mu)$, then the operator
     $\widetilde{M}_{\widetilde{g}}:=\widetilde{I}_q
-        M_g\widetilde{I}_p^{-1}\in\mathcal{B}(\ell_p(\Lambda),\ell_q(\Lambda))$ is a
-    multiplication operator by the function
-    $\widetilde{g}:\Lambda\to\mathbb{C},\lambda\mapsto
-        {\mu(\Omega_\lambda)}^{1/q-1/p-1}\int_{\Omega_\lambda}f(\omega)d\mu(\omega)$
+        M_g\widetilde{I}_p^{-1}\in\mathcal{B}(\ell_p(\Lambda),\ell_q(\Lambda))$ 
+    is a multiplication operator by the function
+    $\widetilde{g}:\Lambda\to\mathbb{C},\lambda
+        \mapsto
+        {\mu(\Omega_\lambda)}^{1/q-1/p-1}
+        \int_{\Omega_\lambda}f(\omega)d\mu(\omega)$
     where $ \{\Omega_\lambda:\lambda\in\Lambda \}$ is at most countable
     decomposition of $\Omega$ into pairwise disjoint atoms guranteed by
     proposition~\ref{DescOfLpSpOnPureAtomMeasSp}.
@@ -776,10 +781,12 @@ is topologically injective.
 \begin{proof}
     $(i)\implies (ii)$ Assume $M_g$ is topologically injective, then so is
     $\widetilde{M}_{\widetilde{g}}$, i.e.
-    $\Vert\widetilde{M}_{\widetilde{g}}(x)\Vert_{\ell_q(\Lambda)}\geq c'\Vert
-        x\Vert_{\ell_p(\Lambda)}$ for all $x\in\ell_p(\Lambda)$ and some $c'>0$. Now
-    we use at most countable decomposition $ \{\Omega_\lambda:\lambda\in\Lambda
-        \}$ of $\Omega$ into pairwise disjoint atoms of $\Omega$ given by
+    $\Vert\widetilde{M}_{\widetilde{g}}(x)\Vert_{\ell_q(\Lambda)}
+        \geq c'\Vert x\Vert_{\ell_p(\Lambda)}$ 
+    for all $x\in\ell_p(\Lambda)$ and some $c'>0$. Now
+    we use at most countable decomposition 
+    $ \{\Omega_\lambda:\lambda\in\Lambda \}$ of $\Omega$ 
+    into pairwise disjoint atoms of $\Omega$ given by
     proposition~\ref{DescOfLpSpOnPureAtomMeasSp}. Now we will consider two big
     cases.
 
@@ -806,8 +813,8 @@ is topologically injective.
     $$
     Since $\Lambda$ is countable
     $\sup_{\lambda\in\Lambda}|\widetilde{g}(\lambda)|\geq
-        c'\sup_{F\subset\Lambda}\operatorname{Card}(F)=+\infty$. On the other hand,
-    since $\widetilde{M}_{\widetilde{g}}$ is bounded we have
+        c'\sup_{F\subset\Lambda}\operatorname{Card}(F)=+\infty$. 
+    On the other hand, since $\widetilde{M}_{\widetilde{g}}$ is bounded we have
     $$
         \sup_{\lambda\in\Lambda}|\widetilde{g}(\lambda)|
         =\sup_{\lambda\in\Lambda}\Vert
@@ -1016,8 +1023,8 @@ is topologically injective.
     $\bar{I}_q:L_q(\Omega,\mu)\to L_q(\Omega,\rho\cdot\mu),
         f\mapsto \rho^{-1/q}\cdot f$. Obviously
     $M_{g\cdot\rho^{1/q}}
-        =\bar{I}_q^{-1} M_g\in\mathcal{B}(L_p(\Omega,\mu),L_q(\Omega,\mu))$. Since
-    $\bar{I}_q$ is an isometric isomorphism and $M_g$ is topologically
+        =\bar{I}_q^{-1} M_g\in\mathcal{B}(L_p(\Omega,\mu),L_q(\Omega,\mu))$. 
+    Since $\bar{I}_q$ is an isometric isomorphism and $M_g$ is topologically
     injective, then $M_{g\cdot \rho^{1/q}}$ is topologically injective. From
     theorem~\ref{TopInjMultOpCharacOnMeasSp} we get that
     $|g\cdot\rho^{1/q}|\geq c$ for some $c>0$ and if $p\neq q$ the space
@@ -1080,7 +1087,7 @@ is topologically injective.
               topologically injective
 
         \item $M_{\chi_{\Omega_c}/g}\in
-                  \mathcal{B}(L_q(\Omega,\nu), L_p(\Omega,\mu))$ its left inverse
+                \mathcal{B}(L_q(\Omega,\nu), L_p(\Omega,\mu))$ its left inverse
               topologically surjective operator
     \end{enumerate}
 \end{theorem}
@@ -1222,8 +1229,8 @@ is topologically injective.
     all $f\in L_p(\Omega,\mu)$ we have
     $$
         \Vert M_g(f)\Vert_{L_p(\Omega,\mu)} =\Vert g\cdot
-        f\Vert_{L_p(\Omega,\mu)} =\Vert |g|\cdot f\Vert_{L_p(\Omega,\mu)} =\Vert
-        f\Vert_{L_p(\Omega,\mu)}
+        f\Vert_{L_p(\Omega,\mu)} =\Vert |g|\cdot f\Vert_{L_p(\Omega,\mu)} 
+        =\Vert f\Vert_{L_p(\Omega,\mu)}
     $$
     hence $M_g$ is an isometry. Let $p\neq q$, then $(\Omega,\Sigma,\mu)$
     consist of single atom and we conclude
@@ -1251,7 +1258,8 @@ is topologically injective.
         \item $M_g$ is isometric isomorphism
 
         \item $\rho$ is positive, $|g\cdot \rho^{1/q}|={\mu(\Omega)}^{1/p-1/q}$
-              and if $p\neq q$ the sapce $(\Omega,\Sigma,\mu)$ consist of single atom.
+              and if $p\neq q$ the sapce $(\Omega,\Sigma,\mu)$ 
+              consist of single atom.
     \end{enumerate}
 \end{proposition}
 \begin{proof} $(i)\implies (iii)$ Since $M_g$ is isometric, it is topologically
@@ -1261,8 +1269,8 @@ is topologically injective.
     $\bar{I}_q:L_q(\Omega,\mu)\to L_q(\Omega,\rho\cdot\mu),
         f\mapsto \rho^{-1/q}\cdot f$. Obviously
     $M_{g\cdot\rho^{1/q}}
-        =\bar{I}_q^{-1} M_g\in\mathcal{B}(L_p(\Omega,\mu),L_q(\Omega,\mu))$. Since
-    $\bar{I}_q$ is an isometric isomorphism and $M_g$ is isometric, then
+        =\bar{I}_q^{-1} M_g\in\mathcal{B}(L_p(\Omega,\mu),L_q(\Omega,\mu))$. 
+    Since $\bar{I}_q$ is an isometric isomorphism and $M_g$ is isometric, then
     $M_{g\cdot \rho^{1/q}}$ is isometric too. It is remains to apply
     theorem~\ref{IsomMultOpCharacOnMeasSp}.
 
@@ -1290,7 +1298,8 @@ is topologically injective.
         \item $M_g^{\Omega_c}$ is isometric
 
         \item $\rho_{\nu,\mu}$ is positive,
-              $|g\cdot \rho_{\nu,\mu}^{1/q}|_{\Omega_c}|={\mu(\Omega_c)}^{1/p-1/q}$
+              $|g\cdot \rho_{\nu,\mu}^{1/q}|_{\Omega_c}|
+                ={\mu(\Omega_c)}^{1/p-1/q}$
               and if  $p\neq q$ the space $(\Omega,\Sigma,\mu)$ consist
               of single atom.
     \end{enumerate}
@@ -1332,8 +1341,8 @@ is topologically injective.
         \item $M_g\in\mathcal{B}(L_p(\Omega,\mu),L_q(\Omega,\nu))$ is isometric
 
         \item $M_{\chi_{\Omega_c}/g}\in
-                  \mathcal{B}(L_q(\Omega,\nu), L_p(\Omega,\mu))$ its left inverse
-              strictly coisometric operator.
+                  \mathcal{B}(L_q(\Omega,\nu), L_p(\Omega,\mu))$ 
+              its left inverse strictly coisometric operator.
     \end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -1513,8 +1522,8 @@ right. Most of the proofs goes along the lines of previous sections.
               topologically surjective
 
         \item $M_{\chi_{\Omega_c}/g}
-                  \in\mathcal{B}(L_q(\Omega,\nu), L_p(\Omega,\mu))$ its right inverse
-              topologically injective operator.
+                  \in\mathcal{B}(L_q(\Omega,\nu), L_p(\Omega,\mu))$ 
+              its right inverse topologically injective operator.
     \end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -1554,8 +1563,8 @@ right. Most of the proofs goes along the lines of previous sections.
     $(ii)\implies (i)$ Take arbitrary $h\in L_q(\Omega,\nu)$ and consider
     $f=M_{\chi_{\Omega_c}/g}(h)$. Then $M_g(f)=M_g(M_{\chi_{\Omega_c}/g}(h))=h$
     and $\Vert f\Vert_{L_p(\Omega,\mu)}
-        \leq\Vert M_{\chi_{\Omega_c}/g}\Vert\Vert h\Vert_{L_q(\Omega,\nu)}$. Since
-    $h$ is arbitrary $M_g$ is topologically surjective.
+        \leq\Vert M_{\chi_{\Omega_c}/g}\Vert\Vert h\Vert_{L_q(\Omega,\nu)}$. 
+    Since $h$ is arbitrary $M_g$ is topologically surjective.
 \end{proof}
 
 
@@ -1594,8 +1603,8 @@ right. Most of the proofs goes along the lines of previous sections.
         \item $M_g$ is an isometric isomorphism
 
         \item $\rho$ is positive,
-              $|g\cdot \rho^{-1/p}|={\mu(\Omega)}^{1/p-1/q}$, if $p\neq q$ the space
-              $(\Omega,\Sigma,\mu)$ consist single atom.
+              $|g\cdot \rho^{-1/p}|={\mu(\Omega)}^{1/p-1/q}$, if $p\neq q$ 
+              the space $(\Omega,\Sigma,\mu)$ consist single atom.
     \end{enumerate}
 \end{proposition}
 \begin{proof} $(i)\implies (ii)$ Assume $M_g$ is coisometric, then it is
@@ -1622,8 +1631,10 @@ right. Most of the proofs goes along the lines of previous sections.
         \item $M_g^{\Omega_c}$ is an isometric isomorphism
 
         \item $\rho_{\mu,\nu}$ is positive,
-              $|g\cdot\rho_{\mu,\nu}^{-1/p}|_{\Omega_c}|={\mu(\Omega_c)}^{1/p-1/q}$,
-              if $p\neq q$ the space $(\Omega,\Sigma,\mu)$ consist of single atom.
+              $|g\cdot\rho_{\mu,\nu}^{-1/p}|_{\Omega_c}|
+                ={\mu(\Omega_c)}^{1/p-1/q}$,
+              if $p\neq q$ the space $(\Omega,\Sigma,\mu)$ 
+              consist of single atom.
     \end{enumerate}
 \end{theorem}
 \begin{proof} $(i)\implies (ii)$ Since $M_g$ is coisimetric, then from
@@ -1682,8 +1693,8 @@ right. Most of the proofs goes along the lines of previous sections.
               coisometric
 
         \item $M_{\chi_{\Omega_c}/g}
-                  \in\mathcal{B}(L_q(\Omega,\nu), L_p(\Omega,\mu))$ its right inverse
-              isometric operator.
+                  \in\mathcal{B}(L_q(\Omega,\nu), L_p(\Omega,\mu))$ 
+              its right inverse isometric operator.
     \end{enumerate}
 \end{theorem}
 \begin{proof}
