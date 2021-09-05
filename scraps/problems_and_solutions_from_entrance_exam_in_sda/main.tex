@@ -1597,9 +1597,10 @@ there two subsets with symmetric difference not greater than $2$.
 
 
     We let $A_q(n,d)$ denote the maximum number of $q$-ary vectors of dimension
-    $n$ with minimum pairwise distance $d$. For a given vector $c\in
-        {\{0,\ldots,q \}}^n$ we can count $q$-ary vectors of length $n$ that differs
-    from $c$ in at most $t$ positions. There are $\binom{n}{k}$ ways to choose
+    $n$ with minimum pairwise distance $d$. For a given vector 
+    $c\in {\{0,\ldots,q \}}^n$ we can count $q$-ary vectors 
+    of length $n$ that differs from $c$ in at most $t$ positions. 
+    There are $\binom{n}{k}$ ways to choose
     $0\leq k\leq t$ positions where a vector can differ from $c$. At each
     position we can place $q-1$ values. So there are $\binom{n}{k}{(q-1)}^k$
     vectors that differ from a given vector $c$ in $k$ positions. Thus there are
@@ -2358,9 +2359,10 @@ coin $n$ times, and Ravi $n+1$ times. Find the probability that Ravi had more
 heads than Wolf.
 \end{problem}
 \begin{solution} By $\xi_i$ and $\eta_i$ we denote the number of heads got by
-    Ravi and Wolf at $i$-th toss respectively. Then we set $X_k=\sum_{i=1}^k
-        \xi_i$ and $Y_k=\sum_{i=1}^k \eta_i$. These random variables are numbers of
-    heads got by Ravi and Wolf after $k$  tosses respectively. Denote
+    Ravi and Wolf at $i$-th toss respectively. Then we set 
+    $X_k=\sum_{i=1}^k \xi_i$ and $Y_k=\sum_{i=1}^k \eta_i$. 
+    These random variables are numbers of heads got by Ravi and Wolf after $k$ 
+    tosses respectively. Denote
     $p=\mathbb{P}(\{X_n>Y_n\})$, then by symmetry $\mathbb{P}(\{X_n<Y_n\})=p$
     and, as the consequence, $\mathbb{P}(\{X_n=Y_n\})=1-2p$. Clearly,
     $X_{n+1}>Y_n$ in two cases $X_n>Y_n$ or $X_n=Y_n$ and on $\xi_{n+1}=1$.
@@ -3025,10 +3027,10 @@ acquainted with others.
     First case: there are two non-friendly participants in $G'$. Call them $a$
     and $b$. Clearly all participants from $G'\setminus \{a,b\}$ are acquainted
     with $a$ and $b$. Therefore $a$ and $b$ don't know each other. Consider a
-    unique participant $z\in G\setminus G'$ and any participant $p\in
-        G'\setminus \{a,b\}$. Consider group $S=\{a,b,p,z\}$. By assumption we have
-    a participant in $S$ who knows others. Since $a$ and $b$ don't know each
-    other this must be either $p$ or $z$. In both cases we get that $z$ is
+    unique participant $z\in G\setminus G'$ and any participant 
+    $p\in G'\setminus \{a,b\}$. Consider group $S=\{a,b,p,z\}$. By assumption 
+    we have a participant in $S$ who knows others. Since $a$ and $b$ don't know 
+    each other this must be either $p$ or $z$. In both cases we get that $z$ is
     acquainted with $p$. Since $p$ is arbitrary we get that $z$ knows all
     participants from $G'\setminus \{a,b\}$. If $z$ knows $a$ and $b$ he is
     friendly in $G$, so $G$ has two non-friendly participants and inductive step
@@ -3073,15 +3075,16 @@ entries of $A$ and $A^{-1}$ are non negative.
     Since $A$ and $B$ have non negative entries, then for any
     $i,j,k\in\mathbb{N}_n$ such that $i\neq k$ we have $A_{i,j}=0$ or
     $B_{j,k}=0$. Assume there exist $i,j_1,j_2\in\mathbb{N}_n$ such that
-    $j_1\neq j_2$ and $A_{i,j_1}\neq 0$, $A_{i,j_2}\neq 0$, then for any $k\neq
-        i$ we have $B_{j_1,k}=0$ and $B_{j_2,k}=0$. Clearly, $B_{j_1,i}\neq 0$ and
-    $B_{j_2,i}\neq 0$, otherwise $B$ will have a zero row and will be singular.
-    Since $B_{j_1,i}\neq 0$ and $B_{j_2,i}\neq 0$ while $B_{j_1,k}=B_{j_2,k}=0$
-    for all $k\neq i$, then $B$ have two linearly dependent rows,hence it is
-    singular. Contradiction, therefore for any $i\in\mathbb{N}_n$ there is
-    unique $\pi(i)\in\mathbb{N}_n$ such that $A_{i,\pi(i)}\neq 0$. Assume
-    $\pi(i_1)=\pi(i_2)$ for some $i_1,i_2\in\mathbb{N}_n$ such that $i_1\neq
-        i_2$, then $A$ have two linearly dependent rows, hence $A$ is singular.
+    $j_1\neq j_2$ and $A_{i,j_1}\neq 0$, $A_{i,j_2}\neq 0$, then for any 
+    $k\neq i$ we have $B_{j_1,k}=0$ and $B_{j_2,k}=0$. Clearly, 
+    $B_{j_1,i}\neq 0$ and $B_{j_2,i}\neq 0$, otherwise $B$ will have a zero row 
+    and will be singular. Since $B_{j_1,i}\neq 0$ and $B_{j_2,i}\neq 0$ while 
+    $B_{j_1,k}=B_{j_2,k}=0$ for all $k\neq i$, then $B$ have two linearly
+    dependent rows,hence it is singular. Contradiction, therefore for any
+    $i\in\mathbb{N}_n$ there is unique $\pi(i)\in\mathbb{N}_n$ such that
+    $A_{i,\pi(i)}\neq 0$. Assume $\pi(i_1)=\pi(i_2)$ for some
+    $i_1,i_2\in\mathbb{N}_n$ such that $i_1\neq i_2$, then $A$ have two linearly
+    dependent rows, hence $A$ is singular.
     Contradiction, so $\pi:\mathbb{N}_n\to\mathbb{N}_n$ is an injective
     function, hence $\pi$ is a permutation. Thus matrix $A$ is a permutation of
     columns of a diagonal matrix $D$. Diagonal elements of $D$ are nonzero,
