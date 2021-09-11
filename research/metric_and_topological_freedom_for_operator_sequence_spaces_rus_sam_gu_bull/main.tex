@@ -1,7 +1,6 @@
-%\title{Метрическая и топологическая свобода для секвенциальных операторных пространств}
+% chktex-file 19
 \documentclass[12pt]{article}
-\usepackage[left=2cm,right=2cm,
-top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage[left=2cm,right=2cm, top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 \usepackage{amssymb,amsmath}
 \usepackage[T1,T2A]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -9,12 +8,16 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 \usepackage[russian]{babel} 
 \usepackage[final]{graphicx} 
 \usepackage{mathrsfs}
-\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=blue, pdfborder={0 0 0}]{hyperref}
+\usepackage[
+    colorlinks=true, 
+    urlcolor=blue, 
+    linkcolor=blue, 
+    citecolor=blue, 
+    pdfborder={0 0 0}]{hyperref}
 \usepackage{yhmath}
+\usepackage{enumitem}
 
-\pretolerance=1000
-\tolerance=200
-\emergencystretch=10pt
+\pretolerance=1000 \tolerance=200 \emergencystretch=10pt
 \newtheorem{theorem}{Теорема}[section]
 \newtheorem{lemma}[theorem]{Лемма}
 \newtheorem{proposition}[theorem]{Предложение}
@@ -31,14 +34,24 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 
 \begin{center}
 
-\Large \textbf{Метрическая и топологическая свобода для секвенциальных операторных пространств}\\[0.5cm]
+\Large \textbf{Метрическая и топологическая свобода для секвенциальных
+операторных пространств}\\[0.5cm]
 \small {Норберт Немеш, Сергей Штейнер}\\[0.5cm]
 
 \end{center}
 \thispagestyle{empty}
 
 \begin{abstract}
-В 2002 году году Ансельм Ламберт в своей диссертации \cite{LamOpFolgen} ввел определение секвенциального операторного пространства и доказал аналоги многих фактов теории операторных пространств. Говоря неформально, категория секвенциальных операторных пространств находится   <<между>> категориями нормированных и операторных пространств. Цель данной статьи --- описание свободных и косвободных объектов для различных версий  гомологии в категории секвенциальных операторных пространств. Сначала мы покажем, что в этой категории теория двойственности во многом аналогична таковой для нормированных пространств. Затем, основываясь на этих результатах, мы дадим полное описание метрически и топологически свободных и косвободных объектов.
+В 2002 году году Ансельм Ламберт в своей диссертации~\cite{LamOpFolgen} ввел
+определение секвенциального операторного пространства и доказал аналоги многих
+фактов теории операторных пространств. Говоря неформально, категория
+секвенциальных операторных пространств находится   <<между>> категориями
+нормированных и операторных пространств. Цель данной статьи --- описание
+свободных и косвободных объектов для различных версий  гомологии в категории
+секвенциальных операторных пространств. Сначала мы покажем, что в этой категории
+теория двойственности во многом аналогична таковой для нормированных
+пространств. Затем, основываясь на этих результатах, мы дадим полное описание
+метрически и топологически свободных и косвободных объектов.
 \end{abstract}
 
 
@@ -47,489 +60,865 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 
 \subsection{Некоторые напоминания.}
 
-Далее все линейные пространства будут рассматриваться над полем комплексных чисел. Через $B_E$ мы будем обозначать замкнутый единичный шар нормированного пространства $E$. Если $E$, $F$ --- два нормированных пространства, то $\mathcal{B}(E, F)$ --- нормированное пространство ограниченных линейных операторов из $E$ в $F$. Для заданного $1\leq p\leq\infty$ через $\bigoplus_p^0\{E_\lambda:\lambda\in\Lambda\}$ мы обозначаем $\bigoplus_p^0$ сумму семейства нормированных пространств $\{E_\lambda:\lambda\in\Lambda\}$. Это нормированное пространство, у которого каждый вектор имеет лишь конечное число ненулевых координат. Аналогично $\bigoplus_p\{E_\lambda:\lambda\in\Lambda\}$ обозначает $\bigoplus_p$-сумму банаховых пространств. Отметим, что $\bigoplus_\infty$-cуммы являются произведениями, а $\bigoplus_1$-суммы --- копроизведениями в категории нормированных простанств. Через $\mathbb{N}_n$ мы будем обозначать множество $\{1,\ldots,n\}$.
+Далее все линейные пространства будут рассматриваться над полем комплексных
+чисел. Через $B_E$ мы будем обозначать замкнутый единичный шар нормированного
+пространства $E$. Если $E$, $F$ --- два нормированных пространства, то
+$\mathcal{B}(E, F)$ --- нормированное пространство ограниченных линейных
+операторов из $E$ в $F$. Для заданного $1\leq p\leq\infty$ через
+$\bigoplus_p^0 \{E_\lambda:\lambda\in\Lambda \}$ мы обозначаем $\bigoplus_p^0$
+сумму семейства нормированных пространств $ \{E_\lambda:\lambda\in\Lambda \}$. Это
+нормированное пространство, у которого каждый вектор имеет лишь конечное число
+ненулевых координат. Аналогично $\bigoplus_p \{E_\lambda:\lambda\in\Lambda \}$
+обозначает $\bigoplus_p$-сумму банаховых пространств. Отметим, что
+$\bigoplus_\infty$-cуммы являются произведениями, а $\bigoplus_1$-суммы ---
+копроизведениями в категории нормированных простанств. Через $\mathbb{N}_n$ мы
+будем обозначать множество $ \{1,\ldots,n \}$.
 
 \medskip
 
-Пусть $n, k\in\mathbb{N}$, тогда через $M_{n,k}$ мы будем обозначать линейное пространство комплекснозначных матриц размера $n\times k$. Пространство $M_{n,k}$ по умолчанию наделяется операторной нормой $\Vert\cdot\Vert$, но нам также понадобится норма Гильберта-Шмидта. Пусть $\alpha\in M_{n,k}$, тогда норму Гильберта-Шмидта определим равенством $\Vert\alpha\Vert_{hs}=\operatorname{trace}(|\alpha|^2)^{1/2}$
-где $|\alpha|=(\alpha^*\alpha)^{1/2}$. Отметим, что всегда выполнены соотношения $\Vert\alpha\Vert\leq\Vert\alpha\Vert_{hs}$ и $\Vert|\alpha|\Vert_{hs}=\Vert|\alpha^*|\Vert=\Vert\alpha\Vert_{hs}$ .
+Пусть $n, k\in\mathbb{N}$, тогда через $M_{n,k}$ мы будем обозначать линейное
+пространство комплекснозначных матриц размера $n\times k$. Пространство
+$M_{n,k}$ по умолчанию наделяется операторной нормой $\Vert\cdot\Vert$, но нам
+также понадобится норма Гильберта-Шмидта. Пусть $\alpha\in M_{n,k}$, тогда норму
+Гильберта-Шмидта определим равенством
+$\Vert\alpha\Vert_{hs}=\operatorname{trace}{(|\alpha|^2)}^{1/2}$ где
+$|\alpha|={(\alpha^*\alpha)}^{1/2}$. Отметим, что всегда выполнены соотношения
+$\Vert\alpha\Vert\leq\Vert\alpha\Vert_{hs}$ и
+$\Vert|\alpha|\Vert_{hs}=\Vert|\alpha^*|\Vert=\Vert\alpha\Vert_{hs}$.
 
 \medskip
 
-Для линейного пространства $E$ через $E^k$ будем обозначать пространство столбцов высоты $k$ с элементами из $E$. Для $\alpha\in M_{n,k}$ и $x\in E^k$ через $\alpha x$ будем обозначать такой столбец из $E^n$, что
-$(\alpha x)_i=\sum_{j=1}^n \alpha_{ij} x_j$. Эта  формула является естественным обощением  матричного умножения. Теперь мы готовы дать два основных определения: определение секвенциального операторного пространства и определение секвенциально ограниченного оператора.
+Для линейного пространства $E$ через $E^k$ будем обозначать пространство
+столбцов высоты $k$ с элементами из $E$. Для $\alpha\in M_{n,k}$ и $x\in E^k$
+через $\alpha x$ будем обозначать такой столбец из $E^n$, что 
+${(\alpha x)}_i=\sum_{j=1}^n \alpha_{ij} x_j$. Эта  формула является естественным обощением
+матричного умножения. Теперь мы готовы дать два основных определения:
+определение секвенциального операторного пространства и определение
+секвенциально ограниченного оператора.
 
 \medskip
 
-{\bf Определение 1.1.1}[\cite{LamOpFolgen}, 1.1.7]\label{DefSQSpace} Пусть $E$ --- линейное пространство, и для каждого $n\in\mathbb{N}$ на пространстве $E^n$ задана некоторая норма $\Vert \cdot \Vert_{\wideparen{n}}$. 
-Будем говорить, что семейство $X = (E^n, (\Vert \cdot \Vert_{\wideparen{n}})_{n \in \mathbb{N}})$, задаёт на $E$ структуру \textit{секвенциального операторного} пространства, если выполнены следующие условия:
+{\bf Определение 1.1.1}[\cite{LamOpFolgen}, 1.1.7]\label{DefSQSpace} Пусть $E$
+--- линейное пространство, и для каждого $n\in\mathbb{N}$ на пространстве $E^n$
+задана некоторая норма $\Vert \cdot \Vert_{\wideparen{n}}$. Будем говорить, что
+семейство $X = (E^n, {(\Vert \cdot \Vert_{\wideparen{n}})}_{n \in \mathbb{N}})$,
+задаёт на $E$ структуру \textit{секвенциального операторного} пространства, если
+выполнены следующие условия:
+\begin{enumerate}[label = (\roman*)]
+    \item  $\Vert \alpha x \Vert_{\wideparen{m}} 
+    \leq \Vert \alpha \Vert  \Vert x
+    \Vert_{\wideparen{n}}$ для всех $m, n \in \mathbb{N}$, $x \in
+    E^{\wideparen{n}}$, $\alpha \in M_{m, n}$.
 
-$i)$ $\Vert \alpha x \Vert_{\wideparen{m}} \leq \Vert \alpha \Vert  \Vert x \Vert_{\wideparen{n}}$ для всех $m, n \in \mathbb{N}$, $x \in E^{\wideparen{n}}$, $\alpha \in M_{m, n}$.
-
-$ii)$ $\left\Vert ( x, y)^{tr} \right\Vert^2_{\wideparen{n + m}} \leq   \Vert x \Vert_{\wideparen{n}}^2 + \Vert y \Vert_{\wideparen{m}}^2$ для всех $m, n \in \mathbb{N}$, $x \in E^n$, $y \in E^m$ 
-\newline
-Пространство $E^n$ с нормой $\Vert \cdot \Vert_{\wideparen{n}}$ будем обозначать через $X^{\wideparen{n}}$.
+    \item $\left\Vert {(x,y)}^{tr} \right\Vert^2_{\wideparen{n + m}} 
+    \leq\Vert x\Vert_{\wideparen{n}}^2 + 
+    \Vert y \Vert_{\wideparen{m}}^2$ для всех $m, n \in
+    \mathbb{N}$, $x \in E^n$, $y \in E^m$ 
+\end{enumerate}
+Пространство $E^n$ с нормой $\Vert \cdot \Vert_{\wideparen{n}}$ будем обозначать
+через $X^{\wideparen{n}}$.
 
 \medskip
 
-Легко заметить, что если $X$ --- секвенциальное операторное пространство, то каждое 
-нормированное пространство $X^{\wideparen{n}}$ наделено естественной структурой секвенциального операторного пространства: достаточно отождествить $(X^{\wideparen{n}})^{\wideparen{k}}$ с $X^{\wideparen{nk}}$. Для любого нормированного пространства $E$ можно задать семейство наименьших или наибольших норм, делающих $E$ секвенциальным операторным пространством [\cite{LamOpFolgen}, 2.1.1, 2.1.2]. Мы обозначим эти пространства $\min(E)$ и $\max(E)$ соответственно. Их нормы задаются равенствами
+Легко заметить, что если $X$ --- секвенциальное операторное пространство, то
+каждое нормированное пространство $X^{\wideparen{n}}$ наделено естественной
+структурой секвенциального операторного пространства: достаточно отождествить
+${(X^{\wideparen{n}})}^{\wideparen{k}}$ с $X^{\wideparen{nk}}$. Для любого
+нормированного пространства $E$ можно задать семейство наименьших или наибольших
+норм, делающих $E$ секвенциальным операторным пространством [\cite{LamOpFolgen},
+2.1.1, 2.1.2]. Мы обозначим эти пространства $\min(E)$ и $\max(E)$
+соответственно. Их нормы задаются равенствами
 $$
-\Vert x\Vert_{\min(E)^{\wideparen{n}}}=\sup_{\xi\in B_{l_2^n}}\left\Vert\sum\limits_{i=1}^n \xi_i x_i\right\Vert
+\Vert x\Vert_{{\min(E)}^{\wideparen{n}}}
+=\sup_{\xi\in B_{l_2^n}}\left\Vert\sum\limits_{i=1}^n \xi_i x_i\right\Vert
 \qquad\qquad
-\Vert x\Vert_{\max(E)^{\wideparen{n}}}=\inf_{x=\alpha\tilde x, \alpha\in M_{n,k}, \tilde{x}\in E^{\wideparen{k}}}\Vert\alpha\Vert_{M_{n,k}}\left(\sum\limits_{i=1}^k\Vert\tilde  x_i\Vert^2\right)^{1/2}
+\Vert x\Vert_{{\max(E)}^{\wideparen{n}}}
+=\inf_{x=\alpha\tilde x, \alpha\in M_{n,k}, \tilde{x}\in E^{\wideparen{k}}}
+    \Vert\alpha\Vert_{M_{n,k}}{\left(
+        \sum\limits_{i=1}^k\Vert\tilde  x_i\Vert^2
+    \right)}^{1/2}
 $$
-Мы будем использовать обозначения $t_2^n=\min(\mathbb{C}^n)$, $l_2^n=\max(\mathbb{C}^n)$, причем здесь $\mathbb{C}^n$ рассматривается как $n$-мерное гильбертово пространство. Отсюда, кстати, легко видеть, что $\mathcal{C}$ обладает единственной секвенциальной операторной структурой.
+Мы будем использовать обозначения $t_2^n=\min(\mathbb{C}^n)$,
+$l_2^n=\max(\mathbb{C}^n)$, причем здесь $\mathbb{C}^n$ рассматривается как
+$n$-мерное гильбертово пространство. Отсюда, кстати, легко видеть, что
+$\mathcal{C}$ обладает единственной секвенциальной операторной структурой.
 
 \medskip
 
-{\bf Определение 1.1.2}[\cite{LamOpFolgen}, 1.2.1]\label{DefSBOp}
-Пусть $X$ и $Y$ ---- секвенциальные операторные проcтранства, а $\varphi : X \to Y$ --- линейный оператор. Его \textit{размножением} называется семейство операторов $\varphi^{\wideparen{n}} : X^{\wideparen{n}} \to Y^{\wideparen{n}}$, 
- $n\in\mathbb{N}$, определённых равенством $\varphi^{\wideparen{n}}(x)=(\varphi(x_i))_{i\in\mathbb{N}_k}$. Будем называть оператор $\varphi$ \textit{секвенциально ограниченным}, если 
+{\bf Определение 1.1.2}[\cite{LamOpFolgen}, 1.2.1]\label{DefSBOp} Пусть $X$ и
+$Y$ --- секвенциальные операторные проcтранства, а $\varphi : X \to Y$ ---
+линейный оператор. Его \textit{размножением} называется семейство операторов
+$\varphi^{\wideparen{n}} : X^{\wideparen{n}} \to Y^{\wideparen{n}}$,
+$n\in\mathbb{N}$, определённых равенством
+$\varphi^{\wideparen{n}}(x)={(\varphi(x_i))}_{i\in\mathbb{N}_k}$. Будем называть
+оператор $\varphi$ \textit{секвенциально ограниченным}, если 
 $$
-\Vert \varphi \Vert_{sb} := \sup\{\Vert \varphi^{\wideparen{n}}\Vert_{\mathcal{B}(X^{\wideparen{n}},Y^{\wideparen{n}})}:n\in\mathbb{N}\}  < \infty
-$$
-
-\medskip
-
-Множество секвенциально ограниченных операторов между секвенциальными операторными пространствами $X$ и $Y$ будем обозначать через $\mathcal{SB}(X,Y)$. Это линейное подпространство в $\mathcal{B}(X,Y)$, которое также можно наделить структурой секвенциального операторного пространства [\cite{LamOpFolgen}, 1.2.7] посредством отождествления $\mathcal{SB}(X,Y)^{\wideparen{n}}=\mathcal{SB}(X, Y^{\wideparen{n}})$. Теперь мы можем ввести две категории секвенциальных операторных пространств: $SQNor$ и $SQNor_1$. Объекты обеих категорий --- секвенциальные операторные пространства. Морфизмы в $SQNor$ --- секвенциально ограниченные операторы, а в $SQNor_1$ --- секвенциально ограниченные операторы с $sb$-нормой, не превосходящей $1$. 
-
-\medskip
-
-Теперь легко проверить что $\mathcal{SB}(-,-):SQNor\times SQNor\to SQNor$ задает бифунктор, ковариантный по первому аргументу и контравариантный по второму. Как и в случае нормированных пространств, логично рассмотреть действие этого функтора с пространством $\mathbb{C}$ в качестве второго аргумента. Мы получим функтор ${}^\triangle=\mathcal{SB}(-,\mathbb{C})$, который логично называть функтором сопряжения для секвенциальных операторных пространств. Он действительно  ведет себя подобно функтору банаховой сопряженности [\cite{LamOpFolgen}, 1.3]. Категория $SQNor_1$  (как и категория операторных пространств с вполне сжимающими операторами в качестве морфизмов) обладает категорными произведениями и копроизведениями. 
-
-\medskip
-
-{\bf Определение 1.1.3}[\cite{LamOpFolgen}, 1.1.28]\label{DefSQProd}
-Пусть $\{X_\lambda: \lambda \in \Lambda\}$ --- произвольное семейство секвенциальных операторных пространств. Их $\bigoplus_\infty$-суммой называется секвенциальное операторное пространство 
-$\bigoplus_\infty\{X_\lambda^{\wideparen{1}}:\lambda\in \Lambda\}$, с семейством норм, задаваемых отождествлениями 
-$$
-\left(\bigoplus{}_\infty\{X_\lambda:\lambda \in \Lambda\}\right)^{\wideparen{n}}
-=\bigoplus{}_\infty\{X_\lambda^{\wideparen{n}}:\lambda\in \Lambda\}
-$$
-
-\medskip
-
-{\bf Определение 1.1.4}\label{DefSQCoProd}
-Пусть $\{X_\lambda: \lambda \in \Lambda\}$ --- произвольное семейство секвенциальных операторных пространств. Их $\bigoplus_1^0$-суммой называется секвенциальное операторное пространство  
-$\bigoplus_1^0\{X_\lambda^{\wideparen{1}}:\lambda\in \Lambda\}$, с нормами, индуцированными вложением
-$$
-\bigoplus{}_1^0\{X_\lambda:\lambda \in \Lambda\}\hookrightarrow
-\left(\bigoplus{}_\infty\{X_\lambda^\triangle:\lambda\in \Lambda\}\right)^\triangle
+\Vert \varphi \Vert_{sb} 
+:=\sup \{
+\Vert 
+    \varphi^{\wideparen{n}}
+\Vert_{\mathcal{B}(X^{\wideparen{n}},Y^{\wideparen{n}})}
+:n\in\mathbb{N} \}  < \infty
 $$
 
 \medskip
 
-Как и в случае операторных пространств, легко показать, что $\bigoplus_\infty$-суммы являются произведениями, а $\bigoplus_1^0$-суммы --- копроизведениями в $SQNor_1$. Более того, имеет место изоморфизм в $SQNor_1$:
+Множество секвенциально ограниченных операторов между секвенциальными
+операторными пространствами $X$ и $Y$ будем обозначать через
+$\mathcal{SB}(X,Y)$. Это линейное подпространство в $\mathcal{B}(X,Y)$, которое
+также можно наделить структурой секвенциального операторного пространства
+[\cite{LamOpFolgen}, 1.2.7] посредством отождествления
+${\mathcal{SB}(X,Y)}^{\wideparen{n}}=\mathcal{SB}(X, Y^{\wideparen{n}})$. Теперь
+мы можем ввести две категории секвенциальных операторных пространств: $SQNor$ и
+$SQNor_1$. Объекты обеих категорий --- секвенциальные операторные пространства.
+Морфизмы в $SQNor$ --- секвенциально ограниченные операторы, а в $SQNor_1$ ---
+секвенциально ограниченные операторы с $sb$-нормой, не превосходящей $1$. 
+
+\medskip
+
+Теперь легко проверить что $\mathcal{SB}(-,-):SQNor\times SQNor\to SQNor$ задает
+бифунктор, ковариантный по первому аргументу и контравариантный по второму. Как
+и в случае нормированных пространств, логично рассмотреть действие этого
+функтора с пространством $\mathbb{C}$ в качестве второго аргумента. Мы получим
+функтор ${}^\triangle=\mathcal{SB}(-,\mathbb{C})$, который логично называть
+функтором сопряжения для секвенциальных операторных пространств. Он
+действительно  ведет себя подобно функтору банаховой сопряженности
+[\cite{LamOpFolgen}, 1.3]. Категория $SQNor_1$  (как и категория операторных
+пространств с вполне сжимающими операторами в качестве морфизмов) обладает
+категорными произведениями и копроизведениями. 
+
+\medskip
+
+{\bf Определение 1.1.3}[\cite{LamOpFolgen}, 1.1.28]\label{DefSQProd} Пусть
+$ \{X_\lambda: \lambda \in \Lambda \}$ --- произвольное семейство секвенциальных
+операторных пространств. Их $\bigoplus_\infty$-суммой называется секвенциальное
+операторное пространство $\bigoplus_\infty \{X_\lambda^{\wideparen{1}}:\lambda\in
+\Lambda \}$, с семейством норм, задаваемых отождествлениями 
 $$
-\left(\bigoplus{}_1^0\{X_\lambda:\lambda\in \Lambda\}\right)^\triangle
-=\bigoplus{}_\infty\{X_\lambda^\triangle:\lambda\in \Lambda\}
+{\left(\bigoplus{}_\infty \{X_\lambda:\lambda \in \Lambda \}\right)}^{\wideparen{n}}
+=\bigoplus{}_\infty \{X_\lambda^{\wideparen{n}}:\lambda\in \Lambda \}
+$$
+
+\medskip
+
+{\bf Определение 1.1.4}\label{DefSQCoProd} Пусть $ \{X_\lambda: \lambda \in
+\Lambda \}$ --- произвольное семейство секвенциальных операторных пространств. Их
+$\bigoplus_1^0$-суммой называется секвенциальное операторное пространство  
+$\bigoplus_1^0 \{X_\lambda^{\wideparen{1}}:\lambda\in \Lambda \}$, с нормами,
+индуцированными вложением
+$$
+\bigoplus{}_1^0 \{X_\lambda:\lambda \in \Lambda \}\hookrightarrow
+{\left(\bigoplus{}_\infty \{
+    X_\lambda^\triangle:\lambda\in \Lambda
+ \}\right)}^\triangle
+$$
+
+\medskip
+
+Как и в случае операторных пространств, легко показать, что
+$\bigoplus_\infty$-суммы являются произведениями, а $\bigoplus_1^0$-суммы ---
+копроизведениями в $SQNor_1$. Более того, имеет место изоморфизм в $SQNor_1$:
+$$
+{\left(\bigoplus{}_1^0 \{X_\lambda:\lambda\in \Lambda \}\right)}^\triangle
+=\bigoplus{}_\infty \{X_\lambda^\triangle:\lambda\in \Lambda \}
 $$
 
 
 \subsection{Двойственность для секвенциально ограниченных операторов}
 
-Основные результаты этого раздела получены Н. Немешем. Для начала нам нужно напомнить некоторые определения и факты, касающиеся ограниченных линейных операторов.
+Основные результаты этого раздела получены Н. Немешем. Для начала нам нужно
+напомнить некоторые определения и факты, касающиеся ограниченных линейных
+операторов.
 
-{\bf Определение 1.2.1}\label{DefNorOpType} Пусть $ T:E\to F$ --- ограниченный линейный оператор между нормированными пространствами, тогда $ T$ называется
+{\bf Определение 1.2.1}\label{DefNorOpType} Пусть $ T:E\to F$ --- ограниченный
+линейный оператор между нормированными пространствами, тогда $ T$ называется
+\begin{enumerate}[label = (\roman*)]
+    \item $c$-топологически инъективным, если для каждого $x \in E$ выполнено
+    $\Vert x\Vert\leq c\Vert  T(x)\Vert$. Если упоминание константы $c$ не
+    нужно, будем говорить, что $ T$ топологически инъективен.
 
-$i)$ $c$-топологически инъективным, если для каждого $x \in E$ выполнено $\Vert x\Vert\leq c\Vert  T(x)\Vert$. Если упоминание константы $c$ не нужно, будем говорить, что $ T$ топологически инъективен.
+    \item (строго) $c$-топологически сюрьективным, если любого $c'>c$ и любого
+    $y\in F$ существует такой $x \in E$, что ($\Vert x \Vert \leq c \Vert y
+    \Vert$) $\Vert x \Vert < c' \Vert y \Vert$ и $ T(x) = y$. Если упоминание
+    константы $c$ не нужно то будем говорить, что $ T$ (строго) топологически
+    сюръективен.
 
-$ii)$ (строго) $c$-топологически сюрьективным, если любого $c'>c$ и любого $y\in F$ существует такой $x \in E$, что ($\Vert x \Vert \leq c \Vert y \Vert$) $\Vert x \Vert < c' \Vert y \Vert$ и $ T(x) = y$. 
-Если упоминание константы $c$ не нужно то будем говорить, что $ T$ (строго) топологически сюръективен.
-
-$iii)$ (строго) коизометрическим, если он сжимающий и (строго) $1$-топологически сюръективный
-
-\medskip
-
-{\bf Предложение 1.2.2}\label{PrDualOps} Пусть $ T:E\to F$ ограниченный оператор между нормированными пространствами и $c>0$, тогда
-
-$i)$ если $ T$ (строго) $c$-топологически сюръективен, то $ T^*$ $c$-топологически инъективен
-
-$ii)$ если $ T$ $c$-топологически инъективен, то $ T^*$ строго $c$-топологически сюръективен
-
-$iii)$ если $ T^*$ (строго) $c$-топологически сюръективен, то $ T$ $c$-топологически инъективен
-
-$iv)$ если $ T^*$ $c$-топологически инъективен и $E$ полно, то $ T$ $c$-топологически сюръективен
+    \item (строго) коизометрическим, если он сжимающий и (строго)
+    $1$-топологически сюръективный
+\end{enumerate}
 
 \medskip
 
-Аналогичные определения можно дать и для секвенциально ограниченных операторов. Например, оператор $\varphi\in\mathcal{SB}(X,Y)$ между секвенциальными операторными пространствами $X$ и $Y$ называется секвенциально $c$-топологически инъективным, если для любого $n\in\mathbb{N}$ оператор $\varphi^{\wideparen{n}}$ $c$-топологически инъективен.
+{\bf Предложение 1.2.2}\label{PrDualOps} Пусть $ T:E\to F$ ограниченный оператор
+между нормированными пространствами и $c>0$, тогда
+\begin{enumerate}[label = (\roman*)]
+    \item если $ T$ (строго) $c$-топологически сюръективен, то $ T^*$
+    $c$-топологически инъективен
+
+    \item если $ T$ $c$-топологически инъективен, то $ T^*$ строго
+    $c$-топологически сюръективен
+
+    \item если $ T^*$ (строго) $c$-топологически сюръективен, то $ T$
+    $c$-топологически инъективен
+
+    \item если $ T^*$ $c$-топологически инъективен и $E$ полно, то $ T$
+    $c$-топологически сюръективен
+\end{enumerate}
 
 \medskip
 
-Далее мы докажем несколько технических предложений, необходимых для описания двойственности между секвенциально ограниченными операторами.
+Аналогичные определения можно дать и для секвенциально ограниченных операторов.
+Например, оператор $\varphi\in\mathcal{SB}(X,Y)$ между секвенциальными
+операторными пространствами $X$ и $Y$ называется секвенциально $c$-топологически
+инъективным, если для любого $n\in\mathbb{N}$ оператор $\varphi^{\wideparen{n}}$
+$c$-топологически инъективен.
 
 \medskip
 
-{\bf Предложение 1.2.3}[\cite{LamOpFolgen}, 1.3.14]\label{PrDualSBOp}
-Пусть $X$, $Y$ --- секвенциальные операторные пространства и $\varphi\in \mathcal{SB}(X,Y)$. Тогда $\varphi^\triangle \in\mathcal{SB}(Y^\triangle ,X^\triangle )$ и для каждого  $n\in\mathbb{N}$ выполнено 
-$\Vert(\varphi^\triangle )^{\wideparen{n}}\Vert=\Vert\varphi^{\wideparen{n}}\Vert$. Как следствие, $\Vert\varphi^\triangle \Vert_{sb}=\Vert\varphi\Vert_{sb}$.
+Далее мы докажем несколько технических предложений, необходимых для описания
+двойственности между секвенциально ограниченными операторами.
 
 \medskip
 
-{\bf Определение 1.2.4}[\cite{LamOpFolgen}, 1.3.15]\label{DefT2n}
-Пусть $X$ --- секвенциальное операторное пространство и $n\in\mathbb{N}$, тогда через $t_2^n(X)$ будем обозначть нормированное пространство $X^n$ c нормой
+{\bf Предложение 1.2.3}[\cite{LamOpFolgen}, 1.3.14]\label{PrDualSBOp} Пусть $X$,
+$Y$ --- секвенциальные операторные пространства и $\varphi\in
+\mathcal{SB}(X,Y)$. Тогда $\varphi^\triangle \in\mathcal{SB}(Y^\triangle
+,X^\triangle )$ и для каждого  $n\in\mathbb{N}$ выполнено
+$\Vert{(\varphi^\triangle)}^{\wideparen{n}}\Vert
+=\Vert\varphi^{\wideparen{n}}\Vert$. Как следствие,
+$\Vert\varphi^\triangle \Vert_{sb}=\Vert\varphi\Vert_{sb}$.
+
+\medskip
+
+{\bf Определение 1.2.4}[\cite{LamOpFolgen}, 1.3.15]\label{DefT2n} Пусть $X$ ---
+секвенциальное операторное пространство и $n\in\mathbb{N}$, тогда через
+$t_2^n(X)$ будем обозначть нормированное пространство $X^n$ c нормой
 $$
-\Vert x\Vert_{t_2^n(X)}:=\inf\left\{\Vert\tilde{\alpha}\Vert_{hs}\Vert \tilde{x}\Vert_{\wideparen{k}}:x=\tilde{\alpha} \tilde{x}\right\}
+\Vert x\Vert_{t_2^n(X)}
+:=\inf\left \{
+    \Vert\tilde{\alpha}\Vert_{hs}
+    \Vert \tilde{x}\Vert_{\wideparen{k}}:x=\tilde{\alpha} \tilde{x}
+\right \}
 $$
-где $\tilde{\alpha}\in M_{n,k}$, $x\in X^k$ и $k\in\mathbb{N}$. Если $Y$ --- секвенциальное операторное пространство, и $\varphi\in\mathcal{SB}(X,Y)$, то через $t_2^n(\varphi)$ будем обозначать линейный оператор
+где $\tilde{\alpha}\in M_{n,k}$, $x\in X^k$ и $k\in\mathbb{N}$. Если $Y$ ---
+секвенциальное операторное пространство, и $\varphi\in\mathcal{SB}(X,Y)$, то
+через $t_2^n(\varphi)$ будем обозначать линейный оператор
 $$
 t_2^n(\varphi): t_2^n(X)\to t_2^n(Y): x\mapsto \varphi^{\wideparen{n}}(x)
 $$
 
 \medskip
 
-{\bf Предложение 1.2.5}\label{PrT2nNormProperty}
-Пусть $X$ --- секвенциальное операторное пространство и $n\in\mathbb{N}$, тогда
+{\bf Предложение 1.2.5}\label{PrT2nNormProperty} Пусть $X$ --- секвенциальное
+операторное пространство и $n\in\mathbb{N}$, тогда
 $$
-\Vert x\Vert_{t_2^n(X)}=\inf\left\{\Vert\alpha'\Vert_{hs}\Vert x'\Vert_{\wideparen{k}}:x=\alpha'x'\right\}
+\Vert x\Vert_{t_2^n(X)}=\inf\left \{
+    \Vert\alpha'\Vert_{hs}\Vert x'\Vert_{\wideparen{k}}:x=\alpha'x'
+\right \}
 $$
 где $\alpha'\in M_{n,n}$ --- обратимая матрица, $x'\in X^{n}$.
 
 
-{\bf Доказательство.} Обозначим правую часть доказываемого равенства через $\Vert x\Vert_{t_2^n(X)}'$. Фиксируем $\varepsilon>0$, тогда существуют $\tilde{\alpha}\in M_{n,k}$ и $\tilde{x}\in X^{k}$, $k\in\mathbb{N}$ такие, что 
-$x=\tilde{\alpha}\tilde{x}$ и $\Vert\tilde{\alpha}\Vert_{hs}\Vert\tilde{x}\Vert_{\wideparen{k}}<\Vert x\Vert_{t_2^n(X)}+\varepsilon$. Рассмотрим полярное разложение 
-$\tilde{\alpha}=|\tilde{\alpha}^*| \rho$ матрицы $\tilde{\alpha}$. Пусть $p$ --- ортогональный проектор на $\operatorname{Im}(|\tilde{\alpha}^*|)^\perp$. Тогда для любого $\delta\in\mathbb{R}$ матрица 
-$\alpha_\delta'=|\tilde{\alpha}^*|+\delta p$ обратима так как $\operatorname{Ker}(\alpha_\delta')=\{0\}$. Так как $\alpha'_0=|\tilde{\alpha}|$ и функция $\Vert\alpha_\delta'\Vert_{hs}$ непрерывна при 
-$\delta\in\mathbb{R}$, то существует такое значение $\delta_0$, что 
-$\Vert\alpha_{\delta_0}'\Vert_{hs}<\Vert|\tilde{\alpha}^*|\Vert_{hs}+\varepsilon\Vert \tilde{x}\Vert_{\wideparen{k}}^{-1}=\Vert\tilde{\alpha}\Vert_{hs}+\varepsilon\Vert \tilde{x}\Vert_{\wideparen{k}}^{-1}$. 
-Обозначим $\alpha'=\alpha_{\delta_0}'\in M_{n,n}$ и $x'=\rho\tilde{x}\in Y^n$, тогда 
+{\bf Доказательство.} Обозначим правую часть доказываемого равенства через
+$\Vert x\Vert_{t_2^n(X)}'$. Фиксируем $\varepsilon>0$, тогда существуют
+$\tilde{\alpha}\in M_{n,k}$ и $\tilde{x}\in X^{k}$, $k\in\mathbb{N}$ такие, что
+$x=\tilde{\alpha}\tilde{x}$ и
+$\Vert\tilde{\alpha}\Vert_{hs}\Vert\tilde{x}\Vert_{\wideparen{k}}<\Vert
+x\Vert_{t_2^n(X)}+\varepsilon$. Рассмотрим полярное разложение
+$\tilde{\alpha}=|\tilde{\alpha}^*| \rho$ матрицы $\tilde{\alpha}$. Пусть $p$ ---
+ортогональный проектор на $\operatorname{Im}{(|\tilde{\alpha}^*|)}^\perp$. Тогда
+для любого $\delta\in\mathbb{R}$ матрица
+$\alpha_\delta'=|\tilde{\alpha}^*|+\delta p$ обратима так как
+$\operatorname{Ker}(\alpha_\delta')= \{0 \}$. Так как $\alpha'_0=|\tilde{\alpha}|$
+и функция $\Vert\alpha_\delta'\Vert_{hs}$ непрерывна при $\delta\in\mathbb{R}$,
+то существует такое значение $\delta_0$, что
+$\Vert\alpha_{\delta_0}'\Vert_{hs}
+<\Vert|\tilde{\alpha}^*|\Vert_{hs}+\varepsilon\Vert
+\tilde{x}\Vert_{\wideparen{k}}^{-1}
+=\Vert\tilde{\alpha}\Vert_{hs}+\varepsilon\Vert
+\tilde{x}\Vert_{\wideparen{k}}^{-1}$. Обозначим 
+$\alpha'=\alpha_{\delta_0}'\in M_{n,n}$ и $x'=\rho\tilde{x}\in Y^n$, тогда 
 $$
 \alpha'x'
 =(|\tilde{\alpha}^*|+\delta_0 p)\rho \tilde{x}
 =|\tilde{\alpha}^*|\rho \tilde{x}+\delta_0 p\rho \tilde{x}
 =\tilde{\alpha}\tilde{x}
 $$
-По построению полярного разложения $\Vert \rho\Vert\leq 1$, поэтому с учетом определения $\Vert x\Vert_{t_2^n(X)}'$ получаем
+По построению полярного разложения $\Vert \rho\Vert\leq 1$, поэтому с учетом
+определения $\Vert x\Vert_{t_2^n(X)}'$ получаем
 $$
 \Vert x\Vert_{t_2^n(X)}'\leq
 \Vert\alpha'\Vert_{hs}\Vert x'\Vert_{\wideparen{n}}
-\leq (\Vert\tilde{\alpha}\Vert_{hs}+\varepsilon\Vert \tilde{x}\Vert_{\wideparen{k}})\Vert \rho\Vert\Vert\tilde{x}\Vert_{\wideparen{n}}
-\leq\Vert\tilde{\alpha}\Vert_{hs}\Vert\tilde{x}\Vert_{\wideparen{k}}+\varepsilon
+\leq (
+    \Vert\tilde{\alpha}\Vert_{hs}+
+    \varepsilon\Vert 
+        \tilde{x}\Vert_{\wideparen{k}})
+    \Vert \rho\Vert\Vert\tilde{x}\Vert_{\wideparen{n}}
+\leq\Vert\tilde{\alpha}\Vert_{hs}\Vert\tilde{x}\Vert_{\wideparen{k}}
++\varepsilon
 \leq \Vert x\Vert_{t_2^n(X)}+2\varepsilon
 $$
-Так как $\varepsilon>0$ произвольно, то $\Vert x\Vert_{t_2^n(X)}'\leq\Vert x\Vert_{t_2^n(X)}$. Обратное неравенство очевидно, поэтому $\Vert x\Vert_{t_2^n(X)}=\Vert x\Vert_{t_2^n(X)}'$.
+Так как $\varepsilon>0$ произвольно, то $\Vert x\Vert_{t_2^n(X)}'\leq\Vert
+x\Vert_{t_2^n(X)}$. Обратное неравенство очевидно, поэтому $\Vert
+x\Vert_{t_2^n(X)}=\Vert x\Vert_{t_2^n(X)}'$.
 
 \medskip
 
-{\bf Предложение 1.2.5}\label{PrT2nOfOpIsWellDef}
-Пусть $X$, $Y$ --- секвенциальные операторные пространства, $\varphi\in\mathcal{SB}(X,Y)$ и $n,k\in\mathbb{N}$. Тогда 
+{\bf Предложение 1.2.5}\label{PrT2nOfOpIsWellDef} Пусть $X$, $Y$ ---
+секвенциальные операторные пространства, $\varphi\in\mathcal{SB}(X,Y)$ и
+$n,k\in\mathbb{N}$. Тогда 
+\begin{enumerate}[label = (\roman*)]
+    \item Для любых $\alpha\in M_{n,k}$ и $x\in t_2^k(X)$ выполнено
+    $t_2^n(\varphi)(\alpha x)=\alpha t_2^k(\varphi)(x)$
 
-$i)$ Для любых $\alpha\in M_{n,k}$ и $x\in t_2^k(X)$ выполнено $t_2^n(\varphi)(\alpha x)=\alpha t_2^k(\varphi)(x)$
+    \item $t_2^n(\varphi)\in\mathcal{B}(t_2^n(X),t_2^n(Y))$, причем $\Vert
+    t_2^n(\varphi)\Vert\leq\Vert\varphi^{\wideparen{n}}\Vert$
 
-$ii)$ $t_2^n(\varphi)\in\mathcal{B}(t_2^n(X),t_2^n(Y))$, причем $\Vert t_2^n(\varphi)\Vert\leq\Vert\varphi^{\wideparen{n}}\Vert$
+    \item если $\varphi^{\wideparen{n}}$ (строго) $c$-топологически
+    сюръективно, то $t_2^n(\varphi)$ так же (строго) $c$-топологически
+    сюръективно
 
-$iii)$ если $\varphi^{\wideparen{n}}$ (строго) $c$-топологически сюръективно, то $t_2^n(\varphi)$ так же (строго) $c$-топологически сюръективно
+    \item если $\varphi^{\wideparen{n}}$ $c$-топологически инъективно, то
+    $t_2^n(\varphi)$ так же $c$-топологически инъективно
+\end{enumerate}
 
-$iv)$  если $\varphi^{\wideparen{n}}$ $c$-топологически инъективно, то $t_2^n(\varphi)$ так же $c$-топологически инъективно
 
+{\bf Доказательство.} $(i)$ Проверяется непосредственно. 
 
-{\bf Доказательство.}
-$i)$ Проверяется непосредственно. 
-
-$ii)$ Пусть $x\in t_2^n(X)$ и $x=\alpha'x'$, где $\alpha\in M_{n,n}$ --- обратимая матрица и $x'\in X^{n}$, тогда $t_2^n(\varphi)(x)=\alpha't_2^n(\varphi)(x')=\alpha'\varphi^{\wideparen{n}}(x')$, поэтому из 
-определения нормы в $t_2^n(Y)$ следует, что
+$(ii)$ Пусть $x\in t_2^n(X)$ и $x=\alpha'x'$, где $\alpha\in M_{n,n}$ ---
+обратимая матрица и $x'\in X^{n}$, тогда
+$t_2^n(\varphi)(x)=\alpha't_2^n(\varphi)(x')=\alpha'\varphi^{\wideparen{n}}(x')$,
+поэтому из определения нормы в $t_2^n(Y)$ следует, что
 $$
 \Vert t_2^n(\varphi)(x)\Vert_{t_2^n(Y)}
 \leq\Vert\alpha'\Vert_{hs}\Vert\varphi^{\wideparen{n}}(x')\Vert_{\wideparen{n}}
-\leq\Vert\alpha'\Vert_{hs}\Vert\varphi^{\wideparen{n}}\Vert\Vert x'\vert_{\wideparen{n}}
+\leq\Vert\alpha'\Vert_{hs}
+\Vert\varphi^{\wideparen{n}}\Vert\Vert x'\vert_{\wideparen{n}}
 $$
-Теперь возьмем инфимум по всем представлениям $x$ описанным выше, тогда предложение \ref{PrT2nNormProperty} дает
+Теперь возьмем инфимум по всем представлениям $x$ описанным выше, тогда
+предложение~\ref{PrT2nNormProperty} дает
 $$
-\Vert t_2^n(\varphi)(x)\Vert_{t_2^n(Y)}\leq\Vert\varphi^{\wideparen{n}}\Vert\Vert x\Vert_{t_2^n(X)}
+\Vert t_2^n(\varphi)(x)\Vert_{t_2^n(Y)}
+\leq\Vert\varphi^{\wideparen{n}}\Vert\Vert x\Vert_{t_2^n(X)}
 $$
-Следовательно $\Vert t_2^n(\varphi)\Vert\leq\Vert\varphi^{\wideparen{n}}\Vert$ и $t_2^n(\varphi)\in\mathcal{B}(t_2^n(X),t_2^n(Y))$.
+Следовательно $\Vert t_2^n(\varphi)\Vert\leq\Vert\varphi^{\wideparen{n}}\Vert$ и
+$t_2^n(\varphi)\in\mathcal{B}(t_2^n(X),t_2^n(Y))$.
 
-$iii)$ Пусть $\varphi^{\wideparen{n}}$  $c$-топологически сюръективен. Пусть $y\in t_2^n(Y)$ и $y=\alpha' y'$, где $\alpha'\in M_{n,n}$ --- обратимая матрица, $y'\in Y^n$. Пусть $c<c''<c'$. Так как 
-$\varphi^{\wideparen{n}}$ $c$-топологически сюръективно, то существует $x'\in X^n$ такое что $\varphi^{\wideparen{n}}(x')=y'$ и $\Vert x'\Vert_{\wideparen{n}}< c''\Vert y'\Vert_{\wideparen{n}}$. Рассмотрим 
-$x:=\alpha'x'$, тогда $t_2^n(\varphi)(x)=\alpha't_2^n(\varphi)(x')=\alpha'\varphi^{\wideparen{n}}(x')=\alpha' y'=y$. Из определения нормы в $t_2^n(X)$ получаем
+$(iii)$ Пусть $\varphi^{\wideparen{n}}$  $c$-топологически сюръективен. Пусть
+$y\in t_2^n(Y)$ и $y=\alpha' y'$, где $\alpha'\in M_{n,n}$ --- обратимая
+матрица, $y'\in Y^n$. Пусть $c<c''<c'$. Так как $\varphi^{\wideparen{n}}$
+$c$-топологически сюръективно, то существует $x'\in X^n$ такое что
+$\varphi^{\wideparen{n}}(x')=y'$ и $\Vert x'\Vert_{\wideparen{n}}< c''\Vert
+y'\Vert_{\wideparen{n}}$. Рассмотрим $x:=\alpha'x'$, тогда
+$t_2^n(\varphi)(x)=\alpha't_2^n(\varphi)(x')
+=\alpha'\varphi^{\wideparen{n}}(x')=\alpha'
+y'=y$. Из определения нормы в $t_2^n(X)$ получаем
 $$
 \Vert x\Vert_{t_2^n(X)}
 \leq\Vert\alpha'\Vert_{hs}\Vert x'\Vert_{\wideparen{n}}
 \leq\Vert\alpha'\Vert_{hs} c''\Vert y'\Vert_{\wideparen{n}}
 $$
-Теперь возьмем инфимум по всем представлениям $y$ описанным выше, тогда предложение \ref{PrT2nNormProperty} дает $\Vert x\Vert_{t_2^n(X)}\leq c''\Vert y\Vert_{t_2^n(Y)}<c'\Vert y\Vert_{t_2^n(Y)}$
-Таким образом, для любого $y\in t_2^n(Y)$ и любого $c'>c$ существует $x\in t_2^n(X)$ такой что $t_2^n(\varphi)(x)=y$ и $\Vert x\Vert_{t_2^n(X)}< c'\Vert y\Vert_{t_2^n(Y)}$. Следовательно $t_2^n(\varphi)$ 
-$c$-топологически сюръективен.
-\newline
-Пусть $\varphi^{\wideparen{n}}$ строго $c$-топологически сюръективен. Пусть $y\in t_2^n(Y)$ и $y=\alpha' y'$, где $\alpha'\in M_{n,n}$ --- обратимая матрица, $y'\in Y^n$. Так как $\varphi^{\wideparen{n}}$ $c$-топологически 
-сюръективно, то существует $x'\in X^n$ такое что $\varphi^{\wideparen{n}}(x')=y'$ и $\Vert x'\Vert_{\wideparen{n}}\leq c\Vert y'\Vert_{\wideparen{n}}$. Рассмотрим $x:=\alpha'x'$, тогда 
-$t_2^n(\varphi)(x)=\alpha't_2^n(\varphi)(x')=\alpha'\varphi^{\wideparen{n}}(x')=\alpha' y'=y$. Из определения нормы в $t_2^n(X)$ получаем
+Теперь возьмем инфимум по всем представлениям $y$ описанным выше, тогда
+предложение~\ref{PrT2nNormProperty} дает $\Vert x\Vert_{t_2^n(X)}\leq c''\Vert
+y\Vert_{t_2^n(Y)}<c'\Vert y\Vert_{t_2^n(Y)}$ Таким образом, для любого $y\in
+t_2^n(Y)$ и любого $c'>c$ существует $x\in t_2^n(X)$ такой что
+$t_2^n(\varphi)(x)=y$ и $\Vert x\Vert_{t_2^n(X)}< c'\Vert y\Vert_{t_2^n(Y)}$.
+Следовательно $t_2^n(\varphi)$ $c$-топологически сюръективен.
+
+Пусть $\varphi^{\wideparen{n}}$ строго $c$-топологически сюръективен. Пусть
+$y\in t_2^n(Y)$ и $y=\alpha' y'$, где $\alpha'\in M_{n,n}$ --- обратимая
+матрица, $y'\in Y^n$. Так как $\varphi^{\wideparen{n}}$ $c$-топологически
+сюръективно, то существует $x'\in X^n$ такое что
+$\varphi^{\wideparen{n}}(x')=y'$ и $\Vert x'\Vert_{\wideparen{n}}\leq c\Vert
+y'\Vert_{\wideparen{n}}$. Рассмотрим $x:=\alpha'x'$, тогда
+$t_2^n(\varphi)(x)=\alpha't_2^n(\varphi)(x')
+=\alpha'\varphi^{\wideparen{n}}(x')=\alpha'y'=y$. 
+Из определения нормы в $t_2^n(X)$ получаем
 $$
 \Vert x\Vert_{t_2^n(X)}
 \leq\Vert\alpha'\Vert_{hs}\Vert x'\Vert_{\wideparen{n}}
 \leq\Vert\alpha'\Vert_{hs} c\Vert y'\Vert_{\wideparen{n}}
 $$
-Теперь возьмем инфимум по всем представлениям $y$, описанным выше, тогда предложение \ref{PrT2nNormProperty} дает $\Vert x\Vert_{t_2^n(X)}\leq c\Vert y\Vert_{t_2^n(Y)}$
-Таким образом, для любого $y\in t_2^n(Y)$ существует $x\in t_2^n(X)$ такой что $t_2^n(\varphi)(x)=y$ и $\Vert x\Vert_{t_2^n(X)}\leq c\Vert y\Vert_{t_2^n(Y)}$. Следовательно $t_2^n(\varphi)$ строго $c$-топологически сюръективен.
+Теперь возьмем инфимум по всем представлениям $y$, описанным выше, тогда
+предложение~\ref{PrT2nNormProperty} дает $\Vert x\Vert_{t_2^n(X)}\leq c\Vert
+y\Vert_{t_2^n(Y)}$ Таким образом, для любого $y\in t_2^n(Y)$ существует $x\in
+t_2^n(X)$ такой что $t_2^n(\varphi)(x)=y$ и $\Vert x\Vert_{t_2^n(X)}\leq c\Vert
+y\Vert_{t_2^n(Y)}$. Следовательно $t_2^n(\varphi)$ строго $c$-топологически
+сюръективен.
 
-$iv)$ Пусть $x\in t_2^n(X)$, обозначим $y:=t_2^n(\varphi)(x)$. Пусть имеется представление $y=\alpha' y'$, где $\alpha'\in M_{n,n}$ --- обратимая матрица, $y'\in Y^n$. Тогда 
-$y'=(\alpha')^{-1}y=(\alpha')^{-1}t_2^n(\varphi)(x)=t_2^n(\varphi)((\alpha')^{-1}x)\in\operatorname{Im}(t_n^2(\varphi))
-$. Так как $\varphi^{\wideparen{n}}$ $c$-топологически инъективен, то он инъективен, поэтому для $y'\in \operatorname{Im}(t_2^n(\varphi))$ существует $x'\in X^n$ такой что 
-$y'=t_2^n(\varphi)(x')=\varphi^{\wideparen{n}}(x')$. Так как $\varphi^{\wideparen{n}}$ $c$-топологически инъективен, то $\Vert x'\Vert_{\wideparen{n}}\leq c\Vert y'\Vert$. Из определения нормы в $t_2^n(X)$ следует, что
+$(iv)$ Пусть $x\in t_2^n(X)$, обозначим $y:=t_2^n(\varphi)(x)$. Пусть имеется
+представление $y=\alpha' y'$, где $\alpha'\in M_{n,n}$ --- обратимая матрица,
+$y'\in Y^n$. Тогда
+$y'={(\alpha')}^{-1}y={(\alpha')}^{-1}t_2^n(\varphi)(x)
+=t_2^n(\varphi)({(\alpha')}^{-1}x)\in\operatorname{Im}(t_n^2(\varphi))
+$. Так как $\varphi^{\wideparen{n}}$ $c$-топологически инъективен, то он
+инъективен, поэтому для $y'\in \operatorname{Im}(t_2^n(\varphi))$ существует
+$x'\in X^n$ такой что $y'=t_2^n(\varphi)(x')=\varphi^{\wideparen{n}}(x')$. Так
+как $\varphi^{\wideparen{n}}$ $c$-топологически инъективен, то $\Vert
+x'\Vert_{\wideparen{n}}\leq c\Vert y'\Vert$. Из определения нормы в $t_2^n(X)$
+следует, что
 $$
-\Vert x\Vert_{t_2^n(X)}\leq\Vert\alpha'\Vert_{hs}\Vert x'\Vert_{\wideparen{n}}\leq c\Vert\alpha'\Vert_{hs}\Vert y'\Vert_{\wideparen{n}}
+\Vert x\Vert_{t_2^n(X)}\leq\Vert\alpha'\Vert_{hs}\Vert x'\Vert_{\wideparen{n}}
+\leq c\Vert\alpha'\Vert_{hs}\Vert y'\Vert_{\wideparen{n}}
 $$
-Теперь возьмем инфимум по всем представлениям $y$, описанным выше, тогда предложение \ref{PrT2nNormProperty} дает $\Vert x\Vert_{t_2^n(X)}\leq c\Vert y\Vert_{t_2^n(Y)}=c\Vert t_2^n(\varphi)(x)\Vert_{t_2^n(Y)}$. 
-Таким образом, для любого $x\in t_2^n(X)$ выполнено $\Vert t_2^n(\varphi)(x)\Vert_{t_2^n(Y)}\geq c^{-1}\Vert x\Vert_{t_2^n(X)}$. Следовательно, $t_2^n(\varphi)$ $c$-топологически инъективен.
+Теперь возьмем инфимум по всем представлениям $y$, описанным выше, тогда
+предложение~\ref{PrT2nNormProperty} дает $\Vert x\Vert_{t_2^n(X)}\leq c\Vert
+y\Vert_{t_2^n(Y)}=c\Vert t_2^n(\varphi)(x)\Vert_{t_2^n(Y)}$. Таким образом, для
+любого $x\in t_2^n(X)$ выполнено $\Vert t_2^n(\varphi)(x)\Vert_{t_2^n(Y)}\geq
+c^{-1}\Vert x\Vert_{t_2^n(X)}$. Следовательно, $t_2^n(\varphi)$
+$c$-топологически инъективен.
 
 \medskip
 
 {\bf Предложение 1.2.6}[\cite{LamOpFolgen}, 1.3.16]\label{PrT2nTraingDuality}
-Пусть $X$ --- секвенциальное операторное пространство и $n\in\mathbb{N}$. Тогда имеют место изометрические изоморфизмы
+Пусть $X$ --- секвенциальное операторное пространство и $n\in\mathbb{N}$. Тогда
+имеют место изометрические изоморфизмы
 $$
-\alpha_X^n:t_2^n(X^\triangle)\to (X^{\wideparen{n}})^*: f\mapsto\left(x\mapsto\sum\limits_{i=1}^n f_i(x_i)\right)
+\alpha_X^n
+:t_2^n(X^\triangle)\to {(X^{\wideparen{n}})}^*
+:f\mapsto\left(x\mapsto\sum\limits_{i=1}^n f_i(x_i)\right)
 \qquad
-\beta_X^n:(X^\triangle)^{\wideparen{n}}\to t_2^n(X)^*:f\mapsto\left(x\mapsto\sum\limits_{i=1}^n f_i(x_i)\right)
+\beta_X^n
+:{(X^\triangle)}^{\wideparen{n}}\to {t_2^n(X)}^*
+:f\mapsto\left(x\mapsto\sum\limits_{i=1}^n f_i(x_i)\right)
 $$
 
 \medskip
 
-{\bf Предложение 1.2.7}\label{PrTwoTypesDualOpEquiv}
-Пусть $X$, $Y$ --- секвенциальные операторные пространства, $\varphi\in \mathcal{SB}(X,Y)$ и $n\in\mathbb{N}$, тогда 
+{\bf Предложение 1.2.7}\label{PrTwoTypesDualOpEquiv} Пусть $X$, $Y$ ---
+секвенциальные операторные пространства, $\varphi\in \mathcal{SB}(X,Y)$ и
+$n\in\mathbb{N}$, тогда 
+\begin{enumerate}[label = (\roman*)]
+    \item ${(\varphi^\triangle)}^{\wideparen{n}}$ $c$-топологически инъективен
+    (сюръективен) тогда и только тогда когда ${t_2^n(\varphi)}^*$
+    $c$-топологически инъективен (сюръективен)
 
-$i)$ $(\varphi^\triangle)^{\wideparen{n}}$ $c$-топологически инъективен (сюръективен) тогда и только тогда когда $t_2^n(\varphi)^*$ $c$-топологически инъективен (сюръективен)
+    \item $t_2^n(\varphi^\triangle)$ $c$-топологически инъективен (сюръективен)
+    тогда и только тогда когда ${(\varphi^{\wideparen{n}})}^*$ $c$-топологически
+    инъективен (сюръективен)
 
-$ii)$ $t_2^n(\varphi^\triangle)$ $c$-топологически инъективен (сюръективен) тогда и только тогда когда $(\varphi^{\wideparen{n}})^*$ $c$-топологически инъективен (сюръективен)
+    \item верны равенства $\Vert {(\varphi^\triangle)}^{\wideparen{n}}\Vert=\Vert
+    {t_2^n(\varphi)}^*\Vert$ и $\Vert t_2^n(\varphi^\triangle)\Vert=\Vert
+    {(\varphi^{\wideparen{n}})}^*\Vert$ и  $\Vert
+    t_2^n(\varphi)\Vert=\Vert\varphi^{\wideparen{n}}\Vert$
+\end{enumerate}
 
-$iii)$ верны равенства $\Vert (\varphi^\triangle)^{\wideparen{n}}\Vert=\Vert t_2^n(\varphi)^*\Vert$ и $\Vert t_2^n(\varphi^\triangle)\Vert=\Vert (\varphi^{\wideparen{n}})^*\Vert$ и  $\Vert t_2^n(\varphi)\Vert=\Vert\varphi^{\wideparen{n}}\Vert$
-
-{\bf Доказательство.}
-Пусть $g\in (Y^\triangle)^{\wideparen{n}}$ и $x\in t_2^n(X)$, тогда
+{\bf Доказательство.} Пусть $g\in {(Y^\triangle)}^{\wideparen{n}}$ и $x\in
+t_2^n(X)$, тогда
 $$
-(\alpha_X^n(\varphi^\triangle)^{\wideparen{n}})(g)(x)
-=\alpha_X^n((\varphi^\triangle)^{\wideparen{n}}(g))(x)
-=\sum\limits_{k=1}^n (\varphi^\triangle)^{\wideparen{n}}(g)_k(x_k)
+(\alpha_X^n{(\varphi^\triangle)}^{\wideparen{n}})(g)(x)
+=\alpha_X^n({(\varphi^\triangle)}^{\wideparen{n}}(g))(x)
+=\sum\limits_{k=1}^n {(\varphi^\triangle)}^{\wideparen{n}}{(g)}_k(x_k)
 =\sum\limits_{k=1}^n (\varphi^\triangle)(g_k)(x_k)
 =\sum\limits_{k=1}^n g_k(\varphi(x_k))
 $$
 $$
-(t_2^n(\varphi)^* \alpha_Y^n)(g)(x)
-=t_2^n(\varphi)^*(\alpha_Y^n(g))(x)
+({t_2^n(\varphi)}^* \alpha_Y^n)(g)(x)
+={t_2^n(\varphi)}^*(\alpha_Y^n(g))(x)
 =\alpha_Y^n(g)(t_2^n(\varphi)(x))
-=\sum\limits_{k=1}^n g_k(t_2^n(\varphi)(x)_k)
+=\sum\limits_{k=1}^n g_k(t_2^n(\varphi){(x)}_k)
 =\sum\limits_{k=1}^n g_k(\varphi(x_k))
 $$
-Так как $g$ и $x$ произвольны, то $\alpha_X^n(\varphi^\triangle)^{\wideparen{n}}=t_2^n(\varphi)^* \alpha_Y^n$. Так как $\alpha_Y^n$ и $\alpha_X^n$ изометрические изоморфизмы, то мы получаем утверждение $i)$ и равенство $\Vert (\varphi^\triangle)^{\wideparen{n}}\Vert=\Vert t_2^n(\varphi)^*\Vert$.
-Пусть $g\in t_2^n(Y^\triangle)$ и $x\in X^{\wideparen{n}}$, тогда
+Так как $g$ и $x$ произвольны, то
+$\alpha_X^n{(\varphi^\triangle)}^{\wideparen{n}}={t_2^n(\varphi)}^* \alpha_Y^n$. Так
+как $\alpha_Y^n$ и $\alpha_X^n$ изометрические изоморфизмы, то мы получаем
+утверждение $(i)$ и равенство $\Vert
+{(\varphi^\triangle)}^{\wideparen{n}}\Vert=\Vert {t_2^n(\varphi)}^*\Vert$. Пусть
+$g\in t_2^n(Y^\triangle)$ и $x\in X^{\wideparen{n}}$, тогда
 $$
 (\beta_X^n t_2^n(\varphi^\triangle))(g)(x)
 =\beta_X^n(t_2^n(\varphi^\triangle)(g))(x)
-=\sum\limits_{k=1}^n t_2^n(\varphi^\triangle)(g)_k(x_k)
+=\sum\limits_{k=1}^n t_2^n(\varphi^\triangle){(g)}_k(x_k)
 =\sum\limits_{k=1}^n (\varphi^\triangle)(g_k)(x_k)
 =\sum\limits_{k=1}^n g_k(\varphi(x_k))
 $$
 $$
-((\varphi^{\wideparen{n}})^*\beta_Y^n)(g)(x)
-=(\varphi^{\wideparen{n}})^*(\beta_Y^n(g))(x)
-=\beta_Y^n(g)(\varphi^{\wideparen{n}})(x))
-=\sum\limits_{k=1}^n g_k(\varphi^{\wideparen{n}})(x)_k)
+({(\varphi^{\wideparen{n}})}^*\beta_Y^n)(g)(x)
+={(\varphi^{\wideparen{n}})}^*(\beta_Y^n(g))(x)
+=\beta_Y^n(g)(\varphi^{\wideparen{n}})(x)
+=\sum\limits_{k=1}^n g_k(\varphi^{\wideparen{n}}){(x)}_{k}
 =\sum\limits_{k=1}^n g_k(\varphi(x_k))
 $$
-Так как $g$ и $x$ произвольны, то $\beta_X^n t_2^n(\varphi^\triangle)=(\varphi^{\wideparen{n}})^*\beta_Y^n$. Так как $\beta_Y^n$ и $\beta_X^n$ изометрические изоморфизмы, то мы получаем утверждение $ii)$ и равенство $\Vert t_2^n(\varphi^\triangle)\Vert=\Vert (\varphi^{\wideparen{n}})^*\Vert$.
+Так как $g$ и $x$ произвольны, то $\beta_X^n
+t_2^n(\varphi^\triangle)={(\varphi^{\wideparen{n}})}^*\beta_Y^n$. Так как
+$\beta_Y^n$ и $\beta_X^n$ изометрические изоморфизмы, то мы получаем утверждение
+$(ii)$ и равенство $\Vert t_2^n(\varphi^\triangle)\Vert=\Vert
+{(\varphi^{\wideparen{n}})}^*\Vert$.
 
-Наконец, из предложений \ref{PrT2nOfOpIsWellDef}, \ref{PrDualSBOp} следует что $\Vert t_2^n(\varphi)\Vert\leq\Vert\varphi^{\wideparen{n}}\Vert=\Vert(\varphi^\triangle)^{\wideparen{n}}\Vert=\Vert t_2^n(\varphi)^*\Vert=\Vert t_2^n(\varphi)\Vert$, т.е. $\Vert t_2^n(\varphi)\Vert=\Vert\varphi^{\wideparen{n}}\Vert$.
+Наконец, из предложений~\ref{PrT2nOfOpIsWellDef},~\ref{PrDualSBOp} следует что
+$\Vert
+t_2^n(\varphi)\Vert\leq\Vert\varphi^{\wideparen{n}}\Vert
+=\Vert{(\varphi^\triangle)}^{\wideparen{n}}\Vert=\Vert
+{t_2^n(\varphi)}^*\Vert=\Vert t_2^n(\varphi)\Vert$, т.е. $\Vert
+t_2^n(\varphi)\Vert=\Vert\varphi^{\wideparen{n}}\Vert$.
 
 
 
-{\bf Теорема 1.2.8}\label{ThDualSQOps}
-Пусть $X$, $Y$ --- секвенциальные операторные пространства и $\varphi\in\mathcal{SB}(X,Y)$, тогда
+{\bf Теорема 1.2.8}\label{ThDualSQOps} Пусть $X$, $Y$ --- секвенциальные
+операторные пространства и $\varphi\in\mathcal{SB}(X,Y)$, тогда
 
-$i)$ $\varphi$ (строго) секвенциально $c$-топологически сюръективен $\Longrightarrow$
-$ \varphi^\triangle$ секвенциально $c$-топологически инъективен
+$(i)$ $\varphi$ (строго) секвенциально $c$-топологически сюръективен
+$\Longrightarrow$ $ \varphi^\triangle$ секвенциально $c$-топологически
+инъективен
 
-$ii)$ $\varphi$ секвенциально $c$-топологически инъективен $\Longrightarrow$ строго
-$ \varphi^\triangle$ строго секвенциально $c$-топологически сюръективен
+$(ii)$ $\varphi$ секвенциально $c$-топологически инъективен $\Longrightarrow$
+строго $ \varphi^\triangle$ строго секвенциально $c$-топологически сюръективен
 
-$iii)$ $\varphi^\triangle$ (строго) секвенциально $c$-топологически сюръективен $\Longrightarrow$
-$ \varphi$ секвенциально $c$-топологически инъективен
+$(iii)$ $\varphi^\triangle$ (строго) секвенциально $c$-топологически сюръективен
+$\Longrightarrow$ $ \varphi$ секвенциально $c$-топологически инъективен
 
-$iv)$ $\varphi^\triangle$ секвенциально $c$-топологически инъективен $\Longrightarrow$
-$ \varphi$ строго секвенциально $c$-топологически сюръективен
+$(iv)$ $\varphi^\triangle$ секвенциально $c$-топологически инъективен
+$\Longrightarrow$ $ \varphi$ строго секвенциально $c$-топологически сюръективен
 
-$v)$ $\varphi$ секвенциально коизометричен $\Longrightarrow$ 
-$\varphi^\triangle$ секвенциально изометричен, если $X$ полно, то верно и обратное
+$(v)$ $\varphi$ секвенциально коизометричен $\Longrightarrow$ $\varphi^\triangle$
+секвенциально изометричен, если $X$ полно, то верно и обратное
 
-$vi)$ $ \varphi$ секвенциально изометричен $\Longleftrightarrow$ 
+$(vi)$ $ \varphi$ секвенциально изометричен $\Longleftrightarrow$
 $\varphi^\triangle$ секвенциально строго коизометричен
 
 
-{\bf Доказательство.}
-Для каждого натурального числа $n\in\mathbb{N}$ имеем цепочку импликаций
-\newline
+{\bf Доказательство.} Для каждого натурального числа $n\in\mathbb{N}$ имеем
+цепочку импликаций
+
 {\small
 \begin{tabular}{llllll}
-$\varphi^{\wideparen{n}}$ & $c$-топологически инъективен & $\implies$ & $t_2^n(\varphi)$                    & $c$-топологически инъективен       &\ref{PrT2nOfOpIsWellDef}\\
-                        &                              & $\implies$ & $t_2^n(\varphi)^*$                  & строго $c$-топологически сюръективен      &\ref{PrDualOps}\\
-                        &                              & $\implies$ & $(\varphi^\triangle)^{\wideparen{n}}$ & строго $c$-топологически сюръективен &\ref{PrTwoTypesDualOpEquiv}\\
-                        &                              & $\implies$ & $t_2^n(\varphi^\triangle)$          & строго $c$-топологически сюръективен &\ref{PrT2nOfOpIsWellDef}\\
-                        &                              & $\implies$ & $(\varphi^{\wideparen{n}})^*$         & строго $c$-топологически сюръективен &\ref{PrTwoTypesDualOpEquiv}\\
-                        &                              & $\implies$ & $\varphi^{\wideparen{n}}$             & $c$-топологически инъективен       &\ref{PrDualOps}\\
+$\varphi^{\wideparen{n}}$                   & 
+$c$-топологически инъективен                & 
+$\implies$                                  &
+$t_2^n(\varphi)$                            & 
+$c$-топологически инъективен                &
+\ref{PrT2nOfOpIsWellDef}                    \\  % chktex 2
+                                            &                              
+                                            & 
+$\implies$                                  &
+${t_2^n(\varphi)}^*$                        & 
+строго $c$-топологически сюръективен        &
+\ref{PrDualOps}                             \\  % chktex 2
+                                            & 
+                                            &
+$\implies$                                  &
+${(\varphi^\triangle)}^{\wideparen{n}}$     & 
+строго $c$-топологически сюръективен        &
+\ref{PrTwoTypesDualOpEquiv}                 \\  % chktex 2
+                                            &
+                                            &
+$\implies$                                  &
+$t_2^n(\varphi^\triangle)$                  & 
+строго $c$-топологически сюръективен        &
+\ref{PrT2nOfOpIsWellDef}                    \\  % chktex 2
+                                            &
+                                            &
+$\implies$                                  &
+${(\varphi^{\wideparen{n}})}^*$             & 
+строго $c$-топологически сюръективен        &
+\ref{PrTwoTypesDualOpEquiv}                 \\  % chktex 2
+                                            &
+                                            & 
+$\implies$                                  &
+$\varphi^{\wideparen{n}}$                   &
+$c$-топологически инъективен                &
+\ref{PrDualOps}                             \\  % chktex 2
 \end{tabular}
 }
-\newline
-Откуда мы получаем $ii)$ и $iii)$. Снова для любого $n\in\mathbb{N}$ мы имеем цепочку ипликаций
-{\small
-\begin{tabular}{llclll}
-$\varphi^{\wideparen{n}}$ & \begin{tabular}{c}(строго) $c$-топологически\\ сюръективен\end{tabular}  & $\implies$ & $t_2^n(\varphi)$                    & $c$-топологически сюръективен     &\ref{PrT2nOfOpIsWellDef}\\
-                        &                               & $\implies$ & $t_2^n(\varphi)^*$                  & $c$-топологически инъективен      &\ref{PrDualOps}\\
-                        &                               & $\implies$ & $(\varphi^\triangle)^{\wideparen{n}}$ & $c$-топологически инъективен &\ref{PrTwoTypesDualOpEquiv}\\
-                        &                               & $\implies$ & $t_2^n(\varphi^\triangle)$          & $c$-топологически инъективен &\ref{PrT2nOfOpIsWellDef}\\
-                        &                               & $\implies$ & $(\varphi^{\wideparen{n}})^*$         & $c$-топологически инъективен &\ref{PrTwoTypesDualOpEquiv}\\
-                        &                               & $\overset{\mbox{$X$ полно}}{\implies}$ & $\varphi^{\wideparen{n}}$             & $c$-топологически сюръективен     &\ref{PrDualOps}\\
-\end{tabular}
-}
-\newline
-Откуда мы получаем $i)$ и $iv)$. Пункты $v)$ и $vi)$ являются прямым следствием $i)$---$iv)$ при $c=1$ если учесть что $\varphi$ секвенциально сжимающий тогда и только тогда $\varphi^\triangle$ секвенцильно сжимающий (см. предложение \ref{PrDualSBOp}).
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Откуда мы получаем $(ii)$ и $(iii)$. Снова для любого $n\in\mathbb{N}$ мы имеем
+цепочку ипликаций {\small
+\begin{tabular}{llclll}
+$\varphi^{\wideparen{n}}$                       &
+\begin{tabular}{c} (строго) $c$-топологически   \\
+сюръективен\end{tabular}                        & 
+$\implies$                                      & 
+$t_2^n(\varphi)$                                &
+$c$-топологически сюръективен                   &
+\ref{PrT2nOfOpIsWellDef}                        \\  % chktex 2
+                                                &
+                                                & 
+$\implies$                                      &
+${t_2^n(\varphi)}^*$                            &
+$c$-топологически инъективен                    &
+\ref{PrDualOps}                                 \\  % chktex 2
+                                                &
+                                                & 
+$\implies$                                      &
+${(\varphi^\triangle)}^{\wideparen{n}}$         &
+$c$-топологически инъективен                    &
+\ref{PrTwoTypesDualOpEquiv}                     \\  % chktex 2
+                                                &
+                                                & 
+$\implies$                                      &
+$t_2^n(\varphi^\triangle)$                      & 
+$c$-топологически инъективен                    &
+\ref{PrT2nOfOpIsWellDef}                        \\  % chktex 2
+                                                &
+                                                & 
+$\implies$                                      &
+${(\varphi^{\wideparen{n}})}^*$                 &
+$c$-топологически инъективен                    &
+\ref{PrTwoTypesDualOpEquiv}                     \\  % chktex 2
+                                                &
+                                                &
+$\overset{\mbox{$X$ полно}}{\implies}$          &
+$\varphi^{\wideparen{n}}$                       & 
+$c$-топологически сюръективен                   &
+\ref{PrDualOps}                                 \\  % chktex 2
+\end{tabular}
+}
+
+Откуда мы получаем $(i)$ и $(iv)$. Пункты $(v)$ и $(vi)$ являются прямым следствием
+$(i)$---$(iv)$ при $c=1$ если учесть что $\varphi$ секвенциально сжимающий тогда и
+только тогда $\varphi^\triangle$ секвенцильно сжимающий (см. 
+предложение~\ref{PrDualSBOp}).
+
 
 
 
 \section{Свободные и косвободные объекты}
 
-Основные результаты этого раздела получены С. Штейнером. Все необходимые определения, связанные с общекатегорным подходом к проективности, можно найти в работе \cite{HelMetrFrQmod}. Категория полулинейных нормированных пространств описана в \cite{ShteinerTopFr}.
+Основные результаты этого раздела получены С. Штейнером. Все необходимые
+определения, связанные с общекатегорным подходом к проективности, можно найти в
+работе~\cite{HelMetrFrQmod}. Категория полулинейных нормированных пространств
+описана в~\cite{ShteinerTopFr}.
 
 \subsection{Метрически свободные секвенциальные пространства}
 
-Начнём с рассмотрения метрической версии свободы для секвенциальных операторных пространств. Рассмотрим функтор 
+Начнём с рассмотрения метрической версии свободы для секвенциальных операторных
+пространств. Рассмотрим функтор 
 $$
 \begin{aligned}
-\square_{sqMet} : SQNor_1 \to Set : X&\mapsto\prod\left\{ B_{X^{\wideparen{n}}}:n \in \mathbb{N}\right\}\\
-\varphi&\mapsto \prod\left\{\varphi^{\wideparen{n}}|_{B_{X^{\wideparen{n}}}}^{B_{Y^{\wideparen{n}}}}:n\in\mathbb{N}\right\}
+\square_{sqMet} 
+: SQNor_1 \to Set 
+: X&\mapsto\prod\left \{ B_{X^{\wideparen{n}}}:n \in \mathbb{N}\right \} \\
+\varphi&\mapsto \prod\left \{
+    \varphi^{\wideparen{n}}|_{
+        B_{X^{\wideparen{n}}}
+    }^{B_{
+        Y^{\wideparen{n}}}
+    }
+    :n\in\mathbb{N}
+\right \}
 \end{aligned}
 $$
-отправляющий  секвенциальное операторное пространство $X$ в декартово произведение единичных шаров каждого из пространств $X^{\wideparen{n}}$. Легко заметить, что справедливо
+отправляющий  секвенциальное операторное пространство $X$ в декартово
+произведение единичных шаров каждого из пространств $X^{\wideparen{n}}$. Легко
+заметить, что справедливо
 
-{\bf Предложение 2.1.1} $\square_{sqMet}$-допустимыми эпиморфизмами являются в точности секвенциально строго коизометрические операторы.
-
-\medskip
-
-
-\textit{Метрически свободными} секвенциальными пространствами естественно называть $\square_{sqMet}$-свободные объекты. Обозначим через $I_n$ элемент из $(t_2^n)^{\wideparen{n}} = \mathcal{B}(l_2^n, l_2^n)$, соответствующий тождественному оператору.
+{\bf Предложение 2.1.1} $\square_{sqMet}$-допустимыми эпиморфизмами являются в
+точности секвенциально строго коизометрические операторы.
 
 \medskip
 
-{\bf Предложение 2.1.2} Пусть $X$ --- произвольное секвенциальное операторное пространство и $x \in B_{X^{\wideparen{n}}}$. Тогда существует единственный секвенциально сжимающий оператор 
-$\psi_n \in \mathcal{SB}(t_2^n, X)$, такой что $\psi_n^{\wideparen{n}}(I_n) = x$.
 
-{\bf Доказательство.} Итак, $I_n = (e_i)_{i\in\mathbb{N}_n}$, где $e_i$ - $i$-й орт подлежащего пространства $t_2^n$. Ясно, что есть только один линейный оператор $\psi_n$, удовлетворяющий условиям $\psi_n(e_i) = x_i$, $i\in\mathbb{N}_n$. 
-Осталось проверить, что $\psi_n$ является секвенциально сжимающим. Итак, пусть $k \in \mathbb{N}$ и $y \in B_{(t_2^n)^{\wideparen{k}}} $, тогда $y_i = \sum\limits_{j = 1}^n \alpha_{ij}e_j$, $i\in\mathbb{N}_k$ 
-для некоторой матрицы $\alpha\in M_{k,n}$. Тогда 
+\textit{Метрически свободными} секвенциальными пространствами естественно
+называть $\square_{sqMet}$-свободные объекты. Обозначим через $I_n$ элемент из
+${(t_2^n)}^{\wideparen{n}} = \mathcal{B}(l_2^n, l_2^n)$, соответствующий
+тождественному оператору.
+
+\medskip
+
+{\bf Предложение 2.1.2}\label{PrMetrFrLem} Пусть $X$ --- произвольное
+секвенциальное операторное пространство и $x \in B_{X^{\wideparen{n}}}$. Тогда
+существует единственный секвенциально сжимающий оператор 
+$\psi_n \in \mathcal{SB}(t_2^n, X)$, такой что 
+$\psi_n^{\wideparen{n}}(I_n) = x$.
+
+{\bf Доказательство.} Итак, $I_n = {(e_i)}_{i\in\mathbb{N}_n}$, где $e_i$ --- $i$-й
+орт подлежащего пространства $t_2^n$. Ясно, что есть только один линейный
+оператор $\psi_n$, удовлетворяющий условиям $\psi_n(e_i) = x_i$,
+$i\in\mathbb{N}_n$. Осталось проверить, что $\psi_n$ является секвенциально
+сжимающим. Итак, пусть $k \in \mathbb{N}$ и $y \in B_{{(t_2^n)}^{\wideparen{k}}}
+$, тогда $y_i = \sum\limits_{j = 1}^n \alpha_{ij}e_j$, $i\in\mathbb{N}_k$ для
+некоторой матрицы $\alpha\in M_{k,n}$. Тогда 
 $$
 \Vert\psi_n^{\wideparen{k}}(y)\Vert_{\wideparen{k}}
-=\left\Vert\left(\psi_n(y_i)\right)_{i\in\mathbb{N}_k}\right\Vert_{\wideparen{k}}
-=\left\Vert\left(\sum\limits_{j=1}^n\alpha_{ij}\psi_n(e_j)\right)_{i\in\mathbb{N}_k}\right\Vert_{\wideparen{k}}
-=\left\Vert\left(\sum\limits_{j=1}^n\alpha_{ij}x_j\right)_{i\in\mathbb{N}_k}\right\Vert_{\wideparen{k}}
+=\left\Vert{\left(
+    \psi_n(y_i)
+\right)}_{i\in\mathbb{N}_k}\right\Vert_{\wideparen{k}}
+=\left\Vert{\left(
+    \sum\limits_{j=1}^n\alpha_{ij}\psi_n(e_j)
+\right)}_{i\in\mathbb{N}_k}\right\Vert_{\wideparen{k}}
+=\left\Vert{\left(
+    \sum\limits_{j=1}^n\alpha_{ij}x_j
+\right)}_{i\in\mathbb{N}_k}\right\Vert_{\wideparen{k}}
 $$
 $$
 =\Vert\alpha x\Vert_{\wideparen{k}}
 \leq\Vert\alpha\Vert\Vert x\Vert_{\wideparen{n}}
-=\Vert y\Vert_{(t_2^n)^{\wideparen{k}}}\Vert x\Vert_{\wideparen{n}}\leq 1
+=\Vert y\Vert_{{(t_2^n)}^{\wideparen{k}}}\Vert x\Vert_{\wideparen{n}}\leq 1
 $$
 Предложение доказано.
 
 \medskip
 
-{\bf Предложение 2.1.3} Метрически свободным секвенциальным операторным пространством с базой из одноточечного множества является пространство $t_2^{\infty} := \bigoplus_1^0 \{t_2^n: n \in \mathbb{N}\}$.
+{\bf Предложение 2.1.3} Метрически свободным секвенциальным операторным
+пространством с базой из одноточечного множества является пространство
+$t_2^{\infty} := \bigoplus_1^0  \{t_2^n: n \in \mathbb{N} \}$.
 
-{\bf Доказательство.} Универсальную стрелку определим следующим образом $j:\{\lambda\}\to t_2^\infty:\lambda\mapsto(I_1,I_2,\ldots,I_n,\ldots)$. Пусть $X$ - произвольное секвенциальное операторное пространство, и 
-$\varphi:\{\lambda\}\to \prod_{n \in \mathbb{N}} B_{X^{\wideparen{n}}}$. Обозначим $x=\varphi(\lambda)$. Тогда из предложения \ref{PrMetrFrLem} и свойств копроизведения ясно, что существует 
-единственный секвенциально сжимающий морфизм $\psi=\bigoplus_1^0\{\psi_n:n\in\mathbb{N}\}\in\mathcal{SB}\left(\bigoplus_1^0\{ t_2^n:n\in\mathbb{N}\}, X\right)$, такой что $\psi^{\wideparen{n}}(i_n(I_n)) = x$, 
-для всех $n \in \mathbb{N}$. Здесь $i_n:t_2^n\to t_2^\infty$ --- стандартное вложение.
+{\bf Доказательство.} Универсальную стрелку определим следующим образом
+$j: \{\lambda \}\to t_2^\infty:\lambda\mapsto(I_1,I_2,\ldots,I_n,\ldots)$. Пусть
+$X$ --- произвольное секвенциальное операторное пространство, и
+$\varphi: \{\lambda \}\to \prod_{n \in \mathbb{N}} B_{X^{\wideparen{n}}}$.
+Обозначим $x=\varphi(\lambda)$. Тогда из предложения~\ref{PrMetrFrLem} и свойств
+копроизведения ясно, что существует единственный секвенциально сжимающий морфизм
+$\psi=\bigoplus_1^0 \{\psi_n:n\in\mathbb{N} \}\in\mathcal{SB}\left(\bigoplus_1^0 \{
+t_2^n:n\in\mathbb{N} \}, X\right)$, такой что $\psi^{\wideparen{n}}(i_n(I_n)) =
+x$, для всех $n \in \mathbb{N}$. Здесь $i_n:t_2^n\to t_2^\infty$ --- стандартное
+вложение.
 $$
 \xymatrix{
-{\square_{sqMet} (t_2^\infty)} \ar@{-->}[dr]^{\square_{sqMet} (\psi)} & \\
-{\{\lambda\}} \ar[u]^{j} \ar[r]^{\varphi} &{\square_{sqMet} (X)}}
+{\square_{sqMet} (t_2^\infty)} 
+\ar@{-->}[dr]^{\square_{sqMet} (\psi)} & \\  % chktex 3
+{ \{\lambda \}} 
+\ar[u]^{j} \ar[r]^{\varphi} &{\square_{sqMet} (X)}}  % chktex 3
 $$
-В этом случае $\varphi=\square_{sqMet}(\psi) j$. Так как $X$ и $\varphi$ произвольны то $t_2^\infty$ метрически свободен и имеет одноточечную базу. 
+В этом случае $\varphi=\square_{sqMet}(\psi) j$. Так как $X$ и $\varphi$
+произвольны то $t_2^\infty$ метрически свободен и имеет одноточечную базу. 
 
 \medskip
 
-Итак, теперь мы готовы сформулировать итоговый результат, справедливость которого мгновенно вытекает из доказанного выше предложения.
+Итак, теперь мы готовы сформулировать итоговый результат, справедливость
+которого мгновенно вытекает из доказанного выше предложения.
 
-{\bf Теорема 2.1.4} Метрически свободным секвенциальным операторным пространством с базой $\Lambda$ является, с точностью до секвенциального изометрического изоморфизма, 
-$\bigoplus{}_1^0$-сумма копий пространства $t_2^{\infty}$, заиндексированных элементами множества $\Lambda$. 
+{\bf Теорема 2.1.4} Метрически свободным секвенциальным операторным
+пространством с базой $\Lambda$ является, с точностью до секвенциального
+изометрического изоморфизма, $\bigoplus{}_1^0$-сумма копий пространства
+$t_2^{\infty}$, заиндексированных элементами множества $\Lambda$. 
 
 \subsection{Топологически свободные секвенциальные пространства}
 
-Перейдём теперь к рассмотрению секвенциальной операторной версии  топологической свободы. Рассмотрим функтор 
+Перейдём теперь к рассмотрению секвенциальной операторной версии  топологической
+свободы. Рассмотрим функтор 
 $$
 \begin{aligned}
-\square_{sqTop} : SQNor \to Nor_0: X &\mapsto \bigoplus{}_\infty \{X^{\wideparen{n}} : n \in \mathbb{N}\}\\
-\varphi&\mapsto\bigoplus{}_\infty\{\varphi^{\wideparen{n}}:n\in\mathbb{N}\},\\
+\square_{sqTop} 
+: SQNor \to Nor_0
+: X &\mapsto \bigoplus{}_\infty  \{X^{\wideparen{n}} : n \in \mathbb{N} \} \\
+\varphi&\mapsto\bigoplus{}_\infty \{\varphi^{\wideparen{n}}:n\in\mathbb{N} \},\\
 \end{aligned}
 $$ 
-то есть секвенциальное операторное пространство $X$ отображается в $\bigoplus{}_\infty$-сумму своих размножений без аддитивной структуры.
+то есть секвенциальное операторное пространство $X$ отображается в
+$\bigoplus{}_\infty$-сумму своих размножений без аддитивной структуры.
 
-{\bf Предложение 2.2.1} Пусть $\varphi:X\to Y$ --- ограниченный оператор между нормиированными пространствами $X$ и $Y$, тогда он $c$-топологически сюръективен тогда и только тогда когда существует ограниченный полулинейный оператор $\rho:Y\to X$ такой что $\Vert\rho\Vert\leq c$ и $\varphi\rho=1_Y$.
+{\bf Предложение 2.2.1}\label{PrCTopSurIsRetrInNor0} Пусть 
+$\varphi:X\to Y$ --- ограниченный оператор между
+нормиированными пространствами $X$ и $Y$, тогда он $c$-топологически сюръективен
+тогда и только тогда когда существует ограниченный полулинейный оператор
+$\rho:Y\to X$ такой что $\Vert\rho\Vert\leq c$ и $\varphi\rho=1_Y$.
 
-{\bf Доказательство.} Допустим, что $\varphi$ $c$-топологически сюръективен. Расссмотрим отношение $\sim$ на $S_Y$ определенное следующим образом: $e_1\sim e_2$ тогда и только тогда когда существует $\alpha\in\mathbb{T}$ такое, что $e_1=\alpha e_2$. Очевидно, $\sim$ есть отношение эквивалентности, поэтому рассмотрим множество ненулевых представителей классов эквивалентностей, которое обозначим $\{r_\lambda:\lambda\in\Lambda\}$. По построению, для каждого $e\in S_Y$ сущетсвует единственные $\alpha(e)\in\mathbb{T}$ и $\lambda(e)\in\Lambda$ такие, что $e=\alpha(e)r_{\lambda(e)}$. Ясно, что для любых $z\in\mathbb{T}$ и $e\in S_Y$ выполнено $\alpha(ze)=z\alpha(e)$ и $\lambda(ze)=\lambda(e)$. Так как $\varphi$ $c$-топологически сюръективен, то, в частности, для каждого $\lambda\in\Lambda$ существует $x(\lambda)\in X$ такой что $\Vert x(\lambda)\Vert\leq c\Vert r_\lambda\Vert$ и $\varphi(x(\lambda))=r_\lambda$. Рассмотрим, отображение $\tilde{\rho}:S_Y\to X:e\mapsto \alpha(e)x(\lambda(e))$. Легко видеть, что для всех $z\in\mathbb{T}$ и $e\in S_Y$ выполнено $\tilde{\rho}(z e)=z\tilde{\rho}(e)$, $\Vert\tilde{\rho}(e)\Vert\leq C$ и $\varphi(\tilde{\rho}(e))=e$. Теперь рассмотрим отображение $\rho:Y\to X: y\mapsto \Vert y\Vert\tilde{\rho}(\Vert y\Vert^{-1} y)$ и $\rho(0)=0$. Используя свойства $\tilde{\rho}$ легко проверить, что $\rho$ --- полулинейный оператор такой, что $\Vert\rho\Vert\leq C$ и $\varphi\rho=1_Y$.
+{\bf Доказательство.} Допустим, что $\varphi$ $c$-топологически сюръективен.
+Расссмотрим отношение $\sim$ на $S_Y$ определенное следующим образом: $e_1\sim
+e_2$ тогда и только тогда когда существует $\alpha\in\mathbb{T}$ такое, что
+$e_1=\alpha e_2$. Очевидно, $\sim$ есть отношение эквивалентности, поэтому
+рассмотрим множество ненулевых представителей классов эквивалентностей, которое
+обозначим $ \{r_\lambda:\lambda\in\Lambda \}$. По построению, для каждого $e\in
+S_Y$ сущетсвует единственные $\alpha(e)\in\mathbb{T}$ и $\lambda(e)\in\Lambda$
+такие, что $e=\alpha(e)r_{\lambda(e)}$. Ясно, что для любых $z\in\mathbb{T}$ и
+$e\in S_Y$ выполнено $\alpha(ze)=z\alpha(e)$ и $\lambda(ze)=\lambda(e)$. Так как
+$\varphi$ $c$-топологически сюръективен, то, в частности, для каждого
+$\lambda\in\Lambda$ существует $x(\lambda)\in X$ такой что $\Vert
+x(\lambda)\Vert\leq c\Vert r_\lambda\Vert$ и $\varphi(x(\lambda))=r_\lambda$.
+Рассмотрим, отображение $\tilde{\rho}:S_Y\to X:e\mapsto \alpha(e)x(\lambda(e))$.
+Легко видеть, что для всех $z\in\mathbb{T}$ и $e\in S_Y$ выполнено
+$\tilde{\rho}(z e)=z\tilde{\rho}(e)$, $\Vert\tilde{\rho}(e)\Vert\leq C$ и
+$\varphi(\tilde{\rho}(e))=e$. Теперь рассмотрим отображение $\rho:Y\to X:
+y\mapsto \Vert y\Vert\tilde{\rho}(\Vert y\Vert^{-1} y)$ и $\rho(0)=0$. Используя
+свойства $\tilde{\rho}$ легко проверить, что $\rho$ --- полулинейный оператор
+такой, что $\Vert\rho\Vert\leq C$ и $\varphi\rho=1_Y$.
 
-Обратно, допустим, что существует ограниченный полулинейный оператор $\rho:Y\to X$ такой, что $\Vert\rho\Vert\leq c$ и $\varphi\rho=1_Y$. Возьмем произвольный $y\in Y$ и рассмотрим $x=\rho(y)$, тогда $\Vert x\Vert\leq C\Vert y\Vert$ и $\varphi(x)=y$. Следовательно $\varphi$ $c$-топологически сюръективен.
+Обратно, допустим, что существует ограниченный полулинейный оператор $\rho:Y\to
+X$ такой, что $\Vert\rho\Vert\leq c$ и $\varphi\rho=1_Y$. Возьмем произвольный
+$y\in Y$ и рассмотрим $x=\rho(y)$, тогда $\Vert x\Vert\leq C\Vert y\Vert$ и
+$\varphi(x)=y$. Следовательно $\varphi$ $c$-топологически сюръективен.
 
 \medskip
 
-{\bf Предложение 2.2.2} $\square_{sqTop}$-допустимыми эпиморфизмами являются в точности секвенциальные топологически сюрьективные операторы.
+{\bf Предложение 2.2.2} $\square_{sqTop}$-допустимыми эпиморфизмами являются в
+точности секвенциальные топологически сюрьективные операторы.
 
-{\bf Доказательство.} Для произвольного секвенциального операторного пространства $Z$ через $i_n^Z:Z^{\wideparen{n}}\to\square_{sqTop}(Z)$ обозначим стандартное вложение, а через $p_n^Z:\square_{sqTop}(Z)\to Z^{\wideparen{n}}$ обозначим 
-стандартную проекцию. Допустим что $\varphi:X\to Y$ $c$-секвенциально топологически сюръективен. Фиксируем $n\in\mathbb{N}$, тогда по предложению \ref{PrCTopSurIsRetrInNor0} существует ограниченный полулинейный оператор $\rho^n$ такой, что $\varphi^{\wideparen{n}}\rho^n=1_{Y^{\wideparen{n}}}$ и $\Vert\rho^n\Vert\leq c$. Рассмотрим отображение 
-$ \rho=\bigoplus{}_\infty\{\rho^n:n\in\mathbb{N}\}$. Для любого $y\in \square_{sqTop}(Y)$ имеем 
+{\bf Доказательство.} Для произвольного секвенциального операторного
+пространства $Z$ через $i_n^Z:Z^{\wideparen{n}}\to\square_{sqTop}(Z)$ обозначим
+стандартное вложение, а через $p_n^Z:\square_{sqTop}(Z)\to Z^{\wideparen{n}}$
+обозначим стандартную проекцию. Допустим что $\varphi:X\to Y$ $c$-секвенциально
+топологически сюръективен. Фиксируем $n\in\mathbb{N}$, тогда по 
+предложению~\ref{PrCTopSurIsRetrInNor0} существует ограниченный 
+полулинейный оператор
+$\rho^n$ такой, что $\varphi^{\wideparen{n}}\rho^n=1_{Y^{\wideparen{n}}}$ и
+$\Vert\rho^n\Vert\leq c$. Рассмотрим отображение $
+\rho=\bigoplus{}_\infty \{\rho^n:n\in\mathbb{N} \}$. Для любого $y\in
+\square_{sqTop}(Y)$ имеем 
 $$
-\Vert \rho(y)\Vert=\sup\{\Vert\rho^n(p_n^Y(y))\Vert_{\wideparen{n}}: n\in\mathbb{N}\}\leq
-c\sup\{\Vert p_n^Y(y)\Vert_{\wideparen{n}}: n\in\mathbb{N}\}=c\Vert y\Vert
+\Vert \rho(y)\Vert
+=\sup \{\Vert\rho^n(p_n^Y(y))\Vert_{\wideparen{n}}: n\in\mathbb{N} \}\leq
+c\sup \{\Vert p_n^Y(y)\Vert_{\wideparen{n}}: n\in\mathbb{N} \}=c\Vert y\Vert
 $$
-следовательно $\rho$ --- полулинейный ограниченый оператор. Более того, $\square_{sqTop}(\varphi)\rho=1_{\square_{sqTop}(Y)}$, значит $\varphi$ $\square_{sqTop}$-допустимый эпиморфизм. Обратно, если 
-$\varphi$ $\square_{sqTop}$-допустимый эпиморфизм, то существует ограниченный правый обратный полулинейный оператор  $\rho$ к $\square_{sqTop}(\varphi)$. Тогда для 
-любого $y\in Y^{\wideparen{n}}$ выполнено $\square_{sqTop}(\varphi)\rho(i_n^Y(y))=i_n^Y(y)$. В частности $\varphi^{\wideparen{n}}(p_n^X(\rho(i_n^Y(y))))=y$. Положим $x=p_n^X(\rho(i_n^Y(y)))$ и 
-$c=\Vert\rho\Vert$, тогда $\varphi^{\wideparen{n}}(x)=y$ и $\Vert x\Vert_{\wideparen{n}}\leq\Vert\rho(i_n^Y(y))\Vert\leq c\Vert i_n^Y(y)\Vert=c\Vert y\Vert_{\wideparen{n}}$. Следовательно, 
-$\varphi$  секвенциально топологически сюръективен.
+следовательно $\rho$ --- полулинейный ограниченый оператор. Более того,
+$\square_{sqTop}(\varphi)\rho=1_{\square_{sqTop}(Y)}$, значит $\varphi$
+$\square_{sqTop}$-допустимый эпиморфизм. Обратно, если $\varphi$
+$\square_{sqTop}$-допустимый эпиморфизм, то существует ограниченный правый
+обратный полулинейный оператор  $\rho$ к $\square_{sqTop}(\varphi)$. Тогда для
+любого $y\in Y^{\wideparen{n}}$ выполнено
+$\square_{sqTop}(\varphi)\rho(i_n^Y(y))=i_n^Y(y)$. В частности
+$\varphi^{\wideparen{n}}(p_n^X(\rho(i_n^Y(y))))=y$. Положим
+$x=p_n^X(\rho(i_n^Y(y)))$ и $c=\Vert\rho\Vert$, тогда
+$\varphi^{\wideparen{n}}(x)=y$ и $\Vert
+x\Vert_{\wideparen{n}}\leq\Vert\rho(i_n^Y(y))\Vert\leq c\Vert
+i_n^Y(y)\Vert=c\Vert y\Vert_{\wideparen{n}}$. Следовательно, $\varphi$
+секвенциально топологически сюръективен.
 
 
 \medskip
 
-\textit{Топологически свободными} секвенциальными пространствами естественно называть $\square_{sqTop}$-свободные объекты. Сформулируем и докажем основное утверждение раздела.
+\textit{Топологически свободными} секвенциальными пространствами естественно
+называть $\square_{sqTop}$-свободные объекты. Сформулируем и докажем основное
+утверждение раздела.
 
 \medskip
 
-{\bf Предложение 2.2.3} Пусть $F$ -  секвенциальное метрически свободное пространство с базой $\Lambda$. Тогда $F$ является секвенциальным  операторным топологически свободным с базой $\mathbb{C}^{\Lambda}$.
+{\bf Предложение 2.2.3} Пусть $F$ --- секвенциальное метрически свободное
+пространство с базой $\Lambda$. Тогда $F$ является секвенциальным  операторным
+топологически свободным с базой $\mathbb{C}^{\Lambda}$.
 
-{\bf Доказательство.} Пусть $j':\Lambda\to \square_{sqMet}(F)$ --- универсальная стрелка в диаграмме для секвенциальной метрической свободы. Определим полулинейный ограниченный оператор $j: \mathbb{C}^{\Lambda} \to \square_{sqTop}(F): z_\lambda\mapsto z_\lambda j(\lambda)$. Рассмотрим произвольный ораниченный полулинейный оператор $\varphi : \mathbb{C}^{\Lambda} \to \square_{sqTop}(X)$, где $X$ --- произвольное секвенциальное операторное пространство.  Тогда для $\varphi':=\Vert \varphi \Vert_{sb}^{-1}\varphi $ существует единственный морфизм $\psi^{'}$, такой что $\varphi'=\square_{sqMet}(\psi')j$. Теперь, легко видеть что для морфизма $\psi:=\Vert \varphi \Vert_{sb} \psi^{'}$ диаграмма
+{\bf Доказательство.} Пусть $j':\Lambda\to \square_{sqMet}(F)$ --- универсальная
+стрелка в диаграмме для секвенциальной метрической свободы. Определим
+полулинейный ограниченный оператор $j: \mathbb{C}^{\Lambda} \to
+\square_{sqTop}(F): z_\lambda\mapsto z_\lambda j(\lambda)$. Рассмотрим
+произвольный ораниченный полулинейный оператор $\varphi : \mathbb{C}^{\Lambda}
+\to \square_{sqTop}(X)$, где $X$ --- произвольное секвенциальное операторное
+пространство.  Тогда для $\varphi':=\Vert \varphi \Vert_{sb}^{-1}\varphi $
+существует единственный морфизм $\psi^{'}$, такой что
+$\varphi'=\square_{sqMet}(\psi')j$. Теперь, легко видеть что для морфизма
+$\psi:=\Vert \varphi \Vert_{sb} \psi^{'}$ диаграмма
 $$
 \xymatrix{
-{\square_{sqTop}(F)}\ar@{-->}[dr]^{\square_{sqTop}(\psi)} & \\
-{\mathbb{C}^{\Lambda}}\ar[u]_{j}\ar[r]_{\varphi}  &{\square_{sqTop}(X)} }
+{\square_{sqTop}(F)}
+\ar@{-->}[dr]^{\square_{sqTop}(\psi)} & \\  % chktex 3
+{\mathbb{C}^{\Lambda}}\ar[u]_{j}  % chktex 3
+\ar[r]_{\varphi}  &{\square_{sqTop}(X)} }  % chktex 3
 $$
 коммутативна.
 	
-Единственность $\psi$ доказывается следующим образом. Пусть для диаграммы выше есть два различных подходящих морфизма $\psi_1$ и $\psi_2$. Обозначим $C=\max( \Vert \varphi\Vert_{sb}, \Vert \psi_1 \Vert_{sb}, \Vert \psi_2\Vert_{sb})$, тогда ясно что морфизмы $C^{-1}\psi_1$ и $C^{-1}\psi_2$ подходят для следующей диаграммы, соответствующей секвенциальной метрической проективности:
+Единственность $\psi$ доказывается следующим образом. Пусть для диаграммы выше
+есть два различных подходящих морфизма $\psi_1$ и $\psi_2$. Обозначим $C=\max(
+\Vert \varphi\Vert_{sb}, \Vert \psi_1 \Vert_{sb}, \Vert \psi_2\Vert_{sb})$,
+тогда ясно что морфизмы $C^{-1}\psi_1$ и $C^{-1}\psi_2$ подходят для следующей
+диаграммы, соответствующей секвенциальной метрической проективности:
 $$
 \xymatrix{
-{\square_{sqMet}(F)}\ar@{-->}[dr]^{?} & \\
-{\mathbb{C}^\Lambda}\ar[u]_{j'}\ar[r]_{ C^{-1}\varphi'}  &{\square_{sqMet}(X)} }
+{\square_{sqMet}(F)}
+\ar@{-->}[dr]^{?} & \\  % chktex 3
+{\mathbb{C}^\Lambda}\ar[u]_{j'}  % chktex 3
+\ar[r]_{ C^{-1}\varphi'}  &{\square_{sqMet}(X)} }  % chktex 3
 $$
 Это противоречит единственности морфизма $\psi'$, значит $\psi$ единственен.
 
 \medskip
 
-Как следствие мы получаем описание топологически свободных секвенциальных операторных пространств.
+Как следствие мы получаем описание топологически свободных секвенциальных
+операторных пространств.
 
-{\bf Теорема 2.2.4} Секвенциальное операторное пространство является топологически свободным тогда и только тогда, когда оно секвенциально топологически изоморфно $\bigoplus{}_1^0$-сумме пространств $t_2^\infty$, заиндексированных 
-элементами некоторого множества $\Lambda$.
+{\bf Теорема 2.2.4} Секвенциальное операторное пространство является
+топологически свободным тогда и только тогда, когда оно секвенциально
+топологически изоморфно $\bigoplus{}_1^0$-сумме пространств $t_2^\infty$,
+заиндексированных элементами некоторого множества $\Lambda$.
 
 
 \subsection{Метрически косвободные секвенциальные пространства}
@@ -537,100 +926,168 @@ $$
 Рассмотрим функтор 
 $$
 \begin{aligned}
-\square_{sqMet}^d : SQNor_1 \to Set^o: X &\mapsto \prod \left\{B_{(X^\triangle )^{\wideparen{n}}}:n\in\mathbb{N}\right\}\\
-\varphi&\mapsto\prod\left\{ (\varphi^\triangle )^{\wideparen{n}}|_{B_{(Y^\triangle )^{\wideparen{n}}}}^{B_{(X^\triangle )^{\wideparen{n}}}}:n\in\mathbb{N}\right\}\\
+\square_{sqMet}^d 
+: SQNor_1 \to Set^o
+: X &\mapsto \prod \left \{
+    B_{{(X^\triangle)}^{\wideparen{n}}}:n\in\mathbb{N}
+\right \} \\
+\varphi&\mapsto\prod\left \{ 
+    {(\varphi^\triangle)}^{\wideparen{n}}|_{
+        B_{{(Y^\triangle)}^{\wideparen{n}}}
+    }^{
+        B_{{(X^\triangle)}^{\wideparen{n}}}
+    }
+    :n\in\mathbb{N}
+\right \} \\
 \end{aligned}
 $$
 
-{\bf Предложение 2.3.1} $\square_{sqMet}^d$-допустимыми мономорфизмами являются в точности секвенциально  изометрические операторы.
+{\bf Предложение 2.3.1} $\square_{sqMet}^d$-допустимыми мономорфизмами являются
+в точности секвенциально  изометрические операторы.
 
-{\bf Доказательство.}  Морфизм $\varphi$ является $\square_{sqMet}^d$-допустмым мономорфизмом только если $\square_{sqMet}^d(\varphi)$ обратим слева как морфизм в $Set^o$. Это равносильно тому что 
-$\square_{sqMet}^d(\varphi^\triangle)$ сюръективно. Последнее эквивалентно  сюръективности $(\varphi^\triangle)^{\wideparen{n}}|_{B_{(X^\triangle)^{\wideparen{n}}}}^{B_{(Y^\triangle)^{\wideparen{n}}}}$ 
-для всех $n\in\mathbb{N}$. Это означает, что $(\varphi^\triangle)^{\wideparen{n}}$ строго коизометрично для каждого $n\in\mathbb{N}$, т.е. $\varphi^\triangle$ секвенциально строго коизометричен. 
+{\bf Доказательство.}  Морфизм $\varphi$ является $\square_{sqMet}^d$-допустмым
+мономорфизмом только если $\square_{sqMet}^d(\varphi)$ обратим слева как морфизм
+в $Set^o$. Это равносильно тому что $\square_{sqMet}^d(\varphi^\triangle)$
+сюръективно. Последнее эквивалентно  сюръективности
+${(\varphi^\triangle)}^{\wideparen{n}}|_{
+    B_{{(X^\triangle)}^{\wideparen{n}}}
+}^{
+    B_{{(Y^\triangle)}^{\wideparen{n}}}
+}$
+для всех $n\in\mathbb{N}$. Это означает, что
+${(\varphi^\triangle)}^{\wideparen{n}}$ строго коизометрично для каждого
+$n\in\mathbb{N}$, т.е. $\varphi^\triangle$ секвенциально строго коизометричен.
 По теореме 1.2.8 это равносильно тому, что $\varphi$ секвенциально изометричен.
 
 \medskip
 
-\textit{Метрически косвободными} секвенциальными пространствами естественно называть $\square_{sqMet}^d$-косвободные объекты.
+\textit{Метрически косвободными} секвенциальными пространствами естественно
+называть $\square_{sqMet}^d$-косвободные объекты.
 
 \medskip
 
-{\bf Теорема 2.3.2} Метрически косвободным секвенциальным операторным пространством с базой $\Lambda$ является, с точностью до секвенциального изометрического изоморфизма, 
-$\bigoplus{}_\infty$-сумма копий пространства $l_2^\infty:=\bigoplus{}_\infty\{l_2^n:n\in\mathbb{N}\}$, заиндексированных элементами множества $\Lambda$.
+{\bf Теорема 2.3.2} Метрически косвободным секвенциальным операторным
+пространством с базой $\Lambda$ является, с точностью до секвенциального
+изометрического изоморфизма, $\bigoplus{}_\infty$-сумма копий пространства
+$l_2^\infty:=\bigoplus{}_\infty \{l_2^n:n\in\mathbb{N} \}$, заиндексированных
+элементами множества $\Lambda$.
 
-{\bf Доказательство.}  Пусть $\Lambda$ --- произвольное множество. Рассмотрим коммутативную диаграмму
+{\bf Доказательство.}  Пусть $\Lambda$ --- произвольное множество. Рассмотрим
+коммутативную диаграмму
 $$
 \xymatrix{
-SQNor_1^o \ar[d]_{\nabla } \ar[rr]^{(\square_{sqMet}^{d})^o} & & {Set}\ar[d]^{1_{Set}}\\
-SQNor_1\ar[rr]^{\square_{sqMet}}&  &{Set}}
+SQNor_1^o \ar[d]_{\nabla }  % chktex 3 
+\ar[rr]^{(\square_{sqMet}^{d})^o} & & {Set}\ar[d]^{1_{Set}}\\  % chktex 3
+SQNor_1
+\ar[rr]^{\square_{sqMet}}&  &{Set}}  % chktex 3
 $$
-Здесь ${}^\nabla$ есть ковариантная версия функтора ${}^\triangle$.
-Эта диаграмма коммутативна так как для произвольных секвенциальных операторных пространств $X$, $Y$ и любого $\varphi\in\mathcal{SB}(X,Y)$ выполнено
+Здесь ${}^\nabla$ есть ковариантная версия функтора ${}^\triangle$. Эта
+диаграмма коммутативна так как для произвольных секвенциальных операторных
+пространств $X$, $Y$ и любого $\varphi\in\mathcal{SB}(X,Y)$ выполнено
 $$
-1_{Set}((\square_{sqMet}^d)^o(\varphi))
-=\prod\limits_{n\in\mathbb{N}} (\varphi^\triangle )^{\wideparen{n}}|_{B_{(Y^\triangle )^{\wideparen{n}}}}^{B_{(X^\triangle )^{\wideparen{n}}}}
+1_{Set}({(\square_{sqMet}^d)}^o(\varphi))
+=\prod\limits_{n\in\mathbb{N}} 
+{(\varphi^\triangle )}^{\wideparen{n}}|_{
+    B_{{(Y^\triangle )}^{\wideparen{n}}}
+}^{
+    B_{{(X^\triangle )}^{\wideparen{n}}}
+}
 =\square_{sqMet}({}^\nabla(\varphi))
 $$
-Заметим, что функтор ${}^\nabla$ имеет левый сопряженный функтор, а именно ${}^\triangle$. Аналогично $1_{Set}$ сопряжен слева к самому себе. 
-По теореме 2.1.4 объект $\bigoplus{}_1^0\{t_2^\infty:\lambda\in\Lambda\}$ $\square_{sqMet}$-свободен, поэтому по предложению [\cite{HelMetrFrQmod}, 4.5] объект 
-$(\bigoplus{}_1^0\{t_2^\infty:\lambda\in\Lambda\})^\triangle=\bigoplus{}_\infty\{l_2^\infty:\lambda\in\Lambda\}$ является $(\square_{sqMet}^d)^o$ свободным, или что то же самое $\square_{sqMet}^d$-косвободным. 
-Так как множество $\Lambda$ произвольно, получаем, что все $\square_{sqMet}$-косвободные объекты с базой 
-$\Lambda$ секвенциально изометрически изоморфны пространствам указанного вида.
+Заметим, что функтор ${}^\nabla$ имеет левый сопряженный функтор, а именно
+${}^\triangle$. Аналогично $1_{Set}$ сопряжен слева к самому себе. По теореме
+2.1.4 объект $\bigoplus{}_1^0 \{t_2^\infty:\lambda\in\Lambda \}$
+$\square_{sqMet}$-свободен, поэтому по предложению [\cite{HelMetrFrQmod}, 4.5]
+объект
+${(\bigoplus{}_1^0 \{t_2^\infty:\lambda\in\Lambda \})}^\triangle
+=\bigoplus{}_\infty \{l_2^\infty:\lambda\in\Lambda \}$
+является ${(\square_{sqMet}^d)}^o$ свободным, или что то же самое
+$\square_{sqMet}^d$-косвободным. Так как множество $\Lambda$ произвольно,
+получаем, что все $\square_{sqMet}$-косвободные объекты с базой $\Lambda$
+секвенциально изометрически изоморфны пространствам указанного вида.
 
 
 \subsection{Топологически косвободные секвенциальные пространства}
 
-Рассмотрим 
-функтор 
+Рассмотрим функтор 
 $$
 \begin{aligned}
-\square_{sqTop}^d : SQNor \to Nor_0^o, X &\mapsto \bigoplus{}_\infty \{(X^{\triangle })^{\wideparen{n}} : n \in \mathbb{N}\}\\
-\varphi&\mapsto\bigoplus{}_\infty \{(\varphi^\triangle )^{\wideparen{n}} : n \in \mathbb{N}\}
+\square_{sqTop}^d 
+: SQNor \to Nor_0^o, X &\mapsto \bigoplus{}_\infty  \{
+    {(X^{\triangle })}^{\wideparen{n}} 
+    : n \in \mathbb{N}
+ \} \\
+\varphi&\mapsto\bigoplus{}_\infty  \{
+    {(\varphi^\triangle )}^{\wideparen{n}} : n \in \mathbb{N}
+ \}
 \end{aligned}
 $$
 
-{\bf Предложение 2.4.1}
-$\square_{sqTop}^d$-допустимыми мономорфизмами являются в точности секвенциально топологически инъективные операторы.
+{\bf Предложение 2.4.1} $\square_{sqTop}^d$-допустимыми мономорфизмами являются
+в точности секвенциально топологически инъективные операторы.
 
-{\bf Доказательство.}  Морфизм $\varphi$ является $\square_{sqTop}^d$-допустмым мономорфизмом только если $\square_{sqTop}^d(\varphi)$ обратим слева как морфизм в $Nor_0^o$. Это равносильно тому что 
-$\square_{sqTop}^d(\varphi)=\square_{sqTop}(\varphi^\triangle)$ обратим справа в как морфизм в $Nor_0$. По предложению 2.2.2 это эквивалентно секвенциальной топологической сюръективности $\varphi^\triangle$. 
-По теореме 1.2.8 это равносильно тому, что $\varphi$ секвенциально топологически инъективен.
+{\bf Доказательство.}  Морфизм $\varphi$ является $\square_{sqTop}^d$-допустмым
+мономорфизмом только если $\square_{sqTop}^d(\varphi)$ обратим слева как морфизм
+в $Nor_0^o$. Это равносильно тому что
+$\square_{sqTop}^d(\varphi)=\square_{sqTop}(\varphi^\triangle)$ обратим справа в
+как морфизм в $Nor_0$. По предложению 2.2.2 это эквивалентно секвенциальной
+топологической сюръективности $\varphi^\triangle$. По теореме 1.2.8 это
+равносильно тому, что $\varphi$ секвенциально топологически инъективен.
 
 \medskip
 
-\textit{Топологически косвободными} секвенциальными пространствами естественно называть $\square_{sqTop}^d$-косвободные объекты.
+\textit{Топологически косвободными} секвенциальными пространствами естественно
+называть $\square_{sqTop}^d$-косвободные объекты.
 
 \medskip
  
-{\bf Теорема 2.4.2} Секвенциальное операторное пространство является топологически косвободным тогда и только тогда, когда оно секвенциально топологически изоморфно $\bigoplus{}_\infty$ сумме пространств $l_2^\infty$ заиндексированных элементами множества $\Lambda$.
+{\bf Теорема 2.4.2} Секвенциальное операторное пространство является
+топологически косвободным тогда и только тогда, когда оно секвенциально
+топологически изоморфно $\bigoplus{}_\infty$ сумме пространств $l_2^\infty$
+заиндексированных элементами множества $\Lambda$.
 
 
-{\bf Доказательство.} Пусть $\Lambda$ произвольное множество. Рассмотрим коммутативную диаграмму
+{\bf Доказательство.} Пусть $\Lambda$ произвольное множество. Рассмотрим
+коммутативную диаграмму
 $$
 \xymatrix{
-SQNor^o \ar[d]_{\nabla } \ar[rr]^{(\square_{sqTop}^d)^o} & & {Nor_0} \ar[d]^{1_{Nor_0}}\\
-SQNor\ar[rr]^{\square_{sqTop}} & & {Nor_0}}
+SQNor^o \ar[d]_{\nabla }   % chktex 3
+\ar[rr]^{(\square_{sqTop}^d)^o}  % chktex 3
+ & & {Nor_0} \ar[d]^{1_{Nor_0}}\\  % chktex 3
+SQNor\ar[rr]^{\square_{sqTop}} & & {Nor_0}}  % chktex 3
 $$
-Здесь $\nabla$ есть ковариантная версия функтора $\triangle$.
-Эта диаграмма коммутативна, так как для произвольных секвенциальных операторных пространств $X$, $Y$ и любого $\varphi\in\mathcal{SB}(X,Y)$ выполнено
+Здесь $\nabla$ есть ковариантная версия функтора $\triangle$. Эта диаграмма
+коммутативна, так как для произвольных секвенциальных операторных пространств
+$X$, $Y$ и любого $\varphi\in\mathcal{SB}(X,Y)$ выполнено
 $$
-1_{Nor_0}((\square_{sqTop}^d)^o(\varphi))
-=\bigoplus{}_\infty \{(\varphi^\triangle )^{\wideparen{n}} : n \in \mathbb{N}\}
+1_{Nor_0}({(\square_{sqTop}^d)}^o(\varphi))
+=\bigoplus{}_\infty  \{{(\varphi^\triangle )}^{\wideparen{n}} : n \in \mathbb{N} \}
 =\square_{sqTop}({}^\nabla(\varphi))
 $$
-Функтор ${}^\nabla$ имеет левый сопряженный функтор, а именно ${}^\triangle$. Аналогично $1_{Nor_0}$ сопряжен слева к самому себе. 
-По теореме 2.2.4 объект $\bigoplus{}_1^0\{t_2^\infty:\lambda\in\Lambda\}$ $\square_{sqTop}$-свободен, поэтому по предложению [\cite{HelMetrFrQmod}, 4.5] объект 
-$(\bigoplus{}_1^0\{t_2^\infty:\lambda\in\Lambda\})^\triangle=\bigoplus{}_\infty\{l_2^\infty:\lambda\in\Lambda\}$ является $(\square_{sqTop}^d)^o$-свободным, или что то же самое $\square_{sqTop}^d$-косвободным. Получаем, что все $\square_{sqTop}$-косвободные объекты с базой 
-$\mathbb{C}^\Lambda$ секвенциально топологически изоморфны пространствам указанного вида.
+Функтор ${}^\nabla$ имеет левый сопряженный функтор, а именно ${}^\triangle$.
+Аналогично $1_{Nor_0}$ сопряжен слева к самому себе. По теореме 2.2.4 объект
+$\bigoplus{}_1^0 \{t_2^\infty:\lambda\in\Lambda \}$ $\square_{sqTop}$-свободен,
+поэтому по предложению [\cite{HelMetrFrQmod}, 4.5] объект
+${(\bigoplus{}_1^0 \{t_2^\infty:\lambda\in\Lambda \})}^\triangle
+=\bigoplus{}_\infty \{l_2^\infty:\lambda\in\Lambda \}$
+является ${(\square_{sqTop}^d)}^o$-свободным, или что то же самое
+$\square_{sqTop}^d$-косвободным. Получаем, что все $\square_{sqTop}$-косвободные
+объекты с базой $\mathbb{C}^\Lambda$ секвенциально топологически изоморфны
+пространствам указанного вида.
 
 \begin{thebibliography}{99}
-\bibitem{LamOpFolgen}\textit{Lambert A.} Operatorfolgenr\"{a}ume. Eine Kategorie auf dem Weg von den Banach-R\"{a}umen zu den Operatorr\"{a}umen. Dissertation zur Erlangung des Grades Doktor der Naturwissenschaften der Technisch-Naturwissenschaftlichen Fakult\"{a}t I der Universit\"{a}t des Saarlandes. Saarbr\"{u}cken, 2002.
+\bibitem{LamOpFolgen}\textit{Lambert A.} Operatorfolgenr\"{a}ume. Eine Kategorie
+auf dem Weg von den Banach-R\"{a}umen zu den Operatorr\"{a}umen. Dissertation
+zur Erlangung des Grades Doktor der Naturwissenschaften der
+Technisch-Naturwissenschaftlichen Fakult\"{a}t I der Universit\"{a}t des
+Saarlandes. Saarbr\"{u}cken, 2002.
 \bibitem{HelMetrFrQmod}
-\textit{Хелемский А. Я.} Метрическая свобода и проективность для классических и квантовых нормированных модулей,, Матем. сб., 204:7 (2013), 127–158 
+\textit{Хелемский А. Я.} Метрическая свобода и проективность для классических и
+квантовых нормированных модулей,, Матем. сб., 204:7 (2013), 127–158 
 \bibitem{ShteinerTopFr}
 \textit{Штейнер С. М.} 
-Топологическая свобода для классических и квантовых нормированных модулей // Вестник СамГУ. 2013. № 9/1 (110). С.49-57.
+Топологическая свобода для классических и квантовых нормированных модулей //
+Вестник СамГУ. 2013. № 9/1 (110). С.49--57.
 \end{thebibliography}
-
 
 \end{document}
