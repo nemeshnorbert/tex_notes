@@ -1,10 +1,11 @@
+% chktex-file 35
 \documentclass{article}
 
 \def\baselinestretch{0.98}
 
 \usepackage[T2C]{fontenc}
 \usepackage[cp866]{inputenc}
-\usepackage[english,russian]{babel}
+\usepackage[english, russian]{babel}
 \usepackage[tbtags]{amsmath}
 \usepackage{amsfonts,amssymb,mathrsfs,amscd,amsmath,comment}
 \usepackage[english]{msb-a}
@@ -12,27 +13,36 @@
 \usepackage{rotating}
 \usepackage[all]{xy}
 \usepackage{hypbmsec}
-%--------------------------
+\usepackage{enumitem}
+
+% workaround for 
+% https://github.com/AndreyAkinshin/Russian-Phd-LaTeX-Dissertation-Template/issues/413
+\makeatletter\AtBeginDocument{\let\@elt\relax}\makeatother  % chktex 21
+
+%-------------------------------------------------------------------------------
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}{Lemma}[section]
 \newtheorem{corollary}{Corollary}[section]
 \newtheorem{proposition}{Proposition}[section]
-%--------------------------
+%-------------------------------------------------------------------------------
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
 \newtheorem{proof}{Proof}\def\theproof{}
 \newtheorem{remark}{Remark}[section]
-%---------------------------------------
+%-------------------------------------------------------------------------------
 % My definitions
 \newcommand{\projtens}{\mathbin{\widehat{\otimes}}}
 \newcommand{\convol}{\ast}
 \newcommand{\projmodtens}[1]{\mathbin{\widehat{\otimes}}_{#1}}
 \newcommand{\isom}{\mathop{\mathbin{\cong}}}
-%-------------------------------------------------
+
+
+%-------------------------------------------------------------------------------
 \begin{document}
 
-\title{Topologically projective, injective and flat modules of harmonic analysis}
+\title{Topologically projective, injective and flat modules of harmonic
+    analysis}
 \author[Norbert~T.~Nemesh]{N.\,T.~Nemesh}
 \address{Faculty of Mechanics and Mathematics,\\
 Moscow State University}
@@ -45,18 +55,17 @@ Moscow State University}
 \subjclass{Primary 46M10; Secondary 22D20}
 \udk{517.968.22}
 
-\maketitle
+\maketitle  
 
 \markright{projective, injective and flat modules of harmonic analysis}
 
 \begin{fulltext}
 
 \begin{abstract}
-We study homologically trivial modules of harmonic analysis on a locally 
-compact group $G$. For $L_1(G)$- and $M(G)$-modules $C_0(G)$, $L_p(G)$ and 
-$M(G)$ we give criteria of metric and topological projectivity, injectivity 
-and flatness. In most cases, modules with these properties must be 
-finite-dimensional.
+We study homologically trivial modules of harmonic analysis on a locally compact
+group $G$. For $L_1(G)$- and $M(G)$-modules $C_0(G)$, $L_p(G)$ and $M(G)$ we
+give criteria of metric and topological projectivity, injectivity and flatness.
+In most cases, modules with these properties must be finite-dimensional.
 
 Bibliography: 18~titles.
 \end{abstract}
@@ -66,182 +75,188 @@ Banach module, projectivity, injectivity, flatness, harmonic analysis.
 \end{keywords}
 
 
-\footnotetext[0]{This research was supported by the Russian Foundation for Basic Research [19-01-00447-a].}
+\footnotetext[0]{This research was supported by the Russian Foundation for Basic
+    Research [19--01--00447--a].}
 
-\section{Introduction}
-\label{SectionIntroduction}
+\section{Introduction}\label{SectionIntroduction}
 
-Banach homology has a long history dating back to the 1950s. One of the main 
-questions of this discipline: whether a given Banach module is homologically trivial, 
-i.e. projective, injective or flat? An example of a successful answer to this 
-question is the work of Dales, Polyakov, Ramsden and Racher 
-\cite{DalPolHomolPropGrAlg, RamsHomPropSemgroupAlg,RachInjModAndAmenGr}, where 
-they gave criteria of homological triviality for classical modules of harmonic 
-analysis. It is worth mentioning that all these studies were carried out for 
-relative Banach homology. We answer the same questions but for two less explored 
-versions of Banach homology --- topological and metric ones. Metric Banach homology 
-was introduced by Graven in \cite{GravInjProjBanMod}, where he applied modern, 
-at that moment, homological and Banach geometric techniques to modules of 
-harmonic analysis. The notion of topological Banach homology appeared in the work 
-of White \cite{WhiteInjmoduAlg}. Seemingly, the latter theory looks much less 
-restrictive then the metric one, but as we shall see this is not the case.
+Banach homology has a long history dating back to the 1950s. One of the main
+questions of this discipline: whether a given Banach module is homologically
+trivial, i.e.\ projective, injective or flat? An example of a successful answer
+to this question is the work of Dales, Polyakov, Ramsden and Racher
+~\cite{DalPolHomolPropGrAlg, RamsHomPropSemgroupAlg,RachInjModAndAmenGr}, where
+they gave criteria of homological triviality for classical modules of harmonic
+analysis. It is worth mentioning that all these studies were carried out for
+relative Banach homology. We answer the same questions but for two less explored
+versions of Banach homology --- topological and metric ones. Metric Banach
+homology was introduced by Graven in~\cite{GravInjProjBanMod}, where he applied
+modern, at that moment, homological and Banach geometric techniques to modules
+of harmonic analysis. The notion of topological Banach homology appeared in the
+work of White~\cite{WhiteInjmoduAlg}. Seemingly, the latter theory looks much
+less restrictive then the metric one, but as we shall see this is not the case.
 
-%----------------------------------------------------------------------------------------
-%	Preliminaries on Banach homology
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+%    Preliminaries on Banach homology
+%-------------------------------------------------------------------------------
 
-\section{Preliminaries on Banach homology}
-\label{SectionPreliminariesOnBanachHomology} 
+\section{Preliminaries on Banach
+    homology}\label{SectionPreliminariesOnBanachHomology} 
 
-In what follows, we give several versions of our statements in parallel, listing 
-the respective options in angle brackets and separating them by slashes, 
-like $\langle$~... / ...~$\rangle$. For example, a real number $x$ is called 
-$\langle$~positive / non-negative~$\rangle$ if $\langle$~$x>0$ / $x\geq 0$~$\rangle$.
+In what follows, we give several versions of our statements in parallel, listing
 
-All Banach spaces under consideration are over the field of complex numbers. 
-Let $E$ be a Banach space. By $B_E$ we denote the closed unit ball of $E$. 
-If $F$ is another Banach space, then a bounded linear operator $T:E\to F$ is 
-called \emph{$\langle$~isometric / $c$-topologically injective~$\rangle$} if 
-$\langle$~$\Vert T(x)\Vert=\Vert x\Vert$ / $c\Vert T(x)\Vert\geq\Vert x\Vert$~$\rangle$ 
-for all $x\in E$. Similarly, $T$ is \emph{$\langle$~strictly coisometric / strictly 
-$c$-topologically surjective~$\rangle$} if $\langle$~$T(B_E)=B_F$ / 
-$c T(B_E)\supset B_F$~$\rangle$. In some cases, the constant $c$ is omitted. We 
-use the symbol $\bigoplus_p$ for an $\ell_p$-sum of Banach spaces, and $\projtens$ 
-for a projective tensor product of Banach spaces. 
+the respective options in angle brackets and separating them by slashes, like
+$\langle$~$\ldots$ / $\ldots$~$\rangle$. For example, a real number $x$ is
+called $\langle$~positive / non-negative~$\rangle$ if $\langle$~$x>0$ / $x\geq
+0$~$\rangle$.
 
-By $A$ we denote an arbitrary Banach algebra. The symbol $A_+$ stands for the 
-standard unitization of $A$. In what follows we shall consider Banach modules 
-with contractive outer action only. A Banach module $A$-module $X$ is called 
-$\langle$~essential / faithful~$\rangle$ if $\langle$~the linear span of 
-$A\cdot X$ is dense in $X$ / $a\cdot X=\{0\}$ implies $a=0$~$\rangle$.
-A bounded linear operator which is also a morphism of $A$-modules is called an 
-$A$-morphism. The symbol $A-\mathbf{mod}$ stands for the category of left 
-Banach $A$-modules with $A$-morphisms. By $A-\mathbf{mod}_1$ 
-we denote the subcategory of $A-\mathbf{mod}$ with the same objects, but 
-contractive $A$-morphisms only. The similar categories of right modules 
-are denoted by $\mathbf{mod}-A$ and $\mathbf{mod}_1-A$, respectively. We 
-use the symbol $\isom$ to denote an isomorphism of two objects in a category. 
-By $\projtens_A$ we denote the functor of projective module tensor product and 
-by $\operatorname{Hom}$, the usual morphism functor. Now we can give our main 
-definitions.
+All Banach spaces under consideration are over the field of complex numbers. Let
+$E$ be a Banach space. By $B_E$ we denote the closed unit ball of $E$. If $F$ is
+another Banach space, then a bounded linear operator $T:E\to F$ is called
+\emph{$\langle$~isometric / $c$-topologically injective~$\rangle$} if
+$\langle$~$\Vert T(x)\Vert=\Vert x\Vert$ / $c\Vert T(x)\Vert\geq\Vert
+x\Vert$~$\rangle$ for all $x\in E$. Similarly, $T$ is \emph{$\langle$~strictly
+coisometric / strictly $c$-topologically surjective~$\rangle$} if
+$\langle$~$T(B_E)=B_F$ / $c T(B_E)\supset B_F$~$\rangle$. In some cases, the
+constant $c$ is omitted. We use the symbol $\bigoplus_p$ for an $\ell_p$-sum of
+Banach spaces, and $\projtens$ for a projective tensor product of Banach spaces.
 
-\begin{definition} A left Banach $A$-module $P$ is \emph{$\langle$~metrically / 
+
+By $A$ we denote an arbitrary Banach algebra. The symbol $A_+$ stands for the
+standard unitization of $A$. In what follows we shall consider Banach modules
+with contractive outer action only. A Banach module $A$-module $X$ is called
+$\langle$~essential / faithful~$\rangle$ if $\langle$~the linear span of $A\cdot
+X$ is dense in $X$ / $a\cdot X=\{0\}$ implies $a=0$~$\rangle$. A bounded linear
+operator which is also a morphism of $A$-modules is called an $A$-morphism. The
+symbol $A-\mathbf{mod}$ stands for the category of left Banach $A$-modules with
+$A$-morphisms. By $A-\mathbf{mod}_1$ we denote the subcategory of
+$A-\mathbf{mod}$ with the same objects, but contractive $A$-morphisms only. The
+similar categories of right modules are denoted by $\mathbf{mod}-A$ and
+$\mathbf{mod}_1-A$, respectively. We use the symbol $\isom$ to denote an
+isomorphism of two objects in a category. By $\projtens_A$ we denote the functor
+of projective module tensor product and by $\operatorname{Hom}$, the usual
+morphism functor. Now we can give our main definitions.
+
+\begin{definition} A left Banach $A$-module $P$ is \emph{$\langle$~metrically /
 $C$-topologically / $C$-relatively~$\rangle$ projective} if the morphism functor
 \begin{center}
-$\langle$~$\operatorname{Hom}_{A-\mathbf{mod}_1}(P,-)$ / 
-$\operatorname{Hom}_{A-\mathbf{mod}}(P,-)$ / 
+$\langle$~$\operatorname{Hom}_{A-\mathbf{mod}_1}(P,-)$ /
+$\operatorname{Hom}_{A-\mathbf{mod}}(P,-)$ /
 $\operatorname{Hom}_{A-\mathbf{mod}}(P,-)$~$\rangle$
 \end{center}
-maps all $\langle$~strictly 
-coisometric morphisms / strictly $c$-topologically surjective morph-\\isms / 
-morphisms with right inverse operator of norm at most $c$~$\rangle$ to 
-$\langle$~strictly coisometric / strictly $c C$-topologically surjective / 
-strictly $c C$-topologically surjec-\\tive~$\rangle$ operators.
+maps all $\langle$~strictly coisometric morphisms / strictly $c$-topologically
+surjective morph-\\isms / morphisms with right inverse operator of norm at most
+$c$~$\rangle$ to $\langle$~strictly coisometric / strictly $c C$-topologically
+surjective / strictly $c C$-topologically surjec-\\tive~$\rangle$ operators.
 \end{definition}
 
 \begin{definition} A right Banach $A$-module $J$ is \emph{$\langle$~metrically /
 $C$-topologically / $C$-relatively~$\rangle$ injective} if the morphism functor
 \begin{center}
-$\langle$~$\operatorname{Hom}_{\mathbf{mod}_1-A}(-,J)$ / 
-$\operatorname{Hom}_{\mathbf{mod}-A}(-,J)$ / 
+$\langle$~$\operatorname{Hom}_{\mathbf{mod}_1-A}(-,J)$ /
+$\operatorname{Hom}_{\mathbf{mod}-A}(-,J)$ /
 $\operatorname{Hom}_{\mathbf{mod}-A}(-,J)$~$\rangle$    
 \end{center}
-maps all $\langle$~strictly isometric 
-morphisms / $c$-topologically injective morphisms / morphisms with left inverse 
-operator of norm at most $c$~$\rangle$ to $\langle$~strictly coisometric / 
-strictly $c C$-topologically surjective / strictly $c C$-topologically 
-surjective~$\rangle$ operators.
+maps all $\langle$~strictly isometric morphisms / $c$-topologically injective
+morphisms / morphisms with left inverse operator of norm at most $c$~$\rangle$
+to $\langle$~strictly coisometric / strictly $c C$-topologically surjective /
+strictly $c C$-topologically surjective~$\rangle$ operators.
 \end{definition}
 
-\begin{definition} A left Banach $A$-module $F$ is \emph{$\langle$~metrically / 
-$C$-topologically / $C$-relatively~$\rangle$ flat} if the functor of module tensor 
-product $-\projtens_A F$ 
-maps all $\langle$~isometric morphisms / $c$-topologically injective morphisms / 
-morphisms with left inverse operator of norm at most $c$~$\rangle$ to 
-$\langle$~isometric / $cC$-topologically injective / $cC$-topo-\\logically 
-injective~$\rangle$ operators.
+\begin{definition} A left Banach $A$-module $F$ is \emph{$\langle$~metrically /
+$C$-topologically / $C$-relatively~$\rangle$ flat} if the functor of module
+tensor product $-\projtens_A F$ maps all $\langle$~isometric morphisms /
+$c$-topologically injective morphisms / morphisms with left inverse operator of
+norm at most $c$~$\rangle$ to $\langle$~isometric / $cC$-topologically injective
+/ $cC$-topo-\\logically injective~$\rangle$ operators.
 \end{definition}
 
-We shall say that a Banach module is $\langle$~topologically / 
-relatively~$\rangle$ projective, injective or flat if it is 
-$\langle$~$C$-topologically / $C$-relatively~$\rangle$ projective, injective or 
+We shall say that a Banach module is $\langle$~topologically /
+relatively~$\rangle$ projective, injective or flat if it is
+$\langle$~$C$-topologically / $C$-relatively~$\rangle$ projective, injective or
 flat for some $C>0$.
 
-These definitions were given in a slightly different form by Graven 
-for metric theory \cite{GravInjProjBanMod}, by White for topological theory
-\cite{WhiteInjmoduAlg} and by Helemskii for relative theory \cite{HelemHomolDimNorModBanAlg}.
-For topologically projective, injective and flat module White used the term strictly
-projective, injective and flat respectively. It is worth mentioning that initially strictly
-injective and flat modules where introduced by Helemskii in 
-\cite[section VII.1]{HelBanLocConvAlg}. An overview of the basics of these theories is given in \cite{NemGeomProjInjFlatBanMod}. We shall heavily rely upon results of the latter paper.
+These definitions were given in a slightly different form by Graven for metric
+theory~\cite{GravInjProjBanMod}, by White for topological theory
+~\cite{WhiteInjmoduAlg} and by Helemskii for relative
+theory~\cite{HelemHomolDimNorModBanAlg}. For topologically projective, injective
+and flat module White used the term strictly projective, injective and flat
+respectively. It is worth mentioning that initially strictly injective and flat
+modules where introduced by Helemskii in~\cite[section
+VII.1]{HelBanLocConvAlg}. An overview of the basics of these theories is given
+in~\cite{NemGeomProjInjFlatBanMod}. We shall heavily rely upon results of the
+latter paper.
 
 
-%----------------------------------------------------------------------------------------
-%	Preliminaries on harmonic analysis
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+%    Preliminaries on harmonic analysis
+%-------------------------------------------------------------------------------
 
-\section{Preliminaries on harmonic analysis}
-\label{SectionPreliminariesOnHarmonicAnalysis} 
+\section{Preliminaries on harmonic
+    analysis}\label{SectionPreliminariesOnHarmonicAnalysis} 
 
-Let $G$ be a locally compact group with unit $e_G$. The left Haar measure of $G$ is 
-denoted by $m_G$ and the symbol $\Delta_G$ stands for the modular function of $G$. 
-For $\langle$~an infinite and discrete / a  compact~$\rangle$ group $G$ we choose 
-$m_G$ as a $\langle$~counting / probability~$\rangle$ measure. In what follows for 
-$1\leq p\leq+\infty$ we use the notation $L_p(G)$ to denote the Lebesgue space of 
-functions that are $p$-integrable with respect to Haar measure.
+Let $G$ be a locally compact group with unit $e_G$. The left Haar measure of $G$
+is denoted by $m_G$ and the symbol $\Delta_G$ stands for the modular function of
+$G$. For $\langle$~an infinite and discrete / a  compact~$\rangle$ group $G$ we
+choose $m_G$ as a $\langle$~counting / probability~$\rangle$ measure. In what
+follows for $1\leq p\leq+\infty$ we use the notation $L_p(G)$ to denote the
+Lebesgue space of functions that are $p$-integrable with respect to Haar
+measure.
 
-We regard $L_1(G)$ as a Banach algebra with convolution operator in the role of multiplication. 
-This Banach algebra has a contractive two-sided approximate identity 
-\cite[theorem 3.3.23]{DalBanAlgAutCont}. Clearly, $L_1(G)$ is unital if and only if 
-$G$ is discrete. In this case, $\delta_{e_G}$, the indicator 
-function of $e_G$, is the identity of $L_1(G)$. Similarly, the space of complex finite 
-Borel regular measures $M(G)$ endowed with convolution becomes a unital Banach algebra. 
-The role of identity is played by Dirac delta measure $\delta_{e_G}$ supported on $e_G$. 
-Moreover, $M(G)$ is a coproduct, in the sense of category theory, in 
-$L_1(G)-\mathbf{mod}_1$ (but not in $M(G)-\mathbf{mod}_1$) of the two-sided ideal 
-$M_a(G)$ of measures absolutely continuous with respect to $m_G$ and 
-the subalgebra $M_s(G)$ of measures singular with respect to $m_G$. Note that 
-$M_a(G)\isom L_1(G)$ in $M(G)-\mathbf{mod}_1$ and $M_s(G)$ is an annihilator 
-$L_1(G)$-module. Finally, $M(G)=M_a(G)$ if and only if $G$ is discrete. 
+We regard $L_1(G)$ as a Banach algebra with convolution operator in the role of
+multiplication. This Banach algebra has a contractive two-sided approximate
+identity~\cite[theorem 3.3.23]{DalBanAlgAutCont}. Clearly, $L_1(G)$ is unital
+if and only if $G$ is discrete. In this case, $\delta_{e_G}$, the indicator
+function of $e_G$, is the identity of $L_1(G)$. Similarly, the space of complex
+finite Borel regular measures $M(G)$ endowed with convolution becomes a unital
+Banach algebra. The role of identity is played by Dirac delta measure
+$\delta_{e_G}$ supported on $e_G$. Moreover, $M(G)$ is a coproduct, in the sense
+of category theory, in $L_1(G)-\mathbf{mod}_1$ (but not in
+$M(G)-\mathbf{mod}_1$) of the two-sided ideal $M_a(G)$ of measures absolutely
+continuous with respect to $m_G$ and the subalgebra $M_s(G)$ of measures
+singular with respect to $m_G$. Note that $M_a(G)\isom L_1(G)$ in
+$M(G)-\mathbf{mod}_1$ and $M_s(G)$ is an annihilator $L_1(G)$-module. Finally,
+$M(G)=M_a(G)$ if and only if $G$ is discrete. 
 
-Now we proceed to discussion of the standard left and right modules over algebras 
-$L_1(G)$ and $M(G)$. The Banach algebra $L_1(G)$ can be regarded as a two-sided 
-ideal of $M(G)$ by means of isometric left and right $M(G)$-morphism 
-$i:L_1(G)\to M(G):f\mapsto f m_G$. Therefore it is enough to define all module structures 
-over $M(G)$. For any $1\leq p<+\infty$, $f\in L_p(G)$ and $\mu\in M(G)$ we define
+Now we proceed to discussion of the standard left and right modules over
+algebras $L_1(G)$ and $M(G)$. The Banach algebra $L_1(G)$ can be regarded as a
+two-sided ideal of $M(G)$ by means of isometric left and right $M(G)$-morphism
+$i:L_1(G)\to M(G):f\mapsto f m_G$. Therefore it is enough to define all module
+structures over $M(G)$. For any $1\leq p<+\infty$, $f\in L_p(G)$ and $\mu\in
+M(G)$ we define
 \[
 (\mu\convol_p f)(s)=\int_G f(t^{-1}s)d\mu(t),
 \qquad
-(f\convol_p \mu)(s)=\int_G f(st^{-1})\Delta_G(t^{-1})^{1/p}d\mu(t).
+(f \convol_p \mu)(s)=\int_G f(st^{-1}){\Delta_G(t^{-1})}^{1/p}d\mu(t).
 \]
-These module actions turn all Banach spaces $L_p(G)$ for $1\leq p<+\infty$ into left 
-and right $M(G)$-modules. Note that for $p=1$ and $\mu\in M_a(G)$ we get the usual 
-definition of convolution. For $1<p\leq +\infty$, $f\in L_p(G)$ and $\mu\in M(G)$ we 
-define module actions as
+These module actions turn all Banach spaces $L_p(G)$ for $1\leq p<+\infty$ into
+left and right $M(G)$-modules. Note that for $p=1$ and $\mu\in M_a(G)$ we get
+the usual definition of convolution. For $1<p\leq +\infty$, $f\in L_p(G)$ and
+$\mu\in M(G)$ we define module actions as
 \[
-(\mu\cdot_p f)(s)=\int_G \Delta_G(t)^{1/p}f(st)d\mu(t),
+(\mu\cdot_p f)(s)=\int_G {\Delta_G(t)}^{1/p}f(st)d\mu(t),
 \qquad
 (f\cdot_p \mu)(s)=\int_G f(ts)d\mu(t).
 \]
-These module actions turn all Banach spaces $L_p(G)$ for $1<p\leq+\infty$ into left 
-and right $M(G)$-modules too. This special choice of module structure nicely interacts 
-with duality. Indeed we have and $(L_p(G),\convol_p)^*\isom (L_{p^*}(G),\cdot_{p^*})$ 
-in $\mathbf{mod}_1-M(G)$ for all $1\leq p<+\infty$. Here we set by definition 
-$p^*=p/(p-1)$ for $1<p<+\infty$ and $p^*=\infty$ for $p=1$. Finally, the Banach space $C_0(G)$ 
-also becomes a left and a right $M(G)$-module when endowed with $\cdot_\infty$ in the 
-role of module action. Even more, $C_0(G)$ is a closed left and right $M(G)$-submodule of 
-$L_\infty(G)$ such that $(C_0(G),\cdot_\infty)^*\isom (M(G),\convol)$ in 
+These module actions turn all Banach spaces $L_p(G)$ for $1<p\leq+\infty$ into
+left and right $M(G)$-modules too. This special choice of module structure
+nicely interacts with duality. Indeed we have and ${(L_p(G),\convol_p)}^*\isom
+(L_{p^*}(G),\cdot_{p^*})$ in $\mathbf{mod}_1-M(G)$ for all $1\leq p<+\infty$.
+Here we set by definition $p^*=p/(p-1)$ for $1<p<+\infty$ and $p^*=\infty$ for
+$p=1$. Finally, the Banach space $C_0(G)$ also becomes a left and a right
+$M(G)$-module when endowed with $\cdot_\infty$ in the role of module action.
+Even more, $C_0(G)$ is a closed left and right $M(G)$-submodule of $L_\infty(G)$
+such that ${(C_0(G),\cdot_\infty)}^*\isom (M(G),\convol)$ in
 $M(G)-\mathbf{mod}_1$.
 
-By $\widehat{G}$ we shall denote the dual group of the group $G$. Any character 
+By $\widehat{G}$ we shall denote the dual group of the group $G$. Any character
 $\gamma\in\widehat{G}$ gives rise to a continuous characters  
 \[
 \varkappa_\gamma^L:L_1(G)\to\mathbb{C}:f\mapsto \int_G f(s)\overline{\gamma(s)}d m_G(s),
 \quad
 \varkappa_\gamma^M:M(G)\to\mathbb{C}:\mu\mapsto\int_{G} \overline{\gamma(s)}d\mu(s).
 \]
-on $L_1(G)$ and $M(G)$ respectively. By $\mathbb{C}_\gamma$ we denote left and right 
-augmentation $L_1(G)$- or $M(G)$-module. Its module actions are defined by
+on $L_1(G)$ and $M(G)$ respectively. By $\mathbb{C}_\gamma$ we denote left and
+right augmentation $L_1(G)$- or $M(G)$-module. Its module actions are defined by
 \[
 f\cdot_{\gamma}z=z\cdot_{\gamma}f=\varkappa_\gamma^L(f)z,
 \qquad
@@ -249,460 +264,532 @@ f\cdot_{\gamma}z=z\cdot_{\gamma}f=\varkappa_\gamma^L(f)z,
 \]
 for all $f\in L_1(G)$, $\mu\in M(G)$ and $z\in\mathbb{C}$. 
 
-One of the numerous definitions of amenable group says, that a locally compact group $G$ 
-is amenable if there exists an $L_1(G)$-morphism of right modules 
-$M:L_\infty(G)\to\mathbb{C}_{e_{\widehat{G}}}$ such that $M(\chi_G)=1$ 
-\cite[section 7.2.5]{HelBanLocConvAlg}. We can even assume that $M$ is contractive 
-\cite[remark 7.1.54]{HelBanLocConvAlg}.
+One of the numerous definitions of amenable group says, that a locally compact
+group $G$ is amenable if there exists an $L_1(G)$-morphism of right modules
+$M:L_\infty(G)\to\mathbb{C}_{e_{\widehat{G}}}$ such that $M(\chi_G)=1$
+~\cite[section 7.2.5]{HelBanLocConvAlg}. We can even assume that $M$ is
+contractive~\cite[remark 7.1.54]{HelBanLocConvAlg}.
 
-Most of the results of this section that are not supported with references are 
-presented in full detail in \cite[section 3.3]{DalBanAlgAutCont}.
+Most of the results of this section that are not supported with references are
+presented in full detail in~\cite[section 3.3]{DalBanAlgAutCont}.
 
-%----------------------------------------------------------------------------------------
-%	L_1(G)-modules
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+%    L_1(G)-modules
+%-------------------------------------------------------------------------------
 
-\section{\texorpdfstring{$L_1(G)$}{L1(G)}-modules}
-\label{SubSectionL1GModules}
+\section{\texorpdfstring{$L_1(G)$}{L1(G)}-modules}\label{SubSectionL1GModules}
 
-Metric homological properties of $L_1(G)$-modules of harmonic analysis 
-were first studied in \cite{GravInjProjBanMod}. We generalise these ideas for the 
-case of topological Banach homology. To clarify the definitions we start from a 
-general result on injectivity. It is instructive to prove it from the first principles.
+Metric homological properties of $L_1(G)$-modules of harmonic analysis were
+first studied in~\cite{GravInjProjBanMod}. We generalise these ideas for the
+case of topological Banach homology. To clarify the definitions we start from a
+general result on injectivity. It is instructive to prove it from the first
+principles.
 
-\begin{proposition}\label{AlgDualWithApproxIdIsMetrInj} Let $A$ be a Banach algebra with 
-a right  contractive approx-\\imate identity, then the right $A$-module $A^*$ is 
-metrically injective. 
+\begin{proposition}\label{AlgDualWithApproxIdIsMetrInj} Let $A$ be a Banach
+algebra with a right  contractive approx-\\imate identity, then the right
+$A$-module $A^*$ is metrically injective. 
 \end{proposition}
-\begin{proof} Let $\xi:Y\to X$ be an isometric $A$-morphism of right $A$-modules $X$ 
-and $Y$ and an arbitrary contractive $A$-morphism $\phi: X\to A^*$. By assumption $A$ has 
-a contractive approximate identity, say $(e_\nu)_{\nu\in N}$. For each $\nu\in N$ we 
-define a bounded linear functional $f_\nu:Y\to\mathbb{C}:y\to \phi(y)(e_\nu)$. By Hahn-Banach 
-theorem there exists a bounded linear functional $g_\nu:X\to\mathbb{C}$ such that 
-$g_\nu\xi=f_\nu$ and $\Vert g_\nu\Vert=\Vert f_\nu\Vert$. It is routine to check that 
-$\psi_\nu: X\to A^*:x\mapsto(a\mapsto g_\nu(x\cdot a))$ is an $A$-morphism of right modules 
-such that $\Vert\psi_\nu\Vert\leq\Vert\phi\Vert$ and $\psi_\nu(\xi(x))(a)=\phi(x)(a e_\nu)$ 
-for all $x\in X$ and $a\in A$. Since the net $(\psi_\nu)_{\nu\in N}$ is norm bounded then 
-there exists a subnet $(\psi_\mu)_{\mu\in M}$ with the same norm bound that converges in 
-strong-to-weak${}^*$ topology to some operator $\psi:X\to A^*$. Clearly, $\psi$ is a morphism 
-of right $A$-modules such that $\psi\xi=\phi$ and $\Vert\psi\Vert\leq\Vert\phi\Vert$. 
-As $\phi$ is arbitrary, the map $\operatorname{Hom}_{\mathbf{mod}_1-A}(\xi, A^*)$ is strictly 
-coisometric. Hence $A^*$ is metrically injective.
+\begin{proof} Let $\xi:Y\to X$ be an isometric $A$-morphism of right $A$-modules
+$X$ and $Y$ and an arbitrary contractive $A$-morphism $\phi: X\to A^*$. By
+assumption $A$ has a contractive approximate identity, say ${(e_\nu)}_{\nu\in
+N}$. For each $\nu\in N$ we define a bounded linear functional
+$f_\nu:Y\to\mathbb{C}:y\to \phi(y)(e_\nu)$. By Hahn-Banach theorem there exists
+a bounded linear functional $g_\nu:X\to\mathbb{C}$ such that $g_\nu\xi=f_\nu$
+and $\Vert g_\nu\Vert=\Vert f_\nu\Vert$. It is routine to check that $\psi_\nu:
+X\to A^*:x\mapsto(a\mapsto g_\nu(x\cdot a))$ is an $A$-morphism of right modules
+such that $\Vert\psi_\nu\Vert\leq\Vert\phi\Vert$ and
+$\psi_\nu(\xi(x))(a)=\phi(x)(a e_\nu)$ for all $x\in X$ and $a\in A$. Since the
+net ${(\psi_\nu)}_{\nu\in N}$ is norm bounded then there exists a subnet
+${(\psi_\mu)}_{\mu\in M}$ with the same norm bound that converges in
+strong-to-weak${}^*$ topology to some operator $\psi:X\to A^*$. Clearly, $\psi$
+is a morphism of right $A$-modules such that $\psi\xi=\phi$ and
+$\Vert\psi\Vert\leq\Vert\phi\Vert$. As $\phi$ is arbitrary, the map
+$\operatorname{Hom}_{\mathbf{mod}_1-A}(\xi, A^*)$ is strictly coisometric. Hence
+$A^*$ is metrically injective.
 \end{proof}
 
-\begin{proposition}\label{LInfIsL1MetrInj} Let $G$ be a locally compact group. Then 
-$L_\infty(G)$ is a metrically and topologically injective $L_1(G)$-module. As the 
-result, $L_1(G)$-module $L_1(G)$ is metrically and topologically flat.
+\begin{proposition}\label{LInfIsL1MetrInj} Let $G$ be a locally compact group.
+Then $L_\infty(G)$ is a metrically and topologically injective $L_1(G)$-module.
+As the result, $L_1(G)$-module $L_1(G)$ is metrically and topologically flat.
 \end{proposition}
-\begin{proof} As $L_1(G)$ has a contractive approximate identity, then by 
-proposition \ref{AlgDualWithApproxIdIsMetrInj} the right $L_1(G)$-module $L_1(G)^*$ 
-is metrically injective. As a consequence it is topologically injective 
-\cite[proposition 2.14]{NemGeomProjInjFlatBanMod}. Therefore it remains to recall that 
-$L_\infty(G)\isom L_1(G)^*$ in $\mathbf{mod}_1-L_1(G)$. The result on flatness of 
-$L_1(G)$ follows from  \cite[proposition 2.21]{NemGeomProjInjFlatBanMod}.
+\begin{proof} As $L_1(G)$ has a contractive approximate identity, then by
+proposition~\ref{AlgDualWithApproxIdIsMetrInj} the right $L_1(G)$-module
+${L_1(G)}^*$ is metrically injective. As a consequence it is topologically
+injective~\cite[proposition 2.14]{NemGeomProjInjFlatBanMod}. Therefore it
+remains to recall that $L_\infty(G)\isom {L_1(G)}^*$ in $\mathbf{mod}_1-L_1(G)$.
+The result on flatness of $L_1(G)$ follows from~\cite[proposition
+2.21]{NemGeomProjInjFlatBanMod}.
 \end{proof}
 
-\begin{proposition}\label{OneDimL1ModMetTopProjCharac} Let $G$ be a locally compact 
-group, and $\gamma\in\widehat{G}$. Then the following are equivalent:
-\begin{enumerate}
-    \item $G$ is compact; 
-    \label{OneDimL1ModMetTopProjCharac:i}
-    \item $\mathbb{C}_\gamma$ is a metrically projective $L_1(G)$-module;
-    \label{OneDimL1ModMetTopProjCharac:ii}
-    \item $\mathbb{C}_\gamma$ is a topologically projective $L_1(G)$-module.
-    \label{OneDimL1ModMetTopProjCharac:iii}
+\begin{proposition}\label{OneDimL1ModMetTopProjCharac} Let $G$ be a locally
+compact group, and $\gamma\in\widehat{G}$. Then the following are equivalent:
+\begin{enumerate}[label = (\roman*)]
+    \item $G$ is compact;\label{OneDimL1ModMetTopProjCharac:i}
+ 
+    \item $\mathbb{C}_\gamma$ is a metrically projective
+    $L_1(G)$-module;\label{OneDimL1ModMetTopProjCharac:ii}
+ 
+    \item $\mathbb{C}_\gamma$ is a topologically projective
+    $L_1(G)$-module.\label{OneDimL1ModMetTopProjCharac:iii}
 \end{enumerate}
 \end{proposition}
-\begin{proof} \ref{OneDimL1ModMetTopProjCharac:i}) $\Longrightarrow$ \ref{OneDimL1ModMetTopProjCharac:ii}), \ref{OneDimL1ModMetTopProjCharac:iii}) $\Longrightarrow$ \ref{OneDimL1ModMetTopProjCharac:i}) The proof is similar to \cite[theorem 4.2]{GravInjProjBanMod}. 
+\begin{proof}~\ref{OneDimL1ModMetTopProjCharac:i}
+$\Longrightarrow$~\ref{OneDimL1ModMetTopProjCharac:ii},
+~\ref{OneDimL1ModMetTopProjCharac:iii}
+$\Longrightarrow$~\ref{OneDimL1ModMetTopProjCharac:i} The proof is similar
+to~\cite[theorem 4.2]{GravInjProjBanMod}. 
 
-\ref{OneDimL1ModMetTopProjCharac:ii}) $\Longrightarrow$ \ref{OneDimL1ModMetTopProjCharac:iii}) 
-Implication follows from \cite[proposition 2.4]{NemGeomProjInjFlatBanMod}.
+~\ref{OneDimL1ModMetTopProjCharac:ii}
+$\Longrightarrow$~\ref{OneDimL1ModMetTopProjCharac:iii} Implication follows
+from~\cite[proposition 2.4]{NemGeomProjInjFlatBanMod}.
 \end{proof}
 
-\begin{proposition}\label{OneDimL1ModMetTopInjFlatCharac} Let $G$ be a locally compact 
-group, and $\gamma\in\widehat{G}$. Then the following are equivalent:
-\begin{enumerate}
-    \item $G$ is amenable;
-    \label{OneDimL1ModMetTopInjFlatCharac:i}
-    \item $\mathbb{C}_\gamma$ is a metrically injective $L_1(G)$-module;
-    \label{OneDimL1ModMetTopInjFlatCharac:ii}
-    \item $\mathbb{C}_\gamma$ is a topologically injective $L_1(G)$-module;
-    \label{OneDimL1ModMetTopInjFlatCharac:iii}
-    \item $\mathbb{C}_\gamma$ is a metrically flat $L_1(G)$-module;
-    \label{OneDimL1ModMetTopInjFlatCharac:iv}
-    \item $\mathbb{C}_\gamma$ is a topologically flat $L_1(G)$-module.
-    \label{OneDimL1ModMetTopInjFlatCharac:v}
+\begin{proposition}\label{OneDimL1ModMetTopInjFlatCharac} Let $G$ be a locally
+compact group, and $\gamma\in\widehat{G}$. Then the following are equivalent:
+\begin{enumerate}[label = (\roman*)]
+    \item $G$ is amenable;\label{OneDimL1ModMetTopInjFlatCharac:i}
+    \item $\mathbb{C}_\gamma$ is a metrically injective 
+    $L_1(G)$-module;\label{OneDimL1ModMetTopInjFlatCharac:ii}
+ 
+    \item $\mathbb{C}_\gamma$ is a topologically injective 
+    $L_1(G)$-module;\label{OneDimL1ModMetTopInjFlatCharac:iii}
+ 
+    \item $\mathbb{C}_\gamma$ is a metrically flat 
+    $L_1(G)$-module;\label{OneDimL1ModMetTopInjFlatCharac:iv}
+ 
+    \item $\mathbb{C}_\gamma$ is a topologically flat 
+    $L_1(G)$-module.\label{OneDimL1ModMetTopInjFlatCharac:v}
 \end{enumerate}
 \end{proposition}
 \begin{proof} 
-\ref{OneDimL1ModMetTopInjFlatCharac:i}) $\Longrightarrow$ \ref{OneDimL1ModMetTopInjFlatCharac:ii}), \ref{OneDimL1ModMetTopInjFlatCharac:iii}) $\Longrightarrow$ \ref{OneDimL1ModMetTopInjFlatCharac:i})
-The proof is similar to \cite[theorem 4.5]{GravInjProjBanMod}.
+~\ref{OneDimL1ModMetTopInjFlatCharac:i}
+$\Longrightarrow$~\ref{OneDimL1ModMetTopInjFlatCharac:ii},
+~\ref{OneDimL1ModMetTopInjFlatCharac:iii}
+$\Longrightarrow$~\ref{OneDimL1ModMetTopInjFlatCharac:i} 
+The proof is similar to~\cite[theorem 4.5]{GravInjProjBanMod}.
 
-\ref{OneDimL1ModMetTopInjFlatCharac:ii}) $\Longrightarrow$ \ref{OneDimL1ModMetTopInjFlatCharac:iii}) 
-This implication immediately follows from 
-\cite[proposition 2.14]{NemGeomProjInjFlatBanMod}.
+~\ref{OneDimL1ModMetTopInjFlatCharac:ii}
+$\Longrightarrow$~\ref{OneDimL1ModMetTopInjFlatCharac:iii} This implication
+immediately follows from~\cite[proposition 2.14]{NemGeomProjInjFlatBanMod}.
 
-\ref{OneDimL1ModMetTopInjFlatCharac:ii}) $\Longrightarrow$ \ref{OneDimL1ModMetTopInjFlatCharac:iv}),
-\ref{OneDimL1ModMetTopInjFlatCharac:iii}) $\Longrightarrow$ \ref{OneDimL1ModMetTopInjFlatCharac:v}) 
-Note that 
-$\mathbb{C}_\gamma^*\isom \mathbb{C}_\gamma$ in $\mathbf{mod}_1-L_1(G)$, so all equivalences 
-follow from three previous paragraphs and the fact that flat modules are precisely the 
-modules with injective dual \cite[proposition 2.21]{NemGeomProjInjFlatBanMod}.
+~\ref{OneDimL1ModMetTopInjFlatCharac:ii}
+$\Longrightarrow$~\ref{OneDimL1ModMetTopInjFlatCharac:iv},
+~\ref{OneDimL1ModMetTopInjFlatCharac:iii}
+$\Longrightarrow$~\ref{OneDimL1ModMetTopInjFlatCharac:v} Note that
+$\mathbb{C}_\gamma^*\isom \mathbb{C}_\gamma$ in $\mathbf{mod}_1-L_1(G)$, so all
+equivalences follow from three previous paragraphs and the fact that flat
+modules are precisely the modules with injective dual~\cite[proposition
+2.21]{NemGeomProjInjFlatBanMod}.
 \end{proof}
 
-In the following proposition we shall study specific ideals of the Banach algebra $L_1(G)$, 
-namely the ideals of the form $L_1(G)\convol\mu$ for some idempotent measure $\mu$. In fact, 
-this class of ideals for the case of commutative compact groups coincides with those left 
-ideals of $L_1(G)$ that admit a right bounded approximate identity.
+In the following proposition we shall study specific ideals of the Banach
+algebra $L_1(G)$, namely the ideals of the form $L_1(G)\convol\mu$ for some
+idempotent measure $\mu$. In fact, this class of ideals for the case of
+commutative compact groups coincides with those left ideals of $L_1(G)$ that
+admit a right bounded approximate identity.
 
-\begin{theorem}\label{CommIdealByIdemMeasL1MetTopProjCharac} Let $G$ be a locally 
-compact group and  $\mu\in M(G)$ be an idempotent measure, that is $\mu\convol\mu=\mu$. 
-Assume that the left ideal $I=L_1(G)\convol\mu$ of the Banach algebra $L_1(G)$ is a 
-topologically projective $L_1(G)$-module. Then $\mu=p m_G$, for some $p\in I$.
+\begin{theorem}\label{CommIdealByIdemMeasL1MetTopProjCharac} Let $G$ be a
+locally compact group and  $\mu\in M(G)$ be an idempotent measure, that is
+$\mu\convol\mu=\mu$. Assume that the left ideal $I=L_1(G)\convol\mu$ of the
+Banach algebra $L_1(G)$ is a topologically projective $L_1(G)$-module. Then
+$\mu=p m_G$, for some $p\in I$.
 \end{theorem}
-\begin{proof} Let $\phi:I\to L_1(G)$ be an arbitrary morphism of left $L_1(G)$-modules. 
-Consider $L_1(G)$-morphism $\phi':L_1(G)\to L_1(G):x\mapsto\phi(x\convol\mu)$. By Wendel's 
-theorem \cite[theorem 1]{WendLeftCentrzrs}, there exists a measure $\nu\in M(G)$ such 
-that $\phi'(x)=x\convol\nu$ for all $x\in L_1(G)$. In particular, 
-$\phi(x)=\phi(x\convol\mu)=\phi'(x)=x\convol\nu$ for all $x\in I$. It is clear now that 
-$\psi:I\to I:x\mapsto\nu\convol x$ is a morphism of right $I$-modules satisfying 
-$\phi(x)y=x\psi(y)$ for all $x,y\in I$. By paragraph \textup{(ii)} of 
-\cite[lemma 2]{NemMetTopProjIdBanAlg} the ideal $I$ has a right identity, say 
-$e\in I$. Then $x\convol\mu=x\convol\mu\convol e$ for all $x\in L_1(G)$. Two measures 
-are equal if their convolutions with all functions of $L_1(G)$ coincide 
-\cite[corollary 3.3.24]{DalBanAlgAutCont}, so $\mu=\mu\convol e m_G$. Since 
-$e\in I\subset L_1(G)$, then $\mu=\mu\convol e m_G\in M_a(G)$. Set $p=\mu\convol e\in I$, 
-then $\mu=p m_G$.
+\begin{proof} Let $\phi:I\to L_1(G)$ be an arbitrary morphism of left
+$L_1(G)$-modules. Consider $L_1(G)$-morphism $\phi':L_1(G)\to
+L_1(G):x\mapsto\phi(x\convol\mu)$. By Wendel's theorem~\cite[theorem
+1]{WendLeftCentrzrs}, there exists a measure $\nu\in M(G)$ such that
+$\phi'(x)=x\convol\nu$ for all $x\in L_1(G)$. In particular,
+$\phi(x)=\phi(x\convol\mu)=\phi'(x)=x\convol\nu$ for all $x\in I$. It is clear
+now that $\psi:I\to I:x\mapsto\nu\convol x$ is a morphism of right $I$-modules
+satisfying $\phi(x)y=x\psi(y)$ for all $x,y\in I$. By paragraph \textup{(ii)} of
+~\cite[lemma 2]{NemMetTopProjIdBanAlg} the ideal $I$ has a right identity, say
+$e\in I$. Then $x\convol\mu=x\convol\mu\convol e$ for all $x\in L_1(G)$. Two
+measures are equal if their convolutions with all functions of $L_1(G)$ coincide
+~\cite[corollary 3.3.24]{DalBanAlgAutCont}, so $\mu=\mu\convol e m_G$. Since
+$e\in I\subset L_1(G)$, then $\mu=\mu\convol e m_G\in M_a(G)$. Set $p=\mu\convol
+e\in I$, then $\mu=p m_G$.
 \end{proof}
 
-We conjecture that a left ideal of the form $L_1(G)\convol \mu$ for an idempotent measure 
-$\mu$ is a metrically projective $L_1(G)$-module if and only if $\mu=p m_G$ for $p\in I$ 
-with $\Vert p\Vert=1$. In \cite{GravInjProjBanMod}, theorem 4.14] Graven gave a criterion of metric projectivity of $L_1(G)$-module $L_1(G)$. Now we can prove this fact as a mere corollary.
+We conjecture that a left ideal of the form $L_1(G)\convol \mu$ for an
+idempotent measure $\mu$ is a metrically projective $L_1(G)$-module if and only
+if $\mu=p m_G$ for $p\in I$ with $\Vert p\Vert=1$. 
+In~\cite[theorem 4.14]{GravInjProjBanMod}, Graven gave a criterion of 
+metric projectivity of $L_1(G)$-module $L_1(G)$. Now we can prove this 
+fact as a mere corollary.
 
-\begin{corollary}\label{L1ModL1MetTopProjCharac} Let $G$ be a locally compact group. Then 
-the following are equivalent:
-\begin{enumerate}
-    \item $G$ is discrete;
-    \label{L1ModL1MetTopProjCharac:i}
-    \item $L_1(G)$ is a metrically projective $L_1(G)$-module;
-    \label{L1ModL1MetTopProjCharac:ii}
-    \item $L_1(G)$ is a topologically projective $L_1(G)$-module.
-    \label{L1ModL1MetTopProjCharac:iii}
+\begin{corollary}\label{L1ModL1MetTopProjCharac} Let $G$ be a locally compact
+group. Then the following are equivalent:
+\begin{enumerate}[label = (\roman*)]
+    \item $G$ is discrete;\label{L1ModL1MetTopProjCharac:i}
+    
+    \item $L_1(G)$ is a metrically projective 
+    $L_1(G)$-module;\label{L1ModL1MetTopProjCharac:ii}
+ 
+    \item $L_1(G)$ is a topologically projective 
+    $L_1(G)$-module.\label{L1ModL1MetTopProjCharac:iii}
 \end{enumerate}
 \end{corollary}
 \begin{proof} 
-\ref{L1ModL1MetTopProjCharac:i}) $\Longrightarrow$ \ref{L1ModL1MetTopProjCharac:ii}) 
-If $G$ is discrete, then $L_1(G)$ is unital 
-with unit of norm $1$. From \cite[proposition 7]{NemMetTopProjIdBanAlg} we conclude that 
-$L_1(G)$ is metrically projective as $L_1(G)$-module.
+~\ref{L1ModL1MetTopProjCharac:i}
+$\Longrightarrow$~\ref{L1ModL1MetTopProjCharac:ii} If $G$ is discrete, then
+$L_1(G)$ is unital with unit of norm $1$. From~\cite[proposition
+7]{NemMetTopProjIdBanAlg} we conclude that $L_1(G)$ is metrically projective as
+$L_1(G)$-module.
 
-\ref{L1ModL1MetTopProjCharac:ii}) $\Longrightarrow$ \ref{L1ModL1MetTopProjCharac:iii}) 
-This implication is a direct corollary of \cite[proposition 2.4]{NemGeomProjInjFlatBanMod}.
+~\ref{L1ModL1MetTopProjCharac:ii}
+$\Longrightarrow$~\ref{L1ModL1MetTopProjCharac:iii} This implication is a
+direct corollary of~\cite[proposition 2.4]{NemGeomProjInjFlatBanMod}.
 
-\ref{L1ModL1MetTopProjCharac:iii}) $\Longrightarrow$ \ref{L1ModL1MetTopProjCharac:i}) 
-Clearly, $\delta_{e_G}$ is an idempotent measure. Since 
-$L_1(G)=L_1(G)\convol \delta_{e_G}$ is topologically projective, then by proposition 
-\ref{CommIdealByIdemMeasL1MetTopProjCharac} we have $\delta_{e_G}=f m_G$ for some 
-$f\in L_1(G)$. This is possible only if $G$ is discrete.
+~\ref{L1ModL1MetTopProjCharac:iii}
+$\Longrightarrow$~\ref{L1ModL1MetTopProjCharac:i} Clearly, $\delta_{e_G}$ is an
+idempotent measure. Since $L_1(G)=L_1(G)\convol \delta_{e_G}$ is topologically
+projective, then by proposition~\ref{CommIdealByIdemMeasL1MetTopProjCharac} we
+have $\delta_{e_G}=f m_G$ for some $f\in L_1(G)$. This is possible only if $G$
+is discrete.
 \end{proof}
 
-Note that $L_1(G)$-module $L_1(G)$ is relatively projective for any locally compact 
-group $G$ \cite[exercise 7.1.17]{HelBanLocConvAlg}.
+Note that $L_1(G)$-module $L_1(G)$ is relatively projective for any locally
+compact group $G$~\cite[exercise 7.1.17]{HelBanLocConvAlg}.
 
-\begin{proposition}\label{L1MetTopProjAndMetrFlatOfMeasAlg} Let $G$ be a locally compact 
-group. Then the following are equivalent:
-\begin{enumerate}
-    \item $G$ is discrete;
-    \label{L1MetTopProjAndMetrFlatOfMeasAlg:i}
-    \item $M(G)$ is a metrically projective $L_1(G)$-module;
-    \label{L1MetTopProjAndMetrFlatOfMeasAlg:ii}
-    \item $M(G)$ is a topologically projective $L_1(G)$-module;
-    \label{L1MetTopProjAndMetrFlatOfMeasAlg:iii}
-    \item $M(G)$ is a metrically flat $L_1(G)$-module.
-    \label{L1MetTopProjAndMetrFlatOfMeasAlg:iv}
+\begin{proposition}\label{L1MetTopProjAndMetrFlatOfMeasAlg} Let $G$ be a locally
+compact group. Then the following are equivalent:
+\begin{enumerate}[label = (\roman*)]
+    \item $G$ is discrete;\label{L1MetTopProjAndMetrFlatOfMeasAlg:i}
+    \item $M(G)$ is a metrically projective 
+    $L_1(G)$-module;\label{L1MetTopProjAndMetrFlatOfMeasAlg:ii}
+ 
+    \item $M(G)$ is a topologically projective 
+    $L_1(G)$-module;\label{L1MetTopProjAndMetrFlatOfMeasAlg:iii}
+    
+    \item $M(G)$ is a metrically flat 
+    $L_1(G)$-module.\label{L1MetTopProjAndMetrFlatOfMeasAlg:iv}
 \end{enumerate}
 \end{proposition}
 \begin{proof} 
-\ref{L1MetTopProjAndMetrFlatOfMeasAlg:i}) $\Longrightarrow$ \ref{L1MetTopProjAndMetrFlatOfMeasAlg:ii})
-We have $M(G)\isom L_1(G)$ in $L_1(G)-\mathbf{mod}_1$ for 
-discrete $G$, so the result follows from theorem \ref{L1ModL1MetTopProjCharac}. 
+~\ref{L1MetTopProjAndMetrFlatOfMeasAlg:i}
+$\Longrightarrow$~\ref{L1MetTopProjAndMetrFlatOfMeasAlg:ii} We have $M(G)\isom
+L_1(G)$ in $L_1(G)-\mathbf{mod}_1$ for discrete $G$, so the result follows from
+theorem~\ref{L1ModL1MetTopProjCharac}. 
 
-\ref{L1MetTopProjAndMetrFlatOfMeasAlg:ii}) $\Longrightarrow$ \ref{L1MetTopProjAndMetrFlatOfMeasAlg:iii})
-See \cite[proposition 2.4]{NemGeomProjInjFlatBanMod}.
+~\ref{L1MetTopProjAndMetrFlatOfMeasAlg:ii}
+$\Longrightarrow$~\ref{L1MetTopProjAndMetrFlatOfMeasAlg:iii}
+See~\cite[proposition 2.4]{NemGeomProjInjFlatBanMod}.
 
-\ref{L1MetTopProjAndMetrFlatOfMeasAlg:ii}) $\Longrightarrow$ \ref{L1MetTopProjAndMetrFlatOfMeasAlg:iv})
-Implication follows from \cite[proposition 2.26]{NemGeomProjInjFlatBanMod}.
+~\ref{L1MetTopProjAndMetrFlatOfMeasAlg:ii}
+$\Longrightarrow$~\ref{L1MetTopProjAndMetrFlatOfMeasAlg:iv} Implication follows
+from~\cite[proposition 2.26]{NemGeomProjInjFlatBanMod}.
 
-\ref{L1MetTopProjAndMetrFlatOfMeasAlg:iii}) $\Longrightarrow$ \ref{L1MetTopProjAndMetrFlatOfMeasAlg:i})
-Recall that $M(G)\isom L_1(G)\bigoplus_1 M_s(G)$ in 
-$L_1(G)-\mathbf{mod}_1$, so $M_s(G)$ is topologically projective as a retract of a 
-topologically projective module \cite[proposition 2.2]{NemGeomProjInjFlatBanMod}. 
-Note that $M_s(G)$ is also an annihilator $L_1(G)$-module, therefore the algebra 
-$L_1(G)$ has a right identity \cite[proposition 3.3]{NemGeomProjInjFlatBanMod}. 
-Recall that $L_1(G)$ also has a two-sided bounded approximate identity, so $L_1(G)$ 
-is unital. The latter is equivalent to $G$ being discrete.
+~\ref{L1MetTopProjAndMetrFlatOfMeasAlg:iii}
+$\Longrightarrow$~\ref{L1MetTopProjAndMetrFlatOfMeasAlg:i} Recall that
+$M(G)\isom L_1(G)\bigoplus_1 M_s(G)$ in $L_1(G)-\mathbf{mod}_1$, so $M_s(G)$ is
+topologically projective as a retract of a topologically projective
+module~\cite[proposition 2.2]{NemGeomProjInjFlatBanMod}. Note that $M_s(G)$ is
+also an annihilator $L_1(G)$-module, therefore the algebra $L_1(G)$ has a right
+identity~\cite[proposition 3.3]{NemGeomProjInjFlatBanMod}. Recall that $L_1(G)$
+also has a two-sided bounded approximate identity, so $L_1(G)$ is unital. The
+latter is equivalent to $G$ being discrete.
 
-\ref{L1MetTopProjAndMetrFlatOfMeasAlg:iv}) $\Longrightarrow$ \ref{L1MetTopProjAndMetrFlatOfMeasAlg:i})
-Note that $M(G)\isom L_1(G)\bigoplus_1 M_s(G)$ in 
-$L_1(G)-\mathbf{mod}_1$, so $M_s(G)$ is metrically flat as a retract of a metrically 
-flat module \cite[proposition 2.27]{NemGeomProjInjFlatBanMod}. Recall also that 
-$M_s(G)$ is an annihilator module over a non-zero algebra $L_1(G)$, therefore $M_s(G)$ 
-must be a zero module \cite[proposition 3.6]{NemGeomProjInjFlatBanMod}. The latter 
-is equivalent to $G$ being discrete.
+~\ref{L1MetTopProjAndMetrFlatOfMeasAlg:iv}
+$\Longrightarrow$~\ref{L1MetTopProjAndMetrFlatOfMeasAlg:i} Note that $M(G)\isom
+L_1(G)\bigoplus_1 M_s(G)$ in $L_1(G)-\mathbf{mod}_1$, so $M_s(G)$ is metrically
+flat as a retract of a metrically flat module~\cite[proposition
+2.27]{NemGeomProjInjFlatBanMod}. Recall also that $M_s(G)$ is an annihilator
+module over a non-zero algebra $L_1(G)$, therefore $M_s(G)$ must be a zero
+module~\cite[proposition 3.6]{NemGeomProjInjFlatBanMod}. The latter is
+equivalent to $G$ being discrete.
 \end{proof}
 
-\begin{proposition}\label{MeasAlgIsL1TopFlat} Let $G$ be a locally compact group. 
-Then $M(G)$ is a topologi-\\cally flat $L_1(G)$-module.
+\begin{proposition}\label{MeasAlgIsL1TopFlat} Let $G$ be a locally compact
+group. Then $M(G)$ is a topologi-\\cally flat $L_1(G)$-module.
 \end{proposition}
-\begin{proof} Since $M(G)$ is an $L_1$-space it is a fortiori an $\mathcal{L}_1^g$-space 
-\cite[paragraph 3.13, exercise 4.7(b)]{DefFloTensNorOpId}. Since $M_s(G)$ is complemented 
-in $M(G)$, then $M_s(G)$ is an $\mathcal{L}_1^g$-space too 
-\cite[corollary 23.2.1(2)]{DefFloTensNorOpId}. Moreover, since $M_s(G)$ is an annihilator 
-$L_1(G)$-module, hence it is a topologically flat $L_1(G)$-module 
-\cite[proposition 3.6]{NemGeomProjInjFlatBanMod}. The $L_1(G)$-module $L_1(G)$ is also 
-topologically flat by proposition \ref{LInfIsL1MetrInj}. 
-Note that $M(G)\isom L_1(G)\bigoplus_1 M_s(G)$ in $L_1(G)-\mathbf{mod}_1$, so the $L_1(G)$-module 
-$M(G)$ is topologi-\\cally flat as a sum of topologically flat modules 
-\cite[proposition 2.27]{NemGeomProjInjFlatBanMod}.
+\begin{proof} Since $M(G)$ is an $L_1$-space it is a fortiori an
+$\mathcal{L}_1^g$-space~\cite[paragraph 3.13, exercise
+4.7(b)]{DefFloTensNorOpId}. Since $M_s(G)$ is complemented in $M(G)$, then
+$M_s(G)$ is an $\mathcal{L}_1^g$-space too~\cite[corollary
+23.2.1(2)]{DefFloTensNorOpId}. Moreover, since $M_s(G)$ is an annihilator
+$L_1(G)$-module, hence it is a topologically flat $L_1(G)$-module
+~\cite[proposition 3.6]{NemGeomProjInjFlatBanMod}. The $L_1(G)$-module $L_1(G)$
+is also topologically flat by proposition~\ref{LInfIsL1MetrInj}. Note that
+$M(G)\isom L_1(G)\bigoplus_1 M_s(G)$ in $L_1(G)-\mathbf{mod}_1$, so the
+$L_1(G)$-module $M(G)$ is topologi-\\cally flat as a sum of topologically flat
+modules~\cite[proposition 2.27]{NemGeomProjInjFlatBanMod}.
 \end{proof}
 
-%----------------------------------------------------------------------------------------
-%	M(G)-modules
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+%    M(G)-modules
+%-------------------------------------------------------------------------------
 
-\section{\texorpdfstring{$M(G)$}{M(G)}-modules}
-\label{SubSectionMGModules}
+\section{\texorpdfstring{$M(G)$}{M (G)}-modules}\label{SubSectionMGModules}
 
-We turn to study the standard $M(G)$-modules of harmonic analysis. As we shall see, most of 
-the results can be derived from previous theorems and proposition on $L_1(G)$-modules.
+We turn to study the standard $M(G)$-modules of harmonic analysis. As we shall
+see, most of the results can be derived from previous theorems and proposition
+on $L_1(G)$-modules.
 
-\begin{proposition}\label{MGMetTopProjInjFlatRedToL1} Let $G$ be a locally compact group, 
-and $X$ be $\langle$~an essential / a faithful / an essential~$\rangle$ $L_1(G)$-module. 
-Then,
-\begin{enumerate}
-    \item $X$ is a metrically $\langle$~projective / injective / flat~$\rangle$ $M(G)$-module 
-    if and only if it is a metrically $\langle$~projective / injective / flat~$\rangle$ 
-    $L_1(G)$-module;
-    \label{MGMetTopProjInjFlatRedToL1:i}
-    \item $X$ is a topologically $\langle$~projective / injective / flat~$\rangle$ 
-    $M(G)$-module if and only if it is a topologically $\langle$~projective / injective / 
-    flat~$\rangle$ $L_1(G)$-module.
-    \label{MGMetTopProjInjFlatRedToL1:ii}
+\begin{proposition}\label{MGMetTopProjInjFlatRedToL1} Let $G$ be a locally
+compact group, and $X$ be $\langle$~an essential / a faithful / an
+essential~$\rangle$ $L_1(G)$-module. Then,
+\begin{enumerate}[label = (\roman*)]
+    \item $X$ is a metrically $\langle$~projective / injective / flat~$\rangle$
+    $M(G)$-module if and only if it is a metrically $\langle$~projective /
+    injective / flat~$\rangle$ 
+    $L_1(G)$-module;\label{MGMetTopProjInjFlatRedToL1:i}
+ 
+    \item $X$ is a topologically $\langle$~projective / injective /
+    flat~$\rangle$ $M(G)$-module if and only if it is a topologically
+    $\langle$~projective / injective / flat~$\rangle$ 
+    $L_1(G)$-module.\label{MGMetTopProjInjFlatRedToL1:ii}
 \end{enumerate}
 \end{proposition}
-\begin{proof} Recall that $L_1(G)$ is a two-sided contractively complemented ideal of 
-$M(G)$. Now \ref{MGMetTopProjInjFlatRedToL1:i}) and \ref{MGMetTopProjInjFlatRedToL1:ii}) follow from 
-$\langle$~\cite[proposition 2.6]{NemGeomProjInjFlatBanMod} / 
-\cite[proposition 2.16]{NemGeomProjInjFlatBanMod} / 
-\cite[proposition 2.24]{NemGeomProjInjFlatBanMod}~$\rangle$.
+\begin{proof} Recall that $L_1(G)$ is a two-sided contractively complemented
+ideal of $M(G)$. Now~\ref{MGMetTopProjInjFlatRedToL1:i}
+and~\ref{MGMetTopProjInjFlatRedToL1:ii} follow from $\langle$~\cite[proposition
+2.6]{NemGeomProjInjFlatBanMod} /~\cite[proposition
+2.16]{NemGeomProjInjFlatBanMod} /~\cite[proposition
+2.24]{NemGeomProjInjFlatBanMod}~$\rangle$.
 \end{proof} 
 
-It is worth mentioning here that $L_1(G)$-modules $C_0(G)$, $L_p(G)$ for $1\leq p<\infty$ 
-and $\mathbb{C}_\gamma$ for $\gamma\in\widehat{G}$ are essential and $L_1(G)$-modules 
-$C_0(G)$, $M(G)$, $L_p(G)$ for $1\leq p\leq \infty$ and $\mathbb{C}_\gamma$ for 
-$\gamma\in\widehat{G}$ are faithful. 
+It is worth mentioning here that $L_1(G)$-modules $C_0(G)$, $L_p(G)$ for $1\leq
+p<\infty$ and $\mathbb{C}_\gamma$ for $\gamma\in\widehat{G}$ are essential and
+$L_1(G)$-modules $C_0(G)$, $M(G)$, $L_p(G)$ for $1\leq p\leq \infty$ and
+$\mathbb{C}_\gamma$ for $\gamma\in\widehat{G}$ are faithful. 
 
-\begin{proposition}\label{MGModMGMetTopProjFlatCharac} Let $G$ be a locally compact group. 
-Then $M(G)$ is metrically and topologically projective $M(G)$-module. As the consequence it 
-is metrically and topologically flat $M(G)$-module.
+\begin{proposition}\label{MGModMGMetTopProjFlatCharac} Let $G$ be a locally
+compact group. Then $M(G)$ is metrically and topologically projective
+$M(G)$-module. As the consequence it is metrically and topologically flat
+$M(G)$-module.
 \end{proposition} 
-\begin{proof} Since $M(G)$ is a unital algebra, then $\langle$~metric / topological~$\rangle$ 
-projectivity of $M(G)$ follows from \cite[proposition 7]{NemMetTopProjIdBanAlg}, since one 
-may regard $M(G)$ as a unital ideal of $M(G)$. It 
-remains to recall that any $\langle$~metrically / topologically~$\rangle$ projective 
-module is $\langle$~metrically / topologically~$\rangle$ flat 
-\cite[proposition 2.26]{NemGeomProjInjFlatBanMod}.
+\begin{proof} Since $M(G)$ is a unital algebra, then $\langle$~metric /
+topological~$\rangle$ projectivity of $M(G)$ follows from~\cite[proposition
+7]{NemMetTopProjIdBanAlg}, since one may regard $M(G)$ as a unital ideal of
+$M(G)$. It remains to recall that any $\langle$~metrically /
+topologically~$\rangle$ projective module is $\langle$~metrically /
+topologically~$\rangle$ flat~\cite[proposition 2.26]{NemGeomProjInjFlatBanMod}.
 \end{proof}
 
-%----------------------------------------------------------------------------------------
-%	Banach geometric restrictions
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+%    Banach geometric restrictions
+%-------------------------------------------------------------------------------
 
-\section{Banach geometric restrictions}
-\label{SubSectionBanachGeometricRestriction}
+\section{Banach geometric restrictions}\label{
+    SubSectionBanachGeometricRestriction
+}
 
-In this section we shall show that many modules of harmonic analysis fail to be metrically or 
-topologically projective, injective or flat for purely Banach geometric reasons. In metric theory for infinite dimensional $L_1(G)$-modules $L_p(G)$, $M(G)$ and $C_0(G)$ it was done in \cite[theorems 4.12--4.14]{GravInjProjBanMod}.
+In this section we shall show that many modules of harmonic analysis fail to be
+metrically or topologically projective, injective or flat for purely Banach
+geometric reasons. In metric theory for infinite dimensional $L_1(G)$-modules
+$L_p(G)$, $M(G)$ and $C_0(G)$ it was done in~\cite[theorems
+4.12--4.14]{GravInjProjBanMod}.
 
-\begin{proposition}\label{StdModAreNotRetrOfL1LInf} Let $G$ be an infinite locally compact 
-group. Then
-\begin{enumerate}
-    \item $L_1(G)$, $C_0(G)$, $M(G)$, $L_\infty(G)^*$ are not topologically injective Banach spaces;
-    \label{StdModAreNotRetrOfL1LInf:i}
-    \item $C_0(G)$, $L_\infty(G)$ are not complemented in any $L_1$-space.
-    \label{StdModAreNotRetrOfL1LInf:ii}
+\begin{proposition}\label{StdModAreNotRetrOfL1LInf} Let $G$ be an infinite
+locally compact group. Then
+\begin{enumerate}[label = (\roman*)]
+    \item $L_1(G)$, $C_0(G)$, $M(G)$, ${L_\infty(G)}^*$ are not topologically
+    injective Banach spaces;\label{StdModAreNotRetrOfL1LInf:i}
+    
+    \item $C_0(G)$, $L_\infty(G)$ are not complemented in any 
+    $L_1$-space.\label{StdModAreNotRetrOfL1LInf:ii}
 \end{enumerate}
 \end{proposition}
 \begin{proof}
 Since $G$ is infinite all modules in question are infinite dimensional.
 
-\ref{StdModAreNotRetrOfL1LInf:i}) If an infinite dimensional Banach space is topologically injective, then it contains a 
-copy of $\ell_\infty(\mathbb{N})$ \cite[corollary 1.1.4]{RosOnRelDisjFamOfMeas}, and 
-consequently a copy of $c_0(\mathbb{N})$. The Banach space $L_1(G)$ is weakly sequentially 
-complete \cite[corollary III.C.14]{WojBanSpForAnalysts}, so by \cite[corollary 5.2.11]{KalAlbTopicsBanSpTh} it can't contain a copy of $c_0(\mathbb{N})$. Therefore, $L_1(G)$ is not a 
-topologically injective Banach space. Assume, that $M(G)$ is topologically injective, then so 
-is its complemented subspace $M_a(G)$, which is isometrically isomorphic to $L_1(G)$. By 
-previous argument this is impossible, contradiction. By corollary 3 of 
-\cite{LauMingComplSubspInLInfOfG} the Banach space $C_0(G)$ is not complemented in $L_\infty(G)$, 
-hence it can't be topologically injective. Note that $L_1(G)$ is complemented in $L_\infty(G)^*$ 
-which is isometrically isomorphic to $L_1(G)^{**}$ \cite[proposition  B10]{DefFloTensNorOpId}. 
-Therefore, if $L_\infty(G)^*$ is topologically injective as a Banach space, then so is its 
+~\ref{StdModAreNotRetrOfL1LInf:i} If an infinite dimensional Banach space is
+topologically injective, then it contains a copy of
+$\ell_\infty(\mathbb{N})$~\cite[corollary 1.1.4]{RosOnRelDisjFamOfMeas}, and
+consequently a copy of $c_0(\mathbb{N})$. The Banach space $L_1(G)$ is weakly
+sequentially complete~\cite[corollary III.C.14]{WojBanSpForAnalysts}, so
+by~\cite[corollary 5.2.11]{KalAlbTopicsBanSpTh} it can't contain a copy of
+$c_0(\mathbb{N})$. Therefore, $L_1(G)$ is not a topologically injective Banach
+space. Assume, that $M(G)$ is topologically injective, then so is its
+complemented subspace $M_a(G)$, which is isometrically isomorphic to $L_1(G)$.
+By previous argument this is impossible, contradiction. By corollary 3 of
+~\cite{LauMingComplSubspInLInfOfG} the Banach space $C_0(G)$ is not complemented
+in $L_\infty(G)$, hence it can't be topologically injective. Note that $L_1(G)$
+is complemented in ${L_\infty(G)}^*$ which is isometrically isomorphic to
+${L_1(G)}^{**}$~\cite[proposition  B10]{DefFloTensNorOpId}. Therefore, if
+${L_\infty(G)}^*$ is topologically injective as a Banach space, then so is its
 retract $L_1(G)$. By previous argument this is impossible, contradiction.
 
-\ref{StdModAreNotRetrOfL1LInf:ii}) Suppose $C_0(G)$ is a retract of $L_1$-space, then $M(G)$, which is isometrically 
-isomorphic to $C_0(G)^*$, is a retract of $L_\infty$-space. Therefore $M(G)$ must be a 
-topologi-\\cally injective Banach space. This contradicts paragraph \ref{StdModAreNotRetrOfL1LInf:i}). Note that 
-$\ell_\infty(\mathbb{N})$ embeds in $L_\infty(G)$, hence so does $c_0(\mathbb{N})$. If 
-$L_\infty(G)$ is a retract of $L_1$-space, then there exists an $L_1$-space containing a 
-copy of $c_0(\mathbb{N})$. This is impossible as already showed in paragraph \ref{StdModAreNotRetrOfL1LInf:i}).
+~\ref{StdModAreNotRetrOfL1LInf:ii} Suppose $C_0(G)$ is a retract of
+$L_1$-space, then $M(G)$, which is isometrically isomorphic to ${C_0(G)}^*$, is a
+retract of $L_\infty$-space. Therefore $M(G)$ must be a topologi-\\cally
+injective Banach space. This contradicts
+paragraph~\ref{StdModAreNotRetrOfL1LInf:i}. Note that $\ell_\infty(\mathbb{N})$
+embeds in $L_\infty(G)$, hence so does $c_0(\mathbb{N})$. If $L_\infty(G)$ is a
+retract of $L_1$-space, then there exists an $L_1$-space containing a copy of
+$c_0(\mathbb{N})$. This is impossible as already showed in
+paragraph~\ref{StdModAreNotRetrOfL1LInf:i}.
 \end{proof}
 
-From now on by $A$ we denote either $L_1(G)$ or $M(G)$. Recall that $L_1(G)$ and $M(G)$ 
-are both $L_1$-spaces.
+From now on by $A$ we denote either $L_1(G)$ or $M(G)$. Recall that $L_1(G)$ and
+$M(G)$ are both $L_1$-spaces.
 
-\begin{proposition}\label{StdModAreNotL1MGMetTopProjInjFlat} Let $G$ be an infinite 
-locally compact group. Then
-\begin{enumerate}
-    \item $C_0(G)$, $L_\infty(G)$ are neither topologically nor metrically projective $A$-modules;
-    \label{StdModAreNotL1MGMetTopProjInjFlat:i}
-    \item $L_1(G)$, $C_0(G)$, $M(G)$, $L_\infty(G)^*$ are neither topologically nor metrically 
-    injec-\\tive $A$-modules;
-    \label{StdModAreNotL1MGMetTopProjInjFlat:ii}
-    \item $L_\infty(G)$, $C_0(G)$ are neither topologically nor metrically flat $A$-modules.
-    \label{StdModAreNotL1MGMetTopProjInjFlat:iii}
-    \item $L_p(G)$ for $1<p<\infty$ are neither topologically nor metrically projective, 
-    \label{StdModAreNotL1MGMetTopProjInjFlat:iv}
+\begin{proposition}\label{StdModAreNotL1MGMetTopProjInjFlat} Let $G$ be an
+infinite locally compact group. Then
+\begin{enumerate}[label = (\roman*)]
+    \item $C_0(G)$, $L_\infty(G)$ are neither topologically nor metrically
+    projective $A$-modules;\label{StdModAreNotL1MGMetTopProjInjFlat:i}
+    
+    \item $L_1(G)$, $C_0(G)$, $M(G)$, ${L_\infty(G)}^*$ are neither topologically
+    nor metrically injec-\\tive 
+    $A$-modules;\label{StdModAreNotL1MGMetTopProjInjFlat:ii}
+    
+    \item $L_\infty(G)$, $C_0(G)$ are neither topologically nor metrically flat
+    $A$-modules;\label{StdModAreNotL1MGMetTopProjInjFlat:iii}
+    
+    \item $L_p(G)$ for $1<p<\infty$ are neither topologically nor metrically
+    projective.\label{StdModAreNotL1MGMetTopProjInjFlat:iv}
 \end{enumerate}
 injective or flat $A$-modules.
 \end{proposition}
-\begin{proof} \ref{StdModAreNotL1MGMetTopProjInjFlat:i}))
-Every metrically or topologically projective $A$-module is complemen-\\ted 
-in some $L_1$-space \cite[proposition 3.8]{NemGeomProjInjFlatBanMod}. Now the result follows 
-from proposition \ref{StdModAreNotRetrOfL1LInf} paragraph \ref{StdModAreNotRetrOfL1LInf:ii}.
+\begin{proof}~\ref{StdModAreNotL1MGMetTopProjInjFlat:i} Every metrically or
+topologically projective $A$-module is complemen-\\ted in some
+$L_1$-space~\cite[proposition 3.8]{NemGeomProjInjFlatBanMod}. Now the result
+follows from proposition~\ref{StdModAreNotRetrOfL1LInf}
+paragraph~\ref{StdModAreNotRetrOfL1LInf:ii}.
 
-\ref{StdModAreNotL1MGMetTopProjInjFlat:ii}) 
-Every metrically or topologically injective $A$-module is topologically injective as a 
-Banach space \cite[proposition 3.8]{NemGeomProjInjFlatBanMod}. It remains to apply 
-proposition \ref{StdModAreNotRetrOfL1LInf} paragraph \ref{StdModAreNotRetrOfL1LInf:i}.
+~\ref{StdModAreNotL1MGMetTopProjInjFlat:ii} Every metrically or topologically
+injective $A$-module is topologically injective as a Banach
+space~\cite[proposition 3.8]{NemGeomProjInjFlatBanMod}. It remains to apply
+proposition~\ref{StdModAreNotRetrOfL1LInf}
+paragraph~\ref{StdModAreNotRetrOfL1LInf:i}.
 
-\ref{StdModAreNotL1MGMetTopProjInjFlat:iii}) 
-Note that $C_0(G)^*\isom M(G)$ in $\mathbf{mod}_1-A$. Now the result follows from 
-paragraph \ref{StdModAreNotRetrOfL1LInf:i}) 
-and the fact that the adjoint module of a flat module is injective 
-\cite[proposition 2.21]{NemGeomProjInjFlatBanMod}.
+~\ref{StdModAreNotL1MGMetTopProjInjFlat:iii} Note that ${C_0(G)}^*\isom M(G)$ in
+$\mathbf{mod}_1-A$. Now the result follows from
+paragraph~\ref{StdModAreNotRetrOfL1LInf:i} and the fact that the adjoint module
+of a flat module is injective~\cite[proposition
+2.21]{NemGeomProjInjFlatBanMod}.
 
-\ref{StdModAreNotL1MGMetTopProjInjFlat:iv}) 
-Since $L_p(G)$ is reflexive for $1<p<\infty$ the result follows from 
-\cite[corollary 3.14]{NemGeomProjInjFlatBanMod}.
+~\ref{StdModAreNotL1MGMetTopProjInjFlat:iv} Since $L_p(G)$ is reflexive for
+$1<p<\infty$ the result follows from~\cite[corollary
+3.14]{NemGeomProjInjFlatBanMod}.
 \end{proof}
 
-Now we consider metric and topological homological properties of $A$-modules when 
-$G$ is finite.
+Now we consider metric and topological homological properties of $A$-modules
+when $G$ is finite.
 
-\begin{proposition}\label{LpFinGrL1MGMetrInjProjCharac} Let $G$ be a non-trivial finite 
-group and $1\leq p\leq \infty$. Then the $A$-module $L_p(G)$ is metrically $\langle$~projective / 
-injective~$\rangle$ if and only if $\langle$~$p=1$ / $p=\infty$~$\rangle$.
+\begin{proposition}\label{LpFinGrL1MGMetrInjProjCharac} Let $G$ be a non-trivial
+finite group and $1\leq p\leq \infty$. Then the $A$-module $L_p(G)$ is
+metrically $\langle$~projective / injective~$\rangle$ if and only if
+$\langle$~$p=1$ / $p=\infty$~$\rangle$.
 \end{proposition}
 \begin{proof} 
-Assume, $L_p(G)$ is metrically $\langle$~projective / injective~$\rangle$ as an $A$-module. 
-As $L_p(G)$ is finite-dimensional, there exist isometric isomorphisms 
-$\langle$~$L_p(G)\isom \ell_1(\mathbb{N}_n)$ / $L_p(G)\isom \ell_\infty(\mathbb{N}_n)$ ~$\rangle$ 
-\cite[proposition 3.8, paragraphs \textup{(i)}, \textup{(ii)}]{NemGeomProjInjFlatBanMod}, 
-where $n=\operatorname{Card}(G)>1$. 
-Now we use the result of theorem 1 from \cite{LyubIsomEmdbFinDimLp} for Banach spaces over field 
-$\mathbb{C}$: if for $2\leq m\leq k$ and $1\leq r,s\leq \infty$, there exists an isometric 
-embedding from $\ell_r(\mathbb{N}_m)$ into $\ell_s(\mathbb{N}_k)$, then either $r=2$, 
-$s\in 2\mathbb{N}$ or $r=s$. Therefore $\langle$~$p=1$ / $p=\infty$~$\rangle$. The converse easily 
-follows from $\langle$~theorem \ref{L1ModL1MetTopProjCharac} / proposition 
-\ref{LInfIsL1MetrInj}~$\rangle$.
+Assume, $L_p(G)$ is metrically $\langle$~projective / injective~$\rangle$ as an
+$A$-module. As $L_p(G)$ is finite-dimensional, there exist isometric
+isomorphisms $\langle$~$L_p(G)\isom \ell_1(\mathbb{N}_n)$ / $L_p(G)\isom
+\ell_\infty(\mathbb{N}_n)$~$\rangle$~\cite[proposition 3.8, paragraphs
+\textup{(i)}, \textup{(ii)}]{NemGeomProjInjFlatBanMod}, where
+$n=\operatorname{Card}(G)>1$. Now we use the result of theorem 1
+from~\cite{LyubIsomEmdbFinDimLp} for Banach spaces over field $\mathbb{C}$: if
+for $2\leq m\leq k$ and $1\leq r,s\leq \infty$, there exists an isometric
+embedding from $\ell_r(\mathbb{N}_m)$ into $\ell_s(\mathbb{N}_k)$, then either
+$r=2$, $s\in 2\mathbb{N}$ or $r=s$. Therefore $\langle$~$p=1$ /
+$p=\infty$~$\rangle$. The converse easily follows from
+$\langle$~theorem~\ref{L1ModL1MetTopProjCharac} / proposition
+~\ref{LInfIsL1MetrInj}~$\rangle$.
 \end{proof}
 
-\begin{proposition}\label{StdModFinGrL1MGMetrInjProjFlatCharac} Let $G$ be a finite group. Then
-\begin{enumerate}
-    \item $C_0(G)$, $L_\infty(G)$ are metrically injective $A$-modules;
-    \label{StdModFinGrL1MGMetrInjProjFlatCharac:i}
-    \item $C_0(G)$ and $L_p(G)$ for $1<p\leq\infty$ are metrically projective $A$-modules if and 
-    only if $G$ is trivial;
-    \label{StdModFinGrL1MGMetrInjProjFlatCharac:ii}
-    \item $M(G)$ and $L_p(G)$ for $1\leq p<\infty$ are metrically injective  $A$-modules if and 
-    only if $G$ is trivial;
-    \label{StdModFinGrL1MGMetrInjProjFlatCharac:iii}
-    \item $C_0(G)$ and $L_p(G)$ for $1<p\leq\infty$ are metrically flat $A$-modules if and 
-    only if $G$ is trivial.
-    \label{StdModFinGrL1MGMetrInjProjFlatCharac:iv}
+\begin{proposition}\label{StdModFinGrL1MGMetrInjProjFlatCharac} Let $G$ be a
+finite group. Then
+\begin{enumerate}[label = (\roman*)]
+    \item $C_0(G)$, $L_\infty(G)$ are metrically injective 
+    $A$-modules;\label{StdModFinGrL1MGMetrInjProjFlatCharac:i}
+ 
+    \item $C_0(G)$ and $L_p(G)$ for $1<p\leq\infty$ are metrically projective
+    $A$-modules if and only 
+    if $G$ is trivial;\label{StdModFinGrL1MGMetrInjProjFlatCharac:ii}
+ 
+    \item $M(G)$ and $L_p(G)$ for $1\leq p<\infty$ are metrically injective
+    $A$-modules if and only 
+    if $G$ is trivial;\label{StdModFinGrL1MGMetrInjProjFlatCharac:iii}
+ 
+    \item $C_0(G)$ and $L_p(G)$ for $1<p\leq\infty$ are metrically flat
+    $A$-modules if and only 
+    if $G$ is trivial.\label{StdModFinGrL1MGMetrInjProjFlatCharac:iv}
 \end{enumerate}
 \end{proposition}
 \begin{proof}
-\ref{StdModFinGrL1MGMetrInjProjFlatCharac:i}) Since $G$ is finite then $C_0(G)=L_\infty(G)$. 
-The result follows from proposition 
-\ref{LInfIsL1MetrInj}.
+~\ref{StdModFinGrL1MGMetrInjProjFlatCharac:i} Since $G$ is finite then
+$C_0(G)=L_\infty(G)$. The result follows from proposition
+~\ref{LInfIsL1MetrInj}.
 
-\ref{StdModFinGrL1MGMetrInjProjFlatCharac:ii}) If $G$ is trivial, that is $G=\{e_G\}$, 
-then $L_p(G)=C_0(G)=L_1(G)$ and the result 
-follows from paragraph \ref{StdModFinGrL1MGMetrInjProjFlatCharac:i}). If $G$ is non trivial, 
-then we recall that 
-$C_0(G)=L_\infty(G)$ and use proposition \ref{LpFinGrL1MGMetrInjProjCharac}.
+~\ref{StdModFinGrL1MGMetrInjProjFlatCharac:ii} If $G$ is trivial, that is
+$G=\{e_G\}$, then $L_p(G)=C_0(G)=L_1(G)$ and the result follows from
+paragraph~\ref{StdModFinGrL1MGMetrInjProjFlatCharac:i}. If $G$ is non trivial,
+then we recall that $C_0(G)=L_\infty(G)$ and use
+proposition~\ref{LpFinGrL1MGMetrInjProjCharac}.
 
-\ref{StdModFinGrL1MGMetrInjProjFlatCharac:iii}) If $G=\{e_G\}$, then $M(G)=L_p(G)=L_\infty(G)$ 
-and the result follows from paragraph \ref{StdModFinGrL1MGMetrInjProjFlatCharac:i}). 
-If $G$ is non-trivial, then we note that $M(G)=L_1(G)$ and use proposition 
-\ref{LpFinGrL1MGMetrInjProjCharac}.
+~\ref{StdModFinGrL1MGMetrInjProjFlatCharac:iii} If $G=\{e_G\}$, then
+$M(G)=L_p(G)=L_\infty(G)$ and the result follows from
+paragraph~\ref{StdModFinGrL1MGMetrInjProjFlatCharac:i}. If $G$ is non-trivial,
+then we note that $M(G)=L_1(G)$ and use proposition
+~\ref{LpFinGrL1MGMetrInjProjCharac}.
 
-\ref{StdModFinGrL1MGMetrInjProjFlatCharac:iv}) From paragraph \ref{StdModFinGrL1MGMetrInjProjFlatCharac:iii}) 
-it follows that $L_p(G)$ for $1\leq p<\infty$ is a metrically 
-injective $A$-module if and only if $G$ is trivial. Recall that a Banach module is flat if and 
-only if its adjoint is injective \cite[proposition 2.21]{NemGeomProjInjFlatBanMod}. Now the 
-result for $L_p(G)$ follows from identifications $L_p(G)^*\isom L_{p^*}(G)$ in 
-$\mathbf{mod}_1-L_1(G)$ for $1\leq p^*<\infty$. Similarly, using above characterisation of flat 
-modules and isomorphisms $C_0(G)^*\isom M(G)\isom L_1(G)$ in $\mathbf{mod}_1-L_1(G)$ we get a 
-criterion of injectivity of $M(G)$.
+~\ref{StdModFinGrL1MGMetrInjProjFlatCharac:iv} From
+paragraph~\ref{StdModFinGrL1MGMetrInjProjFlatCharac:iii} it follows that
+$L_p(G)$ for $1\leq p<\infty$ is a metrically injective $A$-module if and only
+if $G$ is trivial. Recall that a Banach module is flat if and only if its
+adjoint is injective~\cite[proposition 2.21]{NemGeomProjInjFlatBanMod}. Now the
+result for $L_p(G)$ follows from identifications ${L_p(G)}^*\isom L_{p^*}(G)$ in
+$\mathbf{mod}_1-L_1(G)$ for $1\leq p^*<\infty$. Similarly, using above
+characterisation of flat modules and isomorphisms ${C_0(G)}^*\isom M(G)\isom
+L_1(G)$ in $\mathbf{mod}_1-L_1(G)$ we get a criterion of injectivity of $M(G)$.
 \end{proof}
 
-It is worth mentioning here that if we consider all Banach spaces over the field 
-of real numbers, then $L_\infty(G)$ and $L_1(G)$ will be metrically projective and injective 
-respectively, for the group $G$ consisting of two elements. The reason is that 
-$L_\infty(\mathbb{Z}_2)\isom \mathbb{R}_{\gamma_0}\bigoplus\nolimits_1\mathbb{R}_{\gamma_1}$ 
-in $L_1(\mathbb{Z}_2)-\mathbf{mod}_1$ and 
-$L_1(\mathbb{Z}_2)\isom \mathbb{R}_{\gamma_0}\bigoplus\nolimits_\infty\mathbb{R}_{\gamma_1}$ in 
-$\mathbf{mod}_1-L_1(\mathbb{Z}_2)$. Here, $\mathbb{Z}_2$ denotes the unique group of 
-two elements and $\gamma_0,\gamma_1\in\widehat{\mathbb{Z}_2}$ are defined by 
-$\gamma_0(0)=\gamma_0(1)=\gamma_1(0)=-\gamma_1(1)=1$.
+It is worth mentioning here that if we consider all Banach spaces over the field
+of real numbers, then $L_\infty(G)$ and $L_1(G)$ will be metrically projective
+and injective respectively, for the group $G$ consisting of two elements. The
+reason is that $L_\infty(\mathbb{Z}_2)\isom
+\mathbb{R}_{\gamma_0}\bigoplus\nolimits_1\mathbb{R}_{\gamma_1}$ in
+$L_1(\mathbb{Z}_2)-\mathbf{mod}_1$ and $L_1(\mathbb{Z}_2)\isom
+\mathbb{R}_{\gamma_0}\bigoplus\nolimits_\infty\mathbb{R}_{\gamma_1}$ in
+$\mathbf{mod}_1-L_1(\mathbb{Z}_2)$. Here, $\mathbb{Z}_2$ denotes the unique
+group of two elements and $\gamma_0,\gamma_1\in\widehat{\mathbb{Z}_2}$ are
+defined by $\gamma_0(0)=\gamma_0(1)=\gamma_1(0)=-\gamma_1(1)=1$.
 
-\begin{proposition}\label{StdModFinGrL1MGTopInjProjFlatCharac} Let $G$ be a finite group. 
-Then the $A$-modules $C_0(G)$, $M(G)$, $L_p(G)$ for $1\leq p\leq \infty$ are topologically 
-projective, injective and flat.
+\begin{proposition}\label{StdModFinGrL1MGTopInjProjFlatCharac} Let $G$ be a
+finite group. Then the $A$-modules $C_0(G)$, $M(G)$, $L_p(G)$ for $1\leq p\leq
+\infty$ are topologically projective, injective and flat.
 \end{proposition} 
 \begin{proof}
-For a finite group $G$ we have $M(G)=L_1(G)$ and $C_0(G)=L_\infty(G)$, so modules $C_0(G)$ 
-and $M(G)$ do not require special considerations. Since $M(G)=L_1(G)$, we can restrict our 
-considerations to the case $A=L_1(G)$. The identity map $i:L_1(G)\to L_p(G):f\mapsto f$ is 
-a topological isomorphism of Banach spaces, because $L_1(G)$ and $L_p(G)$ for $1\leq p<+\infty$ 
-are of equal finite dimension. Since $G$ is finite, it is unimodular. Therefore, the module 
-actions in $(L_1(G),\convol)$ and $(L_p(G),\convol_p)$ coincide for $1\leq p<+\infty$. Hence 
-$i$ is an isomorphism in $L_1(G)-\mathbf{mod}$ and $\mathbf{mod}-L_1(G)$. Similarly one can 
-show that $(L_\infty(G),\cdot_\infty)$ and $(L_p(G),\cdot_p)$ for $1<p\leq+\infty$ are isomorphic 
-in $L_1(G)-\mathbf{mod}$ and $\mathbf{mod}-L_1(G)$. Finally, one can easily check that 
-$(L_1(G),\convol)$ and $(L_\infty(G),\cdot_\infty)$ are isomorphic in $L_1(G)-\mathbf{mod}$ and 
-$\mathbf{mod}-L_1(G)$ via the map $j:L_1(G)\to L_\infty(G):f\mapsto(s\mapsto f(s^{-1}))$. 
-Thus all the modules in question are pairwise isomorphic. It remains to recall that $L_1(G)$ 
-is topologically projective and flat by theorem \ref{L1ModL1MetTopProjCharac} and proposition 
-\ref{LInfIsL1MetrInj}, meanwhile $L_\infty(G)$ is topologically injective by proposition 
-\ref{LInfIsL1MetrInj}.
+For a finite group $G$ we have $M(G)=L_1(G)$ and $C_0(G)=L_\infty(G)$, so
+modules $C_0(G)$ and $M(G)$ do not require special considerations. Since
+$M(G)=L_1(G)$, we can restrict our considerations to the case $A=L_1(G)$. The
+identity map $i:L_1(G)\to L_p(G):f\mapsto f$ is a topological isomorphism of
+Banach spaces, because $L_1(G)$ and $L_p(G)$ for $1\leq p<+\infty$ are of equal
+finite dimension. Since $G$ is finite, it is unimodular. Therefore, the module
+actions in $(L_1(G),\convol)$ and $(L_p(G),\convol_p)$ coincide for $1\leq
+p<+\infty$. Hence $i$ is an isomorphism in $L_1(G)-\mathbf{mod}$ and
+$\mathbf{mod}-L_1(G)$. Similarly one can show that $(L_\infty(G),\cdot_\infty)$
+and $(L_p(G),\cdot_p)$ for $1<p\leq+\infty$ are isomorphic in
+$L_1(G)-\mathbf{mod}$ and $\mathbf{mod}-L_1(G)$. Finally, one can easily check
+that $(L_1(G),\convol)$ and $(L_\infty(G),\cdot_\infty)$ are isomorphic in
+$L_1(G)-\mathbf{mod}$ and $\mathbf{mod}-L_1(G)$ via the map $j:L_1(G)\to
+L_\infty(G):f\mapsto(s\mapsto f(s^{-1}))$. Thus all the modules in question are
+pairwise isomorphic. It remains to recall that $L_1(G)$ is topologically
+projective and flat by theorem~\ref{L1ModL1MetTopProjCharac} and proposition
+~\ref{LInfIsL1MetrInj}, meanwhile $L_\infty(G)$ is topologically injective by
+proposition~\ref{LInfIsL1MetrInj}.
 \end{proof}
 
-We summarise results on homological properties of modules of harmonic analysis into the table \ref{HomolTrivModMetTh}. Each cell of each table contains a condition under 
-which the respective module has the respective property and references to the proofs. The arrow 
-$\Longrightarrow$ indicates that only a necessary condition is known. We 
-should mention that results for modules $L_p(G)$, where $1<p<\infty$, are valid for both 
-module actions $\convol_p$ and $\cdot_p$. Characterisations and proofs for homologically trivial 
-modules $\mathbb{C}_\gamma$ in the case of relative theory are the same as in propositions \ref{OneDimL1ModMetTopProjCharac} and \ref{OneDimL1ModMetTopInjFlatCharac}, but this results 
-are already well known. For example, projectivity of $\mathbb{C}_\gamma$ is characterized 
-in \cite[theorem IV.5.13]{HelBanLocConvAlg}, and the criterion of injectivity was given 
-in \cite[theorem 2.5]{JohnCohomolBanAlg}. For algebras $L_1(G)$ and $M(G)$ the notions of
-$\langle$~projectivity / injectivity / flatness~$\rangle$ coincide for all three theories when
-one deals with modules $\langle$~$M(G)$ and $\mathbb{C}_\gamma$ / $L_\infty(G)$, $C_0(G)$ and 
-$\mathbb{C}_\gamma$ / $L_1(G)$ and $\mathbb{C}_\gamma$~$\rangle$. Finally, the $M(G)$-modules
-$M(G)$ also have the same characterization of flatness in metric topological and relative theory.
+We summarise results on homological properties of modules of harmonic analysis
+into the table~\ref{HomolTrivModMetTh}. Each cell of each table contains a
+condition under which the respective module has the respective property and
+references to the proofs. The arrow $\Longrightarrow$ indicates that only a
+necessary condition is known. We should mention that results for modules
+$L_p(G)$, where $1<p<\infty$, are valid for both module actions $\convol_p$ and
+$\cdot_p$. Characterisations and proofs for homologically trivial modules
+$\mathbb{C}_\gamma$ in the case of relative theory are the same as in
+propositions~\ref{OneDimL1ModMetTopProjCharac}
+and~\ref{OneDimL1ModMetTopInjFlatCharac}, but this results are already well
+known. For example, projectivity of $\mathbb{C}_\gamma$ is characterized
+in~\cite[theorem IV.5.13]{HelBanLocConvAlg}, and the criterion of injectivity
+was given in~\cite[theorem 2.5]{JohnCohomolBanAlg}. For algebras $L_1(G)$ and
+$M(G)$ the notions of $\langle$~projectivity / injectivity / flatness~$\rangle$
+coincide for all three theories when one deals with modules $\langle$~$M(G)$ and
+$\mathbb{C}_\gamma$ / $L_\infty(G)$, $C_0(G)$ and $\mathbb{C}_\gamma$ / $L_1(G)$
+and $\mathbb{C}_\gamma$~$\rangle$. Finally, the $M(G)$-modules $M(G)$ also have
+the same characterization of flatness in metric topological and relative theory.
 
 \begin{table}[ht]
     \centering
@@ -727,500 +814,532 @@ $M(G)$ also have the same characterization of flatness in metric topological and
             $L_1(G)$ & 
             \shortstack{
                 $G$ is discrete \\ 
-                \ref{L1ModL1MetTopProjCharac}
+               {\ref{L1ModL1MetTopProjCharac}}
             } & 
             \shortstack{
                 $G=\{e_G\}$ \\ 
-                \ref{StdModAreNotL1MGMetTopProjInjFlat}, 
-                \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+               {\ref{StdModAreNotL1MGMetTopProjInjFlat}}, 
+               {\ref{StdModFinGrL1MGMetrInjProjFlatCharac}}
             } &
             \shortstack{
                 $G$ is any \\ 
-                \ref{LInfIsL1MetrInj}
+               {\ref{LInfIsL1MetrInj}}
             } &
             \shortstack{
                 $G$ is discrete \\ 
-                \ref{L1ModL1MetTopProjCharac},
-                \ref{MGMetTopProjInjFlatRedToL1}
+               {\ref{L1ModL1MetTopProjCharac}},
+               {\ref{MGMetTopProjInjFlatRedToL1}}
             } &
             \shortstack{
                 $G=\{e_G\}$ \\
-                \ref{StdModAreNotL1MGMetTopProjInjFlat},
-                \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+               {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+               {\ref{StdModFinGrL1MGMetrInjProjFlatCharac}}
             } & 
             \shortstack{
                 $G$ is any \\
-                \ref{LInfIsL1MetrInj},
-                \ref{MGMetTopProjInjFlatRedToL1}
+               {\ref{LInfIsL1MetrInj}},
+               {\ref{MGMetTopProjInjFlatRedToL1}}
             } \\
         \hline
              $L_p(G)$ & 
              \shortstack{
                 $G=\{e_G\}$ \\ 
-                \ref{StdModAreNotL1MGMetTopProjInjFlat},
-                \ref{LpFinGrL1MGMetrInjProjCharac}
+               {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+               {\ref{LpFinGrL1MGMetrInjProjCharac}}
             } &
             \shortstack{
                 $G=\{e_G\}$ \\ 
-                \ref{StdModAreNotL1MGMetTopProjInjFlat},
-                \ref{LpFinGrL1MGMetrInjProjCharac}
+               {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+               {\ref{LpFinGrL1MGMetrInjProjCharac}}
             } & 
             \shortstack{
                 $G=\{e_G\}$ \\
-                \ref{StdModAreNotL1MGMetTopProjInjFlat},
-                \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+               {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+               {\ref{StdModFinGrL1MGMetrInjProjFlatCharac}}
             } & 
             \shortstack{
                 $G=\{e_G\}$ \\ 
-                \ref{StdModAreNotL1MGMetTopProjInjFlat},
-                \ref{LpFinGrL1MGMetrInjProjCharac}
+               {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+               {\ref{LpFinGrL1MGMetrInjProjCharac}}
             } & 
             \shortstack{
                 $G=\{e_G\}$ \\ 
-                \ref{StdModAreNotL1MGMetTopProjInjFlat},
-                \ref{LpFinGrL1MGMetrInjProjCharac}
+               {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+               {\ref{LpFinGrL1MGMetrInjProjCharac}}
             } & 
             \shortstack{
                 $G=\{e_G\}$ \\ 
-                \ref{StdModAreNotL1MGMetTopProjInjFlat},
-                \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+               {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+               {\ref{StdModFinGrL1MGMetrInjProjFlatCharac}}
             } \\
         \hline
             $L_\infty(G)$ & 
             \shortstack{$
                 G=\{e_G\}$ \\ 
-                \ref{StdModAreNotL1MGMetTopProjInjFlat},
-                \ref{LpFinGrL1MGMetrInjProjCharac}
+               {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+               {\ref{LpFinGrL1MGMetrInjProjCharac}}
             } & 
             \shortstack{
                 $G$ is any  \\ 
-                \ref{LInfIsL1MetrInj}
+               {\ref{LInfIsL1MetrInj}}
             } & 
             \shortstack{
                 $G=\{e_G\}$ \\ 
-                \ref{StdModAreNotL1MGMetTopProjInjFlat},
-                \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+               {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+               {\ref{StdModFinGrL1MGMetrInjProjFlatCharac}}
             } & 
             \shortstack{
                 $G=\{e_G\}$ \\ 
-                \ref{StdModAreNotL1MGMetTopProjInjFlat},
-                \ref{LpFinGrL1MGMetrInjProjCharac}
+               {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+               {\ref{LpFinGrL1MGMetrInjProjCharac}}
             } & 
             \shortstack{
                 $G$ is any  \\ 
-                \ref{LInfIsL1MetrInj},
-                \ref{MGMetTopProjInjFlatRedToL1}
+               {\ref{LInfIsL1MetrInj}},
+               {\ref{MGMetTopProjInjFlatRedToL1}}
             } & 
             \shortstack{
                 $G=\{e_G\}$ \\ 
-                \ref{StdModAreNotL1MGMetTopProjInjFlat},
-                \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+               {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+               {\ref{StdModFinGrL1MGMetrInjProjFlatCharac}}
             } \\ 
         \hline
             $M(G)$ & 
             \shortstack{
                 $G$ is discrete  \\ 
-                \ref{L1MetTopProjAndMetrFlatOfMeasAlg}
+               {\ref{L1MetTopProjAndMetrFlatOfMeasAlg}}
             } & 
             \shortstack{
                 $G=\{e_G\}$ \\ 
-                \ref{StdModAreNotL1MGMetTopProjInjFlat},
-                \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+               {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+               {\ref{StdModFinGrL1MGMetrInjProjFlatCharac}}
             } & 
             \shortstack{
                 $G$ is discrete  \\ 
-                \ref{MeasAlgIsL1TopFlat}
+               {\ref{MeasAlgIsL1TopFlat}}
             } & 
             \shortstack{
                 $G$ is any  \\ 
-                \ref{MGModMGMetTopProjFlatCharac}
+               {\ref{MGModMGMetTopProjFlatCharac}}
             } & 
             \shortstack{
                 $G=\{e_G\}$ \\ 
-                \ref{StdModAreNotL1MGMetTopProjInjFlat},
-                \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+               {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+               {\ref{StdModFinGrL1MGMetrInjProjFlatCharac}}
             } & 
             \shortstack{
                 $G$ is any  \\ 
-                \ref{MGModMGMetTopProjFlatCharac}
+               {\ref{MGModMGMetTopProjFlatCharac}}
             } \\ 
         \hline
             $C_0(G)$ & 
             \shortstack{
                 $G=\{e_G\}$ \\         
-                \ref{StdModAreNotL1MGMetTopProjInjFlat},
-                \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+               {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+               {\ref{StdModFinGrL1MGMetrInjProjFlatCharac}}
             } & 
             \shortstack{
                 $G$ is finite  \\ 
-                \ref{StdModAreNotL1MGMetTopProjInjFlat},
-                \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+               {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+               {\ref{StdModFinGrL1MGMetrInjProjFlatCharac}}
             } & 
             \shortstack{
                 $G=\{e_G\}$ \\ 
-                \ref{StdModAreNotL1MGMetTopProjInjFlat},
-                \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+               {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+               {\ref{StdModFinGrL1MGMetrInjProjFlatCharac}}
             } & 
             \shortstack{
                 $G=\{e_G\}$ \\ 
-                \ref{StdModAreNotL1MGMetTopProjInjFlat},
-                \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+               {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+               {\ref{StdModFinGrL1MGMetrInjProjFlatCharac}}
             } & 
             \shortstack{
                 $G$ is finite  \\ 
-                \ref{StdModAreNotL1MGMetTopProjInjFlat},
-                \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+               {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+               {\ref{StdModFinGrL1MGMetrInjProjFlatCharac}}
             } & 
             \shortstack{
                 $G=\{e_G\}$ \\ 
-                \ref{StdModAreNotL1MGMetTopProjInjFlat},
-                \ref{StdModFinGrL1MGMetrInjProjFlatCharac}
+               {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+               {\ref{StdModFinGrL1MGMetrInjProjFlatCharac}}
             } \\ 
         \hline
             $\mathbb{C}_\gamma$ & 
-			\shortstack{
-				$G$ is compact  \\ \ref{OneDimL1ModMetTopProjCharac}
-			} & 
-			\shortstack{
-				$G$ is amenable  \\ 
-				\ref{OneDimL1ModMetTopInjFlatCharac}
-			} & 
-			\shortstack{
-				$G$ is amenable  \\ 
-				\ref{OneDimL1ModMetTopInjFlatCharac}
-			} & 
-			\shortstack{
-				$G$ is compact  \\ 
-				\ref{OneDimL1ModMetTopProjCharac},
-				\ref{MGMetTopProjInjFlatRedToL1}
-			} & 
-			\shortstack{
-				$G$ is amenable  \\ 
-				\ref{OneDimL1ModMetTopInjFlatCharac},
-				\ref{MGMetTopProjInjFlatRedToL1}
-			} & 
-			\shortstack{
-				$G$ is amenable  \\ 
-				\ref{OneDimL1ModMetTopInjFlatCharac},
-				\ref{MGMetTopProjInjFlatRedToL1}
-			} \\ 
+            \shortstack{
+                $G$ is compact  \\{\ref{OneDimL1ModMetTopProjCharac}}
+            } & 
+            \shortstack{
+                $G$ is amenable  \\ 
+            {\ref{OneDimL1ModMetTopInjFlatCharac}}
+            } & 
+            \shortstack{
+                $G$ is amenable  \\ 
+            {\ref{OneDimL1ModMetTopInjFlatCharac}}
+            } & 
+            \shortstack{
+                $G$ is compact  \\ 
+            {\ref{OneDimL1ModMetTopProjCharac}},
+            {\ref{MGMetTopProjInjFlatRedToL1}}
+            } & 
+            \shortstack{
+                $G$ is amenable  \\ 
+            {\ref{OneDimL1ModMetTopInjFlatCharac}},
+            {\ref{MGMetTopProjInjFlatRedToL1}}
+            } & 
+            \shortstack{
+                $G$ is amenable  \\ 
+            {\ref{OneDimL1ModMetTopInjFlatCharac}},
+            {\ref{MGMetTopProjInjFlatRedToL1}}
+            } \\ 
         \hline
             \multicolumn{7}{c}{\textbf{Topological theory}} \\
         \hline
             $L_1(G)$ & 
-			\shortstack{
-				$G$ is discrete \\ 
-				\ref{L1ModL1MetTopProjCharac}
-			} & 
-			\shortstack{
-				$G$ is finite \\ 
-				\ref{StdModAreNotL1MGMetTopProjInjFlat}, \ref{StdModFinGrL1MGTopInjProjFlatCharac}
-			} & 
-			\shortstack{
-				$G$ is any \\ 
-				\ref{LInfIsL1MetrInj}
-			} & 
-			\shortstack{
-				$G$ is discrete \\ 
-				\ref{L1ModL1MetTopProjCharac},
-				\ref{MGMetTopProjInjFlatRedToL1}
-			} & 
-			\shortstack{
-				$G$ is finite \\ 
-				\ref{StdModAreNotL1MGMetTopProjInjFlat}, \ref{StdModFinGrL1MGTopInjProjFlatCharac}
-			} & 
-			\shortstack{
-				$G$ is any \\ 
-				\ref{LInfIsL1MetrInj},
-				\ref{MGMetTopProjInjFlatRedToL1}
-			} \\ 
+            \shortstack{
+                $G$ is discrete \\ 
+            {\ref{L1ModL1MetTopProjCharac}}
+            } & 
+            \shortstack{
+                $G$ is finite \\ 
+            {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+            {\ref{StdModFinGrL1MGTopInjProjFlatCharac}}
+            } & 
+            \shortstack{
+                $G$ is any \\ 
+            {\ref{LInfIsL1MetrInj}}
+            } & 
+            \shortstack{
+                $G$ is discrete \\ 
+            {\ref{L1ModL1MetTopProjCharac}},
+            {\ref{MGMetTopProjInjFlatRedToL1}}
+            } & 
+            \shortstack{
+                $G$ is finite \\ 
+            {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+            {\ref{StdModFinGrL1MGTopInjProjFlatCharac}}
+            } & 
+            \shortstack{
+                $G$ is any \\ 
+            {\ref{LInfIsL1MetrInj}},
+            {\ref{MGMetTopProjInjFlatRedToL1}}
+            } \\ 
         \hline
             $L_p(G)$ & 
-			\shortstack{
-				$G$ is finite \\ 
-				\ref{StdModAreNotL1MGMetTopProjInjFlat},
-				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
-			} & 
-			\shortstack{
-				$G$ is finite \\ 
-				\ref{StdModAreNotL1MGMetTopProjInjFlat},
-				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
-			} & 
-			\shortstack{
-				$G$ is finite \\ 
-				\ref{StdModAreNotL1MGMetTopProjInjFlat},
-				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
-			} & 
-			\shortstack{
-				$G$ is finite \\ 
-				\ref{StdModAreNotL1MGMetTopProjInjFlat},
-				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
-			} & 
-			\shortstack{
-				$G$ is finite \\ 
-				\ref{StdModAreNotL1MGMetTopProjInjFlat},
-				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
-			} & 
-			\shortstack{
-				$G$ is finite \\ 
-				\ref{StdModAreNotL1MGMetTopProjInjFlat},
-				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
-			} \\ 
+            \shortstack{
+                $G$ is finite \\ 
+            {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+            {\ref{StdModFinGrL1MGTopInjProjFlatCharac}}
+            } & 
+            \shortstack{
+                $G$ is finite \\ 
+            {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+            {\ref{StdModFinGrL1MGTopInjProjFlatCharac}}
+            } & 
+            \shortstack{
+                $G$ is finite \\ 
+            {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+            {\ref{StdModFinGrL1MGTopInjProjFlatCharac}}
+            } & 
+            \shortstack{
+                $G$ is finite \\ 
+            {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+            {\ref{StdModFinGrL1MGTopInjProjFlatCharac}}
+            } & 
+            \shortstack{
+                $G$ is finite \\ 
+            {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+            {\ref{StdModFinGrL1MGTopInjProjFlatCharac}}
+            } & 
+            \shortstack{
+                $G$ is finite \\ 
+            {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+            {\ref{StdModFinGrL1MGTopInjProjFlatCharac}}
+            } \\ 
         \hline
             $L_\infty(G)$ & 
-			\shortstack{
-				$G$ is finite \\ 
-				\ref{StdModAreNotL1MGMetTopProjInjFlat},
-				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
-			} & 
-			\shortstack{
-				$G$ is any \\ 
-				\ref{LInfIsL1MetrInj}
-			} & 
-			\shortstack{
-				$G$ is finite \\ 
-				\ref{StdModAreNotL1MGMetTopProjInjFlat},
-				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
-			} & 
-			\shortstack{
-				$G$ is finite \\ 
-				\ref{StdModAreNotL1MGMetTopProjInjFlat},
-				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
-			} & 
-			\shortstack{
-				$G$ is any \\ 
-				\ref{LInfIsL1MetrInj},
-				\ref{MGMetTopProjInjFlatRedToL1}
-			} & 
-			\shortstack{
-				$G$ is finite \\ 
-				\ref{StdModAreNotL1MGMetTopProjInjFlat},
-				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
-			} \\ 
+            \shortstack{
+                $G$ is finite \\ 
+            {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+            {\ref{StdModFinGrL1MGTopInjProjFlatCharac}}
+            } & 
+            \shortstack{
+                $G$ is any \\ 
+            {\ref{LInfIsL1MetrInj}}
+            } & 
+            \shortstack{
+                $G$ is finite \\ 
+            {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+            {\ref{StdModFinGrL1MGTopInjProjFlatCharac}}
+            } & 
+            \shortstack{
+                $G$ is finite \\ 
+            {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+            {\ref{StdModFinGrL1MGTopInjProjFlatCharac}}
+            } & 
+            \shortstack{
+                $G$ is any \\ 
+            {\ref{LInfIsL1MetrInj}},
+            {\ref{MGMetTopProjInjFlatRedToL1}}
+            } & 
+            \shortstack{
+                $G$ is finite \\ 
+            {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+            {\ref{StdModFinGrL1MGTopInjProjFlatCharac}}
+            } \\ 
         \hline
             $M(G)$ & 
-			\shortstack{
-				$G$ is discrete \\ 
-				\ref{L1MetTopProjAndMetrFlatOfMeasAlg}
-			} & 
-			\shortstack{
-				$G$ is finite \\ 
-				\ref{StdModAreNotL1MGMetTopProjInjFlat},
-				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
-			} & 
-			\shortstack{
-				$G$ is any \\ 
-				\ref{MeasAlgIsL1TopFlat}
-			} & 
-			\shortstack{
-				$G$ is any \\ 
-				\ref{MGModMGMetTopProjFlatCharac}
-			} & 
-			\shortstack{
-				$G$ is finite \\ 
-				\ref{StdModAreNotL1MGMetTopProjInjFlat},
-				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
-			} & 
-			\shortstack{
-				$G$ is any \\ 
-				\ref{MGModMGMetTopProjFlatCharac}
-			} \\ 
+            \shortstack{
+                $G$ is discrete \\ 
+            {\ref{L1MetTopProjAndMetrFlatOfMeasAlg}}
+            } & 
+            \shortstack{
+                $G$ is finite \\ 
+            {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+            {\ref{StdModFinGrL1MGTopInjProjFlatCharac}}
+            } & 
+            \shortstack{
+                $G$ is any \\ 
+            {\ref{MeasAlgIsL1TopFlat}}
+            } & 
+            \shortstack{
+                $G$ is any \\ 
+            {\ref{MGModMGMetTopProjFlatCharac}}
+            } & 
+            \shortstack{
+                $G$ is finite \\ 
+            {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+            {\ref{StdModFinGrL1MGTopInjProjFlatCharac}}
+            } & 
+            \shortstack{
+                $G$ is any \\ 
+            {\ref{MGModMGMetTopProjFlatCharac}}
+            } \\ 
         \hline
             $C_0(G)$ & 
-			\shortstack{
-				$G$ is finite \\ 
-				\ref{StdModAreNotL1MGMetTopProjInjFlat},
-				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
-			} & 
-			\shortstack{
-				$G$ is finite \\ 
-				\ref{StdModAreNotL1MGMetTopProjInjFlat},
-				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
-			} & 
-			\shortstack{
-				$G$ is finite \\ 
-				\ref{StdModAreNotL1MGMetTopProjInjFlat},
-				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
-			} & 
-			\shortstack{
-				$G$ is finite \\ 
-				\ref{StdModAreNotL1MGMetTopProjInjFlat},
-				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
-			} & 
-			\shortstack{
-				$G$ is finite \\ 
-				\ref{StdModAreNotL1MGMetTopProjInjFlat},
-				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
-			} & 
-			\shortstack{
-				$G$ is finite \\ 
-				\ref{StdModAreNotL1MGMetTopProjInjFlat},
-				\ref{StdModFinGrL1MGTopInjProjFlatCharac}
-			} \\ 
+            \shortstack{
+                $G$ is finite \\ 
+            {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+            {\ref{StdModFinGrL1MGTopInjProjFlatCharac}}
+            } & 
+            \shortstack{
+                $G$ is finite \\ 
+            {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+            {\ref{StdModFinGrL1MGTopInjProjFlatCharac}}
+            } & 
+            \shortstack{
+                $G$ is finite \\ 
+            {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+            {\ref{StdModFinGrL1MGTopInjProjFlatCharac}}
+            } & 
+            \shortstack{
+                $G$ is finite \\ 
+            {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+            {\ref{StdModFinGrL1MGTopInjProjFlatCharac}}
+            } & 
+            \shortstack{
+                $G$ is finite \\ 
+            {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+            {\ref{StdModFinGrL1MGTopInjProjFlatCharac}}
+            } & 
+            \shortstack{
+                $G$ is finite \\ 
+            {\ref{StdModAreNotL1MGMetTopProjInjFlat}},
+            {\ref{StdModFinGrL1MGTopInjProjFlatCharac}}
+            } \\ 
         \hline
             $\mathbb{C}_\gamma$ & 
-			\shortstack{
-				$G$ is compact \\ 
-				\ref{OneDimL1ModMetTopProjCharac}
-			} & 
-			\shortstack{
-				$G$ is amenable \\ 
-				\ref{OneDimL1ModMetTopInjFlatCharac}
-			} & 
-			\shortstack{
-				$G$ is amenable \\ 
-				\ref{OneDimL1ModMetTopInjFlatCharac}
-			} & 
-			\shortstack{
-				$G$ is compact \\ 
-				\ref{OneDimL1ModMetTopProjCharac},
-				\ref{MGMetTopProjInjFlatRedToL1}
-			} & 
-			\shortstack{
-				$G$ is amenable \\ 
-				\ref{OneDimL1ModMetTopInjFlatCharac},
-				\ref{MGMetTopProjInjFlatRedToL1}
-			} & 
-			\shortstack{
-				$G$ is amenable \\ 
-				\ref{OneDimL1ModMetTopInjFlatCharac},
-				\ref{MGMetTopProjInjFlatRedToL1}
-			} \\ 
+            \shortstack{
+                $G$ is compact \\ 
+            {\ref{OneDimL1ModMetTopProjCharac}}
+            } & 
+            \shortstack{
+                $G$ is amenable \\ 
+            {\ref{OneDimL1ModMetTopInjFlatCharac}}
+            } & 
+            \shortstack{
+                $G$ is amenable \\ 
+            {\ref{OneDimL1ModMetTopInjFlatCharac}}
+            } & 
+            \shortstack{
+                $G$ is compact \\ 
+            {\ref{OneDimL1ModMetTopProjCharac}},
+            {\ref{MGMetTopProjInjFlatRedToL1}}
+            } & 
+            \shortstack{
+                $G$ is amenable \\ 
+            {\ref{OneDimL1ModMetTopInjFlatCharac}},
+            {\ref{MGMetTopProjInjFlatRedToL1}}
+            } & 
+            \shortstack{
+                $G$ is amenable \\ 
+            {\ref{OneDimL1ModMetTopInjFlatCharac}},
+            {\ref{MGMetTopProjInjFlatRedToL1}}
+            } \\ 
         \hline
             \multicolumn{7}{c}{\textbf{Relative theory}} \\
         \hline
             $L_1(G)$ & 
-			\shortstack{
-				$G$ is any \\ \cite{DalPolHomolPropGrAlg}, \S 6
-			} & 
-			\shortstack{
-				$G$ is amenable \\  and discrete \\ \cite{DalPolHomolPropGrAlg}, \S 6
-			} & 
-			\shortstack{
-				$G$ is any \\ \cite{DalPolHomolPropGrAlg}, \S 6
-			} & 
-			\shortstack{
-				$G$ is any \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
-			} & 
-			\shortstack{
-				$G$ is amenable \\  and discrete \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
-			} & 
-			\shortstack{
-				$G$ is any \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
-			} \\ 
+            \shortstack{
+                $G$ is any \\
+				{\cite{DalPolHomolPropGrAlg}, \S 6}
+            } & 
+            \shortstack{
+                $G$ is amenable \\  and discrete \\
+                {\cite{DalPolHomolPropGrAlg}, \S 6}
+            } & 
+            \shortstack{
+                $G$ is any \\
+				{\cite{DalPolHomolPropGrAlg}, \S 6}
+            } & 
+            \shortstack{
+                $G$ is any \\
+				{\cite{RamsHomPropSemgroupAlg}, \S 3.5}
+            } & 
+            \shortstack{
+                $G$ is amenable \\  and discrete \\
+                {\cite{RamsHomPropSemgroupAlg}, \S 3.5}
+            } & 
+            \shortstack{
+                $G$ is any \\
+				{\cite{RamsHomPropSemgroupAlg}, \S 3.5}
+            } \\ 
         \hline
             $L_p(G)$ & 
-			\shortstack{
-				$G$ is compact \\ \cite{DalPolHomolPropGrAlg}, \S 6
-			} & 
-			\shortstack{
-				$G$ is amenable \\ \cite{RachInjModAndAmenGr}
-			} & 
-			\shortstack{
-				$G$ is amenable \\ \cite{RachInjModAndAmenGr}
-			} & 
-			\shortstack{
-				$G$ is compact \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
-			} & 
-			\shortstack{
-				$G$ is amenable \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5, \cite{RachInjModAndAmenGr}
-			} & 
-			\shortstack{
-				$G$ is amenable \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
-			} \\
+            \shortstack{
+                $G$ is compact \\
+				{\cite{DalPolHomolPropGrAlg}, \S 6}
+            } & 
+            \shortstack{
+                $G$ is amenable \\
+				{\cite{RachInjModAndAmenGr}}
+            } & 
+            \shortstack{
+                $G$ is amenable \\
+				{\cite{RachInjModAndAmenGr}}
+            } & 
+            \shortstack{
+                $G$ is compact \\
+				{\cite{RamsHomPropSemgroupAlg}, \S 3.5}
+            } & 
+            \shortstack{
+                $G$ is amenable \\
+				{\cite{RamsHomPropSemgroupAlg}, \S 3.5,}
+                {\cite{RachInjModAndAmenGr}}
+            } & 
+            \shortstack{
+                $G$ is amenable \\
+				{\cite{RamsHomPropSemgroupAlg}, \S 3.5}
+            } \\
         \hline
             $L_\infty(G)$ & 
-			\shortstack{
-				$G$ is finite \\ \cite{DalPolHomolPropGrAlg}, \S 6
-			} & 
-			\shortstack{
-				$G$ is any \\ \cite{DalPolHomolPropGrAlg}, \S 6
-			} & 
-			\shortstack{
-				$G$ is amenable \\ \cite{DalPolHomolPropGrAlg}, \S 6
-			} & 
-			\shortstack{
-				$G$ is finite \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
-			} & 
-			\shortstack{
-				$G$ is any \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
-			} & 
-			\shortstack{
-				$G$ is amenable \\ ($\Longrightarrow$)\cite{RamsHomPropSemgroupAlg}, \S 3.5
-			} \\ 
+            \shortstack{
+                $G$ is finite \\
+				{\cite{DalPolHomolPropGrAlg}, \S 6}
+            } & 
+            \shortstack{
+                $G$ is any \\
+				{\cite{DalPolHomolPropGrAlg}, \S 6}
+            } & 
+            \shortstack{
+                $G$ is amenable \\
+				{\cite{DalPolHomolPropGrAlg}, \S 6}
+            } & 
+            \shortstack{
+                $G$ is finite \\
+				{\cite{RamsHomPropSemgroupAlg}, \S 3.5}
+            } & 
+            \shortstack{
+                $G$ is any \\
+				{\cite{RamsHomPropSemgroupAlg}, \S 3.5}
+            } & 
+            \shortstack{
+                $G$ is amenable \\ 
+                ($\Longrightarrow$)\cite{RamsHomPropSemgroupAlg}, \S 3.5
+            } \\ 
         \hline
             $M(G)$ & 
-			\shortstack{
-				$G$ is discrete \\ \cite{DalPolHomolPropGrAlg}, \S 6
-			} & 
-			\shortstack{
-				$G$ is amenable \\ \cite{DalPolHomolPropGrAlg}, \S 6
-			} & 
-			\shortstack{
-				$G$ is any \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
-			} & 
-			\shortstack{
-				$G$ is any \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
-			} & 
-			\shortstack{
-				$G$ is amenable \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
-			} & 
-			\shortstack{
-				$G$ is any \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
-			} \\ 
+            \shortstack{
+                $G$ is discrete \\
+				{\cite{DalPolHomolPropGrAlg}, \S 6}
+            } & 
+            \shortstack{
+                $G$ is amenable \\
+				{\cite{DalPolHomolPropGrAlg}, \S 6}
+            } & 
+            \shortstack{
+                $G$ is any \\
+				{\cite{RamsHomPropSemgroupAlg}, \S 3.5}
+            } & 
+            \shortstack{
+                $G$ is any \\
+				{\cite{RamsHomPropSemgroupAlg}, \S 3.5}
+            } & 
+            \shortstack{
+                $G$ is amenable \\
+				{\cite{RamsHomPropSemgroupAlg}, \S 3.5}
+            } & 
+            \shortstack{
+                $G$ is any \\
+				{\cite{RamsHomPropSemgroupAlg}, \S 3.5}
+            } \\ 
         \hline
             $C_0(G)$ & 
-			\shortstack{
-				$G$ is compact \\ \cite{DalPolHomolPropGrAlg}, \S 6
-			} & 
-			\shortstack{
-				$G$ is finite \\ \cite{DalPolHomolPropGrAlg}, \S 6
-			} & 
-			\shortstack{
-				$G$ is amenable \\ \cite{DalPolHomolPropGrAlg}, \S 6
-			} & 
-			\shortstack{
-				$G$ is compact \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
-			} & 
-			\shortstack{
-				$G$ is finite \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
-			} & 
-			\shortstack{
-				$G$ is amenable \\ \cite{RamsHomPropSemgroupAlg}, \S 3.5
-			} \\ 
+            \shortstack{
+                $G$ is compact \\
+				{\cite{DalPolHomolPropGrAlg}, \S 6}
+            } & 
+            \shortstack{
+                $G$ is finite \\
+				{\cite{DalPolHomolPropGrAlg}, \S 6}
+            } & 
+            \shortstack{
+                $G$ is amenable \\
+				{\cite{DalPolHomolPropGrAlg}, \S 6}
+            } & 
+            \shortstack{
+                $G$ is compact \\
+				{\cite{RamsHomPropSemgroupAlg}, \S 3.5}
+            } & 
+            \shortstack{
+                $G$ is finite \\
+				{\cite{RamsHomPropSemgroupAlg}, \S 3.5}
+            } & 
+            \shortstack{
+                $G$ is amenable \\
+				{\cite{RamsHomPropSemgroupAlg}, \S 3.5}
+            } \\ 
         \hline
             $\mathbb{C}_\gamma$ & 
-			\shortstack{
-				$G$ is compact \\ 
-				\ref{OneDimL1ModMetTopProjCharac}
-			} & 
-			\shortstack{
-				$G$ is amenable \\ 
-				\ref{OneDimL1ModMetTopInjFlatCharac}
-			} & 
-			\shortstack{
-				$G$ is amenable \\ 
-				\ref{OneDimL1ModMetTopInjFlatCharac}
-			} & 
-			\shortstack{
-				$G$ is compact \\ 
-				\ref{OneDimL1ModMetTopProjCharac},
-				\ref{MGMetTopProjInjFlatRedToL1}
-			} & 
-			\shortstack{
-				$G$ is amenable \\ 
-				\ref{OneDimL1ModMetTopInjFlatCharac},
-				\ref{MGMetTopProjInjFlatRedToL1}
-			} & 
-			\shortstack{
-				$G$ is amenable \\ 
-				\ref{OneDimL1ModMetTopInjFlatCharac},
-				\ref{MGMetTopProjInjFlatRedToL1}
-			} \\                   
+            \shortstack{
+                $G$ is compact \\ 
+            {\ref{OneDimL1ModMetTopProjCharac}}
+            } & 
+            \shortstack{
+                $G$ is amenable \\ 
+            {\ref{OneDimL1ModMetTopInjFlatCharac}}
+            } & 
+            \shortstack{
+                $G$ is amenable \\ 
+            {\ref{OneDimL1ModMetTopInjFlatCharac}}
+            } & 
+            \shortstack{
+                $G$ is compact \\ 
+            {\ref{OneDimL1ModMetTopProjCharac}},
+            {\ref{MGMetTopProjInjFlatRedToL1}}
+            } & 
+            \shortstack{
+                $G$ is amenable \\ 
+            {\ref{OneDimL1ModMetTopInjFlatCharac}},
+            {\ref{MGMetTopProjInjFlatRedToL1}}
+            } & 
+            \shortstack{
+                $G$ is amenable \\ 
+            {\ref{OneDimL1ModMetTopInjFlatCharac}},
+            {\ref{MGMetTopProjInjFlatRedToL1}}
+            } \\                   
         \hline
         \end{tabular}
-    \end{tiny}
-    \label{HomolTrivModMetTh}
+    \end{tiny}\label{HomolTrivModMetTh}
 \end{table}
 
 
@@ -1230,150 +1349,153 @@ $M(G)$ also have the same characterization of flatness in metric topological and
 
 %
 \RBibitem{DalPolHomolPropGrAlg}
-\by H.\,G.~Dales, M.\,E.~Polyakov 
-\paper Homological properties of modules over group algebras
-\jour Proc. Lond.  Math. Soc. 
-\vol 89
-\issue 2 
-\yr 2004 
-\pages 390--426
+    \by{H.\,G.~Dales, M.\,E.~Polyakov} 
+    \paper{Homological properties of modules over group algebras}
+    \jour{Proc. Lond.  Math. Soc.} 
+    \vol{89}
+    \issue{2} 
+    \yr{2004} 
+    \pages{390--426}
 
 %
 \RBibitem{RamsHomPropSemgroupAlg}
-\by P.~Ramsden 
-\thesis Homological properties of semigroup algebras
-\publaddr The University of Leeds 
-\yr 2009
+    \by{P.~Ramsden} 
+    \thesis{Homological properties of semigroup algebras}
+    \publaddr{The University of Leeds} 
+    \yr{2009}
 
 \RBibitem{RachInjModAndAmenGr}
-\by G.~Racher 
-\paper Injective modules and amenable groups
-\jour Comment. Math. Helv. 
-\vol 88
-\issue 4 
-\yr 2013 
-\pages 1023--1031
+    \by{G.~Racher} 
+    \paper{Injective modules and amenable groups}
+    \jour{Comment. Math. Helv.} 
+    \vol{88}
+    \issue{4} 
+    \yr{2013} 
+    \pages{1023--1031}
 
 \RBibitem{GravInjProjBanMod}
-\by A.\,W.\,M.~Graven 
-\paper Injective and projective Banach modules
-\jour Indag. Math.
-\publ Elsevier 
-\vol 82
-\issue 1 
-\yr 1979
-\pages 253--272
+    \by{A.\,W.\,M.~Graven} 
+    \paper{Injective and projective Banach modules}
+    \jour{Indag. Math.}
+    \publ{Elsevier} 
+    \vol{82}
+    \issue{1} 
+    \yr{1979}
+    \pages{253--272}
 
 \RBibitem{WhiteInjmoduAlg}
-\by M.\,C.~White
-\paper Injective modules for uniform algebras
-\jour Proc. London Math. Soc. 
-\vol 73
-\issue 1
-\yr 1996
-\pages 155--184
+    \by{M.\,C.~White}
+    \paper{Injective modules for uniform algebras}
+    \jour{Proc. London Math. Soc.} 
+    \vol{73}
+    \issue{1}
+    \yr{1996}
+    \pages{155--184}
 
 \RBibitem{HelemHomolDimNorModBanAlg}
-\by A.\,Ya.~Helemskii.
-\paper On the homological dimension of normed modules over Banach algebras
-\jour Mat. Sb. 
-\vol 81
-\issue 3
-\yr 1970
-\pages 430--444
+    \by{A.\,Ya.~Helemskii.}
+    \paper{On the homological dimension of normed modules over Banach algebras}
+    \jour{Mat. Sb.} 
+    \vol{81}
+    \issue{3}
+    \yr{1970}
+    \pages{430--444}
 
 \RBibitem{NemGeomProjInjFlatBanMod}
-\by N.\,T.~Nemesh. 
-\paper The Geometry of Projective, Injective, and Flat Banach Modules
-\jour J. of Math. Sci.
-\vol 237
-\issue 3
-\yr 2016
-\pages 445--459
+    \by{N.\,T.~Nemesh.} 
+    \paper{The Geometry of Projective, Injective, and Flat Banach Modules}
+    \jour{J. of Math. Sci.}
+    \vol{237}
+    \issue{3}
+    \yr{2016}
+    \pages{445--459}
 
 \RBibitem{HelBanLocConvAlg}
-\by A.\,Ya.~Helemskii 
-\book Banach and locally convex algebras. 
-\publ Oxford University Press
-\yr 1993
+    \by{A.\,Ya.~Helemskii} 
+    \book{Banach and locally convex algebras.} 
+    \publ{Oxford University Press}
+    \yr{1993}
 
 \RBibitem{DalBanAlgAutCont}
-\by H.\,G.~Dales 
-\book Banach algebras and automatic continuity
-\publ Clarendon Press
-\yr 2000
+    \by{H.\,G.~Dales} 
+    \book{Banach algebras and automatic continuity}
+    \publ{Clarendon Press}
+    \yr{2000}
 
 \RBibitem{NemMetTopProjIdBanAlg}
-\by N.\,T.~Nemesh
-\paper Metrically and topologically projective ideals of Banach algebras
-\jour Math. Notes.
-\vol 99 
-\issue 4
-\pages 523--533
-\yr 2016
+    \by{N.\,T.~Nemesh}
+    \paper{Metrically and topologically projective ideals of Banach algebras}
+    \jour{Math. Notes.}
+    \vol{99} 
+    \issue{4}
+    \pages{523--533}
+    \yr{2016}
 
 \RBibitem{WendLeftCentrzrs}
-\by J.\,G.~Wendel 
-\paper Left centralizers and isomorphisms of group algebras
-\jour Pacific J. Math. 
-\vol 2
-\issue 3
-\yr 1952
-\pages 251--261
+    \by{J.\,G.~Wendel} 
+    \paper{Left centralizers and isomorphisms of group algebras}
+    \jour{Pacific J. Math.} 
+    \vol{2}
+    \issue{3}
+    \yr{1952}
+    \pages{251--261}
 
 \RBibitem{DefFloTensNorOpId}
-\by A.~Defant, K.~Floret
-\book Tensor norms and operator ideals 
-\vol 176
-\publ Elsevier
-\yr 1992
+    \by{A.~Defant, K.~Floret}
+    \book{Tensor norms and operator ideals} 
+    \vol{176}
+    \publ{Elsevier}
+    \yr{1992}
 
 \RBibitem{RosOnRelDisjFamOfMeas}
-\by H.~Rosenthal
-\paper On relatively disjoint families of measures, with some applications to Banach space theory
-\jour Stud. Math. 
-\vol 37
-\issue 1
-\yr 1970
-\pages 13--36
+    \by{H.~Rosenthal}
+    \paper{On relatively disjoint families of measures, 
+    with some applications to Banach space theory}
+    \jour{Stud. Math.} 
+    \vol{37}
+    \issue{1}
+    \yr{1970}
+    \pages{13--36}
 
 \RBibitem{WojBanSpForAnalysts}
-\by P.~Wojtaszczyk 
-\book Banach spaces for analysts 
-\publ Cambridge University Press
-\vol 25
-\yr 1996
+    \by{P.~Wojtaszczyk} 
+    \book{Banach spaces for analysts} 
+    \publ{Cambridge University Press}
+    \vol{25}
+    \yr{1996}
 
 \RBibitem{KalAlbTopicsBanSpTh}
-\by F.~Albiac, N.\,J.~Kalton 
-\book Topics in Banach space theory
-\vol 233
-\publ Springer
-\yr 2006
+    \by{F.~Albiac, N.\,J.~Kalton} 
+    \book{Topics in Banach space theory}
+    \vol{233}
+    \publ{Springer}
+    \yr{2006}
 
 \RBibitem{LauMingComplSubspInLInfOfG}
-\by A.\,T.-M.~Lau,  V.~Losert
-\paper Complementation of certain subspaces of $\it{L_\infty(G)}$ of a locally compact group
-\jour Pacific J. Math
-\vol 141
-\issue 2
-\yr 1990
-\pages 295--310
+    \by{A.\,T.-M.~Lau,  V.~Losert}
+    \paper{Complementation of certain subspaces 
+    of $L_\infty(G)$ of a locally compact group}
+    \jour{Pacific J. Math}
+    \vol{141}
+    \issue{2}
+    \yr{1990}
+    \pages{295--310}
 
 \RBibitem{LyubIsomEmdbFinDimLp}
-\by Yu.\,I.~Lyubich, O.\,A.~Shatalova
-\paper Isometric embeddings of finite-dimensional $\ell_p$-spaces over the quaternions
-\jour St. Petersburg Math. J.
-\vol 16
-\issue 1
-\yr 2005
-\pages 9--24
+    \by{Yu.\,I.~Lyubich, O.\,A.~Shatalova}
+    \paper{Isometric embeddings of finite-dimensional 
+        $\ell_p$-spaces over the quaternions}
+    \jour{St.~Petersburg Math. J.}
+    \vol{16}
+    \issue{1}
+    \yr{2005}
+    \pages{9--24}
 
 \RBibitem{JohnCohomolBanAlg}
-\by B.~Johnson
-\book Cohomology in Banach Algebras 
-\publ Memoirs Series
-\yr 1972
+    \by{B.~Johnson}
+    \book{Cohomology in Banach Algebras} 
+    \publ{Memoirs Series}
+    \yr{1972}
 
 \end{thebibliography}
 
