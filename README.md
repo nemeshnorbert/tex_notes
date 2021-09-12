@@ -11,6 +11,8 @@ wrapped by Rewrap VSCode extension
 
 4. Disable chktex warning on a file: % chktex-file WARN_NUMBER
 
+5. Ctrl+click on text in .pdf file opens respective code in .tex file
+
 TODO:
 
 1. Refactor tex code in phd_thesis directory
