@@ -16,5 +16,3 @@ wrapped by Rewrap VSCode extension
 TODO:
 
 1. Refactor tex code in phd_thesis directory
-
-2. Refactor tex code in research directory
