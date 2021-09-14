@@ -2,30 +2,42 @@
 \usepackage{ifxetex}
 
 %%% Поля и разметка страницы %%%
-\usepackage{lscape}                                 % Для включения альбомных страниц
-\usepackage{geometry}                               % Для последующего задания полей
+% Для включения альбомных страниц
+\usepackage{lscape}                                 
+% Для последующего задания полей
+\usepackage{geometry}                               
 
 %%% Математические пакеты %%%
-%\usepackage{amsthm,amsfonts,amsmath,amssymb,amscd}  % Математические дополнения от AMS
+% Математические дополнения от AMS
+%\usepackage{amsthm,amsfonts,amsmath,amssymb,amscd}  
 \usepackage{amssymb,amsmath,amsthm}
 \usepackage[utf8]{inputenc} 
 \usepackage{mathrsfs}
 \usepackage[matrix,arrow,curve]{xy}
+\usepackage{enumitem}
 
 %%% Кодировки и шрифты %%%
-\ifxetex
-  \usepackage{polyglossia}                          % Поддержка многоязычности
-  \usepackage{fontspec}                             % TrueType-шрифты
+\ifxetex{}
+  % Поддержка многоязычности
+  \usepackage{polyglossia}                          
+  % TrueType-шрифты
+  \usepackage{fontspec}                             
 \else
-  \usepackage{cmap}                                 % Улучшенный поиск русских слов в полученном pdf-файле
-  \usepackage[T2A]{fontenc}                         % Поддержка русских букв
-  \usepackage[utf8]{inputenc}                       % Кодировка utf8
-  \usepackage[english, russian]{babel}              % Языки: русский, английский
-  \IfFileExists{pscyr.sty}{\usepackage{pscyr}}{}    % Красивые русские шрифты
+  % Улучшенный поиск русских слов в полученном pdf-файле
+  \usepackage{cmap}                                 
+  % Поддержка русских букв
+  \usepackage[T2A]{fontenc}                         
+  % Кодировка utf8
+  \usepackage[utf8]{inputenc}                       
+  % Языки: русский, английский
+  \usepackage[english, russian]{babel}              
+  % Красивые русские шрифты
+  \IfFileExists{pscyr.sty}{\usepackage{pscyr}}{}    
 \fi
 
 %%% Оформление абзацев %%%
-\usepackage{indentfirst}                            % Красная строка
+% Красная строка
+\usepackage{indentfirst}                            
 
 %%% Цвета %%%
 \usepackage[usenames]{color}
@@ -33,16 +45,22 @@
 \usepackage{colortbl}
 
 %%% Таблицы %%%
-\usepackage{longtable}                              % Длинные таблицы
-\usepackage{multirow,makecell,array}                % Улучшенное форматирование таблиц
+% Длинные таблицы
+\usepackage{longtable}                              
+% Улучшенное форматирование таблиц
+\usepackage{multirow,makecell,array}                
 
 %%% Общее форматирование
-\usepackage[singlelinecheck=off,center]{caption}    % Многострочные подписи
-\usepackage{soul}                                   % Поддержка переносоустойчивых подчёркиваний и зачёркиваний
-\usepackage{icomma}                                 % Запятая в десятичных дробях
+% Многострочные подписи
+\usepackage[singlelinecheck=off,center]{caption}    
+% Поддержка переносоустойчивых подчёркиваний и зачёркиваний
+\usepackage{soul}                                   
+% Запятая в десятичных дробях
+\usepackage{icomma}                                 
 
 %%% Библиография %%%
-%\usepackage{cite}                                   % Красивые ссылки на литературу
+% Красивые ссылки на литературу
+%\usepackage{cite}                                   
 \usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
 \usepackage[autostyle]{csquotes}
 
@@ -50,7 +68,8 @@
 \usepackage[linktocpage=true,plainpages=false,pdfpagelabels=false]{hyperref}
 
 %%% Изображения %%%
-\usepackage{graphicx}                               % Подключаем пакет работы с графикой
+% Подключаем пакет работы с графикой
+\usepackage{graphicx}                               
 
 %%% Оглавление %%%
 \usepackage{tocloft}

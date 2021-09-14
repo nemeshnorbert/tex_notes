@@ -1,10 +1,13 @@
-%\title{Кандидатская диссертация}
+% chktex-file 19
 % Формат А4, 12pt (ГОСТ Р 7.0.11-2011, 5.3.6)
 \documentclass[a4paper,12pt]{report}
 
-\input{packages}        % Подключаемые пакеты
-\input{styles}          % Пользовательские стили
-\input{data}            % Основные сведения
+% Подключаемые пакеты
+\input{packages}        
+% Пользовательские стили
+\input{styles}          
+% Основные сведения
+\input{data}            
 
 % Мои определения
 \newcommand{\projtens}{\mathbin{\widehat{\otimes}}}
@@ -27,17 +30,25 @@
 \addbibresource{bibliography.bib}
 
 \begin{document}
-
-\input{names}           									% Переопределение именований
+% Переопределение именований
+\input{names}
 
 % Структура диссертации (ГОСТ Р 7.0.11-2011, 4)
-\input{title}           									% Титульный лист
-\input{contents}        									% Оглавление
-\input{introduction}    									% Введение
-\input{./Chapters/Chapter1Preliminaries}					% Глава 1
-\input{./Chapters/Chapter2GeneralTheory} 					% Глава 2
-\input{./Chapters/Chapter3ApplicationsToAlgebrasOfAnalysis}	% Глава 3
-\input{conclusion}                                          % Заключение
-\input{references}      									% Список литературы
+% Титульный лист
+\input{title}
+% Оглавление
+\input{contents}
+% Введение
+\input{introduction}
+% Глава 1
+\input{./Chapters/Chapter1Preliminaries}
+% Глава 2
+\input{./Chapters/Chapter2GeneralTheory}
+% Глава 3
+\input{./Chapters/Chapter3ApplicationsToAlgebrasOfAnalysis}
+% Заключение
+\input{conclusion}
+% Список литературы
+\input{references}
 
-\end{document}
+\end{document}  % chktex 17
