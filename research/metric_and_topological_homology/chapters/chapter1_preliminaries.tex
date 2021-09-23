@@ -1,0 +1,1442 @@
+% chktex-file 35
+% Chapter Template
+
+% Main chapter title
+% Change X to a consecutive number; for referencing 
+% this chapter elsewhere, use~\ref{ChapterX}
+\chapter{Preliminaries}\label{ChapterPreliminaries} 
+
+% Change X to a consecutive number; this is for the header 
+% on each page - perhaps a shortened title
+\lhead{Chapter 1. \emph{Preliminaries}} 
+
+In what follows, we present some parts in parallel fashion by listing the
+respective options in order, enclosed and separate like this:
+$\langle$~$\ldots$ / $\ldots$~$\rangle$. For example: a real number $x$ is
+$\langle$~positive / non negative~$\rangle$ if $\langle$~$x>0$ / $x\geq
+0$~$\rangle$. Sometimes one of the parts might be empty. We use symbol $:=$ for
+equality by definition.
+
+We use the following standard notation for some commonly used sets of numbers:
+$\mathbb{C}$ denotes the complex numbers, $\mathbb{R}$ denotes the real numbers,
+$\mathbb{Z}$ denotes the integers, $\mathbb{N}$ denotes the natural numbers,
+$\mathbb{N}_n$ denotes the set of first $n$ natural numbers, $\mathbb{R}_+$
+denotes the set of non negative real numbers, $\mathbb{T}$ denotes the set of
+complex numbers of modulus $1$, finally, $\mathbb{D}$ denotes the set of complex
+numbers with modulus less than $1$. For $z\in\mathbb{C}$ the symbol
+$\overline{z}$ stands for the complex conjugate number.
+
+For a given map $f:M\to M'$ and subset $\langle$~$N\subset M$ / $N'\subset M'$
+such that $\operatorname{Im}(f)\subset N'$~$\rangle$ by $\langle$~$f|_N$ /
+$f|^{N'}$~$\rangle$ we denote the  $\langle$~restriction of $f$ onto $N$ /
+corestriction of $f$ onto $N'$~$\rangle$, that is $\langle$~$f|_N:N\to
+M':x\mapsto f(x)$ / $f|^{N'}:M\to N':x\mapsto f(x)$~$\rangle$. The indicator
+function of a subset $N$ of the set $M$ is denoted by $\chi_{N}$, so that
+$\chi_N(x)=1$ for $x\in N$ and $\chi_N(x)=0$ for $x\in M\setminus N$. We also
+use the shortcut $\delta_x=\chi_{ \{x \}}$ where $x\in M$. By $\mathcal{P}(M)$
+we denote the set of all subsets of $M$, and $\mathcal{P}_0(M)$ stands for the
+set of all finite subsets of $M$. The symbol $M^N$ stands for the set of all
+functions from $N$ to $M$. By $\operatorname{Card}(M)$ we denote the cardinality
+of $M$. By $\aleph_0$ we denote the cardinality of $\mathbb{N}$.
+
+%-------------------------------------------------------------------------------
+%    Broad foundations
+%-------------------------------------------------------------------------------
+
+\section{Broad foundations}\label{SectionBroadFoundations} 
+
+%-------------------------------------------------------------------------------
+%    Categorical language
+%-------------------------------------------------------------------------------
+
+\subsection{Categorical language}\label{SubSectionCategoricalLanguage}
+
+Here we recall some basic facts and definitions from category theory and fix
+notation we shall use. We assume that our reader is familiar with such basics of
+category theory as category, functor, morphism. Otherwise see
+[\cite{HelLectAndExOnFuncAn}, chapter 0] for a quick introduction or
+[\cite{KashivShapCatsAndSheavs}, chapter 1] for more details.
+
+For a given category $\mathbf{C}$ by $\operatorname{Ob}(\mathbf{C})$ we denote
+the class of its objects. The symbol $\mathbf{C}^o$ stands for the opposite
+category. For a given objects $X$ and $Y$ by 
+$\operatorname{Hom}_{\mathbf{C}}(X, Y)$ 
+we denote the set of morphisms from $X$ to $Y$. Often we shall write
+$\phi:X\to Y$ instead of $\phi\in\operatorname{Hom}_{\mathbf{C}}(X,Y)$. A
+morphism $\phi:X\to Y$ is called $\langle$~retraction / coretraction~$\rangle$
+if it has a $\langle$~right / left~$\rangle$ inverse morphism. Morphism $\phi$
+is called an isomorphism if it is retraction and coretraction. Usually we shall
+express existence of isomorphism between $X$ and $Y$ as $X\isom{\mathbf{C}} Y$.
+We say that two morphisms $\phi:X_1\to Y_1$ and $\psi:X_2\to Y_2$ are equivalent
+in $\mathbf{C}$ if there exist isomorphisms $\alpha:X_1\to X_2$ and
+$\beta:Y_1\to Y_2$ such that $\beta\phi=\psi\alpha$.
+
+The first obvious example of the category that comes to mind is the category of
+all sets and all maps between them. We denote this category by $\mathbf{Set}$.
+Other examples will be given later. Two main examples of functors that any
+category has are functors of morphisms. For a fixed
+$X\in\operatorname{Ob}(\mathbf{C})$ we define covariant and a contravariant
+functors
+$$
+\operatorname{Hom}_{\mathbf{C}}(X,-)
+:\mathbf{C}\to\mathbf{Set}:Y\mapsto \operatorname{Hom}_{\mathbf{C}}(X,Y), 
+\phi\mapsto(\psi\mapsto \phi\circ\psi),
+$$
+$$
+\operatorname{Hom}_{\mathbf{C}}(-,X)
+:\mathbf{C}\to\mathbf{Set}:Y\mapsto \operatorname{Hom}_{\mathbf{C}}(Y,X), 
+\phi\mapsto(\psi\mapsto \psi\circ\phi).
+$$
+This construction has its reminiscent analogs in many categories of mathematics
+with slight modification of categories between which these functors act.
+
+We say that two covariant functors $F:\mathbf{C}\to\mathbf{D}$,
+$G:\mathbf{C}\to\mathbf{D}$ are isomorphic if there exists a class of
+isomorphisms $ \{\eta_X:X\in\operatorname{Ob}(\mathbf{C}) \}$ in $\mathbf{D}$
+(called natural isomorphisms), such that $G(f)\eta_X=\eta_Y F(f)$ for all
+$f:X\to Y$. In this case we simply write $F\cong G$. A $\langle$~covariant /
+contravariant~$\rangle$ functor $F:\mathbf{C}\to\mathbf{D}$ is called
+representable by object $X$ if
+$\langle$~$F\cong\operatorname{Hom}_{\mathbf{C}}(X,-)$ /
+$F\cong\operatorname{Hom}_{\mathbf{C}}(-,X)$~$\rangle$. If functor is
+representable, then its representing object is unique up to isomorphism in
+$\mathbf{C}$.
+
+Constructions of categorical product and coproduct shall play an important role
+in this book. We say that $X$ is the the $\langle$~product / coproduct~$\rangle$
+of the family of objects $ \{X_\lambda:\lambda\in\Lambda \}$ if the functor
+$\langle$~$
+\prod_{\lambda\in\Lambda}\operatorname{Hom}_{\mathbf{C}}(-,X_{\lambda})
+:\mathbf{C}\to\mathbf{Set}$
+/
+$
+\prod_{\lambda\in\Lambda}\operatorname{Hom}_{\mathbf{C}}(X_{\lambda},-)
+:\mathbf{C}\to\mathbf{Set}$~$\rangle$
+is representable by object $X$. As the consequence we get that a
+$\langle$~product / coproduct~$\rangle$, if it exists, is unique up to an
+isomorphism. Later we shall give examples of the $\langle$~products /
+coproducts~$\rangle$ in different categories of functional analysis. 
+
+
+%-------------------------------------------------------------------------------
+%    Topology
+%-------------------------------------------------------------------------------
+
+\subsection{Topology}\label{SubSectionTopology}
+
+Let $(S,\tau)$ be a topological space. Elements of $\tau$ are called open sets,
+and their complements are called closed sets. Let $E$ be an arbitrary subset of
+$S$. By $\operatorname{cl}_S(E)$ we denote the closure of $E$ in $S$, that is
+the smallest closed set that contains $E$. Similarly, by
+$\operatorname{int}_S(E)$ we denote the interior of $E$, that is the largest
+open set that contained in $E$. We say that $E$ is a neighborhood of point 
+$s\in S$ if $s\in \operatorname{int}_S(E)$. We say that a set $E$ is dense 
+in a set $F$ if $F\subset\operatorname{cl}_S(E)$. Note that $E$ may be regarded
+as topological space, if we endow it with subspace topology which equals $
+\{U\cap E:U\in\tau \}$. Topological space is called Hausdorff if any two
+distinct points have disjoint open neighborhoods. In this book we shall work
+with Hausdorff spaces only.
+
+A map $f:X\to Y$ between topological spaces is called continuous if preimage
+under $f$ of any open set is open. By $\mathbf{Top}$ we denote the category of
+topological spaces with continuous maps in the role of morphisms. Isomorphisms
+in $\mathbf{Top}$ are called homeomorphisms. The category $\mathbf{Top}$ admits
+products. For a given family of topological spaces $
+\{S_\lambda:\lambda\in\Lambda \}$ their product is the Tychonoff product
+$\prod_{\lambda\in\Lambda}S_\lambda$, that is the Cartesian product of the
+family $ \{S_\lambda:\lambda\in\Lambda \}$ with the coarsest topology making all
+natural projections $p_\lambda:\prod_{\lambda\in\Lambda}S_\lambda\to S_\lambda$
+continuous.
+
+In this book we shall encounter four types of topological spaces: compact
+spaces, paracompact spaces, locally compact spaces and extremely disconnected
+spaces. Before giving their definitions we need to recall the notion of cover.
+Let $\mathcal{E}$ be a family of subsets of topological space $S$. We say that
+$\mathcal{E}$ is a cover if its union equals $S$. We say that cover is open if
+all its elements are open sets. A cover is called locally finite if any point of
+$S$ has a neighborhood that intersects only finitely many elements of the cover.
+We say that cover $\mathcal{E}_1$ is inscribed into cover $\mathcal{E}_2$ if any
+element of $\mathcal{E}_1$ is a subset of some element of $\mathcal{E}_2$. A
+cover $\mathcal{E}_1$ is called a subcover of $\mathcal{E}_2$ if
+$\mathcal{E}_1\subset\mathcal{E}_2$. Finally, a topological space is called 
+\begin{enumerate}[label = (\roman*)]
+  \item compact if any its open cover admits a finite open subcover; 
+
+  \item paracompact if any its open cover is inscribed into some locally finite
+  open cover; 
+
+  \item locally compact if any its point has a compact neighborhood;
+
+  \item extremely disconnected spaces if the closure of any its open set is
+  open;
+
+  \item Stonean if it is an extremely disconnected Hausdorff compact space.
+\end{enumerate}
+
+The property of being $\langle$~compact / paracompact / locally
+compact~$\rangle$ space is preserved by $\langle$~closed / closed / open and
+closed~$\rangle$ subspaces. Any non compact locally compact Hausdorff space $S$
+can be regarded as dense subspace of some compact Hausdorff space. There is the
+smallest and the largest such compactification. The smallest one is called the
+Alexandroff compactification $\alpha S$.  By definition 
+$\alpha S:=S\cup  \{S \}$. 
+A subset of $\alpha S$ is called open if it is an open subset of $S$ or has
+the form $ \{S \}\cup S\setminus K$ for some compact set $K\subset S$. The
+largest compactification $\beta S$ is called the Stone-Cech compactification. It
+may be represented as the image of the embedding $j:S\to\prod_{f\in
+C}[0,1]:s\mapsto \prod_{f\in C}f(s)$, where $C$ is a set of all continuous maps
+from $S$ to $[0,1]$. Stone-Cech compactification is highly non constructive.
+Even $\beta\mathbb{N}$ has no explicit description, though it is known that
+$\beta\mathbb{N}$ is an extremely disconnected Hausdorff compact.
+
+Occasionally we shall apply the Urysohn's lemma to locally compact Hausdorff
+spaces. It states that for any compact subset $K$ of open set $V$ in a locally
+compact Hausdorff space $S$ there exists a continuous function $f:S\to [0,1]$
+such that $f|_K=1$ and $f|_{S\setminus V}=0$. 
+
+For more details on topological spaces see comprehensive
+treatise~\cite{EngelGenTop}. 
+
+%-------------------------------------------------------------------------------
+%    Filters, nets and limits
+%-------------------------------------------------------------------------------
+
+\subsection{Filters, nets and limits}\label{SubSectionFiltersNetsAndLimits} 
+
+We will use two generalizations of the notion of the sequence and the limit of
+the sequence.
+
+A family $\mathfrak{F}$ of subsets of the set $M$ is called a filter on a set
+$M$ if $\mathfrak{F}$ doesn't contain the empty set, $\mathfrak{F}$ is closed
+under finite intersections and $\mathfrak{F}$ contains all supersets of its
+elements. In general filters are too large to be described explicitly. To
+overcome this difficulty we shall use filterbases. A non empty family
+$\mathfrak{B}$ of subset of a set $M$ is called a filterbase on a set $M$ if
+$\mathfrak{B}$ doesn't contain empty set and the intersection of any two
+elements of $\mathfrak{B}$ contains some element of $\mathfrak{B}$. Given a
+filterbase $\mathfrak{B}$ we can construct a filter by adding to $\mathfrak{B}$
+all supersets of elements of $\mathfrak{B}$.
+
+We say that filter $\mathfrak{F}_1$ dominates filter $\mathfrak{F}_2$ if
+$\mathfrak{F}_2\subset\mathfrak{F}_1$. Therefore the set of all filters on a
+given set is partially ordered set. Filters that are maximal with respect to
+this order are called ultrafilters. An easy application of Zorn's lemma gives
+that any filter is dominated by some ultrafilter.
+
+Let $\mathfrak{F}$ be a filter on  a set $M$, and $\phi:M\to S$ be a map from
+$M$ to the Hausdorff topological space $S$. We say that $x$ is a limit of $\phi$
+along $\mathfrak{F}$ and write $x=\lim_{\mathfrak{F}} \phi(m)$ if for every open
+neighborhood $U$ of $x$ holds $\phi^{-1}(U)\in\mathfrak{F}$. Directly from the
+definition it follows that if $\phi$ has a limit along $\mathfrak{F}$ then it
+has the same limit along any filter that dominates $\mathfrak{F}$. 
+
+Limit along filter preserve order structure of $\mathbb{R}$. More precisely: if
+two functions $\phi:M\to\mathbb{R}$ and $\psi:M\to\mathbb{R}$ have limits along
+filter $\mathfrak{F}$ and $\phi\leq\psi$, then 
+$$
+\lim_{\mathfrak{F}}\phi(m)\leq\lim_{\mathfrak{F}}\psi(m).
+$$
+
+Limit along filter respects continuous functions. Rigorously this formulates as
+follows. Assume for each $\lambda\in\Lambda$ a function $\phi_\lambda:M\to
+S_\lambda$ has a limit along filter $\mathfrak{F}$, then for any continuous
+function $g:\prod_{\lambda\in\Lambda}S_\lambda\to Y$ holds
+$$
+\lim_{\mathfrak{F}}g\left(
+  \prod_{\lambda\in\Lambda}\phi_\lambda(m)
+\right)
+=g\left(\prod_{\lambda\in\Lambda}\lim_{\mathfrak{F}}\phi_\lambda(m)\right).
+$$
+In particular limit along filter is linear and multiplicative. Just like
+ordinary sequences.
+
+The most important feature of filters and the reason of our interest is the
+following: if $\mathfrak{U}$ is an ultrafilter on the set $M$ and $\phi:M\to K$
+is a function with values in the compact Hausdorff space $K$, then
+$\lim_{\mathfrak{U}}\phi(m)$ exists. In particular, we always can speak of
+limits along ultrafilters of bounded scalar valued functions.
+
+Another approach to the generalization of the notion of the limit is a limit of
+the net. A directed set is a partially ordered set $(N,\leq)$ in which any two
+elements have upper bound. Every directed set gives rise to the so called
+section filter, whose filterbase consist of so called sections $
+\{\nu':\nu\leq\nu' \}$ for some $\nu\in N$. Any function $x:N\to X$ from the
+directed set $(N,\leq)$ into the topological space $X$ is called a net. Usually
+it is denoted as ${(x_\nu)}_{\nu\in N}$ to allude to sequences. 
+A limit of the net $x:N\to X$ is a limit of the function $x$ along section
+filter of the directed set $N$. It is denoted $\lim_\nu x_\nu$. We shall exploit
+both notions of the limit.
+
+More on this matters can be found in [\cite{BourbElemMathGenTopLivIII}, section
+7].
+
+
+%-------------------------------------------------------------------------------
+%    Measure theory basics
+%-------------------------------------------------------------------------------
+
+\subsection{Measure theory}\label{SubSectionMeasureTheory}
+
+A family $\Sigma$ of subsets of the set $\Omega$ is called a $\sigma$-algebra if
+it contains an empty set, contains complements of all its elements and closed
+under countable unions. If $\Sigma$ is a $\sigma$-algebra of subsets of $\Omega$
+we call $(\Omega,\Sigma)$ a measurable subspace. Elements of $\Sigma$ are called
+measurable sets. 
+
+A function $\mu:\Sigma\to[0,+\infty]$ such that:  
+\begin{enumerate}[label = (\roman*)]
+  \item $\mu(\varnothing)=0$; 
+
+  \item $\mu\left(\bigcup\limits_{n\in\mathbb{N}} E_n\right)
+  =\sum\limits_{n\in\mathbb{N}}\mu(E_n)$ for any family of disjoint sets
+  ${(E_n)}_{n\in\mathbb{N}}$ in $\Sigma$; 
+\end{enumerate}
+
+is called a measure. The triple $(\Omega,\Sigma,\mu)$ is called a measure space.
+If $\mu$ attains only finite values we may drop the first condition. The second
+condition is essential and called the $\sigma$-additivity. The simplest example
+of measure space is an  arbitrary set $\Lambda$ with $\sigma$-algebra of all
+subsets and so called counting measure
+$\mu_c:\mathcal{P}(\Lambda)\to[0,+\infty]$. By definition $\mu_c(E)$ equals
+$\operatorname{Card}(E)$ if $E$ is finite and $+\infty$ otherwise. If $E$ is a
+measurable set, by $\Sigma|_E$ we denote the $\sigma$-algebra $ \{F\cap
+E:F\in\Sigma \}$ and by $\mu|_E$ we denote the restriction of $\mu$ to
+$\Sigma|_E$. A set $E$ in $\Omega$ is called negligible if there exists a
+measurable set $F$ of measure $0$ that contains $E$. Similarly, a set $E$ in
+$\Omega$ is conegligible if $\Omega\setminus E$ is negligible. Let $P$ be some
+property that depends on points of $\Omega$. We say that $P$ holds almost
+everywhere if the set where $P$ is violated is negligible. A measure space is
+called $\sigma$-finite if there exists a countable family of measurable sets of
+finite measure whose union is the whole space. The class of $\sigma$-finite
+spaces is enough for most applications but we shall encounter a more generic
+measure spaces.
+
+A measurable space $(\Omega,\Sigma,\mu)$ is called strictly localizable if there
+exists a  family of disjoint measurable subsets 
+$ \{E_\lambda:\lambda\in\Lambda \}$ of finite measure such that: 
+\begin{enumerate}[label = (\roman*)]
+  \item $\bigcup_{\lambda\in\Lambda}E_\lambda=\Omega$;
+
+  \item $E$ is measurable iff $E\cap E_\lambda$ is measurable for all
+  $\lambda\in\Lambda$;
+
+  \item for any measurable $E$ holds 
+  $\mu(E)=\sum_{\lambda\in\Lambda}\mu(E\cap E_\lambda)$. 
+\end{enumerate}
+  
+The class of strictly localizable measure spaces is huge. It includes all
+$\sigma$-finite measure spaces, their arbitrary unions, Haar measures of
+locally compact groups, counting measures and much more. In what follows we
+shall consider only strictly localizable measure spaces.
+
+We shall exploit a more detailed classification of measure spaces. We say that a
+measurable set $E$ is an atom if $\mu(E)>0$ and for any measurable subset $F$ of
+$E$ either $F$ or $E\setminus F$ is negligible. Directly from the definition it
+follows that that all atoms of strictly localizable measure spaces are of finite
+measure. In general an atom may not be a mere singleton.
+
+We say that a measure space is non atomic if there is no atoms for its measure.
+A measure space is called purely atomic if every measurable set of positive
+measure contains an atom. A straightforward application of Zorn's lemma gives
+that a purely atomic measure space can be represented as disjoint union of some
+family of atoms. This family is countable if measure space is $\sigma$-finite.
+These facts allow us to say that the structure of purely atomic measure space is
+well understood. The structure of strictly localizable non atomic measure spaces
+is given by Maharam's theorem [\cite{FremMeasTh}, 332B]. 
+
+For completeness we shall say a few words on constructions with measures. The
+product measure of two measure spaces $(\Omega_1,\Sigma_1,\mu_1)$ and
+$(\Omega_2,\Sigma_2,\mu_2)$ we denote by $\mu_1\times \mu_2$. The definition of
+product measure for localizable measure spaces is rather involved
+[\cite{FremMeasTh}, definition 251F] and we don't give it here.  For our
+purposes it is enough to know that the product of two strictly localizable
+measure spaces is again strictly localizable [\cite{FremMeasTh}, proposition
+251N]. By direct sum of measure spaces $ \{(\Omega_\lambda, \Sigma_\lambda,
+\mu_\lambda):\lambda\in\Lambda \}$ we denote disjoint union of set $
+\{\Omega_\lambda:\lambda\in\Lambda \}$ with $\sigma$-algebra defined as 
+$\Sigma= \{
+  E\subset \Omega: E\cap E_\lambda\in\Sigma_\lambda
+  \mbox{ for all}\lambda\in\Lambda
+ \}$ 
+and measure given by the formula 
+$\mu(E)=\sum_{\lambda\in\Lambda}\mu_\lambda(E\cap E_\lambda)$. It is clear now
+that strictly localizable measure space are exactly direct sums of finite
+measure spaces.
+
+Assume $(\Omega,\Sigma,\mu)$ is a $\sigma$-finite measure space, then there
+exists a purely atomic measure $\mu_1:\Sigma\to[0,+\infty]$ and a non atomic
+measure $\mu_2:\Sigma\to[0,+\infty]$ such that $\mu=\mu_1+\mu_2$. Even more
+there exist measurable sets $\Omega_a^{\mu}$ and
+$\Omega_{na}^{\mu}=\Omega\setminus \Omega_a^{\mu}$ such that
+$\mu_1(\Omega_{na}^{\mu})=\mu_2(\Omega_a^{\mu})=0$. The sets $\Omega_a^{\mu}$
+and $\Omega_{na}^{\mu}$ are called respectively the atomic and the non atomic
+parts of measure space $(\Omega,\Sigma,\mu)$.
+
+By measurable function we always mean a complex or real valued function on
+measurable space, with the property that preimage of every open set is
+measurable. We say that two measurable functions are equivalent if the set where
+they are different is negligible. If $f:\Omega\to\mathbb{R}$ is an  integrable
+function on $(\Omega,\Sigma,\mu)$, then we may define a new measure 
+$$
+f\mu:\Sigma\to[0,+\infty]:E\mapsto\int_{E}f(\omega)d\mu(\omega).
+$$
+
+The notion of measure can be extended by changing the range of values that the
+measure can attain. Any $\sigma$-additive function $\mu:\Sigma\to\mathbb{C}$ on
+a measurable space $(\Omega,\Sigma)$ is called a complex measure. Any complex
+measure $\mu$ can be represented as $\mu=\mu_1-\mu_2+i(\mu_3-\mu_4)$, where
+$\mu_1,\mu_2,\mu_3,\mu_4$ --- are finite measures. As the consequence every
+complex measure is finite and therefore we have a well defined total variation
+measure:
+$$
+|\mu|:\Sigma\to\mathbb{R}_+
+:E\mapsto\sup\left \{\sum_{n\in\mathbb{N}}|\mu(E_n)|
+: \{E_n:n\in\mathbb{N} \}\subset\Sigma -\mbox{partition of }E\right \}
+$$
+
+Let $\mu$ and $\nu$ be two measures on a measurable space $(\Omega,\Sigma)$. We
+say that $\mu$ and $\nu$ are mutually singular and write $\mu\perp\nu$ if there
+exists a measurable set $E$ such that $\mu(E)=\nu(\Omega\setminus E)=0$. The
+opposite property is absolute continuity. We say that $\nu$ is absolutely
+continuous with respect to $\mu$ and write $\nu\ll\mu$ if $\nu(E)=0$ for every
+measurable set $E$ with $\mu(E)=0$. In general, two measures may neither be
+absolutely continuous nor singular with respect to each other. We have a
+Lebesgue decomposition theorem for this case. For a given two $\sigma$-finite
+measures $\mu$ and $\nu$ on a measurable space $(\Omega,\Sigma)$ there exists a
+measurable function $\rho_{\nu,\mu}:\Omega\to\mathbb{C}$, a $\sigma$-finite
+measure $\nu_s:\Sigma\to[0,+\infty]$ and two measurable sets
+$\Omega_s^{\nu,\mu}$, $\Omega_c^{\nu,\mu}=\Omega\setminus\Omega_s^{\nu,\mu}$
+such that $\nu=\rho_{\nu,\mu}\mu+\nu_s$ and
+$\mu(\Omega_s^{\nu,\mu})=\nu_s(\Omega_c^{\nu,\mu})=0$, i.e. $\mu\perp\nu_s$.
+
+Finally we shall say a few words on measures defined on topological spaces.
+Given a topological space $S$ we may consider the minimal $\sigma$-algebra
+containing all open subsets of $S$. It is called the Borel $\sigma$-algebra of
+$S$ and denoted by $Bor(S)$. Measures and complex measures defined on Borel
+$\sigma$-algebras are supported with adjective Borel. We shall not consider
+measures on general topological spaces and stick with locally compact Hausdorff
+spaces. This significantly simplifies further considerations. We say that a
+complex Borel measure $\mu:Bor(S)\to\mathbb{C}$ defined on a locally compact
+Hausdorff space $S$ is regular if for any Borel set $E$ and any $\epsilon>0$
+there exists a compact set $K\subset E$ such that $|\mu|(E\setminus
+K)<\epsilon$. The support of complex Borel measure $\mu$ is a set of all points
+$s\in S$ for which every open neighborhood of $s$ has positive measure. We
+denote the set of such points by $\operatorname{supp}(\mu)$. The support is
+always closed. 
+
+Most of the results and definitions in this section can be found in the first,
+second and the fourth volumes of~\cite{FremMeasTh}.
+
+%-------------------------------------------------------------------------------
+%    Banach spaces, algebras and modules
+%-------------------------------------------------------------------------------
+
+\section{Banach structures}\label{SectionBanachStructures}
+
+%-------------------------------------------------------------------------------
+%    Banach spaces
+%-------------------------------------------------------------------------------
+
+\subsection{Banach spaces}\label{SubSectionBanachSpaces}
+
+We assume that our reader is familiar with fundamentals of functional analysis
+and its constructions, otherwise consult~\cite{HelLectAndExOnFuncAn}
+or~\cite{ConwACoursInFuncAn}. In this book we will highly rely on results about
+geometry of Banach spaces.
+See~\cite{CarothShortCourseBanSp},~\cite{KalAlbTopicsBanSpTh}
+or~\cite{FabHabBanSpTh} for a quick introduction. All Banach spaces are
+considered over complex field, unless otherwise stated. 
+
+By $\langle$~$B_E$ / $B_E^\circ$~$\rangle$ we denote the $\langle$~closed /
+open~$\rangle$ unit ball of Banach space $E$ with center at zero. If $F$ is a
+closed subspace of $E$, then $E/F$ stands for the quotient Banach space. By
+$E^{cc}$ we denote a Banach space with the same set of vectors as in $E$, the
+same addition but with new multiplication by conjugate scalars:  $\alpha
+\overline{x}:=\overline{\overline{\alpha}x}$ for $\alpha\in\mathbb{C}$ 
+and $x\in E$. Note: elements of $E^{cc}$ we denote by $\overline{x}$. Clearly,
+${(E^{cc})}^{cc}=E$.
+
+Now fix two Banach spaces $E$ and $F$. A map $T:E\to F$ is called conjugate
+linear if the respective map $T:E^{cc}\to F$ is linear. A linear operator
+$T:E\to F$ is called:
+\begin{enumerate}[label = (\roman*)]
+  \item bounded if its norm $\Vert T\Vert:=\sup \{\Vert T(x)\Vert:x\in B_E \}$ 
+  is finite.
+
+  \item contractive if its norm is at most $1$;
+
+  \item compact if $T(B_E)$ is relatively compact in $F$;
+
+  \item nuclear if it can be represented as an absolutely convergent series of
+  rank one operators.
+\end{enumerate}
+
+Is well known that any nuclear operator is compact. Any compact operator is
+bounded, any bounded operator is continuous. By $\langle$~$\mathcal{B}(E,F)$ /
+$\mathcal{K}(E,F)$ / $\mathcal{N}(E,F)$~$\rangle$ we denote the Banach space of
+$\langle$~bounded / compact / nuclear~$\rangle$ linear operators from $E$ to
+$F$. If $F=E$ we use the shortcut $\langle$~$\mathcal{B}(E)$ / $\mathcal{K}(E)$
+/ $\mathcal{N}(E)$~$\rangle$ for this space. The norms in $\mathcal{B}(E,F)$ and
+$\mathcal{K}(E,F)$ are just the usual operator norm. The norm of a nuclear
+operator $T$ is defined by equality
+$$
+\Vert T\Vert
+:=\inf\left \{
+  \sum_{n=1}^\infty\Vert S_n\Vert
+  :T=\sum_{n=1}^\infty S_n,\quad 
+  {(S_n)}_{n\in\mathbb{N}} - \mbox{ rank one operators}
+\right \}.
+$$
+
+By $\mathbf{Ban}$ we shall denote the category of Banach spaces with bounded
+linear operators in the role of morphisms, while $\mathbf{Ban}_1$ stands for the
+category of Banach spaces with contractive operators in the role of morphisms.
+As the consequence, $\operatorname{Hom}_{\mathbf{Ban}}(E,F)$ is just another
+name for $\mathcal{B}(E,F)$.
+
+Let $E$, $F$ and $G$ be three Banach spaces, then a bilinear operator
+$\Phi:E\times F\to G$ is called bounded if its norm 
+$\Vert \Phi\Vert:=\sup \{\Vert \Phi(x,y)\Vert:x\in B_E, y\in B_F \}$ is finite. 
+The Banach space of all bounded bilinear operators on $E\times F$ with 
+values in $G$ is denoted by $\mathcal{B}(E\times F,G)$.
+
+A few words on classification of bounded linear operators. A bounded linear
+operator $T:E\to F$ is called:
+\begin{enumerate}[label = (\roman*)]
+  \item topologically injective if it performs homeomorphism on its image;
+
+  \item topologically surjective if it is an open map;
+
+  \item coisometric if it maps open unit ball onto open unit ball;
+
+  \item strictly coisometric if it maps closed unit ball onto closed unit ball. 
+
+  \item $c$-topologically injective, if $\Vert x\Vert\leq c\Vert  T(x)\Vert$ for
+  all $x\in E$;
+
+  \item $c$-topologically surjective, if $cT(B_E^\circ)\supset B_F^\circ$;
+
+  \item strictly $c$-topologically surjective, if $cT(B_E)\supset B_F$; 
+\end{enumerate}
+
+Note that $T$ is topologically $\langle$~injective / surjective~$\rangle$ iff it
+is $c$-topologically $\langle$~injective / surjective~$\rangle$ for some $c>0$.
+Obviously $\langle$~coisometric / strictly coisometric~$\rangle$ operators are
+exactly contractive $\langle$~$1$-topologically surjective / strictly
+$1$-topologically surjective~$\rangle$ operators.
+
+Two Banach spaces $E$ and $F$ are $\langle$~isometrically isomorphic /
+topologically isomorphic~$\rangle$ as Banach spaces if there exists a bounded
+linear operator $T:E\to F$ which is both $\langle$~isometric and surjective /
+topologically injective and topologically surjective~$\rangle$. The fact that
+$E$ and $F$ are $\langle$~isometrically isomorphic / topologically
+isomorphic~$\rangle$ Banach spaces means that
+$\langle$~$E\isom{\mathbf{Ban}_1}F$ / $E\isom{\mathbf{Ban}}F$~$\rangle$. The
+Banach-Mazur distance between $E$ and $F$ is defined by the formula 
+$$
+d_{BM}(E,F):=\inf \{
+  \Vert T\Vert\Vert T^{-1}\Vert
+  :T \in \mathcal{B}(E,F) \mbox{ --- a topological isomorphism}
+ \}.
+$$ 
+If $E$ and $F$ are not topologically isomorphic the Banach-Mazur distance
+between them is infinite.
+
+One more important class of operators is the class of bounded projections. A
+bounded linear operator $P:E\to E$ is called a projection if $P^2=P$. If
+$F=P(E)$, then we say that $P$ is a projection from $E$ onto $F$ and $F$ is
+complemented in $E$. If $\Vert P\Vert\leq c$ we say that $F$ is $c$-complemented
+in $E$. Finally, we say that $F$ is contractively complemented in $E$ if it is
+$1$-complemented in $E$. Another equivalent characterization says that $F$ is a
+complemented subspace of Banach space $E$ if there exists a closed subspace $G$
+in $E$ such that $E\isom{\mathbf{Ban}}F\bigoplus G$. All finite dimensional
+subspaces are complemented, but not necessarily contractively complemented. An
+example of contractively complemented subspace is the following: consider
+arbitrary Banach space $E$, then $E^*$ is contractively complemented in
+$E^{***}$ via Dixmier projection $P=\iota_{E^*}{(\iota_E)}^*$, where $\iota_E$ 
+is the natural embedding of $E$ into its second dual $E^{**}$. 
+A canonical example of uncomplemented subspace is $c_0(\mathbb{N})$ in
+$\mathbb{\ell_\infty}(\mathbb{N})$  [\cite{KalAlbTopicsBanSpTh}, theorem 2.5.5].
+
+Now consider the algebraic tensor product $E\otimes F$ of Banach spaces $E$ and
+$F$. This linear space can be endowed with different norms, but the most
+important is the projective norm. For $u\in E\otimes F$ we define its projective
+norm as
+$$
+\Vert u\Vert
+:=\inf\left \{
+  \sum_{i=1}^n \Vert x_i\Vert\Vert y_i\Vert
+  :u=\sum_{i=1}^n x_i\otimes y_i, 
+  {(x_i)}_{i\in\mathbb{N}_n}\subset E, 
+  {(y_i)}_{i\in\mathbb{N}_n}\subset F
+\right \}
+$$
+It is indeed a norm, but not complete in general. The symbol $E\projtens F$
+stands for the completion of $E\otimes F$ under projective norm. We call the
+resulting completion the projective tensor product of Banach spaces $E$ and $F$.
+Let $T:E_1\to E_2$ and $S:F_1\to F_2$ be two bounded linear operators between
+Banach spaces, then there exists a unique bounded linear operator 
+$T\projtens S:E_1\projtens F_1\to E_2\projtens F_2$ 
+such that  $(T\projtens S)(x\projtens y)=T(x)\projtens S(y)$ 
+for all $x\in E_1$ and $y\in F_1$. 
+Even more $\Vert T\projtens S\Vert=\Vert T\Vert\Vert S\Vert$. 
+The main feature of projective
+tensor product which makes it so important is the following universal property:
+for any Banach spaces $E$, $F$ and $G$ there is a natural isometric isomorphism:
+$$
+\mathcal{B}(E\projtens F,G)\isom{\mathbf{Ban}_1}\mathcal{B}(E\times F,G)
+$$
+In other words, projective tensor product linearizes bounded bilinear operators.
+Also we have the following two (natural in $E$, $F$ and $G$) isometric
+isomorphisms:
+$$
+\mathcal{B}(E\projtens F,G)
+\isom{\mathbf{Ban}_1}\mathcal{B}(E,\mathcal{B}(F,G))
+\isom{\mathbf{Ban}_1}\mathcal{B}(F,\mathcal{B}(E,G))
+$$
+The last isomorphism is called the law of adjoint associativity. There are many
+other tensor norms on the algebraic tensor product of Banach spaces. Their
+thorough treatment can be found in~\cite{DiestMetTheoryOfTensProd}.
+
+Now we are able to craft four very important functors:
+$$
+\mathcal{B}(-,E):\mathbf{Ban}\to\mathbf{Ban}
+\qquad\qquad
+\mathcal{B}(E,-):\mathbf{Ban}\to\mathbf{Ban}
+$$
+$$
+-\projtens E:\mathbf{Ban}\to\mathbf{Ban}
+\qquad\qquad
+E\projtens -:\mathbf{Ban}\to\mathbf{Ban}.
+$$
+We shall often encounter them. For example, the well known adjoint functor
+${}^*$ is nothing more than $\mathcal{B}(-,\mathbb{C})$. All these functors have
+their obvious analogs on $\mathbf{Ban}_1$.
+
+Now we  proceed to classical examples of Banach spaces. 
+
+An important source of examples of Banach spaces are $L_p$-spaces, also known as
+Lebesgue spaces. A detailed discussion of basic properties of $L_p$-spaces can
+be found in~\cite{CarothShortCourseBanSp}.  Let $(\Omega,\Sigma,\mu)$ be a
+measure space.  For $1\leq p<\infty$, as usually, the symbol $L_p(\Omega,\mu)$
+stands for the Banach space of equivalence classes of functions
+$f:\Omega\to\mathbb{C}$ such that $|f|^p$ is Lebesgue integrable with respect to
+measure $\mu$. The norm of such function is defined as
+$$
+\Vert f\Vert
+:={\left(
+  \int\limits_{\Omega}{|f(\omega)|}^p d\mu(\omega)
+\right)}^{1/p}.
+$$ 
+By $L_\infty(\Omega,\mu)$ we denote the Banach space of equivalence classes of
+bounded measurable functions with norm defined as 
+$$
+\Vert f\Vert:=\inf\left \{
+  \sup_{\omega\in\Omega\setminus N}|f(\omega)|
+  :N\subset\Omega - \mbox{is negligible}
+\right \}.
+$$
+For simplicity we shall speak of functions in $L_p(\Omega,\mu)$ instead of their
+equivalence classes. All equalities and inequalities about functions of
+$L_p$-spaces are understood up to negligible sets. It is well know that
+${L_p(\Omega,\mu)}^*\isom{\mathbf{Ban}_1}L_{p^*}(\Omega,\mu)$ for 
+$1\leq p<+\infty$ [\cite{FremMeasTh}, theorems 243G, 244K]. 
+One more well known fact is that, $L_p$-spaces are reflexive for 
+$1<p<+\infty$. Here we exploited the standard 
+notation $p^*=+\infty$ if $p=1$ and $p^*=p/(p-1)$ if $1<p<+\infty$.
+Clearly, $p^{**}=p$ for $1<p<+\infty$.
+
+The most well known classes of Banach spaces are related to continuous
+functions. Let $S$ be a locally compact Hausdorff space. We say that a function
+$f:S\to\mathbb{C}$ vanishes at infinity  if for any $\epsilon>0$ there exists a
+compact $K\subset S$ such that $|f(s)|\leq\epsilon$ for all $s\in S\setminus K$.
+The linear space of continuous functions on $S$ vanishing at infinity is denoted
+by $C_0(S)$. When endowed with $\sup$-norm $C_0(S)$ becomes a Banach space. Any
+set $\Lambda$ with discrete topology may be regarded as a locally compact space
+and following the traditional notation we shall write $c_0(\Lambda)$ instead of
+$C_0(\Lambda)$. If $K$ is a compact Hausdorff space then all functions on $K$
+vanish at infinity. We use the notation $C(K)$ for $C_0(K)$ to indicate that $K$
+is compact. Some Banach spaces in fact are $C(K)$-spaces in disguise. For
+example, if we are given a measure space $(\Omega,\Sigma,\mu)$, then
+$B(\Omega,\Sigma)$ --- the space of bounded measurable functions with
+$\sup$-norm or $L_\infty(\Omega,\mu)$ are $C(K)$ spaces for some compact
+Hausdorff space $K$ [\cite{KalAlbTopicsBanSpTh}, remark 4.2.8]. If $S$ is a
+locally compact Hausdorff space, then $M(S)$ stands for the Banach space of
+complex finite Borel regular measures on $S$. The norm of measure $\mu\in M(S)$
+is defined by equality $\Vert\mu\Vert=|\mu|(S)$, where $|\mu|$ is a total
+variation measure of measure $\mu$. By Riesz-Markov-Kakutani theorem
+[\cite{ConwACoursInFuncAn}, section C.18] we have
+${C_0(S)}^*\isom{\mathbf{Ban}_1}M(S)$. In fact $M(S)$ is an $L_1$-space, see
+discussion after [\cite{DalLauSecondDualOfMeasAlg}, proposition 2.14]. 
+
+We shall also mention one important specific case of $L_p$-spaces. For a given
+index set $\Lambda$ and a counting measure
+$\mu_c:\mathcal{P}(\Lambda)\to[0,+\infty]$ the respective $L_p$-space is denoted
+by $\ell_p(\Lambda)$. For this type of measure spaces we have one more important
+isomorphism ${c_0(\Lambda)}^*\isom{\mathbf{Ban}_1}\ell_1(\Lambda)$. For
+convenience we define $c_0(\varnothing)=\ell_p(\varnothing)= \{0 \}$ for 
+$1\leq p\leq+\infty$. This example motivates the following construction.
+
+Let $ \{E_\lambda:\lambda\in\Lambda \}$ be an arbitrary family of Banach spaces.
+For each $x\in \prod_{\lambda\in\Lambda} E_\lambda$ we define 
+$\Vert x\Vert_p
+=\Vert{
+  (\Vert x_\lambda\Vert)}_{\lambda\in\Lambda}
+\Vert_{\ell_p(\Lambda)}$
+for $1\leq p\leq +\infty$ and 
+$\Vert x\Vert_0
+=\Vert
+  {(\Vert x_\lambda\Vert)}_{\lambda\in\Lambda}
+\Vert_{c_0(\Lambda)}$. 
+Then the Banach space
+$\left \{
+  x\in \prod_{\lambda\in\Lambda} E_\lambda
+  :\Vert x\Vert_p<+\infty
+\right \}$ 
+with the norm $\Vert\cdot\Vert_p$ is denoted by $\bigoplus_p
+\{E_\lambda:\lambda\in\Lambda \}$. We call these objects $\bigoplus_p$-sums of
+Banach spaces $ \{E_\lambda:\lambda\in\Lambda \}$. It is almost tautological
+that the Banach space $\ell_p(\Lambda)$ is the $\bigoplus_p$-sum of the family $
+\{\mathbb{C}:\lambda\in\Lambda \}$. A nice property of $\bigoplus_p$-sums is
+their interrelation with duality:
+$$
+{\left(\bigoplus\nolimits_p \{E_\lambda:\lambda\in\Lambda \}\right)}^*
+\isom{\mathbf{Ban}_1}
+\bigoplus\nolimits_{p^*} \{E_\lambda^*:\lambda\in\Lambda \}
+$$
+for all $1\leq p<+\infty$ and 
+$$
+{\left(\bigoplus\nolimits_0 \{E_\lambda:\lambda\in\Lambda \}\right)}^*
+\isom{\mathbf{Ban}_1}
+\bigoplus\nolimits_1 \{E_\lambda^*:\lambda\in\Lambda \}
+$$
+If $ \{T_\lambda\in\mathcal{B}(E_\lambda, F_\lambda):\lambda\in\Lambda \}$ is a
+family of bounded linear operators, then for all $1\leq p\leq+\infty$ and $p=0$
+we have a well defined linear operator
+$$
+T:\bigoplus\nolimits_p \{E_\lambda:\lambda\in\Lambda \}
+  \to 
+\bigoplus\nolimits_p \{ F_\lambda:\lambda\in\Lambda \}
+:x\mapsto \bigoplus\nolimits_p \{ T_\lambda(x_\lambda):\lambda\in\Lambda \}
+$$
+which we shall denote by $\bigoplus_p \{T_\lambda:\lambda\in\Lambda \}$. Its
+norm equals $\sup_{\lambda\in\Lambda}\Vert T_\lambda\Vert$.
+
+Among different $\bigoplus_p$-sums the $\langle$~$\bigoplus_1$-sums /
+$\bigoplus_\infty$-sums~$\rangle$ play a special role in Banach space theory.
+The reason is that any family of Banach spaces admit $\langle$~product /
+coproduct~$\rangle$ in $\mathbf{Ban}_1$ which in fact is their
+$\langle$~$\bigoplus_1$-sum / $\bigoplus_\infty$-sum~$\rangle$. The same
+statement holds for $\mathbf{Ban}$ if we restrict ourselves to finite families
+of objects [\cite{HelLectAndExOnFuncAn}, chapter 2, section 5].
+
+We proceed to advanced topics of Banach space theory. Below we shall discuss
+several geometric properties of Banach spaces such as the property of being an
+$\mathscr{L}_p^g$-space, weak sequential completeness, the Dunford-Pettis
+property, the l.u.st.\ property and the approximation property. In what follows,
+imitating Banach space geometers, we shall say that a Banach space $E$ contains
+$\langle$~an isometric copy / a copy~$\rangle$ of Banach space $F$ if $F$ is
+$\langle$~isometrically isomorphic / topologically isomorphic~$\rangle$ to some
+closed subspace of $E$.
+
+Let $1\leq p\leq +\infty$. We say that $E$ is an $\mathscr{L}_{p,C}^g$-space if
+for any $\epsilon>0$ and any finite dimensional subspace $F$ of $E$ there exists
+a finite dimensional $\ell_p$-space $G$ and two bounded linear operators 
+$S:F\to G$, $T:G\to E$ such that $TS|^F=1_F$ and 
+$\Vert T\Vert\Vert S\Vert\leq C+\epsilon$. 
+If $E$ is an $\mathscr{L}_{p,C}^g$-space for some $C\geq 1$ we
+simply say, that $E$ is an $\mathscr{L}_p^g$-space. This definition
+[\cite{DefFloTensNorOpId}, definition 23.1] is an improvement of the definition
+of $\mathscr{L}_p$-spaces given by Lindenstrauss and Pelczynski in their
+pioneering work~\cite{LinPelAbsSumOpInLpSpAndApp}. Clearly, any finite
+dimensional Banach space is an $\mathscr{L}_p^g$-space for 
+all $1\leq p\leq +\infty$. Any $L_p$-space is an $\mathscr{L}_{p,1}^g$-space
+[\cite{DefFloTensNorOpId}, exercise 4.7], but the converse is not true. Any
+$c$-complemented subspace of $\mathscr{L}_{p,C}^g$-space is an
+$\mathscr{L}_{p,cC}^g$-space [\cite{DefFloTensNorOpId}, corollary 23.2.1(2)]. A
+Banach space is an $\mathscr{L}_{p,C}^g$-space iff its dual is an
+$\mathscr{L}_{p^*,C}^g$-space [\cite{DefFloTensNorOpId}, corollary 23.2.1(1)].
+All $C(K)$-spaces are $\mathscr{L}_{\infty, 1}^g$-spaces
+[\cite{DefFloTensNorOpId}, lemma 4.4]. Note that, for a given locally compact
+Hausdorff space $S$ the Banach space $C_0(S)$ is complemented in $C(\alpha S)$.
+Therefore $C_0(S)$-spaces are $\mathscr{L}_\infty^g$-spaces too. We will mainly
+concern in $\mathscr{L}_1^g$- and $\mathscr{L}_\infty^g$-spaces.
+
+We say that a Banach space $E$ is weakly sequentially complete if for any
+sequence ${(x_n)}_{n\in\mathbb{N}}\subset E$ such that
+${(f(x_n))}_{n\in\mathbb{N}}\subset\mathbb{C}$ is a Cauchy sequence for 
+any $f\in E^*$ there exists a vector $x\in E$ 
+such that $\lim_n f(x_n)=f(x)$ for all $f\in E^*$. That is any weakly 
+Cauchy sequence converges in the weak topology. A typical example of weakly 
+sequentially complete Banach space is any $L_1$-space
+[\cite{WojBanSpForAnalysts}, corollary III.C.14]. This property is preserved by
+closed subspaces. A typical example of Banach space that is not weakly
+sequentially complete is $c_0(\mathbb{N})$, just consider the sequence
+${(\sum_{k=1}^n \delta_k)}_{n\in\mathbb{N}}$.
+
+Now we proceed to the discussion of the Dunford-Pettis property. A bounded
+linear operator $T:E\to F$ is called weakly compact if it maps the unit ball of
+$E$ into a relatively weakly compact subset of $F$. A bounded linear operator is
+called completely continuous if the image of any weakly compact subset of $E$ is
+norm compact in $F$. A Banach space $E$ is said to have the Dunford-Pettis
+property if any weakly compact operator from $E$ to any Banach space $F$ is
+completely continuous. There is a simple internal characterization
+[\cite{KalAlbTopicsBanSpTh}, theorem 5.4.4]: a Banach space $E$ has the
+Dunford-Pettis property if $\lim_n f_n(x_n)=0$ for all sequences
+${(x_n)}_{n\in\mathbb{N}}\subset E$ and ${(f_n)}_{n\in\mathbb{N}}\subset E^*$, 
+that both weakly converge to $0$. Now it is easy to deduce, 
+that if a Banach space $E^*$ has the Dunford-Pettis property, then so does $E$.
+In his seminal work~\cite{GrothApllFaiblCompSpCK} Grothendieck showed that all
+$L_1$-spaces and $C(K)$-spaces have this property. The Dunford-Pettis property
+passes to complemented subspaces [\cite{FabHabBanSpTh}, proposition 13.44]. This
+property behaves badly with reflexive spaces: since the unit ball of a reflexive
+space is weakly compact [\cite{MeggIntroBanSpTh}, theorem 2.8.2], then reflexive
+Banach space with the Dunford-Pettis property has norm compact unit ball and
+therefore this space is finite dimensional. 
+
+To introduce the next Banach geometric property we need definitions of Banach
+lattice and unconditional Schauder basis. 
+
+A real Riesz space $E$ is a vector space over $\mathbb{R}$ with the structure of
+partially ordered set such that $x\leq y$ implies $x+z\leq y+z$ for every
+$x,y,z\in E$ and $ax\geq 0$ for every $x\geq 0$, $a\in\mathbb{R}_+$. A partially
+ordered set is a lattice if any two elements ${x,y}$ have the least upper bound
+$x\vee y$ and the greatest lower bound $x\wedge y$. A real vector lattice is
+real Riesz space which is lattice as partially ordered set. If $E$ is a real
+vector lattice, then for every $x\in E$ we define its absolute value by equality
+$|x|:=x\vee(-x)$. A complex vector lattice $E$ is a vector space over
+$\mathbb{C}$ such that there exists a real vector subspace
+$\operatorname{Re}(E)$ which is real vector lattice and
+\begin{enumerate}[label = (\roman*)]
+  \item for any $x\in E$ there are unique
+  $\operatorname{Re}(x),\operatorname{Im}(x)\in \operatorname{Re}(E)$ such that
+  $x=\operatorname{Re}(x)+i\operatorname{Im}(x)$;
+
+  \item for any $x\in E$ there exist an absolute value $|x|:=\sup
+  \{\operatorname{Re}(e^{i\theta}x):\theta\in\mathbb{R} \}$.
+\end{enumerate}
+
+A Banach lattice is a Banach space with the structure of the complex vector
+lattice such that $\Vert x\Vert\leq \Vert y\Vert$ whenever $|x|\leq |y|$. A
+classical example of Banach lattice $E$ is an $L_p$-space or a $C(K)$-space. In
+both cases $\operatorname{Re}(E)$ consist of real valued functions in $E$. If 
+$ \{E_\lambda:\lambda\in\Lambda \}$ is a family of Banach lattices then for any
+$1\leq p\leq +\infty$ or $p=0$ their $\bigoplus_p$-sum is a Banach lattice with
+lattice operation defined as $x\leq y$ if $x_\lambda\leq y_\lambda$ for all
+$\lambda\in\Lambda$, where 
+$x,y\in\bigoplus_p \{ E_\lambda:\lambda\in\Lambda \}$. 
+The dual space $E^*$ of a Banach lattice $E$ is again a Banach lattice with
+lattice operation defined by $f\leq g$ if $f(x)\leq g(x)$ for all $x\geq 0$,
+where $f,g\in  E^*$. A very nice account of Banach lattices can be found in
+[\cite{LaceyIsomThOfClassicBanSp}, section 1].
+
+The property of being a Banach lattice puts some restrictions on the geometry of
+the space~\cite{SherOrderInOpAlg},~\cite{KadOrderPropOfBoundSAOps}. To explain
+the Banach geometric reason of this phenomena we need the definition of an
+unconditional Schauder basis. Let $E$ be a Banach space. A collection of
+functionals ${(f_\lambda)}_{\lambda\in\Lambda}$ in $E^*$ is called 
+a biorthogonal system for vectors ${(x_\lambda)}_{\lambda\in\Lambda}$ 
+from $E$ if $f_\lambda(x_{\lambda'})=1$ whenever $\lambda=\lambda'$ 
+and $0$ otherwise. A collection ${(x_\lambda)}_{\lambda\in\Lambda}$ 
+in $E$ is called an unconditional Schauder basis if there exists 
+a biorthogonal system ${(f_\lambda)}_{\lambda\in\Lambda}$ in $E^*$ 
+for it such that the series
+$\sum_{\lambda\in\Lambda} f_\lambda(x)x_\lambda$ unconditionally converges to
+$x$ for any $x\in E$. All $\ell_p$-spaces with $1\leq p<+\infty$ have an
+unconditional Schauder basis, for example, it is
+${(\delta_\lambda)}_{\lambda\in\Lambda}$. A typical example of space without
+unconditional basis is $C([0,1])$. Even more this Banach space can not even be a
+subspace of the space with unconditional basis [\cite{KalAlbTopicsBanSpTh},
+proposition 3.5.4].  Any unconditional Schauder basis
+${(x_\lambda)}_{\lambda\in\Lambda}$ in $E$ satisfy the following property
+[\cite{DiestAbsSumOps}, proposition 1.6]: there exists a constant $\kappa\geq 1$
+such that
+$$
+\left\Vert \sum_{\lambda\in\Lambda}t_\lambda f_\lambda(x)x_\lambda\right\Vert
+\leq
+\kappa\left\Vert \sum_{\lambda\in\Lambda}f_\lambda(x)x_\lambda\right\Vert
+$$
+for all $x\in E$ and $t\in\ell_\infty(\Lambda)$. The least such constant
+$\kappa$ among all unconditional Schauder bases of $E$ is denoted by
+$\kappa(E)$. Similar constant could be defined for Banach spaces without
+unconditional Schauder bases. The local unconditional constant $\kappa_u(E)$ of
+Banach space $E$ is defined to be the infimum of all scalars $c$ with the
+following property: given any finite dimensional subspace $F$ of $E$ there
+exists a Banach space $G$ with unconditional Schauder basis and two bounded
+linear operators $S:F\to G$, $T:G\to E$ such that $TS|^{F}=1_F$ and $\Vert
+T\Vert\Vert S\Vert\kappa(G)\leq c$. We say that a Banach space $E$ has the local
+unconditional structure property (the l.u.st.\ property for short) if
+$\kappa_u(E)$ is finite. Clearly any Banach space $E$ with unconditional
+Schauder basis has the l.u.st.\ property with $\kappa_u(E)=\kappa(E)$. In
+particular, all finite dimensional Banach spaces have the l.u.st.\ property.
+Though a general Banach lattice $E$ may not have an unconditional Schauder basis
+it is still has the l.u.st.\ property with $\kappa_u(E)=1$
+[\cite{DiestAbsSumOps}, theorem 17.1]. Directly from the definition it follows
+that the l.u.st.\ property is preserved by complemented subspaces. More
+precisely: if $F$ is a $c$-complemented subspace of $E$, 
+then $\kappa_u(F)\leq c\kappa_u(E)$. 
+Therefore all complemented subspaces of Banach lattices have the
+l.u.st.\ property. This sufficient condition is not far from criterion
+[\cite{DiestAbsSumOps}, theorem 17.5]: a Banach space $E$ has the l.u.st.
+property iff $E^{**}$ is topologically isomorphic to a complemented subspace of
+some Banach lattice. As the corollary of this criterion we get that $E$ has the
+l.u.st.\ property iff so does $E^*$ [\cite{DiestAbsSumOps}, corollary 17.6].
+
+The last property we shall discuss is a well known approximation property
+introduced by Grothendieck in~\cite{GrothProdTenTopNucl}. We say that a Banach
+space $E$ has the approximation property if for any compact set $K\subset E$ and
+any $\epsilon>0$ there exists a finite rank operator $T:E\to E$ such 
+that $\Vert T(x)-x\Vert<\epsilon$ for all $x\in K$. If $T$ can be 
+chosen with $\Vert T\Vert\leq c$, then $E$ is said to have the $c$-bounded
+approximation property. The metric approximation property is another name for
+$1$-bounded approximation property. We say that $E$ has the bounded
+approximation property if $E$ has the $c$-bounded approximation property for
+some $c\geq 1$. None of these properties are preserved by subspaces or quotient
+spaces, but the approximation property and the bounded approximation properties
+are inherited by complemented subspaces [\cite{DefFloTensNorOpId}, exercise
+5.5]. All $L_p$-spaces and $C(K)$-spaces have the metric approximation property
+[\cite{DefFloTensNorOpId}, section 5.2(3)], but their subspaces may fail the
+approximation property [\cite{DefFloTensNorOpId}, section 5.2(1)]. Any Banach
+space with unconditional Schauder basis has the approximation property
+[\cite{RyanIntroTensNormsBanSp}, example 4.4]. If $E^*$ has the approximation
+property, then so does $E$ [\cite{DefFloTensNorOpId}, corollary 5.7.2]. The
+reason why approximation property is so important is rather simple --- it has a
+lot of equivalent reformulations that involve many nice properties of Banach
+spaces. For example, the following properties of Banach space $E$ are equivalent
+[\cite{DefFloTensNorOpId}, sections 5.3, 5.6]:
+\begin{enumerate}[label = (\roman*)]
+  \item $E$ has the approximation property;
+
+  \item the natural mapping $Gr:E^*\projtens E\to\mathcal{N}(E)$ is an isometric
+  isomorphism;
+
+  \item for any Banach space $F$ every compact operator $T:F\to E$ can be
+  approximated in the operator norm by finite rank operators.
+\end{enumerate}
+
+There is much more to list, but we confine ourselves with these three
+properties.
+
+%-------------------------------------------------------------------------------
+%    Banach algebras and their modules
+%-------------------------------------------------------------------------------
+
+\subsection{Banach algebras and their
+modules}\label{SubSectionBanachAlgebrasAndTheirModules}
+
+A thorough treatment of Banach algebras and Banach modules can be found
+in~\cite{HelBanLocConvAlg} or~\cite{HelHomolBanTopAlg}
+or~\cite{DalBanAlgAutCont}. We shall describe only the bare minimum required for
+us.
+
+A Banach algebra $A$ is an associative algebra over $\mathbb{C}$ which is a
+Banach space and the multiplication bilinear operator 
+$\cdot:A\times A\to A:(a,b)\mapsto ab$ is of the norm at most $1$. A typical
+example of commutative Banach algebra is the algebra of continuous functions on
+a compact Hausdorff space with pointwise multiplication. A typical non
+commutative example is the algebra of bounded linear operators on the Hilbert
+space with composition in the role of multiplication. Both examples belong to a
+very important class of $C^*$-algebras to be discussed below. By $\langle$~left
+/ right / two-sided~$\rangle$ ideal $I$ of a Banach algebra $A$ we always mean a
+closed subalgebra of $A$ such that $\langle$~$ax$ / $xa$ / $ax$ and
+$xa$~$\rangle$ belong to $I$ for all $a\in A$ and $x\in I$.
+
+We say that an element $p$ of a Banach algebra $A$ is a $\langle$~left /
+right~$\rangle$ identity of $A$ if $\langle$~$pa=a$ / $ap=a$~$\rangle$ for all
+$a\in A$. The element which is both left and right identity is called the
+identity and denoted by $e_A$. In general we do not assume that Banach algebras
+are unital, i.e.\ has an identity. Even if a Banach algebra $A$ is unital we do
+not require its identity to be of norm $1$. We use notation
+$A_+=A\bigoplus_1\mathbb{C}$ for the standard unitization of Banach algebras.
+The multiplication in $A_+$ is defined as $(a\oplus_1 z)(b\oplus_1
+w)=(ab+wa+zb)\oplus_1 zw$, for $a,b\in A$ and $z,w\in\mathbb{C}$. Clearly
+$(0,1)$ is the identity of $A_+$. By $A_\times$ we denote the conditional
+unitization of $A$, i.e. $A_\times=A$ if $A$ has identity of norm one and
+$A_\times=A_+$ otherwise. Even in the absence of identity in case of Banach
+algebras there are good substitutes for it which are called approximate
+identities. We say that a net ${(e_\nu)}_{\nu\in N}$ in $A$ is a 
+$\langle$~left / right / two-sided~$\rangle$ approximate identity if 
+$\langle$~$\lim_\nu e_\nu a=a$ / $\lim_\nu ae_\nu=a$ / 
+$\lim_\nu e_\nu a=\lim_\nu ae_\nu=a$~$\rangle$ for
+all $a\in A$. In all these three definitions convergence of nets is understood
+in the norm topology. If we will consider weak topology, we shall get
+definitions of left, right and two-sided weak approximate identities. We say
+that an approximate identity ${(e_\nu)}_{\nu\in N}$ is $c$-bounded if
+$\sup_\nu\Vert e_\nu\Vert\leq c$. An approximate identity ${(e_\nu)}_{\nu\in N}$
+is called $\langle$~bounded / contractive~$\rangle$ if it is
+$\langle$~$1$-bounded / $c$-bounded for some $c\geq 1$~$\rangle$. Occasionally
+we will use the following simple fact: if $A$ is a Banach algebra with
+$\langle$~left / right~$\rangle$ identity $p$ and $\langle$~right /
+left~$\rangle$ approximate identity ${(e_\nu)}_{\nu\in N}$, then $A$ is unital
+with identity $p$ of norm $\lim_\nu\Vert e_\nu\Vert$. 
+
+If $A$ is a unital Banach algebra we define the spectrum
+$\operatorname{sp}_A(a)$ of element $a$ in $A$ as the set of all complex numbers
+$z$ such that $a-ze_A$ is not invertible in $A$. For Banach algebras the
+spectrum of any element is a non empty compact subset of $\mathbb{C}$
+[\cite{HelBanLocConvAlg}, corollary 2.1.16].
+
+A character on a Banach algebra $A$ is a non zero linear homomorphism
+$\varkappa:A\to\mathbb{C}$. All characters are continuous and are contained in
+the unit ball of $A^*$  [\cite{HelBanLocConvAlg}, theorem 1.2.6]. Therefore we
+may consider the set of characters with the induced weak$^*$ topology. The
+resulting topological space is Hausdorff and locally compact. It is called the
+spectrum of Banach algebra $A$ and denoted by $\operatorname{Spec}(A)$. If $A$
+is unital then its spectrum is compact [\cite{HelBanLocConvAlg}, theorem
+1.2.50]. Now for a given Banach algebra $A$ with non empty spectrum we can
+construct a contractive homomorphism $\Gamma_A:A\to
+C_0(\operatorname{Spec}(A)):a\mapsto(\varkappa\mapsto \varkappa(a))$ called the
+Gelfand transform of $A$ [\cite{HelBanLocConvAlg}, theorem 4.2.11]. The kernel
+of this homomorphism is called the Jacobson's radical and denoted by
+$\operatorname{Rad}(A)$. For Banach algebra $A$ with empty spectrum we define
+$\operatorname{Rad}(A)=A$. If $\operatorname{Rad}(A)= \{0 \}$, then $A$ is
+called semisimple. By Shilov's idempotent theorem [\cite{KaniBanAlg}, section
+3.5] any semisimple Banach algebra with compact spectrum is unital.
+
+Most of standard constructions for Banach spaces have their counterparts for
+Banach algebras. For example $\bigoplus_p$-sum of Banach algebras endowed with
+componentwise multiplication is a Banach algebra, the quotient of a given Banach
+algebra by its two sided ideal is a Banach algebra. Even the projective tensor
+product of two Banach algebras is a Banach algebra with multiplication defined
+on elementary tensors the same way as in pure algebra.
+
+We shall proceed to the discussion of the most important class of Banach
+algebras. Let $A$ be an associative algebra over $\mathbb{C}$, then a conjugate
+linear operator ${}^*:A\to A$ is called an involution if ${(ab)}^*=b^*a^*$ and
+$a^{**}=a$ for all $a,b\in A$. Algebras with involution are called
+${}^*$-algebras. Homomorphisms between ${}^*$-algebras that preserve involution
+are called ${}^*$-homomorphisms. A Banach algebra with isometric involution is
+called a ${}^*$-Banach algebra. An example of such algebra is the Banach algebra
+of bounded linear operators on Hilbert space with operation of taking the
+Hilbert adjoint operator in the role of involution. In fact there is much more
+to this algebra than one could expect. We say that a ${}^*$-Banach algebra $A$
+is a $C^*$-algebra if it satisfies $\Vert a^*a\Vert=\Vert a\Vert^2$ for all
+$a\in A$. One of the biggest advantages of $C^*$-algebras is their celebrated
+representation theorems by Gelfand and Naimark. The first representation theorem
+[\cite{HelBanLocConvAlg}, theorem 4.7.13] states that any commutative
+$C^*$-algebra $A$ is isometrically isomorphic as ${}^*$-algebra to
+$C_0(\operatorname{Spec}(A))$. The second theorem [\cite{HelBanLocConvAlg},
+theorem 4.7.57] gives a description of generic $C^*$-algebras as closed
+${}^*$-Banach subalgebras of $\mathcal{B}(H)$ for some Hilbert space $H$. Such
+representation is not unique, but a norm (if it exists) that turn a
+${}^*$-algebra into a $C^*$-algebra is always unique. If a ${}^*$-subalgebra of
+$\mathcal{B}(H)$ is weak${}^*$ closed it is called a von Neumann algebra. If a
+$C^*$-algebra is isomorphic as ${}^*$-algebra to a von Neumann algebra it is
+called a $W^*$-algebra. By well known Sakai's theorem [\cite{BlackadarOpAlg},
+theorem III.2.4.2] each $C^*$-algebra which is dual as Banach space is a
+$W^*$-algebra, but beware a $W^*$-algebra may be represented as non weak${}^*$
+closed ${}^*$-subalgebra in $\mathcal{B}(H)$ for some Hilbert space $H$. 
+
+A lot of standard constructions pass to $C^*$-algebras from Banach algebras, but
+not all. For example a $\bigoplus_\infty$-sum of $C^*$-algebras is again a
+$C^*$-algebra. A quotient of $C^*$-algebra by closed two-sided ideal is a
+$C^*$-algebra too. Meanwhile the projective tensor product of $C^*$-algebras is
+rarely a $C^*$-algebra, though there a lot of norms that may turn their
+algebraic tensor product into a $C^*$-algebra. In this book we shall exploit one
+specific and highly important for $C^*$-algebras construction of matrix
+algebras. For a given $C^*$-algebra $A$ by $M_n(A)$ we denote the linear space
+of $n\times n$ matrices with entries in $A$. In fact $M_n(A)$ is ${}^*$-algebra
+with involution and multiplication defined by equalities 
+$$
+{(ab)}_{i,j}=\sum_{k=1}^n a_{i,k}b_{k,j}
+\qquad\qquad
+{(a^*)}_{i,j}=(a_{j,i}^*)
+$$ 
+for all $a,b\in M_n(A)$ and $i,j\in\mathbb{N}_n$. There is a unique norm on
+$M_n(A)$ that makes it a $C^*$-algebra [\cite{MurphyCStarAlgsAndOpTh}, theorem
+3.4.2]. Obviously, $M_n(\mathbb{C})$ is isometrically isomorphic as
+${}^*$-algebra to $\mathcal{B}(\ell_2(\mathbb{N}_n))$. From
+[\cite{MurphyCStarAlgsAndOpTh}, remark 3.4.1] it follows that the natural
+embeddings 
+$i_{k,l}:A\to M_n(A):a\mapsto{(a\delta_{i,k}\delta_{j,l})}_{i,j\in\mathbb{N}_n}$
+and projections
+$\pi_{k,l}:M_n(A)\to A:a\mapsto a_{k,l}$ are continuous. Therefore for a given
+bounded linear operator $\phi:A\to B$ between $C^*$-algebras $A$ and $B$ the
+linear operator 
+$$
+M_n(\phi):M_n(A)\to M_n(B):a\mapsto {(\phi(a_{i,j}))}_{i,j\in\mathbb{N}_n}
+$$ 
+is also bounded. Even more if $\phi$ is an $A$-morphism or ${}^*$-homomorphism,
+then so does $M_n(\phi)$. Finally we shall mention two isometric isomorphisms
+that will be of use:
+$$
+M_n\left(\bigoplus\nolimits_\infty \{A_\lambda:\lambda\in\Lambda \}\right)
+\isom{\mathbf{Ban}_1}
+\bigoplus\nolimits_\infty \{M_n\left(A_\lambda\right):\lambda\in\Lambda \},
+$$
+$$
+M_n(C(K))\isom{\mathbf{Ban}_1}C(K,M_n(\mathbb{C}))
+$$
+
+Now a few facts on approximate identities and identities of $C^*$-algebras and
+their ideals. Any two-sided closed ideal of $C^*$-algebra has a two-sided
+contractive positive approximate identity [\cite{HelBanLocConvAlg}, theorem
+4.7.79], and any left ideal has a right contractive positive approximate
+identity. In some cases even an approximate identity is not enough, so for this
+situation there is a procedure to endow a $C^*$-algebra with identity and
+preserve $C^*$-algebraic structure [\cite{HelBanLocConvAlg}, proposition 4.7.6].
+This type of unitization we shall denote as $A_\#$. Till the end of this
+paragraph we assume that $A$ is a unital $C^*$-algebra. An element $a\in A$ is
+called a projection (or an orthogonal projection) if $a=a^*=a^2$, self-adjoint
+if $a=a^*$, positive if $a=b^*b$ for some $b\in A$, unitary if $a^*a=aa^*=e_A$.
+The set $A_{pos}$ of all positive elements of $A$ is a closed cone in $A$. If an
+element $a\in A$ is $\langle$~self-adjoint / positive~$\rangle$, then
+$\langle$~$\operatorname{sp}_A(a)\subset[-\Vert a\Vert, \Vert a\Vert]$ /
+$\operatorname{sp}_A(a)\subset[0,\Vert a\Vert]$~$\rangle$. For a given
+self-adjoint element $a\in A$, there always exists the isometric
+${}^*$-homomorphism $\operatorname{Cont}_a:C(\operatorname{sp}_A(a))\to A$ such
+that $\operatorname{Cont}_a(f)=a$, where
+$f:\operatorname{sp}_A(a)\to\mathbb{C}:t\mapsto t$. It is called the continuous
+functional calculus [\cite{HelBanLocConvAlg}, theorem 4.7.24]. Loosely speaking
+it allows to take continuous functions of self-adjoint elements of
+$C^*$-algebras, so following standard convention we shall write $f(a)$ instead
+of $\operatorname{Cont}_a(f)$. Another related result called the spectral
+mapping theorem allows to compute the spectrum of elements given by continuous
+functional calculus: $\operatorname{sp}_A(f(a))=f(\operatorname{sp}_A(a))$.
+
+We proceed to the discussion of more general objects --- Banach modules. Let $A$
+be a Banach algebra, we say that $X$ is a $\langle$~left / right~$\rangle$
+Banach $A$-module if $X$ is a Banach space endowed with bilinear operator
+$\langle$~$\cdot:A\times X\to X$ / $\cdot: X\times A\to X$~$\rangle$ of norm at
+most $1$ (called a module action), such that 
+$\langle$~$a\cdot(b\cdot x)=ab\cdot x$ / 
+$(x\cdot a)\cdot b=x\cdot ab$~$\rangle$ for all $a,b\in A$ and $x\in X$.
+Any Banach space $E$ can be turned into a $\langle$~left / right~$\rangle$
+Banach $A$-module be defining $\langle$~$a\cdot x=0$ / $x\cdot a=0$~$\rangle$
+for all $a\in A$ and $x\in E$. Any Banach algebra $A$ can be regarded as a left
+and right Banach $A$-module --- the module action coincides with algebra
+multiplication. Of course, there are more meaningful examples too.  Usually we
+shall discuss only left Banach modules since for their right sided counterparts
+all definitions and results are similar. We call a left Banach module $X$ over
+unital Banach algebra $A$ unital if $e_A\cdot x=x$ for all $x\in X$. For a given
+left Banach $A$-module $X$ and $S\subset A$, $M\subset X$ we define their
+products $S\cdot M= \{a\cdot x:a\in S, x\in M \}$, 
+$SM=\operatorname{span} (S\cdot M)$ and annihilators 
+$S^{\perp M}= \{a\in S:a\cdot M= \{0 \} \}$,
+${}^{S\perp}M= \{x\in M: S\cdot x= \{0 \} \}$. The essential and annihilator
+parts of $X$ are defined as $X_{ess}=\operatorname{cl}_X(A X)$,
+$X_{ann}={}^{A\perp}X$. The module $X$ is called $\langle$~faithful /
+annihilator / essential~$\rangle$ if $\langle$~${}^{A\perp}X= \{0 \}$ /
+$X=X_{ann}$ / $X=X_{ess}$~$\rangle$. An obvious application of Hahn-Banach
+theorem shows that $X$ is an essential $A$-module iff $X^*$ is a faithful
+$A$-module.
+
+Let $X$ and $Y$ be $\langle$~left / right~$\rangle$ Banach $A$-modules. We say
+that a linear operator $\phi:X\to Y$ is an $A$-module map of $\langle$~left /
+right~$\rangle$ modules if $\langle$~$\phi(a\cdot x)=a\cdot \phi(x)$ /
+$\phi(x\cdot a)=\phi(x)\cdot a$~$\rangle$ for all $a\in A$ and $x\in X$. A
+bounded $A$-module map is called an $A$-morphism. The set of $A$-morphisms
+between $\langle$~left / right~$\rangle$ $A$-modules $X$ and $Y$ we denote as
+$\langle$~${}_A\mathcal{B}(X,Y)$ / $\mathcal{B}_A(X,Y)$~$\rangle$. Note that if
+$X$ and $Y$ are $\langle$~left / right~$\rangle$ annihilator $A$-modules, then
+$\langle$~${}_A\mathcal{B}(X,Y)=\mathcal{B}(X,Y)$ /
+$\mathcal{B}_A(X,Y)=\mathcal{B}(X,Y)$~$\rangle$.
+
+By $\langle A-\mathbf{mod}$ / $\mathbf{mod}-A\rangle$ we shall denote the
+category of $\langle$~left / right~$\rangle$ $A$-modules with continuous
+$A$-module maps in the role of morphisms. By $\langle$~$A-\mathbf{mod}_1$ /
+$\mathbf{mod}_1-A$~$\rangle$ we denote its subcategory of
+$\langle$~$A-\mathbf{mod}$ / $\mathbf{mod}-A$~$\rangle$ with the same objects
+and contractive morphisms only. Therefore 
+$\langle$~$\operatorname{Hom}_{A-\mathbf{mod}}(X,Y)={}_A\mathcal{B}(X,Y)$ /
+$\operatorname{Hom}_{\mathbf{mod}-A}(X,Y)=\mathcal{B}_A(X,Y)$~$\rangle$. 
+
+As in any category we can speak of retraction and     coretractions in the
+category of Banach modules. But for this particular case we have several
+refinements for the standard definitions. An $A$-morphism $\xi:X\to Y$ is called
+a $\langle$~$c$-retraction / $c$-coretraction~$\rangle$ if there exist an
+$A$-morphism $\eta:Y\to X$ such that $\langle$~$\xi\eta=1_Y$ /
+$\eta\xi=1_X$~$\rangle$ and $\Vert\xi\Vert\Vert\eta\Vert\leq c$. From the
+definition it follows that composition of $\langle$~$c_1$- and $c_2$-retraction
+/ $c_1$- and $c_2$-coretraction~$\rangle$ gives a $\langle$~$c_1c_2$-retraction
+/ $c_1c_2$-coretraction~$\rangle$. Clearly, the adjoint of
+$\langle$~$c$-retraction / $c$-coretraction~$\rangle$ is a
+$\langle$~$c$-coretraction / $c$-retraction~$\rangle$. Finally, an $A$-morphism
+$\xi:X\to Y$ is called a $c$-isomorphism if there exists an $A$-morphism
+$\eta:Y\to X$ such that $\xi\eta=1_Y$, $\eta\xi=1_X$ and
+$\Vert\xi\Vert\Vert\eta\Vert\leq c$. In this case we say that $A$-modules $X$
+and $Y$ are $c$-isomorphic.
+
+Now we mention several constructions over Banach modules that we will encounter
+in this book.  Any left Banach $A$-module can be regarded as unital Banach
+module over $A_+$, and we put by definition $(a\oplus_1 z)\cdot x=a\cdot x+zx$
+for all $a\in A$, $x\in X$ and $z\in\mathbb{C}$. Most constructions used for
+Banach spaces transfer to Banach modules.  We say that a linear subspace $ Y$ of
+a left Banach $A$-module $X$ is a left $A$-submodule of $X$ 
+if $A\cdot Y\subset Y$. For example, any left ideal $I$ of a 
+Banach algebra $A$ is a left $A$-submodule of $A$. If $Y$ is a closed left
+$A$-submodule of the left Banach $A$-module $X$, then the Banach space $X/Y$ can
+be endowed with the structure of the left Banach $A$-module, just put by
+definition $a\cdot(x+Y)=a\cdot x+Y$ for all $a\in A$ and $x+Y\in X/Y$. This
+object is called the quotient $A$-module. Quotient modules of the form $A/I$,
+where $I$ is a left ideal of $A$, are called cyclic modules. For motivation for
+this term see [\cite{HelBanLocConvAlg}, proposition 6.2.2]. Clearly, $X/X_{ess}$
+is an annihilator $A$-module. If $X$ is a left Banach $A$-module and $E$ is a
+Banach space, then $\langle$~$\mathcal{B}(X,E)$ / $\mathcal{B}(E,X)$~$\rangle$
+is a $\langle$~right / left~$\rangle$ Banach $A$-module with module action
+defined by $\langle$~$(T\cdot a)(x)=T(a\cdot x)$ for all $a\in A$, $x\in X$ and
+$T\in\mathcal{B}(X, E)$ / $(a\cdot T)(x)=a\cdot T(x)$ for all $a\in A$, $x\in E$
+and $T\in\mathcal{B}(E, X)$~$\rangle$. In particular, $X^*$ is a right Banach
+$A$-module. If $ \{X_\lambda:\lambda\in\Lambda \}$ is a family of left Banach
+$A$-modules and $1\leq p\leq +\infty$ or $p=0$, then their $\bigoplus_p$-sum is
+a left Banach $A$-module with module action defined 
+by $a\cdot x=\bigoplus_p \{a\cdot x_\lambda:\lambda\in\Lambda \}$, 
+where $a\in A$, $x\in\bigoplus_p \{X_\lambda:\lambda\in\Lambda \}$. 
+Again, as in Banach space theory, any family
+of $A$-modules admits the $\langle$~product / coproduct~$\rangle$ in
+$A-\mathbf{mod}_1$ which in fact is their $\langle$~$\bigoplus_1$-sum /
+$\bigoplus_\infty$-sum~$\rangle$. The category $A-\mathbf{mod}$ admits
+$\langle$~products / coproducts~$\rangle$ only for finite families of objects.
+Similar statements are valid for $\mathbf{mod}-A$ and $\mathbf{mod}_1-A$.
+
+Projective tensor product of Banach spaces also has its module version, it is
+called the projective module tensor product. Assume $X$ is a right and $Y$ is a
+left Banach $A$-module. Their projective module tensor product
+$X\projmodtens{A}Y$ is defined as quotient space $X\projtens Y / N$ where
+$N
+=\operatorname{cl}_{X\projtens Y}(\operatorname{span} \{
+  x\cdot a\projtens y-x\projtens a\cdot y
+  :x\in X,y\in Y,a\in A
+ \})$. 
+Let $\phi\in\mathcal{B}_A(X_1,X_2)$ and $\psi\in{}_A\mathcal{B}(Y_1,Y_2)$ 
+for right Banach $A$-modules $X_1$, $X_2$ and left 
+Banach $A$-modules $Y_1$, $Y_2$, then there exists a unique bounded 
+linear operator 
+$\phi\projmodtens{A} \psi:X_1\projmodtens{A} Y_1\to X_2\projmodtens{A} Y_2$ 
+such that
+$(\phi\projmodtens{A} \psi)(x\projmodtens{A} y)=\phi(x)\projmodtens{A} \psi(y)$
+for all $x\in X_1$ and $y\in Y_1$. Even more 
+$\Vert \phi\projmodtens{A} \psi\Vert\leq\Vert \phi\Vert\Vert \psi\Vert$. 
+The projective module tensor product has its own universal property: for any
+right Banach $A$-module $X$, any left Banach $A$-module $Y$ and any Banach space
+$E$ there exists an isometric isomorphism:
+$$
+\mathcal{B}(X\projmodtens{A}Y,E)
+\isom{\mathbf{Ban}_1}
+\mathcal{B}_{bal}(X\times Y, E)
+$$
+where $\mathcal{B}_{bal}(X\times Y, E)$ stands for the Banach space of bilinear
+operators $\Phi:X\times Y\to E$ satisfying $\Phi(x\cdot a,y)=\Phi(x,a\cdot y)$
+for all $x\in X$, $y\in Y$ and $a\in A$. Such bilinear operators are called
+balanced. Furthermore we have two (natural in $X$, $Y$ and $E$) isometric
+isomorphisms:
+$$
+\mathcal{B}(X\projmodtens{A}Y,E)
+\isom{\mathbf{Ban}_1}
+{}_A\mathcal{B}(Y,\mathcal{B}(X,E))
+\isom{\mathbf{Ban}_1}
+\mathcal{B}_A(X,\mathcal{B}(Y,E))
+$$
+Analogously to Banach space theory we may define the following functors:
+$$
+\mathcal{B}(-,E):A-\mathbf{mod}\to \mathbf{mod}-A
+\qquad\qquad
+\mathcal{B}(E,-):\mathbf{mod}-A\to \mathbf{mod}-A
+$$
+$$
+-\projmodtens{A} Y:\mathbf{mod}-A\to\mathbf{Ban}
+\qquad\qquad
+X\projmodtens{A} -:A-\mathbf{mod}\to\mathbf{Ban}
+$$
+where $E$ is a Banach space, $X$ is a right $A$-module and $Y$ is a left
+$A$-module. All these functors have their counterparts for categories
+$A-\mathbf{mod}_1$, $\mathbf{mod}_1-A$. 
+
+In some cases it is possible to explicitly compute the projective module tensor
+product. For example [\cite{HelBanLocConvAlg}, proposition 6.3.24] if $I$ is a
+left closed ideal of $A_+$ with left $\langle$~contractive / bounded~$\rangle$
+approximate identity, and $X$ is a left Banach module then the linear operator 
+$$
+i_{I,X}
+:I\projmodtens{A}X \to \operatorname{cl}_X(IX)
+:a\projmodtens{A} x\mapsto a\cdot x
+$$
+is $\langle$~a topological isomorphism / an isometric isomorphism~$\rangle$ of
+Banach spaces. If $I$ is a two-sided ideal, then $i_{I,X}$ is a morphism of left
+$A$-modules. We call reduced all left Banach modules of the form
+$A\projmodtens{A}X$. 
+
+Most of what have been said here can be generalized to Banach bimodules, but in
+this book we shall not exploit them much. In those rare case when we shall
+encounter bimodules, the respective definitions and results are easily
+recoverable from their one sided counterparts.
+
+%-------------------------------------------------------------------------------
+%    Banach homology
+%-------------------------------------------------------------------------------
+
+\section{Banach homology}\label{SectionBanachHomology}
+
+%-------------------------------------------------------------------------------
+%    Relative homology
+%-------------------------------------------------------------------------------
+
+\subsection{Relative homology}\label{SubSectionRelativeHomology}
+
+Further we briefly discuss ABCs of relative homology introduced and intensively
+studied by Helemskii. Fix an arbitrary Banach algebra $A$. We say that a
+morphism $\xi:X\to Y$ of left $A$-modules $X$ and $Y$ is a relatively admissible
+epimorphism if it admits a right inverse bounded linear operator. A left
+$A$-module $P$ is called relatively projective if for any relatively admissible
+epimorphism $\xi:X\to Y$ and for any $A$-morphism $\phi:P\to Y$ there exists an
+$A$-morphism $\psi:P\to X$ such that the diagram
+$$
+\xymatrix{
+& {X} \ar[d]^{\xi}\\  % chktex 3
+{P} \ar@{-->}[ur]^{\psi} \ar[r]^{\phi} &{Y}}  % chktex 3
+$$
+is commutative. Such $A$-morphism $\psi$ is called a lifting of $\phi$ and it is
+not unique in general. Similarly,  we say that a morphism $\xi:Y\to X$ of right
+$A$-modules $X$ and $Y$ is a relatively admissible monomorphism if it admits a
+left inverse bounded linear operator. A right $A$-module $J$ is called
+relatively injective if for any relatively admissible  monomorphism $\xi:Y\to X$
+and for any $A$-morphism $\phi:Y\to J$ there exists an $A$-morphism 
+$\psi:X\to J$ such that the diagram
+$$
+\xymatrix{
+& {X} \ar@{-->}[dl]_{\psi} \\  % chktex 3
+{J} &{Y} \ar[l]_{\phi} \ar[u]_{\xi}}  % chktex 3
+$$
+is commutative. Such $A$-morphism $\psi$ is called an extension of $\phi$ and it
+is not unique in general.
+
+The reason for considering relatively admissible morphisms in these definitions
+is the intention of separation of Banach geometric and algebraic motives that 
+may prevent an $A$-module to be relatively projective or injective. 
+A straightforward check shows that any retract of 
+relatively $\langle$~projective / injective~$\rangle$ $A$-module is 
+again relatively $\langle$~projective / injective~$\rangle$. 
+Obviously, any relatively admissible $\langle$~epimorphism
+/ monomorphism~$\rangle$ $\langle$~onto / from~$\rangle$ a relatively
+$\langle$~projective / injective~$\rangle$ $A$-module is a $\langle$~retraction
+/ coretraction~$\rangle$.
+
+A special class of relatively $\langle$~projective / injective~$\rangle$
+$A$-modules is the so-called relatively $\langle$~free / cofree~$\rangle$
+modules. These are modules of the form $\langle$~$A_+\projtens E$ /
+$\mathcal{B}(A_+,E)$~$\rangle$ for some Banach space $E$. Their main feature is
+the following: for any $A$-module $X$ there exists a relatively $\langle$~free /
+cofree~$\rangle$ $A$-module $F$, which in fact is $\langle$~$A_+\projtens X$ /
+$\mathcal{B}(A_+,X)$~$\rangle$ and a relatively admissible $\langle$~epimorphism
+$\xi:F\to X$ / monomorphism $\xi:X\to F$~$\rangle$. If $X$ is relatively
+$\langle$~projective / injective~$\rangle$ we immediately get that $\xi$ is a
+$\langle$~retraction / coretraction~$\rangle$. Therefore an $A$-module is
+relatively $\langle$~projective / injective~$\rangle$ iff it is a retract of
+relatively $\langle$~free / cofree~$\rangle$ $A$-module. 
+
+It is worth to emphasize one more time that major nuance of relative Banach
+homology is deliberate balance between algebra and topology in choice of
+admissible morphisms. This choice allowed one to build homological theory with
+some interesting phenomena with no analogs in pure algebra. We demonstrate one
+example related to Banach algebras. Consider morphism of $A$-bimodules
+$\Pi_A:A\projtens A\to A:a\projtens b\mapsto ab$. We say that a Banach algebra
+$A$ is 
+\begin{enumerate}[label = (\roman*)]
+  \item relatively $c$-biprojective if $\Pi_A$ is a $c$-retraction of
+  $A$-bimodules;
+
+  \item relatively $c$-biflat if $\Pi_A^*$ is a $c$-coretraction of 
+  $A$-bimodules;
+
+  \item relatively $c$-contractible if $\Pi_{A_+}$ is a $c$-retraction of
+  $A$-bimodules;
+
+  \item relatively $c$-amenable if $\Pi_{A_+}^*$ is a $c$-coretraction of
+  $A$-bimodules.
+\end{enumerate}
+
+We say that $A$ is relatively $\langle$~biprojective / biflat / contractive /
+amenable~$\rangle$ if it is relatively $\langle$~$c$-biprojective / $c$-biflat /
+$c$-contractive / $c$-amenable~$\rangle$ for some $c\geq 1$. The infimum of the
+constants $c$ is called the $\langle$~biprojectivity / biflatness /
+contractivity / amenability~$\rangle$ constant.  With slight modifications of
+[\cite{HelBanLocConvAlg}, proposition 7.1.72] one can show that $A$ is
+relatively $\langle$~$c$-contractible / $c$-amenable~$\rangle$ iff there exists
+$\langle$~an element $d\in A\projtens A$ / a net 
+${(d_\nu)}_{\nu\in N}\subset A\projtens A$~$\rangle$ with 
+norm not greater than $c$ such that for all $a\in A$ holds 
+$\langle$~$a\cdot d-d\cdot a=0$ and $a\Pi_A(d)=a$ / 
+$\lim_\nu(a\cdot d_\nu-d_\nu\cdot a)=0$ 
+and $\lim_\nu a\Pi_A(d_\nu)=a$~$\rangle$. Note that 
+$\langle$~such element $d$ / such net ${(d_\nu)}_{\nu\in N}$~$\rangle$ is called
+$\langle$~a diagonal / an approximate diagonal~$\rangle$. From homological point
+of view, the main advantage of relatively $\langle$~biprojective / biflat /
+contractible / amenable~$\rangle$ Banach algebras is that $\langle$~any reduced
+/ any reduced / any / any~$\rangle$ left and right Banach $A$-module is
+relatively $\langle$~projective / flat / projective / flat~$\rangle$
+[\cite{HelBanLocConvAlg}, theorem 7.1.60]. As for flatness such phenomena is
+typical for relative Banach homology, but not for the purely algebraic one.
+
+%-------------------------------------------------------------------------------
+%    Rigged categories
+%-------------------------------------------------------------------------------
+
+\subsection{Rigged categories}\label{SubSectionRiggedCategories}
+
+Claims on projectivity and injectivity from previous section have their analogs
+for a lot of other types of projectivity and injectivity in other categories of
+mathematics~\cite{SemadeniProjInjDual}. Even more, one may easily see that
+injectivity and projectivity are somewhat dual to each other. All these
+observations suggest that there is a general categorical approach to study basic
+properties of homologically trivial objects. Such approach has been promoted by
+Helemskii in~\cite{HelMetrFrQMod}. As we shall see it covers relative theory
+while results given above are obvious consequences of more general facts. 
+
+Let $\mathbf{C}$ and $\mathbf{D}$ be two fixed categories. An ordered pair
+($\mathbf{C}, \square:\mathbf{C}\to\mathbf{D}$), where $\square$ is a faithful
+covariant functor, is called a rigged category. We say that a morphism $\xi$ in
+$\mathbf{C}$ is $\square$-admissible epimorphism if $\square (\xi)$ is a
+retraction in $\mathbf{D}$. An object $P$ in $\mathbf{C}$ is called
+$\square$-projective, if for every $\square$-admissible epimorphism $\xi$ in
+$\mathbf{C}$ the map $\operatorname{Hom}_{\mathbf{C}}(P,\xi)$ is surjective. An
+object $F$ in $\mathbf{C}$ is called $\square$-free with base $M$ in
+$\mathbf{D}$, if there exists an isomorphism of functors
+$\operatorname{Hom}_{\mathbf{D}}(M,\square(-))
+\cong
+\operatorname{Hom}_{\mathbf{C}}(F,-)$.
+A rigged category $(\mathbf{C},\square)$ is called  freedom-loving
+[\cite{HelMetrFrQMod}, definition 2.10], if every object in $\mathbf{D}$ is a
+base of some $\square$-free object in $\mathbf{C}$. We may summarize results of
+propositions 2.3, 2.11  and 2.12 in~\cite{HelMetrFrQMod} as follows:
+\begin{enumerate}[label = (\roman*)]
+  \item any retract of $\square$-projective object is $\square$-projective;
+
+  \item any $\square$-admissible epimorphism into $\square$-projective object 
+  is a retraction;
+
+  \item any $\square$-free object is $\square$-projective;
+
+  \item if $(\mathbf{C},\square)$ is freedom-loving rigged category, then any
+  object is $\square$-projective iff it is a retract of $\square$-free object;
+
+  \item coproduct of the family of $\square$-projective objects is
+  $\square$-projective.
+\end{enumerate}
+
+The opposite rigged category of $(\mathbf{C}, \square)$ is a rigged category
+$(\mathbf{C}^{o},\square^{o}:\mathbf{C}^{o}\to\mathbf{D}^{o})$. Thus by passing
+to the opposite rigged category we may define admissible monomorphisms,
+injectivity and cofreedom. A morphism $\xi$ in called $\square$-admissible
+monomorphism if it is $\square^o$-admissible epimorphism. An object $J$ in
+$\mathbf{C}$ is called $\square$-injective if it is $\square^o$-projective.
+Finally, an object $F$ in $\mathbf{C}$ is called $\square$-cofree if it is
+$\square^o$-free. This gives us analogs of results as above for injectivity and
+cofreedom.
+
+Now consider faithful functor $\square_{rel}:A-\mathbf{mod}\to\mathbf{Ban}$ that
+just `forgets'' the module structure. One can easily see that
+$(A-\mathbf{mod},\square_{rel})$ is a rigged category whose
+$\square_{rel}$-admissible $\langle$~epimorphisms / monomorphisms~$\rangle$ are
+exactly relatively admissible $\langle$~epimorphisms / monomorphisms~$\rangle$
+and $\langle$~$\square_{rel}$-projective / $\square_{rel}$-injective~$\rangle$
+objects are exactly relatively $\langle$~projective / injective~$\rangle$
+$A$-modules. Even more all $\langle$~$\square_{rel}$-free /
+$\square_{rel}$-cofree~$\rangle$ objects are isomorphic in $A-\mathbf{mod}$ to
+$\langle$~$A_+\projtens E$ / $\mathcal{B}(A_+,E)$~$\rangle$ for some Banach
+space $E$. This example shows, that relative theory perfectly fits into the
+realm of rigged categories.
+
+We shall apply this scheme for metric and topological theory in the next
+chapter. These two theories put much weaker restrictions on their admissible
+morphisms. The proverb ``all covet, all lose'' perfectly explains what will
+happen next.

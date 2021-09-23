@@ -1,313 +1,381 @@
- %\title{PhD thesis}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Thesis 
-% LaTeX Template
-% Version 1.3 (21/12/12)
-%
-% This template has been downloaded from:
-% http://www.latextemplates.com
-%
-% Original authors:
-% Steven Gunn 
-% http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/
-% and
-% Sunil Patel
-% http://www.sunilpatel.co.uk/thesis-template/
-%
-% License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-%
-% Note:
-% Make sure to edit document variables in the Thesis.cls file
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % TODO(norberrt)
-% Get rid of the section on the "small category"
-% Get rid of excessively detailed introduction on approximation property
-% 
+% Get rid of rigged categories
+%   Check theorem dependencies
+%   Delete all mentions of the words admissible, rigged
+%       In the abstract
+%       In the main text
+%   Delete papers that are no longer needed in the text
+%   Repeate White's proofs
+% Get rid of the incorrect proof of the projectivity of L_p. 
+%   Cite my results published at Math Notes.
+% Add the following proofs
+%   (AX)^\perp= (X^*)^{\perp A}
+%   if P is projective, then AP is complemented
+%   if J is injective, then J^{\perp A} is complemented
+%   change of algebra injectivity, see if we can replace complementability 
+%       of the ideal with weak complementability 
+%   inductive limit of flat modules is flat
+% Fix grammar
 
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
-\documentclass[11pt, a4paper, oneside]{Thesis} % Paper size, default font size and one-sided paper 
+% Paper size, default font size and one-sided paper 
+\documentclass[11pt, a4paper, oneside]{thbook} 
 
-\graphicspath{{./Pictures/}} % Specifies the directory where pictures are stored
+% Specifies the directory where pictures are stored
+% \graphicspath{{./pictures/}} 
 
-\usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
-\hypersetup{urlcolor=blue, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
-\title{\ttitle} % Defines the thesis title - don't touch this
+% Use the natbib reference package - read up on this to edit 
+% the reference style; if you want text (e.g. Smith et al., 2012) for the 
+% in-text references (instead of numbers), remove 'numbers' 
+\usepackage[square, numbers, comma, sort&compress]{natbib} 
+
+% Colors hyperlinks in blue - change to black if annoying
+\hypersetup{urlcolor=blue, colorlinks=true} 
+
+% Defines the book title - don't touch this
+\title{\btitle} 
 
 \usepackage{amssymb,amsmath}
 \usepackage[utf8]{inputenc} 
 \usepackage{mathrsfs}
 \usepackage[matrix,arrow,curve]{xy}
+\usepackage{enumitem}
 
 
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 %	MY COMMANDS AND DEFINITIONS
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \newcommand{\projtens}{\mathbin{\widehat{\otimes}}}
 \newcommand{\convol}{\ast}
 \newcommand{\projmodtens}[1]{\mathbin{\widehat{\otimes}}_{#1}}
 \newcommand{\isom}[1]{\mathop{\mathbin{\cong}}\limits_{#1}}
 
+%-------------------------------------------------------------------------------
+%	THE BOOK
+%-------------------------------------------------------------------------------
+
 \begin{document}
 
-\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+% Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+\frontmatter 
 
-\setstretch{1.3} % Line spacing of 1.3
+% Line spacing of 1.3
+\setstretch{1.3} 
 
-% Define the page headers using the FancyHdr package and set up for one-sided printing
-\fancyhead{} % Clears all page headers and footers
-\rhead{\thepage} % Sets the right side header to show the page number
-\lhead{} % Clears the left side page header
+% Define the page headers using the FancyHdr 
+% package and set up for one-sided printing
+% Clears all page headers and footers
+\fancyhead{} 
 
-\pagestyle{fancy} % Finally, use the "fancy" page style to implement the FancyHdr headers
+% Sets the right side header to show the page number
+\rhead{\thepage} 
 
-\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % New command to make the lines in the title page
+% Clears the left side page header
+\lhead{} 
+
+% Finally, use the "fancy" page style to implement the FancyHdr headers
+\pagestyle{fancy} 
+
+% New command to make the lines in the title page
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} 
 
 % PDF meta-data
-\hypersetup{pdftitle={\ttitle}}
+\hypersetup{pdftitle={\btitle}}
 \hypersetup{pdfsubject=\subjectname}
 \hypersetup{pdfauthor=\authornames}
 \hypersetup{pdfkeywords=\keywordnames}
 
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 %	TITLE PAGE
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \begin{titlepage}
 
 \begin{center}
 
-\textsc{\LARGE \univname}\\[1.5cm] % University name
-\textsc{\Large Doctoral Thesis}\\[0.5cm] % Thesis type
+\vfill\vfill\vfill\vfill\vfill\vfill
 
-\HRule \\[0.4cm] % Horizontal line
-{\huge \bfseries \ttitle}\\[0.4cm] % Thesis title
-\HRule \\[1.5cm] % Horizontal line
- 
-\begin{minipage}{0.4\textwidth}
-\begin{flushleft} \large
-\emph{Author:}\\
-
-{\authornames} % Author name. Full example \href{http://www.johnsmith.com}{\authornames}. Remove the \href bracket to remove the link 
+% Author name. Full example \href{http://www.johnsmith.com}{\authornames}. 
+% Remove the \href bracket to remove the link 
+\begin{flushleft} 
+\Large {\authornames} 
 \end{flushleft}
-\end{minipage}
-\begin{minipage}{0.4\textwidth}
-\begin{flushright} \large
-\emph{Supervisor:} \\
-{\supname} % Supervisor name. Full example \href{http://www.jamessmith.com}{\supname}. Remove the \href bracket to remove the link
-\end{flushright}
-\end{minipage}\\[3cm]
- 
-\large \textit{A thesis submitted in fulfilment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
-\textit{in the}\\[0.4cm]
-\groupname\\\deptname\\[2cm] % Research group name and department name
- 
-{\large \today}\\[4cm] % Date
-%\includegraphics{Logo} % University/department logo - uncomment to place it
- 
+
+
+\vfill\vfill\vfill\vfill
+
+% Book title
+{\huge \bfseries \btitle}\\[0.4cm] 
+
+\vfill\vfill\vfill\vfill\vfill\vfill
+
+% Date
+{\large \today}\\[4cm] 
+
 \vfill
 \end{center}
 
 \end{titlepage}
 
-%----------------------------------------------------------------------------------------
-%	DECLARATION PAGE
-%	Your institution may give you a different text to place here
-%----------------------------------------------------------------------------------------
-
-\Declaration{
-
-\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
-
-I, \authornames, declare that this thesis titled, '\ttitle' and the work presented in it are my own. I confirm that:
-
-\begin{itemize} 
-\item[\tiny{$\blacksquare$}] This work was done wholly or mainly while in candidature for a research degree at this University.
-\item[\tiny{$\blacksquare$}] Where any part of this thesis has previously been submitted for a degree or any other qualification at this University or any other institution, this has been clearly stated.
-\item[\tiny{$\blacksquare$}] Where I have consulted the published work of others, this is always clearly attributed.
-\item[\tiny{$\blacksquare$}] Where I have quoted from the work of others, the source is always given. With the exception of such quotations, this thesis is entirely my own work.
-\item[\tiny{$\blacksquare$}] I have acknowledged all main sources of help.
-\item[\tiny{$\blacksquare$}] Where the thesis is based on work done by myself jointly with others, I have made clear exactly what was done by others and what I have contributed myself.\\
-\end{itemize}
- 
-Signed:\\
-\rule[1em]{25em}{0.5pt} % This prints a line for the signature
- 
-Date:\\
-\rule[1em]{25em}{0.5pt} % This prints a line to write the date
-}
-
-\clearpage % Start a new page
-
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 %	QUOTATION PAGE
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
-\pagestyle{empty} % No headers or footers for the following pages
+% No headers or footers for the following pages
+\pagestyle{empty} 
 
-\null\vfill % Add some space to move the quote down the page a bit
+% Add some space to move the quote down the page a bit
+\null\vfill 
 
-\textit{Never trust any result proved after 11 PM. }
+\textit{Never trust any result proved after 11 PM.}
 
 \begin{flushright}
 Professional secret
 \end{flushright}
 
-\vfill\vfill\vfill\vfill\vfill\vfill\null % Add some space at the bottom to position the quote just right
+% Add some space at the bottom to position the quote just right
+\vfill\vfill\vfill\vfill\vfill\vfill\null{}
 
 \clearpage % Start a new page
 
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 %	ABSTRACT PAGE
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
-\addtotoc{Abstract} % Add the "Abstract" page entry to the Contents
+% Add the "Abstract" page entry to the Contents
+\addtotoc{Abstract} 
 
-\abstract{\addtocontents{toc}{\vspace{1em}}} % Add a gap in the Contents, for aesthetics
+% Add a gap in the Contents, for aesthetics
+\abstract{\addtocontents{toc}{\vspace{1em}}} 
 
-In this thesis we study metric and topological versions of projectivity injectivity and flatness of Banach modules over Banach algebras. These two non standard versions of Banach homology theories are studied in parallel under unified approach.
+In this book we study metric and topological versions of projectivity
+injectivity and flatness of Banach modules over Banach algebras. These two non
+standard versions of Banach homology theories are studied in parallel under
+unified approach.
 
-Chapter 1 gives background required for our studies. In paragraph 1.1 we collect all necessary facts on category theory, topology and measure theory. Paragraph 1.2 contains a brief introduction into Banach structures. Here we discuss Banach spaces, Banach algebras and Banach modules. In paragraph 1.3 we give a short introduction into relative Banach homology. Then we list main results from the theory of rigged categories. This theory is a common ground for many known versions of projectivity and injectivity, in particular of metric and topological ones.
+Chapter 1 gives background required for our studies. In paragraph 1.1 we collect
+all necessary facts on category theory, topology and measure theory. Paragraph
+1.2 contains a brief introduction into Banach structures. Here we discuss Banach
+spaces, Banach algebras and Banach modules. In paragraph 1.3 we give a short
+introduction into relative Banach homology. Then we list main results from the
+theory of rigged categories. This theory is a common ground for many known
+versions of projectivity and injectivity, in particular of metric and
+topological ones.
 
-In chapter 2 we establish general properties of projective injective and flat modules. In some cases we give complete characterizations of such modules. Results of this chapter are extensively used in chapter 3 when dealing with specific modules of analysis. Let us discuss contents of this chapter in more detail. In paragraph 2.1 we derive basic properties of projective injective and flat modules from the theory of rigged categories. We also study different constructions that preserve homological triviality of Banach modules. These results are used to characterize projectivity and flatness of cyclic modules. We also give necessary conditions for projectivity of left ideals of Banach algebras. As the consequence we describe projective ideals of commutative Banach algebras that admit bounded approximate identities. Paragraph 2.2 is devoted to Banach geometric properties of homologically trivial modules. We characterize projective injective and flat annihilator modules and establish their strong relation to projective injective and flat Banach spaces. Then we give several examples confirming that homologically trivial module and its Banach algebra have similar Banach geometric properties. Examples include the property of being an $\mathscr{L}_1^g$-space, the Dunford-Pettis property and the l.u.st. property. Paragraph 2.3 is quite short. Here we list conditions under which projectivity injectivity and flatness are preserved under transition between modules over algebra to modules over ideal. Finally, we give a necessary and sufficient conditions of topological flatness of a Banach module and necessary condition of injectivity of two-sided ideals.
+In chapter 2 we establish general properties of projective injective and flat
+modules. In some cases we give complete characterizations of such modules.
+Results of this chapter are extensively used in chapter 3 when dealing with
+specific modules of analysis. Let us discuss contents of this chapter in more
+detail. In paragraph 2.1 we derive basic properties of projective injective and
+flat modules from the theory of rigged categories. We also study different
+constructions that preserve homological triviality of Banach modules. These
+results are used to characterize projectivity and flatness of cyclic modules. We
+also give necessary conditions for projectivity of left ideals of Banach
+algebras. As the consequence we describe projective ideals of commutative Banach
+algebras that admit bounded approximate identities. Paragraph 2.2 is devoted to
+Banach geometric properties of homologically trivial modules. We characterize
+projective injective and flat annihilator modules and establish their strong
+relation to projective injective and flat Banach spaces. Then we give several
+examples confirming that homologically trivial module and its Banach algebra
+have similar Banach geometric properties. Examples include the property of being
+an $\mathscr{L}_1^g$-space, the Dunford-Pettis property and the l.u.st.
+property. Paragraph 2.3 is quite short. Here we list conditions under which
+projectivity injectivity and flatness are preserved under transition between
+modules over algebra to modules over ideal. Finally, we give a necessary and
+sufficient conditions of topological flatness of a Banach module and necessary
+condition of injectivity of two-sided ideals.
 
-In chapter 3 we apply general results to specific modules of analysis. In paragraph 3.1 we investigate projectivity injectivity and flatness of ideals of $C^*$-algebras. We describe projective left ideals of $C^*$-algebras and give a criterion for injectivity of $AW^*$-algebras. These characterizations are indispensable in description of homologically trivial modules over algebras of bounded and compact operators on a Hilbert space. We perform similar research for commutative case of algebras of bounded and vanishing functions on discrete sets and locally compact Hausdorff spaces. In paragraph 3.2 we proceed to study of standard modules of harmonic analysis. Due to specific Banach geometric structure of convolution algebra and measure algebra we easily show that most of standard modules of harmonic analysis are homologically non trivial. The most intriguing result of the paragraph is non-projectivity of convolution algebra of a non discrete group. In paragraph 3.3 we construct an example of category which behaves essentially different than the standard categories of analysis. This category consist of $L_p$-spaces with the structure of Banach module over algebra of bounded measurable functions. All modules of this category turn out to be homologically trivial. To show this we characterize topologically injective, topologically surjective, isometric and coisometric multiplication operators between $L_p$-spaces.
+In chapter 3 we apply general results to specific modules of analysis. In
+paragraph 3.1 we investigate projectivity injectivity and flatness of ideals of
+$C^*$-algebras. We describe projective left ideals of $C^*$-algebras and give a
+criterion for injectivity of $AW^*$-algebras. These characterizations are
+indispensable in description of homologically trivial modules over algebras of
+bounded and compact operators on a Hilbert space. We perform similar research
+for commutative case of algebras of bounded and vanishing functions on discrete
+sets and locally compact Hausdorff spaces. In paragraph 3.2 we proceed to study
+of standard modules of harmonic analysis. Due to specific Banach geometric
+structure of convolution algebra and measure algebra we easily show that most of
+standard modules of harmonic analysis are homologically non trivial. The most
+intriguing result of the paragraph is non-projectivity of convolution algebra of
+a non discrete group. 
 
-\clearpage % Start a new page
+% Start a new page
+\clearpage 
 
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 %	ACKNOWLEDGEMENTS
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
-\setstretch{1.3} % Reset the line-spacing to 1.3 for body text (if it has changed)
+% % Reset the line-spacing to 1.3 for body text (if it has changed)
+% \setstretch{1.3} 
 
-\acknowledgements{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
+% % Add a gap in the Contents, for aesthetics
+% \acknowledgements{\addtocontents{toc}{\vspace{1em}} 
 
-Firstly, I would like to thank my supervisor Professor Alexander Helemskii for formulation of interesting problems and continuous encouragement to finish this work.  I'm grateful to Narutaka Ozawa, Leonel Robert and Alexei Pirkovskii for answering my silly questions. Also I would like to thank Tomasz Kania for bringing my attention to the l.u.st. property. Lastly, but definitely not least, I want to thank Viktoria for continued support and love, without her this project would not have been possible.
-}
-\clearpage % Start a new page
+% Firstly, I would like to thank ...
 
-%----------------------------------------------------------------------------------------
+% % Start a new page
+% \clearpage 
+
+%-------------------------------------------------------------------------------
 %	LIST OF CONTENTS/FIGURES/TABLES PAGES
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
-\pagestyle{fancy} % The page style headers have been "empty" all this time, now use the "fancy" headers as defined before to bring them back
+% The page style headers have been "empty" all this time, now use the "fancy" 
+% headers as defined before to bring them back
+\pagestyle{fancy} 
 
-\lhead{\emph{Contents}} % Set the left side page header to "Contents"
-\tableofcontents % Write out the Table of Contents
+% Set the left side page header to "Contents"
+\lhead{\emph{Contents}} 
 
-%\lhead{\emph{List of Figures}} % Set the left side page header to "List of Figures"
-%\listoffigures % Write out the List of Figures
+% Write out the Table of Contents
+\tableofcontents 
 
-%\lhead{\emph{List of Tables}} % Set the left side page header to "List of Tables"
-%\listoftables % Write out the List of Tables
+% % Set the left side page header to "List of Figures"
+% \lhead{\emph{List of Figures}} 
 
-%----------------------------------------------------------------------------------------
+% % Write out the List of Figures
+% \listoffigures 
+
+% % Set the left side page header to "List of Tables"
+% \lhead{\emph{List of Tables}} 
+
+% % Write out the List of Tables
+% \listoftables 
+
+%-------------------------------------------------------------------------------
 %	ABBREVIATIONS
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
-%\clearpage % Start a new page
+% % Start a new page
+% \clearpage 
 
-%\setstretch{1.5} % Set the line spacing to 1.5, this makes the following tables easier to read
+% % Set the line spacing to 1.5, this makes the following tables easier to read
+% \setstretch{1.5} 
 
-%\lhead{\emph{Abbreviations}} % Set the left side page header to "Abbreviations"
-%\listofsymbols{ll} % Include a list of Abbreviations (a table of two columns)
-%{
-%\textbf{LAH} & \textbf{L}ist \textbf{A}bbreviations \textbf{H}ere \\
-%\textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
-%}
+% % Set the left side page header to "Abbreviations"
+% \lhead{\emph{Abbreviations}} 
 
-%----------------------------------------------------------------------------------------
-%	PHYSICAL CONSTANTS/OTHER DEFINITIONS
-%----------------------------------------------------------------------------------------
+% % Include a list of Abbreviations (a table of two columns)
+% \listofsymbols{ll} 
+% {
+% \textbf{LAH} & \textbf{L}ist \textbf{A}bbreviations \textbf{H}ere \\
+% \textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
+% }
 
-%\clearpage % Start a new page
+%-------------------------------------------------------------------------------
+%	MATHEMATICAL CONSTANTS/OTHER DEFINITIONS
+%-------------------------------------------------------------------------------
 
-%\lhead{\emph{Physical Constants}} % Set the left side page header to "Physical Constants"
+% % Start a new page
+% \clearpage 
 
-%\listofconstants{lrcl} % Include a list of Physical Constants (a four column table)
-%{
-%Speed of Light & $c$ & $=$ & $2.997\ 924\ 58\times10^{8}\ \mbox{ms}^{-\mbox{s}}$ (exact)\\
-% Constant Name & Symbol & = & Constant Value (with units) \\
-%}
+% % Set the left side page header to "Physical Constants"
+% \lhead{\emph{Mathematical Constants}} 
 
-%----------------------------------------------------------------------------------------
+% % Include a list of Physical Constants (a four column table)
+% \listofconstants{lrcl} 
+% {
+%     Pi constant & 
+%     $\pi$ & 
+%     $=$ & 
+%     $3.1415926\ldots$ \\
+%     Euler constant & 
+%     e & 
+%     = & 
+%     $2.7182818284590452354\ldots$ \\
+% }
+
+%-------------------------------------------------------------------------------
 %	DEDICATION
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
-%\setstretch{1.3} % Return the line spacing back to 1.3
+% % Return the line spacing back to 1.3
+% \setstretch{1.3} 
 
-%\pagestyle{empty} % Page style needs to be empty for this page
+% % Page style needs to be empty for this page
+% \pagestyle{empty} 
 
-%\dedicatory{For/Dedicated to/To my\ldots} % Dedication text
+% % Dedication text
+% \dedicatory{For/Dedicated to/To my\ldots} 
 
-%\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+% % Add a gap in the Contents, for aesthetics
+% \addtocontents{toc}{\vspace{2em}} 
 
-%----------------------------------------------------------------------------------------
-%	THESIS CONTENT - CHAPTERS
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+%	BOOK CONTENT - CHAPTERS
+%-------------------------------------------------------------------------------
 
-\mainmatter % Begin numeric (1,2,3...) page numbering
+% Begin numeric (1,2,3...) page numbering
+\mainmatter{} 
 
-\pagestyle{fancy} % Return the page headers back to the "fancy" style
+% Return the page headers back to the "fancy" style
+\pagestyle{fancy} 
 
-% Include the chapters of the thesis as separate files from the Chapters folder
+% Include the chapters of the book as separate files from the Chapters folder
 % Uncomment the lines as you write the chapters
 
-\input{./Chapters/Chapter1Preliminaries}	
-\input{./Chapters/Chapter2GeneralTheory} 
-\input{./Chapters/Chapter3ApplicationsToAlgebrasOfAnalysis}
+\input{./chapters/chapter1_preliminaries}	
+\input{./chapters/chapter2_general_theory} 
+\input{./chapters/chapter3_applications_to_algebras_of_analysis}
 
-%----------------------------------------------------------------------------------------
-%	THESIS CONTENT - APPENDICES
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+%	CONTENT - APPENDICES
+%-------------------------------------------------------------------------------
 
-\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+% % Add a gap in the Contents, for aesthetics
+% \addtocontents{toc}{\vspace{2em}} 
 
-\appendix % Cue to tell LaTeX that the following 'chapters' are Appendices
+% % Cue to tell LaTeX that the following 'chapters' are Appendices
+% \appendix 
 
-% Include the appendices of the thesis as separate files from the Appendices folder
-% Uncomment the lines as you write the Appendices
+% Include the appendices of the book as separate files from 
+% the Appendices folder. Uncomment the lines as you write the Appendices
 
-%\input{./Appendices/AppendixA}
+% \input{./Appendices/AppendixA}
 
+% \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
 
-\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
-
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 %	SYMBOLS
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
-%\clearpage % Start a new page
+% % Start a new page
+% \clearpage 
 
-%\lhead{\emph{Symbols}} % Set the left side page header to "Symbols"
+% % Set the left side page header to "Symbols"
+% \lhead{\emph{Symbols}} 
 
-%\listofnomenclature{ll} % Include a list of Symbols (a three column table)
-%{
-%$a$ & distance \\
-%$P$ & power  \\
-% Symbol & Description \\
-%}
+% % Include a list of Symbols (a three column table)
+% \listofnomenclature{ll} 
+% {
+%     $a$ & 
+%     distance \\
+%     $P$ & 
+%     power  \\
+%     Symbol & 
+%     Description \\
+% }
 
-
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
-\backmatter
+\backmatter{}\label{Bibliography}
 
-\label{Bibliography}
+% Change the page header to say "Bibliography"
+\lhead{\emph{Bibliography}} 
 
-\lhead{\emph{Bibliography}} % Change the page header to say "Bibliography"
+% Use the "unsrtnat" BibTeX style for formatting the Bibliography
+\bibliographystyle{unsrtnat} 
 
-\bibliographystyle{unsrtnat} % Use the "unsrtnat" BibTeX style for formatting the Bibliography
-
-\bibliography{Bibliography} % The references (bibliography) information are stored in the file named "Bibliography.bib"
+% The references (bibliography) information are stored 
+% in the file named "Bibliography.bib"
+\bibliography{bibliography} 
 
 \end{document}
