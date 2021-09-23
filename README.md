@@ -16,3 +16,5 @@ wrapped by Rewrap VSCode extension
 TODO:
 
 1. Refactor tex code in phd_thesis directory
+
+2. Get rid of rewrap extension and delete its hints in README
