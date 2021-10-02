@@ -30,168 +30,175 @@
 In what follows $A$ denotes a not necessary unital Banach algebra. We
 immediately start from the most important definitions in this book.
 
-\begin{definition}[\cite{HelMetrFrQMod}, definition 1.4]\label{MetProjMod} An
-$A$-module $P$ is called metrically projective if for any strictly coisometric
-$A$-morphism $\xi:X\to Y$ and for any $A$-morphism $\phi:P\to Y$ there exists an
-$A$-morphism $\psi:P\to X$ such that $\xi\psi=\phi$  and
-$\Vert\psi\Vert=\Vert\phi\Vert$.
+\begin{definition}[\cite{HelMetrFrQMod}, 
+    definition 1.4;~\cite{WhiteInjmoduAlg}, 
+    definition 2.4]\label{MetCTopProjMod} 
+An $A$-module $P$ is 
+called $\langle$~metrically / $C$-topologically~$\rangle$ projective if for any 
+strictly $\langle$~coisometric / $c$-topologically surjective~$\rangle$
+$A$-morphism $\xi:X\to Y$ and for any $A$-morphism $\phi:P\to Y$ 
+there exists an $A$-morphism $\psi:P\to X$ such that $\xi\psi=\phi$  and
+$\langle$~$\Vert\psi\Vert\leq\Vert\phi\Vert$ / 
+$\Vert \psi\Vert\leq c C\Vert\phi\Vert$~$\rangle$. We say that an $A$-module 
+$P$ is topologically projective if it is $C$-topologically projective for 
+some $C\geq 1$.
 \end{definition}
 
-\begin{definition}[\cite{HelMetrFrQMod}, definition 1.2]\label{TopProjMod} An
-$A$-module $P$ is called  topologically projective if for any topologically
-surjective $A$-morphism $\xi:X\to Y$ and for any $A$-morphism $\phi:P\to Y$
-there exists an $A$-morphism $\psi:P\to X$ such that $\xi\psi=\phi$.
-\end{definition}
+The task of constructing an $A$-morphism $\psi$ for a given $A$-morphisms $\phi$ 
+and $\xi$ in the definition~\ref{MetCTopProjMod} is called a lifting problem 
+and $\psi$ is called a lifting of $\phi$ along $\xi$.
 
-A short but more involved definition is the following: an $A$-module $P$ is
-called $\langle$~metrically / topologically~$\rangle$ projective, if the functor
+A short but more involved equivalent definition 
+of $\langle$~metric / $C$-topological~$\rangle$ projectivity is the following: 
+an $A$-module $P$ is called $\langle$~metrically / $C$-topologically~$\rangle$ 
+projective, if the functor
 $\langle$~$\operatorname{Hom}_{A-\mathbf{mod}_1}(P,-)
 :A-\mathbf{mod}_1\to\mathbf{Ban}_1$
 /
 $\operatorname{Hom}_{A-\mathbf{mod}}(P,-)
 :A-\mathbf{mod}\to\mathbf{Ban}$~$\rangle$
-maps $\langle$~strictly coisometric / topologically surjective~$\rangle$
-$A$-morphisms into $\langle$~strictly coisometric / surjective~$\rangle$
-operators.
+maps strictly $\langle$~coisometric / $c$-topologically surjective~$\rangle$
+$A$-morphisms into strictly $\langle$~coisometric / 
+$c C$-topologically surjective~$\rangle$ operators. 
 
-Now we are aiming to apply the general scheme of rigged categories to metric and
-topological projectivity. Before doing that we need to introduce the category of
-hemi normed spaces defined by Shteiner in~\cite{ShtTopFrClassicQuantMod}. A hemi
-linear space over $\mathbb{C}$ is a set $E$, whose elements are called vectors,
-with a binary operation $\cdot:\mathbb{C}\times E\to E$ satisfying three axioms:
-
-\begin{enumerate}[label = (\roman*)]
-    \item $\alpha\cdot(\beta\cdot x)=\alpha\beta\cdot x$ for all
-    $\alpha,\beta\in\mathbb{C}$ and $x\in E$; 
-
-    \item $1\cdot x=x$ for all $x\in E$; 
-
-    \item there exists a zero vector $0\in E$ such that $0\cdot x=0$ for all 
-    $x\in E$. 
-\end{enumerate}
-
-A map $T:E\to F$ between hemi linear spaces is called a hemi linear operator if
-$T(\alpha\cdot x)=\alpha\cdot T(x)$ for all $\alpha\in\mathbb{C}$ and $x\in E$.
-A hemi normed space $E$ is a hemi linear space endowed with a function (called a
-norm) $\Vert\cdot\Vert:E\to\mathbb{R}_+$ such that
-
-\begin{enumerate}[label = (\roman*)]
-    \item $\Vert x\Vert=0$ iff $x=0$;
-
-    \item $\Vert\alpha\cdot x\Vert=|\alpha|\Vert x\Vert$ for all
-    $\alpha\in\mathbb{C}$ and $x\in E$. 
-\end{enumerate}
-
-A hemi linear operator $T:E\to F$ between hemi normed spaces $E$ and $F$ is
-called bounded if there exists $c\geq 0$ 
-such that  $\Vert\phi(x)\Vert\leq c\Vert x\Vert$ 
-for all $x\in E$. The least such constant is called the norm of $\phi$
-and denoted by $\Vert \phi\Vert$. Finally, we define the category of hemi normed
-spaces $\mathbf{HNor}$: its objects are hemi normed spaces, its morphisms are
-bounded hemi linear operators. In fact hemi normed spaces and bounded hemi
-linear operators are just leftovers of normed spaces and bounded linear
-operators if one erases  all axioms mentioning addition operation. Here is a
-typical example of hemi normed space. For a given non empty set $\Lambda$ we
-consider 
-a bouquet $\mathbb{C}^\Lambda:=\bigvee \{\mathbb{C}:\lambda\in\Lambda \}$ 
-of copies of $\mathbb{C}$ with common zero vector. Multiplication by scalars
-and norm in $\mathbb{C}^\Lambda$ are defined in a most natural fashion. We put
-by definition $\mathbb{C}^\varnothing= \{0 \}$. Any hemi normed space is
-isomorphic in $\mathbf{HNor}$ to $\mathbb{C}^\Lambda$ for some set $\Lambda$
-[\cite{ShtTopFrClassicQuantMod}, proposition 1.1.9].
-
-In~\cite{HelMetrFrQMod} and~\cite{ShtTopFrClassicQuantMod} there were
-constructed two faithful functors 
-$$
-\square_{met}:A-\mathbf{mod}_1\to\mathbf{Set}
-:X\mapsto B_X,\phi\mapsto\phi|_{B_X}^{B_Y}
-$$
-$$
-\square_{top}:A-\mathbf{mod}\to\mathbf{HNor}
-:X\mapsto X,\phi\mapsto\phi
-$$
-The first one sends a Banach $A$-module to its unit ball and any contractive
-$A$-morphism to the respective birestriction, while the second one ``forgets''
-about module and additive structure. In the same papers it was proved that an
-$A$-morphism $\xi$ is $\langle$~strictly coisometric / topologically
-surjective~$\rangle$ iff it is $\langle$~$\square_{met}$-admissible /
-$\square_{top}$-admissible~$\rangle$ epimorphism and an $A$-module $P$ is
-$\langle$~metrically / topologically~$\rangle$ projective iff it is
-$\langle$~$\square_{met}$-projective / $\square_{top}$-projective~$\rangle$.
-Thus we immediately get the following proposition.
-
-\begin{proposition}\label{RetrMetTopProjIsMetTopProj} Any retract of
-$\langle$~metrically / topologically~$\rangle$ projective module in
-$\langle$~$A-\mathbf{mod}_1$ / $A-\mathbf{mod}$~$\rangle$ is again
-$\langle$~metrically / topologically~$\rangle$ projective.
-\end{proposition}
-
-It was also shown that the rigged category
-$\langle$~$(A-\mathbf{mod}_1,\square_{met})$ /
-$(A-\mathbf{mod},\square_{top})$~$\rangle$ is freedom loving and that
-$\langle$~$\square_{met}$-free / $\square_{top}$-free~$\rangle$ modules are
-isomorphic in $\langle$~$A-\mathbf{mod}_1$ / $A-\mathbf{mod}$~$\rangle$ to
-$A_+\projtens \ell_1(\Lambda)$ for some set $\Lambda$. Even more, for any
-$A$-module $X$ there exists a $\langle$~$\square_{met}$-admissible /
-$\square_{top}$-admissible~$\rangle$ epimorphism
-$$
-\pi_X^+:A_+\projtens \ell_1(B_X):a\projtens \delta_x\mapsto a\cdot x
-$$
-As the consequence of general result on rigged categories we get
-
-\begin{proposition}\label{MetTopProjModViaCanonicMorph} An $A$-module $P$ is
-$\langle$~metrically / topologically~$\rangle$ projective iff $\pi_P^+$ is a
-retraction in $\langle$~$A-\mathbf{mod}_1$ / $A-\mathbf{mod}$~$\rangle$.
-\end{proposition}
-
-Since $\langle$~$\square_{met}$-free / $\square_{top}$-free~$\rangle$ modules
-are the same up to isomorphisms in $A-\mathbf{mod}$ and any retraction in
-$A-\mathbf{mod}_1$ is a retraction in $A-\mathbf{mod}$, then from
-proposition~\ref{RetrMetTopProjIsMetTopProj} we see that any metrically
-projective $A$-module is topologically projective. Recall that every relatively
-projective module is a retract in $A-\mathbf{mod}$ of $A_+\projtens E$ for some
-Banach space $E$, therefore every topologically projective $A$-module is
-relatively projective. We summarize all these in the following proposition.
-
-\begin{proposition}\label{MetProjIsTopProjAndTopProjIsRelProj} Every metrically
-projective module is topologically projective and every topologically projective
-module is relatively projective.
-\end{proposition}
-
-A quantitative version of the definition of topological projectivity was given
-by White, though he used a somewhat different terminology.
-
-\begin{definition}[\cite{WhiteInjmoduAlg}, definition 2.4]\label{CTopProjMod} An
-$A$-module $P$ is called  $C$-topologically projective if for any strictly
-$c$-topologically surjective $A$-morphism $\xi:X\to Y$ and for any $A$-morphism
-$\phi:P\to Y$ there exists an $A$-morphism $\psi:P\to X$ such that
-$\xi\psi=\phi$ and $\Vert \psi\Vert\leq c C\Vert\phi\Vert$.
-\end{definition}
-
-We shall need the following facts about this type of projectivity.
+In category $\langle$~$A-\mathbf{mod}_1$ / $A-\mathbf{mod}$~$\rangle$ there
+is a special class of $\langle$~metrically / $1$-topologically~$\rangle$
+projecive modules of the form $A_+\projtens \ell_1(\Lambda)$ for 
+some set $\Lambda$. They are called free modules. These modules play a crucial 
+role in our studies of projectivity.
 
 \begin{proposition}[\cite{WhiteInjmoduAlg}, 
-    lemma 2.7]\label{RetrCTopProjIsCTopProj} 
-Any $c$-retract of $C$-topologically projective module is 
-$cC$-topologically projective.
+    lemma 2.6]\label{MetCTopFreeMod} Let $\Lambda$ be an arbitrary 
+set, then the left $A$-modules $A_+ \projtens \ell_1(\Lambda)$ 
+and $A_\times \projtens \ell_1(\Lambda)$ 
+are $\langle$~metrically / $1$-topologically~$\rangle$ projective. 
 \end{proposition}
+\begin{proof} By $A_\bullet$ we denote either $A_+$ or $A_\times$. 
+Consider arbitrary $A$-morphism 
+$\phi:A_\bullet\projtens\ell_1(\Lambda)\to X$ and a 
+strictly $\langle$~coisometric / $c$-topologically surjective~$\rangle$ 
+$A$-morphism $\xi:X\to Y$. Fix arbitrary $\lambda\in\Lambda$ and 
+consider $y_\lambda=\phi(e_{A_\bullet}\projtens \delta_\lambda)$. 
+Clearly $\Vert y_\lambda\Vert\leq \Vert\phi\Vert$. Since $\xi$ is 
+strictly $\langle$~coisometric / $c$-topologically surjective~$\rangle$, 
+then there exists $x_\lambda\in X$ such that $\xi(x_\lambda)=y_\lambda$
+and $\Vert x_\lambda\Vert\leq K\Vert y_\lambda\Vert$ for $\langle$~$K=1$ / 
+$K=c$~$\rangle$. Now we can define a bounded linear operator
+$\psi:A_\bullet\projtens \ell_1(\Lambda)\to X$ such that 
+$\psi(a\projtens \delta_\lambda)=a\cdot x_\lambda$ for $\lambda\in\Lambda$. 
+It is routine to check that $\psi$ is an $A$-morphism with $\xi\psi=\phi$ 
+and $\Vert\psi\Vert\leq K\Vert\phi\Vert$. Thus for a given $\phi$ and $\xi$
+we have constructed an $A$-morphism $\psi$ such that $\xi\psi=\phi$ and
+$\langle$~$\Vert\psi\Vert\leq \Vert\phi\Vert$ / $\Vert\psi\Vert\leq
+c\Vert\phi\Vert$~$\rangle$. Hence the $A$-module $A_\bullet\projtens
+\ell_1(\Lambda)$ is $\langle$~metrically / $1$-topologically~$\rangle$
+projective.
+\end{proof}
+
+
+\begin{proposition}\label{UnitalAlgIsMetTopProj} The left $A$-module $A_\times$
+is $\langle$~metrically / $1$-topologically~$\rangle$ projective.
+\end{proposition} 
+\begin{proof} Consier set $\Lambda=\mathbb{N}_1$. 
+By proposition~\ref{MetCTopFreeMod} the 
+$A$-module $A_\times\projtens\ell_1(\Lambda)$ is metrically 
+and $1$-topologically projective. Now it remains to note that 
+$A_\times\projtens\ell_1(\Lambda)
+\isom{A-\mathbf{mod}_1}
+A_\times\projtens \mathbb{C}
+\isom{A-\mathbf{mod}_1}
+A_\times$.
+\end{proof}
 
 \begin{proposition}[\cite{WhiteInjmoduAlg}, 
-    proposition 2.10]\label{CTopProjModViaCanonicMorph} 
-An $A$-module $P$ is $C$-topologically
-projective iff $\pi_P^+$ is a $C$-retraction in $A-\mathbf{mod}$.
+    lemma 2.7]\label{RetrMetCTopProjIsMetCTopProj} Any 
+$\langle$~$1$-retract / $c$-retract~$\rangle$ of
+$\langle$~metrically / $C$-topologically~$\rangle$ projective module is
+$\langle$~metrically / $c C$-topologically~$\rangle$ projective.
 \end{proposition}
+\begin{proof} Suppose that $P$ is a $c$-retract of 
+$\langle$~metrically / $C$-topologically~$\rangle$ projective $A$-module $P'$.
+Then there exist $A$-morphisms $\eta:P\to P'$ and $\zeta: P'\to P$ such that
+$\zeta\eta=1_{P}$ and $\Vert\zeta\Vert\Vert\eta\Vert\leq c$ 
+for $\langle$~$c=1$ / $c\geq 1$~$\rangle$. Consider arbitrary
+strictly $\langle$~coisometric / $c'$-topologically surjective~$\rangle$ 
+$A$-morphism $\xi:X\to Y$ and an arbitrary $A$-morphism $\phi:P\to Y$. 
+Consider $A$-morphism $\phi'=\phi\zeta$. Since $P'$ is 
+$\langle$~metrically / $C$-topologically~$\rangle$ projective, then there 
+exists an $A$-morphism $\psi':P'\to X$ such that $\phi'=\xi\psi'$ 
+and $\Vert\psi'\Vert \leq K\Vert\phi'\Vert$ 
+for $\langle$~$K=1$ / $K=c' C$~$\rangle$. Now it is routine to check that 
+for the $A$-morphism $\psi=\psi'\eta$ 
+holds $\xi\psi=\phi$ and $\Vert\psi\Vert \leq cK\Vert\phi\Vert$. 
+Thus for a given $\phi$ and $\xi$ we have
+constructed an $A$-morphism $\psi$ such that $\xi\psi=\phi$  and
+$\langle$~$\Vert\psi\Vert\leq\Vert\phi\Vert$ / 
+$\Vert \psi\Vert\leq c C\Vert\phi\Vert$~$\rangle$. Hence $P$ 
+is $\langle$~metrically / $c C$-topologically~$\rangle$ projective.
+\end{proof}
 
-As the consequence, a Banach module is topologically projective iff it is
-$C$-topologically projective for some $C$. One more important consequence of
-proposition~\ref{CTopProjModViaCanonicMorph} is the following.
+It is easy to show that, for any $A$-module $X$ there exists 
+a strictly $\langle$~coisometric / $1$-topologically surjective~$\rangle$ 
+$A$-morphism
+$$
+\pi_X^+:A_+\projtens \ell_1(B_X)\to X:a\projtens \delta_x\mapsto a\cdot x.
+$$
+
+\begin{proposition}[\cite{WhiteInjmoduAlg}, 
+    proposition 2.10]\label{MetCTopProjModViaCanonicMorph} An $A$-module $P$ is
+$\langle$~metrically / $C$-topologically~$\rangle$ projective iff $\pi_P^+$ is 
+a $\langle$~$1$-retraction / $C$-retraction~$\rangle$ in $A-\mathbf{mod}$.
+\end{proposition}
+\begin{proof}
+Suppose $P$ is 
+$\langle$~metrically / $C$-topologically~$\rangle$ projective, then consider 
+strictly $\langle$~coisometric / $1$-topologically surjective~$\rangle$
+$A$-morphism $\pi_P^+$. Consider lifting problem with $\phi=1_P$ 
+and $\xi=\pi_P^+$, then from $\langle$~metric / $C$-topological~$\rangle$ 
+projectivity of $P$ we get an $A$-morphism $\sigma^+$ such 
+that $\pi_P^+\sigma^+=1_P$
+and $\Vert\sigma^+\Vert\leq K$ for $\langle$~$K=1$ / $K=C$~$\rangle$.
+Since $\Vert\pi_P^+\Vert\Vert \sigma^+\Vert\leq K$ 
+we conclude that $\pi_P^+$ is a
+$\langle$~$1$-retraction / $C$-retraction~$\rangle$ in $A-\mathbf{mod}$.
+
+Conversely, assume that $\pi_P^+$ is 
+a $\langle$~$1$-retraction / $C$-retraction~$\rangle$. In other words $P$ is 
+a $\langle$~$1$-retract / $C$-retract~$\rangle$ of $A_+\projtens \ell_1(B_P)$. 
+By proposition~\ref{MetCTopFreeMod} the $A$-module $A_+\projtens \ell_1(B_P)$ 
+is $\langle$~metrically / $1$-topologically~$\rangle$ projective. So from 
+proposition~\ref{RetrMetCTopProjIsMetCTopProj} 
+its $\langle$~$1$-retract / $C$-retract~$\rangle$ $P$ is 
+$\langle$~metrically / $C$-topologically~$\rangle$ projective.
+\end{proof}
+
+\begin{proposition}[\cite{WhiteInjmoduAlg}, 
+    proposition 2.9]\label{MetProjIsTopProjAndTopProjIsRelProj} Every metrically
+projective module is $1$-topologically projective and every $C$-topologically 
+projective module is $C$-relatively projective.
+\end{proposition}
+\begin{proof} By proposition~\ref{MetCTopProjModViaCanonicMorph} every 
+metrically projecive $A$-module $P$ is a $1$-retract 
+of $A_+\projtens \ell_1(B_P)$. Hence by the same proposition $P$ 
+is $1$-topologically projecive. Again by 
+proposition~\ref{MetCTopProjModViaCanonicMorph} every $C$-topologically 
+projecive $A$-module $P$ is a $C$-retract of $A$-module $A_+\projtens \ell_1(B_P)$. 
+In other words $P$ is a $C$-retract of the module $A\projtens E$ for some Banach
+space $E$. Therefore $P$ is $C$-relatively projecive.
+\end{proof}
+
+
+Clearly, every $C$-topologically projecive module is $C'$-topologically 
+projecive for $C'\geq C$. But we can state even more.
 
 \begin{proposition}\label{MetProjIsOneTopProj} An $A$-module is metrically
 projective iff it is $1$-topologically projective.
 \end{proposition}
+\begin{proof} The result immediately follows 
+from propositions~\ref{MetProjIsTopProjAndTopProjIsRelProj} 
+and~\ref{MetCTopProjModViaCanonicMorph}.
+\end{proof}
 
-We shall exploit both definitions~\ref{TopProjMod} and~\ref{CTopProjMod} without
-further reference for their equivalence. 
 
 Let us proceed to examples. Note that the category of Banach spaces may be
 regarded as the category of left Banach modules over zero algebra. As the
@@ -206,25 +213,6 @@ isomorphic to $\ell_1(\Lambda)$ for some index set $\Lambda$
 [\cite{HelMetrFrQMod}, proposition 3.2]. Thus the zoo of projective Banach
 spaces is wide but conformed.
 
-\begin{proposition}\label{UnitalAlgIsMetTopProj} The left $A$-module $A_\times$
-is metrically and $1$-topologically projective.
-\end{proposition} 
-\begin{proof} Consider arbitrary $A$-morphism $\phi:A_\times\to Y$ and a
-strictly coisometric $A$-morphism $\xi:X\to Y$. From the definition of strictly
-coisometric operator it follows that there exists an $x_0\in X$ such that
-$\xi(x_0)=\phi(e_{A_\times})$ and $\Vert x_0\Vert=\Vert\phi(e_{A_\times})\Vert$.
-Consider $A$-morphism $\psi:A_\times\to X:a\mapsto a\cdot x_0$. Clearly,
-$\Vert\psi\Vert
-\leq\Vert x_0\Vert
-\leq\Vert\phi\Vert\Vert e_{A_\times}\Vert
-=\Vert\phi\Vert$. On the other hand $\xi\psi=\phi$, so
-$\Vert\phi\Vert\leq\Vert\xi\Vert\Vert\psi\Vert=\Vert\psi\Vert$. Thus
-$\Vert\phi\Vert=\Vert\psi\Vert$. Therefore we proved by definition, that
-$A_\times$ is metrically projective $A$-module. By
-proposition~\ref{MetProjIsOneTopProj} it is $1$-topologically projective
-$A$-module.
-\end{proof}
-
 \begin{proposition}\label{NonDegenMetTopProjCharac}  Let $P$ be an essential
 $A$-module. Then $P$ is $\langle$~metrically / $C$-topologically~$\rangle$
 projective iff the map 
@@ -233,10 +221,9 @@ is a $\langle$~$1$-retraction / $C$-retraction~$\rangle$ in $A-\mathbf{mod}$.
 \end{proposition} 
 \begin{proof}
 If $P$ is $\langle$~metrically / $C$-topologically~$\rangle$ projective, then by
-proposition $\langle$~\ref{MetTopProjModViaCanonicMorph}
-/~\ref{CTopProjModViaCanonicMorph}~$\rangle$ the morphism $\pi_P^+$ has a right
-inverse morphism $\sigma^+$ of norm $\langle$~at most $1$ / at most
-$C$~$\rangle$. Then 
+proposition~\ref{MetCTopProjModViaCanonicMorph} the morphism 
+$\pi_P^+$ has a right inverse morphism $\sigma^+$ of norm 
+$\langle$~at most $1$ / at most $C$~$\rangle$. Then 
 $$
 \sigma^+(P)
 =\sigma^+(\operatorname{cl}_{A_+\projtens\ell_1(B_P)}(AP))
@@ -254,8 +241,7 @@ $\langle$~$1$-retraction / $C$-retraction~$\rangle$ in $A-\mathbf{mod}$.
 Conversely, assume $\pi_P$ has a right inverse morphism $\sigma$ of norm
 $\langle$~at most $1$ / at most $C$~$\rangle$. Then its coextension $\sigma^+$
 also is a right inverse morphism to $\pi_P^+$ with the same norm. Again, by
-proposition $\langle$~\ref{MetTopProjModViaCanonicMorph}
-/~\ref{CTopProjModViaCanonicMorph}~$\rangle$ the module $P$ is
+proposition~\ref{MetCTopProjModViaCanonicMorph} the module $P$ is
 $\langle$~metrically / $C$-topologically~$\rangle$ projective. 
 \end{proof}
 
@@ -284,12 +270,13 @@ $(i)$ The proof is literally the same as in paragraph $(ii)$.
 $(ii)$ Assume that $P$ is $C$-topologically projective. Note that, for any
 $\lambda\in\Lambda$ the $A$-module $P_\lambda$ is a $1$-retract of $P$ via
 natural projection $p_\lambda:P\to P_\lambda$. By
-proposition~\ref{RetrCTopProjIsCTopProj} the $A$-module $P_\lambda$ is
+proposition~\ref{RetrMetCTopProjIsMetCTopProj} the $A$-module $P_\lambda$ is
 $C$-topologically projective.
 
 Conversely, let each $A$-module $P_\lambda$ be $C$-topologically projective. By
-proposition~\ref{CTopProjModViaCanonicMorph} we have a family of $C$-retractions
-$\pi_\lambda:A_+\projtens\ell_1(S_\lambda)\to P_\lambda$. It follows that
+proposition~\ref{MetCTopProjModViaCanonicMorph} we have a family 
+of $C$-retractions $\pi_\lambda:A_+\projtens\ell_1(S_\lambda)\to P_\lambda$. 
+It follows that
 $\bigoplus_1 \{\pi_\lambda:\lambda\in\Lambda \}$ is a $C$-retraction in
 $A-\mathbf{mod}$. As the result $P$ is a $C$-retract of 
 $$
@@ -300,11 +287,12 @@ $$
 $$
 $$
 \isom{A-\mathbf{mod}_1} \bigoplus\nolimits_1 \{A_+:s\in S \}
+\isom{A-\mathbf{mod}_1} A_+ \projtens \ell_1(S)
 $$
 in $A-\mathbf{mod}$ where $S=\bigsqcup_{\lambda\in\Lambda}S_\lambda$. Clearly,
 the latter module is $1$-topologically projective, so by
-proposition~\ref{RetrCTopProjIsCTopProj} the $A$-module $P$ is $C$-topologically
-projective.
+proposition~\ref{RetrMetCTopProjIsMetCTopProj} the $A$-module $P$ is 
+$C$-topologically projective.
 \end{proof}
 
 \begin{corollary}\label{MetTopProjTensProdWithl1} Let $P$ be an $A$-module and
@@ -320,6 +308,63 @@ $P\projtens \ell_1(\Lambda)
 $\lambda\in\Lambda$ and apply proposition~\ref{MetTopProjModCoprod}.
 \end{proof}
 
+The property of being metrically, topologically or relatively projective module 
+puts some restrictions on the Banach geometric structure of the module.
+
+\begin{proposition}[\cite{RamsHomPropSemgroupAlg}, 
+    proposition 2.1.1]\label{MetTopRelProjModCompIdealPartCompl} Let $P$ 
+be a $\langle$~metrically / $C$-topologically / $C$-relatively~$\rangle$ 
+projective $A$-moudle, and let $I$ 
+be a $\langle$~$1$-complemented / $c$-complemented / $c$-complemented~$\rangle$
+right ideal of $A$. Then $\operatorname{cl}_P(I P)$ 
+is $\langle$~$1$-complemented / $cC$-complemented / $cC$-complemented~$\rangle$ 
+in $P$.
+\end{proposition}
+\begin{proof} Since $A$ is $1$-complemented in $A_+$, then $I$ 
+is $\langle$~$1$-complemented / $c$-complemented / $c$-complemented~$\rangle$
+in $A_+$. Hence there exists a bounded linear operator $r:A_+\to I$ of 
+$\langle$~norm $1$ / norm $c$ / norm $c$~$\rangle$ such that $r|_I=1_I$. 
+Consider operator $R=r\projtens 1_P$, then $R|_{I\projtens P}=1_{I\projtens P}$ 
+and $\Vert R\Vert\leq\Vert r\Vert$. Since $P$ 
+is $\langle$~metrically / $C$-topologically / $C$-relatively~$\rangle$ 
+projective, by proposition~\ref{MetCTopProjModViaCanonicMorph} the 
+$A$-morphism $\pi_P^+$ has a right inverse morphism $\sigma^+$ of norm
+$\langle$~at most $1$ / at most $C$ / at most $C$~$\rangle$. Now consider 
+bounded linear operator $p=\pi_P^+ R \sigma^+$. Clearly,
+$\operatorname{Im}(p)=\pi_P^+(R(\sigma^+(P)))
+\subset\pi_P^+(R(A_+\projtens P))
+\subset \pi_P^+(I\projtens P)
+\subset \operatorname{cl}_P(I P)$.
+Since $I$ is a right ideal of $A$ and $\sigma^+$ is an $A$-morphism, then 
+$$
+\sigma^+(\operatorname{cl}_P(I P))
+\subset \operatorname{cl}_{A_+\projtens P}(\sigma^+(I P))
+\subset \operatorname{cl}_{A_+\projtens P}(I\sigma^+(P))
+\subset \operatorname{cl}_{A_+\projtens P}(I (A_+\projtens P))
+\subset I \projtens P.
+$$
+In particular, for all $x\in \operatorname{cl}_P(I P)$, we have 
+$p(x)
+=\pi_P^+(R(\sigma^+(x)))
+=\pi_P^+(1_{I\projtens P}(\sigma^+(x)))
+=\pi_P^+(\sigma^+(x))
+=x$. 
+Thus $p$ is projection onto $\operatorname{cl}_P(I P)$ with norm at 
+most $\Vert \sigma^+\Vert\Vert r\Vert$. Hence $\operatorname{cl}_P(I P)$ 
+is $\langle$~$1$-complemented / $cC$-complemented / 
+$cC$-complemented~$\rangle$ in $P$.
+\end{proof}
+
+\begin{corollary}\label{MetTopRelProjModPartCompl} Let $P$ 
+be a $\langle$~metrically / $C$-topologically / $C$-relatively~$\rangle$ 
+projective $A$-moudle. Then $P_{ess}$ 
+is $\langle$~$1$-complemented / $C$-complemented / $C$-complemented~$\rangle$ 
+in $P$.
+\end{corollary}
+\begin{proof} The result directly follows from 
+proposition~\ref{MetTopRelProjModCompIdealPartCompl}.
+\end{proof}
+
 %-------------------------------------------------------------------------------
 %    Metric and topological projectivity of ideals and cyclic modules
 %-------------------------------------------------------------------------------
@@ -328,7 +373,7 @@ $\lambda\in\Lambda$ and apply proposition~\ref{MetTopProjModCoprod}.
     Metric and topological projectivity of ideals and cyclic modules
 }\label{SubSectionMetricAndTopologicalProjectivityOfIdealsAndCyclicModules}
 
-As we shall see idempotents plays a significant role in the study of metric and
+As we shall see idempotents play a significant role in the study of metric and
 topological projectivity, so we shall recall one of the corollaries of Shilov's
 idempotent theorem [\cite{KaniBanAlg}, section 3.5]: every semisimple
 commutative Banach algebra with compact spectrum admits an identity, but not
@@ -351,8 +396,7 @@ $(i)$ For $A$-module maps $\pi:A_\times\to I:x\mapsto xp$ and
 $\sigma:I\to A_\times:x\mapsto x$ we clearly have $\pi\sigma=1_I$. 
 Therefore $I$ is a $\langle$~$1$-retract / $\Vert p\Vert$-retract~$\rangle$ 
 of $A_\times$. Now the result follows from 
-propositions $\langle$~\ref{RetrMetTopProjIsMetTopProj}
-/~\ref{RetrCTopProjIsCTopProj}~$\rangle$ and~\ref{UnitalAlgIsMetTopProj}.
+propositions~\ref{RetrMetCTopProjIsMetCTopProj} and~\ref{UnitalAlgIsMetTopProj}.
 
 $(ii)$ By Shilov's idempotent theorem the ideal $I$ is unital. In general the
 norm of this unit is not less than $1$. By paragraph $(i)$ the ideal $I$ is
@@ -490,8 +534,8 @@ norm $\langle$~at most $1$ / at most $c$~$\rangle$.
 \end{theorem} 
 \begin{proof} Assume $I$ is $\langle$~metrically / $c$-topologically~$\rangle$
 projective as $A$-module. Since $A$ is commutative, then for any $A$-morphism
-$\phi:I\to A$ and $x,y\in I$ we have $\phi(x)y=x\phi(y)$. Since $I$ has bounded
-approximate identity and $I$ is commutative we can apply
+$\phi:I\to A$ and $x,y\in I$ we have $\phi(x)y=x\phi(y)$. Since $I$ has a 
+bounded approximate identity and $I$ is commutative we can apply
 lemma~\ref{ImgOfAMorphFromBiIdToA} to get that $\phi(y)\in I$. Now by paragraph
 $(i)$ of lemma~\ref{GoodIdealMetTopProjIsUnital} we get that $I$ has the
 identity of norm $\langle$~at most $1$ / at most $c$~$\rangle$.
@@ -505,13 +549,13 @@ commutative Banach algebra $A$ which is relatively projective as $A$-module has
 a paracompact spectrum. This result is due to Helemskii
 [\cite{HelHomolBanTopAlg}, theorem IV.3.6]. 
 
-Note that existence of bounded approximate identity is not necessary for the
+Note that existence of bounded approximate identity is not necessary for an
 ideal of a commutative Banach algebra to be even topologically projective.
-Indeed, consider Banach algebra  $A_0(\mathbb{D})$ --- the ideal of disk algebra
-consisting of functions vanishing at zero. By combination of propositions 4.3.5
-and 4.3.13 paragraph $(iii)$ from~\cite{DalBanAlgAutCont} we get that
-$A_0(\mathbb{D})$ has no bounded approximate identities. On the other hand, from
-[\cite{HelBanLocConvAlg}, example IV.2.2] we know that
+Indeed, consider Banach algebra  $A_0(\mathbb{D})$ --- the ideal of the disk
+algebra consisting of functions vanishing at zero. By combination of 
+propositions 4.3.5 and 4.3.13 paragraph $(iii)$ from~\cite{DalBanAlgAutCont} 
+we get that $A_0(\mathbb{D})$ has no bounded approximate identities. 
+On the other hand, from [\cite{HelBanLocConvAlg}, example IV.2.2] we know that
 $A_0(\mathbb{D})\isom{A_0(\mathbb{D})-\mathbf{mod}} {A_0(\mathbb{D})}_+$, so
 $A_0(\mathbb{D})$ is topologically projective by
 proposition~\ref{UnitalAlgIsMetTopProj}.
@@ -522,8 +566,8 @@ proposition 2.11].
 
 \begin{proposition}\label{MetTopProjCycModCharac} Let $I$ be a left ideal in
 $A_\times $. Assume the natural projection $\pi:A_\times\to A_\times/I$ is
-$\langle$~strictly coisometric / strictly $c$-topologically
-surjective~$\rangle$. Then the following holds:
+strictly $\langle$~coisometric / $c$-topologically surjective~$\rangle$. 
+Then the following holds:
 
 \begin{enumerate}[label = (\roman*)]
     \item If $A_\times /I$ is $\langle$~metrically / $C$-topologically~$\rangle$
@@ -537,8 +581,8 @@ surjective~$\rangle$. Then the following holds:
     $C$-topologically~$\rangle$ projective.
 \end{enumerate}
 \end{proposition}
-\begin{proof} $(i)$ Since the natural quotient map $\pi$ is $\langle$~strictly
-coisometric / strictly $c$-topologically surjective~$\rangle$ and $A_\times /I$
+\begin{proof} $(i)$ Since the natural quotient map $\pi$ is strictly 
+$\langle$~coisometric / $c$-topologically surjective~$\rangle$ and $A_\times /I$
 is $\langle$~metrically / $C$-topologically~$\rangle$ projective, then $\pi$ has
 a right inverse $A$-morphism $\sigma$ with norm $\langle$~at most $1$ / at most
 $cC$~$\rangle$. We set $e_{A_\times }-p=(\sigma\pi)(e_{A_\times })$, then
@@ -567,9 +611,8 @@ to check that $\pi\sigma=1_{A_\times/I}$
 and $\Vert\sigma\Vert\leq\Vert e_{A_\times }-p\Vert$. 
 This means that $\pi:A_\times \to A_\times /I$ is a
 $\langle$~$1$-retraction / $C$-retraction~$\rangle$. From
-propositions~\ref{UnitalAlgIsMetTopProj} and
-$\langle$~\ref{RetrMetTopProjIsMetTopProj}
-/~\ref{RetrCTopProjIsCTopProj}~$\rangle$ it follows that $A_\times /I$ is
+propositions~\ref{UnitalAlgIsMetTopProj} 
+and~\ref{RetrMetCTopProjIsMetCTopProj} it follows that $A_\times /I$ is
 $\langle$~metrically / $C$-topologically~$\rangle$ projective.
 \end{proof} 
 
@@ -592,130 +635,195 @@ IV, \S 4].
 %    Metric and topological injectivity
 %-------------------------------------------------------------------------------
 
-\subsection{Metric and topological
-    injectivity}\label{SubSectionMetricAndTopologicalInjectivity}
+\subsection{
+    Metric and topological injectivity
+}\label{SubSectionMetricAndTopologicalInjectivity}
 
 Unless otherwise stated we shall consider injectivity of right modules.
 
-\begin{definition}[\cite{HelMetrFrQMod}, definition 4.3]\label{MetInjMod} An
-$A$-module $J$ is called metrically injective if for any isometric $A$-morphism
-$\xi:Y\to X$ and any $A$-morphism $\phi:Y\to J$ there exists an $A$-morphism
-$\psi:X\to J$ such that $\psi\xi=\phi$  and $\Vert\psi\Vert=\Vert\phi\Vert$.
+\begin{definition}[\cite{HelMetrFrQMod}, 
+    definition 4.3;~\cite{WhiteInjmoduAlg}, 
+    definition 3.4]\label{MetCTopInjMod} 
+An $A$-module $J$ is 
+called $\langle$~metrically / $C$-topologically~$\rangle$ injective if for any 
+$\langle$~isometric / $c$-topologically injective~$\rangle$
+$A$-morphism $\xi:Y\to X$ and for any $A$-morphism $\phi:Y\to J$ 
+there exists an $A$-morphism $\psi:X\to J$ such that $\psi\xi=\phi$  and
+$\langle$~$\Vert\psi\Vert\leq\Vert\phi\Vert$ / 
+$\Vert \psi\Vert\leq c C\Vert\phi\Vert$~$\rangle$. We say that an $A$-module 
+$J$ is topologically injective if it is $C$-topologically injective for 
+some $C\geq 1$.
 \end{definition}
 
-\begin{definition}[\cite{HelMetrFrQMod}, definition 4.3]\label{TopInjMod} An
-$A$-module $J$ is called  topologically injective if for any topologically
-injective $A$-morphism $\xi:Y\to X$ and any $A$-morphism $\phi:Y\to J$ there
-exists an $A$-morphism $\psi:X\to J$ such that $\psi\xi=\phi$.
-\end{definition}
+The task of constructing an $A$-morphism $\psi$ for a given $A$-morphisms $\phi$ 
+and $\xi$ in the definition~\ref{MetCTopInjMod} is called an extension problem 
+and $\psi$ is called an extension of $\phi$ along $\xi$.
 
-A short but more involved equivalent definition is the following: an $A$-module
-$J$ is called $\langle$~metrically / topologically~$\rangle$ injective, if the
-functor
-$\langle$~$\operatorname{Hom}_{\mathbf{mod}_1-A}(-,J)
-:\mathbf{mod}_1-A\to\mathbf{Ban}_1$
+A short but more involved equivalent definition 
+of $\langle$~metric / $C$-topological~$\rangle$ injectivity is the following: 
+an $A$-module $J$ is called $\langle$~metrically / $C$-topologically~$\rangle$ 
+injective, if the functor
+$\langle$~$\operatorname{Hom}_{A-\mathbf{mod}_1}(-,J)
+:A-\mathbf{mod}_1\to\mathbf{Ban}_1$
 /
-$\operatorname{Hom}_{\mathbf{mod}-A}(-,J)
-:\mathbf{mod}-A\to\mathbf{Ban}$~$\rangle$
-maps $\langle$~isometric / topologically injective~$\rangle$ $A$-morphisms into
-$\langle$~strictly coisometric / surjective~$\rangle$ operators.
+$\operatorname{Hom}_{A-\mathbf{mod}}(-,J)
+:A-\mathbf{mod}\to\mathbf{Ban}$~$\rangle$
+maps $\langle$~isometric / $c$-topologically injective~$\rangle$
+$A$-morphisms into strictly $\langle$~coisometric / 
+$c C$-topologically surjective~$\rangle$ operators. 
 
-In~\cite{HelMetrFrQMod} and~\cite{ShtTopFrClassicQuantMod} there were
-constructed two faithful functors:
-$$
-\square_{met}^d
-:A-\mathbf{mod}_1\to\mathbf{Set}
-:X\mapsto B_{X^*},\phi\mapsto\phi^*|_{B_{Y^*}}^{B_{X^*}},
-$$
-$$
-\square_{top}^d
-:A-\mathbf{mod}\to\mathbf{HNor}
-:X\mapsto X^*,\phi\mapsto\phi^*
-$$
-The first one sends a Banach $A$-module to the unit ball of its dual and any
-contractive $A$-morphism to the respective birestriction of its adjoint, while
-the second one ``forgets'' about module and additive structure of the dual
-module and adjoint $A$-morphism. In the same papers it was proved that an
-$A$-morphism $\xi$ is $\langle$~isometric / topologically injective~$\rangle$
-iff it is $\langle$~$\square_{met}^d$-admissible /
-$\square_{top}^d$-admissible~$\rangle$ monomorphism and an $A$-module $J$ is
-$\langle$~metrically / topologically~$\rangle$ injective iff it is
-$\langle$~$\square_{met}^d$-injective / $\square_{top}^d$-injective~$\rangle$.
-Thus, from general categorical scheme we immediately get the following
-proposition.
+In category $\langle$~$A-\mathbf{mod}_1$ / $A-\mathbf{mod}$~$\rangle$ there
+is a special class of $\langle$~metrically / $1$-topologically~$\rangle$
+injective modules of the form $\mathcal{B}(A_+, \ell_\infty(\Lambda))$ for 
+some set $\Lambda$. They are called cofree modules. These modules play a crucial 
+role in our studies of injectivity.
 
-\begin{proposition}\label{RetrMetTopInjIsMetTopInj} Any retract of
-$\langle$~metrically / topologically~$\rangle$ injective module in
-$\langle$~$A-\mathbf{mod}_1$ / $A-\mathbf{mod}$~$\rangle$ is again
-$\langle$~metrically / topologically~$\rangle$ injective.
+\begin{proposition}[\cite{WhiteInjmoduAlg}, 
+    lemma 3.6]\label{MetCTopCofreeMod} Let $\Lambda$ be an arbitrary 
+set, then the left $A$-modules $\mathcal{B}(A_+, \ell_\infty(\Lambda))$ 
+and $\mathcal{B}(A_\times, \ell_\infty(\Lambda))$
+are $\langle$~metrically / $1$-topologically~$\rangle$ injective. 
 \end{proposition}
+\begin{proof} By $A_\bullet$ we denote either $A_+$ or $A_\times$.
+Consider arbitrary $A$-morphism 
+$\phi:Y\to \mathcal{B}(A_\bullet, \ell_\infty(\Lambda))$ and 
+$\langle$~an isometric / $c$-topologically injective~$\rangle$ 
+$A$-morphism $\xi:Y\to X$. Fix arbitrary $\lambda\in\Lambda$ and define 
+a bounded linear functional 
+$h_\lambda:Y\to\mathbb{C}:y\mapsto \phi(y)(e_{A_\times})(\lambda)$. 
+Clearly, $\Vert h_\lambda\Vert\leq\Vert \phi\Vert$.
+Denote $X_0=\operatorname{Im}(\xi)$ and consider 
+$A$-morphism $\eta=\xi|^{X_0}$. Since $\xi$ is 
+$\langle$~an isometric / $c$-topologically injective~$\rangle$, then $X_0$ is
+closed and $\eta$ has a left inverse bounded linear operator $\zeta:X_0\to Y$, 
+such that $\zeta$ has norm at most $\langle$~$K=1$ / $K=c$~$\rangle$. 
+Now consider a bounded linear functional  $f_\lambda=h_\lambda\zeta\in X_0^*$. 
+By Hahn-Banach theorem we can extend $f_\lambda$ to some bounded linear functional
+$g_\lambda:X\to\mathbb{C}$ with norm  
+$\Vert g_\lambda\Vert
+=\Vert f_\lambda\Vert
+\leq\Vert h_\lambda\Vert\Vert\zeta\Vert
+\leq K\Vert \phi\Vert$. 
+Consider $A$-morphism 
+$\psi
+:X\to \mathcal{B}(A_\bullet, \ell_\infty(\Lambda))
+:x\mapsto (a\mapsto (\lambda\mapsto g_\lambda(x\cdot a)))$. 
+It is easy to check that $\psi\xi=\phi$ and 
+$\Vert\psi\Vert\leq K\Vert\phi\Vert$. Thus for a given $\phi$ 
+and $\xi$ we have constructed an $A$-morphism $\psi$ such that $\psi\xi=\phi$ 
+and $\langle$~$\Vert\psi\Vert\leq\Vert\phi\Vert$ /
+$\Vert\psi\Vert\leq c\Vert\phi\Vert$~$\rangle$. Hence the 
+$A$-module $\mathcal{B}(A_\bullet, \ell_\infty(\Lambda))$ is 
+$\langle$~metrically / $1$-topologically~$\rangle$ injective.
+\end{proof}
 
-It was also shown that the rigged category
-$\langle$~$(\mathbf{mod}_1-A,\square_{met}^d)$ /
-$(\mathbf{mod}-A,\square_{top}^d)$~$\rangle$ is cofreedom loving and that
-$\langle$~$\square_{met}^d$-cofree / $\square_{top}^d$-cofree~$\rangle$ modules
-are isomorphic in $\langle$~$\mathbf{mod}_1-A$ / $\mathbf{mod}-A$~$\rangle$ to
-$\mathcal{B}(A_+, \ell_\infty(\Lambda))$ for some set $\Lambda$. Even more, for
-any $A$-module $X$ there exists a $\langle$~$\square_{met}^d$-admissible /
-$\square_{top}^d$-admissible~$\rangle$ monomorphism
+
+\begin{proposition}\label{DualOfUnitalAlgIsMetTopInj} The right $A$-module
+$A_\times^*$ is metrically and $1$-topologically injective.
+\end{proposition}
+\begin{proof} Consier set $\Lambda=\mathbb{N}_1$. 
+By proposition~\ref{MetCTopCofreeMod} the 
+$A$-module $\mathcal{B}(A_\times, \ell_\infty(\Lambda))$ is metrically 
+and $1$-topologically injective. Now it remains to note that 
+$\mathcal{B}(A_\times, \ell_\infty(\Lambda))
+\isom{\mathbf{mod}_1-A}\\
+\mathcal{B}(A_\times, \mathbb{C})
+\isom{\mathbf{mod}_1-A}
+A_\times^*$.
+\end{proof}
+
+\begin{proposition}[\cite{WhiteInjmoduAlg}, 
+    lemma 3.7]\label{RetrMetCTopInjIsMetCTopInj} Any 
+$\langle$~$1$-retract / $c$-retract~$\rangle$ of
+$\langle$~metrically / $C$-topologically~$\rangle$ injective module is
+$\langle$~metrically / $c C$-topologically~$\rangle$ injective.
+\end{proposition}
+\begin{proof} Suppose that $J$ is a $c$-retract of 
+$\langle$~metrically / $C$-topologically~$\rangle$ injective $A$-module $J'$.
+Then there exist $A$-morphisms $\eta:J\to J'$ and $\zeta: J'\to J$ such that
+$\zeta\eta=1_{J}$ and $\Vert\zeta\Vert\Vert\eta\Vert\leq c$ 
+for $\langle$~$c=1$ / $c\geq 1$~$\rangle$. Consider 
+arbitrary $\langle$~isometric / $c'$-topologically injective~$\rangle$ 
+$A$-morphism $\xi:Y\to X$ and an arbitrary $A$-morphism $\phi:Y\to J$. 
+Consider $A$-morphism $\phi'=\eta\phi$. Since $J'$ is 
+$\langle$~metrically / $C$-topologically~$\rangle$ injective, then there 
+exists an $A$-morphism $\psi':X\to J'$ such that $\phi'=\psi'\xi$ 
+and $\Vert\psi'\Vert \leq K\Vert\phi'\Vert$ 
+for $\langle$~$K=1$ / $K=c' C$~$\rangle$. Now it is routine to check that 
+for the $A$-morphism $\psi=\zeta\psi'$ 
+holds $\psi\xi=\phi$ and $\Vert\psi\Vert \leq cK\Vert\phi\Vert$. 
+Thus for a given $\phi$ and $\xi$ we have
+constructed an $A$-morphism $\psi$ such that $\psi\xi=\phi$  and
+$\langle$~$\Vert\psi\Vert\leq\Vert\phi\Vert$ / 
+$\Vert \psi\Vert\leq c C\Vert\phi\Vert$~$\rangle$. Hence $J$ 
+is $\langle$~metrically / $c C$-topologically~$\rangle$ injective.
+\end{proof}
+
+
+It is easy to show that, for any $A$-module $X$ there exists 
+$\langle$~an isometric / a $1$-topologically injective~$\rangle$ 
+$A$-morphism
 $$
 \rho_X^+
-:X\to\mathcal{B}(A_+,\ell_\infty(B_{X^*}))
+:X\to\mathcal{B}(A_+, \ell_\infty(B_{X^*}))
 :x\mapsto(a\mapsto(f\mapsto f(x\cdot a)))
 $$
-As the consequence of general result on rigged categories we get
 
-\begin{proposition}\label{MetTopInjModViaCanonicMorph} The module $J$ is
-$\langle$~metrically / topologically~$\rangle$ injective iff $\rho_J^+$ is a
-coretraction in $\langle$~$\mathbf{mod}_1-A$ / $\mathbf{mod}-A$~$\rangle$.
+\begin{proposition}[\cite{WhiteInjmoduAlg}, 
+    proposition 3.10]\label{MetCTopInjModViaCanonicMorph} An $A$-module $J$ is
+$\langle$~metrically / $C$-topologically~$\rangle$ injective iff $\rho_J^+$ is 
+a $\langle$~$1$-retraction / $C$-retraction~$\rangle$ in $A-\mathbf{mod}$.
 \end{proposition}
+\begin{proof}
+Suppose $J$ is 
+$\langle$~metrically / $C$-topologically~$\rangle$ injective, then consider 
+$\langle$~isometric / $1$-topologically injective~$\rangle$
+$A$-morphism $\rho_J^+$. Consider extension problem with $\phi=1_J$ 
+and $\xi=\rho_J^+$, then from $\langle$~metric / $C$-topological~$\rangle$ 
+injectivity of $J$ we get an $A$-morphism $\tau^+$ such 
+that $\tau^+\rho_J^+=1_J$
+and $\Vert\tau^+\Vert\leq K$ for $\langle$~$K=1$ / $K=C$~$\rangle$. 
+Since $\Vert\rho_J^+\Vert\Vert \tau^+\Vert\leq K$ 
+we conclude that $\rho_J^+$ is 
+a $\langle$~$1$-retraction / $C$-retraction~$\rangle$ in $A-\mathbf{mod}$.
 
-Since $\langle$~$\square_{met}^d$-cofree / $\square_{top}^d$-cofree~$\rangle$
-modules are the same up to isomorphisms in $\mathbf{mod}-A$ and any retraction
-in $\mathbf{mod}_1-A$ is a retraction in $\mathbf{mod}-A$, then from
-proposition~\ref{RetrMetTopInjIsMetTopInj} we see that any metrically injective
-$A$-module is topologically injective. Recall that every relatively injective
-module is a retract in $\mathbf{mod}-A$ of $\mathcal{B}(A_+,E)$ for some Banach
-space $E$, therefore every topologically injective $A$-module is relatively
-injective. We summarize all these in the following proposition.
+Conversely assume that $\rho_J^+$ is 
+a $\langle$~$1$-retraction / $C$-retraction~$\rangle$. In other words $J$ is 
+a $\langle$~$1$-retract / $C$-retract~$\rangle$ of 
+$\mathcal{B}(A_+, \ell_\infty(B_{J^*}))$. By proposition~\ref{MetCTopCofreeMod} 
+the $A$-module $\mathcal{B}(A_+, \ell_\infty(B_{J^*}))$ 
+is $\langle$~metrically / $1$-topologically~$\rangle$ injective. So from 
+proposition~\ref{RetrMetCTopInjIsMetCTopInj} 
+its $\langle$~$1$-retract / $C$-retract~$\rangle$ $P$ is 
+$\langle$~metrically / $C$-topologically~$\rangle$ injective.
+\end{proof}
 
-\begin{proposition}\label{MetInjIsTopInjAndTopInjIsRelInj} Every metrically
-injective module is topologically injective and every topologically injective
-module is relatively injective.
+\begin{proposition}[\cite{WhiteInjmoduAlg}, 
+    proposition 3.9]\label{MetInjIsTopInjAndTopInjIsRelInj} Every metrically
+injective module is $1$-topologically injective and every $C$-topologically 
+injective module is $C$-relatively injective.
 \end{proposition}
+\begin{proof} By proposition~\ref{MetCTopInjModViaCanonicMorph} every 
+metrically injecive $A$-module $J$ is a $1$-retract 
+of $\mathcal{B}(A_+, \ell_\infty(B_{J^*}))$. Hence by the same proposition $J$ 
+is $1$-topologically injecive. Again by 
+proposition~\ref{MetCTopInjModViaCanonicMorph} every $C$-topologically 
+injecive $A$-module $J$ is a $C$-retract 
+of $A$-module $\mathcal{B}(A_+, \ell_\infty(B_{J^*}))$. 
+In other words $J$ is a $C$-retract of the module $\mathcal{B}(A_+, E)$ for 
+some Banach space $E$. Therefore $J$ is $C$-relatively injecive.
+\end{proof}
 
-A quantitative version of the definition of topological injectivity was given by
-White,  though he used a somewhat different terminology.
-
-\begin{definition}[\cite{WhiteInjmoduAlg}, definition 3.4]\label{CTopInjMod} An
-$A$-module $J$ is called  $C$-topologically injective if for any
-$c$-topologically injective $A$-morphism $\xi:Y\to X$ and any $A$-morphism
-$\phi:Y\to J$ there exists an $A$-morphism $\psi:X\to J$ such that
-$\psi\xi=\phi$ and $\Vert\psi\Vert\leq c C\Vert\phi\Vert$.
-\end{definition}
-
-We shall need the following facts about this type of injectivity.
-
-\begin{proposition}[\cite{WhiteInjmoduAlg}, lemma
-3.7]\label{RetrCTopInjIsCTopInj} Any $c$-retract of $C$-topologically injective
-module is $cC$-topologically injective.
-\end{proposition}
-
-\begin{proposition}[\cite{WhiteInjmoduAlg}, proposition
-3.10]\label{CTopInjModViaCanonicMorph} An $A$-module $J$ is $C$-topologically
-injective iff $\rho_J^+$ is a $C$-coretraction in $\mathbf{mod}-A$.
-\end{proposition}
-
-As the consequence, a Banach module is topologically injective iff it is
-$C$-topologically injective for some $C$. One more important consequence of
-proposition~\ref{CTopInjModViaCanonicMorph} is the following.
+Clearly, every $C$-topologically injecive module is $C'$-topologically 
+injecive for $C'\geq C$. But we can state even more.
 
 \begin{proposition}\label{MetInjIsOneTopInj} An $A$-module is metrically
 injective iff it is $1$-topologically injective.
 \end{proposition}
-
-We shall exploit both definitions~\ref{TopInjMod} and~\ref{CTopInjMod} without
-further reference for their equivalence. 
+\begin{proof} The result immediately follows 
+from propositions~\ref{MetInjIsTopInjAndTopInjIsRelInj} 
+and~\ref{MetCTopInjModViaCanonicMorph}.
+\end{proof}
 
 Let us proceed to examples. If we regard the category of Banach spaces as the
 category of right Banach modules over zero algebra, we may speak of
@@ -732,24 +840,6 @@ such topological spaces are referred to as Stonean spaces.  For the contemporary
 results on topologically injective Banach spaces see
 [\cite{JohnLinHandbookGeomBanSp}, chapter 40].
 
-\begin{proposition}\label{DualOfUnitalAlgIsMetTopInj} The right $A$-module
-$A_\times^*$ is metrically and $1$-topologically injective.
-\end{proposition}
-\begin{proof} Consider arbitrary $A$-morphism $\phi:Y\to A_\times^*$ and
-isometric $A$-morphism $\xi:Y\to X$. Define a bounded linear functional
-$f:Y\to\mathbb{C}:y\mapsto \phi(y)(e_{A_\times})$. Since $\xi$ is an isometry,
-then by Hahn-Banach theorem we can extend $f$ to some bounded linear functional
-$g:X\to\mathbb{C}$ with the same norm. 
-Consider $A$-morphism $\psi:X\to A_\times^*:x\mapsto (a\mapsto g(x\cdot a))$. 
-Clearly, $\Vert\psi\Vert\leq\Vert g\Vert=\Vert f\Vert\leq\Vert\phi\Vert$. 
-On the other hand $\psi\xi=\phi$, 
-so $\Vert\phi\Vert\leq\Vert\psi\Vert\Vert\xi\Vert=\Vert\psi\Vert$. 
-Thus $\Vert\phi\Vert=\Vert\psi\Vert$. Therefore we proved by definition, 
-that $A_\times^*$ is metrically injective $A$-module. By
-proposition~\ref{MetInjIsOneTopInj} it is $1$-topologically injective
-$A$-module.
-\end{proof}
-
 \begin{proposition}\label{NonDegenMetTopInjCharac}  Let $J$ be a faithful
 $A$-module. Then $J$ is $\langle$~metrically / $C$-topologically~$\rangle$
 injective iff the map
@@ -759,8 +849,7 @@ $\mathbf{mod}-A$.
 \end{proposition} 
 \begin{proof}
 If $J$ is $\langle$~metrically / $C$-topologically~$\rangle$ injective, then by
-proposition $\langle$~\ref{MetTopInjModViaCanonicMorph}
-/~\ref{CTopInjModViaCanonicMorph}~$\rangle$ the $A$-morphism $\rho_J^+$ has
+proposition~\ref{MetCTopInjModViaCanonicMorph} the $A$-morphism $\rho_J^+$ has
 right inverse morphism $\tau^+$, with norm $\langle$~at most $1$ / at most
 $C$~$\rangle$. Assume we are given an operator $T\in
 \mathcal{B}(A_+,\ell_\infty(B_{J^*}))$, such that $T|_A=0$. Fix $a\in A$, then
@@ -789,9 +878,8 @@ $A$-morphism $\tau^+=\tau q$.
 Note that $\Vert\tau^+\Vert\leq\Vert\tau \Vert\Vert q\Vert\leq \Vert\tau \Vert$.
 Therefore $\tau^+$ has norm $\langle$~at most $1$ / at most $C$~$\rangle$. 
 Clearly $\tau^+\rho_J^+=\tau q\rho_J^+=\tau \rho_J=1_J$. So $\rho_J^+$ 
-is a $\langle$~$1$-coretraction / $C$-coretraction~$\rangle$ and by proposition 
-$\langle$~\ref{MetTopInjModViaCanonicMorph} 
-/~\ref{CTopInjModViaCanonicMorph}~$\rangle$ the $A$-module $J$ is
+is a $\langle$~$1$-coretraction / $C$-coretraction~$\rangle$ and by 
+proposition~\ref{MetCTopInjModViaCanonicMorph} the $A$-module $J$ is
 $\langle$~metrically / $C$-topologically~$\rangle$ injective.
 \end{proof}
 
@@ -821,11 +909,11 @@ $(i)$ The proof is literally the same as in paragraph $(ii)$.
 $(ii)$ Assume that $J$ is $C$-topologically injective. Note that, for any
 $\lambda\in\Lambda$ the $A$-module $J_\lambda$ is a $1$-retract of $J$ via
 natural projection $p_\lambda:J\to J_\lambda$. By
-proposition~\ref{RetrCTopInjIsCTopInj} the $A$-module $J_\lambda$ is
+proposition~\ref{RetrMetCTopInjIsMetCTopInj} the $A$-module $J_\lambda$ is
 $C$-topologically injective.
 
 Conversely, let each $A$-module $J_\lambda$ be $C$-topologically injective. By
-proposition~\ref{CTopInjModViaCanonicMorph} we have a family of
+proposition~\ref{MetCTopInjModViaCanonicMorph} we have a family of
 $C$-coretractions
 $\rho_\lambda:J_\lambda\to\mathcal{B}(A_+,\ell_\infty(S_\lambda))$. It follows
 that $\bigoplus_\infty \{\rho_\lambda:\lambda\in\Lambda \}$ is a
@@ -847,7 +935,7 @@ $$
 $$
 in $\mathbf{mod}-A$, where $S=\bigsqcup_{\lambda\in\Lambda}S_\lambda$. Clearly,
 the latter module is $1$-topologically injective, so by
-proposition~\ref{RetrCTopInjIsCTopInj} the $A$-module $J$ is $C$-topologically
+proposition~\ref{RetrMetCTopInjIsMetCTopInj} the $A$-module $J$ is $C$-topologically
 injective.
 \end{proof}
 
@@ -872,15 +960,15 @@ $C$-topologically~$\rangle$ injective. Take any $\lambda\in\Lambda$ and consider
 contractive $A$-morphisms
 $i_\lambda:J\to\mathcal{B}(\ell_1(\Lambda),J):x\mapsto(f\mapsto f(\lambda)x)$
 and $p_\lambda:\mathcal{B}(\ell_1(\Lambda),J)\to J:T\mapsto T(\delta_\lambda)$.
-Clearly, $p_\lambda i_\lambda=1_J$, so by proposition
-$\langle$~\ref{RetrMetTopInjIsMetTopInj} /~\ref{RetrCTopInjIsCTopInj}~$\rangle$
-the $A$-module $J$ is $\langle$~metrically / $C$-topologically~$\rangle$
-injective as $1$-retract of $\langle$~metrically / $1$-topologically~$\rangle$
-injective $A$-module $\mathcal{B}(\ell_1(\Lambda),J)$.
+Clearly, $p_\lambda i_\lambda=1_J$, so by 
+proposition~\ref{RetrMetCTopInjIsMetCTopInj} the $A$-module $J$ 
+is $\langle$~metrically / $C$-topologically~$\rangle$ injective as $1$-retract 
+of $\langle$~metrically / $1$-topologically~$\rangle$ injective 
+$A$-module $\mathcal{B}(\ell_1(\Lambda),J)$.
 
 Conversely, since $J$ is $\langle$~metrically / $C$-topologically~$\rangle$
-injective, by proposition $\langle$~\ref{MetTopInjModViaCanonicMorph}
-/~\ref{CTopInjModViaCanonicMorph}~$\rangle$ the $A$-morphism $\rho_J^+$ is a
+injective, by proposition~\ref{MetCTopInjModViaCanonicMorph} 
+the $A$-morphism $\rho_J^+$ is a
 $\langle$~$1$-coretraction / $C$-coretraction~$\rangle$. Apply the functor
 $\mathcal{B}(\ell_1(\Lambda),-)$ to this coretraction to get another
 $\langle$~$1$-coretraction / $C$-coretraction~$\rangle$ denoted by
@@ -905,195 +993,148 @@ $$
 Therefore $\mathcal{B}(\ell_1(\Lambda),J)$ is a $\langle$~$1$-retract /
 $C$-retract~$\rangle$ of $\langle$~metrically / $1$-topologically~$\rangle$
 injective $A$-module $\mathcal{B}(A_+,\ell_\infty(\Lambda\times B_{J^*}))$. By
-proposition $\langle$~\ref{RetrMetTopInjIsMetTopInj}
-/~\ref{RetrCTopInjIsCTopInj}~$\rangle$ the $A$-module
+proposition~\ref{RetrMetCTopInjIsMetCTopInj} the $A$-module
 $\mathcal{B}(\ell_1(\Lambda), J)$ is $\langle$~metrically /
 $C$-topologically~$\rangle$ injective.
+\end{proof}
+
+The property of being metrically, topologically or relatively injective module 
+puts some restrictions on the Banach geometric structure of the module.
+
+\begin{proposition}[\cite{RamsHomPropSemgroupAlg}, 
+    proposition 2.2.1]\label{MetTopRelInjModCompIdealAnnihCompl} Let $J$ 
+be a $\langle$~metrically / $C$-topologically / $C$-relatively~$\rangle$ 
+injective $A$-moudle, and let $I$ 
+be a $\langle$~$1$-complemented / $c$-complemented / $c$-complemented~$\rangle$
+right ideal of $A$. Then $J^{\perp I}$ 
+is $\langle$~$2$-complemented / $1+cC$-complemented / 
+$1+cC$-complemented~$\rangle$ in $J$.
+\end{proposition}
+\begin{proof} Since $A$ is $1$-complemented in $A_+$, then $I$ 
+is $\langle$~$1$-complemented / $c$-complemented / $c$-complemented~$\rangle$
+in $A_+$. Hence there exists a bounded linear operator $r:A_+\to I$ of 
+$\langle$~norm $1$ / norm $c$ / norm $c$~$\rangle$ such that $r|_I=1_I$. 
+Since $J$ is $\langle$~metrically / $C$-topologically / $C$-relatively~$\rangle$ 
+injective, by proposition~\ref{MetCTopInjModViaCanonicMorph} the 
+morphism $\rho_J^+$ has a left inverse $A$-morphism $\tau^+$ of norm 
+$\langle$~at most $1$ / at most $C$ / at most $C$~$\rangle$. Now consider 
+a bounded linear operator $p:A\to A:x\mapsto x-\tau^+(\rho_J^+(x)r)$. Clearly,
+$\Vert p\Vert\leq 1+\Vert \tau^+\Vert\Vert r\Vert$. 
+Since $\operatorname{Im}(r)\subset I$, then for all $x\in J^{\perp I}$ we 
+have $\rho_J^+(x)r=0$. Hence $p(x)=x$ for all $x\in J^{\perp I}$. Since $I$ is 
+a right ideal, then one can check that for all $x\in J$ and $a\in I$ holds 
+$(\rho_J^+(x)r)\cdot a=\rho_J^+(x\cdot a)$. As a consequence 
+$$
+p(x)\cdot a
+=x\cdot a-\tau^+(\rho_J^+(x)r)\cdot a
+=x\cdot a-\tau^+((\rho_J^+(x)r)\cdot a)
+=x\cdot a-\tau^+(\rho_J^+(x\cdot a))
+=0.
+$$
+In other words $\operatorname{Im}(p)\subset J^{\perp I}$. Thus $p$ is 
+projection onto $J^{\perp I}$ with norm at 
+most $1+\Vert \tau^+\Vert\Vert r\Vert$. Hence $J^{\perp I}$ 
+is $\langle$~$2$-complemented / $1+cC$-complemented / 
+$1+cC$-complemented~$\rangle$ complemented in $J$.
+\end{proof}
+
+
+\begin{corollary}\label{MetTopRelInjModAnnihCompl} Let $J$ 
+be a $\langle$~metrically / $C$-topologically / $C$-relatively~$\rangle$ 
+injective $A$-moudle. Then $J_{ann}$ 
+is $\langle$~$2$-complemented / $1+C$-complemented / 
+$1+C$-complemented~$\rangle$ in $J$.
+\end{corollary}
+\begin{proof} The result directly follows from 
+proposition~\ref{MetTopRelInjModCompIdealAnnihCompl}.
 \end{proof}
 
 %-------------------------------------------------------------------------------
 %    Metric and topological flatness
 %-------------------------------------------------------------------------------
 
-\subsection{Metric and topological
-    flatness}\label{SubSectionMetricAndTopologicalFlatness}
+\subsection{
+    Metric and topological flatness
+}\label{SubSectionMetricAndTopologicalFlatness}
 
-To save the homogeneity of notation we call metrically flat $A$-modules
-of~\cite{HelMetrFlatNorMod} where they were named extremely flat.
+The definition of metrically flat modules was given by Helemeskii 
+in~\cite{HelMetrFlatNorMod} under the name of extremely flat modules. The 
+notion of topological flatness was first studied by 
+White in~\cite{WhiteInjmoduAlg}. We use a somewhat different, but equivalent  
+terminology. Unfortunately, his definition was erroneous, meanwhile the results 
+were correct. So we take responsibility to fix the definition.
 
-\begin{definition}[\cite{HelMetrFlatNorMod}, I]\label{MetFlatMod} A left
-$A$-module $F$ is called metrically flat if for each isometric $A$-morphism
-$\xi:X\to Y$ of right $A$-modules the operator $\xi\projmodtens{A}
-1_F:X\projmodtens{A} F\to Y\projmodtens{A} F$ is isometric.
-\end{definition}
-
-\begin{definition}[\cite{HelMetrFlatNorMod}, definition I]\label{TopFlatMod} A
-left $A$-module $F$ is called topologically flat if for each topologically
-injective $A$-morphism $\xi:X\to Y$ of right $A$-modules the operator
-$\xi\projmodtens{A} 1_F:X\projmodtens{A} F\to Y\projmodtens{A} F$ is
-topologically injective.
+\begin{definition}[\cite{HelMetrFlatNorMod}, 
+    definition I;~\cite{WhiteInjmoduAlg}, definition 4.4]\label{MetCTopFlatMod} 
+A left $A$-module $F$ is 
+called $\langle$~metrically / $C$-topologically~$\rangle$ 
+flat if for each $\langle$~isometric / $c$-topologically injective~$\rangle$ 
+$A$-morphism $\xi:X\to Y$ of right $A$-modules the 
+operator $\xi\projmodtens{A} 1_F:X\projmodtens{A} F\to Y\projmodtens{A} F$ 
+is $\langle$~isometric / $c C$-topologically injecive~$\rangle$. We say that an 
+$A$-module $F$ is topologically flat if it is $C$-topologically flat for 
+some $C\geq 1$.
 \end{definition}
 
 A short but more involved definition is the following: an $A$-module $F$ is
-called $\langle$~metrically / topologically~$\rangle$ flat, if the functor
+called $\langle$~metrically / $C$-topologically~$\rangle$ flat, if the functor
 $\langle$~$-\projmodtens{A}F:A-\mathbf{mod}_1\to\mathbf{Ban}_1$ /
 $-\projmodtens{A}F:A-\mathbf{mod}\to\mathbf{Ban}$~$\rangle$ maps
-$\langle$~isometric / topologically injective~$\rangle$ $A$-morphisms into
-$\langle$~isometric / topologically injective~$\rangle$ operators.
+$\langle$~isometric / $c$-topologically injective~$\rangle$ $A$-morphisms into
+$\langle$~isometric / $c C$-topologically injective~$\rangle$ operators.
 
-Again, regard the category of Banach spaces as the category of left Banach
-modules over zero algebra, then we get the definition of $\langle$~metrically /
-topologically~$\rangle$ flat Banach space. From Grothendieck's
-paper~\cite{GrothMetrProjFlatBanSp} it follows that any metrically flat Banach
-space is isometrically isomorphic to $L_1(\Omega,\mu)$ for some measure space
-$(\Omega,\Sigma,\mu)$. For topologically flat Banach spaces, in contrast with
-topologically injective ones, we also have a criterion
-[\cite{DefFloTensNorOpId}, corollary 23.5(1)]: a Banach space is topologically
-flat iff it is an $\mathscr{L}_1^g$-space.
+The key result in the study of flatness is the following.
 
-
-It is well known that an $A$-module $F$ is relatively flat iff $F^*$ is
-relatively injective [\cite{HelBanLocConvAlg}, theorem 7.1.42]. Next proposition
-is an obvious analog of this result.
-
-\begin{proposition}\label{MetTopFlatCharac} The $A$-module $F$ is
-$\langle$~metrically / topologically~$\rangle$ flat iff $F^*$ is
-$\langle$~metrically / topologically~$\rangle$ injective.
+\begin{proposition}[\cite{WhiteInjmoduAlg}, lemma 4.10]\label{MetCTopFlatCharac}
+An $A$-module $F$ is
+$\langle$~metrically / $C$-topologically~$\rangle$ flat iff $F^*$ is
+$\langle$~metrically / $C$-topologically~$\rangle$ injective.
 \end{proposition}
-\begin{proof} Consider any $\langle$~isometric / topologically
+\begin{proof} Consider any $\langle$~isometric / $c$-topologically
 injective~$\rangle$ morphism of right $A$-modules, call it $\xi:X\to Y$. The
-operator $\xi\projmodtens{A} 1_F$ is $\langle$~isometric / topologically
+operator $\xi\projmodtens{A} 1_F$ is $\langle$~isometric / $c C$-topologically
 injective~$\rangle$ iff the adjoint operator ${(\xi\projmodtens{A} 1_F)}^*$ is
-$\langle$~strictly coisometric / topologically surjective~$\rangle$
-[\cite{HelLectAndExOnFuncAn}, exercises 4.4.6, 4.4.7]. Since operators
-${(\xi\projmodtens{A} 1_F)}^*$ and $\mathcal{B}_A(\xi,F^*)$ are equivalent in
-$\mathbf{Ban}_1$ via universal property of projective module tensor product,
-then we get that $\xi\projmodtens{A} 1_F$ is $\langle$~isometric / topologically
-injective~$\rangle$ iff $\mathcal{B}_A(\xi,F^*)$ is $\langle$~strictly
-coisometric / topologically surjective~$\rangle$. Since $\xi$ is arbitrary we
-conclude that $F$ is  $\langle$~metrically / topologically~$\rangle$ flat iff
-$F^*$ is $\langle$~metrically / topologically~$\rangle$ injective.
+strictly $\langle$~coisometric / $c C$-topologically surjective~$\rangle$. 
+Since operators ${(\xi\projmodtens{A} 1_F)}^*$ and $\mathcal{B}_A(\xi,F^*)$ 
+are equivalent in $\mathbf{Ban}_1$ via universal property of projective module 
+tensor product, then we get that $\xi\projmodtens{A} 1_F$ 
+is $\langle$~isometric / $c C$-topologically injective~$\rangle$ 
+iff $\mathcal{B}_A(\xi,F^*)$ is 
+strictly $\langle$~coisometric / $c C$-topologically surjective~$\rangle$. 
+Since $\xi$ is arbitrary we conclude that $F$ 
+is $\langle$~metrically / $C$-topologically~$\rangle$ flat iff
+$F^*$ is $\langle$~metrically / $C$-topologically~$\rangle$ injective.
 \end{proof}
 
-Combining proposition~\ref{MetTopFlatCharac} with
-propositions~\ref{RetrMetTopInjIsMetTopInj}
-and~\ref{MetInjIsTopInjAndTopInjIsRelInj} we get the following.
+This characterization allows one to prove many properties of flat modules by 
+considering respective duals.
 
-\begin{proposition}\label{RetrMetTopFlatIsMetTopFlat} Any retract of
-$\langle$~metrically / topologically~$\rangle$ flat module in
-$\langle$~$A-\mathbf{mod}_1$ / $A-\mathbf{mod}$~$\rangle$ is again
-$\langle$~metrically / topologically~$\rangle$ flat.
+\begin{proposition}\label{RetrMetCTopFlatIsMetCTopFlat} 
+Any $\langle$~$1$-retract / $c$-retract~$\rangle$ of a
+$\langle$~metrically / $C$-topologically~$\rangle$ flat module is 
+$\langle$~metrically / $cC$-topologically~$\rangle$ flat.
 \end{proposition}
+\begin{proof} The result follows from propositions~\ref{MetCTopFlatCharac} 
+and~\ref{RetrMetCTopInjIsMetCTopInj}
+\end{proof}
 
 \begin{proposition}\label{MetFlatIsTopFlatAndTopFlatIsRelFlat} Every metrically
-flat module is topologically flat and every topologically flat module is
-relatively flat.
+flat module is $1$-topologically flat and every $C$-topologically flat module is
+$C$-relatively flat.
 \end{proposition}
-
-A quantitative version of the definition of topological flatness was given by
-White, though he used a somewhat different terminology. Unfortunately, his
-definition was erroneous, meanwhile the results were correct. So we take
-responsibility to fix the definition.
-
-\begin{definition}[\cite{WhiteInjmoduAlg}, definition 4.8]\label{CTopFlatMod} A
-left $A$-module $F$ is called $C$-topologically flat if for each
-$c$-topologically injective $A$-morphism $\xi:X\to Y$ of right $A$-modules the
-operator $\xi\projmodtens{A} 1_F:X\projmodtens{A} F\to Y\projmodtens{A} F$ is
-$cC$-topologically injective.
-\end{definition}
-
-The key result in the study of this type of flatness is the following.
-
-\begin{proposition}[\cite{WhiteInjmoduAlg}, lemma 4.10]\label{CTopFlatCharac} An
-$A$-module $F$ is $C$-topologically flat iff $F^*$ is $C$-topologically
-injective.
-\end{proposition}
-
-As the consequence, a Banach module is topologically flat iff it is
-$C$-topologically flat for some $C$. One more important consequence of
-propositions~\ref{MetInjIsOneTopInj} and~\ref{CTopFlatCharac} is the following.
+\begin{proof} The result follows from propositions~\ref{MetCTopFlatCharac} 
+and~\ref{MetInjIsTopInjAndTopInjIsRelInj}.
+\end{proof}
 
 \begin{proposition}\label{MetFlatIsOneTopFlat} An $A$-module is metrically flat
 iff it is $1$-topologically flat.
 \end{proposition}
-
-
-We shall exploit both definitions~\ref{TopFlatMod} and~\ref{CTopFlatMod} without
-further reference for their equivalence. From propositions~\ref{CTopFlatCharac}
-and~\ref{RetrCTopInjIsCTopInj} we also get the following.
-
-\begin{proposition}\label{RetrCTopFlatIsCTopFlat} Any $c$-retract of
-$C$-topologically flat module is $cC$-topologically flat.
-\end{proposition}
-
-\begin{proposition}\label{DualMetTopProjIsMetrInj} Let $P$ be a
-$\langle$~metrically / $C$-topologically~$\rangle$ projective $A$-module, and
-$\Lambda$ be an arbitrary set. Then $\mathcal{B}(P,\ell_\infty(\Lambda))$ is
-$\langle$~metrically / $C$-topologically~$\rangle$ injective $A$-module. In
-particular, $P^*$ is $\langle$~metrically / $C$-topologically~$\rangle$
-injective $A$-module.
-\end{proposition}
-\begin{proof} From proposition $\langle$~\ref{MetTopProjModViaCanonicMorph}
-/~\ref{RetrCTopProjIsCTopProj}~$\rangle$ we know that $\pi_P^+$ is a
-$\langle$~$1$-retraction / $C$-retraction~$\rangle$. Then the $A$-morphism
-$\rho^+=\mathcal{B}(\pi_P^+,\ell_\infty(\Lambda))$ is a
-$\langle$~$1$-coretraction / $C$-coretraction~$\rangle$. Note that, 
-$$
-\mathcal{B}(A_+\projtens\ell_1(B_P),\ell_\infty(\Lambda))
-\isom{\mathbf{mod}_1-A}
-\mathcal{B}(A_+,\mathcal{B}(\ell_1(B_P),\ell_\infty(\Lambda)))
-\isom{\mathbf{mod}_1-A}
-\mathcal{B}(A_+,\ell_\infty(B_P\times\Lambda)).
-$$ 
-Thus we showed that $\rho^+$ is a $\langle$~$1$-coretraction /
-$C$-coretraction~$\rangle$ from $\mathcal{B}(P,\ell_\infty(\Lambda))$ into
-$\langle$~metrically / $1$-topologically~$\rangle$ injective $A$-module. By
-proposition $\langle$~\ref{RetrMetTopInjIsMetTopInj}
-/~\ref{RetrCTopInjIsCTopInj}~$\rangle$ the $A$-module
-$\mathcal{B}(P,\ell_\infty(\Lambda))$ is $\langle$~metrically /
-$C$-topologically~$\rangle$ injective. To prove the last claim, just set
-$\Lambda=\mathbb{N}_1$.
+\begin{proof} The result follows from propositions~\ref{MetCTopFlatCharac}
+and~\ref{MetInjIsOneTopInj}.
 \end{proof}
 
-As the consequence of propositions~\ref{CTopFlatCharac}
-and~\ref{DualMetTopProjIsMetrInj} we get
-
-\begin{proposition}\label{MetTopProjIsMetTopFlat} Every $\langle$~metrically /
-$C$-topologically~$\rangle$ projective module is $\langle$~metrically /
-$C$-topologically~$\rangle$ flat.
-\end{proposition}
-
-As we shall see later $\langle$~metric / topological~$\rangle$ flatness is a
-weaker property than $\langle$~metric / topological~$\rangle$ projectivity.
-
-\begin{proposition}\label{MetTopFlatModCoProd} Let
-${(F_\lambda)}_{\lambda\in\Lambda}$ be family of $A$-modules. Then 
-
-\begin{enumerate}[label = (\roman*)]
-    \item $\bigoplus_1 \{F_\lambda:\lambda\in\Lambda \}$ is metrically flat iff
-    for all $\lambda\in\Lambda$ the $A$-module $F_\lambda$ is metrically flat;
-
-    \item $\bigoplus_1 \{F_\lambda:\lambda\in\Lambda \}$ is $C$-topologically
-    flat iff for all $\lambda\in\Lambda$ the $A$-module $F_\lambda$ is
-    $C$-topologically flat.
-\end{enumerate}
-\end{proposition}
-\begin{proof} By proposition $\langle$~\ref{MetTopFlatCharac}
-/~\ref{CTopFlatCharac}~$\rangle$ an $A$-module $F$ is $\langle$~metrically /
-$C$-topologically~$\rangle$ flat iff $F^*$ is $\langle$~metrically /
-$C$-topologically~$\rangle$ injective. It is remains to apply
-proposition~\ref{MetTopInjModProd} with $J_\lambda=F_\lambda^*$ for all
-$\lambda\in\Lambda$ and recall that 
-${\left(\bigoplus_1 \{
-    F_\lambda:\lambda\in\Lambda \}
-\right)}^*
-\isom{\mathbf{mod}_1-A}
-\bigoplus_\infty \{ F_\lambda^*:\lambda\in\Lambda \}$.
-\end{proof}
-
-As we have seen flatness is a weakened version of projectivity. Loosely speaking
-flatness is ``projectivity with respect to second duals''. We can give this
-statement a precise meaning.
+Loosely speaking flatness is ``projectivity with respect to second duals''. 
+We can give this statement a precise meaning.
 
 \begin{proposition}\label{MetTopFlatSecondDualCharac} Let $F$ be a left Banach
 $A$-module. Then the following are equivalent:
@@ -1101,7 +1142,7 @@ $A$-module. Then the following are equivalent:
 \begin{enumerate}[label = (\roman*)]
     \item $F$ is $\langle$~metrically / $C$-topologically~$\rangle$ flat;
 
-    \item for any $\langle$~strictly coisometric / strictly $c$-topologically
+    \item for any strictly $\langle$~coisometric / $c$-topologically
     surjective~$\rangle$ $A$-morphism $\xi:X\to Y$ and for any $A$-morphism
     $\phi:F\to Y$ there exists an $A$-morphism $\psi:P\to X^{**}$ such that
     $\xi^{**}\psi=\iota_Y\phi$ and $\langle$~$\Vert\psi\Vert=\Vert\phi\Vert$ /
@@ -1112,8 +1153,8 @@ $A$-module. Then the following are equivalent:
     such that ${(\pi_F^+)}^{**}\rho=\iota_F$.
 \end{enumerate}
 \end{proposition}
-\begin{proof} $(i)\implies (ii)$ Again, consider arbitrary $\langle$~strictly
-coisometric / strictly $c$-topologically surjective~$\rangle$ $A$-morphism
+\begin{proof} $(i)\implies (ii)$ Again, consider arbitrary strictly 
+$\langle$~coisometric / $c$-topologically surjective~$\rangle$ $A$-morphism
 $\xi:X\to Y$ and arbitrary $A$-morphism $\phi:F\to Y$. By
 [\cite{HelLectAndExOnFuncAn}, exercise 4.4.6] we know that $\xi^*$ is
 $\langle$~isometric / $c$-topologically injective~$\rangle$. Since $F$ is
@@ -1124,7 +1165,7 @@ $\langle$~strictly coisometric / strictly $cC$-topologically
 surjective~$\rangle$ by [\cite{HelLectAndExOnFuncAn}, exercise 4.4.7]. Note that
 ${(\xi^*\projmodtens{A}1_F)}^*$ and $\mathcal{B}_A(F,\xi^{**})$ are equivalent
 in $\mathbf{Ban}_1$ thanks to the law of adjoint associativity. So
-$\mathcal{B}_A(F,\xi^{**})$ is $\langle$~strictly coisometric / strictly
+$\mathcal{B}_A(F,\xi^{**})$ is strictly $\langle$~coisometric / 
 $cC$-topologically surjective~$\rangle$ too. The latter implies that for the
 operator $\iota_Y\phi$ we can find an $A$-morphism $\psi:Y\to X^{**}$ such that
 $\xi^{**}\psi=\iota_Y\phi$ and
@@ -1132,7 +1173,7 @@ $\langle$~$\Vert\psi\Vert=\Vert\iota_Y\phi\Vert=\Vert\phi\Vert$ /
 $\Vert\psi\Vert\leq cC\Vert\iota_Y\phi\Vert=cC\Vert\phi\Vert$~$\rangle$
 
 $(ii)\implies (iii)$ Set $\xi=\pi_F^+$ and $\phi=1_F$. Since $\xi$ is
-$\langle$~strictly coisometric/ strictly $1$-topologically surjective~$\rangle$,
+strictly $\langle$~coisometric/ $1$-topologically surjective~$\rangle$,
 then from assumption we get an $A$-morphism $\rho:F\to
 {(A_+\projtens\ell_1(B_F))}^{**}$ such that 
 ${(\pi_F^+)}^{**}\rho
@@ -1166,13 +1207,113 @@ $$
 \isom{\mathbf{mod}_1-A}
 \mathcal{B}(A_+,\ell_\infty(B_F)).
 $$ 
-By proposition $\langle$~\ref{RetrMetTopInjIsMetTopInj}
-/~\ref{RetrCTopInjIsCTopInj}~$\rangle$ the $A$-module $F^*$ is
-$\langle$~metrically / $C$-topologically~$\rangle$ injective. By proposition
-$\langle$~\ref{MetTopFlatCharac} /~\ref{CTopFlatCharac}~$\rangle$ this is
+By proposition~\ref{RetrMetCTopInjIsMetCTopInj} the $A$-module $F^*$ is
+$\langle$~metrically / $C$-topologically~$\rangle$ injective. By 
+proposition~\ref{MetCTopFlatCharac} this is
 equivalent to $\langle$~metric / $C$-topological~$\rangle$ flatness of $F$.
 \end{proof}
 
+Let us proceed to examples. Consider the category of Banach spaces as 
+the category of left Banach modules over zero algebra, then we get the 
+definition of $\langle$~metrically / topologically~$\rangle$ flat Banach space. 
+From Grothendieck's paper~\cite{GrothMetrProjFlatBanSp} it follows that any 
+metrically flat Banach space is isometrically isomorphic to $L_1(\Omega,\mu)$ 
+for some measure space $(\Omega,\Sigma,\mu)$. For topologically flat Banach 
+spaces, in contrast with topologically injective ones, we also have a criterion
+[\cite{DefFloTensNorOpId}, corollary 23.5(1)]: a Banach space is topologically
+flat iff it is an $\mathscr{L}_1^g$-space.
+
+\begin{proposition}\label{MetTopFlatModCoProd} Let
+${(F_\lambda)}_{\lambda\in\Lambda}$ be family of $A$-modules. Then 
+
+\begin{enumerate}[label = (\roman*)]
+    \item $\bigoplus_1 \{F_\lambda:\lambda\in\Lambda \}$ is metrically flat iff
+    for all $\lambda\in\Lambda$ the $A$-module $F_\lambda$ is metrically flat;
+
+    \item $\bigoplus_1 \{F_\lambda:\lambda\in\Lambda \}$ is $C$-topologically
+    flat iff for all $\lambda\in\Lambda$ the $A$-module $F_\lambda$ is
+    $C$-topologically flat.
+\end{enumerate}
+\end{proposition}
+\begin{proof} By proposition~\ref{MetCTopFlatCharac} an $A$-module $F$ 
+is $\langle$~metrically / $C$-topologically~$\rangle$ flat iff $F^*$ 
+is $\langle$~metrically / $C$-topologically~$\rangle$ injective. 
+It remains to apply
+proposition~\ref{MetTopInjModProd} with $J_\lambda=F_\lambda^*$ for all
+$\lambda\in\Lambda$ and recall that 
+${\left(\bigoplus_1 \{
+    F_\lambda:\lambda\in\Lambda \}
+\right)}^*
+\isom{\mathbf{mod}_1-A}
+\bigoplus_\infty \{ F_\lambda^*:\lambda\in\Lambda \}$.
+\end{proof}
+
+The following propositions demonstrate a close relationsip between flatness and
+projectivity.
+
+\begin{proposition}\label{DualMetTopProjIsMetrInj} Let $P$ be a
+$\langle$~metrically / $C$-topologically~$\rangle$ projective $A$-module, and
+$\Lambda$ be an arbitrary set. Then $\mathcal{B}(P,\ell_\infty(\Lambda))$ is
+$\langle$~metrically / $C$-topologically~$\rangle$ injective $A$-module. In
+particular, $P^*$ is $\langle$~metrically / $C$-topologically~$\rangle$
+injective $A$-module.
+\end{proposition}
+\begin{proof} From proposition~\ref{MetCTopProjModViaCanonicMorph} we know 
+that $\pi_P^+$ is a $\langle$~$1$-retraction / $C$-retraction~$\rangle$. 
+Then the $A$-morphism
+$\rho^+=\mathcal{B}(\pi_P^+,\ell_\infty(\Lambda))$ is a
+$\langle$~$1$-coretraction / $C$-coretraction~$\rangle$. Note that, 
+$$
+\mathcal{B}(A_+\projtens\ell_1(B_P),\ell_\infty(\Lambda))
+\isom{\mathbf{mod}_1-A}
+\mathcal{B}(A_+,\mathcal{B}(\ell_1(B_P),\ell_\infty(\Lambda)))
+\isom{\mathbf{mod}_1-A}
+\mathcal{B}(A_+,\ell_\infty(B_P\times\Lambda)).
+$$ 
+Thus we showed that $\rho^+$ is a $\langle$~$1$-coretraction /
+$C$-coretraction~$\rangle$ from $\mathcal{B}(P,\ell_\infty(\Lambda))$ into
+$\langle$~metrically / $1$-topologically~$\rangle$ injective $A$-module. By
+proposition~\ref{RetrMetCTopInjIsMetCTopInj} the $A$-module
+$\mathcal{B}(P,\ell_\infty(\Lambda))$ is $\langle$~metrically /
+$C$-topologically~$\rangle$ injective. To prove the last claim, just set
+$\Lambda=\mathbb{N}_1$.
+\end{proof}
+
+\begin{proposition}\label{MetTopProjIsMetTopFlat} Every $\langle$~metrically /
+$C$-topologically~$\rangle$ projective module is $\langle$~metrically /
+$C$-topologically~$\rangle$ flat.
+\end{proposition}
+\begin{proof} The result follows from propositions~\ref{MetCTopFlatCharac}
+and~\ref{DualMetTopProjIsMetrInj}.
+\end{proof}
+
+The property of being metrically, topologically or relatively flat module 
+puts some restrictions on the Banach geometric structure of the module.
+
+\begin{proposition}[\cite{RamsHomPropSemgroupAlg}, 
+    corollary 2.2.2]\label{MetTopRelFlatModCompIdealPartCompl} Let $F$ 
+be a $\langle$~metrically / $C$-topologically / $C$-relatively~$\rangle$ 
+flat $A$-moudle, and let $I$ 
+be a $\langle$~$1$-complemented / $c$-complemented / $c$-complemented~$\rangle$
+right ideal of $A$. Then $\operatorname{cl}_F(I F)$ 
+is weakly $\langle$~$2$-complemented / $1+cC$-complemented / 
+$1+cC$-complemented~$\rangle$  in $F$.
+\end{proposition}
+\begin{proof} From 
+propositions~\ref{MetCTopFlatCharac},~\ref{MetTopRelInjModCompIdealAnnihCompl} 
+it follows that ${(F^*)}^{\perp I}$ is complemented in $F^*$. It remains to 
+recall that ${(F^*)}^{\perp I}=\operatorname{cl}_F(I F)$. 
+\end{proof}
+
+\begin{corollary}\label{MetTopRelFlatModPartCompl} Let $F$ 
+be a $\langle$~metrically / $C$-topologically / $C$-relatively~$\rangle$ 
+flat $A$-moudle. Then $F_{ess}$ 
+is weakly $\langle$~$2$-complemented / $1+C$-complemented / 
+$1+C$-complemented~$\rangle$ in $F$.
+\end{corollary}
+\begin{proof} The result directly follows from 
+proposition~\ref{MetTopRelFlatModCompIdealPartCompl}.
+\end{proof}
 
 %-------------------------------------------------------------------------------
 %    Metric and topological flatness of ideals and cyclic modules
@@ -1219,10 +1360,9 @@ $c$-coretraction~$\rangle$. The right $A$-module $A_\times ^*$ is
 $\langle$~metrically / $1$-topologically~$\rangle$ injective by
 proposition~\ref{DualOfUnitalAlgIsMetTopInj}, hence its $\langle$~$1$-retract /
 $c$-retract~$\rangle$ $I^*$ is $\langle$~metrically /
-$c$-topologically~$\rangle$ injective. Now from proposition
-$\langle$~\ref{MetTopFlatCharac} /~\ref{CTopFlatCharac}~$\rangle$ we conclude
-that the $A$-module $I$ is $\langle$~metrically / $c$-topologically~$\rangle$
-flat.
+$c$-topologically~$\rangle$ injective. Now from 
+proposition~\ref{MetCTopFlatCharac} we conclude that the $A$-module $I$ 
+is $\langle$~metrically / $c$-topologically~$\rangle$ flat.
 \end{proof}
 
 Note that the same sufficient condition holds for relative flatness for ideals
@@ -1251,9 +1391,8 @@ of $A_\times $. Then the following are equivalent:
 \end{enumerate}
 \end{proposition}
 \begin{proof} $(i)\implies (ii)$  Since $A_\times /I$ is $\langle$~metrically
-/ $C$-topologically~$\rangle$ flat, then by proposition
-$\langle$~\ref{MetTopFlatCharac} /~\ref{CTopFlatCharac}~$\rangle$ the right
-$A$-module ${(A_\times /I)}^*$ is $\langle$~metrically /
+/ $C$-topologically~$\rangle$ flat, then by proposition~\ref{MetCTopFlatCharac} 
+the right $A$-module ${(A_\times /I)}^*$ is $\langle$~metrically /
 $C$-topologically~$\rangle$ injective. Let $\pi:A_\times \to A_\times /I$ be the
 natural quotient map, then $\pi^*:{(A_\times /I)}^*\to A_\times ^*$ is an
 isometry. Since ${(A_\times /I)}^*$ is $\langle$~metrically /
@@ -1355,8 +1494,8 @@ i.e. $\tau:A_\times ^*\to {(A_\times /I)}^*$ is a retraction. The right
 $A$-module $A_\times ^*$ is $\langle$~metrically / $1$-topologically~$\rangle$
 injective by proposition~\ref{DualOfUnitalAlgIsMetTopInj}, hence its
 $\langle$~$1$-retract / $C$-retract~$\rangle$ ${(A_\times /I)}^*$ is
-$\langle$~metrically / $C$-topologically~$\rangle$ injective. Proposition
-$\langle$~\ref{MetTopFlatCharac} /~\ref{CTopFlatCharac}~$\rangle$ gives that the
+$\langle$~metrically / $C$-topologically~$\rangle$ injective. 
+Proposition~\ref{MetCTopFlatCharac} gives that the
 module $A_\times /I$ is $\langle$~metrically / $C$-topologically~$\rangle$ flat.
 \end{proof}
 
@@ -1383,7 +1522,9 @@ projective, injective or flat module over a non zero Banach algebra.
 %    The impact of Banach geometry
 %-------------------------------------------------------------------------------
 
-\section{The impact of Banach geometry}\label{SectionTheImpactOfBanachGeometry}
+\section{
+    The impact of Banach geometry
+}\label{SectionTheImpactOfBanachGeometry}
 
 
 %-------------------------------------------------------------------------------
@@ -1449,9 +1590,9 @@ annihilator $A$-module. Then the following are equivalent:
     $P\isom{\mathbf{Ban}}\ell_1(\Lambda)$~$\rangle$ for some set $\Lambda$.
 \end{enumerate}
 \end{proposition}
-\begin{proof} $(i)\implies (ii)$ By propositions
-$\langle$~\ref{RetrMetTopProjIsMetTopProj}
-/~\ref{RetrCTopProjIsCTopProj}~$\rangle$ and~\ref{AnnihCModIsRetAnnihMod} the
+\begin{proof} $(i)\implies (ii)$ By 
+propositions~\ref{RetrMetCTopProjIsMetCTopProj} 
+and~\ref{AnnihCModIsRetAnnihMod} the
 $A$-module $\mathbb{C}$ is $\langle$~metrically / $C$-topologically~$\rangle$
 projective as $1$-retract of $\langle$~metrically / $C$-topologically~$\rangle$
 projective module $P$. Proposition~\ref{MetTopProjModCCharac} gives that
@@ -1466,8 +1607,7 @@ projective, then the $A$-morphism $\pi$ has a right inverse morphism $\sigma$ of
 norm  $\langle$~at most $1$ / at most $C-1$~$\rangle$. Therefore $P$ is a
 $\langle$~$1$-retract / $C$-retract~$\rangle$ of $\langle$~metrically /
 $1$-topologically~$\rangle$ projective Banach space $\ell_1(B_P)$. By
-proposition $\langle$~\ref{RetrMetTopProjIsMetTopProj}
-/~\ref{RetrCTopProjIsCTopProj}~$\rangle$ the Banach space $P$ is
+proposition~\ref{RetrMetCTopProjIsMetCTopProj} the Banach space $P$ is
 $\langle$~metrically / $C$-topologically~$\rangle$ projective. Now from
 $\langle$~[\cite{HelMetrFrQMod}, proposition 3.2] / results
 of~\cite{KotheTopProjBanSp}~$\rangle$ we get that $P$ is isomorphic to
@@ -1487,9 +1627,8 @@ $\mathbb{C}$ is $\langle$~metrically / $C$-topologically~$\rangle$ injective iff
 $\langle$~$A= \{0 \}$ / $A$ has right $(C-1)$-bounded approximate
 identity~$\rangle$.
 \end{proposition}
-\begin{proof} Because of proposition $\langle$~\ref{MetTopFlatCharac}
-/~\ref{CTopFlatCharac}~$\rangle$ it is enough to study $\langle$~metric /
-$C$-topological~$\rangle$ flatness of $A_+/A$. By
+\begin{proof} Because of proposition~\ref{MetCTopFlatCharac} it is enough 
+to study $\langle$~metric / $C$-topological~$\rangle$ flatness of $A_+/A$. By
 proposition~\ref{MetTopFlatCycModCharac} this is equivalent to existence of
 right bounded approximate identity ${(e_\nu)}_{\nu\in N}$ in $A$ with
 $\langle$~$\sup_{\nu\in N}\Vert e_{A_+}-e_\nu\Vert\leq 1$ / 
@@ -1513,9 +1652,9 @@ annihilator $A$-module. Then the following are equivalent:
     /~$\rangle$.
 \end{enumerate}
 \end{proposition}
-\begin{proof} $(i)\implies (ii)$  By propositions
-$\langle$~\ref{RetrMetTopInjIsMetTopInj} /~\ref{RetrCTopInjIsCTopInj}~$\rangle$
-and~\ref{AnnihCModIsRetAnnihMod} the $A$-module $\mathbb{C}$ is
+\begin{proof} $(i)\implies (ii)$ By 
+propositions~\ref{RetrMetCTopInjIsMetCTopInj} and~\ref{AnnihCModIsRetAnnihMod} 
+the $A$-module $\mathbb{C}$ is
 $\langle$~metrically / $C$-topologically~$\rangle$ injective as $1$-retract of
 $\langle$~metrically / $C$-topologically~$\rangle$ injective module $J$.
 Proposition~\ref{MetTopInjModCCharac} gives that $\langle$~$A= \{0 \}$ / $A$ has
@@ -1532,8 +1671,8 @@ then the $A$-morphism $\rho$ has a left inverse morphism $\tau$ with
 norm $\langle$~at most $1$ / at most $C$~$\rangle$.
 Therefore $J$ is $\langle$~$1$-retract / $C$-retract~$\rangle$ of
 $\langle$~metrically / $1$-topologically~$\rangle$ injective Banach space
-$\ell_\infty(B_{J^*})$. By proposition $\langle$~\ref{RetrMetTopInjIsMetTopInj}
-/~\ref{RetrCTopInjIsCTopInj}~$\rangle$ the Banach space $J$ is
+$\ell_\infty(B_{J^*})$. By 
+proposition $\langle$~\ref{RetrMetCTopInjIsMetCTopInj} the Banach space $J$ is
 $\langle$~metrically / $C$-topologically~$\rangle$ injective. $\langle$~From
 [\cite{LaceyIsomThOfClassicBanSp}, theorem 3.11.6] the Banach space $J$ is
 isometrically isomorphic to $C(K)$ for some Stonean space $K$. /~$\rangle$ 
@@ -1551,10 +1690,9 @@ embedding $\rho:J\to \ell_\infty(B_{J^*})$, then as
 Banach space $J$ is a $\langle$~$1$-retract / $C$-retract~$\rangle$ of
 $\ell_\infty(B_{J^*})$. Recall, that $J$ and $\ell_\infty(B_{J^*})$ are
 annihilator modules, so in fact we have a retraction in
-$\langle$~$\mathbf{mod}_1-A$ / $\mathbf{mod}-A$~$\rangle$. By proposition
-$\langle$~\ref{RetrMetTopInjIsMetTopInj} /~\ref{RetrCTopInjIsCTopInj}~$\rangle$
-the $A$-module $J$ is $\langle$~metrically / $C$-topologically~$\rangle$
-injective.
+$\langle$~$\mathbf{mod}_1-A$ / $\mathbf{mod}-A$~$\rangle$. By 
+proposition~\ref{RetrMetCTopInjIsMetCTopInj} the $A$-module $J$ 
+is $\langle$~metrically / $C$-topologically~$\rangle$ injective.
 \end{proof}
 
 \begin{proposition}\label{MetTopFlatAnnihModCharac} Let $F$ be a non zero
@@ -1577,7 +1715,7 @@ $\langle$~metrically / $C$-topologically~$\rangle$ flat iff
 $\langle$~$F\isom{\mathbf{Ban}_1}L_1(\Omega,\mu)$ for some measure space
 $(\Omega, \Sigma, \mu)$ / $F$ is an $\mathscr{L}_{1,C}^g$-space~$\rangle$. Now
 the equivalence follows from propositions~\ref{MetTopInjOfAnnihModCharac}
-and~\ref{MetTopFlatCharac}.
+and~\ref{MetCTopFlatCharac}.
 \end{proof}
 
 We obliged to compare these results with similar ones in relative theory. From
@@ -1649,7 +1787,7 @@ Denote by $(\Theta',\Sigma',\nu')$ the measure space $(\Theta,\Sigma,\nu)$ with
 singleton atom adjoined, then $A_+\isom{\mathbf{Ban}_1} L_1(\Theta',\nu')$.
 
 $(i)$ Since $P$ is a $\langle$~metrically / topologically~$\rangle$ projective
-$A$-module, then by proposition~\ref{MetTopProjModViaCanonicMorph} it is a
+$A$-module, then by proposition~\ref{MetCTopProjModViaCanonicMorph} it is a
 retract of $A_+\projtens \ell_1(B_P)$ in $\langle$~$A-\mathbf{mod}_1$ /
 $A-\mathbf{mod}$~$\rangle$. Let $\mu_c$ be the counting measure on $B_P$, then
 by Grothendieck's theorem [\cite{HelLectAndExOnFuncAn}, theorem 2.7.5]
@@ -1664,7 +1802,7 @@ $L_1$-space is again an $L_1$-space [\cite{LaceyIsomThOfClassicBanSp}, theorem
 6.17.3].
 
 $(ii)$ Since $J$ is $\langle$~metrically / topologically~$\rangle$ injective
-$A$-module, then by proposition~\ref{MetTopInjModViaCanonicMorph} it is a
+$A$-module, then by proposition~\ref{MetCTopInjModViaCanonicMorph} it is a
 retract of $\mathcal{B}(A_+,\ell_\infty(B_{J^*}))$ in
 $\langle$~$\mathbf{mod}_1-A$ / $\mathbf{mod}-A$~$\rangle$. Let $\mu_c$ be the
 counting measure on $B_{J^*}$, then by Grothendieck's theorem
@@ -1690,7 +1828,7 @@ $(iii)$  By $\langle$~[\cite{GrothMetrProjFlatBanSp}, theorem 1] / remark after
 [\cite{DefFloTensNorOpId}, corollary 23.5(1)]~$\rangle$ the Banach space $F^*$
 is $\langle$~metrically / topologically~$\rangle$ injective iff $F$ is an
 $\langle$~$L_1$-space / $\mathscr{L}_1^g$-space~$\rangle$. Now the implication
-follows from paragraph $(ii)$ and proposition~\ref{MetTopFlatCharac}.
+follows from paragraph $(ii)$ and proposition~\ref{MetCTopFlatCharac}.
 \end{proof}
 
 \begin{proposition}\label{TopProjInjFlatModOverMthscrL1SpCharac} Let $A$ be a
@@ -1702,7 +1840,7 @@ $\mathscr{L}_\infty^g$-space / $\mathscr{L}_1^g$-space~$\rangle$.
 \begin{proof} If $A$ is an $\mathscr{L}_1^g$-space, then so does $A_+$. 
 
 Let $P$ be a topologically projective $A$-module. Then by
-proposition~\ref{MetTopProjModViaCanonicMorph} it is a retract 
+proposition~\ref{MetCTopProjModViaCanonicMorph} it is a retract 
 of $A_+\projtens \ell_1(B_P)$ in $A-\mathbf{mod}$ and a fortiori 
 in $\mathbf{Ban}$. Since
 $\ell_1(B_P)$ is an $\mathscr{L}_1^g$-space, then so does
@@ -1712,7 +1850,7 @@ Therefore $P$ is an $\mathscr{L}_1^g$-space as complemented subspace of
 $\mathscr{L}_1^g$-space [\cite{DefFloTensNorOpId}, corollary 23.2.1(2)].
 
 Let $J$ be a topologically injective $A$-module, then by
-proposition~\ref{MetTopInjModViaCanonicMorph} it is a retract of
+proposition~\ref{MetCTopInjModViaCanonicMorph} it is a retract of
 $\mathcal{B}(A_+,\ell_\infty(B_{J^*}))
 \isom{\mathbf{mod}_1-A}
 {(A_+\projtens\ell_1(B_{J^*}))}^*$
@@ -1725,7 +1863,7 @@ is again an $\mathscr{L}_\infty^g$-space [\cite{DefFloTensNorOpId}, corollary
 23.2.1(2)].
 
 Finally, let $F$ be a topologically flat $A$-module, then $F^*$ is topologically
-injective $A$-module by proposition~\ref{MetTopFlatCharac}. From previous
+injective $A$-module by proposition~\ref{MetCTopFlatCharac}. From previous
 paragraph it follows that $F^*$ is an $\mathscr{L}_\infty^g$-space. By
 [\cite{DefFloTensNorOpId}, corollary 23.5(1)] we get that $F$ is an
 $\mathscr{L}_1^g$-space.
@@ -1850,16 +1988,16 @@ and~\ref{TopProjInjFlatModOverMthscrL1SpCharac}.
 
 Assume $A$ is an $\mathscr{L}_\infty^g$-space, then so does $A_+$. Let $J$ be a
 topologically injective $A$-module, then by
-proposition~\ref{MetTopInjModViaCanonicMorph} it is a retract of 
+proposition~\ref{MetCTopInjModViaCanonicMorph} it is a retract of 
 $$
 \mathcal{B}(A_+,\ell_\infty(B_{J^*}))
 \isom{\mathbf{mod}_1-A}
 {(A_+\projtens\ell_1(B_{J^*}))}^*
 \isom{\mathbf{mod}_1-A}
 {\left(\bigoplus\nolimits_1 \{ A_+:\lambda\in B_{J^*} \}\right)}^*
+$$
+$$
 \isom{\mathbf{mod}_1-A}
-$$
-$$
 \bigoplus\nolimits_\infty \{ A_+^*:\lambda\in B_{J^*} \}
 $$ 
 in $\mathbf{mod}-A$ and a fortiori in $\mathbf{Ban}$. By
@@ -1868,7 +2006,7 @@ Dunford-Pettis property. As $J$ is its retract, then $J$ also has this property
 [\cite{FabHabBanSpTh}, proposition 13.44]. 
 
 If $F$ is a topologically flat $A$-module, then $F^*$ is a topologically
-injective $A$-module by proposition~\ref{MetTopFlatCharac}. By previous
+injective $A$-module by proposition~\ref{MetCTopFlatCharac}. By previous
 paragraph $F^*$ has the Dunford-Pettis property and so does $F$.
 
 If $P$ is a topologically projective $A$-module, it is also topologically flat
@@ -1888,7 +2026,7 @@ we know that any topologically injective $A$-module has the Dunford-Pettis
 property. On the other hand there is no infinite dimensional reflexive Banach
 spaces with the Dunford-Pettis property. Thus we get the desired result
 regarding topological injectivity. Since dual of reflexive module is reflexive,
-from proposition~\ref{MetTopFlatCharac} we get the result for topological
+from proposition~\ref{MetCTopFlatCharac} we get the result for topological
 flatness. It remains to recall that by proposition~\ref{MetTopProjIsMetTopFlat}
 every topologically projective module is topologically flat. To prove the last
 claim note that metric $\langle$~projectivity / injectivity / flatness~$\rangle$
@@ -1925,7 +2063,7 @@ $A$-module has the l.u.st.\ property.
 \begin{proof} 
 
 If $J$ is topologically injective $A$-module, then by
-proposition~\ref{MetTopInjModViaCanonicMorph} it is a retract of
+proposition~\ref{MetCTopInjModViaCanonicMorph} it is a retract of
 $\mathcal{B}(A_+,\ell_\infty(B_{J^*}))
 \isom{\mathbf{mod}_1-A}
 \bigoplus_\infty \{ A_+^*:\lambda\in B_{J^*} \}$ 
@@ -1951,7 +2089,7 @@ retract of the $\bigoplus_\infty \{A_+^*:\lambda\in B_{J^*} \}$, therefore
 also has this property.
 
 If $F$ is topologically flat $A$-module, then $F^*$ is topologically injective
-by proposition~\ref{MetTopFlatCharac}. By previous paragraph $F^*$ has the
+by proposition~\ref{MetCTopFlatCharac}. By previous paragraph $F^*$ has the
 l.u.st.\ property. Corollary 17.6 from~\cite{DiestAbsSumOps} gives that $F$ has
 this property too.
 
@@ -2072,12 +2210,16 @@ $\sigma=(ir\projtens 1_{\ell_1(B_P)})\sigma$. Even more,
 since $\sigma(P)\subset I\projtens\ell_1(B_P)$ and $r|_I=1_I$, 
 then $\sigma$ is an $I$-morphism.
 Clearly, $\pi_P(i\projtens 1_{\ell_1(B_P)})=\widetilde{\pi}_P$, so
-$\widetilde{\pi}_P\widetilde{\sigma}
-=\pi_P(i\projtens 1_{\ell_1(B_P)})(r\projtens 1_{\ell_1(B_P)})\sigma
+$$
+\widetilde{\pi}_P\widetilde{\sigma}
+=\pi_P(i\projtens 1_{\ell_1(B_P)})(r \projtens 1_{\ell_1(B_P)})\sigma
 =\pi_P(ir\projtens 1_{\ell_1(B_P)})\sigma
-=\pi_P\sigma=1_P$. Thus $\widetilde{\pi}_P$ is a
-$\langle$~$1$-retraction / $cC$-retraction~$\rangle$ in
-$\langle$~$I-\mathbf{mod}_1$ / $I-\mathbf{mod}$~$\rangle$, so by
+=\pi_P\sigma
+=1_P
+$$ 
+Thus $\widetilde{\pi}_P$ is 
+a $\langle$~$1$-retraction / $cC$-retraction~$\rangle$ 
+in $\langle$~$I-\mathbf{mod}_1$ / $I-\mathbf{mod}$~$\rangle$, so by
 proposition~\ref{NonDegenMetTopProjCharac} the $I$-module $P$ is
 $\langle$~metrically / $cC$-topologically~$\rangle$ projective.
 \end{proof}
@@ -2091,10 +2233,11 @@ Then
     $C$-topologically~$\rangle$  injective $I$-module, then $J$ is
     $\langle$~metrically / $C$-topologically~$\rangle$ injective $A$-module;
 
-    \item if $I$ is a $\langle$~$1$-complemented / $c$-complemented~$\rangle$
-    right ideal of $A$ and $J$ is $\langle$~metrically /
-    $C$-topologically~$\rangle$ injective $A$-module, then $J$ is
-    $\langle$~metrically / $cC$-topologically~$\rangle$ injective $I$-module.
+    \item if $I$ is a weakly $\langle$~$1$-complemented /
+    $c$-complemented~$\rangle$ right ideal of $A$ and $J$ is
+    $\langle$~metrically / $C$-topologically~$\rangle$ injective $A$-module,
+    then $J$ is $\langle$~metrically / $cC$-topologically~$\rangle$ injective
+    $I$-module.
 \end{enumerate}
 \end{proposition}
 \begin{proof} By $\widetilde{\rho}_J:J\to\mathcal{B}(I,\ell_\infty(B_{J^*}))$
@@ -2127,19 +2270,32 @@ $\mathbf{mod}-A$~$\rangle$, say $\tau $ of norm $\langle$~at most $1$ / at most
 $C$~$\rangle$. Assume we are given an operator $T\in
 \mathcal{B}(A,\ell_\infty(B_{J^*}))$, such that $T|_I=0$. Fix $a\in I$, then
 $T\cdot a=0$, and so $\tau (T)\cdot a=\tau (T\cdot a)=0$. Since $J$ is faithful
-$I$-module and $a\in I$ is arbitrary, then $\tau (T)=0$. By $r:A\to I$  we
-denote the left inverse of $i$. By assumption $\Vert r\Vert\leq c$. Define
-bounded linear operators $j=\mathcal{B}(r,\ell_\infty(B_{J^*}))$ and
-$\widetilde{\tau}=\tau  j$. For any $a\in I$ and
-$T\in\mathcal{B}(I,\ell_\infty(B_{J^*}))$ we have 
-$\widetilde{\tau}(T\cdot a)-\widetilde{\tau}(T)\cdot a
-=\tau (j(T\cdot a)-j(T)\cdot a)=0$, 
-because $j(T\cdot a)-j(T)\cdot a|_I=0$. 
-Therefore $\widetilde{\tau}$ is an $I$-morphism.
-Note that $\Vert\widetilde{\tau}\Vert\leq\Vert\tau \Vert\Vert j\Vert$, so
-$\widetilde{\tau}$ has norm $\langle$~at most $1$ / at most $cC$~$\rangle$.
-Obviously, for all $x\in J$ we have $\rho_J(x)-j(\widetilde{\rho}_J(x))|_I=0$,
-so $\tau (\rho_J(x)-j(\widetilde{\rho}_J(x)))=0$. As a consequence
+$I$-module and $a\in I$ is arbitrary, then $\tau (T)=0$. Since $I$ is weakly 
+$\langle$~$1$-complemented /$c$-complemented~$\rangle$ then $i^*$ has left 
+inverse $r:I^*\to A^*$ with norm $\langle$~at most $1$ / at most $c$~$\rangle$.
+For a given $f\in B_{J^*}$ we define a bounded linear operator 
+$g_f:\mathcal{B}(I,\ell_\infty(B_{J^*}))\to I^*:T\mapsto(x\mapsto T(x)(f))$. 
+Now we can define two more bounded linear operators
+$$
+j
+:\mathcal{B}(I,\ell_\infty(B_{J^*}))\to \mathcal{B}(A,\ell_\infty(B_{J^*}))
+:T\mapsto (a\mapsto (f\mapsto r(g_{f}(T))(a)))
+$$ 
+and $\widetilde{\tau}=\tau  j$. Fix $a\in I$ 
+and $T\in\mathcal{B}(I,\ell_\infty(B_{J^*}))$. Since $r$ is a left inverse 
+of $i^*$ we have $r(h)(a)=h(a)$ for all $h\in I^*$. Now it is routine to check 
+that $(j(T\cdot a)-j(T)\cdot a)|_I=0$. As we have shown earlier this implies
+that $\widetilde{\tau}(T\cdot a)-\widetilde{\tau}(T)\cdot a
+=\tau (j(T\cdot a)-j(T)\cdot a)=0$. Since $a\in I$ 
+and $T\in\mathcal{B}(I,\ell_\infty(B_{J^*}))$ are arbitrary the 
+map $\widetilde{\tau}$ is an $I$-morphism.
+Note that 
+$\Vert\widetilde{\tau}\Vert\leq\Vert\tau \Vert\Vert j\Vert\leq \Vert
+\tau\Vert\Vert r\Vert$, so $\widetilde{\tau}$ has 
+norm $\langle$~at most $1$ / at most $cC$~$\rangle$.
+In the same way one can show that, for all $x\in J$ 
+holds $\rho_J(x)-j(\widetilde{\rho}_J(x))|_I=0$,
+so $\tau (\rho_J(x)-j(\widetilde{\rho}_J(x)))=0$. As a consequence,
 $\widetilde{\tau}(\widetilde{\rho}_J(x))
 =\tau (j(\widetilde{\rho}_J(x)))=\tau(\rho_J(x))=x$ 
 for all $x\in J$. Since $\widetilde{\tau}\widetilde{\rho}_J=1_J$,
@@ -2159,15 +2315,16 @@ Then
     $C$-topologically~$\rangle$  flat $I$-module, then $F$ is
     $\langle$~metrically / $C$-topologically~$\rangle$ flat $A$-module;
 
-    \item if $I$ is a $\langle$~$1$-complemented / $c$-complemented~$\rangle$
-    right ideal of $A$ and $F$ is $\langle$~metrically /
-    $C$-topologically~$\rangle$ flat $A$-module, then $F$ is
-    $\langle$~metrically / $cC$-topologically~$\rangle$ flat $I$-module.
+    \item if $I$ is a weakly $\langle$~$1$-complemented / 
+    $c$-complemented~$\rangle$ right ideal of $A$ and $F$ 
+    is $\langle$~metrically / $C$-topologically~$\rangle$ flat $A$-module, 
+    then $F$ is $\langle$~metrically / $cC$-topologically~$\rangle$ 
+    flat $I$-module.
 \end{enumerate}
 \end{proposition}
 \begin{proof} Note that the dual of essential module is faithful. Now the result
-follows from propositions $\langle$~\ref{MetTopFlatCharac}
-/~\ref{CTopFlatCharac}~$\rangle$ and~\ref{MetTopInjUnderChangeOfAlg}.
+follows from propositions~\ref{MetCTopFlatCharac} 
+and~\ref{MetTopInjUnderChangeOfAlg}.
 \end{proof}    
 
 \begin{proposition}\label{MetTopProjInjFlatUnderSumOfAlg} Let
@@ -2201,7 +2358,7 @@ $(ii)$ Assume $X_\lambda$ is $C$-topologically $\langle$~projective / injective
 paragraph $(i)$ of proposition $\langle$~\ref{MetTopProjUnderChangeOfAlg}
 /~\ref{MetTopInjUnderChangeOfAlg} /~\ref{MetTopFlatUnderChangeOfAlg}~$\rangle$
 it is $C$-topologically $\langle$~projective / injective / flat~$\rangle$ as
-$A$-module. It is remains to apply the proposition
+$A$-module. It remains to apply the proposition
 $\langle$~\ref{MetTopProjModCoprod} /~\ref{MetTopInjModProd}
 /~\ref{MetTopFlatModCoProd}~$\rangle$. 
 
@@ -2210,10 +2367,10 @@ injective / flat~$\rangle$ as $A$-module. Fix arbitrary $\lambda\in\Lambda$.
 Clearly, we may regard $X_\lambda$ as $A$-module and even more $X_\lambda$ is a
 $1$-retract of $X$ in $\langle$~$A-\mathbf{mod}_1$ / $\mathbf{mod}_1-A$ /
 $A-\mathbf{mod}_1$~$\rangle$. By proposition
-$\langle$~\ref{RetrMetTopProjIsMetTopProj} /~\ref{RetrMetTopInjIsMetTopInj}
-/~\ref{RetrMetTopFlatIsMetTopFlat}~$\rangle$ we get that $X_\lambda$ is
+$\langle$~\ref{RetrMetCTopProjIsMetCTopProj} /~\ref{RetrMetCTopInjIsMetCTopInj}
+/~\ref{RetrMetCTopFlatIsMetCTopFlat}~$\rangle$ we get that $X_\lambda$ is
 $C$-topologically $\langle$~projective / injective / flat~$\rangle$ as
-$A$-module. It is remains to apply paragraph $(ii)$ of proposition
+$A$-module. It remains to apply paragraph $(ii)$ of proposition
 $\langle$~\ref{MetTopProjUnderChangeOfAlg} /~\ref{MetTopInjUnderChangeOfAlg}
 /~\ref{MetTopFlatUnderChangeOfAlg}~$\rangle$.
 \end{proof} 
@@ -2222,8 +2379,9 @@ $\langle$~\ref{MetTopProjUnderChangeOfAlg} /~\ref{MetTopInjUnderChangeOfAlg}
 %    Further properties of flat modules
 %----------------------------------------------------------------------------------------
 
-\subsection{Further properties of flat
-    modules}\label{SubSectionFurtherPropertiesOfFlatModules}
+\subsection{
+    Further properties of flat modules
+}\label{SubSectionFurtherPropertiesOfFlatModules}
 
 Based on results obtained above, we collect more interesting facts on metric and
 topological injectivity and flatness of Banach modules.
@@ -2361,32 +2519,32 @@ proposition~\ref{DualBanModDecomp} we may say that $c_1=c$ and $c_2=1+c$, so the
 right $A$-modules $F_{ess}^*$ and ${(F/F_{ess})}^*$ are $(1+c)$-retracts of
 $F^*$.
 
-$i)$ By proposition~\ref{CTopFlatCharac} the right $A$-module $F^*$ is
+$i)$ By proposition~\ref{MetCTopFlatCharac} the right $A$-module $F^*$ is
 $C$-topologically injective. Therefore from
-propositions~\ref{RetrCTopInjIsCTopInj},~\ref{CTopFlatCharac} the modules
+propositions~\ref{RetrMetCTopInjIsMetCTopInj},~\ref{MetCTopFlatCharac} the modules
 $F_{ess}$ and $F/F_{ess}$ are $(1+c)C$-topologically flat. It remains to note
 that $F/F_{ess}$ is an annihilator $A$-module, so by
 proposition~\ref{MetTopFlatAnnihModCharac} it is an
 $\mathscr{L}_{1,(1+c)C}^g$-space.
 
-$(ii)$ Again, by proposition~\ref{CTopFlatCharac} the right $A$-modules
+$(ii)$ Again, by proposition~\ref{MetCTopFlatCharac} the right $A$-modules
 $F_{ess}^*$ and ${(F/F_{ess})}^*$ are $C_1$- and $C_2$-topologically injective
 respectively. So from proposition~\ref{MetTopInjModProd} their product is
 $\max(C_1,C_2)$-topologically injective. By proposition~\ref{DualBanModDecomp}
 this product is ${(1+c)}^2$-isomorphic to $F^*$ in $\mathbf{mod}-A$. Therefore
 $F^*$ is ${(1+c)}^2\max(C_1, C_2)$-topologically injective $A$-module. Now the
-result follows from proposition~\ref{CTopFlatCharac}.
+result follows from proposition~\ref{MetCTopFlatCharac}.
 
 $(iii)$ The result immediately follows from paragraphs $(i)$ and $(ii)$.
 \end{proof}
 
 \begin{proposition}\label{MetTopEssL1FlatModAoverAmenBanAlg} Let $A$ be a
-relatively $\langle$~$1$-amenable / $c$-amenable~$\rangle$ Banach algebra and
+$\langle$~$1$-relatively / $c$-relatively~$\rangle$ amenable Banach algebra and
 $F$ be an essential Banach $A$-module which is an $\langle$~$L_1$-space /
 $\mathscr{L}_{1,C}^g$-space~$\rangle$. Then $F$ is a $\langle$~metrically /
 $c^2C$-topologically~$\rangle$ flat $A$-module.
 \end{proposition}
-\begin{proof} We may assume that $A$ is relatively $c$-amenable for
+\begin{proof} We may assume that $A$ is $c$-relatively amenable for
 $\langle$~$c=1$ / $c\geq 1$~$\rangle$. Let ${(d_\nu)}_{\nu\in N}$ be an
 approximate diagonal for $A$ with norm bound at most $c$. Recall, that
 ${(\Pi_A(d_\nu))}_{\nu\in N}$ is a two-sided $\langle$~contractive /
@@ -2472,15 +2630,13 @@ So $\tau\pi_F^*=1_{F^*}$. This means that $F^*$ is a $\langle$~$1$-retract /
  ${(A_+\projtens\ell_1(B_F))}^*
  \isom{\mathbf{mod}_1-A}
  \mathcal{B}(A_+,\ell_\infty(B_F))$
- and by proposition $\langle$~\ref{RetrMetTopInjIsMetTopInj}
- /~\ref{RetrCTopInjIsCTopInj}~$\rangle$ so does its retract $F^*$. By
- proposition $\langle$~\ref{MetTopFlatCharac} /~\ref{CTopFlatCharac}~$\rangle$
- this is equivalent to $\langle$~metric / $c^2 C$-topological~$\rangle$ flatness
- of $F$.
+ and by proposition~\ref{RetrMetCTopInjIsMetCTopInj} so does its 
+ retract $F^*$. By proposition~\ref{MetCTopFlatCharac} this is equivalent 
+ to $\langle$~metric / $c^2 C$-topological~$\rangle$ flatness of $F$.
 \end{proof}
 
-\begin{theorem}\label{TopL1FlatModAoverAmenBanAlg} Let $A$ be a relatively
-$c$-amenable Banach algebra and $F$ be a left Banach $A$-module which as Banach
+\begin{theorem}\label{TopL1FlatModAoverAmenBanAlg} Let $A$ be a $c$-relatively
+amenable Banach algebra and $F$ be a left Banach $A$-module which as Banach
 space is an $\mathscr{L}_{1, C}^g$-space. Then $F$ is a
 ${(1+c)}^2C\max(c^2,(1+c))$-topologically flat $A$-module.
 \end{theorem}
@@ -2533,7 +2689,9 @@ relatively flat.
 %    Injectivity of ideals
 %-------------------------------------------------------------------------------
 
-\subsection{Injectivity of ideals}\label{SubSectionInjectivityOfIdeals}
+\subsection{
+    Injectivity of ideals
+}\label{SubSectionInjectivityOfIdeals}
 
 Injective ideals are rare creatures but we need to say a few words about them.
 Results of this section needed for the study of metric and topological
@@ -2564,7 +2722,7 @@ $\langle$~$1$-retract / $C$-retract~$\rangle$ of $A$ in $\mathbf{mod}-A$.
 \end{proof}
 
 \begin{proposition}\label{ReduceInjIdToInjAlg} Let $I$ be a two-sided ideal of
-Banach algebra $A$, which is faithful as right $I$-module. Then
+a Banach algebra $A$, which is faithful as right $I$-module. Then
 
 \begin{enumerate}[label = (\roman*)]
     \item if $I$ is $\langle$~metrically / $C$-topologically~$\rangle$ injective

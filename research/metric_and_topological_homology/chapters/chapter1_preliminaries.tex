@@ -43,13 +43,17 @@ of $M$. By $\aleph_0$ we denote the cardinality of $\mathbb{N}$.
 %    Broad foundations
 %-------------------------------------------------------------------------------
 
-\section{Broad foundations}\label{SectionBroadFoundations} 
+\section{
+  Broad foundations
+}\label{SectionBroadFoundations} 
 
 %-------------------------------------------------------------------------------
 %    Categorical language
 %-------------------------------------------------------------------------------
 
-\subsection{Categorical language}\label{SubSectionCategoricalLanguage}
+\subsection{
+  Categorical language
+}\label{SubSectionCategoricalLanguage}
 
 Here we recall some basic facts and definitions from category theory and fix
 notation we shall use. We assume that our reader is familiar with such basics of
@@ -80,12 +84,12 @@ functors
 $$
 \operatorname{Hom}_{\mathbf{C}}(X,-)
 :\mathbf{C}\to\mathbf{Set}:Y\mapsto \operatorname{Hom}_{\mathbf{C}}(X,Y), 
-\phi\mapsto(\psi\mapsto \phi\circ\psi),
+\phi\mapsto(\psi\mapsto \phi\psi),
 $$
 $$
 \operatorname{Hom}_{\mathbf{C}}(-,X)
 :\mathbf{C}\to\mathbf{Set}:Y\mapsto \operatorname{Hom}_{\mathbf{C}}(Y,X), 
-\phi\mapsto(\psi\mapsto \psi\circ\phi).
+\phi\mapsto(\psi\mapsto \psi\phi).
 $$
 This construction has its reminiscent analogs in many categories of mathematics
 with slight modification of categories between which these functors act.
@@ -122,7 +126,9 @@ coproducts~$\rangle$ in different categories of functional analysis.
 %    Topology
 %-------------------------------------------------------------------------------
 
-\subsection{Topology}\label{SubSectionTopology}
+\subsection{
+  Topology
+}\label{SubSectionTopology}
 
 Let $(S,\tau)$ be a topological space. Elements of $\tau$ are called open sets,
 and their complements are called closed sets. Let $E$ be an arbitrary subset of
@@ -148,7 +154,7 @@ family $ \{S_\lambda:\lambda\in\Lambda \}$ with the coarsest topology making all
 natural projections $p_\lambda:\prod_{\lambda\in\Lambda}S_\lambda\to S_\lambda$
 continuous.
 
-In this book we shall encounter four types of topological spaces: compact
+In this book we shall mainly deal with four types of topological spaces: compact
 spaces, paracompact spaces, locally compact spaces and extremely disconnected
 spaces. Before giving their definitions we need to recall the notion of cover.
 Let $\mathcal{E}$ be a family of subsets of topological space $S$. We say that
@@ -163,7 +169,9 @@ $\mathcal{E}_1\subset\mathcal{E}_2$. Finally, a topological space is called
   \item compact if any its open cover admits a finite open subcover; 
 
   \item paracompact if any its open cover is inscribed into some locally finite
-  open cover; 
+  open cover;
+  
+  \item pseudocompact if any locally finite family of open sets is finite;
 
   \item locally compact if any its point has a compact neighborhood;
 
@@ -175,19 +183,19 @@ $\mathcal{E}_1\subset\mathcal{E}_2$. Finally, a topological space is called
 
 The property of being $\langle$~compact / paracompact / locally
 compact~$\rangle$ space is preserved by $\langle$~closed / closed / open and
-closed~$\rangle$ subspaces. Any non compact locally compact Hausdorff space $S$
-can be regarded as dense subspace of some compact Hausdorff space. There is the
-smallest and the largest such compactification. The smallest one is called the
-Alexandroff compactification $\alpha S$.  By definition 
-$\alpha S:=S\cup  \{S \}$. 
-A subset of $\alpha S$ is called open if it is an open subset of $S$ or has
-the form $ \{S \}\cup S\setminus K$ for some compact set $K\subset S$. The
-largest compactification $\beta S$ is called the Stone-Cech compactification. It
-may be represented as the image of the embedding $j:S\to\prod_{f\in
-C}[0,1]:s\mapsto \prod_{f\in C}f(s)$, where $C$ is a set of all continuous maps
-from $S$ to $[0,1]$. Stone-Cech compactification is highly non constructive.
-Even $\beta\mathbb{N}$ has no explicit description, though it is known that
-$\beta\mathbb{N}$ is an extremely disconnected Hausdorff compact.
+closed~$\rangle$ subspaces. A topological space is pseudocompact iff any
+continuous function on this space is bounded. Any non compact locally compact
+Hausdorff space $S$ can be regarded as dense subspace of some compact Hausdorff
+space. There is the smallest and the largest such compactification. The smallest
+one is called the Alexandroff compactification $\alpha S$.  By definition
+$\alpha S:=S\cup  \{S \}$. A subset of $\alpha S$ is called open if it is an
+open subset of $S$ or has the form $ \{S \}\cup S\setminus K$ for some compact
+set $K\subset S$. The largest compactification $\beta S$ is called the
+Stone-Cech compactification. It may be represented as the image of the embedding
+$j:S\to\prod_{f\in C}[0,1]:s\mapsto \prod_{f\in C}f(s)$, where $C$ is a set of
+all continuous maps from $S$ to $[0,1]$. Stone-Cech compactification is highly
+non constructive. Even $\beta\mathbb{N}$ has no explicit description, though it
+is known that $\beta\mathbb{N}$ is an extremely disconnected Hausdorff compact.
 
 Occasionally we shall apply the Urysohn's lemma to locally compact Hausdorff
 spaces. It states that for any compact subset $K$ of open set $V$ in a locally
@@ -201,7 +209,9 @@ treatise~\cite{EngelGenTop}.
 %    Filters, nets and limits
 %-------------------------------------------------------------------------------
 
-\subsection{Filters, nets and limits}\label{SubSectionFiltersNetsAndLimits} 
+\subsection{
+  Filters, nets and limits
+}\label{SubSectionFiltersNetsAndLimits} 
 
 We will use two generalizations of the notion of the sequence and the limit of
 the sequence.
@@ -275,7 +285,9 @@ More on this matters can be found in [\cite{BourbElemMathGenTopLivIII}, section
 %    Measure theory basics
 %-------------------------------------------------------------------------------
 
-\subsection{Measure theory}\label{SubSectionMeasureTheory}
+\subsection{
+  Measure theory
+}\label{SubSectionMeasureTheory}
 
 A family $\Sigma$ of subsets of the set $\Omega$ is called a $\sigma$-algebra if
 it contains an empty set, contains complements of all its elements and closed
@@ -352,11 +364,11 @@ product measure for localizable measure spaces is rather involved
 purposes it is enough to know that the product of two strictly localizable
 measure spaces is again strictly localizable [\cite{FremMeasTh}, proposition
 251N]. By direct sum of measure spaces $ \{(\Omega_\lambda, \Sigma_\lambda,
-\mu_\lambda):\lambda\in\Lambda \}$ we denote disjoint union of set $
-\{\Omega_\lambda:\lambda\in\Lambda \}$ with $\sigma$-algebra defined as 
+\mu_\lambda):\lambda\in\Lambda \}$ we denote the disjoint union of sets 
+$\{\Omega_\lambda:\lambda\in\Lambda \}$ with $\sigma$-algebra defined as 
 $\Sigma= \{
   E\subset \Omega: E\cap E_\lambda\in\Sigma_\lambda
-  \mbox{ for all}\lambda\in\Lambda
+  \mbox{ for all }\lambda\in\Lambda
  \}$ 
 and measure given by the formula 
 $\mu(E)=\sum_{\lambda\in\Lambda}\mu_\lambda(E\cap E_\lambda)$. It is clear now
@@ -370,7 +382,7 @@ there exist measurable sets $\Omega_a^{\mu}$ and
 $\Omega_{na}^{\mu}=\Omega\setminus \Omega_a^{\mu}$ such that
 $\mu_1(\Omega_{na}^{\mu})=\mu_2(\Omega_a^{\mu})=0$. The sets $\Omega_a^{\mu}$
 and $\Omega_{na}^{\mu}$ are called respectively the atomic and the non atomic
-parts of measure space $(\Omega,\Sigma,\mu)$.
+parts of the measure space $(\Omega,\Sigma,\mu)$.
 
 By measurable function we always mean a complex or real valued function on
 measurable space, with the property that preimage of every open set is
@@ -413,16 +425,45 @@ Finally we shall say a few words on measures defined on topological spaces.
 Given a topological space $S$ we may consider the minimal $\sigma$-algebra
 containing all open subsets of $S$. It is called the Borel $\sigma$-algebra of
 $S$ and denoted by $Bor(S)$. Measures and complex measures defined on Borel
-$\sigma$-algebras are supported with adjective Borel. We shall not consider
-measures on general topological spaces and stick with locally compact Hausdorff
-spaces. This significantly simplifies further considerations. We say that a
-complex Borel measure $\mu:Bor(S)\to\mathbb{C}$ defined on a locally compact
-Hausdorff space $S$ is regular if for any Borel set $E$ and any $\epsilon>0$
-there exists a compact set $K\subset E$ such that $|\mu|(E\setminus
-K)<\epsilon$. The support of complex Borel measure $\mu$ is a set of all points
+$\sigma$-algebras are supported with adjective Borel.
+
+The support of a complex Borel measure $\mu$ is a set of all points
 $s\in S$ for which every open neighborhood of $s$ has positive measure. We
 denote the set of such points by $\operatorname{supp}(\mu)$. The support is
-always closed. 
+always closed. A Borel measure $\mu$ is called
+\begin{enumerate}[label = (\roman*)]
+  \item strictly positive if $\operatorname{supp}(\mu)=S$;
+
+  \item a mesure with full support 
+  if $\mu(S\setminus\operatorname{supp}(\mu))=0$;
+
+  \item locally finite if point has an open neighborhood of finite measure; 
+
+  \item inner regular with respect to 
+  class $\mathcal{C}$ if for any Borel set $E$ holds 
+  $$
+  \mu(E)=\sup \{\mu(K): K\subset E, K\in\mathcal{C} \};
+  $$
+
+  \item outer regular with respect to 
+  class $\mathcal{C}$ if for any Borel set $E$ holds 
+  $$
+  \mu(E)=\inf \{\mu(K): K\subset E, K\in\mathcal{C} \};
+  $$
+
+  \item residual if $\mu(E)=0$ for any Borel nowhere dense set $E$;
+
+  \item normal if its residual and has full support.
+\end{enumerate}
+
+Usually we consider regularity of measures with respect to classes of open and
+compact sets. Now recall a few facts on topological measures. All compact sets 
+have finite measure if measure is locally finite. Any finite inner compact 
+regular measure is outer open regular. Any finite inner compact regular and
+inner open regular measure is normal. 
+
+We say that a complex Borel measure $\mu:Bor(S)\to\mathbb{C}$ defined on a 
+locally compact Hausdorff space $S$ is regular if it is inner compact regular.  
 
 Most of the results and definitions in this section can be found in the first,
 second and the fourth volumes of~\cite{FremMeasTh}.
@@ -431,13 +472,17 @@ second and the fourth volumes of~\cite{FremMeasTh}.
 %    Banach spaces, algebras and modules
 %-------------------------------------------------------------------------------
 
-\section{Banach structures}\label{SectionBanachStructures}
+\section{
+  Banach structures
+}\label{SectionBanachStructures}
 
 %-------------------------------------------------------------------------------
 %    Banach spaces
 %-------------------------------------------------------------------------------
 
-\subsection{Banach spaces}\label{SubSectionBanachSpaces}
+\subsection{
+  Banach spaces
+}\label{SubSectionBanachSpaces}
 
 We assume that our reader is familiar with fundamentals of functional analysis
 and its constructions, otherwise consult~\cite{HelLectAndExOnFuncAn}
@@ -445,16 +490,24 @@ or~\cite{ConwACoursInFuncAn}. In this book we will highly rely on results about
 geometry of Banach spaces.
 See~\cite{CarothShortCourseBanSp},~\cite{KalAlbTopicsBanSpTh}
 or~\cite{FabHabBanSpTh} for a quick introduction. All Banach spaces are
-considered over complex field, unless otherwise stated. 
+considered over the complex field, unless otherwise stated. 
 
 By $\langle$~$B_E$ / $B_E^\circ$~$\rangle$ we denote the $\langle$~closed /
-open~$\rangle$ unit ball of Banach space $E$ with center at zero. If $F$ is a
-closed subspace of $E$, then $E/F$ stands for the quotient Banach space. By
-$E^{cc}$ we denote a Banach space with the same set of vectors as in $E$, the
+open~$\rangle$ unit ball of Banach space $E$ with center at zero. For a given 
+set $S\subset E$ by $\operatorname{span}(S)$ we denote its linear span. 
+
+By $E^{cc}$ we denote a Banach space with the same set of vectors as in $E$, the
 same addition but with new multiplication by conjugate scalars:  $\alpha
 \overline{x}:=\overline{\overline{\alpha}x}$ for $\alpha\in\mathbb{C}$ 
 and $x\in E$. Note: elements of $E^{cc}$ we denote by $\overline{x}$. Clearly,
 ${(E^{cc})}^{cc}=E$.
+
+If $F$ is a closed subspace of the Banach space $E$, then $E/F$ stands for 
+linear quotient Banach space. Its norm defined by equality 
+$$
+\Vert x+F\Vert=\inf \{\Vert x+y\Vert: y\in F \}.
+$$
+where $x+F\in E/F$.
 
 Now fix two Banach spaces $E$ and $F$. A map $T:E\to F$ is called conjugate
 linear if the respective map $T:E^{cc}\to F$ is linear. A linear operator
@@ -471,7 +524,7 @@ $T:E\to F$ is called:
   rank one operators.
 \end{enumerate}
 
-Is well known that any nuclear operator is compact. Any compact operator is
+Any nuclear operator is compact. Any compact operator is
 bounded, any bounded operator is continuous. By $\langle$~$\mathcal{B}(E,F)$ /
 $\mathcal{K}(E,F)$ / $\mathcal{N}(E,F)$~$\rangle$ we denote the Banach space of
 $\langle$~bounded / compact / nuclear~$\rangle$ linear operators from $E$ to
@@ -494,37 +547,6 @@ category of Banach spaces with contractive operators in the role of morphisms.
 As the consequence, $\operatorname{Hom}_{\mathbf{Ban}}(E,F)$ is just another
 name for $\mathcal{B}(E,F)$.
 
-Let $E$, $F$ and $G$ be three Banach spaces, then a bilinear operator
-$\Phi:E\times F\to G$ is called bounded if its norm 
-$\Vert \Phi\Vert:=\sup \{\Vert \Phi(x,y)\Vert:x\in B_E, y\in B_F \}$ is finite. 
-The Banach space of all bounded bilinear operators on $E\times F$ with 
-values in $G$ is denoted by $\mathcal{B}(E\times F,G)$.
-
-A few words on classification of bounded linear operators. A bounded linear
-operator $T:E\to F$ is called:
-\begin{enumerate}[label = (\roman*)]
-  \item topologically injective if it performs homeomorphism on its image;
-
-  \item topologically surjective if it is an open map;
-
-  \item coisometric if it maps open unit ball onto open unit ball;
-
-  \item strictly coisometric if it maps closed unit ball onto closed unit ball. 
-
-  \item $c$-topologically injective, if $\Vert x\Vert\leq c\Vert  T(x)\Vert$ for
-  all $x\in E$;
-
-  \item $c$-topologically surjective, if $cT(B_E^\circ)\supset B_F^\circ$;
-
-  \item strictly $c$-topologically surjective, if $cT(B_E)\supset B_F$; 
-\end{enumerate}
-
-Note that $T$ is topologically $\langle$~injective / surjective~$\rangle$ iff it
-is $c$-topologically $\langle$~injective / surjective~$\rangle$ for some $c>0$.
-Obviously $\langle$~coisometric / strictly coisometric~$\rangle$ operators are
-exactly contractive $\langle$~$1$-topologically surjective / strictly
-$1$-topologically surjective~$\rangle$ operators.
-
 Two Banach spaces $E$ and $F$ are $\langle$~isometrically isomorphic /
 topologically isomorphic~$\rangle$ as Banach spaces if there exists a bounded
 linear operator $T:E\to F$ which is both $\langle$~isometric and surjective /
@@ -542,21 +564,120 @@ $$
 If $E$ and $F$ are not topologically isomorphic the Banach-Mazur distance
 between them is infinite.
 
-One more important class of operators is the class of bounded projections. A
-bounded linear operator $P:E\to E$ is called a projection if $P^2=P$. If
-$F=P(E)$, then we say that $P$ is a projection from $E$ onto $F$ and $F$ is
-complemented in $E$. If $\Vert P\Vert\leq c$ we say that $F$ is $c$-complemented
-in $E$. Finally, we say that $F$ is contractively complemented in $E$ if it is
-$1$-complemented in $E$. Another equivalent characterization says that $F$ is a
-complemented subspace of Banach space $E$ if there exists a closed subspace $G$
-in $E$ such that $E\isom{\mathbf{Ban}}F\bigoplus G$. All finite dimensional
-subspaces are complemented, but not necessarily contractively complemented. An
-example of contractively complemented subspace is the following: consider
-arbitrary Banach space $E$, then $E^*$ is contractively complemented in
-$E^{***}$ via Dixmier projection $P=\iota_{E^*}{(\iota_E)}^*$, where $\iota_E$ 
-is the natural embedding of $E$ into its second dual $E^{**}$. 
-A canonical example of uncomplemented subspace is $c_0(\mathbb{N})$ in
-$\mathbb{\ell_\infty}(\mathbb{N})$  [\cite{KalAlbTopicsBanSpTh}, theorem 2.5.5].
+
+By $E^*$ we denote the space of bounded linear functionals on $E$, that is
+$E^*=\mathcal{B}(E, \mathbb{C})$. It is called a dual space of $E$. Similarly
+one can define the second and higher duals of $E$. An important corollary of the
+Hahn-Banach theorem says that a bounded linear operator 
+$$
+\iota_E:E\to E^{**}:x\mapsto (f\mapsto f(x))
+$$ 
+is isometric. We call this operator the natural embedding of $E$ into its 
+second dual $E^{**}$.
+
+For a given bounded linear operator $T:E\to F$ its adjoint is bounded linear 
+operator 
+$$
+T^*:F^*\to E^*:f\mapsto (x\mapsto f(T(x))).
+$$
+Again from Hahn Banach 
+theorem it follows that $\Vert T^*\Vert=\Vert T\Vert$. One can easily check 
+that $T^{**}\iota_E=\iota_F T$.  
+
+For a given subspace $F$ of $\langle$~$E$ / $E^*$~$\rangle$ we define 
+its $\langle$~right / left~$\rangle$ annihilator 
+$\langle$~$F^\perp$ / ${}^\perp F$~$\rangle$ is defined as 
+$\langle$~$ \{ f\in E^*: f(x)=0 \mbox{ for all } x\in F \}$ / 
+$ \{ x\in E : f(x)=0 \mbox{ for all } f\in F \}$~$\rangle$. 
+Clearly, $E^{\perp} = \{ 0\}$, $0^{\perp}=E^*$ 
+and ${}^{\perp}E^*= \{ 0\}$, ${}^{\perp}0= E$. Annihilators are closely related
+with quotient spaces. One can show that 
+operators 
+$$
+i: F^*\to E/F^{\perp}: f\mapsto f|_F+F^\perp,
+\quad\quad 
+q:{(E/F)}^*\to F^{\perp}: f\mapsto (x\mapsto f(x + F))
+$$ 
+are isometric isomorphisms.
+
+A few words on classification of bounded linear operators. A bounded linear
+operator $T:E\to F$ is called:
+\begin{enumerate}[label = (\roman*)]
+  \item topologically injective if it performs homeomorphism on its image;
+
+  \item topologically surjective if it is an open map;
+
+  \item coisometric if it maps open unit ball onto open unit ball;
+
+  \item strictly coisometric if it maps closed unit ball onto closed unit ball; 
+
+  \item $c$-topologically injective, if $\Vert x\Vert\leq c\Vert  T(x)\Vert$ for
+  all $x\in E$;
+
+  \item $c$-topologically surjective, if $cT(B_E^\circ)\supset B_F^\circ$;
+
+  \item strictly $c$-topologically surjective, if $cT(B_E)\supset B_F$.
+\end{enumerate}
+
+Note that $T$ is topologically $\langle$~injective / surjective~$\rangle$ iff it
+is $c$-topologically $\langle$~injective / surjective~$\rangle$ for some $c>0$.
+Obviously $\langle$~coisometric / strictly coisometric~$\rangle$ operators are
+exactly contractive $\langle$~$1$-topologically surjective / strictly
+$1$-topologically surjective~$\rangle$ operators. These classes of operators 
+behave nicely with respect to taking adjoints:
+
+\begin{enumerate}[label = (\roman*)]
+  \item if $ T$ is $c$-topologically surjective or strictly $c$-topologically 
+  surjective, then $ T^*$ is $c$-topologically injective;
+
+  \item if $ T$ $c$-topologically injective, then $ T^*$ is strictly
+  $c$-topologically surjective;
+
+  \item if $ T^*$ $c$-topologically surjective or strictly $c$-topologically 
+  surjective, then $ T$ is $c$-topologically injective;
+
+  \item if $T^*$ $c$-topologically injective and $E$ is complete, then $T$ 
+  is $c$-topologically surjective.
+\end{enumerate}
+
+Let us discuss relation between Banach spaces and their subspaces. A bounded 
+linear operator $T:E\to F$ is called a $\langle$~$c$-retraction /
+$c$-coretraction~$\rangle$ if there exist a bounded linear operator $S:F\to E$
+such that $\langle$~$T S=1_F$ / $S T=1_E$~$\rangle$ 
+and $\Vert T\Vert\Vert S\Vert\leq c$. In this case we say 
+that $\langle$~$F$ / $E$~$\rangle$ has a
+$c$-complemented copy in $E$ via topologically $\langle$~injective /
+surjective~$\rangle$ operator $T$. If the natural embedding of a subspace $F$
+into the ambient space $E$ is a $c$-coretraction, then we say that $F$ is
+$c$-complemented in $E$. Complemented subspaces can be described in terms of so
+called projections. A bounded linear operator $P:E\to E$ is called a projection 
+of $E$ onto $F$ if $P^2=P$, $\operatorname{Im}(P)=F$. One can show that 
+$F$ is $c$-complemented in $E$ iff there is a projection $P$ from $E$ onto $F$ 
+with $\Vert P\Vert\leq c$. We say that $F$ is weakly $c$-complemented in $E$
+if $F^*$ is $c$-complemented in $E^*$ via the map $i^*$, which is the adjoint of
+the natural embedding. If $F$ is $c$-complemented in $E$ then it is 
+weakly $c$-complemented in $E$.  The term ``contractively complemented'' will 
+be a synonym for $1$-complemented. Sometimes we will omit a constant $c$ and 
+simply say that one Banach space $\langle$~has a complemented copy / 
+is complemented~$\rangle$ inside the other. 
+
+All finite dimensional subspaces are complemented, but not necessarily
+contractively complemented. An example of contractively complemented subspace is
+the following: consider arbitrary Banach space $E$, then $E^*$ is contractively
+complemented in $E^{***}$ via Dixmier projection $P=\iota_{E^*}{(\iota_E)}^*$. A
+canonical example of uncomplemented subspace is $c_0(\mathbb{N})$ in
+$\mathbb{\ell_\infty}(\mathbb{N})$ [\cite{KalAlbTopicsBanSpTh}, theorem 2.5.5].
+Nevertheless $c_0(\mathbb{N})$ is weakly complemented in
+$\ell_\infty(\mathbb{N})$ by Dixmier projection.
+
+Let $E$, $F$ and $G$ be three Banach spaces, then a bilinear operator
+$\Phi:E\times F\to G$ is called bounded if its norm 
+$$
+\Vert \Phi\Vert:=\sup \{\Vert \Phi(x,y)\Vert:x\in B_E, y\in B_F \}
+$$ 
+is finite. 
+The Banach space of all bounded bilinear operators on $E\times F$ with 
+values in $G$ is denoted by $\mathcal{B}(E\times F,G)$.
 
 Now consider the algebraic tensor product $E\otimes F$ of Banach spaces $E$ and
 $F$. This linear space can be endowed with different norms, but the most
@@ -576,7 +697,9 @@ stands for the completion of $E\otimes F$ under projective norm. We call the
 resulting completion the projective tensor product of Banach spaces $E$ and $F$.
 Let $T:E_1\to E_2$ and $S:F_1\to F_2$ be two bounded linear operators between
 Banach spaces, then there exists a unique bounded linear operator 
-$T\projtens S:E_1\projtens F_1\to E_2\projtens F_2$ 
+$$
+T\projtens S:E_1\projtens F_1\to E_2\projtens F_2
+$$ 
 such that  $(T\projtens S)(x\projtens y)=T(x)\projtens S(y)$ 
 for all $x\in E_1$ and $y\in F_1$. 
 Even more $\Vert T\projtens S\Vert=\Vert T\Vert\Vert S\Vert$. 
@@ -728,7 +851,10 @@ The reason is that any family of Banach spaces admit $\langle$~product /
 coproduct~$\rangle$ in $\mathbf{Ban}_1$ which in fact is their
 $\langle$~$\bigoplus_1$-sum / $\bigoplus_\infty$-sum~$\rangle$. The same
 statement holds for $\mathbf{Ban}$ if we restrict ourselves to finite families
-of objects [\cite{HelLectAndExOnFuncAn}, chapter 2, section 5].
+of objects [\cite{HelLectAndExOnFuncAn}, chapter 2, section 5].Obviously, any 
+summand in a $\bigoplus_p$-sum is a complemented subspace the sum. Even more, a
+subspce $F$ of a Banach space $E$ is complemented if there exists a closed
+subspace $G$ in $E$ such that $E\isom{\mathbf{Ban}}F\bigoplus_1 G$.
 
 We proceed to advanced topics of Banach space theory. Below we shall discuss
 several geometric properties of Banach spaces such as the property of being an
@@ -737,7 +863,7 @@ property, the l.u.st.\ property and the approximation property. In what follows,
 imitating Banach space geometers, we shall say that a Banach space $E$ contains
 $\langle$~an isometric copy / a copy~$\rangle$ of Banach space $F$ if $F$ is
 $\langle$~isometrically isomorphic / topologically isomorphic~$\rangle$ to some
-closed subspace of $E$.
+closed subspace of $E$. 
 
 Let $1\leq p\leq +\infty$. We say that $E$ is an $\mathscr{L}_{p,C}^g$-space if
 for any $\epsilon>0$ and any finite dimensional subspace $F$ of $E$ there exists
@@ -921,8 +1047,9 @@ properties.
 %    Banach algebras and their modules
 %-------------------------------------------------------------------------------
 
-\subsection{Banach algebras and their
-modules}\label{SubSectionBanachAlgebrasAndTheirModules}
+\subsection{
+  Banach algebras and their modules
+}\label{SubSectionBanachAlgebrasAndTheirModules}
 
 A thorough treatment of Banach algebras and Banach modules can be found
 in~\cite{HelBanLocConvAlg} or~\cite{HelHomolBanTopAlg}
@@ -1111,15 +1238,19 @@ all definitions and results are similar. We call a left Banach module $X$ over
 unital Banach algebra $A$ unital if $e_A\cdot x=x$ for all $x\in X$. For a given
 left Banach $A$-module $X$ and $S\subset A$, $M\subset X$ we define their
 products $S\cdot M= \{a\cdot x:a\in S, x\in M \}$, 
-$SM=\operatorname{span} (S\cdot M)$ and annihilators 
-$S^{\perp M}= \{a\in S:a\cdot M= \{0 \} \}$,
-${}^{S\perp}M= \{x\in M: S\cdot x= \{0 \} \}$. The essential and annihilator
+$SM=\operatorname{span} (S\cdot M)$ and algebraic annihilators 
+$$
+S^{\perp M}= \{a\in S:a\cdot M= \{0 \} \},
+\qquad\qquad
+{}^{S\perp}M= \{x\in M: S\cdot x= \{0 \} \}.
+$$ 
+The essential and annihilator
 parts of $X$ are defined as $X_{ess}=\operatorname{cl}_X(A X)$,
 $X_{ann}={}^{A\perp}X$. The module $X$ is called $\langle$~faithful /
 annihilator / essential~$\rangle$ if $\langle$~${}^{A\perp}X= \{0 \}$ /
-$X=X_{ann}$ / $X=X_{ess}$~$\rangle$. An obvious application of Hahn-Banach
-theorem shows that $X$ is an essential $A$-module iff $X^*$ is a faithful
-$A$-module.
+$X=X_{ann}$ / $X=X_{ess}$~$\rangle$. Clearly, 
+${(X^*)}^{\perp S}={\operatorname{cl}_X(S X)}^\perp$. Setting $S=A$ we get that 
+$X$ is an essential $A$-module iff $X^*$ is a faithful $A$-module.
 
 Let $X$ and $Y$ be $\langle$~left / right~$\rangle$ Banach $A$-modules. We say
 that a linear operator $\phi:X\to Y$ is an $A$-module map of $\langle$~left /
@@ -1202,7 +1333,9 @@ Let $\phi\in\mathcal{B}_A(X_1,X_2)$ and $\psi\in{}_A\mathcal{B}(Y_1,Y_2)$
 for right Banach $A$-modules $X_1$, $X_2$ and left 
 Banach $A$-modules $Y_1$, $Y_2$, then there exists a unique bounded 
 linear operator 
-$\phi\projmodtens{A} \psi:X_1\projmodtens{A} Y_1\to X_2\projmodtens{A} Y_2$ 
+$$
+\phi\projmodtens{A} \psi:X_1\projmodtens{A} Y_1\to X_2\projmodtens{A} Y_2
+$$ 
 such that
 $(\phi\projmodtens{A} \psi)(x\projmodtens{A} y)=\phi(x)\projmodtens{A} \psi(y)$
 for all $x\in X_1$ and $y\in Y_1$. Even more 
@@ -1265,21 +1398,29 @@ recoverable from their one sided counterparts.
 %    Banach homology
 %-------------------------------------------------------------------------------
 
-\section{Banach homology}\label{SectionBanachHomology}
+\section{
+  Banach homology
+}\label{SectionBanachHomology}
 
 %-------------------------------------------------------------------------------
 %    Relative homology
 %-------------------------------------------------------------------------------
 
-\subsection{Relative homology}\label{SubSectionRelativeHomology}
+\subsection{
+  Relative homology
+}\label{SubSectionRelativeHomology}
 
 Further we briefly discuss ABCs of relative homology introduced and intensively
-studied by Helemskii. Fix an arbitrary Banach algebra $A$. We say that a
-morphism $\xi:X\to Y$ of left $A$-modules $X$ and $Y$ is a relatively admissible
-epimorphism if it admits a right inverse bounded linear operator. A left
-$A$-module $P$ is called relatively projective if for any relatively admissible
-epimorphism $\xi:X\to Y$ and for any $A$-morphism $\phi:P\to Y$ there exists an
-$A$-morphism $\psi:P\to X$ such that the diagram
+studied by Helemskii. In this text we shall use a little bit more involved
+definition given by White in~\cite{WhiteInjmoduAlg}. It is equivalent to the one
+given by Helemskii. Fix an arbitrary Banach algebra $A$. We say that a
+morphism $\xi:X\to Y$ of left $A$-modules $X$ and $Y$ is a $c$-relatively 
+admissible epimorphism if it admits a right inverse bounded linear operator of 
+the norm at most $c$. A left $A$-module $P$ is called $C$-relatively projective 
+if for any $c$-relatively admissible epimorphism $\xi:X\to Y$ and 
+for any  $A$-morphism $\phi:P\to Y$ there exists 
+an $A$-morphism $\psi:P\to X$ such 
+that $\Vert \psi\Vert\leq cC\Vert \phi\Vert$ and the diagram
 $$
 \xymatrix{
 & {X} \ar[d]^{\xi}\\  % chktex 3
@@ -1287,11 +1428,12 @@ $$
 $$
 is commutative. Such $A$-morphism $\psi$ is called a lifting of $\phi$ and it is
 not unique in general. Similarly,  we say that a morphism $\xi:Y\to X$ of right
-$A$-modules $X$ and $Y$ is a relatively admissible monomorphism if it admits a
-left inverse bounded linear operator. A right $A$-module $J$ is called
-relatively injective if for any relatively admissible  monomorphism $\xi:Y\to X$
-and for any $A$-morphism $\phi:Y\to J$ there exists an $A$-morphism 
-$\psi:X\to J$ such that the diagram
+$A$-modules $X$ and $Y$ is a $c$-relatively admissible monomorphism if it admits
+a left inverse bounded linear operator of the norm at most $c$. A right 
+$A$-module $J$ is called $C$-relatively injective if for any $c$-relatively 
+admissible monomorphism $\xi:Y\to X$ and for 
+any $A$-morphism $\phi:Y\to J$ there exists an $A$-morphism $\psi:X\to J$ such 
+that $\Vert\psi\Vert\leq cC\Vert\phi\Vert$ and the diagram
 $$
 \xymatrix{
 & {X} \ar@{-->}[dl]_{\psi} \\  % chktex 3
@@ -1300,29 +1442,44 @@ $$
 is commutative. Such $A$-morphism $\psi$ is called an extension of $\phi$ and it
 is not unique in general.
 
+Another closely related homological property is flatness. A
+left $A$-module $F$ is called $C$-relatively flat if for each
+$c$-relatively admissible monomorphism $\xi:X\to Y$ the operator 
+$\xi\projmodtens{A} 1_F:X\projmodtens{A} F\to Y\projmodtens{A} F$ is
+$cC$-topologically injective. A left $A$-module $F$ is $C$-relatively flat iff
+$F^*$ is $C$-relatively injective. 
+
+We say that an $A$-morphism is relatively admissible if it is $c$-relatively 
+admissible for some $c\geq 1$. Similarly, we say that an $A$-module $X$ is 
+relatively $\langle$~projective / injective / flat~$\rangle$ if it is  
+$C$-relatively $\langle$~projective / injective / flat~$\rangle$ for 
+some $C\geq 1$.
+
 The reason for considering relatively admissible morphisms in these definitions
 is the intention of separation of Banach geometric and algebraic motives that 
-may prevent an $A$-module to be relatively projective or injective. 
-A straightforward check shows that any retract of 
-relatively $\langle$~projective / injective~$\rangle$ $A$-module is 
-again relatively $\langle$~projective / injective~$\rangle$. 
-Obviously, any relatively admissible $\langle$~epimorphism
-/ monomorphism~$\rangle$ $\langle$~onto / from~$\rangle$ a relatively
-$\langle$~projective / injective~$\rangle$ $A$-module is a $\langle$~retraction
-/ coretraction~$\rangle$.
+may prevent an $A$-module to be relatively projective, injective or flat. 
+A straightforward check shows that any $c$-retract of 
+$C$-relatively $\langle$~projective / injective / flat~$\rangle$ $A$-module is 
+again $cC$-relatively $\langle$~projective / injective / flat~$\rangle$. 
+Obviously, any $c$-relatively admissible $\langle$~epimorphism
+/ monomorphism~$\rangle$ $\langle$~onto / from~$\rangle$ a $C$-relatively
+$\langle$~projective / injective~$\rangle$ $A$-module is a 
+$\langle$~$cC$-retraction / $cC$-coretraction~$\rangle$.
 
 A special class of relatively $\langle$~projective / injective~$\rangle$
-$A$-modules is the so-called relatively $\langle$~free / cofree~$\rangle$
-modules. These are modules of the form $\langle$~$A_+\projtens E$ /
+$A$-modules is the class of so-called 
+relatively $\langle$~free / cofree~$\rangle$ modules. 
+These are modules of the form $\langle$~$A_+\projtens E$ /
 $\mathcal{B}(A_+,E)$~$\rangle$ for some Banach space $E$. Their main feature is
 the following: for any $A$-module $X$ there exists a relatively $\langle$~free /
 cofree~$\rangle$ $A$-module $F$, which in fact is $\langle$~$A_+\projtens X$ /
-$\mathcal{B}(A_+,X)$~$\rangle$ and a relatively admissible $\langle$~epimorphism
-$\xi:F\to X$ / monomorphism $\xi:X\to F$~$\rangle$. If $X$ is relatively
+$\mathcal{B}(A_+,X)$~$\rangle$ and a $1$-relatively admissible 
+$\langle$~epimorphism $\xi:F\to X$ / monomorphism $\xi:X\to F$~$\rangle$. 
+If $X$ is $C$-relatively
 $\langle$~projective / injective~$\rangle$ we immediately get that $\xi$ is a
-$\langle$~retraction / coretraction~$\rangle$. Therefore an $A$-module is
-relatively $\langle$~projective / injective~$\rangle$ iff it is a retract of
-relatively $\langle$~free / cofree~$\rangle$ $A$-module. 
+$\langle$~$C$-retraction / $C$-coretraction~$\rangle$. Therefore an $A$-module 
+is $C$-relatively $\langle$~projective / injective~$\rangle$ iff it is 
+a $C$-retract of relatively $\langle$~free / cofree~$\rangle$ $A$-module. 
 
 It is worth to emphasize one more time that major nuance of relative Banach
 homology is deliberate balance between algebra and topology in choice of
@@ -1332,26 +1489,26 @@ example related to Banach algebras. Consider morphism of $A$-bimodules
 $\Pi_A:A\projtens A\to A:a\projtens b\mapsto ab$. We say that a Banach algebra
 $A$ is 
 \begin{enumerate}[label = (\roman*)]
-  \item relatively $c$-biprojective if $\Pi_A$ is a $c$-retraction of
+  \item $c$-relatively biprojective if $\Pi_A$ is a $c$-retraction of
   $A$-bimodules;
 
-  \item relatively $c$-biflat if $\Pi_A^*$ is a $c$-coretraction of 
+  \item $c$-relatively biflat if $\Pi_A^*$ is a $c$-coretraction of 
   $A$-bimodules;
 
-  \item relatively $c$-contractible if $\Pi_{A_+}$ is a $c$-retraction of
+  \item $c$-relatively contractible if $\Pi_{A_+}$ is a $c$-retraction of
   $A$-bimodules;
 
-  \item relatively $c$-amenable if $\Pi_{A_+}^*$ is a $c$-coretraction of
+  \item $c$-relatively amenable if $\Pi_{A_+}^*$ is a $c$-coretraction of
   $A$-bimodules.
 \end{enumerate}
 
 We say that $A$ is relatively $\langle$~biprojective / biflat / contractive /
-amenable~$\rangle$ if it is relatively $\langle$~$c$-biprojective / $c$-biflat /
-$c$-contractive / $c$-amenable~$\rangle$ for some $c\geq 1$. The infimum of the
+amenable~$\rangle$ if it is $c$-relatively $\langle$~biprojective / biflat /
+contractive / amenable~$\rangle$ for some $c\geq 1$. The infimum of the
 constants $c$ is called the $\langle$~biprojectivity / biflatness /
 contractivity / amenability~$\rangle$ constant.  With slight modifications of
 [\cite{HelBanLocConvAlg}, proposition 7.1.72] one can show that $A$ is
-relatively $\langle$~$c$-contractible / $c$-amenable~$\rangle$ iff there exists
+$c$-relatively $\langle$~contractible / amenable~$\rangle$ iff there exists
 $\langle$~an element $d\in A\projtens A$ / a net 
 ${(d_\nu)}_{\nu\in N}\subset A\projtens A$~$\rangle$ with 
 norm not greater than $c$ such that for all $a\in A$ holds 
@@ -1366,77 +1523,3 @@ contractible / amenable~$\rangle$ Banach algebras is that $\langle$~any reduced
 relatively $\langle$~projective / flat / projective / flat~$\rangle$
 [\cite{HelBanLocConvAlg}, theorem 7.1.60]. As for flatness such phenomena is
 typical for relative Banach homology, but not for the purely algebraic one.
-
-%-------------------------------------------------------------------------------
-%    Rigged categories
-%-------------------------------------------------------------------------------
-
-\subsection{Rigged categories}\label{SubSectionRiggedCategories}
-
-Claims on projectivity and injectivity from previous section have their analogs
-for a lot of other types of projectivity and injectivity in other categories of
-mathematics~\cite{SemadeniProjInjDual}. Even more, one may easily see that
-injectivity and projectivity are somewhat dual to each other. All these
-observations suggest that there is a general categorical approach to study basic
-properties of homologically trivial objects. Such approach has been promoted by
-Helemskii in~\cite{HelMetrFrQMod}. As we shall see it covers relative theory
-while results given above are obvious consequences of more general facts. 
-
-Let $\mathbf{C}$ and $\mathbf{D}$ be two fixed categories. An ordered pair
-($\mathbf{C}, \square:\mathbf{C}\to\mathbf{D}$), where $\square$ is a faithful
-covariant functor, is called a rigged category. We say that a morphism $\xi$ in
-$\mathbf{C}$ is $\square$-admissible epimorphism if $\square (\xi)$ is a
-retraction in $\mathbf{D}$. An object $P$ in $\mathbf{C}$ is called
-$\square$-projective, if for every $\square$-admissible epimorphism $\xi$ in
-$\mathbf{C}$ the map $\operatorname{Hom}_{\mathbf{C}}(P,\xi)$ is surjective. An
-object $F$ in $\mathbf{C}$ is called $\square$-free with base $M$ in
-$\mathbf{D}$, if there exists an isomorphism of functors
-$\operatorname{Hom}_{\mathbf{D}}(M,\square(-))
-\cong
-\operatorname{Hom}_{\mathbf{C}}(F,-)$.
-A rigged category $(\mathbf{C},\square)$ is called  freedom-loving
-[\cite{HelMetrFrQMod}, definition 2.10], if every object in $\mathbf{D}$ is a
-base of some $\square$-free object in $\mathbf{C}$. We may summarize results of
-propositions 2.3, 2.11  and 2.12 in~\cite{HelMetrFrQMod} as follows:
-\begin{enumerate}[label = (\roman*)]
-  \item any retract of $\square$-projective object is $\square$-projective;
-
-  \item any $\square$-admissible epimorphism into $\square$-projective object 
-  is a retraction;
-
-  \item any $\square$-free object is $\square$-projective;
-
-  \item if $(\mathbf{C},\square)$ is freedom-loving rigged category, then any
-  object is $\square$-projective iff it is a retract of $\square$-free object;
-
-  \item coproduct of the family of $\square$-projective objects is
-  $\square$-projective.
-\end{enumerate}
-
-The opposite rigged category of $(\mathbf{C}, \square)$ is a rigged category
-$(\mathbf{C}^{o},\square^{o}:\mathbf{C}^{o}\to\mathbf{D}^{o})$. Thus by passing
-to the opposite rigged category we may define admissible monomorphisms,
-injectivity and cofreedom. A morphism $\xi$ in called $\square$-admissible
-monomorphism if it is $\square^o$-admissible epimorphism. An object $J$ in
-$\mathbf{C}$ is called $\square$-injective if it is $\square^o$-projective.
-Finally, an object $F$ in $\mathbf{C}$ is called $\square$-cofree if it is
-$\square^o$-free. This gives us analogs of results as above for injectivity and
-cofreedom.
-
-Now consider faithful functor $\square_{rel}:A-\mathbf{mod}\to\mathbf{Ban}$ that
-just `forgets'' the module structure. One can easily see that
-$(A-\mathbf{mod},\square_{rel})$ is a rigged category whose
-$\square_{rel}$-admissible $\langle$~epimorphisms / monomorphisms~$\rangle$ are
-exactly relatively admissible $\langle$~epimorphisms / monomorphisms~$\rangle$
-and $\langle$~$\square_{rel}$-projective / $\square_{rel}$-injective~$\rangle$
-objects are exactly relatively $\langle$~projective / injective~$\rangle$
-$A$-modules. Even more all $\langle$~$\square_{rel}$-free /
-$\square_{rel}$-cofree~$\rangle$ objects are isomorphic in $A-\mathbf{mod}$ to
-$\langle$~$A_+\projtens E$ / $\mathcal{B}(A_+,E)$~$\rangle$ for some Banach
-space $E$. This example shows, that relative theory perfectly fits into the
-realm of rigged categories.
-
-We shall apply this scheme for metric and topological theory in the next
-chapter. These two theories put much weaker restrictions on their admissible
-morphisms. The proverb ``all covet, all lose'' perfectly explains what will
-happen next.

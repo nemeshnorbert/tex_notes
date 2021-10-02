@@ -34,7 +34,9 @@ modules of harmonic analysis.
 %	Spatial modules
 %-------------------------------------------------------------------------------
 
-\subsection{Spatial modules}\label{SubSectionSpatialModules}
+\subsection{
+    Spatial modules
+}\label{SubSectionSpatialModules}
 
 We start from the simplest  examples of modules over operator algebras --- the
 spatial modules. By Gelfand-Naimark's theorem (see e.g.
@@ -63,8 +65,8 @@ and $\sigma:H_\varrho\to A_+:x\mapsto \varrho^{-1}(x\bigcirc x_0)$.
 It is straightforward to check that $\pi$ and
 $\sigma$ are contractive $A$-morphisms such that $\pi\sigma=1_{H_\varrho}$.
 Therefore $H_\varrho$ is a retract of $A_+$ in $A-\mathbf{mod}_1$. From
-propositions~\ref{UnitalAlgIsMetTopProj} and~\ref{RetrMetTopProjIsMetTopProj} it
-follows that $H_\varrho$ is metrically projective $A$-module. From
+propositions~\ref{UnitalAlgIsMetTopProj} and~\ref{RetrMetCTopProjIsMetCTopProj} 
+it follows that $H_\varrho$ is metrically projective $A$-module. From
 proposition~\ref{MetTopProjIsMetTopFlat} it follows that $H_\varrho$ is
 metrically flat too. Since $H_\varrho^{cc}\isom{\mathbf{mod}_1-A}H_\varrho^*$,
 proposition~\ref{DualMetTopProjIsMetrInj} gives that $H_\varrho^{cc}$ is
@@ -380,7 +382,7 @@ players here. In attempts to find a purely algebraic definition of
 $W^*$-algebras Kaplanski introduced this class of $C^*$-algebras
 in~\cite{KaplProjInBanAlg}. A $C^*$-algebra $A$ is called an $AW^*$-algebra if
 for any subset $S\subset A$ the right algebraic annihilator
-$\operatorname{r.ann}_A(S)= \{y\in A: Sy= \{0 \} \}$ is of the form $pA$ for
+$S^{\perp A}$ is of the form $pA$ for
 some self-adjoint idempotent $p\in A$. This class contains all $W^*$-algebras,
 but strictly larger. Note that for the case of commutative $C^*$-algebras the
 property of being an $AW^*$-algebra is equivalent to  $\operatorname{Spec}(A)$
@@ -491,12 +493,12 @@ ${(x\cdot a)}_{i,j}=\sum_{k=1}^n x_{i,k}a_{k,j}(s)$ for $a\in M_n(C(K))$ and
 $x\in M_n(\mathbb{C}_s)$. The $C^*$-algebra $M_n(C(K))$ is nuclear
 [\cite{BroOzaCStarAlgFinDimApprox}, corollary 2.4.4], then by
 [\cite{HaaNucCStarAlgAmen}, theorem 3.1] this algebra is relatively amenable and
-even $1$-amenable [\cite{RundeAmenConstFour}, example 2]. Since
+even $1$-relatively amenable [\cite{RundeAmenConstFour}, example 2]. Since
 $M_n(\mathbb{C}_s)$ is finite dimensional, it is an $\mathscr{L}_{1, C}^g$-space
 for some constant $C\geq 1$ independent of $s$. Thus, by
 proposition~\ref{MetTopEssL1FlatModAoverAmenBanAlg} the $M_n(C(K))$-module
 ${M_n(\mathbb{C}_s)}^*$ is $C$-topologically flat. Since the latter module is
-essential, by proposition~\ref{CTopFlatCharac} the right $M_n(C(K))$-module
+essential, by proposition~\ref{MetCTopFlatCharac} the right $M_n(C(K))$-module
 ${M_n(\mathbb{C}_s)}^{**}$ is $C$-topologically injective. Note that
 ${M_n(\mathbb{C}_s)}^{**}$ is isometrically isomorphic to $M_n(\mathbb{C}_s)$ as
 right $M_n(C(K))$-module, so from proposition~\ref{MetTopInjModProd} we get that
@@ -528,7 +530,7 @@ $$
 are bounded $M_n(C(K))$-morphisms such that $\tau \rho=1_{M_n(C(K))}$. That is
 $M_n(C(K))$ is a retract of topologically injective $M_n(C(K))$-module
 $\bigoplus_\infty \{M_n(\mathbb{C}_s):s\in K \}$ in $\mathbf{mod}_1-M_n(C(K))$.
-Finally, from proposition~\ref{RetrMetTopInjIsMetTopInj} we conclude that
+Finally, from proposition~\ref{RetrMetCTopInjIsMetCTopInj} we conclude that
 $M_n(C(K))$ is topologically injective $M_n(C(K))$-module.
 \end{proof}
 
@@ -651,7 +653,7 @@ Assume, $A$ is a metrically flat $I$-module. Since
 $\sup_{\nu\in N}\Vert e_{A_\#}-e_\nu\Vert\leq 1$, then paragraph $(ii)$ of
 proposition~\ref{DualBanModDecomp} tells us that ${(A/A_{ess})}^*={(A/I)}^*$ is 
 a retract of $A^*$ in $\mathbf{mod}_1-I$. Now from
-propositions~\ref{MetTopFlatCharac} and~\ref{RetrMetTopInjIsMetTopInj} it
+propositions~\ref{MetCTopFlatCharac} and~\ref{RetrMetCTopInjIsMetCTopInj} it
 follows that $A/I$ is metrically flat $I$-module. Since this is an annihilator
 module, then from proposition~\ref{MetTopFlatAnnihModCharac} it follows that 
 $I= \{0 \}$ and $A/I$ is an $L_1$-space. Now from
@@ -725,9 +727,10 @@ $(iii)$ If $H$ is infinite dimensional, then $\mathcal{B}(H)$ contains
 $\mathcal{B}(\ell_2(\mathbb{N}_n))$ as ${}^*$-subalgebra for all
 $n\in\mathbb{N}$. By proposition~\ref{TopInjIdHaveLUST} we get that
 $\mathcal{B}(H)$ is not topologically injective as $\mathcal{B}(H)$-module. The
-rest follows from paragraph $(i)$ of proposition~\ref{MetTopInjUnderChangeOfAlg}.
-If $H$ is finite dimensional, then $\mathcal{K}(H)=\mathcal{B}(H)$, so the
-result follows from proposition~\ref{FinDimBHModTopInj}.
+rest follows from paragraph $(i)$ of
+proposition~\ref{MetTopInjUnderChangeOfAlg}. If $H$ is finite dimensional, then
+$\mathcal{K}(H)=\mathcal{B}(H)$, so the result follows from
+proposition~\ref{FinDimBHModTopInj}.
 
 $(iv)$ If $\dim(H)>1$, then $C^*$-algebra $\mathcal{B}(H)$ is not commutative. 
 By proposition~\ref{MetInjCStarAlgCharac} we get that it is not metrically
@@ -787,7 +790,7 @@ paragraphs $(i)$, $(iii)$ and $(iv)$ of proposition~\ref{KHAndBHModBH}.
 \begin{proof} Let $A$ be either $\mathcal{B}(H)$ or $\mathcal{K}(H)$.
 
 $(i)$ Note that $\mathcal{N}(H)\isom{\mathbf{mod}_1-A}{\mathcal{K}(H)}^*$, 
-so the result follows from proposition~\ref{MetTopFlatCharac} and 
+so the result follows from proposition~\ref{MetCTopFlatCharac} and 
 paragraph $(i)$ of proposition~\ref{KHAndBHModKH}.
 
 $(ii)$ Assume $H$ is infinite dimensional. Note that
@@ -801,7 +804,7 @@ proposition~\ref{FinDimNHModTopProjFlat}.
 $(iii)$ Assume $\dim(H)>1$, then by paragraph $(iv)$ of
 proposition~\ref{KHAndBHModBH} the $A$-module $\mathcal{B}(H)$ is not metrically
 injective. Since $\mathcal{B}(H)\isom{\mathbf{mod}_1-A}{\mathcal{N}(H)}^*$, then
-from proposition~\ref{MetTopFlatCharac} we get that $\mathcal{N}(H)$ is not
+from proposition~\ref{MetCTopFlatCharac} we get that $\mathcal{N}(H)$ is not
 metrically flat as $A$-module. By proposition~\ref{MetTopProjIsMetTopFlat}, it
 is not metrically projective as $A$-module. If $\dim(H)\leq 1$, then
 $\mathcal{N}(H)=\mathcal{K}(H)=\mathcal{B}(H)$, so both results follow from
@@ -870,7 +873,7 @@ relatively injective $\mathcal{B}(H)$-module.
 
 Results of this section are summarized in the following three tables. Each cell
 contains a condition under which the respective module has the respective
-property and propositions where this is proved. We use `???' symbol to indicate
+property and propositions where this is proved. We use ``?'' symbol to indicate
 open problems. These tables confirm that the property of being homologically
 trivial in metric and topological theory is too restrictive. It is easier to
 mention cases where metric and topological properties coincide with relative
@@ -1173,7 +1176,7 @@ and relative theory.
             \mbox{\ref{KHAndBHModsRelTh}}, (ii)
         \end{tabular} & 
         \begin{tabular}{@{}c@{}} 
-            `???' 
+            {?}
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
             $H$\mbox{ is any } \\
@@ -1222,7 +1225,7 @@ and $\sigma:\mathbb{C}_\lambda\to A_+:z\mapsto z\delta_\lambda\oplus_1 0$
 are contractive $A$-morphisms of left $A$-modules.
 Since $\pi\sigma=1_{\mathbb{C}_\lambda}$, then $\mathbb{C}_\lambda$ is retract
 of $A_+$ in $A-\mathbf{mod}_1$. From proposition~\ref{UnitalAlgIsMetTopProj}
-and~\ref{RetrMetTopProjIsMetTopProj} it follows that $\mathbb{C}_\lambda$ is
+and~\ref{RetrMetCTopProjIsMetCTopProj} it follows that $\mathbb{C}_\lambda$ is
 metrically and topologically projective left $A$-module and a fortiori
 metrically and topologically flat by proposition~\ref{MetTopProjIsMetTopFlat}.
 By proposition~\ref{DualMetTopProjIsMetrInj} we have that $\mathbb{C}_\lambda^*$
@@ -1309,7 +1312,7 @@ $(i)$ and $(iii)$ of proposition~\ref{c0AndlInftyModlIfty}.
 \begin{proof} Let $A$ be either $\ell_\infty(\Lambda)$ or $c_0(\Lambda)$.
 
 $(i)$ Note that $\ell_1(\Lambda)\isom{\mathbf{mod}_1-A}{c_0(\Lambda)}^*$, so the
-result follows from proposition~\ref{MetTopFlatCharac} and paragraph $(i)$ of
+result follows from proposition~\ref{MetCTopFlatCharac} and paragraph $(i)$ of
 proposition~\ref{c0AndlInftyModc0}.
 
 $(ii)$ Note that 
@@ -1354,7 +1357,7 @@ proposition~\ref{c0AndlInftyModl1}.
     \item as $\ell_\infty(\Lambda)$-modules $\ell_p(\Lambda)$ for 
     $1\leq p\leq+\infty$ and $\mathbb{C}_\lambda$ for $\lambda\in\Lambda$ 
     are relatively projective, injective and flat, $c_0(\Lambda)$ is 
-    relatively projective and flat.
+    relatively projective, injective and flat.
 \end{enumerate}
 \end{proposition}
 \begin{proof} $(i)$ The algebra $c_0(\Lambda)$ is relatively biprojective
@@ -1388,22 +1391,22 @@ $\mathbb{C}_\lambda$, where $\lambda\in\Lambda$.
 
 $(ii)$ From proposition~\ref{c0AndlInftyModlIfty} paragraph $(i)$ and
 proposition~\ref{MetProjIsTopProjAndTopProjIsRelProj} it follows that
-$\ell_\infty(\Lambda)$ is relatively projective $\ell_\infty(\Lambda)$-module.
+$\ell_\infty(\Lambda)$ is relatively projective $\ell_\infty(\Lambda)$-module. 
+In [\cite{NemANoteOnRelInjC0ModC0}, theorem 4.4] it was shown 
+that $\ell_\infty(\Lambda)$-module $c_0(\Lambda)$ is relatively injective. 
 From [\cite{RamsHomPropSemgroupAlg}, propositions 2.3.3, 2.3.4] we know that
 $\langle$~an essential relatively projective / a  faithful relatively
-injective~$\rangle$ module over ideal of Banach algebra is $\langle$~relatively
-projective / relatively injective~$\rangle$ over algebra itself. Since
-$c_0(\Lambda)$ and $\ell_p(\Lambda)$ for $1\leq p<+\infty$ are essential and
-faithful $c_0(\Lambda)$-modules then from results of previous paragraph
-$\ell_p(\Lambda)$ for $1\leq p<+\infty$ are relatively projective and injective
-as $\ell_\infty(\Lambda)$-modules. Also we get that $c_0(\Lambda)$ is relatively
-projective $\ell_\infty(\Lambda)$-module. Therefore all these
+injective~$\rangle$ module over an ideal of a Banach algebra is 
+$\langle$~relatively projective / relatively injective~$\rangle$ over algebra 
+itself. Since $c_0(\Lambda)$ and $\ell_p(\Lambda)$ for $1\leq p<+\infty$ are
+essential and faithful $c_0(\Lambda)$-modules then from results of previous
+paragraph $\ell_p(\Lambda)$ for $1\leq p<+\infty$ are relatively projective and
+injective as $\ell_\infty(\Lambda)$-modules. Also we get that $c_0(\Lambda)$ is
+relatively projective $\ell_\infty(\Lambda)$-module. Therefore all these
 $\ell_\infty(\Lambda)$-modules are relatively flat [\cite{HelBanLocConvAlg},
-proposition 7.1.40]. As the consequence
-$\ell_\infty(\Lambda)
-\isom{\mathbf{mod}_1-\ell_\infty(\Lambda)}
-{\ell_1(\Lambda)}^*$
-is relatively injective $\ell_\infty(\Lambda)$-module.
+proposition 7.1.40]. As the consequence $\ell_\infty(\Lambda)
+\isom{\mathbf{mod}_1-\ell_\infty(\Lambda)} {\ell_1(\Lambda)}^*$ is relatively
+injective $\ell_\infty(\Lambda)$-module.
 Propositions~\ref{OneDimlInftyc0ModMetTopProjIngFlat},
 ~\ref{MetProjIsTopProjAndTopProjIsRelProj},
 ~\ref{MetInjIsTopInjAndTopInjIsRelInj}
@@ -1413,15 +1416,14 @@ $\mathbb{C}_\lambda$, where $\lambda\in\Lambda$.
 
 Results of this section are summarized in the following three tables. Each cell
 contains a condition under which the respective module has the respective
-property and propositions where this is proved. We use `???' symbol to indicate
-open problems. For the case of $\ell_\infty(\Lambda)$- and
-$c_0(\Lambda)$-modules $\ell_p(\Lambda)$ for $1<p<+\infty$ we don't have a
-criterion of homological triviality in metric theory, just a necessary
-condition. We indicate this fact via symbol $\implies$. From these table one can
-easily see that for modules over commutative $C^*$-algebras, there is much more
-in common between relative, metric and topological  theory. For example
-$\ell_1(\Lambda)$ is projective injective and flat as $\ell_\infty(\Lambda)$- or
-$c_0(\Lambda)$-module in all three theories.
+property and propositions where this is proved. For the case 
+of $\ell_\infty(\Lambda)$- and $c_0(\Lambda)$-modules $\ell_p(\Lambda)$ 
+for $1<p<+\infty$ we don't have a criterion of homological triviality in metric
+theory, just a necessary condition. We indicate this fact via symbol $\implies$.
+From these table one can easily see that for modules over commutative
+$C^*$-algebras, there is much more in common between relative, metric and
+topological  theory. For example $\ell_1(\Lambda)$ is projective injective and
+flat as $\ell_\infty(\Lambda)$- or $c_0(\Lambda)$-module in all three theories.
 
 
 \begin{scriptsize}
@@ -1845,7 +1847,8 @@ $c_0(\Lambda)$-module in all three theories.
             \mbox{\ref{c0AndlInftyModsRelTh}, (ii)}
         \end{tabular} & 
         \begin{tabular}{@{}c@{}} 
-            `???' 
+            $\Lambda$\mbox{ is any } \\
+            \mbox{\ref{c0AndlInftyModsRelTh}, (ii)} 
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
             $\Lambda$\mbox{ is any }  \\
@@ -1944,27 +1947,27 @@ $\pi:{C_0(S)}_+\to\mathbb{C}_s:a\oplus_1 z\mapsto a(s)+z$ and
 $\sigma:\mathbb{C}_s\to {C_0(S)}_+:z\mapsto z\delta_s\oplus_1 0$ are contractive
 $C_0(S)$-morphisms. Since $\pi\sigma=1_{\mathbb{C}_s}$, then $\mathbb{C}_s$ is a
 retract of ${C_0(S)}_+$ in $C_0(S)-\mathbf{mod}_1$. From
-propositions~\ref{RetrMetTopProjIsMetTopProj} and~\ref{UnitalAlgIsMetTopProj} it
-follows that $\mathbb{C}_s$ is metrically and topologically projective left
+propositions~\ref{RetrMetCTopProjIsMetCTopProj} and~\ref{UnitalAlgIsMetTopProj} 
+it follows that $\mathbb{C}_s$ is metrically and topologically projective left
 $C_0(S)$-module. From~\ref{MetProjIsTopProjAndTopProjIsRelProj} we conclude that
 $\mathbb{C}_s$ is also relatively projective $C_0(S)$-module.
 
 $(ii)$ By [\cite{HelBanLocConvAlg}, theorem 7.1.87] the algebra $C_0(S)$ is
-relatively amenable. Since this algebra is a $C^*$-algebra it is $1$-amenable
-[\cite{RundeAmenConstFour}, example 3]. Clearly, $\mathbb{C}_s$ is a
+relatively amenable. Since this algebra is a $C^*$-algebra it is $1$-relatively 
+amenable [\cite{RundeAmenConstFour}, example 3]. Clearly, $\mathbb{C}_s$ is a
 $1$-dimensional $L_1$-space and an essential $C_0(S)$-module. Therefore, by
 proposition~\ref{MetTopEssL1FlatModAoverAmenBanAlg} this module is metrically
 flat. Now the result follows from
 proposition~\ref{MetFlatIsTopFlatAndTopFlatIsRelFlat}.
 
-$(iii)$ From paragraph $(ii)$ and proposition~\ref{MetTopFlatCharac} it follows
+$(iii)$ From paragraph $(ii)$ and proposition~\ref{MetCTopFlatCharac} it follows
 that $\mathbb{C}_s^*$ is metrically injective. By
 proposition~\ref{MetFlatIsTopFlatAndTopFlatIsRelFlat} it is topologically and
 relatively injective too. It remains to note that
 $\mathbb{C}_s\isom{\mathbf{mod}_1-A}\mathbb{C}_s^*$. 
 \end{proof}
 
-\begin{proposition}\label{C0SC0SModMetTopRelProjIngFlat} Let $S$ be a locally
+\begin{proposition}\label{C0SC0SModMetTopRelProjInjFlat} Let $S$ be a locally
 compact Hausdorff space and let $s\in S$. Then
 
 \begin{enumerate}[label = (\roman*)]
@@ -1974,7 +1977,8 @@ compact Hausdorff space and let $s\in S$. Then
     paracompact~$\rangle$;
 
     \item $C_0(S)$ is metrically injective as $C_0(S)$-module iff $S$ is 
-    a Stonean space;
+    a Stonean space, if $C_0(S)$ is topologically or relatively injective then
+    $S$ is compact and $S=\beta(S\setminus \{ s\})$ for any limit point $s$;
 
     \item $C_0(S)$ is metrically, topologically and relatively flat as
     $C_0(S)$-module.
@@ -1990,8 +1994,11 @@ proposition~\ref{IdealofCommCStarAlgMetTopProjCharac} /
 [\cite{HelHomolBanTopAlg}, chapter IV,\S\S 2--3]~$\rangle$ the spectrum of
 $C_0(S)$ is $\langle$~compact / compact / paracompact~$\rangle$. 
 
-$(ii)$ This result is a weakened version of
-proposition~\ref{MetInjCStarAlgCharac}.
+$(ii)$ The result on metric injectivity is a weakened version of
+proposition~\ref{MetInjCStarAlgCharac}. The result on relatively injectivity 
+follows from~[\cite{NemANoteOnRelInjC0ModC0}, theorem 4.4]. It remains to recall
+that by proposition~\ref{MetInjIsTopInjAndTopInjIsRelInj} metrically injective
+module is relatively injective.
 
 $(iii)$ From proposition~\ref{IdealofCstarAlgisMetTopFlat} it immediately follows
 that $C_0(S)$-module $C_0(S)$ is metrically and topologically flat. By
@@ -2014,111 +2021,8 @@ Therefore, $\mathbb{C}_s$ is a retract of $L_p(S,\mu)$ in $C_0(S)-\mathbf{mod}$.
 By assumption, the latter module is relatively projective, so by
 [\cite{HelBanLocConvAlg}, proposition 7.1.6] the $C_0(S)$-module $\mathbb{C}_s$
 is relatively projective. By paragraph $(i)$ of
-proposition~\ref{C0SC0SModMetTopRelProjIngFlat} we see that $s$ is an isolated
+proposition~\ref{C0SC0SModMetTopRelProjInjFlat} we see that $s$ is an isolated
 point of $S$.
-\end{proof}
-
-\begin{proposition}\label{SuppsOfSomeFuncInC0SAndLp} Let $S$ be a locally
-compact Hausdorff space, $\mu$ be a finite Borel regular positive measure on
-$S$. Let $1\leq p<+\infty$ and $V$ be an open subset of $S$, then
-
-\begin{enumerate}[label = (\roman*)]
-    \item there exists a net ${(e_\nu^V)}_{\nu\in N}$ of continuous functions that
-    pointwise converge to $\chi_V$ and 
-    $0\leq e_\nu^V\leq 1$, $e_\nu^V|_{S\setminus V}=0$ for all $\nu\in N$. 
-    Even more ${(e_\nu^V)}_{\nu\in N}$ converges to $\chi_V$ in $L_p(S,\mu)$; 
-
-    \item for any $C_0(S)$-morphism $\phi:L_p(S,\mu)\to C_0(S)$ holds
-    $\phi(\chi_V)|_{S\setminus V}=0$.
-\end{enumerate}
-\end{proposition}
-\begin{proof} $(i)$ Let ${(K_\nu)}_{\nu\in N}$ be the net of all compact subsets of
-$V$. By Urysohn's lemma for each $\nu\in N$ we can construct a continuous
-function $e_\nu^V:S\to\mathbb{C}$ such that $0\leq e_\nu^V\leq 1$,
-$e_\nu^V|_{K_\nu}=1$ and $e_\nu^V|_{S\setminus V}=0$. 
-Since $V=\bigcup_{\nu\in N} K_\nu$, then ${(e_\nu^V)}_{\nu\in N}$ pointwise 
-converges to $\chi_V$. Recall that $\mu$ is a regular Borel measure, 
-so $\lim_\nu\mu(V\setminus K_\nu)=0$. As the 
-consequence $\lim_\nu e_\nu^V=\chi_V$ in $L_p(S,\mu)$.
-
-$(ii)$ Consider the net of functions ${(e_\nu^V)}_{\nu\in N}$ constructed in the
-paragraph $(i)$. Clearly $e_\nu^V\chi_V=e_\nu^V$ for all $\nu\in N$, so
-$\phi(\chi_V)=\phi(\lim_\nu e_\nu^V\chi_V)=\lim_\nu e_\nu^V\phi(\chi_V)$. Since
-$e_\nu^V$ is zero outside $V$, then so does $\lim_\nu e_\nu^V\phi(\chi_V)$.
-Therefore $\phi(\chi_V)|_{S\setminus V}=0$.
-\end{proof}
-
-For the next proposition we need a short reminder on approximation property.
-Recall that $C(K)$-spaces have the approximation property
-[\cite{DefFloTensNorOpId}, section 5.2(3)], and this property is inherited by
-complemented subspaces [\cite{DefFloTensNorOpId}, exercise 5.5]. Therefore any
-space of the form $C_0(S)$ for some locally compact Hausdorff space has the
-approximation property because it is complemented in $C(\alpha S)$.
-
-\begin{proposition}\label{RelProjLpModImplsPureAtomMeas} Let $S$ be a locally
-compact Hausdorff space, $\mu$ be a finite Borel regular positive measure on
-$S$. Assume $1\leq p<+\infty$ and $C_0(S)$-module $L_p(S,\mu)$ is relatively
-projective. Then $\mu$ is purely atomic and all its atoms are isolated points.
-\end{proposition}
-\begin{proof} By proposition~\ref{AtomsOfRelProjLpMod} the set $S_a^{\mu}$ of
-atoms of measure $\mu$ consist of isolated points. Therefore $S\setminus
-S_a^{\mu}$ is a locally compact space and $\mu|_{S\setminus S_a^{\mu}}$ is a
-finite non atomic Borel regular measure. One more fact worth noting:  since
-$S_a^{\mu}$ is discrete, then a set $V$ is open in $S\setminus S_a^{\mu}$ iff it
-is open in $S$. Now assume there is an open set $V\subset S\setminus S_a^{\mu}$
-with $\mu(V)>0$. Then $\chi_V\neq 0$ in $L_p(S,\mu)$. Recall that
-$C_0(S)$-module $L_p(S,\mu)$ is essential and $C_0(S)$ has the approximation
-property. Bearing all this in mind we can apply lemma 1.4
-from~\cite{SelivBiproBanAlg}. It guarantees existence of $C_0(S)$-morphism
-$\phi:L_p(S,\mu)\to C_0(S)$ such that $\phi(\chi_V)\neq 0$. 
-
-Denote $f=\phi(\chi_V)$. By paragraph $(ii)$ of
-proposition~\ref{SuppsOfSomeFuncInC0SAndLp} we have $f|_{S\setminus V}=0$. Since
-$f\neq 0$, then there necessarily exists an open set $U\subset V$ such that
-$|f|_U|> 0$. Consider net ${(e_\nu^U)}_{\nu\in N}$ constructed from set $U$ in
-paragraph $(i)$ of proposition~\ref{SuppsOfSomeFuncInC0SAndLp}. Note that
-$e_\nu^U\chi_V=e_\nu^U$, so for any $t\in U$ we have
-$$
-|\phi(\chi_U)(t)|
-=|\phi(\lim_\nu e_\nu^U)(t)|
-=\lim_\nu|\phi(e_\nu^U\chi_V)(t)|
-=\lim_\nu |e_\nu^U(t)f(t)|=|f(t)|
->0.
-$$ 
-Thus $\phi(\chi_U)\neq 0$. Hence $\chi_U\neq 0$ in $L_p(S,\mu)$ which is
-equivalent to $\mu(U)>0$. The latter implies existence of some point $r\in
-U\cap\operatorname{supp}(\mu)$. For the future note that $|f(r)|>0$.
-
-Since $r\in U\cap\operatorname{supp}(\mu)\subset S\setminus S_a^{\mu}$ and
-$\mu|_{S\setminus S_a^{\mu}}$ is non atomic, then for the 
-net ${(W_\nu)}_{\nu\in M}$ of all open neighborhoods of $r$ we 
-have $\lim_\nu\mu(W_\nu)=0$. By Urysohn's lemma for each $\nu\in M$ we have 
-a continuous function $h_\nu:S\to\mathbb{C}$ such 
-that $0\leq h_\nu\leq 1$, $h_\nu|_{S\setminus (W_\nu\cap V)}=0$ 
-and $h_\nu(r)=1$. By construction $h_\nu\chi_V=h_\nu$ for all $\nu\in N$. 
-Now we have a long chain of inequalities
-$$
-0<|f(r)|
-=|(h_\nu f)(r)|
-=|(h_\nu \phi(\chi_V))(r)|
-=|\phi(h_\nu\chi_V)(r)|
-=|\phi(h_\nu)(r)|
-\leq\Vert\phi(h_\nu)\Vert
-$$
-$$
-\leq\limsup_\nu\Vert\phi(h_\nu)\Vert
-\leq\limsup_\nu\Vert\phi\Vert\Vert h_\nu\Vert
-\leq\Vert\phi\Vert\limsup_\nu{\mu(W_\nu\cap V)}^{1/p}
-$$
-$$
-\leq\Vert\phi\Vert\limsup_\nu{\mu(W_\nu)}^{1/p}
-=\Vert\phi\Vert\lim_\nu{\mu(W_\nu)}^{1/p}
-=0.
-$$
-Contradiction, hence $\mu(V)=0$ for all open subsets $V$ of 
-$S\setminus S_a^{\mu}$. Therefore by [\cite{FremMeasTh}, proposition 414L] 
-the measure $\mu|_{S\setminus S_a^{\mu}}$ is zero. In other 
-words $\mu$ is purely atomic.
 \end{proof}
 
 \begin{proposition}\label{L1C0SModMetTopRelProjInjFlat} Let $S$ be a locally
@@ -2139,33 +2043,34 @@ $S$. Then
 \end{proposition}
 \begin{proof} $(i)$ If $L_1(S,\mu)$ is metrically or topologically or relatively
 projective, then by proposition~\ref{MetProjIsTopProjAndTopProjIsRelProj} it is
-at least relatively projective. Now from
-proposition~\ref{RelProjLpModImplsPureAtomMeas} the measure $\mu$ is purely
-atomic and all atoms are isolated  points. Conversely, assume that $\mu$ is
-purely atomic and all atoms are isolated points. By $S_a^{\mu}$ we denote the
-set of these atoms. Now one can easily show that the linear map
-$i:L_1(S,\mu)\to\bigoplus_1 \{\mathbb{C}_s:s\in S_a^{\mu} \}:f\mapsto
-\bigoplus_1 \{\mu( \{s \})f(s):s\in S_a^{\mu} \}$ is an isometric isomorphism of
-$C_0(S)$-modules. By paragraphs $(i)$ of propositions~\ref{MetTopProjModCoprod}
+at least relatively projective. Now from [\cite{NemRelProjModLp}, theorem 2] 
+the measure $\mu$ is purely atomic and all atoms are isolated  points.
+Conversely, assume that $\mu$ is purely atomic and all atoms are isolated
+points. By $S_a^{\mu}$ we denote the set of these atoms. Now one can easily show
+that the linear map 
+$i:L_1(S,\mu)\to\bigoplus_1 \{\mathbb{C}_s:s\in S_a^{\mu} \}
+:f\mapsto \bigoplus_1 \{\mu( \{s \})f(s):s\in S_a^{\mu} \}$ is an isometric
+isomorphism of $C_0(S)$-modules. By paragraphs $(i)$ of
+propositions~\ref{MetTopProjModCoprod}
 and~\ref{OneDimC0SModMetTopRelProjIngFlat} the $C_0(S)$-module $\bigoplus_1
 \{\mathbb{C}_s:s\in S_a^{\mu} \}$ is metrically projective. Therefore so does
 $L_1(S,\mu)$. By proposition~\ref{MetProjIsTopProjAndTopProjIsRelProj} it is
 also topologically and relatively projective.
 
-$(ii)$ By paragraph $(iii)$ of proposition~\ref{C0SC0SModMetTopRelProjIngFlat} 
+$(ii)$ By paragraph $(iii)$ of proposition~\ref{C0SC0SModMetTopRelProjInjFlat} 
 the $C_0(S)$-module $C_0(S)$ is metrically flat. From
 proposition~\ref{DualMetTopProjIsMetrInj} we get that
 $M(S)\isom{\mathbf{mod}_1-C_0(S)}{C_0(S)}^*$ is metrically injective. Since
 $M(S)\isom{\mathbf{mod}_1-C_0(S)}L_1(S,\mu)\bigoplus_1 M_s(S,\mu)$, then
 $L_1(S,\mu)$ is a retract of $M(S)$ in $\mathbf{mod}_1-C_0(S)$. So by
-proposition~\ref{RetrMetTopInjIsMetTopInj} the $C_0(S)$-module $L_1(S,\mu)$ is
+proposition~\ref{RetrMetCTopInjIsMetCTopInj} the $C_0(S)$-module $L_1(S,\mu)$ is
 metrically injective. Relative and topological injectivity of $L_1(S,\mu)$
 follows from proposition~\ref{MetInjIsTopInjAndTopInjIsRelInj}.
 
 $(iii)$ By [\cite{HelBanLocConvAlg}, theorem 7.1.87] the algebra $C_0(S)$ is
-relatively amenable. Since this algebra is a $C^*$-algebra it is $1$-amenable
-[\cite{RundeAmenConstFour}, example 3]. Since $L_1(S,\mu)$ is an essential
-$C_0(S)$-module which tautologically an $L_1$-space, then by
+relatively amenable. Since this algebra is a $C^*$-algebra it is $1$-relatively 
+amenable [\cite{RundeAmenConstFour}, example 3]. Since $L_1(S,\mu)$ is 
+an essential $C_0(S)$-module which tautologically an $L_1$-space, then by
 proposition~\ref{MetTopEssL1FlatModAoverAmenBanAlg} this module is metrically
 flat. From proposition~\ref{MetFlatIsTopFlatAndTopFlatIsRelFlat} the
 $C_0(S)$-module $L_1(S,\mu)$ is also topologically and relatively flat.
@@ -2192,7 +2097,7 @@ $C_0(S)$ is relatively amenable. Now from [\cite{HelBanLocConvAlg}, theorem
 Note that $L_p(S,\mu)\isom{\mathbf{mod}_1-C_0(S)}{L_{p^*}(S,\mu)}^*$. Then from
 [\cite{HelBanLocConvAlg}, proposition 7.1.42] we get that $L_p(S,\mu)$ is
 relatively injective for any $1<p<+\infty$. Now assume that $L_p(S,\mu)$ is
-relatively projective, then by proposition~\ref{RelProjLpModImplsPureAtomMeas}
+relatively projective, then by [\cite{NemRelProjModLp}, theorem 2]
 the measure $\mu$ is purely atomic and all its atoms are isolated points.
 Conversely, let $\mu$ be purely atomic with all atoms isolated. Denote by
 $S_a^{\mu}$ the set of these atoms. Since $S_a^{\mu}$ is discrete, then
@@ -2221,18 +2126,26 @@ compact Hausdorff space and $\mu$ be a finite Borel regular positive measure on
 $S$. Then
 
 \begin{enumerate}[label = (\roman*)]
+    \item if $L_\infty(S,\mu)$ is metrically, topologically or relatively 
+    projective, then $\mu$ is normal and with is pseudocompact support; 
+
     \item $L_\infty(S,\mu)$ is metrically, topologically and relatively 
     injective as $C_0(S)$-module;
 
     \item $L_\infty(S,\mu)$ is relatively flat $C_0(S)$-module.
 \end{enumerate}
 \end{proposition}
-\begin{proof} $(i)$ Since
+\begin{proof} $(i)$ From [\cite{NemRelProjModLp}, theorem 3] it follows 
+that $\operatorname{supp}(\mu)$ is pseudocompact and $\mu$ is inner open 
+regular. Since $\mu$ is regular and finite it is 
+normal [\cite{NemRelProjModLp}, proposition 9].
+    
+$(ii)$ Since
 $L_\infty(S,\mu)\isom{\mathbf{mod}_1-C_0(S)}{L_1(S,\mu)}^*$, then the result
 immediately follows from proposition~\ref{DualMetTopProjIsMetrInj} and paragraph
 $(iii)$ of proposition~\ref{L1C0SModMetTopRelProjInjFlat}.
 
-$(ii)$ By [\cite{HelBanLocConvAlg}, theorem 7.1.87] the algebra $C_0(S)$ is
+$(iii)$ By [\cite{HelBanLocConvAlg}, theorem 7.1.87] the algebra $C_0(S)$ is
 relatively amenable. Any left Banach module over relatively amenable Banach
 algebra is relatively flat [\cite{HelBanLocConvAlg}, theorem 7.1.60]. In
 particular $L_\infty(S,\mu)$ is relatively flat $C_0(S)$-module.
@@ -2277,12 +2190,12 @@ and relatively projective.
 
 $(ii)$ Since $M(S)\isom{\mathbf{mod}_1-C_0(S)}{C_0(S)}^*$, then the result
 immediately follows from proposition~\ref{DualMetTopProjIsMetrInj} and paragraph
-$(iii)$ of proposition~\ref{C0SC0SModMetTopRelProjIngFlat}.
+$(iii)$ of proposition~\ref{C0SC0SModMetTopRelProjInjFlat}.
 
 $(iii)$ By [\cite{HelBanLocConvAlg}, theorem 7.1.87] the algebra $C_0(S)$ is
-relatively amenable. Since this algebra is a $C^*$-algebra it is $1$-amenable
-[\cite{RundeAmenConstFour}, example 2]. Note that $M(S)$ is an essential
-$C_0(S)$-module which as Banach space is an $L_1$-space
+relatively amenable. Since this algebra is a $C^*$-algebra it is $1$-relatively 
+amenable [\cite{RundeAmenConstFour}, example 2]. Note that $M(S)$ is 
+an essential $C_0(S)$-module which as Banach space is an $L_1$-space
 [\cite{DalLauSecondDualOfMeasAlg}, discussion after proposition 2.14]. Then by
 proposition~\ref{MetTopEssL1FlatModAoverAmenBanAlg} this module is metrically
 flat. From proposition~\ref{MetFlatIsTopFlatAndTopFlatIsRelFlat} it is also
@@ -2291,7 +2204,7 @@ topologically and relatively flat.
 
 Results of this section are summarized in the following three tables. Each cell
 contains a condition under which the respective module has the respective
-property and propositions where it is proved. We use `???' symbol to indicate 
+property and propositions where it is proved. We use ``?'' symbol to indicate 
 open problems. Open problems of this section are divided into three parts:
 injectivity of $C_0(S)$, projectivity of $L_\infty(S,\mu)$ and flatness of
 $L_\infty(S,\mu)$. Complete description of relatively and topologically
@@ -2304,14 +2217,15 @@ conjecture that $\mu$ must be purely atomic with finitely many atoms. Finally we
 presume that a necessary condition for metric and topological flatness of
 $C_0(S)$-module $L_\infty(S,\mu)$ is compactness of $S$.
 
-As for partial results, we don't have a criterion of homological triviality of
-$C_0(S)$-modules $L_p(S,\mu)$ in metric theory for $1<p<+\infty$. We indicate
-this fact via symbol $\implies$. Using advanced Banach geometric techniques on
-factorization constants through finite dimensional Hilbert spaces one may show
-that atoms count for metrically projective modules $L_p(S,\mu)$ doesn't exceed
-some universal constant. It seems that $L_p(S,\mu)$ is homologically trivial
-$C_0(S)$-module in metric theory only for purely atomic measures with unique
-atom. 
+This section cotaines many other unsolved problems. Usually we have a strong
+necessary condition. We use ${}^{*}$ to indicate that. As for partial results, 
+we don't have a criterion of homological triviality of $C_0(S)$-modules 
+$L_p(S,\mu)$ in metric theory for $1<p<+\infty$. Using advanced
+Banach geometric techniques on factorization constants through finite
+dimensional Hilbert spaces one may show that atoms count for metrically
+projective modules $L_p(S,\mu)$ doesn't exceed some universal constant. It seems
+that $L_p(S,\mu)$ is homologically trivial $C_0(S)$-module in metric theory only
+for purely atomic measures with unique atom. 
 
 \begin{scriptsize}
     \begin{longtable}{|c|c|c|c|} 
@@ -2329,44 +2243,46 @@ atom.
         \begin{tabular}{@{}c@{}}
             $\mu$\mbox{ is purely atomic, all } \\ 
             \mbox{ atoms are isolated points } \\
-            \mbox{\ref{L1C0SModMetTopRelProjInjFlat}}
+            \mbox{\ref{L1C0SModMetTopRelProjInjFlat}} (i)
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
             $\mu$\mbox{ is any }  \\
-            \mbox{\ref{L1C0SModMetTopRelProjInjFlat}}
+            \mbox{\ref{L1C0SModMetTopRelProjInjFlat}} (ii)
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
             $\mu$\mbox{ is any }  \\
-            \mbox{\ref{L1C0SModMetTopRelProjInjFlat}}
+            \mbox{\ref{L1C0SModMetTopRelProjInjFlat}} (iii)
         \end{tabular} \\
     \hline
         $L_p(S,\mu)$ & 
         \begin{tabular}{@{}c@{}}
             $\mu$\mbox{ is purely atomic } \\ 
             \mbox{ with finitely many atoms } \\ 
-            ($\implies$)\mbox{\ref{LpC0SModMetTopRelProjIngFlat}}
+            \mbox{\ref{LpC0SModMetTopRelProjIngFlat}} (iii)${}^{*}$
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
             $\mu$\mbox{ is purely atomic } \\ 
             \mbox{ with finitely many atoms } \\ 
-            ($\implies$)\mbox{\ref{LpC0SModMetTopRelProjIngFlat}}
+            \mbox{\ref{LpC0SModMetTopRelProjIngFlat}} (iii)${}^{*}$
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
             $\mu$\mbox{ is purely atomic } \\ 
             \mbox{ with finitely many atoms } \\ 
-            ($\implies$)\mbox{\ref{LpC0SModMetTopRelProjIngFlat}}
+            \mbox{\ref{LpC0SModMetTopRelProjIngFlat}} (iii)${}^{*}$
         \end{tabular} \\
     \hline
         $L_\infty(S,\mu)$ & 
         \begin{tabular}{@{}c@{}} 
-            `???' 
+            $\mu$ is normal, with \\
+            pseudocompact support \\
+            \mbox{\ref{LinftyC0SModMetTopRelProjIngFlat}} (i)${}^{*}$
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
             $\mu$\mbox{ is any } \\
-            \mbox{\ref{LinftyC0SModMetTopRelProjIngFlat}}
+            \mbox{\ref{LinftyC0SModMetTopRelProjIngFlat}} (ii)
         \end{tabular} & 
         \begin{tabular}{@{}c@{}} 
-            `???' 
+            {?}
         \end{tabular} \\
     \hline
         $M(S)$ & 
@@ -2386,15 +2302,15 @@ atom.
         $C_0(S)$ & 
         \begin{tabular}{@{}c@{}}
             $S$\mbox{ is compact } \\
-            \mbox{\ref{C0SC0SModMetTopRelProjIngFlat}}
+            \mbox{\ref{C0SC0SModMetTopRelProjInjFlat}} (i)
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
             $S$\mbox{ is Stonean } \\
-            \mbox{\ref{C0SC0SModMetTopRelProjIngFlat}} 
+            \mbox{\ref{C0SC0SModMetTopRelProjInjFlat}} (ii) 
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
             $S$\mbox{ is any } \\
-            \mbox{\ref{C0SC0SModMetTopRelProjIngFlat}}
+            \mbox{\ref{C0SC0SModMetTopRelProjInjFlat}} (iii)
         \end{tabular} \\
     \hline
         $\mathbb{C}_s$ & 
@@ -2440,56 +2356,60 @@ atom.
         \begin{tabular}{@{}c@{}}
             $\mu$\mbox{ is purely atomic } \\ 
             \mbox{ with finitely many atoms } \\
-            \mbox{\ref{LpC0SModMetTopRelProjIngFlat}}
+            \mbox{\ref{LpC0SModMetTopRelProjIngFlat}} (ii)
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
             $\mu$\mbox{ is purely atomic } \\ 
             \mbox{ with finitely many atoms } \\
-            \mbox{\ref{LpC0SModMetTopRelProjIngFlat}}
+            \mbox{\ref{LpC0SModMetTopRelProjIngFlat}} (ii)
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
             $\mu$\mbox{ is purely atomic } \\ 
             \mbox{ with finitely many atoms } \\
-            \mbox{\ref{LpC0SModMetTopRelProjIngFlat}}
+            \mbox{\ref{LpC0SModMetTopRelProjIngFlat}} (ii)
         \end{tabular} \\
     \hline
         $L_\infty(S,\mu)$ & 
         \begin{tabular}{@{}c@{}} 
-            `???' 
+            $\mu$ is normal, with \\
+            pseudocompact support \\
+            \mbox{\ref{LinftyC0SModMetTopRelProjIngFlat}} (i)${}^{*}$
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
             $\mu$\mbox{ is any } \\
-            \mbox{\ref{LinftyC0SModMetTopRelProjIngFlat}}
+            \mbox{\ref{LinftyC0SModMetTopRelProjIngFlat}} (ii)
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
-            `???' 
+            {?}
         \end{tabular} \\
     \hline
         $M(S)$ & 
         \begin{tabular}{@{}c@{}}
             $S$\mbox{ is discrete } \\
-            \mbox{\ref{MSC0SModMetTopRelProjIngFlat}}
+            \mbox{\ref{MSC0SModMetTopRelProjIngFlat}} (i)
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
             $S$\mbox{ is any } \\
-            \mbox{\ref{MSC0SModMetTopRelProjIngFlat}}
+            \mbox{\ref{MSC0SModMetTopRelProjIngFlat}} (ii)
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
             $S$\mbox{ is any } \\
-            \mbox{\ref{MSC0SModMetTopRelProjIngFlat}}
+            \mbox{\ref{MSC0SModMetTopRelProjIngFlat}} (iii)
         \end{tabular} \\
     \hline
         $C_0(S)$ & 
         \begin{tabular}{@{}c@{}}
             $S$\mbox{ is compact } \\
-            \mbox{\ref{C0SC0SModMetTopRelProjIngFlat}}
+            \mbox{\ref{C0SC0SModMetTopRelProjInjFlat}} (i)
         \end{tabular} & 
         \begin{tabular}{@{}c@{}} 
-            `???' 
+            $S=\beta(S\setminus \{s \})$ \\
+            for any limit point $s$ \\
+            \mbox{\ref{C0SC0SModMetTopRelProjInjFlat}} (ii)${}^{*}$
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
             $S$\mbox{ is any } \\
-            \mbox{\ref{C0SC0SModMetTopRelProjIngFlat}}
+            \mbox{\ref{C0SC0SModMetTopRelProjInjFlat}} (iii)
         \end{tabular} \\
     \hline
         $\mathbb{C}_s$ & 
@@ -2528,62 +2448,66 @@ atom.
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
             $\mu$\mbox{ is any } \\
-            \mbox{\ref{L1C0SModMetTopRelProjInjFlat}}, (i)
+            \mbox{\ref{L1C0SModMetTopRelProjInjFlat}}
         \end{tabular} \\
     \hline
         $L_p(S,\mu)$ & 
         \begin{tabular}{@{}c@{}}
             $\mu$\mbox{ is purely atomic, all } \\ 
             \mbox{ atoms are isolated points } \\
-            \mbox{\ref{LpC0SModMetTopRelProjIngFlat}}
+            \mbox{\ref{LpC0SModMetTopRelProjIngFlat}} (i)
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
             $\mu$\mbox{ is any } \\
-            \mbox{\ref{LpC0SModMetTopRelProjIngFlat}}
+            \mbox{\ref{LpC0SModMetTopRelProjIngFlat}} (i)
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
             $\mu$\mbox{ is any } \\
-            \mbox{\ref{LpC0SModMetTopRelProjIngFlat}}, (i)
+            \mbox{\ref{LpC0SModMetTopRelProjIngFlat}} (i)
         \end{tabular} \\
     \hline
         $L_\infty(S,\mu)$ & 
         \begin{tabular}{@{}c@{}} 
-            `???' 
+            $\mu$ is normal, with \\
+            pseudocompact support \\
+            \mbox{\ref{LinftyC0SModMetTopRelProjIngFlat}} (i)${}^{*}$
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
             $\mu$\mbox{ is any } \\
-            \mbox{\ref{LinftyC0SModMetTopRelProjIngFlat}}
+            \mbox{\ref{LinftyC0SModMetTopRelProjIngFlat}} (ii)
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
             $\mu$\mbox{ is any } \\
-            \mbox{\ref{LinftyC0SModMetTopRelProjIngFlat}}, (i)
+            \mbox{\ref{LinftyC0SModMetTopRelProjIngFlat}} (iii)
         \end{tabular} \\
     \hline
         $M(S)$ & 
         \begin{tabular}{@{}c@{}}
             $S$\mbox{ is discrete } \\
-            \mbox{\ref{MSC0SModMetTopRelProjIngFlat}}
+            \mbox{\ref{MSC0SModMetTopRelProjIngFlat}} (i)
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
             $S$\mbox{ is any } \\
-            \mbox{\ref{MSC0SModMetTopRelProjIngFlat}}
+            \mbox{\ref{MSC0SModMetTopRelProjIngFlat}} (ii)
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
             $S$\mbox{ is any } \\
-            \mbox{\ref{MSC0SModMetTopRelProjIngFlat}}
+            \mbox{\ref{MSC0SModMetTopRelProjIngFlat}} (iii)
         \end{tabular} \\
     \hline
         $C_0(S)$ & 
         \begin{tabular}{@{}c@{}}
             $S$\mbox{ is paracompact } \\
-            \mbox{\ref{C0SC0SModMetTopRelProjIngFlat}}
+            \mbox{\ref{C0SC0SModMetTopRelProjInjFlat}} (i)
         \end{tabular} & 
         \begin{tabular}{@{}c@{}} 
-            `???'  
+            $S=\beta(S\setminus \{s \})$ \\
+            for any limit point $s$ \\
+            \mbox{\ref{C0SC0SModMetTopRelProjInjFlat}} (ii)${}^{*}$
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
             $S$\mbox{ is any } \\
-            \mbox{\ref{C0SC0SModMetTopRelProjIngFlat}}, (i)
+            \mbox{\ref{C0SC0SModMetTopRelProjInjFlat}} (iii)
         \end{tabular} \\
     \hline  
         $\mathbb{C}_s$ & 
@@ -2746,7 +2670,7 @@ i.e. $L_1(G)$-module $L_\infty(G)$ is metrically and topologically injective.
 then $L_1(G)$ is metrically and topologically flat $L_1(G)$-module 
 by proposition~\ref{MetTopFlatIdealsInUnitalAlg}. 
 Since $L_\infty(G)\isom{\mathbf{mod}_1-L_1(G)}{L_1(G)}^*$, then by 
-proposition~\ref{MetTopFlatCharac} it is metrically and topologically injective.
+proposition~\ref{MetCTopFlatCharac} it is metrically and topologically injective.
 \end{proof}
 
 \begin{proposition}\label{OneDimL1ModMetTopProjCharac} Let $G$ be a locally 
@@ -2768,7 +2692,7 @@ that $\Vert\pi^+\Vert=\Vert\sigma^+\Vert=1$
 and $\pi^+\sigma^+=1_{\mathbb{C}_\gamma}$. Therefore $\mathbb{C}_\gamma$ is a 
 retract of ${L_1(G)}_+$ in $L_1(G)-\mathbf{mod}_1$. From 
 propositions~\ref{UnitalAlgIsMetTopProj} 
-and~\ref{RetrMetTopProjIsMetTopProj} it follows 
+and~\ref{RetrMetCTopProjIsMetCTopProj} it follows 
 that $\mathbb{C}_\gamma$ is metrically projective.
 
 $(ii)\implies (iii)$ See
@@ -2832,8 +2756,8 @@ $$
 It is easy to check that $\rho$ and $\tau$ are contractive and
 $\tau\rho=1_{\mathbb{C}_\gamma}$. Therefore $\mathbb{C}_\gamma$ is a retract of
 $L_\infty(G)$ in $\mathbf{mod}_1-L_1(G)$. From
-propositions~\ref{LInfIsL1MetrInj} and~\ref{RetrMetTopInjIsMetTopInj} it follows
-that $\mathbb{C}_\gamma$ is metrically injective as $L_1(G)$-module.
+propositions~\ref{LInfIsL1MetrInj} and~\ref{RetrMetCTopInjIsMetCTopInj} it 
+follows that $\mathbb{C}_\gamma$ is metrically injective as $L_1(G)$-module.
 
 $(ii)\implies (iii)$ See proposition~\ref{MetInjIsTopInjAndTopInjIsRelInj}.
 
@@ -2858,7 +2782,7 @@ $M(\chi_G)=\pi(\overline{\gamma})=1$. Therefore $G$ is amenable.
 $(ii) \Longleftrightarrow (iv)$, $(iii) \Longleftrightarrow (v)$ Note that
 $\mathbb{C}_\gamma^*\isom{\mathbf{mod}_1-L_1(G)}\mathbb{C}_\gamma$, so all
 equivalences  follow from three previous paragraphs and
-proposition~\ref{MetTopFlatCharac}.
+proposition~\ref{MetCTopFlatCharac}.
 \end{proof}
 
 In the next proposition we shall study specific ideals of Banach algebra
@@ -2976,7 +2900,9 @@ topologically flat $L_1(G)$-module by proposition~\ref{MetTopFlatModCoProd}.
 %	M(G)-modules
 %-------------------------------------------------------------------------------
 
-\subsection{\texorpdfstring{$M(G)$}{M (G)}-modules}\label{SubSectionMGModules}
+\subsection{
+    \texorpdfstring{$M(G)$}{M (G)}-modules
+}\label{SubSectionMGModules}
 
 We turn to the study of standard $M(G)$-modules of harmonic analysis. As we
 shall see most of results can be derived from results on $L_1(G)$-modules.
@@ -3098,7 +3024,7 @@ $(ii)$ The result follows from propositions~\ref{TopProjInjFlatModOverL1Charac}
 paragraph $(ii)$ and~\ref{StdModAreNotRetrOfL1LInf}.
 
 $(iii)$ Note that ${C_0(G)}^*\isom{\mathbf{mod}_1-A}M(G)$. Now the result 
-follows from paragraph $(i)$ and proposition~\ref{MetTopFlatCharac}.
+follows from paragraph $(i)$ and proposition~\ref{MetCTopFlatCharac}.
 
 $(iv)$ Since $L_p(G)$ is reflexive for $1<p<\infty$ the result follows
 from~\ref{NoInfDimRefMetTopProjInjFlatModOverMthscrL1OrLInfty}.
@@ -3163,7 +3089,7 @@ use proposition~\ref{LpFinGrL1MGMetrInjProjCharac}.
 
 $(iv)$ From paragraph $(iii)$ it follows that $L_p(G)$ for $1\leq p<\infty$ is
 metrically injective $A$-module iff $G$ is trivial. Now the result follows from
-proposition~\ref{MetTopFlatCharac} and the facts that
+proposition~\ref{MetCTopFlatCharac} and the facts that
 ${C_0(G)}^*\isom{\mathbf{mod}_1-L_1(G)}M(G)\isom{\mathbf{mod}_1-L_1(G)}L_1(G)$,
 ${L_p(G)}^*\isom{\mathbf{mod}_1-L_1(G)}L_{p^*}(G)$ for $1\leq p^*<\infty$.
 \end{proof}
@@ -3220,7 +3146,7 @@ homologically trivial modules $\mathbb{C}_\gamma$ in case of relative theory is
 the same as in
 propositions~\ref{OneDimL1ModMetTopProjCharac},
 ~\ref{OneDimL1ModMetTopInjFlatCharac}
-and~\ref{OneDimL1ModMetTopInjFlatCharac}. As usually, the arrow $\implies$
+and~\ref{OneDimL1ModMetTopInjFlatCharac}. As usually, we use ${}^{*}$
 indicates that only a necessary conditions is known. As we showed above even
 topological theory is too restrictive for $L_1(G)$ to be projective as
 $L_1(G)$-module. Similarly a Banach space is topologically projective iff it is
@@ -3733,7 +3659,7 @@ homology.
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
             $G$\mbox{ is amenable } \\ 
-            ($\implies$)\mbox{\cite{RamsHomPropSemgroupAlg}, \S 3.5}
+            \mbox{\cite{RamsHomPropSemgroupAlg}, \S 3.5}${}^{*}$
         \end{tabular} \\ 
     \hline
         $M(G)$ & 
