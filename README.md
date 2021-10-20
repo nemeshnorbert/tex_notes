@@ -15,6 +15,12 @@ wrapped by Rewrap VSCode extension
 
 TODO:
 
-1. Refactor tex code in phd_thesis directory
+1. TODO for metric_and_topological_homology 
+    
+    Update citation NemANoteOnRelInjC0ModC0, add volume, number, pages, 
+    year, publisher
+    
+    Update citation NemRelProjModLp, add volume, number, pages, 
+    year, publisher
 
 2. Get rid of rewrap extension and delete its hints in README
