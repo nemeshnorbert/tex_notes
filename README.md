@@ -15,8 +15,8 @@ wrapped by Rewrap VSCode extension
 
 TODO:
 
-1. TODO for metric_and_topological_homology 
-    
+1. For metric_and_topological_homology 
+
     Update citation NemANoteOnRelInjC0ModC0, add volume, number, pages, 
     year, publisher
     
