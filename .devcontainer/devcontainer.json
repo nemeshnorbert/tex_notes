@@ -49,8 +49,6 @@
         // LaTeX
         "james-yu.latex-workshop",
         // Git
-        "eamodio.gitlens",
-        // Rewrap comments after n characters on one line
-        "stkb.rewrap"
+        "eamodio.gitlens"
     ]
 }
