@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-LABEL description="Primary image for developing the reveal app" \
+LABEL description="Primary image for TeXing" \
     authors="Norbert Nemesh <norbertnemesh@gmail.com>"
 
 
