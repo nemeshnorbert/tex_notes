@@ -5,7 +5,6 @@
 *.log
 *.out
 *.synctex.gz
-*.pdf
 *.fls
 *.bbl
 *.blg
@@ -38,6 +37,3 @@
 .vim/
 .vimrc
 .lesshst
-
-# Build files directory
-out/
