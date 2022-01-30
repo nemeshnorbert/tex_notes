@@ -26,13 +26,13 @@
 
 \section{Probability theory}
 
-Probability theory study randomness in rigorous mathematical fashion. There
+Probability theory studies randomness in a rigorous mathematical fashion. The
 following notions are the key concepts in probability theory:
 \begin{itemize}
     \item Probability space $\Omega$ --- describes possible outcomes we can
           expect while studying a random phenomena;
-    \item Probability function --- describes how probable a specific random
-          outcome;
+    \item Probability measure --- describes how probable a specific 
+          random outcome;
     \item Random variable --- a quantity whose value is random;
     \item Distribution function --- a function that describes how probable a
           specific value is for a given random variable
@@ -48,49 +48,84 @@ following notions are the key concepts in probability theory:
 We shall discuss all these notions, give definitions and list their properties.
 
 \begin{definition}
-    Probablity space is a pair $(\Omega,\mathbb{P})$, where
+    Probablity space is a triple $(\Omega,\mathcal{F}, \mathbb{P})$, where
 
     \begin{itemize}
-        \item $\Omega$ is a set of all elementary events
-        \item $\mathbb{P}$ is a probablity function $\mathbb{P}:\Omega\to [0,1]$
+        \item $\Omega$ is a set of all elementary events;
+        \item $\mathcal{F}\subset 2^\Omega$ is a family of set representing events 
+              we are interested in;
+        \item $\mathbb{P}$ is a probablity measure 
+              $\mathbb{P}:\mathcal{F}\to [0,1]$.
     \end{itemize}
+    The family $\mathcal{F}$ has the follwing properties
+    \begin{itemize}
+        \item $\varnothing\in\mathcal{F}$, that is we always can speak of the 
+              event that defenitely will not happen; 
+        \item if $A\in\mathcal{F}$, then $\Omega\setminus A\in\mathcal{F}$, that
+              is if an event $A$ happens, then we can reason about the opposite
+              event, that $A$ didn't happen;
+        \item if ${(A_n)}_{n=1}^\infty\subset\mathcal{F}$, then 
+              $\bigcup_{i=1}^\infty A_n\in\mathcal{F}$, that is if we have an 
+              infinite sequence of events ${(A_n)}_{n=1}^\infty$ we can speak of 
+              the event that at least one event $A_n$ happened.   
+    \end{itemize}
+
     The function $\mathbb{P}$ must satisfy equations
     \begin{itemize}
         \item $\mathbb{P}(\Omega)=1$
-        \item  $\mathbb{P}(A\cup B)=\mathbb{P}(A)+\mathbb{P}(B)$ for any
-              $A,B\subset \Omega$ such that $A\cap B=\varnothing$
+        \item for any family ${(A_n)}_{n=1}^\infty\subset\mathcal{F}$ such that 
+              $A_n\cap A_m=\varnothing$ for $n\neq m$ holds
+              $$
+              \mathbb{P}\left(\bigcup_{n=1}^\infty A_n\right)
+              =\sum_{n=1}^\infty \mathbb{P}(A_n)
+              $$
     \end{itemize}
 \end{definition}
 
-\begin{remark} In general
+Any single element $\{\omega \} \in\Omega$ is called an elementary event.
+
+\begin{remark} As a consequence 
+    $$
+        \mathbb{P}(A\cup B)=\mathbb{P}(A)+\mathbb{P}(B)-\mathbb{P}(A\cap B)
+    $$
+    whenever $A,B\in\mathcal{F}$ and $A\cap B=\varnothing$. In general
     $$
         \mathbb{P}(A\cup B)=\mathbb{P}(A)+\mathbb{P}(B)-\mathbb{P}(A\cap B)
     $$
 \end{remark}
 
 
-Any single element $\omega\in\Omega$ is called an elementary event.
 
-Any subset of $A\subset\Omega$ is called an event.
-
-\begin{example} Tossing a cube once. $\Omega=\{1,2,3,4,5,6\}$. Elementary events
-    $1$, $2$, $\ldots$, $6$. Event --- any subset of $\Omega$, e.g. $\{1,4,5\}$.
+\begin{example} Consider an experimant where we toss a dice once. 
+    Then $\Omega=\{1,2,3,4,5,6\}$. 
+    Elementary events: $\{1\}$, $\{2\}$, $\ldots$, $\{6\}$. 
+    An event --- any subset of $\Omega$, e.g. $\{1,4,5\}$.
 \end{example}
 
-\begin{example} Tossing a coin once. Then  $\Omega=\{H, T\}$,
-    $\mathbb{P}(H)=1/2$, $\mathbb{P}(T)=1/2$
+\begin{example} Consider an experiment where we toss a coin once. 
+    Then $\Omega=\{H, T\}$, $\mathcal{F}$ ---
+    all subsets of $\Omega$ and $\mathbb{P}(\{H \})=1/2$, 
+    $\mathbb{P}(\{T \})=1/2$
 \end{example}
 
-\begin{example} Tossing a coin twice. Then
-    $\Omega=\{(H,H), (H, T), (T, H), (T,T)\}$,
-    $\mathbb{P}((H,H))=\mathbb{P}((H,T))
-        =\mathbb{P}((T,H))
-        =\mathbb{P}((T,T))=1/4$.
+\begin{example} Consider an experiment where we toss a coin twice. 
+    Then define we can define a probability space as follows
+    $\Omega=\{(H,H), (H, T), (T, H), (T,T)\}$, 
+    $\mathcal{F}$ --- all subset of $\Omega$
+    and
+    $$
+        \mathbb{P}(\{(H,H) \})=\mathbb{P}(\{(H,T) \})
+        =\mathbb{P}(\{(T,H) \})
+        =\mathbb{P}(\{(T,T) \})=1/4.
+    $$
 \end{example}
 
-\begin{example} Throwing a dot on a segment. Let $\Omega=[0,1]$,
-    $\mathbb{P}(A)=\mbox{length}(A)$. If $A=[0.2, 0.4]$, then $P(A)=0.2$. If
-    $B=[0.7,0.8]$, then $\mathbb{P}(A\cup B)=\mathbb{P}(A)+\mathbb{P}(B)=0.3$
+\begin{example} Throwing a dot on a segment. Let $\Omega=[0,1]$, $\mathcal{F}$ 
+    is a set of Borel subset of $\Omega$ (it is quite complicated, so you can 
+    think that $\mathcal{F}$ contains almost any subset of $\Omega$). Finally, 
+    let $\mathbb{P}(A)=\mbox{length}(A)$. If $A=[0.2, 0.4]$, then $P(A)=0.2$. If
+    $B=[0.7,0.8]$, then $\mathbb{P}(B)=0.1$ and 
+    $\mathbb{P}(A\cup B)=\mathbb{P}(A)+\mathbb{P}(B)=0.3$
 \end{example}
 
 \begin{definition} Two events $A,B\subset \Omega$ are called inpedendent if
@@ -102,14 +137,8 @@ Any subset of $A\subset\Omega$ is called an event.
 This mathematical definition of independent events is consistent with our usual
 understanding of independent events.
 
-\begin{example} Tossing a coin twice. Then
-    $\Omega=\{(H,H), (H, T), (T, H),(T,T)\}$,
-    $\mathbb{P}((H,H))
-        =\mathbb{P}((H,T))
-        =\mathbb{P}((T,H))
-        =\mathbb{P}((T,T))=1/4$.
-    Let $A$ denote the event that first toss gave tails, and $B$ denote the
-    event that second toss gave heads. Then
+\begin{example} Tossing a coin twice. Let $A$ denote the event that first toss 
+    gave tails, and $B$ denote the event that second toss gave heads. Then
     $$
         A=\{(T,H),(T,T)\},\quad B=\{(T,H),(H,H)\},\quad A\cap B=\{(T,H)\},
     $$
@@ -179,12 +208,14 @@ understanding of independent events.
 
 \subsection{Random variables}
 
-\begin{definition} Random varialbe is a function $X:\Omega\to \mathbb{R}$
-    defined on a probability space.
+\begin{definition} A random varialbe is a function $X:\Omega\to \mathbb{R}$ on a
+    probability space $(\Omega,\mathcal{F},\mathbb{P})$, such that for any 
+    $c\in\mathbb{R}$, the set $\{ \omega\in\Omega: X(\omega)<c\}$ lies 
+    in $\mathcal{F}$.
 \end{definition}
 
-\begin{example} Let $A$ be any event in a probability space $\Omega$. Then the
-    funciton
+\begin{example} Let $A$ be any event in a probability space 
+    $(\Omega,\mathcal{F},\mathbb{P})$. Then the funciton
     $$
         1_A:\Omega\to\mathbb{R}:\omega\to
         \begin{cases}
@@ -192,18 +223,10 @@ understanding of independent events.
             0 & \mbox{ if }\omega\notin A
         \end{cases}
     $$
+    is called the indicator function of $A$.
 \end{example}
 
-\begin{example} Tossing a cube once.
-    $\Omega=\{1,2,3,4,5,6\}$,
-    $\mathbb{P}(1)
-        =\mathbb{P}(2)
-        =\mathbb{P}(3)
-        =\mathbb{P}(4)
-        =\mathbb{P}(5)
-        =\mathbb{P}(6)
-        =1/6$.
-    Then
+\begin{example} Consider an experiment where we toss a dice once. Then
     $$
         X:\Omega\to\mathbb{R}:\omega\to \omega+10
     $$
@@ -211,13 +234,13 @@ understanding of independent events.
 \end{example}
 
 \begin{example} Suppose we are tossing a coin. With probability $p$ we get tails
-    and $X=1$, otherwise $X=0$. This random variable is called Bernoulli random
-    variable. We write this fact as $X\sim Ber(p)$
+    and we set $X=1$, otherwise we set $X=0$. This random variable is called 
+    the Bernoulli random variable. We denote this fact as $X\sim Ber(p)$.
 \end{example}
 
 \begin{example} Suppose we are tossing a coin $n$ times. If $X$ is the numbers
     of tails after $n$ tosses, with say that $X$ is binomial random variable. We
-    write this fact as $X\sim Bin(n,p)$. Clearly $X$ can be represented as sum
+    write this fact as $X\sim Bin(n,p)$. Clearly $X$ can be represented as a sum
     of $n$ Bernoulli random variables $X_1,\ldots,X_n$, i.e.
     $X=X_1+\ldots+X_n$.    % chktex 11
     Indeed, just pick $X_i=1$ if we got tails at $i$-th toss and $X_i=0$ if we
@@ -233,7 +256,7 @@ understanding of independent events.
 \end{example}
 
 \begin{definition} If $X:\Omega\to\mathbb{R}$ is a random variable and $A$ is
-    some subset of real numbers then
+    some subset of real numbers then 
     $$
         \{X\in A\}=\{\omega\in\Omega:X(\omega)\in A\}
     $$
@@ -246,9 +269,9 @@ understanding of independent events.
 \begin{definition} Two random variables $X:\Omega\to\mathbb{R}$ and
     $Y:\Omega\to\mathbb{R}$ are called independent if events
     $$
-        \{X=k\},\quad \{Y=l\}
+        \{X\in A\},\quad \{Y\in B\}
     $$
-    are independent for any $k,l\in\mathbb{R}$.
+    are independent for any $A,B\in\mathcal{F}$.
 \end{definition}
 
 This definition of independence is consistent with usual understanding of
@@ -259,10 +282,10 @@ being solved that two random variables are independent.
 \begin{definition} Random variables $X_1,\ldots,X_n$ are called independent if
     events
     $$
-        \{X_{i_1}=k_1\},\ldots,\{X_{i_m}=k_m\}
+        \{X_{i_1}\in A_1\},\ldots,\{X_{i_m}\in  A_m\}
     $$
     are independent for any $\{i_1,\ldots,i_m\}\subset \{1,\ldots,n\}$ and any
-    $k_1,\ldots,k_m\in\mathbb{R}$.
+    $A_1,\ldots,A_m\in\mathcal{F}$.
 \end{definition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -329,7 +352,8 @@ being solved that two random variables are independent.
     $$
 \end{example}
 
-\begin{example} Throwing dot on a line. Let $\Omega=[0,1]$,
+\begin{example} Consider an experimant where we drop a dot on a line. 
+    Let $\Omega=[0,1]$,
     $\mathbb{P}(A)=\mbox{length}(A)$ and
     $$
         X:\Omega\to\mathbb{R}:\omega\mapsto \omega
@@ -355,10 +379,10 @@ being solved that two random variables are independent.
     $$
 \end{example}
 
-From these examples we see that $F_X$ is always an increasing function. If $X$
-attains only finitely many values, then $F_X$ has discontinuities, and $X$ is
-called a discrete random variable. If $F_X$ is continuous, then $X$ is called a
-continuous random variable.
+From these examples we see that $F_X$ is always a non-decreasing function. 
+If $X$ attains only finitely many values, then $F_X$ has discontinuities, 
+and $X$ is called a discrete random variable. If $F_X$ is continuous, 
+then $X$ is called a continuous random variable.
 
 \begin{definition} Probability density function is a function defined by
     \begin{itemize}
@@ -375,7 +399,7 @@ continuous random variable.
     $$
 \end{theorem}
 
-\begin{example} Tossing a cube twice. Define
+\begin{example} Consider an experimant where we toss a dice twice. Define
     $\Omega=\{(i,j), i,j\in \{1,\ldots,6\} \}$,
     $\mathbb{P}((i,j))=\frac{1}{36}$ for all
     $(i,j)\in \Omega$. Consider a random variable
@@ -406,7 +430,8 @@ continuous random variable.
     $$
 \end{example}
 
-\begin{example} Throwing dot on a line. Let $\Omega=[0,1]$,
+\begin{example} Consider an experimant where we drop a dot on a line. 
+    Let $\Omega=[0,1]$,
     $\mathbb{P}(A)=\mbox{length}(A)$ and
     $$
         X:\Omega\to\mathbb{R}:\omega\mapsto \omega
@@ -507,7 +532,7 @@ Later we shall discuss the meaning of parameters $\mu$ and $\sigma$.
 \begin{definition} An $\alpha$-quantile of a random variable $X$ is the smallest
     number $q$ such that
     $$
-        \mathbb{P}(X\leq q_\alpha)\geq\alpha
+        \mathbb{P}(X\leq q)\geq\alpha
     $$
     In other words this is the smallest number $q$ such that $F_X(q)\geq
         \alpha$. Notation: $q_\alpha(X)$.
@@ -517,8 +542,8 @@ Put differently $q_\alpha(X)$ is the smallest value $q$ such that at least
 $100\alpha$ percent of the values of $X$ are less than $q$.
 
 \begin{example} Tossing a coin twice. Again $\Omega=\{(i,j),
-        i,j\in \{1,\ldots,6\} \}$, $\mathbb{P}((i,j))=\frac{1}{36}$ for all
-    $(i,j)\in \Omega$. Again consider random variable
+        i,j\in \{1,\ldots,6\} \}$, $\mathbb{P}(\{(i,j) \})=\frac{1}{36}$ for all
+    $(i,j)\in \Omega$. Again consider a random variable
     $$
         X:\Omega\to\mathbb{R}:(i,j)\mapsto i+j
     $$
@@ -540,7 +565,7 @@ the 0.99 quantile.
     (necessarily unique) root of the equation $F_X(q)=\alpha$.
 \end{remark}
 
-\begin{example} Throwing dot on a line. Let $\Omega=[0,1]$,
+\begin{example} Dropping a dot on a line. Let $\Omega=[0,1]$,
     $\mathbb{P}(A)=\mbox{length}(A)$ and
     $$
         X:\Omega\to\mathbb{R}:\omega\mapsto \omega
@@ -671,7 +696,7 @@ variable.
 \begin{definition} Variance of a random variable $X$ is the expected value of
     the random variable ${(X-\mathbb{E}[X])}^2$. In other words
     $$
-        \mathbb{V}[X]=\mathbb{E}[{(X-\mathbb{E}[x])}^2]
+        \mathbb{V}[X]=\mathbb{E}[{(X-\mathbb{E}[X])}^2]
     $$
 \end{definition}
 
@@ -690,7 +715,7 @@ variable.
 
 Variance shows how volatile values of $X$ are. Variance shows how much they are
 different from the expexted value. In practice it is more convinient to work
-with another quantity called standard deviation. This characteristic has the
+with another quantity called the standard deviation. This characteristic has the
 advantage that it is measured in the same units as the expected value.
 
 \begin{definition} The standard deviation of a random variable $X$ is defined as
@@ -722,8 +747,8 @@ advantage that it is measured in the same units as the expected value.
     $$
         s_X=\sqrt{\mathbb{V}[X]}=\sigma
     $$
-    Thus parameter $\sigma$ in the normal distribution is the standard deviation
-    of the random variable.
+    Thus the parameter $\sigma$ in the normal distribution is the standard 
+    deviation of the random variable.
 \end{example}
 
 \begin{theorem} Suppose we are given two \underline{independent} random
@@ -744,7 +769,7 @@ advantage that it is measured in the same units as the expected value.
     where $X_1,\ldots,X_n\sim Ber(p)$. As we showed earlier
     $\mathbb{V}[X_1]=\ldots=\mathbb{V}[X_n]=p(1-p)$,   % chktex 11
     so from independece of
-    $X_1,\ldots, X_n$ and previous remark we get
+    $X_1,\ldots, X_n$ and the previous remark we get
     $$
         \mathbb{V}[X]
         =\mathbb{V}[X_1+\ldots+X_n]    % chktex 11
@@ -779,7 +804,7 @@ This theorem has another form (so called integral form).
     $p$ where $0<p<1$. Then $F_X(t)\approx F_Y(t)$ for the normal random
     variable $Y$ with parameters $\mu=np$ and $\sigma=np(1-p)$. More explicitly
     $$
-        F_X(k)
+        F_X(t)
         =\mathbb{P}(X\leq t)
         \underset{n\to\infty}{\to}
         \int_{-\infty}^k
@@ -789,7 +814,7 @@ This theorem has another form (so called integral form).
     $$
 \end{theorem}
 
-These theorems assumes that $n$ has to be big enough. How big $n$ shold be in
+These theorems assume that $n$ has to be big enough. How big should $n$ be in
 practice?
 
 \begin{remark} Let $X$ be a binomial random variable with parameters $n$ and $p$
@@ -943,7 +968,7 @@ estimation, hypothesis testing and regression respectively.
         X$.
 \end{definition}
 
-\begin{example} Assume we have a fair coin and toss it $n$ times. Outcomes of
+\begin{example} Assume we have a fair coin and we toss it $n$ times. Outcomes of
     the tossed coin are described by a random variable $X$. Let $X_i$ denote the
     random variable describing coin side on the $i$-th toss. Then
     $\mathscr{X}=(X_1,\ldots,X_n)$ is a sample of the size $n$ of the random
@@ -991,7 +1016,7 @@ estimation, hypothesis testing and regression respectively.
     $$
         m(\mathscr{X})=m_{1}(\mathscr{X})
         \quad\quad
-        s_{0}^2(\mathscr{X})=\frac{n}{n-1}s_b^2(\mathscr{X})
+        s^2(\mathscr{X})=\frac{n}{n-1}s_b^2(\mathscr{X})
     $$
     One can show that
     $$
@@ -1074,7 +1099,7 @@ estimation, hypothesis testing and regression respectively.
     \end{align*}
     and
     $$
-        \mathbb{E}[s_{0}^2(\mathscr{X})]
+        \mathbb{E}[s^2(\mathscr{X})]
         =\mathbb{E}[\frac{n}{n-1}s_b^2(\mathscr{X})]
         =\frac{n}{n-1}\mathbb{E}[s_b^2(\mathscr{X})]
         =\frac{n}{n-1}\frac{n-1}{n}s_X^2
@@ -1151,11 +1176,11 @@ Even stronger result is true
 Suppose we study a random variable $X$. We have $n$ observations
 $x=(x_1,\ldots,x_n)\in\mathbb{R}^n$ and we want to know the distribution of $X$.
 In practice we usually have a good guess of what type of distribution $X$ should
-have. It might be normal distribution or a binomial distribution or Poisson
+have. It might be a normal distribution or a binomial distribution or a Poisson
 distribution. All these classes of distributions are parametric meaning that you
 need to specify some parameters to pick a concrete distribution of the class.
-For example you need to know exact values of $\mu$ and $\sigma^2$ to speak about
-normal distribution $Norm(\mu,\sigma^2)$. Now given observations
+For example you need to know exact values of $\mu$ and $\sigma^2$ to speak of 
+the normal distribution $Norm(\mu,\sigma^2)$. Now given observations
 $x\in\mathbb{R}^n$ and a class of distributions $X$ belongs to we can hope to
 find parameters of the specific distribution of $X$. This is the primary goal of
 point estimations theory.
@@ -1201,13 +1226,13 @@ point estimations theory.
 
 \begin{example} Let $X\sim Norm(\mu,\sigma^2)$ be a normal random variable. Let
     $\mathscr{X}$ be a sample from $X$. Then $m(\mathscr{X})$ is a point
-    estimation of $\mu$ and $s_{0}(\mathscr{X})$ is a point estimation of
+    estimation of $\mu$ and $s^2(\mathscr{X})$ is a point estimation of
     $\sigma^2$. Indeed, since $X$ is normal, then $m_X=\mu$ and
     $s_X^2=\sigma^2$. Now using remark~\ref{ExpecStats} we get
     $$
         \mathbb{E}[m(\mathscr{X})]=m_X=\mu,
         \quad\quad
-        \mathbb{E}[s_{0}^2(\mathscr{X})]=s_X=\sigma^2
+        \mathbb{E}[s^2(\mathscr{X})]=s_X=\sigma^2
     $$
 \end{example}
 
@@ -1288,7 +1313,7 @@ wrong hypothesis. We want this to happen as rarely as possible.
     composite.
 \end{definition}
 
-\begin{example} Here are few examples of simple and composite hypotheses:
+\begin{example} Here are a few examples of simple and composite hypotheses:
     \begin{itemize}
         \item $\mathscr{X}\sim Norm(1, 2^2)$ --- simple hypothesis;
         \item $\mathscr{X}\sim Unif(1, 5)$ --- simple hypothesis;
@@ -1346,7 +1371,7 @@ definition.
         \end{cases}
     $$
     where $\overline{x}=\frac{1}{2n}\sum_{i=1}^{2n} x_i$. Intuitively this
-    criterion we rarely choose the null hypothesis and often make the error of
+    criterion rarely chooses the null hypothesis and often make the error of
     the first kind. We shall compute exact values for the errors of the first
     and second kind. For the beginning note that $\mathbb{P}(\overline{x}\neq
         0.5)=1$, so
@@ -1385,7 +1410,7 @@ definition.
 \end{remark}
 
 Errors of the first and second kind are somewhat opposite to each other. If you
-minimize $\alpha$, the $\beta$ goes bigger and if you try to make $\beta$
+minimize $\alpha$, the $\beta$ grows bigger and if you try to make $\beta$
 smaller you get larger $\alpha$.
 
 \begin{example} Let $\mathscr{X}$ be a sample of size $1$ from a normal random
@@ -1403,7 +1428,7 @@ smaller you get larger $\alpha$.
             H_2 & \mbox{ if } x_1> b
         \end{cases}
     $$
-    Note, that this criterion depends on parameter $b$. From definition we have
+    Note, that this criterion depends on parameter $b$. By definition we have
     $$
         \alpha=\mathbb{P}(\delta(x_1)\neq H_1|H_1)=\mathbb{P}(x_1>b|H_1)
         \quad\quad
@@ -1417,7 +1442,7 @@ smaller you get larger $\alpha$.
 \subsection{Statistical tests}
 
 From now on we shall build criteria for some specific but practically important
-case. Suppose we have a sample $\mathscr{X}$ from a random variable $X$.  We
+problems. Suppose we have a sample $\mathscr{X}$ from a random variable $X$.  We
 consider only two hypotheses $H_1$ and $H_2=\{H_1\mbox{ is not true }\}$. For
 these to hypotheses we shall build criteria of the form
 $$
@@ -1512,7 +1537,7 @@ Now we shall discuss statistical tests used in practice.
 \begin{remark}
     Suppose we are given a statistical test. It must be used as follows:
     \begin{itemize}
-        \item Choose level of confidence $\alpha$ (i.e.\ probability of errors
+        \item Choose a level of confidence $\alpha$ (i.e.\ probability of errors
               of the first kind);
         \item Find $C$ such that $\mathbb{P}(|\eta|\geq C)=\alpha$;
         \item Given observations $x$ compute $\rho(x)$;
