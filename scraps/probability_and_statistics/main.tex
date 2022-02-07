@@ -714,7 +714,7 @@ variable.
 \end{remark}
 
 Variance shows how volatile values of $X$ are. Variance shows how much they are
-different from the expexted value. In practice it is more convinient to work
+different from the expecqted value. In practice it is more convinient to work
 with another quantity called the standard deviation. This characteristic has the
 advantage that it is measured in the same units as the expected value.
 
@@ -783,8 +783,8 @@ advantage that it is measured in the same units as the expected value.
 
 \subsection{De Moivre–Laplace theorem}
 
-The following thoerem states informally that for big $n$ binomial random
-variables behave like normal varaibles
+The following thoerem states informally that for big values of $n$ 
+binomial random variables behave like normal varaibles
 
 \begin{theorem} Let $X$ be a binomial random variable with parameters $n$ and
     $p$ where $0<p<1$. Then $f_X(k)\approx f_Y(k)$ for the normal random
@@ -798,7 +798,7 @@ variables behave like normal varaibles
     $$
 \end{theorem}
 
-This theorem has another form (so called integral form).
+This theorem has another form (the so called integral form).
 
 \begin{theorem} Let $X$ be a binomial random variable with parameters $n$ and
     $p$ where $0<p<1$. Then $F_X(t)\approx F_Y(t)$ for the normal random
@@ -959,7 +959,8 @@ estimation, hypothesis testing and regression respectively.
 \subsection{Samples, observations, sample statistics}
 
 \begin{definition} A sample $\mathscr{X}$ of size $n$ is a sequence of random
-    variables $X_1,\ldots,X_n$ defined on some probability space $\Omega$.
+    variables $X_1,\ldots,X_n$ defined on some probability 
+    space $(\Omega,\mathcal{F},\mathbb{P})$.
 \end{definition}
 
 \begin{definition} Let $X$ be a random variable. A sample $\mathscr{X}$ from $X$
@@ -977,7 +978,8 @@ estimation, hypothesis testing and regression respectively.
 \end{example}
 
 \begin{definition} Let $\mathscr{X}$ be a sample of the random variable
-    $X:\Omega\to\mathbb{R}$ defined on a probability space $\Omega$. For any
+    $X:\Omega\to\mathbb{R}$ defined on a probability 
+    space $(\Omega,\mathcal{F},\mathbb{P})$. For any
     fixed elementary event $\omega\in\Omega$ the sequence of numbers
     $x=(X_1(\omega),\ldots,X_n(\omega))$ is called on observation of $X$ of size
     $n$.
@@ -1286,7 +1288,7 @@ point estimations theory.
 
 Given observation of a random variable $X$ we can make several guesses about
 random variable distribution. These guesses are called hypotheses. Our goal is
-to construct a function that chooses one of the hypothesis given observation of
+to construct a function that chooses one of the hypothesis given observations of
 $X$. Such functions are called a criteria. Since we can inspect only finitely
 many observations there is always a possibility that our criterion chooses a
 wrong hypothesis. We want this to happen as rarely as possible.
@@ -1371,7 +1373,7 @@ definition.
         \end{cases}
     $$
     where $\overline{x}=\frac{1}{2n}\sum_{i=1}^{2n} x_i$. Intuitively this
-    criterion rarely chooses the null hypothesis and often make the error of
+    criterion rarely chooses the null hypothesis and often makes the error of
     the first kind. We shall compute exact values for the errors of the first
     and second kind. For the beginning note that $\mathbb{P}(\overline{x}\neq
         0.5)=1$, so
@@ -1453,10 +1455,10 @@ $$
     \end{cases}
 $$
 Our goal is to invent a function $\rho$ such that the criterion $\delta$
-`mostly' gives correct answers. By `mostly' we do not expect to make more than
-specified percent (say $\alpha$) of errors of the first kind. To tweak the error
-rate of our criterion we need to choose $C$ such that $\alpha(\delta)\leq
-    \alpha$.
+`mostly' gives correct answers. By `mostly' we mean that we do not expect to 
+make more than a specified percent (say $\alpha$) of errors of the first kind. 
+To tweak the error rate of our criterion we need to choose $C$ such 
+that $\alpha(\delta)\leq \alpha$.
 
 \begin{definition} Let $\mathscr{X}$ be a sample of size $n$ from $X$. Consider
     two hypotheses $H_1$ and $H_2=\{H_1\mbox{ is not true }\}$. Let
@@ -1487,14 +1489,15 @@ rate of our criterion we need to choose $C$ such that $\alpha(\delta)\leq
     where $C>0$.
 \end{definition}
 
-\begin{remark} One needs to clarify requirements to test statistic in the
-    previous definition. The first requirement says that if $H_1$ holds true,
-    then $\rho(\mathscr{X})$ attains the same values as $\eta$. If $H_2$ holds
-    true, then for $n$ big enough $\rho(\mathscr{X})$ will attain big values.
+\begin{remark} One needs to clarify the requirements for the test statistic 
+    in the previous definition. The first requirement says that if $H_1$ holds 
+    true, then $\rho(\mathscr{X})$ attains the same values as $\eta$. 
+    If $H_2$ holds true, then for $n$ big enough $\rho(\mathscr{X})$ will 
+    attain big values.
 \end{remark}
 
 In the very definition of the criterion in statistical tests we assume that test
-statistic has distribution close to some distribution which does not depend on
+statistic has distribution close to some distribution which does not depend on a
 sample being studied. Now we shall discuss typical distributions encountered in
 statistical tests.
 
@@ -1504,7 +1507,7 @@ statistical tests.
     with $n$ degrees of freedom. Notation: $X\sim Chi(n)$.
 \end{definition}
 
-\begin{definition} Let $X_1\sim Norm(0, 1)$ and $X_2\sim \chi_n^2$. Consider
+\begin{definition} Let $X_1\sim Norm(0, 1)$ and $X_2\sim Chi(n)$. Consider
     random variable $X=\frac{X_1}{\sqrt{X_2/n}}$. Its distribution is called the
     student distribution with $n$ degrees of freedom. Notation: $X\sim St(n)$.
 \end{definition}
@@ -1528,7 +1531,7 @@ Now we shall list a few constructions that lead to these distributions
     \begin{itemize}
         \item $\sqrt{n}\frac{m(\mathscr{X})-\mu}{\sigma}\sim Norm(0,1)$;
         \item $\frac{(n-1)s^2(\mathscr{X})}{\sigma^2}\sim Chi(n-1)$;
-        \item $\sqrt{n}\frac{m(\mathscr{X})-\mu}{s_0(\mathscr{X})}\sim St(n-1)$.
+        \item $\sqrt{n}\frac{m(\mathscr{X})-\mu}{s(\mathscr{X})}\sim St(n-1)$.
     \end{itemize}
 \end{remark}
 
@@ -1555,35 +1558,35 @@ Now we shall discuss statistical tests used in practice.
         \item test statistic:
               $$\rho(\mathscr{X})
                   =\sqrt{n}\sup_{t\in\mathbb{R}}|F_{\mathscr{X}}(t)-F_X(t)|$$
-        \item distribution of test statistic if $H_1$ is true: $\eta\sim Kolm$
+        \item distribution of the test statistic if $H_1$ is true: $\eta\sim Kolm$
     \end{itemize}
 \end{example}
 
 \begin{example} \textbf{($z$-test)} This criterion checks if a given sample
     $\mathscr{X}$ of size $n$ sampled from a normal random variable $X\sim
-        Norm(\mu,\sigma^2)$ (with \underline{unknown} $a$ and \underline{known}
+        Norm(\mu,\sigma^2)$ (with \underline{unknown} $\mu$ and \underline{known}
     $\sigma$) has mean equal to $\mu_0$.
     \begin{itemize}
         \item hypotheses:
               $$H_1=\{\mu=\mu_0\},\quad\quad H_2=\{H_1\mbox{ is not true }\}$$
         \item test statistic:
               $$\rho(\mathscr{X})=\sqrt{n}\frac{m(\mathscr{X})-\mu_0}{\sigma}$$
-        \item distribution of test statistic if $H_1$ is true: $\eta\sim
+        \item distribution of the test statistic if $H_1$ is true: $\eta\sim
                   St(n-1)$
     \end{itemize}
 \end{example}
 
 \begin{example} \textbf{($t$-test)} This criterion checks if a given sample
     $\mathscr{X}$ of size $n$ sampled from a normal random variable
-    $X\sim Norm(\mu,\sigma^2)$ (with \underline{unknown} $a$ and
+    $X\sim Norm(\mu,\sigma^2)$ (with \underline{unknown} $\mu$ and
     \underline{unknown} $\sigma$) has mean equal to $\mu_0$.
     \begin{itemize}
         \item hypotheses:
               $$H_1=\{\mu=\mu_0\},\quad\quad H_2=\{H_1\mbox{ is not true }\}$$
         \item test statistic:
               $$\rho(\mathscr{X})
-                  =\sqrt{n}\frac{m(\mathscr{X})-\mu_0}{s_0(\mathscr{X})}$$
-        \item distribution of test statistic if $H_1$ is true: $\eta\sim
+                  =\sqrt{n}\frac{m(\mathscr{X})-\mu_0}{s(\mathscr{X})}$$
+        \item distribution of the test statistic if $H_1$ is true: $\eta\sim
                   Norm(0,1)$
     \end{itemize}
 \end{example}
@@ -1608,9 +1611,9 @@ Now we shall discuss statistical tests used in practice.
               $$
                   \nu_i(\mathscr{X})
                   =\sum_{j=1}^n 1_{X_j\in A_i}
-                  \quad\mbox{number of }X_i\mbox{ that fall into }A_i
+                  \quad\mbox{the number of }X_j\mbox{ that fall into }A_i
               $$
-        \item distribution of test statistic if $H_1$ is true:
+        \item distribution of the test statistic if $H_1$ is true:
               $\eta\sim Chi(k-1)$
     \end{itemize}
     In practice we do not explicitly specify probabilities
@@ -1626,8 +1629,8 @@ Now we shall discuss statistical tests used in practice.
 \end{example}
 
 \begin{example} \textbf{(Two-sample Kolmogorov's test)} This criterion tests
-    if a given a sample $\mathscr{X}$ of size $n$ from random variable $X$
-    and a sample $\mathscr{Y}$ of size $m$ from random variable $Y$
+    if a given a sample $\mathscr{X}$ of size $n$ from a random variable $X$
+    and a sample $\mathscr{Y}$ of size $m$ from a random variable $Y$
     have the same distribution.
     \begin{itemize}
         \item hypotheses:
@@ -1640,15 +1643,15 @@ Now we shall discuss statistical tests used in practice.
                   =\sqrt{\frac{mn}{m+n}}
                   \sup_{t\in\mathbb{R}}|F_{\mathscr{X}}(t)-F_{\mathscr{Y}}(t)|
               $$
-        \item distribution of test statistic if $H_1$ is true: $\eta\sim Kolm$
+        \item distribution of the test statistic if $H_1$ is true: $\eta\sim Kolm$
     \end{itemize}
 \end{example}
 
 \begin{example} \textbf{(Two-sample Fisher's test)} This criterion tests if a
-    given sample $\mathscr{X}$ of size $n$ from normal random variable
+    given sample $\mathscr{X}$ of size $n$ from a normal random variable
     $X\sim Norm(\mu_X,\sigma_X^2)$ and a sample $\mathscr{Y}$ of size $m$ from
-    random variable $Y\sim Norm(\mu_Y,\sigma_Y^2)$ have the same standard
-    deviation.
+    a normal random variable $Y\sim Norm(\mu_Y,\sigma_Y^2)$ have 
+    the same standard deviation.
     \begin{itemize}
         \item hypotheses:
               $$
@@ -1660,15 +1663,15 @@ Now we shall discuss statistical tests used in practice.
                   \rho(\mathscr{X},\mathscr{Y})
                   =\frac{s^2(\mathscr{X})}{s^2(\mathscr{Y})}
               $$
-        \item distribution of test statistic if $H_1$ is true:
+        \item distribution of the test statistic if $H_1$ is true:
               $\eta\sim F(n-1,m-1)$
     \end{itemize}
 \end{example}
 
 \begin{example} \textbf{(Two-sample Student's test)} This criterion tests if a
-    given sample $\mathscr{X}$ of size $n$ from normal random variable $X\sim
-        Norm(\mu_X,\sigma^2)$ and a sample $\mathscr{Y}$ of size $m$ from random
-    variable $Y\sim Norm(\mu_Y,\sigma^2)$ have the same standard deviation.
+    given sample $\mathscr{X}$ of size $n$ from a normal random variable 
+    $X\sim Norm(\mu_X,\sigma^2)$ and a sample $\mathscr{Y}$ of size $m$ from a 
+    normal random variable $Y\sim Norm(\mu_Y,\sigma^2)$ have the same mean.
     \begin{itemize}
         \item hypotheses:
               $$
@@ -1681,7 +1684,7 @@ Now we shall discuss statistical tests used in practice.
                       -m(\mathscr{Y})}{\sqrt{(n-1)s^2(\mathscr{X})
                           +(m-1)s^2(\mathscr{Y})}}
               $$
-        \item distribution of test statistic if $H_1$ is true:
+        \item distribution of the test statistic if $H_1$ is true:
               $\eta\sim St(n-1,m-1)$
     \end{itemize}
 \end{example}
@@ -1720,13 +1723,13 @@ Now we shall discuss statistical tests used in practice.
                   \quad \mbox{number of }Y_s\mbox{ that fall into }B_j
               $$
 
-        \item distribution of test statistic if $H_1$ is true:
+        \item distribution of the test statistic if $H_1$ is true:
               $\eta\sim Chi((k-1)\cdot(l-1))$
     \end{itemize}
 \end{example}
 
 \begin{example} \textbf{(Bartlett test)} This criterion tests if samples from
-    different normal variables have the same variance. Let
+    different normal random variables have the same variance. Let
     $\mathscr{X}_1,\ldots,\mathscr{X}_k$ be samples of sizes $n_1,\ldots,n_k$
     respectively. Suppose $\mathscr{X}_i\sim Norm(\mu_i,\sigma_i^2)$ and
     $n_i>3$.
@@ -1755,7 +1758,7 @@ Now we shall discuss statistical tests used in practice.
                   s_p^2(\mathscr{X}_1,\ldots,\mathscr{X}_k)
                   =\frac{1}{N-k}\sum_{i=1}^k (n_i-1) s^2(\mathscr{X}_i)
               $$
-        \item distribution of test statistic if $H_1$ is true: $\eta\sim
+        \item distribution of the test statistic if $H_1$ is true: $\eta\sim
                   Chi(k-1)$
     \end{itemize}
 \end{example}
@@ -1799,7 +1802,7 @@ Now we shall discuss statistical tests used in practice.
                   =\frac{1}{N-k}\sum_{i=1}^k (n_i-1) s^2(\mathscr{X}_i)
                   \quad \mbox{pooled variance}
               $$
-        \item distribution of test statistic if $H_1$ is true:
+        \item distribution of the test statistic if $H_1$ is true:
               $\eta\sim F(k-1, n-k)$
     \end{itemize}
 \end{example}
