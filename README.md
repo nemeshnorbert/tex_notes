@@ -16,6 +16,3 @@ TODO:
 
     Update citation NemANoteOnRelInjC0ModC0, add volume, number, pages,
     year, publisher
-
-    Update citation NemRelProjModLp, add volume, number, pages,
-    year, publisher
