@@ -9,10 +9,3 @@ Hints:
 3. Disable chktex warning on a file: % chktex-file WARN_NUMBER
 
 4. Ctrl+click on text in .pdf file opens respective code in .tex file
-
-TODO:
-
-1. For metric_and_topological_homology
-
-    Update citation NemANoteOnRelInjC0ModC0, add volume, number, pages,
-    year, publisher
