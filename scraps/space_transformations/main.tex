@@ -1,0 +1,233 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{esvect}
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm,
+    bindingoffset=0cm]{geometry}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=blue,
+    pdfborder={0 0 0}]{hyperref}
+\usepackage{enumitem}
+
+\hypersetup{frenchlinks=true}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Лемма}
+\newtheorem{proposition}[theorem]{Предложение}
+\newtheorem{remark}[theorem]{Замечание}
+\newtheorem{corollary}[theorem]{Следствие}
+\newtheorem{definition}[theorem]{Определение}
+\newtheorem{example}[theorem]{Пример}
+
+\newenvironment{proof}{\par $\triangleleft$}{$\triangleright$}
+
+\pagestyle{plain}
+
+\begin{document}
+
+\begin{center}
+
+    \Large \textbf{Преобразования систем координат}\\[0.5cm]
+    \small {Немеш Н. Т.}\\[0.5cm]
+
+\end{center}
+\date{March 2022}
+
+
+\section{Системы координат и трансформы}
+
+В этой заметке обсудим преобразования между системами координат. Мы будем использовать только
+трехмерное пространство $\mathbb{R}^3$. Строго говоря, мы рассматриваем $\mathbb{R}^3$
+как аффинное пространство.
+
+\begin{definition}
+    Система координат $A$ -- это выделенная точка в пространстве $O_A\in\mathbb{R}^3$
+    называемая началом координат и некоторый ортонормированный базис $\mathcal{B}_A$
+    с началом в точке $O_A$. Обозначение: $A=(O_A, \mathcal{B}_A)$.
+\end{definition}
+
+\begin{remark}
+    В определении выше мы намеренно ограничились
+    ортонормированными базисами, потому что другие нам не понадобятся.
+\end{remark}
+
+\begin{definition}
+    Пусть $A=(O_A,\mathcal{B}_A)$ и $B=(O_B,\mathcal{B}_B)$ -- две системы координат.
+    Пусть $Q_A^B$ -- матрица перехода из базиса $\mathcal{B}_B$ в базис $\mathcal{B}_A$,
+    пусть $p_A^B$ -- координаты точки $\vv{p}:=\vv{O_BO_A}$ в базисе $\mathcal{B}_B$.
+    Тогда трасформом из $A$ в $B$ называется преобразование
+    $$
+        T_A^B:\mathbb{R}^3\to\mathbb{R}^3: x^A \mapsto Q_A^B x^A + p_A^B,
+    $$
+    где $Q_A^B$ -- матрица вращения размера $3\times 3$ и $p_A^B$ -- трехмерный вектор. 
+    Обозначение: $T_A^B=(Q_A^B,p_A^B)$.
+\end{definition}
+
+\begin{remark}
+    Трансформы позволяют найти координаты вектора в одной системе координат
+    по координатам вектора в другой системе коодинат. Действительно, если $T_A^B$ -- трансформ из
+    системы координат $A$ в систему координат $B$, а $\vv{x}$ -- произвольный вектор в $\mathbb{R}^3$,
+    то
+    $$
+        x^B=T_A^B(x^A)
+    $$
+    При этом, чтобы задать трансформ из $A$ в $B$ надо знать матрицу перехода из $B$ в $A$.
+\end{remark}
+
+\begin{proposition}
+    Пусть $A$, $B$ и $C$ -- три системы координат и нам даны
+    трансформ $T_A^B=(Q_A^B,p_A^B)$ из $A$ и $B$ и трансформ $T_B^C=(Q_B^C,p_B^C)$ из $B$ в $C$.
+    Тогда, трансформ из $A$ в $C$ дается формулой
+    $$
+        T_A^C=(Q_A^C, p_A^C)=(Q_B^C Q_A^B, p_B^C+Q_B^C p_A^B)
+    $$
+\end{proposition}
+\begin{proof}
+    Пусть $\vv{x}\in\mathbb{R}^3$ -- произвольный вектор. Тогда c одной стороны
+    $$
+        T_A^C(x^A)=Q_A^C x^A+p_A^C
+    $$
+    и с другой
+    $$
+        T_A^C(x^A)=T_B^C(T_A^B(x^A))
+    $$
+    Находим
+    $$
+        T_A^C(x^A)=T_B^C(T_A^B(x^A))
+            =T_B^C(Q_A^B x^A+p_A^B)
+            =Q_B^C(Q_A^B x^A+p_A^B)+p_B^C
+            =Q_B^C Q_A^B x^A + Q_B^C p_A^B + p_B^C
+    $$
+    Поскольку равенство
+    $$
+        T_A^C(x^A)=Q_A^C x^A+p_A^C=Q_B^C Q_A^B x^A + Q_B^C p_A^B + p_B^C
+    $$
+    верно для любого $\vv{x}\in\mathbb{R}^3$, то
+    $$
+        Q_A^C=Q_B^C Q_A^B, \quad\quad p_A^C=p_B^C+Q_B^C p_A^B
+    $$
+\end{proof}
+
+\begin{corollary}
+    Пусть $A$ и $B$ -- две системы координат и $T_A^B$ -- трансформ из $A$ в $B$.
+    Тогда трансформ из $B$ в $A$ имеет вид
+    $$
+        T_B^A=((Q_A^B)^T,-Q_A^B p_A^B)
+    $$
+\end{corollary}
+\begin{proof}
+    Полагая, $C=A$ в предыдущем предложении
+    получим, что
+    $$
+        Q_A^A=Q_B^A Q_A^B, \quad\quad p_A^A=p_B^A+Q_B^A p_A^B
+    $$
+    Поскольку $Q_A^A=E$, $p_A^A=0$, то
+    $$
+        Q_B^A=(Q_A^B)^{-1}=(Q_A^B)^T \quad \quad p_B^A=-Q_B^A p_A^B
+    $$
+\end{proof}
+
+
+\section{Справочные материалы}
+
+\begin{definition}
+    Базис $\mathcal{B}$ это упорядоченный набор из трех линейно независимых векторов
+    $\vv{e}_1, \vv{e}_2, \vv{e}_3$.
+    Обозначение $\mathcal{B}=(\vv{e}_1, \vv{e}_2, \vv{e}_3)$.
+\end{definition}
+
+\begin{definition}
+    Базис назваются ортонормированным если все его векторы имеют длину 1
+    и попарно перпендикулярны.
+\end{definition}
+
+\begin{remark}
+    Основное свойство базиса -- любой вектор $\vv{x}\in\mathbb{R}^3$ может быть однозначно
+    представлен в виде линейной комбинации
+    $$
+    \vv{x}=x_1 \vv{e_1}+x_2 \vv{e_2} + x_3 \vv{e_3}.
+    $$
+    Упорядоченная тройка чисел $(x_1,x_2,x_3)$ назвается координатами вектора $\vv{x}$
+    в базисе $\mathcal{B}$. Обозначение:
+    $$
+        x^A:=\begin{bmatrix}x_1 \\ x_2 \\ x_3\end{bmatrix}
+    $$
+\end{remark}
+
+\begin{definition}
+    Пусть $\mathcal{B}_A$ и $\mathcal{B}_B$ -- два базиса. Матрицей перехода от
+    базиса $\mathcal{B}_A$ к $\mathcal{B}_B$ называется матрица в которой по столбцам выписаны
+    координаты векторов базиса $\mathcal{B}_B$ в базисе $\mathcal{B}_A$. Будем обозначать такую
+    матрицу через $C_B^A$.
+\end{definition}
+
+\begin{example}
+    Пусть базис $\mathcal{B}_A=(\vv{a}_1,\vv{a}_2,\vv{a}_3)$ состоит из
+    единичных векторов направленных вдоль координатных осей $X$, $Y$, $Z$. Тогда
+    $$
+        a_1^A=\begin{bmatrix}1 \\ 0 \\ 0\end{bmatrix},
+        a_2^A=\begin{bmatrix}0 \\ 1 \\ 0\end{bmatrix},
+        a_3^A=\begin{bmatrix}0 \\ 0 \\ 1\end{bmatrix},
+    $$
+    Пусть базис $\mathcal{B}_B=(\vv{b}_1,\vv{b}_2,\vv{b}_3)$ получен из базиса $\mathcal{B}_A$
+    поворотом вокруг оси $Z$ на угол
+    $\alpha$ против часовой стрелки. Тогда
+    $$
+        b_1^A=\begin{bmatrix}\cos\alpha \\ \sin\alpha \\ 0\end{bmatrix},
+        b_2^A=\begin{bmatrix}-\sin\alpha \\ \cos\alpha \\ 0\end{bmatrix},
+        b_3^A=\begin{bmatrix}0 \\ 0 \\ 1\end{bmatrix}
+    $$
+    Как следствие, матрица перехода $C_B^A$ будет
+    $$
+        C_B^A=\begin{bmatrix}
+            \cos\alpha & -\sin\alpha & 0 \\
+            \sin\alpha & \cos\alpha  & 0 \\
+            0          & 0           & 1
+        \end{bmatrix}
+    $$
+\end{example}
+
+\begin{remark}
+    С помощью матрицы перехода можно находить координаты вектора в разных базисах. Пусть
+    $\mathcal{B}_A$, $\mathcal{B}_B$ -- два базиса и $\vv{x}\in\mathbb{R}^3$ -- произвольный
+    вектор. Тогда,
+    $$
+        x^A=C_B^A x^B
+    $$
+\end{remark}
+
+\begin{remark}
+    Если базисы $\mathcal{B}_A$ и $\mathcal{B}_B$ ортонормированы, то чтобы акцентировать
+    на этом внимание для матрицы перехода $C_B^A$ мы будем использовать обозначение
+    $$
+        Q_B^A:=C_B^A
+    $$
+\end{remark}
+
+\begin{remark}
+    Матрицы перехода $Q$ между ортонормированными базисами обладают свойством
+    $$
+        Q^T Q=Q Q^T=E
+    $$
+    Такие матрицы называются ортогональными. Если $Q$ ортогональная матрица, то $Q^T$ тоже ортогональная.
+    У ортогональных матриц легко находить обратную
+    $$
+        Q^{-1}=Q^T
+    $$
+    Более того $\det(Q)=\pm 1$.
+\end{remark}
+
+\begin{remark}
+    Всякое ортональное преобразование сохраняет скалярное произведение. Ортогональные матрицы
+    с определителем равным 1 вдобавок к этому сохраняют ориентацию пространства.
+    Любое вращение трехмерного пространства и только оно задается ортогональной
+    матрицей с определителем 1.
+\end{remark}
+
+\begin{definition}
+    Ортогональные матрицы с определителем 1 мы будем обозначать буквой $R$ и будем
+    называть их матрицами вращения.
+\end{definition}
+\end{document}
