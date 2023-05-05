@@ -21,6 +21,9 @@
 *.gls
 *.bcf
 *.run.xml
+*.nav
+*.snm
+*.vrb
 .texlive2019/
 
 # MacOS
@@ -37,3 +40,4 @@
 .vim/
 .vimrc
 .lesshst
+.dotnet/
