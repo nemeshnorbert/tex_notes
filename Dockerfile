@@ -16,12 +16,11 @@ ARG TERM=xterm
 # Create the user
 RUN groupadd --gid $gid $username && \
     useradd --uid $uid --gid $gid -m $username && \
-    chown -R $uid:$gid /home/$username && \
+    chown -R $uid:$gid $home && \
     # [Optional] Add sudo support. Omit if you don't need to install software after connecting.
     apt-get update && \
     apt-get install -y sudo && \
-    echo $username ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$username && \
-    chmod 0440 /etc/sudoers.d/$username
+    usermod --append --groups sudo $username
 
 # Update the system
 RUN apt-get update && \
