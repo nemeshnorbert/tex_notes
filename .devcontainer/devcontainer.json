@@ -42,13 +42,20 @@
     // scripts from your source tree. For example:
     // bash scripts/install-dev-tools.sh. Not set by default.
     "postCreateCommand": "",
-    // An array of extension IDs that specify the extensions that
-    // should be installed inside the container when it is created.
-    // Defaults to [].
-    "extensions": [
-        // LaTeX
-        "james-yu.latex-workshop",
-        // Git
-        "eamodio.gitlens"
-    ]
+    // Product specific properties
+    "customizations": {
+        // Configure properties specific to VS Code.
+        "vscode": {
+        // Set *default* container specific settings.json values on container create.
+        "settings": {},
+        "extensions": [
+            // Spell check
+            "valentjn.vscode-ltex",
+            // LaTeX
+            "james-yu.latex-workshop",
+            // Git
+            "eamodio.gitlens"
+        ]
+      }
+    }
 }

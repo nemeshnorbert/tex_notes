@@ -4,8 +4,7 @@
 % Change X to a consecutive number; for referencing this 
 % chapter elsewhere, use~\ref{ChapterX}
 \chapter{
-    Applications to algebras of analysis
-}\label{ChapterApplicationsToAlgebrasOfAnalysis} 
+    Applications to algebras of analysis}\label{ChapterApplicationsToAlgebrasOfAnalysis} 
 
 % Change X to a consecutive number; this is for the header on 
 % each page - perhaps a shortened title
@@ -27,16 +26,15 @@ modules of harmonic analysis.
 %-------------------------------------------------------------------------------
 
 \section{
-    Applications to modules over \texorpdfstring{$C^*$}{C*}-algebras
-}\label{SectionApplicationsToModulesOverCStarAlgebras}
+    Applications to modules over \texorpdfstring{$C^*$}{C*}-algebras}\label{
+SectionApplicationsToModulesOverCStarAlgebras}
 
 %-------------------------------------------------------------------------------
 %	Spatial modules
 %-------------------------------------------------------------------------------
 
 \subsection{
-    Spatial modules
-}\label{SubSectionSpatialModules}
+    Spatial modules}\label{SubSectionSpatialModules}
 
 We start from the simplest  examples of modules over operator algebras --- the
 spatial modules. By Gelfand-Naimark's theorem (see e.g.
@@ -54,7 +52,7 @@ operator $x_1\bigcirc x_2:H\to H:x\mapsto \langle x, x_2\rangle x_1$.
 \begin{proposition}\label{SpatModOverCStarAlgProp} Let $A$ be a $C^*$-algebra
 and $\varrho:A\to\mathcal{B}(H)$ be an isometric ${}^*$-homomorphism, such that
 its image contains a subspace of rank one operators of the 
-form $ \{x\bigcirc x_0:x\in H \}$ for some non zero $x_0\in H$. 
+form $ \{x\bigcirc x_0:x\in H \}$ for some non-zero $x_0\in H$. 
 Then the left $A$-module $H_\varrho$ is metrically projective and flat, 
 while the  right $A$-module $H_\varrho^{cc}$ is metrically injective.
 \end{proposition}
@@ -64,7 +62,7 @@ $\pi:A_+\to H_\varrho:a\oplus_1 z\mapsto \varrho(a)(x_0)+zx_0$
 and $\sigma:H_\varrho\to A_+:x\mapsto \varrho^{-1}(x\bigcirc x_0)$. 
 It is straightforward to check that $\pi$ and
 $\sigma$ are contractive $A$-morphisms such that $\pi\sigma=1_{H_\varrho}$.
-Therefore $H_\varrho$ is a retract of $A_+$ in $A-\mathbf{mod}_1$. From
+Therefore, $H_\varrho$ is a retract of $A_+$ in $A-\mathbf{mod}_1$. From
 propositions~\ref{UnitalAlgIsMetTopProj} and~\ref{RetrMetCTopProjIsMetCTopProj} 
 it follows that $H_\varrho$ is metrically projective $A$-module. From
 proposition~\ref{MetTopProjIsMetTopFlat} it follows that $H_\varrho$ is
@@ -82,7 +80,7 @@ hence flat as $\mathcal{B}(H)$-module.
 \end{proposition}
 \begin{proof} From [\cite{HelBanLocConvAlg}, proposition 0.3.38] we know that
 $\mathcal{N}(H)\isom{\mathbf{Ban}_1}H\projtens H^*$. Let
-$\varrho=1_{\mathcal{B}(H)}$, then we can claim a little bit more:
+$\varrho=1_{\mathcal{B}(H)}$, then we can claim a bit more:
 $\mathcal{N}(H)\isom{\mathcal{B}(H)-\mathbf{mod}_1} H_\varrho\projtens H^*$.
 Since $H^*$ is finite dimensional, then
 $H^*\isom{\mathbf{Ban}}\ell_1(\mathbb{N}_n)$ for $n=\dim(H)$ and as the result
@@ -100,8 +98,8 @@ proposition~\ref{MetTopProjIsMetTopFlat}.
 %-------------------------------------------------------------------------------
 
 \subsection{
-    Projective ideals of \texorpdfstring{$C^*$}{C*}-algebras
-}\label{SubSectionProjectiveIdealsOfCStarAlgebras}
+    Projective ideals of \texorpdfstring{$C^*$}{C*}-algebras}\label{
+SubSectionProjectiveIdealsOfCStarAlgebras}
 
 The study of homologically trivial ideals of $C^*$-algebras we start from
 projectivity, but before stating the main result we need a preparatory lemma.
@@ -110,20 +108,20 @@ projectivity, but before stating the main result we need a preparatory lemma.
 unital $C^*$-algebra $A$. Assume $a\in I$ is a self-adjoint element and let $E$
 be the real subspace of real valued functions in $C(\operatorname{sp}_A(a))$
 vanishing at zero. Then there is an isometric homomorphism
-$\operatorname{RCont}_a^0:E\to I$ well defined by
+$\operatorname{RCont}_a^0:E\to I$ well-defined by
 $\operatorname{RCont}_a^0(f)=a$, where
 $f:\operatorname{sp}_A(a)\to\mathbb{C}:t\mapsto t$.
 \end{lemma}
 \begin{proof} By $\mathbb{R}_0[t]$ we denote the real linear subspace of $E$
 consisting of polynomials vanishing at zero. Since $I$ is an ideal of $A$ and
-and $p\in\mathbb{R}_0[t]$ has no constant term then $p(a)\in I$.  Hence we have
-well defined $\mathbb{R}$-linear homomorphism of algebras
+$p\in\mathbb{R}_0[t]$ has no constant term then $p(a)\in I$.  Hence, we have
+well-defined $\mathbb{R}$-linear homomorphism of algebras
 $\operatorname{RPol}_a^0:\mathbb{R}_0[t]\to I:p\mapsto p(a)$. By continuous
 functional calculus for any polynomial $p$ 
 holds $\Vert p(a)\Vert=\Vert p|_{\operatorname{sp}_A(a)}\Vert_\infty$, so
 $\Vert\operatorname{RPol}_a^0(p)\Vert
 =\Vert p|_{\operatorname{sp}_A(a)}\Vert_\infty$. 
-Thus $\operatorname{RPol}_a^0$ is isometric. 
+Thus, $\operatorname{RPol}_a^0$ is isometric. 
 As $\mathbb{R}_0[t]$ is dense in $E$ and $I$ is complete, then
 $\operatorname{RPol}_a^0$ has an isometric extension
 $\operatorname{RCont}_a^0:E\to I$ which is also an $\mathbb{R}$-linear
@@ -203,7 +201,7 @@ By continuous functional calculus we have
 $\Vert b^{1/m}\Vert
 =\sup_{t\in\operatorname{sp}_{A_\#}(b)} t^{1/m}\leq\Vert b\Vert^{1/m}$, 
 then $\limsup_{m\to\infty}\Vert b^{1/m}\Vert\leq 1$. 
-Therefore $\Vert b^{1/m}\Vert\leq 2$ for sufficiently big $m$. Denote
+Therefore, $\Vert b^{1/m}\Vert\leq 2$ for sufficiently big $m$. Denote
 $\varsigma_d=\sigma_d(b^{1/m})$, $u=\sum_{d\in S}\varsigma_d d$ and
 $v=\sum_{d\in B_I\setminus S}\varsigma_d d$, so 
 $$
@@ -233,7 +231,7 @@ $$
 &=4 N\sum_{d\in S} \Vert \sigma_d\Vert^2 d^*d.
 \end{aligned}
 $$
-Therefore
+Therefore,
 $$
 u^*u
 ={\left(\sum_{c\in S}\varsigma_c c\right)}^*
@@ -277,8 +275,8 @@ It is routine to check that $g_m$ has the only one extreme point
 $t_{0,m}={(2Nm)}^{\frac{m}{2-m}}$ where the minimum of $g_m$ is attained. Since
 $\lim_{m\to\infty} g_m(t_{0,m})=M-1<0$, $g_m(0)=M>0$ and $\lim_{t\to\infty}
 g_m(t)=+\infty$, then for sufficiently big $m$ the function $g_m$ has exactly
-two roots: $0<t_{1,m}<t_{0,m}$ and $t_{2,m} > t_{0,m}$. Therefore $g_m(t)\geq 0$
-for $0\leq t\leq t_{1,m}$ or $t\geq t_{2,m}$. Hence for all sufficiently large
+two roots: $0<t_{1,m}<t_{0,m}$ and $t_{2,m} > t_{0,m}$. Therefore, $g_m(t)\geq 0$
+for $0\leq t\leq t_{1,m}$ or $t\geq t_{2,m}$. Hence, for all sufficiently large
 $m$ holds $\operatorname{sp}_{A_\#}(b)\subset T_{t_{1,m},t_{2,m}}$, 
 where $T_{a, b}:=\{t\in\mathbb{R} : 0\leq t \leq a \vee t \geq b\}$. 
 Since $\lim_{m\to\infty} t_{0,m}=0$ then $\lim_{m\to\infty} t_{1,m}=0$ too. 
@@ -287,9 +285,9 @@ have $t_{2,m}\leq 1$. Consequently,
 $\operatorname{sp}_{A_\#}(b)\subset T_{0,1}$.
 
 Consider a continuous function $h:\mathbb{R}_+\to\mathbb{R}:t\mapsto\min(1, t)$,
-uthen from lemma~\ref{ContFuncCalcOnIdealOfCStarAlg} we get an idempotent
+then from lemma~\ref{ContFuncCalcOnIdealOfCStarAlg} we get an idempotent
 $p=h(b)=\operatorname{RCont}_b^0(h)\in I$ such that $\Vert
-p\Vert=\sup_{t\in\operatorname{sp}_{A_\#}(b)}|h(t)|\leq 1$. Therefore $p$ is a
+p\Vert=\sup_{t\in\operatorname{sp}_{A_\#}(b)}|h(t)|\leq 1$. Therefore, $p$ is a
 self-adjoint idempotent. Since $h(t)t=th(t)=t$ for all $t\in
 \operatorname{sp}_{A_\#}(b)$ we have $bp=pb=b$. The last equality implies
 $$
@@ -297,7 +295,7 @@ $$
 =\sum_{d\in B_I}
     {(\Vert\sigma_d\Vert d(e_{A_\#}-p))}^*\Vert\sigma_d\Vert d(e_{A_\#}-p).
 $$
-Since the right hand side of this equality is non negative, then $d=dp$ for all
+Since the right-hand side of this equality is non-negative, then $d=dp$ for all
 $d\in B_I$ with $\sigma_d\neq 0$. Finally, for any $x\in I$ we obtain
 $xp=\sum_{d\in B_I}\sigma_d(x)dp=\sum_{d\in B_I}\sigma_d(x)d=x$, i.e. $I=Ap$,
 for self-adjoint idempotent $p\in I$.
@@ -322,7 +320,7 @@ two-sided ideal of a $C^*$-algebra $A$. Then the following are equivalent:
 \end{enumerate}
 \end{corollary}
 \begin{proof} The ideal $I$ has a contractive approximate identity
-[\cite{HelBanLocConvAlg}, theorem 4.7.79]. Therefore $I$ has a right identity
+[\cite{HelBanLocConvAlg}, theorem 4.7.79]. Therefore, $I$ has a right identity
 iff $I$ is unital. Now all equivalences follow from
 theorem~\ref{LeftIdealOfCStarAlgMetTopProjCharac}. 
 \end{proof}
@@ -356,8 +354,8 @@ projective iff $\operatorname{Spec}(I)$ is paracompact
 %-------------------------------------------------------------------------------
 
 \subsection{
-    Injective ideals of \texorpdfstring{$C^*$}{C*}-algebras
-}\label{SubSectionInjectiveIdealsOfCStarAlgebras}
+    Injective ideals of \texorpdfstring{$C^*$}{C*}-algebras}\label{
+SubSectionInjectiveIdealsOfCStarAlgebras}
 
 Now we proceed to injectivity of two-sided ideals of $C^*$-algebras.
 Unfortunately we don't have a complete characterization at hand, but some
@@ -373,7 +371,7 @@ topologically~$\rangle$ injective as $A$-module iff $I$ is $\langle$~metrically
 \end{proposition}
 \begin{proof} Note that any two-sided ideal $I$ of a $C^*$-algebra $A$ is again
 a $C^*$-algebra with contractive approximate identity [\cite{HelBanLocConvAlg},
-theorem 4.7.79]. Therefore $I$ is faithful as right $I$-module. Now
+theorem 4.7.79]. Therefore, $I$ is faithful as right $I$-module. Now
 proposition~\ref{ReduceInjIdToInjAlg} gives the desired equivalence.
 \end{proof}
 
@@ -439,7 +437,7 @@ $$
 $$
 is an isometric $A$-morphism of right $A$-modules. Since $A$ is topologically
 injective $A$-module, then $\rho$ has a left inverse $A$-morphism $\tau$.
-Therefore $A$ is complemented in $E:=\bigoplus_\infty
+Therefore, $A$ is complemented in $E:=\bigoplus_\infty
 \{H_\varrho^{cc}:\overline{x}\in \Lambda \}$ via projection $\rho\tau$. Note
 that $H_{\varrho}^{cc}$ is a Banach lattice as any Hilbert space, then so does
 $E$. As any Banach lattice $E$ has the l.u.st.\ property [\cite{DiestAbsSumOps},
@@ -449,12 +447,12 @@ complemented subspaces.
 Assume $A$ contains $\mathcal{B}(\ell_2(\mathbb{N}_n))$ as ${}^*$-subalgebra for
 arbitrarily large $n\in\mathbb{N}$. In fact this copy of
 $\mathcal{B}(\ell_2(\mathbb{N}_n))$ is $1$-complemented in $A$
-[\cite{LauLoyWillisAmnblOfBanAndCStarAlgsOfLCG}, lemma 2.1]. Therefore we have
+[\cite{LauLoyWillisAmnblOfBanAndCStarAlgsOfLCG}, lemma 2.1]. Therefore, we have
 an inequality for local unconditional constants
 $\kappa_u(\mathcal{B}(\ell_2(\mathbb{N}_n)))\leq \kappa_u(A)$. By theorem 5.1
 in~\cite{GorLewAbsSmOpAndLocUncondStrct} we know that $\lim_n
 \kappa_u(\mathcal{B}(\ell_2(\mathbb{N}_n)))=+\infty$, so $\kappa_u(A)=+\infty$.
-This contradicts the l.u.st.\ property of $A$. Hence $A$ can't contain
+This contradicts the l.u.st.\ property of $A$. Hence, $A$ can't contain
 $\mathcal{B}(\ell_2(\mathbb{N}_n))$ as ${}^*$-subalgebra for arbitrary
 $n\in\mathbb{N}$.
 \end{proof}
@@ -468,7 +466,7 @@ ${}^*$-subalgebras of $M_n(C(K))$ for some compact Hausdorff space $K$ and some
 natural number $n$. For more on subhomogeneous $C^*$-algebras see
 [\cite{BlackadarOpAlg}, section IV.1.4]. 
 
-We shall give two important examples of non commutative $C^*$-algebras that are
+We shall give two important examples of non-commutative $C^*$-algebras that are
 topologically injective over themselves.
 
 \begin{proposition}\label{FinDimBHModTopInj} Let $H$ be a finite dimensional
@@ -476,7 +474,7 @@ Hilbert space. Then $\mathcal{B}(H)$ is topologically injective as
 $\mathcal{B}(H)$-module. 
 \end{proposition}
 \begin{proof} Note that
-$\mathcal{B}(H)\isom{\mathbf{mod}_1-\mathcal{B}(H)}{\mathcal{N}(H)}^*$, and the
+$\mathcal{B}(H)\isom{\mathbf{mod}_1-\mathcal{B}(H)}{\mathcal{N}(H)}^*$, and
 the result immediately follows from propositions~\ref{FinDimNHModTopProjFlat}
 and~\ref{DualMetTopProjIsMetrInj}.
 \end{proof}
@@ -560,7 +558,7 @@ second option is canceled out by proposition~\ref{TopInjIdHaveLUST}.
 
 $(ii)\implies (i)$ For each $\lambda\in\Lambda$ the algebra
 $M_{n_\lambda}(C(K_\lambda))$ is unital because $K_\lambda$ is compact.
-Therefore $M_{n_\lambda}(C(K_\lambda))$ is faithful as
+Therefore, $M_{n_\lambda}(C(K_\lambda))$ is faithful as
 $M_{n_\lambda}(C(K_\lambda))$-module. It is also topologically injective as
 $M_{n_\lambda}(C(K_\lambda))$-module by proposition~\ref{CKMatrixModTopInj}.
 Now the topological injectivity of $A$ as $A$-module follows from paragraph
@@ -569,8 +567,8 @@ $X_\lambda=A_\lambda=M_{n_\lambda}(C(K_\lambda))$ for all $\lambda\in\Lambda$.
 
 For all $\lambda\in\Lambda$ the algebra $C(K_\lambda)$ is an $AW^*$-algebra,
 because $K_\lambda$ is a Stonean space [\cite{BerbBaerStarRings}, theorem
-1.7.1]. Therefore $M_{n_\lambda}(C(K_\lambda))$ is an $AW^*$-algebra too
-[\cite{BerbBaerStarRings}, corollary 9.62.1]. Finally $A$ is an $AW^*$-algebra
+1.7.1]. Therefore, $M_{n_\lambda}(C(K_\lambda))$ is an $AW^*$-algebra too
+[\cite{BerbBaerStarRings}, corollary 9.62.1]. Finally, $A$ is an $AW^*$-algebra
 as $\bigoplus_\infty$-sum of such algebras [\cite{BerbBaerStarRings},
 proposition 1.10.1].
 \end{proof}
@@ -584,8 +582,8 @@ commutative case.
 %-------------------------------------------------------------------------------
 
 \subsection{
-    Flat ideals of \texorpdfstring{$C^*$}{C*}-algebras
-}\label{SubSectionFlatIdealsOfCStarAlgebras}
+    Flat ideals of \texorpdfstring{$C^*$}{C*}-algebras}\label{
+SubSectionFlatIdealsOfCStarAlgebras}
 
 By considering flatness we finalize this lengthy investigations of ideals of
 $C^*$-algebras.
@@ -624,10 +622,10 @@ isometrically isomorphic to $\bigoplus_\infty \{
 numbers ${(n_k)}_{k\in\mathbb{N}_m}$ 
 [\cite{DavCSatrAlgByExmpl}, theorem III.1.1].
 Assume $\operatorname{dim}(A)>1$, then $A$ contains an isometric copy of
-$\ell_\infty(\mathbb{N}_2)$. Therefore we have an isometric embedding of
+$\ell_\infty(\mathbb{N}_2)$. Therefore, we have an isometric embedding of
 $\ell_\infty(\mathbb{N}_2)$ into $\ell_1(\mathbb{N}_n)$. This is impossible by
 theorem 1 from~\cite{LyubIsomEmdbFinDimLp}. 
-Therefore $\operatorname{dim}(A)\leq 1$. 
+Therefore, $\operatorname{dim}(A)\leq 1$. 
 \end{proof}
 
 \begin{proposition}\label{CStarAlgIsTopFlatOverItsIdeal} Let $I$ be a proper
@@ -646,7 +644,7 @@ ${(e_\nu)}_{\nu\in N}$ such that $0\leq e_\nu\leq e_{A_\#}$
 [\cite{HelBanLocConvAlg}, proposition 4.7.79]. As a 
 corollary $\sup_{\nu\in N}\Vert e_{A_\#}-e_\nu\Vert\leq 1$. Since $I$ has an 
 approximate identity we also have $A_{ess}:=\operatorname{cl}_A(IA)=I$. 
-Since $I$ is a two sided ideal then $A/I$ is a $C^*$-algebra 
+Since $I$ is a two-sided ideal then $A/I$ is a $C^*$-algebra 
 [\cite{HelBanLocConvAlg}, theorem 4.7.81].
 
 Assume, $A$ is a metrically flat $I$-module. Since 
@@ -666,12 +664,12 @@ to $\ell_1(\mathbb{N}_1)$. By proposition~\ref{MetTopFlatAnnihModCharac}
 it is metrically flat. 
 
 By proposition~\ref{TopFlatModCharac} the $I$-module $A$ is topologically flat
-iff $A_{ess}=I$ and $A/A_{ess}=A/I$ are topologically flat $I$-modules. By
-proposition~\ref{IdealofCstarAlgisMetTopFlat} the ideal $I$ is topologically
-flat $I$-module. By proposition~\ref{MetTopFlatAnnihModCharac} the annihilator
-$I$-module $A/I$ is topologically flat iff it is an $\mathscr{L}_1^g$-space. By
-proposition~\ref{CStarAlgIsL1IfFinDim} this is equivalent to $A/I$ being finite
-dimensional.
+iff $A_{ess}=I$ and $A/A_{ess}=A/I$ are topologically flat $I$-modules. Note that by
+proposition~\ref{IdealofCstarAlgisMetTopFlat} the ideal $I$ is a topologically
+flat $I$-module. From proposition~\ref{MetTopFlatAnnihModCharac} we get that the 
+annihilator $I$-module $A/I$ is topologically flat iff it is an $\mathscr{L}_1^g$-space. 
+The latter is equivalent to $A/I$ being finite dimensional, see 
+proposition~\ref{CStarAlgIsL1IfFinDim}.
 \end{proof}
 
 %-------------------------------------------------------------------------------
@@ -679,9 +677,9 @@ dimensional.
 %-------------------------------------------------------------------------------
 
 \subsection{
-    \texorpdfstring{$\mathcal{K}(H)$}{K (H)}- and
-    \texorpdfstring{$\mathcal{B}(H)$}{B (H)}-modules
-}\label{SubSectionKHAndBHModules}
+    \texorpdfstring{$\mathcal{K}(H)$}{K(H)}- and
+    \texorpdfstring{$\mathcal{B}(H)$}{B(H)}-modules}\label{
+SubSectionKHAndBHModules}
 
 In this section we apply general results on ideals obtained above to classical
 modules over $C^*$-algebras.  For a given Hilbert space $H$ we consider
@@ -838,7 +836,7 @@ and  $\mathcal{B}(H)\isom{\mathbf{mod}_1-\mathcal{K}(H)}{\mathcal{N}(H)}^*$ are
 relatively injective $\mathcal{K}(H)$-modules. From
 [\cite{RamsHomPropSemgroupAlg}, proposition 2.2.8  (i)] we know that a Banach
 algebra relatively injective over itself as a right module, necessarily has a
-left identity. Therefore $\mathcal{K}(H)$ is not relatively injective
+left identity. Therefore, $\mathcal{K}(H)$ is not relatively injective
 $\mathcal{K}(H)$-module for infinite dimensional $H$. If $H$ is finite
 dimensional, then $\mathcal{K}(H)$-module $\mathcal{K}(H)$ is relatively
 injective because $\mathcal{K}(H)=\mathcal{B}(H)$ and $\mathcal{B}(H)$ is
@@ -1192,8 +1190,8 @@ and relative theory.
 
 \subsection{
     \texorpdfstring{$c_0(\Lambda)$}{c0 (Lambda)}- and
-    \texorpdfstring{$\ell_\infty(\Lambda)$}{lInfty (Lambda)}-modules
-}\label{SubSectionc0AndlInftyModules}
+    \texorpdfstring{$\ell_\infty(\Lambda)$}{lInfty(Lambda)}-modules}\label{
+SubSectionc0AndlInftyModules}
 
 We continue our study of modules over $C^*$-algebras and move to commutative
 examples. For a given index set $\Lambda$ we consider spaces $c_0(\Lambda)$ and
@@ -1209,7 +1207,7 @@ For a given $\lambda\in\Lambda$ we define $\mathbb{C}_\lambda$ as left or right
 $\ell_\infty(\Lambda)$- or $c_0(\Lambda)$-module $\mathbb{C}$ with module action
 defined by
 $$
-a\cdot_\lambda z=a(\lambda)z,\qquad z\cdot_\lambda a=a(\lambda) z.
+a\cdot_\lambda z=a(\lambda)z,\qquad z\cdot_\lambda a=a(\lambda) z
 $$
 for $a\in \ell_\infty(\Lambda)$ and $z\in\mathbb{C}_s$. 
 
@@ -1223,7 +1221,7 @@ can easily check that the
 maps $\pi:A_+\to\mathbb{C}_\lambda:a\oplus_1 z\mapsto a(\lambda)+z$ 
 and $\sigma:\mathbb{C}_\lambda\to A_+:z\mapsto z\delta_\lambda\oplus_1 0$ 
 are contractive $A$-morphisms of left $A$-modules.
-Since $\pi\sigma=1_{\mathbb{C}_\lambda}$, then $\mathbb{C}_\lambda$ is retract
+Since $\pi\sigma=1_{\mathbb{C}_\lambda}$, then $\mathbb{C}_\lambda$ is a retract
 of $A_+$ in $A-\mathbf{mod}_1$. From proposition~\ref{UnitalAlgIsMetTopProj}
 and~\ref{RetrMetCTopProjIsMetCTopProj} it follows that $\mathbb{C}_\lambda$ is
 metrically and topologically projective left $A$-module and a fortiori
@@ -1363,7 +1361,7 @@ proposition~\ref{c0AndlInftyModl1}.
 \begin{proof} $(i)$ The algebra $c_0(\Lambda)$ is relatively biprojective
 [\cite{HelHomolBanTopAlg}, theorem IV.5.26] and admits a contractive approximate
 identity, so by [\cite{HelBanLocConvAlg}, theorem 7.1.60] all essential
-$c_0(\Lambda)$-modules are projective. Thus $c_0(\Lambda)$ and $\ell_p(\Lambda)$
+$c_0(\Lambda)$-modules are projective. Thus, $c_0(\Lambda)$ and $\ell_p(\Lambda)$
 for $1\leq p<+\infty$ are relatively projective $c_0(\Lambda)$-modules. A
 fortiori they are relatively flat as $c_0(\Lambda)$-modules
 [\cite{HelBanLocConvAlg}, proposition 7.1.40]. By the same proposition
@@ -1372,7 +1370,7 @@ $\ell_{p^*}(\Lambda)\isom{\mathbf{mod}_1-c_0(\Lambda)}{\ell_p(\Lambda)}^*$ for
 $1\leq p<+\infty$ are relatively injective $c_0(\Lambda)$-modules. From
 [\cite{RamsHomPropSemgroupAlg}, proposition 2.2.8 (i)] we know that a Banach
 algebra relatively injective over itself as right module, necessarily has a left
-identity. Therefore $c_0(\Lambda)$ is not relatively injective
+identity. Therefore, $c_0(\Lambda)$ is not relatively injective
 $c_0(\Lambda)$-module for infinite $\Lambda$. If $\Lambda$ is finite, then
 $c_0(\Lambda)$-module $c_0(\Lambda)$ is relatively injective because
 $c_0(\Lambda)=\ell_\infty(\Lambda)$ and $\ell_\infty(\Lambda)$ is relatively
@@ -1401,8 +1399,8 @@ $\langle$~relatively projective / relatively injective~$\rangle$ over algebra
 itself. Since $c_0(\Lambda)$ and $\ell_p(\Lambda)$ for $1\leq p<+\infty$ are
 essential and faithful $c_0(\Lambda)$-modules then from results of previous
 paragraph $\ell_p(\Lambda)$ for $1\leq p<+\infty$ are relatively projective and
-injective as $\ell_\infty(\Lambda)$-modules. Also we get that $c_0(\Lambda)$ is
-relatively projective $\ell_\infty(\Lambda)$-module. Therefore all these
+injective as $\ell_\infty(\Lambda)$-modules. Also, we get that $c_0(\Lambda)$ is
+relatively projective $\ell_\infty(\Lambda)$-module. Therefore, all these
 $\ell_\infty(\Lambda)$-modules are relatively flat [\cite{HelBanLocConvAlg},
 proposition 7.1.40]. As the consequence $\ell_\infty(\Lambda)
 \isom{\mathbf{mod}_1-\ell_\infty(\Lambda)} {\ell_1(\Lambda)}^*$ is relatively
@@ -1889,12 +1887,12 @@ flat as $\ell_\infty(\Lambda)$- or $c_0(\Lambda)$-module in all three theories.
 %-------------------------------------------------------------------------------
 
 \subsection{
-    \texorpdfstring{$C_0(S)$}{C0(S)}-modules
-}\label{SubSectionC0SModules}
+    \texorpdfstring{$C_0(S)$}{C0(S)}-modules}\label{
+SubSectionC0SModules}
 
 This section is devoted to study of homological triviality of classical modules
 over algebra $C_0(S)$, where $S$ is a locally compact Hausdorff space. By
-classical we mean modules $C_0(S)$, $M(S)$ and $L_p(S,\mu)$ for positive measure
+classic we mean modules $C_0(S)$, $M(S)$ and $L_p(S,\mu)$ for positive measure
 $\mu\in M(S)$. The pointwise multiplication plays the role of outer action for
 these modules.
 
@@ -2013,7 +2011,7 @@ Then any atom of $\mu$ is an isolated point in $S$.
 \end{proposition} 
 \begin{proof} Assume $\mu$ has at least one atom, otherwise there is nothing to
 prove. From [\cite{BourbElemMathIntegLivVI}, chapter 5, \S 5, exercise 7] we
-know that any atom of $\mu$ is a point. Call it $s$. Consider well defined
+know that any atom of $\mu$ is a point. Call it $s$. Consider well-defined
 linear maps $\pi:L_p(\Omega,\mu)\to\mathbb{C}_s:f\mapsto f(s)$ and
 $\sigma:\mathbb{C}_s\to L_p(\Omega,\mu):z\mapsto z\delta_s$. One can easily
 check that these maps are $C_0(S)$-morphisms and $\pi\sigma=1_{\mathbb{C}_s}$.
@@ -2044,8 +2042,8 @@ $S$. Then
 \begin{proof} $(i)$ If $L_1(S,\mu)$ is metrically or topologically or relatively
 projective, then by proposition~\ref{MetProjIsTopProjAndTopProjIsRelProj} it is
 at least relatively projective. Now from [\cite{NemRelProjModLp}, theorem 2] 
-the measure $\mu$ is purely atomic and all atoms are isolated  points.
-Conversely, assume that $\mu$ is purely atomic and all atoms are isolated
+the measure $\mu$ is purely atomic, and all atoms are isolated  points.
+Conversely, assume that $\mu$ is purely atomic, and all atoms are isolated
 points. By $S_a^{\mu}$ we denote the set of these atoms. Now one can easily show
 that the linear map 
 $i:L_1(S,\mu)\to\bigoplus_1 \{\mathbb{C}_s:s\in S_a^{\mu} \}
@@ -2053,7 +2051,7 @@ $i:L_1(S,\mu)\to\bigoplus_1 \{\mathbb{C}_s:s\in S_a^{\mu} \}
 isomorphism of $C_0(S)$-modules. By paragraphs $(i)$ of
 propositions~\ref{MetTopProjModCoprod}
 and~\ref{OneDimC0SModMetTopRelProjIngFlat} the $C_0(S)$-module $\bigoplus_1
-\{\mathbb{C}_s:s\in S_a^{\mu} \}$ is metrically projective. Therefore so does
+\{\mathbb{C}_s:s\in S_a^{\mu} \}$ is metrically projective. Therefore, so does
 $L_1(S,\mu)$. By proposition~\ref{MetProjIsTopProjAndTopProjIsRelProj} it is
 also topologically and relatively projective.
 
@@ -2082,7 +2080,7 @@ $S$. Assume $1<p<+\infty$, then
 
 \begin{enumerate}[label = (\roman*)]
     \item $L_p(S,\mu)$ is relatively injective and flat, but relatively 
-    projective iff $\mu$ is purely atomic and all atoms are isolated points;
+    projective iff $\mu$ is purely atomic, and all atoms are isolated points;
 
     \item $L_p(S,\mu)$ is topologically projective or injective or flat 
     iff $\mu$ is purely atomic with finitely many atoms;
@@ -2103,7 +2101,7 @@ Conversely, let $\mu$ be purely atomic with all atoms isolated. Denote by
 $S_a^{\mu}$ the set of these atoms. Since $S_a^{\mu}$ is discrete, then
 $C_0(S_a^{\mu})$ is relatively biprojective [\cite{HelHomolBanTopAlg}, theorem
 4.5.26]. Then $L_p(S,\mu)$ is relatively projective $C_0(S_a^{\mu})$-module
-because it is essential module over relatively biprojective algebra with
+because it is an essential module over relatively biprojective algebra with
 two-sided bounded approximate identity. Clearly $C_0(S_a^{\mu})$ is a two-sided
 ideal of $C_0(S)$, so from [\cite{RamsHomPropSemgroupAlg}, proposition 2.3.2(i)]
 we get that $L_p(S,\mu)$ is relatively projective as $C_0(S)$-module.
@@ -2117,7 +2115,7 @@ is equivalent to measure $\mu$ being purely atomic with finitely many atoms. On
 the other hand, if $\mu$ is purely atomic with finitely many atoms, then
 $L_p(S,\mu)$ is topologically isomorphic to $L_1(S,\mu)$ as left or right
 $C_0(S)$-module. The latter module is topologically projective, injective and
-flat for our measure by proposition~\ref{L1C0SModMetTopRelProjInjFlat}. Hence so
+flat for our measure by proposition~\ref{L1C0SModMetTopRelProjInjFlat}. Hence, so
 does $L_p(S,\mu)$.
 \end{proof}
 
@@ -2183,7 +2181,7 @@ $M(S)
 \isom{C_0(S)-\mathbf{mod}_1}
 \bigoplus_1 \{\mathbb{C}_s:s\in S \}$. The latter $C_0(S)$-module is metrically
 projective by paragraphs $(i)$ of propositions~\ref{MetTopProjModCoprod}
-and~\ref{OneDimC0SModMetTopRelProjIngFlat}. Therefore $M(S)$ is metrically
+and~\ref{OneDimC0SModMetTopRelProjIngFlat}. Therefore, $M(S)$ is metrically
 projective $C_0(S)$-module too. By
 proposition~\ref{MetProjIsTopProjAndTopProjIsRelProj} it is also topologically
 and relatively projective.
@@ -2213,11 +2211,11 @@ reason --- still there is no standard category of functional analysis where even
 topologically injective objects were fully understood. The question of relative
 projectivity of $C_0(S)$-module $L_\infty(S,\mu)$ is rather old. It seems that
 even relative projectivity of $L_\infty(S,\mu)$ is a rare property. Our
-conjecture that $\mu$ must be purely atomic with finitely many atoms. Finally we
+conjecture that $\mu$ must be purely atomic with finitely many atoms. Finally, we
 presume that a necessary condition for metric and topological flatness of
 $C_0(S)$-module $L_\infty(S,\mu)$ is compactness of $S$.
 
-This section cotaines many other unsolved problems. Usually we have a strong
+This section contains many other unsolved problems. Usually we have a strong
 necessary condition. We use ${}^{*}$ to indicate that. As for partial results, 
 we don't have a criterion of homological triviality of $C_0(S)$-modules 
 $L_p(S,\mu)$ in metric theory for $1<p<+\infty$. Using advanced
@@ -2533,16 +2531,16 @@ for purely atomic measures with unique atom.
 %-------------------------------------------------------------------------------
 
 \section{
-    Applications to modules of harmonic analysis
-}\label{SectionApplicationsToModulesOfHarmonicAnalysis}
+    Applications to modules of harmonic analysis}\label{
+SectionApplicationsToModulesOfHarmonicAnalysis}
 
 %-------------------------------------------------------------------------------
 %	Preliminaries on harmonic analysis
 %-------------------------------------------------------------------------------
 
 \subsection{
-    Preliminaries on harmonic analysis
-}\label{SectionPreliminariesOnHarmonicAnalysis} 
+    Preliminaries on harmonic analysis}\label{
+SectionPreliminariesOnHarmonicAnalysis} 
 
 Let $G$ be a locally compact group. Its identity we shall denote by $e_G$. By
 well known Haar's theorem [\cite{HewRossAbstrHarmAnalVol1},section 15.8] there
@@ -2610,7 +2608,7 @@ $$
 $$
 These module actions turn any Banach space $L_p(G)$ for $1<p\leq+\infty$ into 
 the left and right $M(G)$-module too. This special choice of module structure 
-nicely interacts with duality. Indeed we have 
+nicely interacts with duality. Indeed, we have 
 and ${(L_p(G),\convol_p)}^*\isom{\mathbf{mod}_1-M(G)}(L_{p^*}(G),\cdot_{p^*})$ 
 for all $1\leq p<+\infty$. Finally, the Banach space $C_0(G)$ also becomes left 
 and right $M(G)$-module when endowed with $\cdot_\infty$ in the role of module 
@@ -2646,7 +2644,7 @@ modules $M:L_\infty(G)\to\mathbb{C}_{e_{\widehat{G}}}$ such
 that $M(\chi_G)=1$ [\cite{HelBanLocConvAlg}, section VII.2.5]. We can even 
 assume that $M$ is contractive [\cite{HelBanLocConvAlg}, remark 7.1.54].
 
-Most of results of this section that not supported with references are 
+Most results of this section that not supported with references are 
 presented in a full detail in [\cite{DalBanAlgAutCont}, section 3.3].
 
 %-------------------------------------------------------------------------------
@@ -2654,8 +2652,8 @@ presented in a full detail in [\cite{DalBanAlgAutCont}, section 3.3].
 %-------------------------------------------------------------------------------
 
 \subsection{
-    \texorpdfstring{$L_1(G)$}{L1(G)}-modules
-}\label{SubSectionL1GModules}
+    \texorpdfstring{$L_1(G)$}{L1(G)}-modules}\label{
+SubSectionL1GModules}
 
 Metric homological properties of most of the standard $L_1(G)$-modules of 
 harmonic analysis are studied in~\cite{GravInjProjBanMod}. We borrow these 
@@ -2689,7 +2687,7 @@ $\sigma^+:\mathbb{C}_\gamma\to {L_1(G)}_+:z\mapsto z\gamma \oplus_1 0$
 and $\pi^+:{L_1(G)}_+\to\mathbb{C}_\gamma: f\oplus_1 w\to f\cdot_{\gamma}1+w$. 
 One can easily check 
 that $\Vert\pi^+\Vert=\Vert\sigma^+\Vert=1$ 
-and $\pi^+\sigma^+=1_{\mathbb{C}_\gamma}$. Therefore $\mathbb{C}_\gamma$ is a 
+and $\pi^+\sigma^+=1_{\mathbb{C}_\gamma}$. Therefore, $\mathbb{C}_\gamma$ is a 
 retract of ${L_1(G)}_+$ in $L_1(G)-\mathbf{mod}_1$. From 
 propositions~\ref{UnitalAlgIsMetTopProj} 
 and~\ref{RetrMetCTopProjIsMetCTopProj} it follows 
@@ -2719,7 +2717,7 @@ $$
 =\gamma(s^{-1})f(t).
 $$
 Therefore, for the function $g(t):=\gamma(t^{-1})f(t)$ in $L_1(G)$ we have
-$g(st)=g(t)$ for all $s,t\in G$. Thus $g$ is a constant function in $L_1(G)$,
+$g(st)=g(t)$ for all $s,t\in G$. Thus, $g$ is a constant function in $L_1(G)$,
 which is possible only for compact group $G$.
 \end{proof}
 
@@ -2754,7 +2752,7 @@ $$
 =\tau(f)\cdot_{\gamma} g.
 $$  
 It is easy to check that $\rho$ and $\tau$ are contractive and
-$\tau\rho=1_{\mathbb{C}_\gamma}$. Therefore $\mathbb{C}_\gamma$ is a retract of
+$\tau\rho=1_{\mathbb{C}_\gamma}$. Therefore, $\mathbb{C}_\gamma$ is a retract of
 $L_\infty(G)$ in $\mathbf{mod}_1-L_1(G)$. From
 propositions~\ref{LInfIsL1MetrInj} and~\ref{RetrMetCTopInjIsMetCTopInj} it 
 follows that $\mathbb{C}_\gamma$ is metrically injective as $L_1(G)$-module.
@@ -2776,8 +2774,8 @@ M(f\cdot_\infty g)
 =M(f)\varkappa_\gamma^L(g\gamma)
 =M(f)\cdot_{e_{\widehat{G}}}g.
 $$
-Therefore $M$ is an $L_1(G)$-morphism, but we also have
-$M(\chi_G)=\pi(\overline{\gamma})=1$. Therefore $G$ is amenable.
+Therefore, $M$ is an $L_1(G)$-morphism, but we also have
+$M(\chi_G)=\pi(\overline{\gamma})=1$. Therefore, $G$ is amenable.
 
 $(ii) \Longleftrightarrow (iv)$, $(iii) \Longleftrightarrow (v)$ Note that
 $\mathbb{C}_\gamma^*\isom{\mathbf{mod}_1-L_1(G)}\mathbb{C}_\gamma$, so all
@@ -2888,7 +2886,7 @@ group. Then $M(G)$ is topologically flat $L_1(G)$-module.
 \begin{proof} Since $M(G)$ is an $L_1$-space it is a fortiori an
 $\mathscr{L}_1^g$-space. Since $M_s(G)$ is complemented in $M(G)$, then $M_s(G)$
 is an $\mathscr{L}_1^g$-space too [\cite{DefFloTensNorOpId}, corollary
-23.2.1(2)]. Since $M_s(G)$ is an annihilator $L_1(G)$-module, then from
+23.2.1(2)]. As $M_s(G)$ is an annihilator $L_1(G)$-module, then from
 proposition~\ref{MetTopFlatAnnihModCharac} we have that $M_s(G)$ is
 topologically flat $L_1(G)$-module. The $L_1(G)$-module $L_1(G)$ is also
 topologically flat by proposition~\ref{LInfIsL1MetrInj}. Since
@@ -2901,11 +2899,11 @@ topologically flat $L_1(G)$-module by proposition~\ref{MetTopFlatModCoProd}.
 %-------------------------------------------------------------------------------
 
 \subsection{
-    \texorpdfstring{$M(G)$}{M (G)}-modules
-}\label{SubSectionMGModules}
+    \texorpdfstring{$M(G)$}{M(G)}-modules}\label{
+SubSectionMGModules}
 
 We turn to the study of standard $M(G)$-modules of harmonic analysis. As we
-shall see most of results can be derived from results on $L_1(G)$-modules.
+shall see most of the results can be derived from results on $L_1(G)$-modules.
 
 \begin{proposition}\label{MGMetTopProjInjFlatRedToL1} Let $G$ be a locally
 compact group, and $X$ be $\langle$~essential / faithful / essential~$\rangle$
@@ -2947,8 +2945,8 @@ remains to apply proposition~\ref{MetTopProjIsMetTopFlat}.
 %-------------------------------------------------------------------------------
 
 \subsection{
-    Banach geometric restriction
-}\label{SubSectionBanachGeometricRestriction}
+    Banach geometric restriction}\label{
+SubSectionBanachGeometricRestriction}
 
 In this section we shall show that many modules of harmonic analysis are fail to
 be metrically or topologically projective, injective or flat for purely Banach
@@ -2980,7 +2978,7 @@ space. By corollary 3 of~\cite{LauMingComplSubspInLInfOfG} the space $C_0(G)$ is
 not complemented in $L_\infty(G)$. Then $C_0(G)$ can't be topologically
 injective either. The Banach space $L_1(G)$ is complemented in
 ${L_\infty(G)}^*\isom{\mathbf{Ban}_1}{L_1(G)}^{**}$ [\cite{DefFloTensNorOpId},
-proposition  B10]. Therefore if ${L_\infty(G)}^*$ is topologically injective as
+proposition  B10]. Therefore, if ${L_\infty(G)}^*$ is topologically injective as
 Banach space, then so does its retract $L_1(G)$. By previous arguments this is
 impossible, so ${L_\infty(G)}^*$ is not topologically injective Banach space.
 
@@ -3033,7 +3031,7 @@ from~\ref{NoInfDimRefMetTopProjInjFlatModOverMthscrL1OrLInfty}.
 It remains to consider metric and topological homological properties of
 $A$-modules when $G$ is finite.
 
-\begin{proposition}\label{LpFinGrL1MGMetrInjProjCharac} Let $G$ be a non trivial
+\begin{proposition}\label{LpFinGrL1MGMetrInjProjCharac} Let $G$ be a non-trivial
 finite group and $1\leq p\leq \infty$. Then the $A$-module $L_p(G)$ is
 metrically $\langle$~projective / injective~$\rangle$ iff $\langle$~$p=1$ /
 $p=\infty$~$\rangle$
@@ -3052,7 +3050,7 @@ where $n=\operatorname{Card}(G)>1$. Now we use the result of theorem
 1 from~\cite{LyubIsomEmdbFinDimLp} for Banach spaces over field $\mathbb{C}$: if
 for $2\leq m\leq k$ and $1\leq r,s\leq \infty$, there exists an isometric
 embedding from $\ell_r(\mathbb{N}_m)$ into $\ell_s(\mathbb{N}_k)$, then either
-$r=2$, $s\in 2\mathbb{N}$ or $r=s$. Therefore $\langle$~$p=1$ /
+$r=2$, $s\in 2\mathbb{N}$ or $r=s$. Therefore, $\langle$~$p=1$ /
 $p=\infty$~$\rangle$. The converse easily follows from
 $\langle$~theorem~\ref{L1ModL1MetTopProjCharac} /
 proposition~\ref{LInfIsL1MetrInj}~$\rangle$
@@ -3079,12 +3077,12 @@ $(i)$ Since $G$ is finite then $C_0(G)=L_\infty(G)$. The result follows from
 proposition~\ref{LInfIsL1MetrInj}.
 
 $(ii)$ If $G$ is trivial, that is $G= \{e_G \}$, then $L_p(G)=C_0(G)=L_1(G)$ and
-the result follows from paragraph $(i)$. If $G$ is non trivial, then we recall
+the result follows from paragraph $(i)$. If $G$ is non-trivial, then we recall
 that $C_0(G)=L_\infty(G)$ and use
 proposition~\ref{LpFinGrL1MGMetrInjProjCharac}.
 
 $(iii)$ If $G= \{e_G \}$, then $M(G)=L_p(G)=L_\infty(G)$ and the result follows
-from paragraph $(i)$. If $G$ is non trivial, then we note that $M(G)=L_1(G)$ and
+from paragraph $(i)$. If $G$ is non-trivial, then we note that $M(G)=L_1(G)$ and
 use proposition~\ref{LpFinGrL1MGMetrInjProjCharac}.
 
 $(iv)$ From paragraph $(iii)$ it follows that $L_p(G)$ for $1\leq p<\infty$ is
@@ -3124,12 +3122,12 @@ because $L_1(G)$ and $L_p(G)$ for $1\leq p<+\infty$ are of equal finite
 dimension. Since $G$ is finite, it is unimodular. Therefore, the module actions
 in $(L_1(G),\convol)$ and $(L_p(G),\convol_p)$ coincide for $1\leq p<+\infty$
 and $i$ is an isomorphism in $L_1(G)-\mathbf{mod}$ and $\mathbf{mod}-L_1(G)$.
-Similarly one can show that $(L_\infty(G),\cdot_\infty)$ and $(L_p(G),\cdot_p)$
+Similarly, one can show that $(L_\infty(G),\cdot_\infty)$ and $(L_p(G),\cdot_p)$
 for $1<p\leq+\infty$ are isomorphic in $L_1(G)-\mathbf{mod}$ and
 $\mathbf{mod}-L_1(G)$. Finally, one can easily check that $(L_1(G),\convol)$ and
 $(L_\infty(G),\cdot_\infty)$ are isomorphic in $L_1(G)-\mathbf{mod}$ and
 $\mathbf{mod}-L_1(G)$ via the 
-map $j:L_1(G)\to L_\infty(G):f\mapsto(s\mapsto f(s^{-1}))$. Therefore all 
+map $j:L_1(G)\to L_\infty(G):f\mapsto(s\mapsto f(s^{-1}))$. Therefore, all 
 the discussed modules are isomorphic. It remains to
 recall that $L_1(G)$ is topologically projective and flat by
 theorem~\ref{L1ModL1MetTopProjCharac} and proposition~\ref{LInfIsL1MetrInj},
@@ -3149,7 +3147,7 @@ propositions~\ref{OneDimL1ModMetTopProjCharac},
 and~\ref{OneDimL1ModMetTopInjFlatCharac}. As usually, we use ${}^{*}$
 indicates that only a necessary conditions is known. As we showed above even
 topological theory is too restrictive for $L_1(G)$ to be projective as
-$L_1(G)$-module. Similarly a Banach space is topologically projective iff it is
+$L_1(G)$-module. Similarly, a Banach space is topologically projective iff it is
 an $L_1$-space, and the underlying measure space is atomic. This analogy
 confirms important role of Banach geometry in metric and topological Banach
 homology.
