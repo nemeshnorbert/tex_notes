@@ -124,3 +124,14 @@
 {"rule":"A_INFINITIVE","sentence":"^\\QFinally, \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q is a retract of the \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, therefore it also has this property.\\E$"}
 {"rule":"A_INFINITIVE","sentence":"^\\QIf \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q is a topologically injective \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q-module, then by proposition \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q it is a retract of \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q in \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q and a fortiori in \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
 {"rule":"MISSING_COMMA_AFTER_INTRODUCTORY_PHRASE","sentence":"^\\QBy classic we mean modules \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q and \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q for positive measures \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QMetric injectivity of \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.linftyn.-module \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.lpn.\\E$"}
+{"rule":"SENTENCE_WHITESPACE","sentence":"^\\QC0(S).-modules \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"SENTENCE_WHITESPACE","sentence":"^\\QLpSmu.\\E$"}
+{"rule":"EN_A_VS_AN","sentence":"^\\QBy [\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, lemma 4.4] the space \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q is an \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q-space.\\E$"}
+{"rule":"EN_A_VS_AN","sentence":"^\\QBy [\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, lemma 4.4] the space \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q is an \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q-space, hence so is \\E(?:Dummy|Ina|Jimmy-)[0-9]+$"}
+{"rule":"MISSING_COMMA_AFTER_INTRODUCTORY_PHRASE","sentence":"^\\QBy measure we mean a countably additive set function with values in \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q defined on a \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q-algebra \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q of measurable subsets of a set \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"A_INFINITIVE","sentence":"^\\QSince \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q is a retract of \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q then \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q is also complemented in \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QA. W. M. Graven Injective and projective Banach modules, Indag.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QM. C. White Injective modules for uniform algebras, Proc.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QLond.\\E$"}
+{"rule":"A_INFINITIVE","sentence":"^\\QTherefore, if \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q is a retract of \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q-space, then there would exist an \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q-space containing a copy of \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}

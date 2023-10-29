@@ -89,3 +89,11 @@ homeomorphic
 unimodular
 Wendel
 hyper-Stonean
+Nemesh
+coercivity
+polytope
+atomless
+Fremlin
+Defant
+Vandenberghe
+freeness
