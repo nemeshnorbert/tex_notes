@@ -173,7 +173,7 @@ injective only if $n=1$.
     \[
         \xi_{\mathcal{F}}: 
         \ell_{p}^n \to \bigoplus_{\infty} \{ \ell_1^n: f\in\mathcal{F}\},\,
-        x \mapsto \oplus_{\infty}\{ x\cdot f: f\in\mathcal{F}\}.
+        x \mapsto \bigoplus_{\infty}\{ x\cdot f: f\in\mathcal{F}\}.
     \]
 \end{definition}
 
@@ -238,7 +238,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     all $t\in \bigoplus_\infty\{ \ell_1^n : f\in \mathcal{F}\}$ we have
     \[
         \psi(t)
-        =\psi(\oplus_\infty\{ t_f : f\in\mathcal{F}\})
+        =\psi\left(\bigoplus_\infty\{ t_f : f\in\mathcal{F}\}\right)
         =\psi\left(\sum_{f\in\mathcal{F}} \operatorname{in}_f(t_f)\right)
         =\sum_{f\in\mathcal{F}}\psi_f(t_f)
         =\sum_{f\in\mathcal{F}} \eta_f\cdot t_f.
@@ -279,7 +279,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     \[
         1=e_k
         =\psi_{\eta}(\xi_{\mathcal{F}}(e_k))
-        =\psi_{\eta}\left(\oplus_{\infty}\{ e_k\cdot f: f\in\mathcal{F}\}\right)
+        =\psi_{\eta}\left(\bigoplus_{\infty}\{ e_k\cdot f: f\in\mathcal{F}\}\right)
         =\sum_{f\in\mathcal{F}} \eta_{f}\cdot e_k\cdot f.
     \]
     At $k$-th coordinate  we get
@@ -294,7 +294,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     \[
     \begin{aligned}
         \psi_\eta(\xi_{\mathcal{F}}(x))
-        &=\psi_{\eta}(\oplus_\infty{x\cdot f:f\in\mathcal{F}}) 
+        &=\psi_{\eta}\left(\bigoplus_\infty\{x\cdot f:f\in\mathcal{F}\}\right) 
         =\sum_{f\in\mathcal{F}}\eta_f\cdot x\cdot f 
         =\sum_{f\in\mathcal{F}}\sum_{k=1}^n (\eta_f\cdot x\cdot f)_k e_k 
         =\sum_{f\in\mathcal{F}}\sum_{k=1}^n \eta_{f,k} x_k f_k e_k \\
@@ -344,7 +344,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     \end{aligned}
     \]
     For each $k\in\mathbb{N}_m$ and $l\in\mathbb{N}_m$ we 
-    denote $r_{l,k}=|t_{l,k}|$ and $\alpha_{l,k}=arg(t_{l,k})$. 
+    denote $r_{l,k}=|t_{l,k}|$ and $\alpha_{l,k}=\operatorname{arg}(t_{l,k})$. 
     Then $t_{l,k}=r_{l,k} e^{i \alpha_{l,k}}$. So
     \[
     \begin{aligned}
@@ -383,14 +383,14 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     \]
     Consider linear operators
     \[
-        \omega_l:\mathbb{R}^n\to\ell_p^n: r\mapsto \eta_l\cdot r
+        \tau_l:\mathbb{R}^n\to\ell_p^n: r\mapsto \eta_l\cdot r
     \]
     for $l\in\mathbb{N}_m$. Then 
     \[
     \begin{aligned}
         \Vert\psi_{\eta}\Vert
         &=\sup\left\{
-            \left\Vert\sum_{l=1}^m\omega_l(r_l)\right\Vert:
+            \left\Vert\sum_{l=1}^m\tau_l(r_l)\right\Vert:
             \sum_{k=1}^n r_{l,k}\leq 1,\,\, 
             r_{l,k}\in\mathbb{R}_+,\,\, 
             l\in\mathbb{N}_m
@@ -401,7 +401,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     in $\ell_{p}^n$, whose norm is strictly convex, then the function
     \[
         F:(\mathbb{R}^n)^m\to\mathbb{R}_+,\, 
-        r\mapsto \left\Vert\sum_{l=1}^m \omega_l(r_l)\right\Vert
+        r\mapsto \left\Vert\sum_{l=1}^m \tau_l(r_l)\right\Vert
     \]
     is strictly convex. Since the set
     \[
@@ -449,7 +449,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     \[
         \mathcal{F}_{\kappa}
         =\left\{e_1,\ldots,e_n,\kappa \sum_{l=1}^n e_l\right\}
-        \subset \mathbb{C}^{n+1}.
+        \subset \ell_{p^*}^{n}.
     \]
 \end{definition}
 
@@ -531,11 +531,11 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
 \end{proposition}
 \begin{proof}
     We denote elements of $\mathcal{F}_{\kappa}$ as $f_1,\ldots,f_{n+1}$. For
-    $\eta\in(\mathbb{R}^n)^{\mathcal{F}_{\kappa}}$ we also 
+    $\eta\in(\ell_\infty^n)^{\mathcal{F}_{\kappa}}$ we also 
     denote $\eta_l=\eta_{f_l}$, where $l\in\mathbb{N}_{n+1}$. Then
     \[
         \mathcal{N}_{\mathcal{F}_{\kappa}}=\{
-            \eta\in(\mathbb{C}^{n})^{\mathcal{F}_{\kappa}}:
+            \eta\in(\ell_{\infty}^{n})^{\mathcal{F}_{\kappa}}:
             \eta_{k,k}+\kappa \eta_{n+1, k}=1,\, k\in\mathbb{N}_n
         \}.
     \]
@@ -1055,10 +1055,10 @@ $\Omega$. Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
     \[
     \begin{aligned}
         \phi(e_A)
-        &=m_{A,-p}(\chi_A)I_q(m_{A,\infty}(\Phi([\chi_A]))[\chi_A]) \\
-        &=m_{A,\infty}(\Phi([\chi_A]))m_{A,-p}(\chi_A)I_q([\chi_A]) \\
-        &=m_{A,\infty}(\Phi([\chi_A]))m_{A,-p}(\chi_A)m_{A,p}(\chi_A)e_A \\
-        &=m_{A,\infty}(\Phi([\chi_A]))e_A.
+        &=m_{A,-p}(\chi_A)I_q(m_{A,\infty}(\Phi([\chi_A]))[\chi_A]) 
+        =m_{A,\infty}(\Phi([\chi_A]))m_{A,-p}(\chi_A)I_q([\chi_A]) \\
+        &=m_{A,\infty}(\Phi([\chi_A]))m_{A,-p}(\chi_A)m_{A,p}(\chi_A)e_A 
+        =m_{A,\infty}(\Phi([\chi_A]))e_A. \\
     \end{aligned}
     \]
     Now for any $x\in\ell_p(\mathcal{A})$ and $a\in\ell_\infty(A)$ we have
@@ -1094,10 +1094,10 @@ $\Omega$. Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
     \[
     \begin{aligned}
         \Phi([\chi_A])
-        &=m_{A,p}(\chi_A)J_q(\phi(e_A)_A e_A) \\
-        &=\phi(e_A)_A m_{A,p}(\chi_A)J_q( e_A) \\
-        &=\phi(e_A)_A m_{A,p}(\chi_A)m_{A,-p}(\chi_A) [\chi_A] \\
-        &=\phi(e_A)_A [\chi_A]. \\
+        &=m_{A,p}(\chi_A)J_q(\phi(e_A)_A e_A) 
+        =\phi(e_A)_A m_{A,p}(\chi_A)J_q( e_A) \\
+        &=\phi(e_A)_A m_{A,p}(\chi_A)m_{A,-p}(\chi_A) [\chi_A] 
+        =\phi(e_A)_A [\chi_A]. \\
     \end{aligned}
     \]
     Now for any $f\in L_p(\Omega, \mu)$ and $a\in B(\Sigma)$ we have
@@ -1106,17 +1106,17 @@ $\Omega$. Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
         \Phi([f]\cdot a)
         &=\Phi\left(
             \sum_{A\in\mathcal{A}} m_{A,\infty}(f\cdot a)[\chi_A]
-        \right) \\
-        &=\sum_{A\in\mathcal{A}} m_{A,\infty}(f\cdot a) \Phi([\chi_A])\\
+        \right) 
+        =\sum_{A\in\mathcal{A}} m_{A,\infty}(f\cdot a) \Phi([\chi_A]) \\
         &=\sum_{A\in\mathcal{A}} 
-            m_{A,\infty}(f) m_{A,\infty}(a) \phi(e_A)_A [\chi_A] \\
-        &=\sum_{A\in\mathcal{A}} 
+            m_{A,\infty}(f) m_{A,\infty}(a) \phi(e_A)_A [\chi_A] 
+        =\sum_{A\in\mathcal{A}} 
             (m_{A,\infty}(f) \phi(e_A)_A [\chi_A])\cdot a \\
         &=\sum_{A\in\mathcal{A}} 
-            m_{A,\infty}(f) \Phi([\chi_A])\cdot a \\
-        &=\Phi\left(\sum_{A\in\mathcal{A}} 
-            m_{A,\infty}(f) [\chi_A]\right)\cdot a \\
-        &=\Phi([f])\cdot a. \\
+            m_{A,\infty}(f) \Phi([\chi_A])\cdot a 
+        =\Phi\left(\sum_{A\in\mathcal{A}} 
+            m_{A,\infty}(f) [\chi_A]\right)\cdot a 
+        =\Phi([f])\cdot a. \\
     \end{aligned}
     \]
     Therefore, $\Phi$ is a $B(\Sigma)$-morphism. By 
