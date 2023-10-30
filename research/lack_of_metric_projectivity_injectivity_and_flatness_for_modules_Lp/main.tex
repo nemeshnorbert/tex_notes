@@ -153,38 +153,43 @@ particular, a unital Banach algebra $A$ is a metrically flat $A$-module.
 %	Metric injectivity of linftyn modules lpn
 %-------------------------------------------------------------------------------
 
-\section{Metric injectivity of \texorpdfstring{$\ell_\infty^n$}{linftyn}-module 
-\texorpdfstring{$\ell_p^n$}{lpn}}
+\section{Metric injectivity of finite-dimensional 
+\texorpdfstring{$\ell_\infty(\Lambda)$}{linftyLmbd}-module 
+\texorpdfstring{$\ell_p(\Lambda)$}{lpLmbd}}
 \label{MetrInjlinftynlpn}
 
-For a given $1\leq p\leq +\infty$ by $\ell_p^n$ we denote the 
-standard $n$-dimensional $\ell_p$-space. We denote its norm 
-by $\Vert\cdot\Vert_p$ and its natural basis by $(e_i)_{i\in\mathbb{N}_n}$. For 
-$1\leq p<+\infty$ we shall often exploit the standard 
-identification $(\ell_p^n)^*=\ell_{p^*}^n$, where $p^*=p/(p-1)$. By convention, 
-we set $1^*=+\infty$. The space $\ell_p^n$ can be regarded both as left and 
-right Banach module over the Banach algebra $\ell_\infty^n$. In this section 
-we shall show that the right $\ell_{\infty}^n$-module $\ell_p^n$ is metrically 
-injective only if $n=1$.
+For a index set $\Lambda$ and $1\leq p\leq +\infty$ by $\ell_p(\Lambda)$ we 
+denote the standard $\ell_p$-space. We denote its norm 
+by $\Vert\cdot\Vert_p$ and its natural basis 
+by $(e_\lambda)_{\lambda\in\Lambda}$. For $1\leq p<+\infty$ we shall often 
+exploit the standard identification $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, 
+where $p^*=p/(p-1)$. By convention, we set $1^*=+\infty$. The 
+space $\ell_p(\Lambda)$ can be regarded both as left and right Banach module 
+over the Banach algebra $\ell_\infty(\Lambda)$. In this section 
+we shall show that for finite $\Lambda$ the 
+right $\ell_\infty(\Lambda)$-module $\ell_p(\Lambda)$ is metrically injective 
+only if $\Lambda$ has at most $1$ element.
 
 \begin{definition}\label{StdEmbd} 
-    Let $n\in\mathbb{N}$ and $\mathcal{F}\subset\ell_{p^*}^n$, then we define
-    a linear operator
+    Let $\Lambda$ be a set, $1<p<+\infty$ 
+    and $\mathcal{F}\subset\ell_{p^*}(\Lambda)$, then we define a linear 
+    operator
     \[
         \xi_{\mathcal{F}}: 
-        \ell_{p}^n \to \bigoplus_{\infty} \{ \ell_1^n: f\in\mathcal{F}\},\,
-        x \mapsto \bigoplus_{\infty}\{ x\cdot f: f\in\mathcal{F}\}.
+        \ell_p(\Lambda)\to\bigoplus_\infty\{\ell_1(\Lambda):f\in\mathcal{F}\},\,
+        x \mapsto \bigoplus_\infty\{ x\cdot f: f\in\mathcal{F}\}.
     \]
 \end{definition}
 
 \begin{definition}\label{StdEmbdCoercv}
-    Let $n\in\mathbb{N}$, $1<p<+\infty$ and $\mathcal{F}\subset \ell_{p^*}^n$, 
+    Let $\Lambda$ be a set, $1<p<+\infty$ 
+    and $\mathcal{F}\subset \ell_{p^*}(\Lambda)$, 
     then we define the coercivity constant for the operator $\xi_{\mathcal{F}}$ 
     as
     \[
         \gamma_{\mathcal{F}}=\sup\{
-            \Vert x\Vert: 
-            x\in\ell_{p}^n,\quad \Vert \xi_{\mathcal{F}}(x)\Vert\leq 1
+            \Vert x\Vert_p: 
+            x\in\ell_p^n,\,\, \Vert \xi_{\mathcal{F}}(x)\Vert\leq 1
         \}.
     \]
 \end{definition}
@@ -193,49 +198,52 @@ Note that $\xi_{\mathcal{F}}$ is $\gamma_{\mathcal{F}}$-topologically injective
 whenever $\gamma_{\mathcal{F}}$ is finite.
 
 \begin{proposition}\label{LinfnMorphlpntolqnCharac}
-    Suppose $n\in\mathbb{N}$, $1\leq p,q\leq +\infty$ 
-    and $\phi:\ell_{p}^n\to \ell_{q}^n$ is an $\ell_{\infty}^n$-morphism of 
-    right modules. Then there exists a vector $\eta\in\ell_{\infty}^n$ such 
-    that $\phi(x)=\eta\cdot x$ for all $x\in \ell_{p}^n$.
+    Let $\Lambda$ be a set, $1\leq p,q\leq +\infty$ 
+    and $\phi:\ell_p(\Lambda)\to \ell_{q}(\Lambda)$ is 
+    an $\ell_\infty(\Lambda)$-morphism of right modules. Then there exists a 
+    vector $\eta\in\ell_\infty(\Lambda)$ such 
+    that $\phi(x)=\eta\cdot x$ for all $x\in \ell_p(\Lambda)$.
 \end{proposition}
 \begin{proof}
-    Denote $\eta_i=\phi(e_i)_i$ for $i\in\mathbb{N}_n$, then for 
-    any $x\in\ell_{p}^n$ and $i\in\mathbb{N}_n$ we have
+    Denote $\eta_\lambda=\phi(e_\lambda)_\lambda$ for $\lambda\in\Lambda$, then 
+    for any $x\in\ell_p(\Lambda)$ and $\lambda\in\Lambda$ we have
     \[
-        \phi(x)_i
-        =(\phi(x)\cdot e_i)_i
-        =\phi(x\cdot e_i)_i
-        =\phi(x_i e_i)_i
-        =x_i\phi(e_i)_i
-        =x_i\eta_i
-        =(\eta\cdot x)_i.
+        \phi(x)_\lambda
+        =(\phi(x)\cdot e_\lambda)_\lambda
+        =\phi(x\cdot e_\lambda)_\lambda
+        =\phi(x_\lambda e_\lambda)_\lambda
+        =x_\lambda\phi(e_\lambda)_\lambda
+        =x_\lambda\eta_\lambda
+        =(\eta\cdot x)_\lambda.
     \]
-    Therefore, $\phi(x)=\eta\cdot x$.
+    Therefore, $\phi(x)=\eta\cdot x$. By construction 
+    $\Vert\eta\Vert_\infty\leq\Vert\phi\Vert$, so $\eta\in\ell_\infty(\Lambda)$.
 \end{proof}
 
 \begin{proposition}\label{ExtMorphSuml1ntlpnCharac}
-    Let $n\in\mathbb{N}$, $1<p<+\infty$ and $\mathcal{F}\subset \ell_{p^*}^n$
-    be a finite set. Then for any morphism of right $\ell_{\infty}^n$-modules
-    $\psi:\bigoplus_{\infty}\{\ell_1^n : f\in\mathcal{F}\}\to\ell_p^n$ 
-    there exists a family of vectors $\eta\in(\ell_{\infty}^n)^\mathcal{F}$ 
+    Let $\Lambda$ be a set, $1<p<+\infty$ 
+    and $\mathcal{F}\subset \ell_{p^*}(\Lambda)$ be a finite set. Then for any 
+    morphism of right $\ell_\infty(\Lambda)$-modules
+    $\psi:\bigoplus_\infty\{\ell_1(\Lambda):f\in\mathcal{F}\}\to\ell_p(\Lambda)$ 
+    there exists a family of vectors $\eta\in\ell_\infty(\Lambda)^\mathcal{F}$ 
     such that
     \[
         \psi(t)=\sum_{f\in\mathcal{F}} \eta_f \cdot t_f
     \]
-    for all $t\in \bigoplus_{\infty}\{ \ell_1^n:f\in\mathcal{F}\}$.
+    for all $t\in \bigoplus_\infty\{ \ell_1(\Lambda):f\in\mathcal{F}\}$.
 \end{proposition}
 \begin{proof}
     For each $f\in\mathcal{F}$  we define a natural embedding
     \[
         \operatorname{in}_f:
-        \ell_1^n\to \bigoplus_\infty\{ \ell_1^n : f\in\mathcal{F}\}
+        \ell_1(\Lambda)\to\bigoplus_\infty\{\ell_1(\Lambda):f\in\mathcal{F}\}
     \]
-    which is a morphism of right $\ell_{\infty}^n$-modules. Then we define 
-    an $\ell_{\infty}^n$-morphism $\psi_f=\psi\circ \operatorname{in}_f$. 
+    which is a morphism of right $\ell_\infty(\Lambda)$-modules. Then we define 
+    an $\ell_\infty(\Lambda)$-morphism $\psi_f=\psi\circ \operatorname{in}_f$. 
     By proposition \ref{LinfnMorphlpntolqnCharac} there exists 
-    a vector $\eta_f\in\ell_{\infty}^n$ such that $\psi_f(x)=\eta_f\cdot x$ 
-    for all $x\in\ell_1^n$. Since $\mathcal{F}$ is finite, then for 
-    all $t\in \bigoplus_\infty\{ \ell_1^n : f\in \mathcal{F}\}$ we have
+    a vector $\eta_f\in\ell_\infty(\Lambda)$ such that $\psi_f(x)=\eta_f\cdot x$ 
+    for all $x\in\ell_1(\Lambda)$. Since $\mathcal{F}$ is finite, then for 
+    all $t\in \bigoplus_\infty\{ \ell_1(\Lambda) : f\in \mathcal{F}\}$ we have
     \[
         \psi(t)
         =\psi\left(\bigoplus_\infty\{ t_f : f\in\mathcal{F}\}\right)
@@ -246,61 +254,70 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
 \end{proof}
 
 \begin{definition}\label{ParamExtMorph}
-    Let $n\in\mathbb{N}$, $1<p<+\infty$ and $\mathcal{F}\subset \ell_{p^*}^n$ be
-    a finite set. For a given family $\eta\in(\ell_{\infty}^n)^\mathcal{F}$ we
-    define
+    Let $\Lambda$ be a set, $1<p<+\infty$ 
+    and $\mathcal{F}\subset \ell_{p^*}(\Lambda)$ be
+    a finite set. For a given family $\eta\in \ell_\infty(\Lambda)^\mathcal{F}$
+    we define
     \[
         \psi_{\eta}:
-        \bigoplus_{\infty}\{\ell_1^n:f\in\mathcal{F}\}\to\ell_{p}^n,\,
+        \bigoplus_\infty\{\ell_1(\Lambda):f\in\mathcal{F}\}\to\ell_p(\Lambda),\,
         t\mapsto\sum_{f\in\mathcal{F}} \eta_f\cdot t_f.
     \]
 \end{definition}
 
 \begin{definition}\label{ExtMorphs}
-    Let $n\in\mathbb{N}$, $1<p<+\infty$ and $\mathcal{F}\subset \ell_{p^*}^n$ be
-    a finite set, then we define
+    Let $\Lambda$ be a set, $1<p<+\infty$ 
+    and $\mathcal{F}\subset\ell_{p^*}(\Lambda)$ be a finite set, then we define
     \[
         \mathcal{N}_{\mathcal{F}}=\left\{
-            \eta\in (\ell_\infty^n)^{\mathcal{F}} : 
-            \sum_{f\in\mathcal{F}} \eta_{f,k}f_k=1,\,\, k\in\mathbb{N}_n
+            \eta\in \ell_\infty(\Lambda)^{\mathcal{F}} : 
+            \sum_{f\in\mathcal{F}} \eta_{f,\lambda}f_\lambda=1,\,\,
+            \lambda\in\Lambda
         \right\}.
     \]
 \end{definition}
 
 \begin{proposition}\label{StdEmbdLeftInvCharac}
-    Let $n\in\mathbb{N}$, $1<p<+\infty$ and $\mathcal{F}\subset\ell_{p^*}^n$ be 
-    a finite set. Then $\psi_\eta$ is a left 
-    inverse $\ell_{\infty}^n$-morphism to $\xi_{\mathcal{F}}$ 
-    iff $\eta\in\mathcal{N}_{\mathcal{F}}$.
+    Let $\Lambda$ be a set, $1<p<+\infty$ 
+    and $\mathcal{F}\subset\ell_{p^*}(\Lambda)$ be a finite set. 
+    Then $\psi_\eta$ is a left inverse $\ell_\infty(\Lambda)$-morphism 
+    to $\xi_{\mathcal{F}}$ iff $\eta\in\mathcal{N}_{\mathcal{F}}$.
 \end{proposition}
 \begin{proof} 
     Suppose $\psi_{\eta}$ is a left inverse of $\xi_{\mathcal{F}}$, then
-    for any $k\in\mathbb{N}_n$ we have
+    for any $\lambda\in\Lambda$ we have
     \[
-        1=e_k
-        =\psi_{\eta}(\xi_{\mathcal{F}}(e_k))
-        =\psi_{\eta}\left(\bigoplus_{\infty}\{ e_k\cdot f: f\in\mathcal{F}\}\right)
-        =\sum_{f\in\mathcal{F}} \eta_{f}\cdot e_k\cdot f.
+        1=e_\lambda
+        =\psi_{\eta}(\xi_{\mathcal{F}}(e_\lambda))
+        =\psi_{\eta}\left(\bigoplus_\infty\{
+            e_\lambda\cdot f: f\in\mathcal{F}
+        \}\right)
+        =\sum_{f\in\mathcal{F}} \eta_{f}\cdot e_\lambda\cdot f.
     \]
-    At $k$-th coordinate  we get
+    At $k\lambda$-th coordinate  we get
     \[
-        1=(e_k)_k
-        =\left(\sum_{f\in\mathcal{F}} \eta_f\cdot e_k\cdot f\right)_k
-        =\sum_{f\in\mathcal{F}} \eta_{f,k}f_k.
+        1=(e_\lambda)_\lambda
+        =\left(
+            \sum_{f\in\mathcal{F}} \eta_f\cdot e_\lambda\cdot f
+        \right)_\lambda
+        =\sum_{f\in\mathcal{F}} \eta_{f,\lambda}f_\lambda.
     \]
     Hence, $\eta\in\mathcal{N}_{\mathcal{F}}$.
     Conversely, let $\eta\in\mathcal{N}_{\mathcal{F}}$, then for 
-    any $x\in\ell_p^n$ holds
+    any $x\in\ell_p(\Lambda)$ holds
     \[
     \begin{aligned}
         \psi_\eta(\xi_{\mathcal{F}}(x))
         &=\psi_{\eta}\left(\bigoplus_\infty\{x\cdot f:f\in\mathcal{F}\}\right) 
         =\sum_{f\in\mathcal{F}}\eta_f\cdot x\cdot f 
-        =\sum_{f\in\mathcal{F}}\sum_{k=1}^n (\eta_f\cdot x\cdot f)_k e_k 
-        =\sum_{f\in\mathcal{F}}\sum_{k=1}^n \eta_{f,k} x_k f_k e_k \\
-        &=\sum_{k=1}^n 
-            \left(\sum_{f\in\mathcal{F}}\eta_{f,k}f_k\right) x_k e_k 
-        =\sum_{k=1}^n x_k e_k 
+        =\sum_{f\in\mathcal{F}}\sum_{\lambda\in\Lambda} 
+            (\eta_f\cdot x\cdot f)_\lambda e_\lambda 
+        =\sum_{f\in\mathcal{F}}\sum_{\lambda\in\Lambda} 
+            \eta_{f,\lambda} x_\lambda f_\lambda e_\lambda \\
+        &=\sum_{\lambda\in\Lambda} 
+            \left(\sum_{f\in\mathcal{F}}\eta_{f,\lambda}f_\lambda\right) 
+            x_\lambda e_\lambda 
+        =\sum_{\lambda\in\Lambda} x_\lambda e_\lambda 
         =x. 
     \end{aligned}
     \]
@@ -308,14 +325,19 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
 \end{proof}
 
 \begin{proposition}\label{ExtMorphNorm}
-    Let $n,m\in\mathbb{N}$, $1<p<+\infty$ 
-    and $\eta\in(\ell_{\infty}^n)^{\mathbb{N}_m}$, then 
+    Let $\Lambda$ be a finite set, $1<p<+\infty$ 
+    and $\mathcal{F}\subset\ell_{p^*}(\Lambda)$ be a finite set. 
+    Suppose $\eta\in(\ell_\infty(\Lambda))^\mathcal{F}$, then 
     \[
-        \Vert \psi_{\eta}\Vert=\max\left\{
-            \left(\sum_{k=1}^n
-                \left|\sum_{l=1}^m |\eta_{l,k}| \delta_{k}^{d(l)}\right|^p
+        \Vert \psi_{\eta}\Vert
+        =\max\left\{
+            \left(\sum_{\lambda\in\Lambda}
+                \left|
+                    \sum_{f\in\mathcal{F}} |\eta_{f,\lambda}| 
+                    \delta_{\lambda}^{d(f)}
+                \right|^p
             \right)^{1/p} : 
-            d\in\mathbb{N}_n^{\mathbb{N}_m}
+            d\in\Lambda^\mathcal{F}
         \right\}.
     \]
 \end{proposition}
@@ -325,200 +347,228 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     \begin{aligned}
         \Vert\psi_{\eta}\Vert
         &=\sup\left\{
-            \Vert\psi_{\eta}(t)\Vert:
-            t\in \bigoplus_{\infty}\{\ell_1^n:l\in\mathbb{N}_m\},\,\,
+            \Vert\psi_{\eta}(t)\Vert_p:
+            t\in \bigoplus_\infty\{\ell_1(\Lambda):f\in\mathcal{F}\},\,\,
             \Vert t\Vert\leq 1
         \right\} \\
         &=\sup\left\{
-            \left\Vert\eta_{l}\cdot t_l\right\Vert:
-            t_l\in\ell_1^n,\, l\in\mathbb{N}_m,\,\,
-            \max\{\Vert t_l\Vert:l\in\mathbb{N}_m\}\leq 1
+            \left \Vert\sum_{f\in\mathcal{F}}\eta_f\cdot t_f\right \Vert_p:
+            t_f\in\ell_1(\Lambda),\, f\in\mathcal{F},\,\,
+            \max\{\Vert t_f\Vert:f\in\mathcal{F}\}\leq 1
         \right\} \\
         &=\sup\left\{
-            \left(\sum_{k=1}^n
-                \left|\sum_{l=1}^{m}\eta_{l,k} t_{l,k}\right|^p
-            \right)^{1/p}:
-            \sum_{k=1}^n |t_{l,k}|\leq 1,\,\, 
-            t_{l,k}\in\mathbb{C},\,\, l\in\mathbb{N}_m
-        \right\}. \\
-    \end{aligned}
-    \]
-    For each $k\in\mathbb{N}_m$ and $l\in\mathbb{N}_m$ we 
-    denote $r_{l,k}=|t_{l,k}|$ and $\alpha_{l,k}=\operatorname{arg}(t_{l,k})$. 
-    Then $t_{l,k}=r_{l,k} e^{i \alpha_{l,k}}$. So
-    \[
-    \begin{aligned}
-        \Vert \psi_{\eta}\Vert
-        &=\sup\left\{
-            \left(\sum_{k=1}^n
+            \left(\sum_{\lambda\in\Lambda}
                 \left|
-                    \sum_{l=1}^{m}\eta_{l,k} r_{l,k} e^{i \alpha_{l,k}}
+                    \sum_{f\in\mathcal{F}}\eta_{f,\lambda} t_{f,\lambda}
                 \right|^p
             \right)^{1/p}:
-            \sum_{k=1}^n r_{l,k}\leq 1,\,\, 
-            r_{l,k}\in\mathbb{R}_+,\,\, 
-            \alpha_{l,k}\in\mathbb{R},\,\, 
-            l\in\mathbb{N}_m
+            \sum_{\lambda\in\Lambda} |t_{f,\lambda}|\leq 1,\,\, 
+            t_{f,\lambda}\in\mathbb{C},\,\, f\in\mathcal{F}, \lambda\in\Lambda
         \right\}. \\
     \end{aligned}
     \]
-    For any $k\in\mathbb{N}_n$ the maximum of the expression 
-    \[
-        \left|\sum_{l=1}^{m}\eta_{l,k}\cdot r_{l,k} e^{i \alpha_{l,k}}\right|
-    \]
-    is attained if $e^{i \alpha_{l,k}}=\operatorname{sgn}(\eta_{l,k})$ for 
-    all $l\in\mathbb{N}_m$. In this case
+    For each $\lambda\in\Lambda$ and $f\in\mathcal{F}$ we 
+    denote $r_{f,\lambda}=|t_{f,\lambda}|$ 
+    and $\alpha_{f,\lambda}=\operatorname{arg}(t_{f,\lambda})$. 
+    Then $t_{f,\lambda}=r_{f,\lambda} e^{i \alpha_{f,\lambda}}$. So
     \[
     \begin{aligned}
         \Vert \psi_{\eta}\Vert
         &=\sup\left\{
-            \left(\sum_{k=1}^n
-                \left|\sum_{l=1}^{m}|\eta_{l,k}| r_{l,k}\right|^p
+            \left(\sum_{\lambda\in\Lambda}
+                \left|
+                    \sum_{f\in\mathcal{F}}
+                        \eta_{f,\lambda} r_{f,\lambda} e^{i \alpha_{f,\lambda}}
+                \right|^p
             \right)^{1/p}:
-            \sum_{k=1}^n r_{l,k}\leq 1,\,\, 
-            r_{l,k}\in\mathbb{R}_+,\,\, 
-            l\in\mathbb{N}_m
+            \sum_{\lambda\in\Lambda} r_{f,\lambda}\leq 1,\,\, 
+            r_{f,\lambda}\in\mathbb{R}_+,\,\, 
+            \alpha_{f,\lambda}\in\mathbb{R},\,\, 
+            f\in\mathcal{F},\, \lambda\in\Lambda
+        \right\}. \\
+    \end{aligned}
+    \]
+    For any $\lambda\in\Lambda$ the maximum of the expression 
+    \[
+        \left|
+            \sum_{f\in\mathcal{F}}
+                \eta_{f,\lambda}\cdot r_{f,\lambda} e^{i \alpha_{f,\lambda}}
+        \right|
+    \]
+    is attained 
+    if $e^{i \alpha_{f,\lambda}}=\operatorname{sgn}(\eta_{f,\lambda})$ for 
+    all $f\in\mathcal{F}$ and $\lambda\in\Lambda$. In this case
+    \[
+    \begin{aligned}
+        \Vert \psi_{\eta}\Vert
+        &=\sup\left\{
+            \left(\sum_{\lambda\in\Lambda}
+                \left|
+                    \sum_{f\in\mathcal{F}}|\eta_{f,\lambda}| r_{f,\lambda}
+                \right|^p
+            \right)^{1/p}:
+            \sum_{\lambda\in\Lambda} r_{f,\lambda}\leq 1,\,\, 
+            r_{f,\lambda}\in\mathbb{R}_+,\,\, 
+            f\in\mathcal{F},\, \lambda\in\Lambda
         \right\}. \\
     \end{aligned}
     \]
     Consider linear operators
     \[
-        \tau_l:\mathbb{R}^n\to\ell_p^n: r\mapsto \eta_l\cdot r
+        \tau_f:\mathbb{R}^\Lambda\to\ell_p(\Lambda): r\mapsto \eta_f\cdot r
     \]
-    for $l\in\mathbb{N}_m$. Then 
+    for $f\in\mathcal{F}$. Then 
     \[
     \begin{aligned}
         \Vert\psi_{\eta}\Vert
         &=\sup\left\{
-            \left\Vert\sum_{l=1}^m\tau_l(r_l)\right\Vert:
-            \sum_{k=1}^n r_{l,k}\leq 1,\,\, 
-            r_{l,k}\in\mathbb{R}_+,\,\, 
-            l\in\mathbb{N}_m
+            \left \Vert\sum_{f\in\mathcal{F}}^m\tau_f(r_f)\right \Vert_p:
+            \sum_{\lambda\in\Lambda} r_{f,\lambda}\leq 1,\,\, 
+            r_{f,\lambda}\in\mathbb{R}_+,\,\, 
+            f\in\mathcal{F},\, \lambda\in\Lambda
         \right\}. \\
     \end{aligned}
     \]
-    Since operators $(\omega_l)_{l\in\mathbb{N}_m}$ attain their values 
-    in $\ell_{p}^n$, whose norm is strictly convex, then the function
+    Since linear operators $(\tau_f)_{f\in\mathcal{F}}$ attain their values 
+    in $\ell_p(\Lambda)$, whose norm is strictly convex, then the function
     \[
-        F:(\mathbb{R}^n)^m\to\mathbb{R}_+,\, 
-        r\mapsto \left\Vert\sum_{l=1}^m \tau_l(r_l)\right\Vert
+        F:(\mathbb{R}^\Lambda)^\mathcal{F}\to\mathbb{R}_+,\, 
+        r\mapsto \left \Vert\sum_{f\in\mathcal{F}} \tau_f(r_f)\right \Vert_p
     \]
     is strictly convex. Since the set
     \[
         C=\left\{ 
-            r\in(\mathbb{R}^n)^m :
-            \sum_{k=1}^n r_{l,k}\leq 1,\,\, 
-            r_l\in\mathbb{R}^n_+,\,\, 
-            l\in\mathbb{N}_m
+            r\in(\mathbb{R}^\Lambda)^\mathcal{F} :
+            \sum_{\lambda\in\Lambda} r_{f,\lambda}\leq 1,\,\, 
+            r_f\in\mathbb{R}^\Lambda_+,\,\, 
+            f\in\mathcal{F},\, \lambda\in\Lambda
         \right\}
     \]
-    is a convex polytope, then $F$ attains its maximum 
-    on $\operatorname{ext}(C)$ --- the set of extreme points of $C$. So
+    is a convex polytope in a finite-dimensional space, then $F$ attains its 
+    maximum on $\operatorname{ext}(C)$ --- the set of extreme points of $C$. So
     \[
         \Vert\psi_\eta\Vert=\max\{F(r) : r\in \operatorname{ext}(C)\},
     \]
     Clearly, $r\in \operatorname{ext}(C)$ iff for some 
-    function $d:\mathbb{N}_m\to\mathbb{N}_n$ and 
-    all $k\in\mathbb{N}_n$, $l\in\mathbb{N}_m$ 
-    holds $r_{l,k}=\delta_{k}^{d(l)}$. So 
+    function $d:\mathcal{F}\to\Lambda$ and 
+    all $\lambda\in\Lambda$, $f\in\mathcal{F}$ 
+    holds $r_{f,\lambda}=\delta_{\lambda}^{d(f)}$. So 
     \[
     \begin{aligned}
         \Vert\psi_{\eta}\Vert
         &=\max\left\{
-            \left(\sum_{k=1}^n
-                \left|\sum_{l=1}^{m}|\eta_{l,k}| \delta_{k}^{d(l)}\right|^p
+            \left(\sum_{\lambda\in\Lambda}
+                \left|
+                    \sum_{f\in\mathcal{F}}
+                        |\eta_{f,\lambda}| \delta_{\lambda}^{d(f)}
+                \right|^p
             \right)^{1/p}:
-            d\in(\mathbb{N}_n)^{\mathbb{N}_m}
+            d\in\Lambda^\mathcal{F}
         \right\}. \\
     \end{aligned}
     \]
 \end{proof}
 
 \begin{definition}\label{ExtMorphsNormInf}
-    Let $n\in\mathbb{N}$, $1<p<+\infty$ and $\mathcal{F}\subset \ell_{p^*}^n$ is 
-    a finite set, then we define
+    Let $\Lambda$ be a set, $1<p<+\infty$ 
+    and $\mathcal{F}\subset\ell_{p^*}(\Lambda)$ is a finite set, then we define
     \[
         \nu_{\mathcal{F}}=\inf\{
-            \Vert \psi_{\eta} \Vert : \eta\in\mathcal{N}_{\mathcal{F}}
+            \Vert\psi_{\eta}\Vert : \eta\in\mathcal{N}_{\mathcal{F}}
         \}.
     \]
 \end{definition}
 
 \begin{definition}\label{SpclFuncFam}
-    Let $n\in\mathbb{N}$ and $\kappa\in\mathbb{R}$, then we define 
+    Let $\Lambda$ be a finite set and $\kappa\in\mathbb{R}$, then we set
+    $f_\lambda=e_\lambda$ and $f_*=\kappa\sum_{\lambda\in\Lambda} e_\lambda$. 
+    Then we define
     \[
-        \mathcal{F}_{\kappa}
-        =\left\{e_1,\ldots,e_n,\kappa \sum_{l=1}^n e_l\right\}
-        \subset \ell_{p^*}^{n}.
+        \mathcal{F}_{\kappa}(\Lambda)
+        =\{f_\lambda: \lambda\in\Lambda\}
+        \cup
+        \{f_\star\}
+        \subset \ell_{p^*}(\Lambda).
     \]
 \end{definition}
 
 \begin{proposition}\label{StdEmbdSpclCoerciv}
-    Assume $n\in\mathbb{N}$, $n>1$, $1<p<+\infty$ 
+    Assume $\Lambda$ is a finite set with $n>1$ elements, $1<p<+\infty$ 
     and $n^{-1}<\kappa<(n-1)^{-1}$. Then
     \[
-        \gamma_{\mathcal{F}_{\kappa}}=(n-1+(\kappa^{-1}-(n-1))^p)^{1/p}.
+        \gamma_{\mathcal{F}_{\kappa}(\Lambda)}
+        =(n-1+(\kappa^{-1}-(n-1))^p)^{1/p}.
     \]
 \end{proposition}
 \begin{proof}
     By definition of coercivity constant
     \[
     \begin{aligned}
-        \gamma_{\mathcal{F}_{\kappa}}
+        \gamma_{\mathcal{F}_{\kappa}(\Lambda)}
         &=\sup\{
-            \Vert x\Vert : 
-            x\in\ell_{p}^n,\, \Vert \xi_{\mathcal{F}_{\kappa}}(x)\Vert\leq 1
+            \Vert x\Vert_p : 
+            x\in\ell_p(\Lambda),\, 
+            \Vert \xi_{\mathcal{F}_{\kappa}(\Lambda)}(x)\Vert\leq 1
         \} \\
         &=\sup\left\{
-            \left( \sum_{k=1}^n |x_k|^p\right)^{1/p} : 
-            x\in\mathbb{C}^n,\, 
-            \max\left\{|x_1|,\ldots,|x_n|,\kappa\sum_{k=1}^n |x_k|\right\}\leq 1
+            \left( \sum_{\lambda\in\Lambda} |x_\lambda|^p\right)^{1/p} : 
+            x\in\mathbb{C}^\Lambda,\, 
+            \max\left\{
+                \max\{|x_\lambda|:\lambda\in\Lambda\},
+                \kappa\sum_{\lambda\in\Lambda} |x_\lambda|
+            \right\}\leq 1
         \right\} \\
         &=\sup\left\{
-            \left( \sum_{k=1}^n |t_k|^p\right)^{1/p} : 
-            t\in\mathbb{R}^n,\, 
-            |t_1|\leq 1,\ldots,|t_n|\leq 1,\,\sum_{k=1}^n |t_k|\leq \kappa^{-1}
+            \left( \sum_{\lambda\in\Lambda} |t_\lambda|^p\right)^{1/p} : 
+            t\in\mathbb{R}^\Lambda,\, 
+            \sum_{\lambda\in\Lambda} |t_\lambda|\leq \kappa^{-1},\,
+            |t_\lambda|\leq 1,\,\lambda\in\Lambda,\,
         \right\}. \\
     \end{aligned}
     \]
     Consider function
     \[
         F:
-        \mathbb{R}^n\to\mathbb{R},\, 
-        t\mapsto \left(\sum_{k=1}^n|t_k|^p\right)^{1/p}
+        \mathbb{R}^\Lambda\to\mathbb{R},\, 
+        t\mapsto \left(\sum_{\lambda\in\Lambda}|t_\lambda|^p\right)^{1/p}
     \]
     and a convex polytope
     \[
         C=\left\{ 
-            t\in\mathbb{R}^n : 
-            |t_1|\leq 1,\ldots,|t_n|\leq 1,\,\sum_{k=1}^n |t_k|\leq \kappa^{-1}
-        \right\}.
+            t\in\mathbb{R}^\Lambda : 
+            \sum_{\lambda\in\Lambda} |t_\lambda|\leq \kappa^{-1},\,
+            |t_\lambda|\leq 1,\,\lambda\in\Lambda,\,
+        \right\}
     \]
-    Since $F$ is strictly convex, then $F$ attains its maximum 
-    on $\operatorname{ext}(C)$ --- the set of extreme points of $C$. Therefore,
+    in a finite-dimensional space. Since $F$ is strictly convex, then $F$ 
+    attains its maximum on $\operatorname{ext}(C)$ --- the set of extreme 
+    points of $C$. Therefore,
     \[
-        \gamma_{\mathcal{F}_{\kappa}}=\max\{F(t):t\in\operatorname{ext}(C)\},
+        \gamma_{\mathcal{F}_{\kappa}(\Lambda)}=\max\{
+            F(t):t\in\operatorname{ext}(C)
+        \},
     \]
-    Clearly, any point $t\in \operatorname{ext}(C)$ has all coordinates but 
+    Clearly, any point $t\in \operatorname{ext}(C)$ has all coordinates but one
     equal to $1$ or $-1$. Therefore,
     \[
         \operatorname{ext}(C)=\left\{ 
-            t\in\mathbb{R}^n : 
-            \exists l\in\mathbb{N}_n\quad |t_l|=\kappa^{-1}-(n-1)\,\wedge\, 
-            \forall k\in\mathbb{N}_n\setminus\{l\}\quad |t_k|=1
+            t\in\mathbb{R}^\Lambda : 
+            \exists \lambda'\in\Lambda\quad |t_{\lambda'}|=\kappa^{-1}-(n-1)\,
+            \wedge\, 
+            \forall \lambda\in\Lambda\setminus\{\lambda'\}\quad |t_\lambda|=1
         \right\}.
     \]
     As a consequence
     \[
-        \gamma_{\mathcal{F}_{\kappa}}=(n-1+(\kappa^{-1}-(n-1))^p)^{1/p}.
+        \gamma_{\mathcal{F}_{\kappa}(\Lambda)}=(n-1+(\kappa^{-1}-(n-1))^p)^{1/p}.
     \]
 \end{proof}
 
 \begin{proposition}\label{ExtMorphsNormLwrBnd}
-    Assume $n\in\mathbb{N}$, $n>1$, $1<p<+\infty$ 
+    Assume $\Lambda$ is a finite set with $n>1$ elements, $1<p<+\infty$ 
     and $n^{-1}<\kappa<(n-1)^{-1}$, then
     \[
-        \nu_{\mathcal{F}_{\kappa}}
+        \nu_{\mathcal{F}_{\kappa}(\Lambda)}
         \geq 
         \kappa^{-1}\frac{
             \left(
@@ -530,67 +580,80 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     \]
 \end{proposition}
 \begin{proof}
-    We denote elements of $\mathcal{F}_{\kappa}$ as $f_1,\ldots,f_{n+1}$. For
-    $\eta\in(\ell_\infty^n)^{\mathcal{F}_{\kappa}}$ we also 
-    denote $\eta_l=\eta_{f_l}$, where $l\in\mathbb{N}_{n+1}$. Then
+    By construction
     \[
-        \mathcal{N}_{\mathcal{F}_{\kappa}}=\{
-            \eta\in(\ell_{\infty}^{n})^{\mathcal{F}_{\kappa}}:
-            \eta_{k,k}+\kappa \eta_{n+1, k}=1,\, k\in\mathbb{N}_n
+        \mathcal{N}_{\mathcal{F}_{\kappa}(\Lambda)}=\{
+            \eta\in\ell_\infty(\Lambda)^{\mathcal{F}_{\kappa}(\Lambda)}:
+            \eta_{f_\lambda,\lambda}+\kappa \eta_{f_*, \lambda}=1,\, 
+            \lambda\in\Lambda
         \}.
     \]
-    For each $i\in\mathbb{N}_n$ consider function
+    For each $\lambda\in\Lambda$ consider function
     \[
-        d_i:\mathbb{N}_{n+1}\to\mathbb{N}_n,\,
-        l\mapsto
+        d_\lambda:\mathcal{F}_\kappa(\Lambda)\to\Lambda,\,
+        f_i\mapsto
         \begin{cases}
-            l\quad &\mbox{ if }l\neq n+1,\\
-            i\quad &\mbox{ otherwise. }
+            i\quad &\mbox{ if }i\neq \star,\\
+            \lambda\quad &\mbox{ if }i=\star.
         \end{cases}
     \]
     Then from proposition \ref{ExtMorphNorm} for 
-    any $\eta\in(\mathbb{C}^n)^{\mathcal{F}_{\kappa}}$ we would get
+    any $\eta\in\ell_\infty(\Lambda)^{\mathcal{F}_{\kappa}(\Lambda)}$ we would 
+    get
     \[
     \begin{aligned}
         \Vert\psi_{\eta}\Vert
         &\geq\max\left\{
-            \left(\sum_{k=1}^n
-                \left|\sum_{l=1}^{n+1}|\eta_{l,k}|\delta_{k}^{d_i(l)}\right|^p
+            \left(\sum_{\lambda\in\Lambda}
+                \left|
+                    \sum_{f\in\mathcal{F}_{\kappa(\Lambda)}} 
+                        |\eta_{f,\lambda}|\delta_{\lambda}^{d_{\lambda'}(f)}
+                \right|^p
             \right)^{1/p}:
-            i\in\mathbb{N}_n
+            \lambda'\in\Lambda
         \right\} \\
         &=\max\left\{
             \left(
-                \sum_{k=1,k\neq i}^n |\eta_{k,k}|^p+
-                (|\eta_{i,i}|+|\eta_{n+1,i}|)^p
+                \sum_{\lambda\in\Lambda,\lambda\neq \lambda'} 
+                    |\eta_{f_\lambda,\lambda}|^p+
+                    (|\eta_{f_{\lambda'},\lambda'}|+|\eta_{f_\star,\lambda'}|)^p
             \right)^{1/p}:
-            i\in\mathbb{N}_n
+            \lambda'\in\Lambda
         \right\}. \\
     \end{aligned}
     \]
-    For any $\eta\in\mathcal{N}_{\mathcal{F}_{\kappa}}$ 
-    and $k\in\mathbb{N}_n$ we have $\eta_{k,k}+\kappa \eta_{n+1, k}=1$. 
+    For any $\eta\in\mathcal{N}_{\mathcal{F}_{\kappa}(\Lambda)}$ 
+    and $\lambda\in\Lambda$ we 
+    have $\eta_{f_\lambda,\lambda}+\kappa \eta_{f_\star, \lambda}=1$. 
     Therefore,
     \[
     \begin{aligned}
         \Vert \psi_{\eta}\Vert
         &\geq\max\left\{
             \left(
-                \sum_{k=1,k\neq i}^n |\eta_{k,k}|^p+
-                (|\eta_{i,i}|+|\kappa^{-1}(1-\eta_{i,i})|)^p
+                \sum_{\lambda\in\Lambda,\lambda\neq \lambda'}
+                    |\eta_{f_\lambda,\lambda}|^p+
+                    (
+                        |\eta_{f_{\lambda'},\lambda'}|+
+                        |\kappa^{-1}(1-\eta_{f_{\lambda'},\lambda'})|
+                    )^p
             \right)^{1/p}:
-            i\in\mathbb{N}_n
+            \lambda'\in\Lambda
         \right\} \\
         &\geq\max\left\{
             \left(
-                \sum_{k=1,k\neq i}^n |\eta_{k,k}|^p+
-                (|\eta_{i,i}|+\kappa^{-1}|1-|\eta_{i,i}||)^p
+                \sum_{\lambda\in\Lambda,\lambda\neq \lambda'} 
+                    |\eta_{f_\lambda,\lambda}|^p+
+                    (
+                        |\eta_{f_{\lambda'},\lambda'}|+
+                        \kappa^{-1}|1-|\eta_{f_{\lambda'},\lambda'}||
+                    )^p
             \right)^{1/p}:
-            i\in\mathbb{N}_n
+            \lambda'\in\Lambda
         \right\} \\
     \end{aligned}
     \]
-    for any $\eta\in\mathcal{N}_{\mathcal{F}_{\kappa}}$. Denote
+    for any $\eta\in\mathcal{N}_{\mathcal{F}_{\kappa}(\Lambda)}$. Denote
     \[
     \begin{aligned}
         \alpha_i&:\mathbb{R}^n\to\mathbb{R},\,
@@ -601,14 +664,18 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
         t\mapsto\max\{\alpha_i(t):i\in\mathbb{N}_n\}.
     \end{aligned}
     \]
-    Then
+    Then for any enumeration $\Lambda=\{\lambda_1,\ldots,\lambda_n\}$ we get
     \[
         \nu_{\mathcal{F}_{\kappa}}
         \geq\inf\{
             \Vert \psi_{\eta}\Vert : \eta\in\mathcal{N}_{\mathcal{F}_{\kappa}}
         \}
         =\inf\{
-            \alpha(|\eta_{1,1}|,\ldots,|\eta_{n,n}|) : 
+            \alpha(
+                |\eta_{f_{\lambda_1},\lambda_1}|,
+                \ldots,
+                |\eta_{f_{\lambda_n},\lambda_n}|
+            ) : 
             \eta\in\mathcal{N}_{\mathcal{F}_{\kappa}}
         \}
         =\inf\{\alpha(t) : t\in\mathbb{R}_+^n\}.
@@ -616,21 +683,21 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     Consider functions
     \[
     \begin{aligned}
-        F_1&:\mathbb{R}_+\to\mathbb{R},\, 
+        F&:\mathbb{R}_+\to\mathbb{R},\, 
             t\mapsto t \\
-        F_2&:\mathbb{R}_+\to\mathbb{R},\, 
+        G&:\mathbb{R}_+\to\mathbb{R},\, 
             t\mapsto t+\kappa^{-1}|1-t| \\
-        F_3&:\mathbb{R}^n\to\mathbb{R},\, t\mapsto 
+        H&:\mathbb{R}^n\to\mathbb{R},\, t\mapsto 
             \left(\sum_{k=1}^n|t_k|^p\right)^{1/p} \\
     \end{aligned}
     \]
     Clearly, for each $i\in\mathbb{N}_n$ the function $\alpha_i$ is a 
-    composition of $F_1$, $F_2$ and $F_3$. Since $F_1$ and $F_2$ are convex 
-    and $F_3$ is strictly convex, then all 
+    composition of $F$, $G$ and $H$. Since $F$ and $G$ are convex 
+    and $H$ is strictly convex, then all 
     functions $(\alpha_i)_{i\in\mathbb{N}_n}$ are strictly convex 
     on $\mathbb{R}_+^n$. Hence, so is their maximum $\alpha$. Note 
     that $\alpha$ is continuous, strictly convex 
-    and $\lim\limits_{\Vert t\Vert\to+\infty}\alpha(t)=+\infty$. 
+    and $\lim_{\Vert t\Vert\to+\infty}\alpha(t)=+\infty$. 
     Therefore, $\alpha$ has a unique global minimum at some 
     point $t_0\in\mathbb{R}_+^n$. Observe, that $\alpha$ is invariant under 
     permutation of its arguments. Then from the uniqueness of the global minimum 
@@ -704,13 +771,14 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
             }. \\
     \end{aligned}
     \]
-    This gives the desired lower bound for $\nu_{\mathcal{F}_{\kappa}}$.
+    This gives the desired lower bound 
+    for $\nu_{\mathcal{F}_{\kappa}(\Lambda)}$.
 \end{proof}
 
 \begin{proposition}\label{SpclLyapIneq}
     Let $n\in\mathbb{N}$, $r>1$ and $x\in\mathbb{C}^n$. Then
     \[
-        \Vert x\Vert_p\leq \Vert x\Vert_1^{1/r}\Vert x\Vert_{\infty}^{1-1/r}.
+        \Vert x\Vert_p\leq \Vert x\Vert_1^{1/r}\Vert x\Vert_\infty^{1-1/r}.
     \]
     The equality holds iff $|x_1|=\ldots=|x_n|$.
 \end{proposition}
@@ -723,7 +791,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
         =\left(\sum_{k=1}^n |x_k| |x_k|^{r-1} \right)^{1/r}
         \leq\left(\sum_{k=1}^n |x_k| \right)^{1/r} 
         \left(\max\limits_{k\in\mathbb{N}_n}|x_k|^{r-1}\right)^{1/r}
-        =\Vert x\Vert_1^{1/r}\Vert x\Vert_{\infty}^{1-1/r}.
+        =\Vert x\Vert_1^{1/r}\Vert x\Vert_\infty^{1-1/r}.
     \end{aligned}
     \]
     Clearly, the equality holds iff $|x_k|=\max\limits_{k\in\mathbb{N}_n}|x_k|$
@@ -731,8 +799,13 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
 \end{proof}
 
 \begin{proposition}\label{CompStdEmbdCoercvAndExtMorphsNormInf}
-    Let $n\in\mathbb{N}$, $n>1$ and $n^{-1}<\kappa<(n-1)^{-1}$, then
-    $\nu_{\mathcal{F}_{\kappa}}>\gamma_{\mathcal{F}_{\kappa}}$.
+    Let $\Lambda$ be a finite set with $n>1$ elements, $1<p<+\infty$ 
+    and $n^{-1}<\kappa<(n-1)^{-1}$. Then
+    $
+    \nu_{\mathcal{F}_{\kappa}(\Lambda)}
+    >
+    \gamma_{\mathcal{F}_{\kappa}(\Lambda)}.
+    $
 \end{proposition}
 \begin{proof}
     Using results of propositions \ref{StdEmbdSpclCoerciv} 
@@ -801,45 +874,49 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
 \end{proof}
 
 \begin{proposition}\label{RetrPrblmNoSln}
-    Let $n\in\mathbb{N}$, $n>1$, $1<p<+\infty$ and $n^{-1}<\kappa<(n-1)^{-1}$. 
-    Then for any $\ell_{\infty}^n$-morphism $\psi$ which is a left inverse 
-    to $\xi_{\mathcal{F}_{\kappa}}$ 
-    holds $\Vert \psi\Vert>\gamma_{\mathcal{F}_{\kappa}}$.  
+    Let $\Lambda$ be a finite set with $n>1$ elements, $1<p<+\infty$ 
+    and $n^{-1}<\kappa<(n-1)^{-1}$. Then for any $\ell_\infty(\Lambda)$-morphism
+    $\psi$ which is a left inverse to $\xi_{\mathcal{F}_{\kappa}(\Lambda)}$ 
+    holds $\Vert \psi\Vert>\gamma_{\mathcal{F}_{\kappa}(\Lambda)}$.  
 \end{proposition}
 \begin{proof}
     By proposition \ref{ExtMorphSuml1ntlpnCharac} there exists a family of 
-    vectors $\eta\in(\ell_{\infty}^n)^{\mathcal{F}_{\kappa}}$ such 
+    vectors $\eta\in\ell_\infty(\Lambda)^{\mathcal{F}_{\kappa}(\Lambda)}$ such 
     that $\psi=\psi_{\eta}$. From the definition \ref{ExtMorphsNormInf} we 
-    have $\Vert \psi_{\eta}\Vert\geq \nu_{\mathcal{F}_{\kappa}}$. Now from 
-    proposition \ref{CompStdEmbdCoercvAndExtMorphsNormInf} we 
-    get 
+    have $\Vert \psi_{\eta}\Vert\geq \nu_{\mathcal{F}_{\kappa}(\Lambda)}$. Now 
+    from proposition \ref{CompStdEmbdCoercvAndExtMorphsNormInf} we get 
     $
-    \Vert\psi\Vert\geq\nu_{\mathcal{F}_{\kappa}}>\gamma_{\mathcal{F}_{\kappa}}.
+    \Vert\psi\Vert\geq\nu_{\mathcal{F}_{\kappa}}
+    >
+    \gamma_{\mathcal{F}_{\kappa}(\Lambda)}.
     $
 \end{proof}
 
 \begin{proposition}\label{linftnModlpnIsntMetInjCharac}
-    Let $n\in\mathbb{N}$, then the right $\ell_{\infty}^n$-module $\ell_p^n$ is 
-    metrically injective iff $n=1$.
+    Let $\Lambda$ be a finite set, then the right $\ell_\infty(\Lambda)$-module 
+    $\ell_p(\Lambda)$ is metrically injective iff $Lambda$ has at most $1$ 
+    element.
 \end{proposition}
 \begin{proof}
-    Suppose that the right $\ell_{\infty}^n$-module $\ell_p^n$ is metrically 
-    injective. Assume that $n>1$. Pick any real 
-    number $\kappa\in(n^{-1},(n-1)^{-1})$. By 
+    Suppose that the right $\ell_\infty(\Lambda)$-module $\ell_p(\Lambda)$ is 
+    metrically injective and $\Lambda$ has $n$ elements. Assume that $n>1$. 
+    Pick any real number $\kappa\in(n^{-1},(n-1)^{-1})$. By 
     proposition \ref{StdEmbdSpclCoerciv} we 
-    have $\gamma_{\mathcal{F}_{\kappa}}$ is finite, 
-    therefore $\xi_{\mathcal{F}_{\kappa}}$ 
-    is $\gamma_{\mathcal{F}_{\kappa}}$-topologically injective. 
+    have $\gamma_{\mathcal{F}_{\kappa}(\Lambda)}$ is finite, 
+    therefore $\xi_{\mathcal{F}_{\kappa}(\Lambda)}$ 
+    is $\gamma_{\mathcal{F}_{\kappa}(\Lambda)}$-topologically injective. 
     From assumption, it follows that there exists 
-    an $\ell_{\infty}^n$-morphism $\psi$ which is a left inverse 
-    to $\xi_{\mathcal{F}_{\kappa}}$ such 
-    that $\Vert\psi\Vert\leq \gamma_{\mathcal{F}_{\kappa}}$. 
+    an $\ell_\infty(\Lambda)$-morphism $\psi$ which is a left inverse 
+    to $\xi_{\mathcal{F}_{\kappa}(\Lambda)}$ such 
+    that $\Vert\psi\Vert\leq \gamma_{\mathcal{F}_{\kappa}(\Lambda)}$. 
     This contradicts proposition \ref{linftnModlpnIsntMetInjCharac}, 
-    therefore $n=1$.
+    therefore $n\leq 1$.
 
-    Now assume that $n=1$. Then $\ell_p^n$ is isometrically isomorphic 
-    to $(\ell_\infty^n)^*$ as an $\ell_{\infty}^n$-module, hence it is
-    metrically injective.
+    Now assume that $\Lambda$ as at most 1 element. If $\Lambda$ is empty, then
+    $\ell_p(\Lambda)=\{0\}$. Zero module is always injective. If $\Lambda$ has 
+    one element, then $\ell_p(\Lambda)$ is isometrically isomorphic 
+    to $\ell_\infty(\Lambda)^*$ as an $\ell_\infty(\Lambda)$-module. The dual of
+    the unital algebra is always metrically injective.
 \end{proof}
 
 %-------------------------------------------------------------------------------
@@ -1195,9 +1272,8 @@ $L_p(S,\mu)$ are almost never metrically projective, injective or flat.
 \begin{proof}
     Let $\mathcal{A}$ be a decomposition of $S$ into $n$ atoms of finite 
     measure. Suppose $n>1$, then pick any $\kappa\in(n^{-1}, (n-1)^{-1})$. 
-    By identifying $\mathcal{A}$ and $\mathbb{N}_n$ we 
-    set $\mathcal{F}=\mathcal{F}_{\kappa}$. For each $f\in \mathcal{F}$ 
-    we define an $\ell_\infty(\mathcal{A})$-morphism 
+    Now we set $\mathcal{F}=\mathcal{F}_{\kappa}(\mathcal{A})$. For 
+    each $f\in \mathcal{F}$ we define an $\ell_\infty(\mathcal{A})$-morphism 
     \[
         m_f:
         \ell_p(\mathcal{A})\to\ell_1(\mathcal{A}),\,
@@ -1257,7 +1333,7 @@ $L_p(S,\mu)$ are almost never metrically projective, injective or flat.
     exists a $C_0(S)$-morphism 
     \[
         \Psi:
-        \bigoplus_{\infty}\{ L_1(S,\mu):f\in\mathcal{F}\}\to L_p(S,\mu)
+        \bigoplus_\infty\{ L_1(S,\mu):f\in\mathcal{F}\}\to L_p(S,\mu)
     \]
     such that $\Psi\circ \Xi_{\mathcal{F}}=1_{L_p(S,\mu)}$ 
     and $\Vert \Psi\Vert\leq \gamma_{\mathcal{F}}$.
@@ -1316,7 +1392,7 @@ $L_p(S,\mu)$ are almost never metrically projective, injective or flat.
 \begin{proof} 
     Let $K$ be the Alexandroff's compactification of $S$, then $C_0(S)$ is 
     complemented in $C(K)$. By [\cite{DefFloTensNorOpId}, lemma 4.4] the space
-    $C(K)$ is an $\mathscr{L}_{\infty}^g$-space, hence so is $C_0(S)$ as its 
+    $C(K)$ is an $\mathscr{L}_\infty^g$-space, hence so is $C_0(S)$ as its 
     complemented subspace. [\cite{DefFloTensNorOpId}, corollary 23.1.2(1)]. 
     Since $L_p(S,\mu)$ is reflexive [\cite{FremMeasTh2}, theorem 244K], then
     by [\cite{NemGeomProjInjFlatBanMod}, corollary 3.14] this $C_0(S)$-module 
