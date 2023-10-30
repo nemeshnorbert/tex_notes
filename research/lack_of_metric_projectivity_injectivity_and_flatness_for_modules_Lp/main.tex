@@ -56,7 +56,7 @@ $L_p$-space.
 
 \section{Introduction}\label{SctnIntro}
 
-This paper finalizes authors research on homological properties of modules $L_p$.
+This paper finalizes author's research on homological properties of modules $L_p$.
 In \cite{NemRelProjModLp} it was shown that modules $L_p$ are relatively 
 projective for a small class of underlying measure spaces, namely purely atomic 
 measure spaces, with atoms being isolated points. In this paper we solve the same
@@ -158,7 +158,7 @@ particular, a unital Banach algebra $A$ is a metrically flat $A$-module.
 \texorpdfstring{$\ell_p(\Lambda)$}{lpLmbd}}
 \label{MetrInjlinftynlpn}
 
-For a index set $\Lambda$ and $1\leq p\leq +\infty$ by $\ell_p(\Lambda)$ we 
+For an index set $\Lambda$ and $1\leq p\leq +\infty$ by $\ell_p(\Lambda)$ we 
 denote the standard $\ell_p$-space. We denote its norm 
 by $\Vert\cdot\Vert_p$ and its natural basis 
 by $(e_\lambda)_{\lambda\in\Lambda}$. For $1\leq p<+\infty$ we shall often 
@@ -294,7 +294,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
         \}\right)
         =\sum_{f\in\mathcal{F}} \eta_{f}\cdot e_\lambda\cdot f.
     \]
-    At $k\lambda$-th coordinate  we get
+    At $\lambda$-th coordinate  we get
     \[
         1=(e_\lambda)_\lambda
         =\left(
@@ -327,7 +327,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
 \begin{proposition}\label{ExtMorphNorm}
     Let $\Lambda$ be a finite set, $1<p<+\infty$ 
     and $\mathcal{F}\subset\ell_{p^*}(\Lambda)$ be a finite set. 
-    Suppose $\eta\in(\ell_\infty(\Lambda))^\mathcal{F}$, then 
+    Suppose $\eta\in\ell_\infty(\Lambda)^\mathcal{F}$, then 
     \[
         \Vert \psi_{\eta}\Vert
         =\max\left\{
@@ -449,10 +449,10 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     \[
         \Vert\psi_\eta\Vert=\max\{F(r) : r\in \operatorname{ext}(C)\},
     \]
-    Clearly, $r\in \operatorname{ext}(C)$ iff for some 
+    Clearly, $r\in \operatorname{ext}(C)$ iff $r=0$ or for some 
     function $d:\mathcal{F}\to\Lambda$ and 
     all $\lambda\in\Lambda$, $f\in\mathcal{F}$ 
-    holds $r_{f,\lambda}=\delta_{\lambda}^{d(f)}$. So 
+    holds $r_{f,\lambda}=\delta_{\lambda}^{d(f)}$. So,
     \[
     \begin{aligned}
         \Vert\psi_{\eta}\Vert
@@ -482,7 +482,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
 \begin{definition}\label{SpclFuncFam}
     Let $\Lambda$ be a finite set and $\kappa\in\mathbb{R}$, then we set
     $f_\lambda=e_\lambda$ and $f_*=\kappa\sum_{\lambda\in\Lambda} e_\lambda$. 
-    Then we define
+    Now we define
     \[
         \mathcal{F}_{\kappa}(\Lambda)
         =\{f_\lambda: \lambda\in\Lambda\}
@@ -666,9 +666,10 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     \]
     Then for any enumeration $\Lambda=\{\lambda_1,\ldots,\lambda_n\}$ we get
     \[
-        \nu_{\mathcal{F}_{\kappa}}
+        \nu_{\mathcal{F}_{\kappa}(\Lambda)}
         \geq\inf\{
-            \Vert \psi_{\eta}\Vert : \eta\in\mathcal{N}_{\mathcal{F}_{\kappa}}
+            \Vert \psi_{\eta}\Vert : 
+            \eta\in\mathcal{N}_{\mathcal{F}_{\kappa}(\Lambda)}
         \}
         =\inf\{
             \alpha(
@@ -676,7 +677,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
                 \ldots,
                 |\eta_{f_{\lambda_n},\lambda_n}|
             ) : 
-            \eta\in\mathcal{N}_{\mathcal{F}_{\kappa}}
+            \eta\in\mathcal{N}_{\mathcal{F}_{\kappa}(\Lambda)}
         \}
         =\inf\{\alpha(t) : t\in\mathbb{R}_+^n\}.
     \]
@@ -705,7 +706,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     As a corollary
     \[
     \begin{aligned}
-        \nu_{\mathcal{F}_{\kappa}}
+        \nu_{\mathcal{F}_{\kappa}(\Lambda)}
         &\geq\inf\{\alpha(t) : t\in\mathbb{R}_+^n\} \\
         &=\inf\{\alpha(s,\ldots,s) : s\in\mathbb{R}_+\} \\
         &=\inf\{((n-1)s^p+(s+\kappa^{-1}|1-s|)^p)^{1/p} : s\in\mathbb{R}_+\}.
@@ -886,7 +887,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     have $\Vert \psi_{\eta}\Vert\geq \nu_{\mathcal{F}_{\kappa}(\Lambda)}$. Now 
     from proposition \ref{CompStdEmbdCoercvAndExtMorphsNormInf} we get 
     $
-    \Vert\psi\Vert\geq\nu_{\mathcal{F}_{\kappa}}
+    \Vert\psi\Vert\geq\nu_{\mathcal{F}_{\kappa}(\Lambda)}
     >
     \gamma_{\mathcal{F}_{\kappa}(\Lambda)}.
     $
@@ -912,7 +913,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     This contradicts proposition \ref{linftnModlpnIsntMetInjCharac}, 
     therefore $n\leq 1$.
 
-    Now assume that $\Lambda$ as at most 1 element. If $\Lambda$ is empty, then
+    Now assume that $\Lambda$ has at most 1 element. If $\Lambda$ is empty, then
     $\ell_p(\Lambda)=\{0\}$. Zero module is always injective. If $\Lambda$ has 
     one element, then $\ell_p(\Lambda)$ is isometrically isomorphic 
     to $\ell_\infty(\Lambda)^*$ as an $\ell_\infty(\Lambda)$-module. The dual of
