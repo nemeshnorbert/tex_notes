@@ -135,3 +135,4 @@
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QM. C. White Injective modules for uniform algebras, Proc.\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QLond.\\E$"}
 {"rule":"A_INFINITIVE","sentence":"^\\QTherefore, if \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q is a retract of \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q-space, then there would exist an \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q-space containing a copy of \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QA. W. M. Graven, Injective and projective Banach modules, Indag.\\E$"}
