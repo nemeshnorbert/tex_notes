@@ -70,12 +70,12 @@ Before we proceed to the main topic we shall give a few definitions. For any
 natural number $n\in\mathbb{N}$ by $\mathbb{N}_n$ we denote the set of 
 first $n$ natural numbers. Let $M$ be a subset of a set $N$, then $\chi_M$ 
 denotes the indicator function of $M$. The symbol $1_N$ denotes the identity 
-map on $N$. If $n',n''\in N$, then $\delta_{n'}^{n''}$ stands for their 
+map on $N$. If $k,l\in N$, then $\delta_{k}^{l}$ stands for their 
 Kronecker symbol.
 
 All Banach spaces in this paper are considered over the complex numbers. 
 We shall actively use the following Banach space constructions.
-For given family of Banach spaces $\{E_\lambda: \lambda\in\Lambda\}$ 
+For a given family of Banach spaces $\{E_\lambda: \lambda\in\Lambda\}$ 
 by $\bigoplus_p\{E_\lambda: \lambda\in\Lambda\}$ we denote their $\ell_p$-sum 
 (see [\cite{HelLectAndExOnFuncAn}, proposition 1.1.7]).
 Similarly, for a family of linear operators $T_\lambda:E_\lambda\to F_\lambda$
@@ -85,7 +85,7 @@ $\bigoplus_p\{T_\lambda:\lambda\in\Lambda\}$
 symbol $E\projtens F$ do denote the projective tensor product of Banach 
 spaces $E$ and $F$ [\cite{HelLectAndExOnFuncAn}, theorem 2.7.4].
 
-Let $T:E\to F$ be a bounded linear operator between Banach spaces. Now we give 
+Let $T:E\to F$ be a bounded linear operator between Banach spaces. Now we give a 
 quantitative version of the definition of embedding. If for some 
 constant $c>0$ and all $x\in E$ holds $c\Vert T(x)\Vert\geq \Vert x\Vert$, 
 then $T$ is called $c$-topologically injective. Similarly, a quantitative 
@@ -396,7 +396,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
         \right|
     \]
     is attained 
-    if $e^{i \alpha_{f,\lambda}}=\operatorname{sgn}(\eta_{f,\lambda})$ for 
+    if $\alpha_{f,\lambda}=\operatorname{arg}(\eta_{f,\lambda})$ for 
     all $f\in\mathcal{F}$ and $\lambda\in\Lambda$. In this case
     \[
     \begin{aligned}
@@ -779,7 +779,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
 \begin{proposition}\label{SpclLyapIneq}
     Let $n\in\mathbb{N}$, $r>1$ and $x\in\mathbb{C}^n$. Then
     \[
-        \Vert x\Vert_p\leq \Vert x\Vert_1^{1/r}\Vert x\Vert_\infty^{1-1/r}.
+        \Vert x\Vert_r\leq \Vert x\Vert_1^{1/r}\Vert x\Vert_\infty^{1-1/r}.
     \]
     The equality holds iff $|x_1|=\ldots=|x_n|$.
 \end{proposition}
@@ -895,7 +895,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
 
 \begin{proposition}\label{linftnModlpnIsntMetInjCharac}
     Let $\Lambda$ be a finite set, then the right $\ell_\infty(\Lambda)$-module 
-    $\ell_p(\Lambda)$ is metrically injective iff $Lambda$ has at most $1$ 
+    $\ell_p(\Lambda)$ is metrically injective iff $\Lambda$ has at most $1$ 
     element.
 \end{proposition}
 \begin{proof}
