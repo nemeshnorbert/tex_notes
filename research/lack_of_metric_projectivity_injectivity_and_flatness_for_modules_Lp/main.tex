@@ -39,9 +39,9 @@
 \thispagestyle{empty}
 
 \medskip
-\textbf{Abstract:} In this paper we show that for a locally compact Hausdorff 
-space $S$ and a decomposable Borel measure $\mu$ metric projectivity, 
-injectivity or flatness of $C_0(S)$-module $L_p(S,\mu)$ implies 
+\textbf{Abstract:} In this paper we demonstrate that for a locally compact 
+Hausdorff space $S$ and a decomposable Borel measure $\mu$ metric projectivity, 
+injectivity, or flatness of the $C_0(S)$-module $L_p(S,\mu)$ implies 
 that $\mu$ is purely atomic with at most one atom.
 \medskip
 
@@ -56,98 +56,99 @@ $L_p$-space.
 
 \section{Introduction}\label{SctnIntro}
 
-This paper finalizes author's research on homological properties of modules $L_p$.
-In \cite{NemRelProjModLp} it was shown that modules $L_p$ are relatively 
-projective for a small class of underlying measure spaces, namely purely atomic 
-measure spaces, with atoms being isolated points. In this paper we solve the same
-problem for metric projectivity, injectivity and flatness. It was expected that
-for metric theory the class of measure spaces has to be even narrower. 
-As we show in this paper it is extremely poor. It includes only purely atomic 
-measure spaces with at most one atom. It is safe to say that $L_p$-spaces 
-are almost never metrically projective, injective or flat. 
+This paper finalizes the author's research on the homological properties of 
+modules $L_p$. In \cite{NemRelProjModLp}, it was shown that modules $L_p$ are 
+relatively projective for a small class of underlying measure spaces, namely 
+purely atomic measure spaces, with atoms being isolated points. This paper aims 
+to solve the same problem for metric projectivity, injectivity, and flatness. 
+It was expected that for the metric theory, the class of measure spaces would 
+need to be even narrower. As demonstrated in this paper, this class is very 
+small, as it includes only purely atomic measure spaces with at most one atom. 
+Hence, it is safe to conclude that $L_p$-spaces are almost never metrically 
+projective, injective, or flat.
 
-Before we proceed to the main topic we shall give a few definitions. For any 
-natural number $n\in\mathbb{N}$ by $\mathbb{N}_n$ we denote the set of 
-first $n$ natural numbers. Let $M$ be a subset of a set $N$, then $\chi_M$ 
+Before delving into the main topic, we shall provide a few definitions. For any 
+natural number $n\in\mathbb{N}$, we denote the set of the first $n$ natural 
+numbers by $\mathbb{N}_n$. Let $M$ be a subset of a set $N$, then $\chi_M$ 
 denotes the indicator function of $M$. The symbol $1_N$ denotes the identity 
 map on $N$. If $k,l\in N$, then $\delta_{k}^{l}$ stands for their 
 Kronecker symbol.
 
-All Banach spaces in this paper are considered over the complex numbers. 
-We shall actively use the following Banach space constructions.
-For a given family of Banach spaces $\{E_\lambda: \lambda\in\Lambda\}$ 
+All Banach spaces discussed in this paper are considered over the complex 
+numbers. We will actively employ the following Banach space constructions: for 
+a given family of Banach spaces $\{E_\lambda: \lambda\in\Lambda\}$, 
 by $\bigoplus_p\{E_\lambda: \lambda\in\Lambda\}$ we denote their $\ell_p$-sum 
-(see [\cite{HelLectAndExOnFuncAn}, proposition 1.1.7]).
-Similarly, for a family of linear operators $T_\lambda:E_\lambda\to F_\lambda$
-where $\lambda\in\Lambda$ we denote their $\ell_p$-sum as
-$\bigoplus_p\{T_\lambda:\lambda\in\Lambda\}$ 
-(see [\cite{HelLectAndExOnFuncAn}, proposition 1.1.7]). We use 
-symbol $E\projtens F$ do denote the projective tensor product of Banach 
+(see [\cite{HelLectAndExOnFuncAn}, proposition 1.1.7]). 
+Similarly, for a family of linear operators $T_\lambda:E_\lambda\to F_\lambda$ 
+where $\lambda\in\Lambda$, their $\ell_p$-sum is denoted 
+as $\bigoplus_p\{T_\lambda:\lambda\in\Lambda\}$ 
+(see [\cite{HelLectAndExOnFuncAn}, proposition 1.1.7]). We use the 
+symbol $E\projtens F$ to denote the projective tensor product of Banach 
 spaces $E$ and $F$ [\cite{HelLectAndExOnFuncAn}, theorem 2.7.4].
 
-Let $T:E\to F$ be a bounded linear operator between Banach spaces. Now we give a 
-quantitative version of the definition of embedding. If for some 
-constant $c>0$ and all $x\in E$ holds $c\Vert T(x)\Vert\geq \Vert x\Vert$, 
+Let $T:E\to F$ be a bounded linear operator between Banach spaces. Now, we 
+provide a quantitative version of the definition of embedding. If there exists 
+a constant $c>0$ such that $c\Vert T(x)\Vert\geq \Vert x\Vert$ for all $x\in E$, 
 then $T$ is called $c$-topologically injective. Similarly, a quantitative 
-definition of the open map is as follows: if there exists a 
-constant $c>0$ such that for any $y\in F$ we can find an $x\in E$ such 
-that $T(x)=y$ and $c\Vert y\Vert\geq \Vert x\Vert$, then $T$ is 
-called $c$-topologically surjective. Finally, the operator $T$ is 
-called contractive if its norm is not greater than $1$.
+definition of the open map is as follows: if there exists a constant $c>0$ such 
+that for any $y\in F$, we can find an $x\in E$ such that $T(x)=y$ 
+and $c\Vert y\Vert\geq \Vert x\Vert$, then $T$ is called $c$-topologically 
+surjective. Finally, the operator $T$ is called contractive if its norm 
+is not greater than $1$.
 
-Let $A$ be a Banach algebra. We shall consider both left and right 
+Consider a Banach algebra $A$. We consider both left and right 
 Banach $A$-modules with contractive outer action $\cdot:A\times X\to X$. 
-Let $X$ and $Y$ be two Banach $A$-modules, then a map $\phi:X\to Y$ is called 
-an $A$-morphism if it is a continuous $A$-module map. All left 
-Banach $A$-modules and their $A$-morphisms form a category which we denote 
-by $A-\mathbf{mod}$. Similarly, one can define the category of 
-right $A$-modules $\mathbf{mod}-A$. By $X\otimes_A Y$ we denote the projective 
-module tensor product of a left $A$-module $X$ and a 
-right $A$-module $Y$ (see [\cite{HelBanLocConvAlg}, definition VI.3.18]) 
+Let $X$ and $Y$ be two Banach $A$-modules, then a map $\phi:X\to Y$ is 
+called an $A$-morphism if it is a continuous $A$-module map. All left 
+Banach $A$-modules and their $A$-morphisms form a category denoted 
+by $A-\mathbf{mod}$. Similarly, one can define the category of right 
+$A$-modules $\mathbf{mod}-A$. Finally, $X\projmodtens{A} Y$ denotes the projective 
+module tensor product of a left $A$-module $X$ and a right $A$-module $Y$ 
+(see [\cite{HelBanLocConvAlg}, definition VI.3.18]).
 
-Now we can give definitions of metric projectivity, injectivity and flatness.
+Now, we proceed to define metric projectivity, injectivity, and flatness. 
 The first paper on this subject was written in 1978 by 
 Graven \cite{GravInjProjBanMod}. These notions were later rediscovered by 
 White \cite{WhiteInjmoduAlg} and 
 Helemeskii \cite{HelMetrFrQMod,HelMetrFlatNorMod}.
 
-A left Banach $A$-module $P$ is called metrically projective if for 
-any $c$-topologically surjective $A$-morphism $\xi:X\to Y$ and any
-$A$-morphism $\phi:P\to Y$ there exists an $A$-morphism $\psi:P\to X$ such that
-$\Vert\psi\Vert\leq c$ and the diagram
+A left Banach $A$-module $P$ is termed metrically projective if, for 
+any $c$-topologically surjective $A$-morphism $\xi:X\to Y$ and any $A$-morphism 
+$\phi:P\to Y$, there exists an $A$-morphism $\psi:P\to X$ such 
+that $\Vert\psi\Vert\leq c$, and the diagram
 $$
     \xymatrix{
-    & {X} \ar[d]^{\xi}\\  % chktex 3
-    {P} \ar@{-->}[ur]^{\psi} \ar[r]^{\phi} &{Y}}  % chktex 3
+    & {X} \ar[d]^{\xi}\\
+    {P} \ar@{-->}[ur]^{\psi} \ar[r]^{\phi} &{Y}}
 $$
-is commutative. The original definition, was somewhat 
-different [\cite{GravInjProjBanMod}, definition 2.4], but it is still equivalent
-to the one above. The simplest example of a metrically projective $A$-module is 
-the algebra $A$ itself, provided it is 
-unital [\cite{GravInjProjBanMod}, theorem 2.5]. 
+commutes. The original definition was somewhat 
+different [\cite{GravInjProjBanMod}, definition 2.4], but it is still 
+equivalent to the one above. The simplest example of a metrically 
+projective $A$-module is the algebra $A$ itself, provided it is 
+unital [\cite{GravInjProjBanMod}, theorem 2.5].
 
-A right Banach $A$-module $J$ is called metrically injective if for 
-any $c$-topologically injective $A$-morphism $\xi:Y\to X$ and any
-$A$-morphism $\phi:Y\to J$ there exists an $A$-morphism $\psi:X\to J$ such that
-$\Vert\psi\Vert\leq c$ and the diagram
+A right Banach $A$-module $J$ is termed metrically injective if, for 
+any $c$-topologically injective $A$-morphism $\xi:Y\to X$ and 
+any $A$-morphism $\phi:Y\to J$, there exists an $A$-morphism $\psi:X\to J$ such 
+that $\Vert\psi\Vert\leq c$, and the diagram
 \[
     \xymatrix{
-    & {X} \ar@{-->}[dl]_{\psi} \\  % chktex 3
-    {J} &{Y} \ar[l]_{\phi} \ar[u]_{\xi}}  % chktex 3
+    & {X} \ar@{-->}[dl]_{\psi} \\
+    {J} &{Y} \ar[l]_{\phi} \ar[u]_{\xi}}
 \]
-is commutative. Our definition is equivalent to the original 
+commutes. Our definition is equivalent to the original 
 one [\cite{GravInjProjBanMod}, definition 3.1]. Note that $P^*$ is a metrically 
-injective $A$-module, whenever $P$ is metrically 
+injective $A$-module whenever $P$ is metrically 
 injective [\cite{GravInjProjBanMod}, theorem 3.2]. Therefore, the right Banach 
-module $A^*$ is metrically injective, whenever $A$ is unital. 
+module $A^*$ is metrically injective whenever $A$ is unital.
 
-A left $A$-module $F$ is called metrically flat if for each $c$-topologically 
-injective $A$-morphism $\xi:X\to Y$ of right $A$-modules the 
+A left $A$-module $F$ is termed metrically flat if, for each $c$-topologically 
+injective $A$-morphism $\xi:X\to Y$ of right $A$-modules, the 
 operator $\xi\projmodtens{A} 1_F:X\projmodtens{A} F\to Y\projmodtens{A} F$ 
 is $c$-topologically injective. This definition was implicitly given in the 
 theorem [\cite{GravInjProjBanMod}, theorem 3.10]. From this theorem and remarks 
-above we conclude that any metrically projective module is metrically flat. In
-particular, a unital Banach algebra $A$ is a metrically flat $A$-module.
+above, we conclude that any metrically projective module is metrically flat. 
+In particular, a unital Banach algebra $A$ is a metrically flat $A$-module.
 
 %-------------------------------------------------------------------------------
 %	Metric injectivity of linftyn modules lpn
@@ -158,22 +159,20 @@ particular, a unital Banach algebra $A$ is a metrically flat $A$-module.
 \texorpdfstring{$\ell_p(\Lambda)$}{lpLmbd}}
 \label{MetrInjlinftynlpn}
 
-For an index set $\Lambda$ and $1\leq p\leq +\infty$ by $\ell_p(\Lambda)$ we 
-denote the standard $\ell_p$-space. We denote its norm 
-by $\Vert\cdot\Vert_p$ and its natural basis 
-by $(e_\lambda)_{\lambda\in\Lambda}$. For $1\leq p<+\infty$ we shall often 
-exploit the standard identification $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, 
-where $p^*=p/(p-1)$. By convention, we set $1^*=+\infty$. The 
-space $\ell_p(\Lambda)$ can be regarded both as left and right Banach module 
-over the Banach algebra $\ell_\infty(\Lambda)$. In this section 
-we shall show that for finite $\Lambda$ the 
+For an index set $\Lambda$ and $1\leq p\leq +\infty$, $\ell_p(\Lambda)$ denotes 
+the standard $\ell_p$-space. Its norm is denoted by $\Vert\cdot\Vert_p$, and 
+its natural basis is $(e_\lambda)_{\lambda\in\Lambda}$. 
+For $1\leq p<+\infty$, we often use the standard 
+identification $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, where $p^*=p/(p-1)$. 
+By convention, $1^*=+\infty$. The space $\ell_p(\Lambda)$ can function as both 
+left and right Banach module over the Banach algebra $\ell_\infty(\Lambda)$. 
+In this section, we demonstrate that for finite $\Lambda$, the 
 right $\ell_\infty(\Lambda)$-module $\ell_p(\Lambda)$ is metrically injective 
-only if $\Lambda$ has at most $1$ element.
+only if $\Lambda$ has at most one element.
 
 \begin{definition}\label{StdEmbd} 
-    Let $\Lambda$ be a set, $1<p<+\infty$ 
-    and $\mathcal{F}\subset\ell_{p^*}(\Lambda)$, then we define a linear 
-    operator
+    Let $\Lambda$ be a set, $1<p<+\infty$, 
+    and $\mathcal{F}\subset\ell_{p^*}(\Lambda)$. We define a linear operator
     \[
         \xi_{\mathcal{F}}: 
         \ell_p(\Lambda)\to\bigoplus_\infty\{\ell_1(\Lambda):f\in\mathcal{F}\},\,
@@ -182,10 +181,9 @@ only if $\Lambda$ has at most $1$ element.
 \end{definition}
 
 \begin{definition}\label{StdEmbdCoercv}
-    Let $\Lambda$ be a set, $1<p<+\infty$ 
-    and $\mathcal{F}\subset \ell_{p^*}(\Lambda)$, 
-    then we define the coercivity constant for the operator $\xi_{\mathcal{F}}$ 
-    as
+    Let $\Lambda$ be a set, $1<p<+\infty$, 
+    and $\mathcal{F}\subset \ell_{p^*}(\Lambda)$. We define the coercivity 
+    constant for the operator $\xi_{\mathcal{F}}$ as
     \[
         \gamma_{\mathcal{F}}=\sup\{
             \Vert x\Vert_p: 
@@ -194,19 +192,19 @@ only if $\Lambda$ has at most $1$ element.
     \]
 \end{definition}
 
-Note that $\xi_{\mathcal{F}}$ is $\gamma_{\mathcal{F}}$-topologically injective
+Note that $\xi_{\mathcal{F}}$ is $\gamma_{\mathcal{F}}$-topologically injective 
 whenever $\gamma_{\mathcal{F}}$ is finite.
 
 \begin{proposition}\label{LinfnMorphlpntolqnCharac}
-    Let $\Lambda$ be a set, $1\leq p,q\leq +\infty$ 
-    and $\phi:\ell_p(\Lambda)\to \ell_{q}(\Lambda)$ is 
+    Let $\Lambda$ be a set, $1\leq p,q\leq +\infty$, 
+    and $\phi:\ell_p(\Lambda)\to \ell_{q}(\Lambda)$ be 
     an $\ell_\infty(\Lambda)$-morphism of right modules. Then there exists a 
-    vector $\eta\in\ell_\infty(\Lambda)$ such 
-    that $\phi(x)=\eta\cdot x$ for all $x\in \ell_p(\Lambda)$.
+    vector $\eta\in\ell_\infty(\Lambda)$ such that $\phi(x)=\eta\cdot x$ 
+    for all $x\in \ell_p(\Lambda)$.
 \end{proposition}
 \begin{proof}
-    Denote $\eta_\lambda=\phi(e_\lambda)_\lambda$ for $\lambda\in\Lambda$, then 
-    for any $x\in\ell_p(\Lambda)$ and $\lambda\in\Lambda$ we have
+    Denote $\eta_\lambda=\phi(e_\lambda)_\lambda$ for $\lambda\in\Lambda$. 
+    For any $x\in\ell_p(\Lambda)$ and $\lambda\in\Lambda$, we have
     \[
         \phi(x)_\lambda
         =(\phi(x)\cdot e_\lambda)_\lambda
@@ -216,8 +214,9 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
         =x_\lambda\eta_\lambda
         =(\eta\cdot x)_\lambda.
     \]
-    Therefore, $\phi(x)=\eta\cdot x$. By construction 
-    $\Vert\eta\Vert_\infty\leq\Vert\phi\Vert$, so $\eta\in\ell_\infty(\Lambda)$.
+    Therefore, $\phi(x)=\eta\cdot x$. By 
+    construction $\Vert\eta\Vert_\infty\leq\Vert\phi\Vert$, 
+    so $\eta\in\ell_\infty(\Lambda)$.
 \end{proof}
 
 \begin{proposition}\label{ExtMorphSuml1ntlpnCharac}
@@ -284,10 +283,10 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     to $\xi_{\mathcal{F}}$ iff $\eta\in\mathcal{N}_{\mathcal{F}}$.
 \end{proposition}
 \begin{proof} 
-    Suppose $\psi_{\eta}$ is a left inverse of $\xi_{\mathcal{F}}$, then
+    Suppose $\psi_{\eta}$ is a left inverse to $\xi_{\mathcal{F}}$, then
     for any $\lambda\in\Lambda$ we have
     \[
-        1=e_\lambda
+        e_\lambda
         =\psi_{\eta}(\xi_{\mathcal{F}}(e_\lambda))
         =\psi_{\eta}\left(\bigoplus_\infty\{
             e_\lambda\cdot f: f\in\mathcal{F}
@@ -311,9 +310,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
         &=\psi_{\eta}\left(\bigoplus_\infty\{x\cdot f:f\in\mathcal{F}\}\right) 
         =\sum_{f\in\mathcal{F}}\eta_f\cdot x\cdot f 
         =\sum_{f\in\mathcal{F}}\sum_{\lambda\in\Lambda} 
-            (\eta_f\cdot x\cdot f)_\lambda e_\lambda 
-        =\sum_{f\in\mathcal{F}}\sum_{\lambda\in\Lambda} 
-            \eta_{f,\lambda} x_\lambda f_\lambda e_\lambda \\
+            (\eta_f\cdot x\cdot f)_\lambda e_\lambda \\
         &=\sum_{\lambda\in\Lambda} 
             \left(\sum_{f\in\mathcal{F}}\eta_{f,\lambda}f_\lambda\right) 
             x_\lambda e_\lambda 
@@ -325,7 +322,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
 \end{proof}
 
 \begin{proposition}\label{ExtMorphNorm}
-    Let $\Lambda$ be a finite set, $1<p<+\infty$ 
+    Let $\Lambda$ be a finite set, $1<p<+\infty$, 
     and $\mathcal{F}\subset\ell_{p^*}(\Lambda)$ be a finite set. 
     Suppose $\eta\in\ell_\infty(\Lambda)^\mathcal{F}$, then 
     \[
@@ -342,7 +339,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     \]
 \end{proposition}
 \begin{proof}
-    By definition of operator norm
+    By definition of operator norm,
     \[
     \begin{aligned}
         \Vert\psi_{\eta}\Vert
@@ -364,13 +361,13 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
             \right)^{1/p}:
             \sum_{\lambda\in\Lambda} |t_{f,\lambda}|\leq 1,\,\, 
             t_{f,\lambda}\in\mathbb{C},\,\, f\in\mathcal{F}, \lambda\in\Lambda
-        \right\}. \\
+        \right\}.
     \end{aligned}
     \]
     For each $\lambda\in\Lambda$ and $f\in\mathcal{F}$ we 
     denote $r_{f,\lambda}=|t_{f,\lambda}|$ 
     and $\alpha_{f,\lambda}=\operatorname{arg}(t_{f,\lambda})$. 
-    Then $t_{f,\lambda}=r_{f,\lambda} e^{i \alpha_{f,\lambda}}$. So
+    Then $t_{f,\lambda}=r_{f,\lambda} e^{i \alpha_{f,\lambda}}$. So,
     \[
     \begin{aligned}
         \Vert \psi_{\eta}\Vert
@@ -385,7 +382,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
             r_{f,\lambda}\in\mathbb{R}_+,\,\, 
             \alpha_{f,\lambda}\in\mathbb{R},\,\, 
             f\in\mathcal{F},\, \lambda\in\Lambda
-        \right\}. \\
+        \right\}.
     \end{aligned}
     \]
     For any $\lambda\in\Lambda$ the maximum of the expression 
@@ -397,7 +394,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     \]
     is attained 
     if $\alpha_{f,\lambda}=\operatorname{arg}(\eta_{f,\lambda})$ for 
-    all $f\in\mathcal{F}$ and $\lambda\in\Lambda$. In this case
+    all $f\in\mathcal{F}$ and $\lambda\in\Lambda$. In this case,
     \[
     \begin{aligned}
         \Vert \psi_{\eta}\Vert
@@ -410,23 +407,23 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
             \sum_{\lambda\in\Lambda} r_{f,\lambda}\leq 1,\,\, 
             r_{f,\lambda}\in\mathbb{R}_+,\,\, 
             f\in\mathcal{F},\, \lambda\in\Lambda
-        \right\}. \\
+        \right\}.
     \end{aligned}
     \]
     Consider linear operators
     \[
         \tau_f:\mathbb{R}^\Lambda\to\ell_p(\Lambda): r\mapsto \eta_f\cdot r
     \]
-    for $f\in\mathcal{F}$. Then 
+    for $f\in\mathcal{F}$. Then,
     \[
     \begin{aligned}
         \Vert\psi_{\eta}\Vert
         &=\sup\left\{
-            \left \Vert\sum_{f\in\mathcal{F}}^m\tau_f(r_f)\right \Vert_p:
+            \left \Vert\sum_{f\in\mathcal{F}}\tau_f(r_f)\right \Vert_p:
             \sum_{\lambda\in\Lambda} r_{f,\lambda}\leq 1,\,\, 
             r_{f,\lambda}\in\mathbb{R}_+,\,\, 
             f\in\mathcal{F},\, \lambda\in\Lambda
-        \right\}. \\
+        \right\}.
     \end{aligned}
     \]
     Since linear operators $(\tau_f)_{f\in\mathcal{F}}$ attain their values 
@@ -445,7 +442,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
         \right\}
     \]
     is a convex polytope in a finite-dimensional space, then $F$ attains its 
-    maximum on $\operatorname{ext}(C)$ --- the set of extreme points of $C$. So
+    maximum on $\operatorname{ext}(C)$ --- the set of extreme points of $C$. So,
     \[
         \Vert\psi_\eta\Vert=\max\{F(r) : r\in \operatorname{ext}(C)\},
     \]
@@ -464,14 +461,14 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
                 \right|^p
             \right)^{1/p}:
             d\in\Lambda^\mathcal{F}
-        \right\}. \\
+        \right\}.
     \end{aligned}
     \]
 \end{proof}
 
 \begin{definition}\label{ExtMorphsNormInf}
-    Let $\Lambda$ be a set, $1<p<+\infty$ 
-    and $\mathcal{F}\subset\ell_{p^*}(\Lambda)$ is a finite set, then we define
+    Let $\Lambda$ be a set, $1<p<+\infty$, 
+    and $\mathcal{F}\subset\ell_{p^*}(\Lambda)$ be a finite set. Then we define
     \[
         \nu_{\mathcal{F}}=\inf\{
             \Vert\psi_{\eta}\Vert : \eta\in\mathcal{N}_{\mathcal{F}}
@@ -480,8 +477,9 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
 \end{definition}
 
 \begin{definition}\label{SpclFuncFam}
-    Let $\Lambda$ be a finite set and $\kappa\in\mathbb{R}$, then we set
-    $f_\lambda=e_\lambda$ and $f_*=\kappa\sum_{\lambda\in\Lambda} e_\lambda$. 
+    Let $\Lambda$ be a finite set and $\kappa\in\mathbb{R}$. We set
+    $f_\lambda=e_\lambda$ 
+    and $f_{\star}=\kappa\sum_{\lambda\in\Lambda} e_\lambda$. 
     Now we define
     \[
         \mathcal{F}_{\kappa}(\Lambda)
@@ -493,7 +491,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
 \end{definition}
 
 \begin{proposition}\label{StdEmbdSpclCoerciv}
-    Assume $\Lambda$ is a finite set with $n>1$ elements, $1<p<+\infty$ 
+    Assume $\Lambda$ is a finite set with $n>1$ elements, $1<p<+\infty$, 
     and $n^{-1}<\kappa<(n-1)^{-1}$. Then
     \[
         \gamma_{\mathcal{F}_{\kappa}(\Lambda)}
@@ -501,7 +499,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     \]
 \end{proposition}
 \begin{proof}
-    By definition of coercivity constant
+    By the definition of coercivity constant,
     \[
     \begin{aligned}
         \gamma_{\mathcal{F}_{\kappa}(\Lambda)}
@@ -526,13 +524,13 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
         \right\}. \\
     \end{aligned}
     \]
-    Consider function
+    Consider the function
     \[
         F:
         \mathbb{R}^\Lambda\to\mathbb{R},\, 
         t\mapsto \left(\sum_{\lambda\in\Lambda}|t_\lambda|^p\right)^{1/p}
     \]
-    and a convex polytope
+    and the convex polytope
     \[
         C=\left\{ 
             t\in\mathbb{R}^\Lambda : 
@@ -558,15 +556,15 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
             \forall \lambda\in\Lambda\setminus\{\lambda'\}\quad |t_\lambda|=1
         \right\}.
     \]
-    As a consequence
+    As a consequence,
     \[
         \gamma_{\mathcal{F}_{\kappa}(\Lambda)}=(n-1+(\kappa^{-1}-(n-1))^p)^{1/p}.
     \]
 \end{proof}
 
 \begin{proposition}\label{ExtMorphsNormLwrBnd}
-    Assume $\Lambda$ is a finite set with $n>1$ elements, $1<p<+\infty$ 
-    and $n^{-1}<\kappa<(n-1)^{-1}$, then
+    Assume $\Lambda$ is a finite set with $n > 1$ elements, $1 < p < +\infty$, 
+    and $n^{-1} < \kappa < (n-1)^{-1}$. Then
     \[
         \nu_{\mathcal{F}_{\kappa}(\Lambda)}
         \geq 
@@ -584,22 +582,22 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     \[
         \mathcal{N}_{\mathcal{F}_{\kappa}(\Lambda)}=\{
             \eta\in\ell_\infty(\Lambda)^{\mathcal{F}_{\kappa}(\Lambda)}:
-            \eta_{f_\lambda,\lambda}+\kappa \eta_{f_*, \lambda}=1,\, 
+            \eta_{f_\lambda,\lambda}+\kappa \eta_{f_\star, \lambda}=1,\, 
             \lambda\in\Lambda
         \}.
     \]
-    For each $\lambda\in\Lambda$ consider function
+    For each $\lambda\in\Lambda$ consider the function
     \[
         d_\lambda:\mathcal{F}_\kappa(\Lambda)\to\Lambda,\,
         f_i\mapsto
         \begin{cases}
-            i\quad &\mbox{ if }i\neq \star,\\
-            \lambda\quad &\mbox{ if }i=\star.
+            i\quad &\text{if } i\neq \star,\\
+            \lambda\quad &\text{if } i=\star.
         \end{cases}
     \]
-    Then from proposition \ref{ExtMorphNorm} for 
-    any $\eta\in\ell_\infty(\Lambda)^{\mathcal{F}_{\kappa}(\Lambda)}$ we would 
-    get
+    Then from proposition \ref{ExtMorphNorm}, for 
+    any $\eta\in\ell_\infty(\Lambda)^{\mathcal{F}_{\kappa}(\Lambda)}$ we 
+    would get
     \[
     \begin{aligned}
         \Vert\psi_{\eta}\Vert
@@ -635,7 +633,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
                     |\eta_{f_\lambda,\lambda}|^p+
                     (
                         |\eta_{f_{\lambda'},\lambda'}|+
-                        |\kappa^{-1}(1-\eta_{f_{\lambda'},\lambda'})|
+                        \kappa^{-1}|1-|\eta_{f_{\lambda'},\lambda'}||
                     )^p
             \right)^{1/p}:
             \lambda'\in\Lambda
@@ -659,12 +657,12 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
         \alpha_i&:\mathbb{R}^n\to\mathbb{R},\,
         t\mapsto \left(
             \sum_{k=1,k\neq i}^n |t_k|^p+(|t_i|+\kappa^{-1}|1-|t_i||)^p
-        \right)^{1/p} \quad\mbox{ for }\quad i\in\mathbb{N}_n \\
+        \right)^{1/p} \quad\text{for }\quad i\in\mathbb{N}_n \\
         \alpha&:\mathbb{R}^n\to\mathbb{R},\,
         t\mapsto\max\{\alpha_i(t):i\in\mathbb{N}_n\}.
     \end{aligned}
     \]
-    Then for any enumeration $\Lambda=\{\lambda_1,\ldots,\lambda_n\}$ we get
+    Then for any enumeration $\Lambda=\{\lambda_1,\ldots,\lambda_n\}$, we get
     \[
         \nu_{\mathcal{F}_{\kappa}(\Lambda)}
         \geq\inf\{
@@ -684,26 +682,25 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     Consider functions
     \[
     \begin{aligned}
-        F&:\mathbb{R}_+\to\mathbb{R},\, 
-            t\mapsto t \\
-        G&:\mathbb{R}_+\to\mathbb{R},\, 
-            t\mapsto t+\kappa^{-1}|1-t| \\
-        H&:\mathbb{R}^n\to\mathbb{R},\, t\mapsto 
-            \left(\sum_{k=1}^n|t_k|^p\right)^{1/p} \\
+        F_1&:\mathbb{R}_+\to\mathbb{R},\, 
+            t\mapsto t, \\
+        F_2&:\mathbb{R}_+\to\mathbb{R},\, 
+            t\mapsto t+\kappa^{-1}|1-t|, \\
+        F_3&:\mathbb{R}^n\to\mathbb{R},\, t\mapsto 
+            \left(\sum_{k=1}^n|t_k|^p\right)^{1/p}. \\
     \end{aligned}
     \]
     Clearly, for each $i\in\mathbb{N}_n$ the function $\alpha_i$ is a 
-    composition of $F$, $G$ and $H$. Since $F$ and $G$ are convex 
-    and $H$ is strictly convex, then all 
+    composition of $F_1$, $F_2$, and $F_3$. Since $F_1$ and $F_2$ are convex 
+    and $F_3$ is strictly convex, then all 
     functions $(\alpha_i)_{i\in\mathbb{N}_n}$ are strictly convex 
     on $\mathbb{R}_+^n$. Hence, so is their maximum $\alpha$. Note 
-    that $\alpha$ is continuous, strictly convex 
-    and $\lim_{\Vert t\Vert\to+\infty}\alpha(t)=+\infty$. 
-    Therefore, $\alpha$ has a unique global minimum at some 
-    point $t_0\in\mathbb{R}_+^n$. Observe, that $\alpha$ is invariant under 
-    permutation of its arguments. Then from the uniqueness of the global minimum 
-    at $t_0$ we can conclude that all coordinates of $t_0$ are equal. 
-    As a corollary
+    that $\alpha$ is continuous, strictly convex, 
+    and $\lim_{\Vert t\Vert\to+\infty}\alpha(t)=+\infty$. Therefore, $\alpha$ 
+    has a unique global minimum at some point $t_0\in\mathbb{R}_+^n$. Observe 
+    that $\alpha$ is invariant under permutation of its arguments. Then from 
+    the uniqueness of the global minimum at $t_0$, we can conclude that all 
+    coordinates of $t_0$ are equal. As a corollary
     \[
     \begin{aligned}
         \nu_{\mathcal{F}_{\kappa}(\Lambda)}
@@ -712,28 +709,28 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
         &=\inf\{((n-1)s^p+(s+\kappa^{-1}|1-s|)^p)^{1/p} : s\in\mathbb{R}_+\}.
     \end{aligned}
     \]
-    Consider function
+    Consider the function
     \[
         F:\mathbb{R}_+\to\mathbb{R},\,
-        s\mapsto ((n-1)s^p+(s+\kappa^{-1}|1-s|)^p)^{1/p}
+        s\mapsto ((n-1)s^p+(s+\kappa^{-1}|1-s|)^p)^{1/p}.
     \]
     We have 
     \[
         F(s)=
         \begin{cases}
             ((s+\kappa^{-1}(1-s))+(n-1)s^p)^{1/p}
-            \quad&\mbox{ if }\quad 0\leq s\leq 1, \\
+            \quad&\text{if }\quad 0\leq s\leq 1, \\
             \left(
                 (\kappa^{-1}+1)^p
                 \left(s-\frac{\kappa^{-1}}{\kappa^{-1}+1}\right)+
                 (n-1)s^p
             \right)^{1/p}
-            \quad&\mbox{ if }\quad s>1.
+            \quad&\text{if }\quad s>1.
         \end{cases}
     \]
-    Since $F$ is continuous and clearly increasing on $(1,+\infty)$, 
-    then $F$ attains its minimum on $[0, 1]$. Let us find stationary points 
-    of $F$ on $[0, 1]$. For $s\in[0,1]$ we have
+    Since $F$ is continuous and clearly increasing on $(1,+\infty)$, then $F$ 
+    attains its minimum on $[0, 1]$. Let us find stationary points 
+    of $F$ on $[0, 1]$. For $s\in[0,1]$, we have
     \[
         F'(s)=
         ((s+\kappa^{-1}(1-s))+(n-1)s^p)^{1/p-1}
@@ -777,30 +774,28 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
 \end{proof}
 
 \begin{proposition}\label{SpclLyapIneq}
-    Let $n\in\mathbb{N}$, $r>1$ and $x\in\mathbb{C}^n$. Then
+    Let $n\in\mathbb{N}$, $r>1$, and $x\in\mathbb{C}^n$. Then
     \[
         \Vert x\Vert_r\leq \Vert x\Vert_1^{1/r}\Vert x\Vert_\infty^{1-1/r}.
     \]
-    The equality holds iff $|x_1|=\ldots=|x_n|$.
+    The equality holds if and only if $|x_1|=\ldots=|x_n|$.
 \end{proposition}
 \begin{proof}
-    For any $r>1$ and any $x\in\mathbb{C}^n$ we have
+    For any $r>1$ and any $x\in\mathbb{C}^n$, we have
     \[
-    \begin{aligned}
         \Vert x\Vert
         =\left(\sum_{k=1}^n |x_k|^r \right)^{1/r}
         =\left(\sum_{k=1}^n |x_k| |x_k|^{r-1} \right)^{1/r}
         \leq\left(\sum_{k=1}^n |x_k| \right)^{1/r} 
         \left(\max\limits_{k\in\mathbb{N}_n}|x_k|^{r-1}\right)^{1/r}
         =\Vert x\Vert_1^{1/r}\Vert x\Vert_\infty^{1-1/r}.
-    \end{aligned}
     \]
-    Clearly, the equality holds iff $|x_k|=\max\limits_{k\in\mathbb{N}_n}|x_k|$
+    Clearly, the equality holds if and only if $|x_k|=\max\limits_{k\in\mathbb{N}_n}|x_k|$
     for all $k\in\mathbb{N}_n$.
 \end{proof}
 
 \begin{proposition}\label{CompStdEmbdCoercvAndExtMorphsNormInf}
-    Let $\Lambda$ be a finite set with $n>1$ elements, $1<p<+\infty$ 
+    Let $\Lambda$ be a finite set with $n>1$ elements, $1<p<+\infty$, 
     and $n^{-1}<\kappa<(n-1)^{-1}$. Then
     $
     \nu_{\mathcal{F}_{\kappa}(\Lambda)}
@@ -810,7 +805,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
 \end{proposition}
 \begin{proof}
     Using results of propositions \ref{StdEmbdSpclCoerciv} 
-    and \ref{ExtMorphsNormLwrBnd} it is enough to show that
+    and \ref{ExtMorphsNormLwrBnd}, it is enough to show that
     \[
         \kappa^{-1}
         \frac{
@@ -855,37 +850,37 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
             m+\left(\frac{m}{\rho-1}\right)^{p^*}
         \right)^{1/p^*}.
     \]
-    To prove this inequality we apply proposition \ref{SpclLyapIneq} to the 
+    To prove this inequality, we apply proposition \ref{SpclLyapIneq} to the 
     vector $x=(1,\ldots,1,\rho-m)^T\in\mathbb{C}^{m+1}$ with $r=p$ and to the 
     vector $x=(1,\ldots,1,\frac{m}{\rho-1})\in\mathbb{C}^{m+1}$ with $r=p^*$. 
     Since $m<\rho<m+1$, then the components of these vectors are not all equal,
     so the inequalities are strict:
     \[
     \begin{aligned}
-        &(m+(\rho-m)^p)^{1/p}
-        <
-        (m+(\rho-m))^{1/p} 1^{1-1/p}\\
-        &\left(m+\left(\frac{m}{\rho-1}\right)^{p^*}\right)^{1/p^*}
-        <
+        (m+(\rho-m)^p)^{1/p}
+        &<
+        (m+(\rho-m))^{1/p} 1^{1-1/p},\\
+        \left(m+\left(\frac{m}{\rho-1}\right)^{p^*}\right)^{1/p^*}
+        &<
         \left(m+\frac{m}{\rho-1}\right)^{1/p^*}
-        \left(\frac{m}{\rho-1}\right)^{1-1/p^*}.\\
+        \left(\frac{m}{\rho-1}\right)^{1-1/p^*}.
     \end{aligned}
     \]
-    By multiplying these inequalities we get the desired result.
+    By multiplying these inequalities, we get the desired result.
 \end{proof}
 
 \begin{proposition}\label{RetrPrblmNoSln}
-    Let $\Lambda$ be a finite set with $n>1$ elements, $1<p<+\infty$ 
+    Let $\Lambda$ be a finite set with $n>1$ elements, $1<p<+\infty$, 
     and $n^{-1}<\kappa<(n-1)^{-1}$. Then for any $\ell_\infty(\Lambda)$-morphism
-    $\psi$ which is a left inverse to $\xi_{\mathcal{F}_{\kappa}(\Lambda)}$ 
+    $\psi$ that is a left inverse to $\xi_{\mathcal{F}_{\kappa}(\Lambda)}$, 
     holds $\Vert \psi\Vert>\gamma_{\mathcal{F}_{\kappa}(\Lambda)}$.  
 \end{proposition}
 \begin{proof}
-    By proposition \ref{ExtMorphSuml1ntlpnCharac} there exists a family of 
+    By proposition \ref{ExtMorphSuml1ntlpnCharac}, there exists a family of 
     vectors $\eta\in\ell_\infty(\Lambda)^{\mathcal{F}_{\kappa}(\Lambda)}$ such 
-    that $\psi=\psi_{\eta}$. From the definition \ref{ExtMorphsNormInf} we 
-    have $\Vert \psi_{\eta}\Vert\geq \nu_{\mathcal{F}_{\kappa}(\Lambda)}$. Now 
-    from proposition \ref{CompStdEmbdCoercvAndExtMorphsNormInf} we get 
+    that $\psi=\psi_{\eta}$. From definition \ref{ExtMorphsNormInf}, we 
+    have $\Vert \psi_{\eta}\Vert\geq \nu_{\mathcal{F}_{\kappa}(\Lambda)}$. Now, 
+    from proposition \ref{CompStdEmbdCoercvAndExtMorphsNormInf}, we get 
     $
     \Vert\psi\Vert\geq\nu_{\mathcal{F}_{\kappa}(\Lambda)}
     >
@@ -894,28 +889,28 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
 \end{proof}
 
 \begin{proposition}\label{linftnModlpnIsntMetInjCharac}
-    Let $\Lambda$ be a finite set, then the right $\ell_\infty(\Lambda)$-module 
-    $\ell_p(\Lambda)$ is metrically injective iff $\Lambda$ has at most $1$ 
-    element.
+    Let $\Lambda$ be a finite set. Then the right $\ell_\infty(\Lambda)$-module 
+    $\ell_p(\Lambda)$ is metrically injective if and only if $\Lambda$ has at 
+    most $1$ element.
 \end{proposition}
 \begin{proof}
     Suppose that the right $\ell_\infty(\Lambda)$-module $\ell_p(\Lambda)$ is 
     metrically injective and $\Lambda$ has $n$ elements. Assume that $n>1$. 
     Pick any real number $\kappa\in(n^{-1},(n-1)^{-1})$. By 
-    proposition \ref{StdEmbdSpclCoerciv} we 
+    proposition \ref{StdEmbdSpclCoerciv}, we 
     have $\gamma_{\mathcal{F}_{\kappa}(\Lambda)}$ is finite, 
     therefore $\xi_{\mathcal{F}_{\kappa}(\Lambda)}$ 
     is $\gamma_{\mathcal{F}_{\kappa}(\Lambda)}$-topologically injective. 
-    From assumption, it follows that there exists 
+    From metric injectivity of $\ell_p(\Lambda)$, it follows that there exists 
     an $\ell_\infty(\Lambda)$-morphism $\psi$ which is a left inverse 
-    to $\xi_{\mathcal{F}_{\kappa}(\Lambda)}$ such 
+    to $\xi_{\mathcal{F}_{\kappa}(\Lambda)}$, such 
     that $\Vert\psi\Vert\leq \gamma_{\mathcal{F}_{\kappa}(\Lambda)}$. 
     This contradicts proposition \ref{linftnModlpnIsntMetInjCharac}, 
     therefore $n\leq 1$.
 
     Now assume that $\Lambda$ has at most 1 element. If $\Lambda$ is empty, then
-    $\ell_p(\Lambda)=\{0\}$. Zero module is always injective. If $\Lambda$ has 
-    one element, then $\ell_p(\Lambda)$ is isometrically isomorphic 
+    $\ell_p(\Lambda)=\{0\}$. The zero module is always injective. If $\Lambda$ 
+    has one element, then $\ell_p(\Lambda)$ is isometrically isomorphic 
     to $\ell_\infty(\Lambda)^*$ as an $\ell_\infty(\Lambda)$-module. The dual of
     the unital algebra is always metrically injective.
 \end{proof}
@@ -927,37 +922,38 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
 \section{Measure theory preliminaries}
 \label{MeasThPrelim}
 
-In this section we set the stage for the main theorem. Even though it is stated
-for Borel measures on locally compact spaces we shall prove propositions of this 
-section for general measure spaces. A comprehensive study of general measure 
-spaces can be found in~\cite{FremMeasTh2}. 
+In this section, we set the stage for the main theorem. Although it's stated 
+for Borel measures on locally compact spaces, we shall prove all propositions of 
+this section for general measure spaces. A comprehensive study of general 
+measure spaces can be found in~\cite{FremMeasTh2}.
 
-Let $\Omega$ be a set. By measure we mean a countably additive set function with
-values in $[0,+\infty]$ defined on a $\sigma$-algebra $\Sigma$ of measurable
-subsets of a set $\Omega$. A measurable set $E$ is called an atom if
-$\mu(A)>0$ and for every measurable subset $B\subset A$ holds either $\mu(B)=0$
-or $\mu(A\setminus B)=0$. A measure $\mu$ is called purely atomic if every
-measurable set of positive measure has an atom. A measure $\mu$ is semi-finite
-if for any measurable set $A$ of infinite measure there exists a measurable
-subset of $A$ with finite positive measure. A family $\mathcal{D}$ of measurable
-subsets of finite measure is called a decomposition of $\Omega$ if for any 
-measurable set $E$ $\mu(E)=\sum_{D\in\mathcal{D}}\mu(E\cap D)$ and a set $F$ 
-is measurable whenever $F\cap D$ is measurable for all $D\in\mathcal{D}$. 
-Finally, a measure $\mu$ is called decomposable if it is semi-finite and admits 
-a decomposition of $\Omega$. Most measures encountered in functional analysis 
-are decomposable. A pair $(\Omega,\mu)$ is called a measure space.
+Let $\Omega$ be a set. By measure, we mean a countably additive set function 
+with values in $[0,+\infty]$, defined on a $\sigma$-algebra $\Sigma$ of 
+measurable subsets of a set $\Omega$. A pair $(\Omega,\mu)$ is 
+called a measure space. A measurable set $E$ is called an atom 
+if $\mu(A)>0$ and for every measurable subset $B\subset A$, either $\mu(B)=0$ 
+or $\mu(A\setminus B)=0$. A measure $\mu$ is called purely atomic if every 
+measurable set of positive measure has an atom. A measure $\mu$ is semi-finite 
+if for any measurable set $A$ of infinite measure, there exists a measurable 
+subset of $A$ with finite positive measure. A family $\mathcal{D}$ of 
+measurable subsets of finite measure is called a decomposition of $\Omega$ if 
+for any measurable set $E$ holds $\mu(E)=\sum_{D\in\mathcal{D}}\mu(E\cap D)$ 
+and a set $F$ is measurable whenever $F\cap D$ is measurable for 
+all $D\in\mathcal{D}$. Finally, a measure $\mu$ is called decomposable if it 
+is semi-finite and admits a decomposition of $\Omega$. Most measures 
+encountered in functional analysis are decomposable. 
 
 We shall define a few Banach spaces constructed from measure spaces. 
-Let $(\Omega,\mu)$ be a measure space. By $B(\Sigma)$ we denote the algebra of
-bounded measurable functions with the  $\sup$ norm. For $1\leq p\leq +\infty$ 
-by $L_p(\Omega,\mu)$ we denote the Banach space of equivalence
-classes of $p$-integrable (or essentially bounded if $p=+\infty$) functions on
-$\Omega$. Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
+Let $(\Omega,\mu)$ be a measure space. By $B(\Sigma)$, we denote the algebra of 
+bounded measurable functions with the $\sup$ norm. For $1\leq p\leq +\infty$, 
+by $L_p(\Omega,\mu)$, we denote the Banach space of equivalence classes of 
+$p$-integrable (or essentially bounded if $p=+\infty$) functions on $\Omega$. 
+Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
 
 \begin{definition}\label{GnrlzdMean}
     Let $(\Omega,\mu)$ be a measure space, $E$ be a measurable set of finite 
-    positive measure and $f:\Omega\to\mathbb{C}$ be a measurable function. 
-    For any real $r\neq 0$ we define a linear map
+    positive measure, and $f:\Omega\to\mathbb{C}$ be a measurable function. For 
+    any real $r\neq 0$, we define a linear map
     \[
         m_{E,r}(f)=\mu(E)^{\frac{1}{r}-1}\int_E f(\omega)d\mu(\omega).
     \]
@@ -966,26 +962,27 @@ $\Omega$. Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
 \begin{proposition}\label{GnrlzdMeanProp}
     Let $E$ be a finite measure subset of a measure space $(\Omega,\mu)$ 
     and $r\neq 0$. Then for any measurable 
-    functions $f:\Omega\to\mathbb{C}$, $g:\Omega\to\mathbb{C}$ holds
+    functions $f:\Omega\to\mathbb{C}$, $g:\Omega\to\mathbb{C}$, the following 
+    hold:
     \begin{enumerate}[label = (\roman*)]
         \item $m_{E,r}(\chi_E)=\mu(E)^{1/r}$;
         \item $m_{E,r}(f)=m_{E,r}(f\chi_E)$;
         \item If $E$ is an atom, then $f=m_{E,\infty}(f)$ almost 
         everywhere on $E$;
         \item If $E$ is an atom, 
-        then $m_{E,\infty}(f)m_{E,\infty}(g)=m_{E,\infty}(f\cdot g)$.
-        \item If $E$ is an atom and $s\neq 0$, 
+        then $m_{E,\infty}(f)m_{E,\infty}(g)=m_{E,\infty}(f\cdot g)$;
+        \item If $E$ is an atom and $r+s\neq 0$, 
         then $m_{E,r}(f)m_{E,s}(g)=m_{E,\frac{rs}{r+s}}(f\cdot g)$.
     \end{enumerate}
 \end{proposition}
 \begin{proof}
     Paragraphs $(i)$ and $(ii)$ are obvious.
 
-    $(iii)$ Without loss of generality we assume, that $f$ is real-valued. 
+    $(iii)$ Without loss of generality, we assume that $f$ is real-valued. 
     Denote $k=m_{E,\infty}(f)$. Clearly, $k$ is a mean value of $f$ on $E$. 
-    Consider set $A_+=\{\omega\in E: f(\omega)>k\}$. Since $A_+$ is a 
-    subset of an atom $E$ of finite measure, then either $\mu(A_+)=0$ 
-    or $\mu(A_+)=\mu(E)>0$. In the latter case we get 
+    Consider set $A_+=\{\omega\in E: f(\omega)>k\}$. Since $A_+$ is a subset of 
+    an atom $E$ of finite measure, either $\mu(A_+)=0$ or $\mu(A_+)=\mu(E)>0$. 
+    In the latter case, we get 
     \[
         \int_E f(\omega)d\mu(\omega)
         =\int_{A_+}f(\omega)d\mu(\omega)
@@ -994,17 +991,17 @@ $\Omega$. Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
         =\int_E f(\omega)d\mu(\omega).
     \]
     Contradiction, so $\mu(A_+)=0$. Similarly, one can show that the 
-    set $A_-=\{\omega\in E:f(\omega)<k\}$ also has measure zero. 
-    Thus, $f=k$ almost everywhere on $E$.
+    set $A_-=\{\omega\in E:f(\omega)<k\}$ also has measure zero. Thus, $f=k$ 
+    almost everywhere on $E$.
 
-    Paragraph $(v)$ immediately follows from $(iv)$, which in turn an easy 
+    Paragraph $(v)$ immediately follows from $(iv)$, which in turn is an easy 
     consequence of $(iii)$.
 \end{proof}
 
 \begin{proposition}\label{LpOnPurAtomMeasSpRepr}
     Let $(\Omega,\mu)$ be a purely atomic measure space. Let $\mathcal{A}$ be a 
     decomposition of $\Omega$ into atoms of finite measure. Then for 
-    any $1\leq p<+\infty$ the linear maps
+    any $1\leq p<+\infty$, the linear maps
     \[
     \begin{aligned}
         &I_p:
@@ -1012,18 +1009,18 @@ $\Omega$. Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
         [f]\mapsto\sum_{A\in\mathcal{A}} m_{A,p}(f) e_A, \\
         &J_p:
         \ell_p(\mathcal{A})\to L_p(\Omega,\mu),\,
-        \omega\mapsto\sum_{A\in\mathcal{A}} \omega_A m_{A,-p}(\chi_A) [\chi_A]\\
+        x\mapsto\sum_{A\in\mathcal{A}} x_A m_{A,-p}(\chi_A) [\chi_A]\\
     \end{aligned}
     \]
-    are isometric isomorphisms which are inverse to each other.
+    are isometric isomorphisms that are inverse to each other.
 \end{proposition}
 \begin{proof} 
-    Since $\mathcal{A}$ is a decomposition of $X$ into atoms, then
+    Since $\mathcal{A}$ is a decomposition of $\Omega$ into atoms, then
     \[
         [f]=\sum_{A\in\mathcal{A}} m_{A,\infty}(f)[\chi_A]
     \]
-    for any $f\in L_p(\Omega,\mu)$. Using proposition \ref{GnrlzdMeanProp} for 
-    each $f\in L_p(\Omega,\mu)$ and $A\in\mathcal{A}$ we get
+    for any $[f]\in L_p(\Omega,\mu)$. Using proposition \ref{GnrlzdMeanProp} for 
+    each $[f]\in L_p(\Omega,\mu)$ and $A\in\mathcal{A}$, we get
     \[
         \int_A |f(\omega)|^pd\mu(\omega)
         =\int_A\left|m_{A,\infty}(f)\right|^pd\mu(\omega)
@@ -1031,7 +1028,7 @@ $\Omega$. Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
         =\left|m_{A,p}(\chi_A) m_{A,\infty}(f)\right|^p
         =|m_{A,p}(f)|^p.
     \]
-    So for any $f\in L_p(\Omega,\mu)$ we have
+    So for any $[f]\in L_p(\Omega,\mu)$, we have
     \[
     \begin{aligned}
         \Vert I_p([f])\Vert
@@ -1043,14 +1040,14 @@ $\Omega$. Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
         =\Vert [f]\Vert.
     \end{aligned}
     \]
-    Again, using proposition \ref{GnrlzdMeanProp} for 
-    each $A\in\mathcal{A}$ we get
+    Again, using proposition \ref{GnrlzdMeanProp} for each $A\in\mathcal{A}$, 
+    we get
     \[
         |m_{A,-p}(\chi_A)|^p \int_{\Omega} |\chi_A(\omega)|^p d\mu(\omega)
         =(\mu(A)^{-1/p})^p\mu(A)
         =1.
     \]
-    So for any $x\in\ell_p(\mathcal{A})$ we have
+    So for any $x\in\ell_p(\mathcal{A})$, we have
     \[
     \begin{aligned}
         \Vert J_p(x)\Vert
@@ -1059,13 +1056,13 @@ $\Omega$. Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
                 \sum_{A\in\mathcal{A}}
                 |x_A|^p|m_{A,-p}(\chi_A)|^p|\chi_A(\omega)|^p 
             d\mu(\omega)
-        \right)^{1/p}
-        =\left(\sum_{A\in\mathcal{A}} |x_A|^p \right)^{1/p}
+        \right)^{1/p} 
+        =\left(\sum_{A\in\mathcal{A}} |x_A|^p \right)^{1/p} 
         =\Vert x\Vert.
     \end{aligned}
     \]
-    Thus, $I_p$ and $J_p$ are isometric maps. Obviously these maps are linear. 
-    Note that, any $x\in\ell_p(\mathcal{A})$ and $A\in\mathcal{A}$ holds
+    Thus, $I_p$ and $J_p$ are isometric maps. Obviously, these maps are linear. 
+    Note that for any $x\in\ell_p(\mathcal{A})$ and $A\in\mathcal{A}$ holds
     \[
         m_{A,p}(J_p(x))
         =m_{A,p}(J_p(x)\chi_A)
@@ -1073,23 +1070,23 @@ $\Omega$. Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
         =x_A m_{A,-p}(\chi_A)m_{A,p}(\chi_A)
         =x_A.
     \]
-    Hence, for any $x\in\ell_p(\mathcal{A})$ we have
+    Hence, for any $x\in\ell_p(\mathcal{A})$, we have
     \[
         I_p(J_p(x))
         =\sum_{A\in\mathcal{A}}m_{A,p}(J_p(x))e_A
         =\sum_{A\in\mathcal{A}}x_A e_A
         =x.
     \]
-    Note that for any $A\in\mathcal{A}$ holds
+    Note that for any $A\in\mathcal{A}$ hold
     \[
         J_p(e_A)
         =\sum_{A'\in\mathcal{A}} (e_A)_{A'}m_{A',-p}(\chi_{A'})[\chi_{A'}]
         =\sum_{A'\in\mathcal{A}} \delta_{A}^{A'}m_{A',-p}(\chi_{A'})[\chi_{A'}]
         =m_{A,-p}(\chi_{A})[\chi_{A}].
     \]
-    Therefore, for any $f\in L_p(\Omega,\mu)$ we have
+    Therefore, for any $[f]\in L_p(\Omega,\mu)$, we have
     \[
-        J_p(I_p(f))
+        J_p(I_p([f]))
         =\sum_{A\in\mathcal{A}}m_{A,p}(f)J_p(e_A)
         =\sum_{A\in\mathcal{A}}m_{A,p}(f)m_{A,-p}(\chi_A)[\chi_A]
         =\sum_{A\in\mathcal{A}}m_{A,\infty}(f)[\chi_A]
@@ -1099,19 +1096,18 @@ $\Omega$. Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
 \end{proof}
 
 \begin{proposition}\label{SwtchMorphBtwnAtomMeasSp}
-    Let $(\Omega,\mu)$ be a purely atomic measure space and $\mathcal{A}$ be 
-    a decomposition of $\Omega$ into atoms of finite measure. 
+    Let $(\Omega,\mu)$ be a purely atomic measure space and $\mathcal{A}$ be a 
+    decomposition of $\Omega$ into atoms of finite measure. 
     Suppose $1\leq p,q<+\infty$, then
     \begin{enumerate}[label = (\roman*)]
         \item If $\Phi:L_p(\Omega,\mu)\to L_q(\Omega,\mu)$ is 
-        a $B(\Sigma)$-morphism the map $I_q\circ \Phi\circ J_p$ is 
+        a $B(\Sigma)$-morphism, the map $I_q\circ \Phi\circ J_p$ is 
         an $\ell_\infty(\mathcal{A})$-morphism of the same norm;
 
         \item If $\phi:\ell_p(\mathcal{A})\to \ell_q(\mathcal{A})$ is 
-        an $\ell_\infty(\mathcal{A})$-morphism the
+        an $\ell_\infty(\mathcal{A})$-morphism, the 
         map $J_q\circ \phi\circ I_p$ is a $B(\Sigma)$-morphism of the same norm;
     \end{enumerate} 
-    
 \end{proposition}
 \begin{proof} 
     $(i)$ Denote $\phi=I_q\circ \Phi\circ J_p$, then by 
@@ -1122,7 +1118,7 @@ $\Omega$. Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
         =I_q(\Phi(m_{A,-p}(\chi_A)[\chi_A]))
         =m_{A,-p}(\chi_A)I_q(\Phi([\chi_A])).
     \]
-    Since $A$ is an atom, then  we get
+    Since $A$ is an atom, then we get
     \[
         \Phi([\chi_A])
         =\Phi([\chi_A]\cdot\chi_A)
@@ -1139,7 +1135,7 @@ $\Omega$. Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
         =m_{A,\infty}(\Phi([\chi_A]))e_A. \\
     \end{aligned}
     \]
-    Now for any $x\in\ell_p(\mathcal{A})$ and $a\in\ell_\infty(A)$ we have
+    Now for any $x\in\ell_p(\mathcal{A})$ and $a\in\ell_\infty(A)$, we have
     \[
     \begin{aligned}
         \phi(x\cdot a)
@@ -1149,9 +1145,9 @@ $\Omega$. Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
         =\phi(x)\cdot a. \\
     \end{aligned}
     \]
-    Therefore, $\phi$ is an $\ell_\infty(\mathcal{A})$-morphism. By 
-    proposition \ref{LpOnPurAtomMeasSpRepr} the maps $I_q$ and $J_p$ are 
-    isometric isomorphisms, hence $\phi$ and $\Phi$ have the same norm.
+    Therefore, $\phi$ is an $\ell_\infty(\mathcal{A})$-morphism. By proposition 
+    \ref{LpOnPurAtomMeasSpRepr}, the maps $I_q$ and $J_p$ are isometric 
+    isomorphisms; hence, $\phi$ and $\Phi$ have the same norm.
 
     $(ii)$ Denote $\Phi=J_q\circ \phi\circ I_p$, then by 
     proposition \ref{GnrlzdMeanProp} for any atom $A\in\mathcal{A}$ holds
@@ -1178,7 +1174,7 @@ $\Omega$. Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
         =\phi(e_A)_A [\chi_A]. \\
     \end{aligned}
     \]
-    Now for any $f\in L_p(\Omega, \mu)$ and $a\in B(\Sigma)$ we have
+    Now for any $[f]\in L_p(\Omega, \mu)$ and $a\in B(\Sigma)$, we have
     \[
     \begin{aligned}
         \Phi([f]\cdot a)
@@ -1198,27 +1194,27 @@ $\Omega$. Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
     \end{aligned}
     \]
     Therefore, $\Phi$ is a $B(\Sigma)$-morphism. By 
-    proposition \ref{LpOnPurAtomMeasSpRepr} the maps $J_q$ and $I_p$ are 
-    isometric isomorphisms, hence $\Phi$ and $\phi$ have the same norm.
+    proposition \ref{LpOnPurAtomMeasSpRepr}, the maps $J_q$ and $I_p$ are 
+    isometric isomorphisms; hence, $\Phi$ and $\phi$ have the same norm.
 \end{proof}
 
 \begin{proposition}\label{LpFinDimCharac}
     Let $(\Omega,\mu)$ be a decomposable measure space 
     and $1\leq p\leq+\infty$. If $L_p(\Omega,\mu)$ is finite-dimensional, 
-    then $(\Omega,\mu)$ is purely atomic with finitely many atoms of 
-    finite measure.
+    then $(\Omega,\mu)$ is purely atomic with finitely many atoms of finite 
+    measure.
 \end{proposition} 
 \begin{proof}
     Suppose $(\Omega,\mu)$ is not purely atomic, then there exists an atomless 
     measurable set $E\subset \Omega$. By~[\cite{FremMeasTh2}, proposition 215D] 
     we may assume that $E$ has a positive finite measure. 
-    By~[\cite{FremMeasTh2}, exercise 215X(e)] there is a countable 
-    family $(E_n)_{n\in\mathbb{N}}$ of disjoint sets of positive finite 
-    measures. In this case $(\chi_{E_n})_{n\in\mathbb{N}}$ is a countable 
-    linearly independent set in $L_p(\Omega,\mu)$, hence $L_p(\Omega,\mu)$ is 
-    infinite-dimensional. Contradiction, so $(\Omega,\mu)$ is purely atomic. 
-    Let $\mathcal{A}$ be a family of atoms whose union is $\Omega$. 
-    Since $\Omega$ is decomposable, then all these atoms have a finite measure. 
+    By~[\cite{FremMeasTh2}, exercise 215X(e)], there is a countable 
+    family $\mathcal{E}$ of disjoint sets of positive finite measure. In this 
+    case, $(\chi_{E})_{E\in\mathcal{E}}$ is a countable linearly independent 
+    set in $L_p(\Omega,\mu)$, hence $L_p(\Omega,\mu)$ is infinite-dimensional. 
+    Contradiction, so $(\Omega,\mu)$ is purely atomic. Let $\mathcal{A}$ be a 
+    family of atoms whose union is $\Omega$. Since $\Omega$ is decomposable, 
+    then all these atoms have a finite measure. 
     Therefore, $(\chi_{A})_{A\in\mathcal{A}}$ is a linearly independent set. 
     Since $L_p(\Omega,\mu)$ is finite-dimensional, then $\mathcal{A}$ is finite.
 \end{proof}
@@ -1233,10 +1229,10 @@ $\Omega$. Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
 \label{MetrProInjFltOfC0SModLp}
 
 Let $S$ be a locally compact Hausdorff space. By $\operatorname{Bor}(S)$ we 
-denote the $\sigma$-algebra generated by open subsets of $S$. In this section 
-we shall consider only decomposable Borel measures. Let $\mu$ be such measure 
-on $S$. We shall show that for $1<p<+\infty$ Banach $C_0(S)$-modules 
-$L_p(S,\mu)$ are almost never metrically projective, injective or flat. 
+denote the $\sigma$-algebra generated by open subsets of $S$. In this section, 
+we shall consider only decomposable Borel measures. Let $\mu$ be such a measure 
+on $S$. We shall show that for $1<p<+\infty$, Banach $C_0(S)$-modules 
+$L_p(S,\mu)$ are almost never metrically projective, injective, or flat. 
 
 \begin{proposition}\label{C0SMorphBtwnReflxSpIsBMorph}
     Let $S$ be a locally compact Hausdorff space and $\mu$ be a decomposable 
@@ -1252,14 +1248,14 @@ $L_p(S,\mu)$ are almost never metrically projective, injective or flat.
     of $C_0(S)^{**}$ [\cite{DalBanAlgAutCont}, proposition 4.2.30], 
     therefore we can endow $Z$ with the structure 
     of $B(\operatorname{Bor}(S))$-module via 
-    formula $z\cdot b=\iota_Z^{-1}(\iota_Z(z)\cdot b)$ for $z\in Z$ 
+    the formula $z\cdot b=\iota_Z^{-1}(\iota_Z(z)\cdot b)$ for $z\in Z$ 
     and $b\in B(\operatorname{Bor}(S))$.
     
     Let $\phi:X\to Y$ be a morphism of right reflexive $C_0(S)$-modules. 
     Then $\phi^{**}$ is a $C_0(S)^{**}$-morphism
     [\cite{DalBanAlgAutCont}, proposition A.3.53]. As we have noted above, $X$
-    and $Y$ are $B(\operatorname{Bor}(S))$-modules 
-    and $\iota_X$, $\iota_Y$ --- are isometric isomorphisms. 
+    and $Y$ are $B(\operatorname{Bor}(S))$-modules, 
+    and $\iota_X$, $\iota_Y$ are isometric isomorphisms. 
     Since $\phi=\iota_Y^{-1}\circ \phi^{**}\circ \iota_X$, then $\phi$ is 
     a $B(\operatorname{Bor}(S))$-morphism.
 \end{proof}
@@ -1274,7 +1270,7 @@ $L_p(S,\mu)$ are almost never metrically projective, injective or flat.
     Let $\mathcal{A}$ be a decomposition of $S$ into $n$ atoms of finite 
     measure. Suppose $n>1$, then pick any $\kappa\in(n^{-1}, (n-1)^{-1})$. 
     Now we set $\mathcal{F}=\mathcal{F}_{\kappa}(\mathcal{A})$. For 
-    each $f\in \mathcal{F}$ we define an $\ell_\infty(\mathcal{A})$-morphism 
+    each $f\in \mathcal{F}$, we define an $\ell_\infty(\mathcal{A})$-morphism 
     \[
         m_f:
         \ell_p(\mathcal{A})\to\ell_1(\mathcal{A}),\,
@@ -1290,22 +1286,22 @@ $L_p(S,\mu)$ are almost never metrically projective, injective or flat.
             \ell_1(\mathcal{A}):f'\in\mathcal{F}
         \}\to\ell_1(\mathcal{A}),
     \]
-    which are $B(\operatorname{Bor}(S))$-morphism 
-    and $\ell_\infty(A)$-morphism respectively. 
+    which are $B(\operatorname{Bor}(S))$-morphisms 
+    and $\ell_\infty(A)$-morphisms respectively. 
     Now consider $B(\operatorname{Bor}(S))$-morphisms 
     \[
         I_p^\infty=\bigoplus_\infty\{I_p:f\in\mathcal{F}\},
         \qquad
         J_p^\infty=\bigoplus_\infty\{J_p:f\in\mathcal{F}\}.
     \]
-    These are isometric isomorphisms and one can easily check that 
+    These are isometric isomorphisms, and one can easily check that 
     \[
         I_p^\infty \circ \operatorname{in}_f=\operatorname{in}_f\circ I_p,
         \qquad 
         \operatorname{pr}_f\circ I_p^\infty=I_p\circ \operatorname{pr}_f.
     \]
 
-    By proposition \ref{SwtchMorphBtwnAtomMeasSp} the 
+    By proposition \ref{SwtchMorphBtwnAtomMeasSp}, the 
     map $\Xi_f=J_1\circ m_f\circ I_p$ is 
     a $B(\operatorname{Bor}(S))$-morphism. Hence, the map 
     \[
@@ -1325,12 +1321,12 @@ $L_p(S,\mu)$ are almost never metrically projective, injective or flat.
         =\xi_{\mathcal{F}}.
     \end{aligned}
     \]
-    By proposition \ref{StdEmbdSpclCoerciv} the coercivity 
+    By proposition \ref{StdEmbdSpclCoerciv}, the coercivity 
     constant $\gamma_{\mathcal{F}}$ is finite and positive, 
     so $\xi_{\mathcal{F}}$ is $\gamma_{\mathcal{F}}$-topologically injective.
-    As $I_1$ and $J_p$ are isometric isomorphisms the map $\Xi_{\mathcal{F}}$ is
+    As $I_1$ and $J_p$ are isometric isomorphisms, the map $\Xi_{\mathcal{F}}$ is
     also $\gamma_{\mathcal{F}}$-topologically injective. By assumption, 
-    the $C_0(S)$-module $L_p(S,\mu)$ is metrically injective, hence there 
+    the $C_0(S)$-module $L_p(S,\mu)$ is metrically injective. Hence, there 
     exists a $C_0(S)$-morphism 
     \[
         \Psi:
@@ -1339,11 +1335,11 @@ $L_p(S,\mu)$ are almost never metrically projective, injective or flat.
     such that $\Psi\circ \Xi_{\mathcal{F}}=1_{L_p(S,\mu)}$ 
     and $\Vert \Psi\Vert\leq \gamma_{\mathcal{F}}$.
 
-    Again, for each $f\in\mathcal{F}$ we define 
+    Again, for each $f\in\mathcal{F}$, we define 
     a $C_0(S)$-morphism $\Psi_f=\Psi\circ \operatorname{in}_f$. 
     Since $\mathcal{A}$ is finite, then $L_p(S,\mu)$ and $L_1(S,\mu)$ are
     finite-dimensional and therefore reflexive. Hence, by 
-    proposition \ref{C0SMorphBtwnReflxSpIsBMorph} for any $f\in\mathcal{F}$ the
+    proposition \ref{C0SMorphBtwnReflxSpIsBMorph}, for any $f\in\mathcal{F}$, the
     map $\Psi_f$ is a $B(\operatorname{Bor}(S))$-morphism. Note that
     \[
         \Psi=\sum_{f\in\mathcal{F}} \Psi_f\circ\operatorname{pr}_f.
@@ -1362,11 +1358,11 @@ $L_p(S,\mu)$ are almost never metrically projective, injective or flat.
             I_p\circ\Psi_f\circ J_1\circ\operatorname{pr}_f.
     \end{aligned} 
     \]
-    By proposition \ref{SwtchMorphBtwnAtomMeasSp} for each $f\in \mathcal{F}$ 
+    By proposition \ref{SwtchMorphBtwnAtomMeasSp}, for each $f\in \mathcal{F}$, 
     the map $I_p\circ \Psi_f\circ J_1$ is 
     an $\ell_\infty(\mathcal{A})$-morphism. Therefore, $\psi$ is 
     an $\ell_\infty(\mathcal{A})$-morphism too. As $I_p$ and $J_1^{\infty}$ are
-    isometric isomorphisms we have $\Vert\psi\Vert=\Vert\Psi\Vert$. Moreover,
+    isometric isomorphisms, we have $\Vert\psi\Vert=\Vert\Psi\Vert$. Moreover,
     \[
     \begin{aligned}
         \psi\circ\xi_\mathcal{F}
@@ -1379,64 +1375,68 @@ $L_p(S,\mu)$ are almost never metrically projective, injective or flat.
     \]
     Thus, we have constructed an $\ell_\infty(\mathcal{A})$-morphism $\psi$
     such that $\psi\circ\xi_{\mathcal{F}}=1_{\ell_p(\mathcal{A})}$ 
-    and $\Vert \psi\Vert\leq\gamma_{\mathcal{F}}$. Since we assumed that $n>1$
-    we arrive at contradiction with proposition \ref{RetrPrblmNoSln}. 
-    Hence, $n\leq 1$, i.e. $\mathcal{A}$ has at most one atom.
+    and $\Vert \psi\Vert\leq\gamma_{\mathcal{F}}$. Since we assumed that $n>1$,
+    we arrive at a contradiction with proposition \ref{RetrPrblmNoSln}. 
+    Hence, $n\leq 1$, i.e., $\mathcal{A}$ has at most one atom.
 \end{proof}
 
 \begin{proposition}\label{MetInjC0SModLpSmuCharac}
-    Let $S$ be a locally compact Hausdorff space and $\mu$ be a decomposable 
-    Borel measure on $S$. Suppose $1<p<+\infty$ and 
+    Let $S$ be a locally compact Hausdorff space, and $\mu$ be a decomposable 
+    Borel measure on $S$. Suppose $1 < p < +\infty$, and 
     the $C_0(S)$-module $L_p(S,\mu)$ is metrically injective, 
-    then $\mu$ has at most $1$ atom.
+    then $\mu$ has at most one atom.
 \end{proposition}
 \begin{proof} 
-    Let $K$ be the Alexandroff's compactification of $S$, then $C_0(S)$ is 
-    complemented in $C(K)$. By [\cite{DefFloTensNorOpId}, lemma 4.4] the space
-    $C(K)$ is an $\mathscr{L}_\infty^g$-space, hence so is $C_0(S)$ as its 
-    complemented subspace. [\cite{DefFloTensNorOpId}, corollary 23.1.2(1)]. 
-    Since $L_p(S,\mu)$ is reflexive [\cite{FremMeasTh2}, theorem 244K], then
-    by [\cite{NemGeomProjInjFlatBanMod}, corollary 3.14] this $C_0(S)$-module 
-    must be finite-dimensional. Now from proposition \ref{LpFinDimCharac} we 
-    get that $\mu$ is purely atomic with finitely many atoms of finite measure.
-    Finally, from proposition \ref{MetInjC0SModLpSmuOnFinAtmMeasSpCharac} we 
-    conclude that $\mu$ has at most one atom.
+    Let $K$ be the Alexandroff compactification of $S$. 
+    Then $C_0(S)$ is complemented in $C(K)$. 
+    By [\cite{DefFloTensNorOpId}, lemma 4.4], the space $C(K)$ is 
+    an $\mathscr{L}_\infty^g$-space, and so is $C_0(S)$ as its complemented 
+    subspace [\cite{DefFloTensNorOpId}, corollary 23.1.2(1)]. 
+    Thus, $L_p(S,\mu)$ is a reflexive [\cite{FremMeasTh2}, theorem 244K] 
+    metrically injective module over the algebra $C_0(S)$, which is 
+    an $\mathscr{L}_\infty^g$-space. 
+    By [\cite{NemGeomProjInjFlatBanMod}, corollary 3.14], this module must be 
+    finite-dimensional. From proposition \ref{LpFinDimCharac}, we 
+    deduce that $\mu$ is purely atomic with finitely many atoms of finite 
+    measure. Finally, proposition \ref{MetInjC0SModLpSmuOnFinAtmMeasSpCharac} 
+    concludes that $\mu$ has at most one atom.
 \end{proof}
 
 \begin{theorem}\label{MetInjPlotjFlatC0SModLpSmuCharac}
-    Let $S$ be a locally compact Hausdorff space, $\mu$ be a decomposable 
-    Borel measure on $S$. Suppose $1<p<+\infty$ and 
-    the $C_0(S)$-module $L_p(S,\mu)$ is metrically projective, injective or 
-    flat then $\mu$ has at most $1$ atom.
+    Let $S$ be a locally compact Hausdorff space, and $\mu$ be a decomposable 
+    Borel measure on $S$. Suppose $1 < p < +\infty$, and 
+    the $C_0(S)$-module $L_p(S,\mu)$ is metrically projective, injective, or 
+    flat. Then $\mu$ has at most one atom.
 \end{theorem}
 \begin{proof} 
-    If $L_p(S,\mu)$ is a metrically injective $C_0(S)$-module, then the 
-    result follows from proposition \ref{MetInjC0SModLpSmuOnFinAtmMeasSpCharac}. 
+    If $L_p(S,\mu)$ is a metrically injective $C_0(S)$-module, the result 
+    follows from proposition \ref{MetInjC0SModLpSmuOnFinAtmMeasSpCharac}. 
     
-    Suppose $L_p(S,\mu)$ is a metrically flat $C_0(S)$-module. Then by 
-    [\cite{NemGeomProjInjFlatBanMod}, proposition 2.21] the 
-    dual $C_0(S)$-module $L_p(S,\mu)^*$ is metrically injective. 
-    It remains to note that $C_0(S)$-modules $L_p(S,\mu)^*$ and $L_{p^*}(S,\mu)$ 
-    are isometrically isomorphic and that $1<p^*<+\infty$ for $1<p<+\infty$. 
-    Now the result follows from the previous paragraph.
+    Suppose $L_p(S,\mu)$ is a metrically flat $C_0(S)$-module. Then 
+    by [\cite{NemGeomProjInjFlatBanMod}, proposition 2.21], the 
+    dual $C_0(S)$-module $L_p(S,\mu)^*$ is metrically injective. Note 
+    that $C_0(S)$-modules $L_p(S,\mu)^*$ and $L_{p^*}(S,\mu)$ are 
+    isometrically isomorphic, where $1 < p^* < +\infty$ for $1 < p < +\infty$. 
+    Thus, the result follows from the previous paragraph.
     
-    If $L_p(S,\mu)$ is a metrically projective $C_0(S)$-module, then by
-    [\cite{NemGeomProjInjFlatBanMod}, proposition 2.26] it is metrically flat. 
-    Now the result follows from the previous paragraph.
+    If $L_p(S,\mu)$ is a metrically projective $C_0(S)$-module, then 
+    by [\cite{NemGeomProjInjFlatBanMod}, proposition 2.26], it is metrically 
+    flat. Hence, the result follows from the previous paragraph.
 \end{proof}
+
 
 \begin{thebibliography}{999}
     %
-    \bibitem{NemRelProjModLp}\textit{N. T. Nemesh} Relative projectivity of 
+    \bibitem{NemRelProjModLp}\textit{N. T. Nemesh}, Relative projectivity of 
     modules $\it{L_p}$, Math. Notes, 2022, Volume 111, p 103--114.
     %
     %
-    \bibitem{HelLectAndExOnFuncAn}\textit{A. Ya. Helemskii} Lectures and 
+    \bibitem{HelLectAndExOnFuncAn}\textit{A. Ya. Helemskii}, Lectures and 
     exercises on functional analysis, Vol. 233, {2006}, 
     American Mathematical Society Providence, RI.
     %
     %
-    \bibitem{HelBanLocConvAlg}\textit{A. Ya. Helemskii} Banach and locally 
+    \bibitem{HelBanLocConvAlg}\textit{A. Ya. Helemskii}, Banach and locally 
     convex algebras, {1993}, Oxford University Press.
     %
     %
@@ -1444,33 +1444,33 @@ $L_p(S,\mu)$ are almost never metrically projective, injective or flat.
     projective Banach modules, Indag. Math. (Proceedings), Vol. 82, p. 253--272,
     Elsevier.
     %
-    \bibitem{WhiteInjmoduAlg}\textit{M. C. White} Injective modules for uniform 
+    \bibitem{WhiteInjmoduAlg}\textit{M. C. White}, Injective modules for uniform 
     algebras, Proc. Lond. Math. Soc., Vol. 3(1), p. 155--184, Oxford University 
     Press.
     %
-    \bibitem{HelMetrFrQMod}\textit{A. Ya. Helemskii} Metric freeness and 
+    \bibitem{HelMetrFrQMod}\textit{A. Ya. Helemskii}, Metric freeness and 
     projectivity for classical and quantum normed modules, Sb. Mat., 
     Vol. 204(7), p. 1056--1083, IOP Publishing.
     %
     %
-    \bibitem{HelMetrFlatNorMod}\textit{A. Ya. Helemskii} Metric version of 
+    \bibitem{HelMetrFlatNorMod}\textit{A. Ya. Helemskii}, Metric version of 
     flatness and Hahn-Banach type theorems for normed modules over sequence 
     algebras, Stud. Math., Vol. 206(2), p. 135--160, Institute of Mathematics.
     %
     %
-    \bibitem{FremMeasTh2}\textit{D. H. Fremlin} Measure Theory, Vol. 2,
+    \bibitem{FremMeasTh2}\textit{D. H. Fremlin}, Measure Theory, Vol. 2,
     {2003}, Torres Fremlin.
     %
     %
-    \bibitem{DalBanAlgAutCont}\textit{H. G. Dales} Banach algebras and 
+    \bibitem{DalBanAlgAutCont}\textit{H. G. Dales}, Banach algebras and 
     automatic continuity, {2000}, Clarendon Press.
     %
     %
-    \bibitem{DefFloTensNorOpId}\textit{A. Defant, K. Floret} Tensor norms and 
+    \bibitem{DefFloTensNorOpId}\textit{A. Defant, K. Floret}, Tensor norms and 
     operator ideals, Vol. 176, {1992}, Elsevier.
     %
     %
-    \bibitem{NemGeomProjInjFlatBanMod}\textit{N. T. Nemesh} The Geometry of 
+    \bibitem{NemGeomProjInjFlatBanMod}\textit{N. T. Nemesh}, The Geometry of 
     projective, injective and flat Banach modules, J. Math. Sci. (New York), 
     2019, Volume 237, Issue 3, Pages 445–459.
 \end{thebibliography}
