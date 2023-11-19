@@ -164,11 +164,11 @@ the standard $\ell_p$-space. Its norm is denoted by $\Vert\cdot\Vert_p$, and
 its natural basis is $(e_\lambda)_{\lambda\in\Lambda}$. 
 For $1\leq p<+\infty$, we often use the standard 
 identification $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, where $p^*=p/(p-1)$. 
-By convention, $1^*=+\infty$. The space $\ell_p(\Lambda)$ can function as both 
-left and right Banach module over the Banach algebra $\ell_\infty(\Lambda)$. 
-In this section, we demonstrate that for finite $\Lambda$, the 
-right $\ell_\infty(\Lambda)$-module $\ell_p(\Lambda)$ is metrically injective 
-only if $\Lambda$ has at most one element.
+By convention $1/0=+\infty$, so $1^*=+\infty$. The space $\ell_p(\Lambda)$ can 
+function as both left and right Banach module over the Banach 
+algebra $\ell_\infty(\Lambda)$. In this section, we demonstrate that for 
+finite $\Lambda$, the right $\ell_\infty(\Lambda)$-module $\ell_p(\Lambda)$ is 
+metrically injective only if $\Lambda$ has at most one element.
 
 \begin{definition}\label{StdEmbd} 
     Let $\Lambda$ be a set, $1<p<+\infty$, 
@@ -233,10 +233,10 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
 \end{proposition}
 \begin{proof}
     For each $f\in\mathcal{F}$  we define a natural embedding
-    \[
+    $
         \operatorname{in}_f:
         \ell_1(\Lambda)\to\bigoplus_\infty\{\ell_1(\Lambda):f\in\mathcal{F}\}
-    \]
+    $
     which is a morphism of right $\ell_\infty(\Lambda)$-modules. Then we define 
     an $\ell_\infty(\Lambda)$-morphism $\psi_f=\psi\circ \operatorname{in}_f$. 
     By proposition \ref{LinfnMorphlpntolqnCharac} there exists 
@@ -286,16 +286,11 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     Suppose $\psi_{\eta}$ is a left inverse to $\xi_{\mathcal{F}}$, then
     for any $\lambda\in\Lambda$ we have
     \[
-        e_\lambda
-        =\psi_{\eta}(\xi_{\mathcal{F}}(e_\lambda))
+        1=(e_\lambda)_\lambda
+        =\psi_{\eta}(\xi_{\mathcal{F}}(e_\lambda))_\lambda
         =\psi_{\eta}\left(\bigoplus_\infty\{
             e_\lambda\cdot f: f\in\mathcal{F}
-        \}\right)
-        =\sum_{f\in\mathcal{F}} \eta_{f}\cdot e_\lambda\cdot f.
-    \]
-    At $\lambda$-th coordinate  we get
-    \[
-        1=(e_\lambda)_\lambda
+        \}\right)_\lambda
         =\left(
             \sum_{f\in\mathcal{F}} \eta_f\cdot e_\lambda\cdot f
         \right)_\lambda
@@ -305,18 +300,15 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     Conversely, let $\eta\in\mathcal{N}_{\mathcal{F}}$, then for 
     any $x\in\ell_p(\Lambda)$ holds
     \[
-    \begin{aligned}
         \psi_\eta(\xi_{\mathcal{F}}(x))
-        &=\psi_{\eta}\left(\bigoplus_\infty\{x\cdot f:f\in\mathcal{F}\}\right) 
         =\sum_{f\in\mathcal{F}}\eta_f\cdot x\cdot f 
         =\sum_{f\in\mathcal{F}}\sum_{\lambda\in\Lambda} 
-            (\eta_f\cdot x\cdot f)_\lambda e_\lambda \\
-        &=\sum_{\lambda\in\Lambda} 
+            (\eta_f\cdot x\cdot f)_\lambda e_\lambda 
+        =\sum_{\lambda\in\Lambda} 
             \left(\sum_{f\in\mathcal{F}}\eta_{f,\lambda}f_\lambda\right) 
             x_\lambda e_\lambda 
         =\sum_{\lambda\in\Lambda} x_\lambda e_\lambda 
         =x. 
-    \end{aligned}
     \]
     Therefore, $\psi_\eta$ is a left inverse for $\xi_{\mathcal{F}}$.
 \end{proof}
@@ -386,12 +378,12 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     \end{aligned}
     \]
     For any $\lambda\in\Lambda$ the maximum of the expression 
-    \[
+    $
         \left|
             \sum_{f\in\mathcal{F}}
                 \eta_{f,\lambda}\cdot r_{f,\lambda} e^{i \alpha_{f,\lambda}}
         \right|
-    \]
+    $
     is attained 
     if $\alpha_{f,\lambda}=\operatorname{arg}(\eta_{f,\lambda})$ for 
     all $f\in\mathcal{F}$ and $\lambda\in\Lambda$. In this case,
@@ -411,9 +403,9 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     \end{aligned}
     \]
     Consider linear operators
-    \[
+    $
         \tau_f:\mathbb{R}^\Lambda\to\ell_p(\Lambda): r\mapsto \eta_f\cdot r
-    \]
+    $
     for $f\in\mathcal{F}$. Then,
     \[
     \begin{aligned}
@@ -428,19 +420,19 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     \]
     Since linear operators $(\tau_f)_{f\in\mathcal{F}}$ attain their values 
     in $\ell_p(\Lambda)$, whose norm is strictly convex, then the function
-    \[
+    $
         F:(\mathbb{R}^\Lambda)^\mathcal{F}\to\mathbb{R}_+,\, 
         r\mapsto \left \Vert\sum_{f\in\mathcal{F}} \tau_f(r_f)\right \Vert_p
-    \]
+    $
     is strictly convex. Since the set
-    \[
+    $
         C=\left\{ 
             r\in(\mathbb{R}^\Lambda)^\mathcal{F} :
             \sum_{\lambda\in\Lambda} r_{f,\lambda}\leq 1,\,\, 
             r_f\in\mathbb{R}^\Lambda_+,\,\, 
             f\in\mathcal{F},\, \lambda\in\Lambda
         \right\}
-    \]
+    $
     is a convex polytope in a finite-dimensional space, then $F$ attains its 
     maximum on $\operatorname{ext}(C)$ --- the set of extreme points of $C$. So,
     \[
@@ -523,20 +515,20 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
         \right\}. \\
     \end{aligned}
     \]
-    Consider the function
-    \[
+    Consider strictly convex function
+    $
         F:
         \mathbb{R}^\Lambda\to\mathbb{R},\, 
         t\mapsto \left(\sum_{\lambda\in\Lambda}|t_\lambda|^p\right)^{1/p}
-    \]
+    $
     and the convex polytope
-    \[
+    $
         C=\left\{ 
             t\in\mathbb{R}^\Lambda : 
             \sum_{\lambda\in\Lambda} |t_\lambda|\leq \kappa^{-1},\,
             |t_\lambda|\leq 1,\,\lambda\in\Lambda\,
         \right\}
-    \]
+    $
     in a finite-dimensional space. Since $F$ is strictly convex, then $F$ 
     attains its maximum on $\operatorname{ext}(C)$ --- the set of extreme 
     points of $C$. Therefore,
@@ -547,14 +539,14 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     \]
     Clearly, any point $t\in \operatorname{ext}(C)$ has all coordinates but one
     equal to $1$ or $-1$. Therefore,
-    \[
+    $
         \operatorname{ext}(C)=\left\{ 
             t\in\mathbb{R}^\Lambda : 
             \exists \lambda'\in\Lambda\quad |t_{\lambda'}|=\kappa^{-1}-(n-1)\,
             \wedge\, 
             \forall \lambda\in\Lambda\setminus\{\lambda'\}\quad |t_\lambda|=1
         \right\}.
-    \]
+    $
     As a consequence,
     \[
         \gamma_{\mathcal{F}_{\kappa}(\Lambda)}=(n-1+(\kappa^{-1}-(n-1))^p)^{1/p}.
@@ -567,24 +559,24 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     \[
         \nu_{\mathcal{F}_{\kappa}(\Lambda)}
         \geq 
-        \kappa^{-1}\frac{
-            \left(
-                \left(\frac{n-1}{\kappa^{-1}-1}\right)^{\frac{p}{p-1}}+n-1
-            \right)^{1/p}
-        }{
+        \kappa^{-1}
+        \left(
+            \left(\frac{n-1}{\kappa^{-1}-1}\right)^{\frac{p}{p-1}}+n-1
+        \right)^{1/p}
+        \left(
             \left(\frac{n-1}{\kappa^{-1}-1}\right)^{\frac{1}{p-1}}-1+\kappa^{-1}
-        }.
+        \right)^{-1}.
     \]
 \end{proposition}
 \begin{proof}
     By construction
-    \[
+    $
         \mathcal{N}_{\mathcal{F}_{\kappa}(\Lambda)}=\{
             \eta\in\ell_\infty(\Lambda)^{\mathcal{F}_{\kappa}(\Lambda)}:
             \eta_{f_\lambda,\lambda}+\kappa \eta_{f_\star, \lambda}=1,\, 
             \lambda\in\Lambda
         \}.
-    \]
+    $
     For each $\lambda\in\Lambda$ consider the function
     \[
         d_\lambda:\mathcal{F}_\kappa(\Lambda)\to\Lambda,\,
@@ -680,14 +672,12 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     \]
     Consider functions
     \[
-    \begin{aligned}
-        F_1&:\mathbb{R}_+\to\mathbb{R},\, 
-            t\mapsto t, \\
-        F_2&:\mathbb{R}_+\to\mathbb{R},\, 
-            t\mapsto t+\kappa^{-1}|1-t|, \\
-        F_3&:\mathbb{R}^n\to\mathbb{R},\, t\mapsto 
-            \left(\sum_{k=1}^n|t_k|^p\right)^{1/p}. \\
-    \end{aligned}
+        F_1:\mathbb{R}_+\to\mathbb{R},\, 
+            t\mapsto t, \quad
+        F_2:\mathbb{R}_+\to\mathbb{R},\, 
+            t\mapsto t+\kappa^{-1}|1-t|, \quad
+        F_3:\mathbb{R}^n\to\mathbb{R},\, t\mapsto 
+            \left(\sum_{k=1}^n|t_k|^p\right)^{1/p}.
     \]
     Clearly, for each $i\in\mathbb{N}_n$ the function $\alpha_i$ is a 
     composition of $F_1$, $F_2$, and $F_3$. Since $F_1$ and $F_2$ are convex 
@@ -709,10 +699,10 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     \end{aligned}
     \]
     Consider the function
-    \[
+    $
         F:\mathbb{R}_+\to\mathbb{R},\,
         s\mapsto ((n-1)s^p+(s+\kappa^{-1}|1-s|)^p)^{1/p}.
-    \]
+    $
     We have 
     \[
         F(s)=
@@ -739,34 +729,31 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     The solution is
     \[
         s_0
-        =\frac{
-            \kappa^{-1}
-        }{
+        =
+        \kappa^{-1}
+        \left(
             \left(
                 \frac{n-1}{\kappa^{-1}-1}
             \right)^{\frac{1}{p-1}}
             -1+\kappa^{-1}
-        }.\\
+        \right)^{-1}.\\
     \]
     By assumption $n^{-1}<\kappa$, so $\frac{n-1}{\kappa^{-1}-1}<1$ and 
     therefore $0<s_0<1$. Since $F$ is convex, then $s_0$ is the point of 
     minimum on $[0,1]$. The minimum equals
     \[
-    \begin{aligned}
         F(s_0)
-        &=\kappa^{-1}
-            \frac{
-                \left(
-                    \left(\frac{n-1}{\kappa^{-1}-1}
-                    \right)^{\frac{p}{p-1}}
-                    -1+\kappa^{-1}
-                \right)^{1/p}
-            }{
-                \left(\frac{n-1}{\kappa^{-1}-1}
-                \right)^{\frac{1}{p-1}}
-                -1+\kappa^{-1}
-            }. \\
-    \end{aligned}
+        =\kappa^{-1}
+        \left(
+            \left(\frac{n-1}{\kappa^{-1}-1}
+            \right)^{\frac{p}{p-1}}
+            -1+\kappa^{-1}
+        \right)^{1/p}
+        \left(
+            \left(\frac{n-1}{\kappa^{-1}-1}
+            \right)^{\frac{1}{p-1}}
+            -1+\kappa^{-1}
+        \right)^{-1}.
     \]
     This gives the desired lower bound 
     for $\nu_{\mathcal{F}_{\kappa}(\Lambda)}$.
@@ -807,17 +794,16 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     and \ref{ExtMorphsNormLwrBnd}, it is enough to show that
     \[
         \kappa^{-1}
-        \frac{
-            \left(
-                \left(\frac{n-1}{\kappa^{-1}-1}
-                \right)^{\frac{p}{p-1}}
-                -1+\kappa^{-1}
-            \right)^{1/p}
-        }{
+        \left(
+            \left(\frac{n-1}{\kappa^{-1}-1}
+            \right)^{\frac{p}{p-1}}
+            -1+\kappa^{-1}
+        \right)^{1/p}
+        \left(
             \left(\frac{n-1}{\kappa^{-1}-1}
             \right)^{\frac{1}{p-1}}
             -1+\kappa^{-1}
-        }
+        \right)^{-1}
         >
         (n-1+(\kappa^{-1}-(n-1))^p)^{1/p}.
     \]
@@ -826,17 +812,16 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     equivalent to
     \[
         \rho
-        \frac{
-            \left(
-                \left(\frac{m}{\rho-1}
-                \right)^{\frac{p}{p-1}}
-                -1+\rho
-            \right)^{1/p}
-        }{
+        \left(
+        \left(\frac{m}{\rho-1}
+            \right)^{\frac{p}{p-1}}
+            -1+\rho
+        \right)^{1/p}
+        \left(
             \left(\frac{m}{\rho-1}
             \right)^{\frac{1}{p-1}}
             -1+\rho
-        }
+        \right)^{-1}
         >
         (m+(\rho-m)^p)^{1/p}.
     \] 
@@ -952,7 +937,7 @@ Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
 \begin{definition}\label{GnrlzdMean}
     Let $(\Omega,\mu)$ be a measure space, $E$ be a measurable set of finite 
     positive measure, and $f:\Omega\to\mathbb{C}$ be a measurable function. For 
-    any real $r\neq 0$, we define a linear map
+    any $r\in\mathbb{R}$, we define a linear map
     \[
         m_{E,r}(f)=\mu(E)^{\frac{1}{r}-1}\int_E f(\omega)d\mu(\omega).
     \]
@@ -971,8 +956,7 @@ Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
         \item If $E$ is an atom, 
         then $m_{E,\infty}(f)m_{E,\infty}(g)=m_{E,\infty}(f\cdot g)$;
         \item If $E$ is an atom, 
-        then $m_{E,r}(f)m_{E,s}(g)=m_{E,\frac{rs}{r+s}}(f\cdot g)$ 
-        with convention $1/0=\infty$.
+        then $m_{E,r}(f)m_{E,s}(g)=m_{E,\frac{rs}{r+s}}(f\cdot g)$.
     \end{enumerate}
 \end{proposition}
 \begin{proof}
@@ -1003,22 +987,21 @@ Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
     decomposition of $\Omega$ into atoms of finite measure. Then for 
     any $1\leq p<+\infty$, the linear maps
     \[
-    \begin{aligned}
-        &I_p:
+        I_p:
         L_p(\Omega,\mu)\to \ell_p(\mathcal{A}),\,
-        [f]\mapsto\sum_{A\in\mathcal{A}} m_{A,p}(f) e_A, \\
-        &J_p:
+        [f]\mapsto\sum_{A\in\mathcal{A}} m_{A,p}(f) e_A, 
+        \quad
+        J_p:
         \ell_p(\mathcal{A})\to L_p(\Omega,\mu),\,
         x\mapsto\sum_{A\in\mathcal{A}} x_A m_{A,-p}(\chi_A) [\chi_A]\\
-    \end{aligned}
     \]
     are isometric isomorphisms that are inverse to each other.
 \end{proposition}
 \begin{proof} 
     Since $\mathcal{A}$ is a decomposition of $\Omega$ into atoms, then
-    \[
+    $
         [f]=\sum_{A\in\mathcal{A}} m_{A,\infty}(f)[\chi_A]
-    \]
+    $
     for any $[f]\in L_p(\Omega,\mu)$. Using proposition \ref{GnrlzdMeanProp} for 
     each $[f]\in L_p(\Omega,\mu)$ and $A\in\mathcal{A}$, we get
     \[
@@ -1042,11 +1025,10 @@ Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
     \]
     Again, using proposition \ref{GnrlzdMeanProp} for each $A\in\mathcal{A}$, 
     we get
-    \[
+    $
         |m_{A,-p}(\chi_A)|^p \int_{\Omega} |\chi_A(\omega)|^p d\mu(\omega)
-        =(\mu(A)^{-1/p})^p\mu(A)
         =1.
-    \]
+    $ 
     So for any $x\in\ell_p(\mathcal{A})$, we have
     \[
     \begin{aligned}
@@ -1063,13 +1045,12 @@ Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
     \]
     Thus, $I_p$ and $J_p$ are isometric maps. Obviously, these maps are linear. 
     Note that for any $x\in\ell_p(\mathcal{A})$ and $A\in\mathcal{A}$ holds
-    \[
+    $
         m_{A,p}(J_p(x))
         =m_{A,p}(J_p(x)\chi_A)
         =m_{A,p}(x_A m_{A,-p}(\chi_A)[\chi_A])
-        =x_A m_{A,-p}(\chi_A)m_{A,p}(\chi_A)
         =x_A.
-    \]
+    $
     Hence, for any $x\in\ell_p(\mathcal{A})$, we have
     \[
         I_p(J_p(x))
@@ -1078,12 +1059,10 @@ Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
         =x.
     \]
     Note that for any $A\in\mathcal{A}$ hold
-    \[
+    $
         J_p(e_A)
-        =\sum_{A'\in\mathcal{A}} (e_A)_{A'}m_{A',-p}(\chi_{A'})[\chi_{A'}]
-        =\sum_{A'\in\mathcal{A}} \delta_{A}^{A'}m_{A',-p}(\chi_{A'})[\chi_{A'}]
         =m_{A,-p}(\chi_{A})[\chi_{A}].
-    \]
+    $
     Therefore, for any $[f]\in L_p(\Omega,\mu)$, we have
     \[
         J_p(I_p([f]))
@@ -1112,19 +1091,19 @@ Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
 \begin{proof} 
     $(i)$ Denote $\phi=I_q\circ \Phi\circ J_p$, then by 
     proposition \ref{GnrlzdMeanProp} for any atom $A\in\mathcal{A}$ holds
-    \[
+    $
         \phi(e_A)
         =I_q(\Phi(J_p(e_A)))
         =I_q(\Phi(m_{A,-p}(\chi_A)[\chi_A]))
         =m_{A,-p}(\chi_A)I_q(\Phi([\chi_A])).
-    \]
+    $
     Since $A$ is an atom, then we get
-    \[
+    $
         \Phi([\chi_A])
         =\Phi([\chi_A]\cdot\chi_A)
         =\Phi([\chi_A])\cdot\chi_A
         =m_{A,\infty}(\Phi([\chi_A]))[\chi_A],
-    \]
+    $
     so
     \[
     \begin{aligned}
@@ -1151,19 +1130,19 @@ Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
 
     $(ii)$ Denote $\Phi=J_q\circ \phi\circ I_p$, then by 
     proposition \ref{GnrlzdMeanProp} for any atom $A\in\mathcal{A}$ holds
-    \[
+    $
         \Phi([\chi_A])
         =J_q(\phi(I_p([\chi_A])))
         =J_q(\phi(m_{A,p}(\chi_A)e_A))
         =m_{A,p}(\chi_A)J_q(\phi(e_A)).
-    \]
+    $
     Moreover,
-    \[
+    $
         \phi(e_A)
         =\phi(e_A\cdot e_A)
         =\phi(e_A)\cdot e_A
         =\phi(e_A)_A e_A,
-    \]
+    $
     so
     \[
     \begin{aligned}
@@ -1269,11 +1248,11 @@ $L_p(S,\mu)$ are almost never metrically projective, injective, or flat.
 \begin{remark}\label{C0SModIsBBorSMod}
     Let $S$ be a locally compact Hausdorff space and $\mu$ be a finite 
     Borel measure on $S$. Using proposition \ref{C0SMorphBtwnReflxSpIsBMorph} 
-    for any $1<p<+\infty$ we can endow 
-    the $C_0(S)$-module $L_p(S,\mu)$ with the structure 
-    of $B(\operatorname{Bor}(S))$-module. This new outer action coincides with
-    the pointwise multiplication 
-    [\cite{HelTensProdAndMultModLp}, proposition 2.2].
+    for any $1<p<+\infty$ we can endow the 
+    reflexive $C_0(S)$-module $L_p(S,\mu)$ with the structure 
+    of $B(\operatorname{Bor}(S))$-module. According 
+    to [\cite{HelTensProdAndMultModLp}, proposition 2.2] this new outer action 
+    coincides with the pointwise multiplication.
 \end{remark}
 
 
@@ -1281,7 +1260,7 @@ $L_p(S,\mu)$ are almost never metrically projective, injective, or flat.
     Let $S$ be a locally compact Hausdorff space and $\mu$ be a purely atomic 
     Borel measure on $S$ with finitely many atoms of finite measure. 
     Suppose $1<p<+\infty$ and the $C_0(S)$-module $L_p(S,\mu)$ is metrically 
-    injective, then $\mu$ has at most $1$ atom.
+    injective, then $\mu$ has at most one atom.
 \end{proposition}
 \begin{proof}
     Let $\mathcal{A}$ be a decomposition of $S$ into $n$ atoms of finite 
@@ -1306,7 +1285,7 @@ $L_p(S,\mu)$ are almost never metrically projective, injective, or flat.
         \}\to\ell_1(\mathcal{A}),
     $
     which are $B(\operatorname{Bor}(S))$-morphisms 
-    and $\ell_\infty(A)$-morphisms respectively. 
+    and $\ell_\infty(\mathcal{A})$-morphisms respectively. 
     Now consider $B(\operatorname{Bor}(S))$-morphisms 
     $
         I_p^\infty=\bigoplus_\infty\{I_p:f\in\mathcal{F}\},
