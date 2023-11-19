@@ -170,11 +170,12 @@ $c$-топологически инъективного $A$-морфизма $\x
 естественный базис $(e_\lambda)_{\lambda\in\Lambda}$. 
 Для $1\leq p<+\infty$ мы часто будем использовать отождествление
 $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$. 
-По соглашению, $1^*=+\infty$. Пространство $\ell_p(\Lambda)$ можно рассматривать 
-как левый, так и правый банахов модуль над банаховой 
-алгеброй $\ell_\infty(\Lambda)$. В этом разделе мы покажем, что для 
-конечного $\Lambda$ правый $\ell_\infty(\Lambda)$-модуль $\ell_p(\Lambda)$ 
-метрически инъективен только если $\Lambda$ содержит не более одного элемента.
+По соглашению, $1/0=+\infty$, поэтому $1^*=+\infty$. 
+Пространство $\ell_p(\Lambda)$ можно рассматривать как левый, так и правый 
+банахов модуль над банаховой алгеброй $\ell_\infty(\Lambda)$. В этом разделе 
+мы покажем, что для конечного $\Lambda$ 
+правый $\ell_\infty(\Lambda)$-модуль $\ell_p(\Lambda)$ метрически инъективен 
+только если $\Lambda$ содержит не более одного элемента.
 
 \begin{definition}\label{StdEmbd} 
     Пусть $\Lambda$ --- произвольное множество, $1<p<+\infty$ 
@@ -239,10 +240,10 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
 \end{proposition}
 \begin{proof}
     Для каждого $f\in\mathcal{F}$ мы определяем естественное вложение
-    \[
+    $
         \operatorname{in}_f:
         \ell_1(\Lambda)\to\bigoplus_\infty\{\ell_1(\Lambda):f\in\mathcal{F}\},
-    \]
+    $
     которое является морфизмом правых $\ell_\infty(\Lambda)$-модулей. Далее мы 
     определим $\ell_\infty(\Lambda)$-морфизм 
     $\psi_f=\psi\circ \operatorname{in}_f$. 
@@ -296,16 +297,11 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
     Предположим, что $\psi_{\eta}$ --- левый обратный морфизм 
     для $\xi_{\mathcal{F}}$, тогда для любого $\lambda\in\Lambda$ выполнено
     \[
-        e_\lambda
-        =\psi_{\eta}(\xi_{\mathcal{F}}(e_\lambda))
+        1=(e_\lambda)_\lambda
+        =\psi_{\eta}(\xi_{\mathcal{F}}(e_\lambda))_\lambda
         =\psi_{\eta}\left(\bigoplus_\infty\{
             e_\lambda\cdot f: f\in\mathcal{F}
-        \}\right)
-        =\sum_{f\in\mathcal{F}} \eta_{f}\cdot e_\lambda\cdot f.
-    \]
-    Для координаты $\lambda\in\Lambda$ мы получаем
-    \[
-        1=(e_\lambda)_\lambda
+        \}\right)_\lambda
         =\left(
             \sum_{f\in\mathcal{F}} \eta_f\cdot e_\lambda\cdot f
         \right)_\lambda
@@ -315,18 +311,15 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
     Обратно, пусть $\eta\in\mathcal{N}_{\mathcal{F}}$, тогда для 
     любого $x\in\ell_p(\Lambda)$ выполнено
     \[
-    \begin{aligned}
         \psi_\eta(\xi_{\mathcal{F}}(x))
-        &=\psi_{\eta}\left(\bigoplus_\infty\{x\cdot f:f\in\mathcal{F}\}\right) 
         =\sum_{f\in\mathcal{F}}\eta_f\cdot x\cdot f 
         =\sum_{f\in\mathcal{F}}\sum_{\lambda\in\Lambda} 
-            (\eta_f\cdot x\cdot f)_\lambda e_\lambda \\
-        &=\sum_{\lambda\in\Lambda} 
+            (\eta_f\cdot x\cdot f)_\lambda e_\lambda 
+        =\sum_{\lambda\in\Lambda} 
             \left(\sum_{f\in\mathcal{F}}\eta_{f,\lambda}f_\lambda\right) 
             x_\lambda e_\lambda 
         =\sum_{\lambda\in\Lambda} x_\lambda e_\lambda 
         =x. 
-    \end{aligned}
     \]
     Следовательно, морфизм $\psi_\eta$ является левым обратным 
     для $\xi_{\mathcal{F}}$.
@@ -397,12 +390,12 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
     \end{aligned}
     \]
     Для любого $\lambda\in\Lambda$ максимум выражения 
-    \[
+    $
         \left|
             \sum_{f\in\mathcal{F}}
                 \eta_{f,\lambda}\cdot r_{f,\lambda} e^{i \alpha_{f,\lambda}}
         \right|
-    \]
+    $
     достигается, 
     если $\alpha_{f,\lambda}=\operatorname{arg}(\eta_{f,\lambda})$ для 
     всех $f\in\mathcal{F}$ и $\lambda\in\Lambda$. В этом случае,
@@ -422,9 +415,9 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
     \end{aligned}
     \]
     Рассмотрим линейные операторы
-    \[
+    $
         \tau_f:\mathbb{R}^\Lambda\to\ell_p(\Lambda): r\mapsto \eta_f\cdot r
-    \]
+    $
     для $f\in\mathcal{F}$. Тогда,
     \[
     \begin{aligned}
@@ -439,19 +432,19 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
     \]
     Поскольку линейные операторы $(\tau_f)_{f\in\mathcal{F}}$ принимают 
     значения в $\ell_p(\Lambda)$, чья норма строго выпукла, то функция
-    \[
+    $
         F:(\mathbb{R}^\Lambda)^\mathcal{F}\to\mathbb{R}_+,\, 
         r\mapsto \left \Vert\sum_{f\in\mathcal{F}} \tau_f(r_f)\right \Vert_p
-    \]
+    $
     строго выпукла. Поскольку множество
-    \[
+    $
         C=\left\{ 
             r\in(\mathbb{R}^\Lambda)^\mathcal{F} :
             \sum_{\lambda\in\Lambda} r_{f,\lambda}\leq 1,\,\, 
             r_f\in\mathbb{R}^\Lambda_+,\,\, 
             f\in\mathcal{F},\, \lambda\in\Lambda
         \right\}
-    \]
+    $
     является выпуклым многогранником в конечномерном пространстве, 
     то $F$ достигает максимума на $\operatorname{ext}(C)$ --- множестве 
     экстремальных точек $C$. Таким образом,
@@ -536,19 +529,19 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
     \end{aligned}
     \]
     Рассмотрим функцию
-    \[
+    $
         F:
         \mathbb{R}^\Lambda\to\mathbb{R},\, 
         t\mapsto \left(\sum_{\lambda\in\Lambda}|t_\lambda|^p\right)^{1/p}
-    \]
+    $
     и выпуклый многогранник
-    \[
+    $
         C=\left\{ 
             t\in\mathbb{R}^\Lambda : 
             \sum_{\lambda\in\Lambda} |t_\lambda|\leq \kappa^{-1},\,
             |t_\lambda|\leq 1,\,\lambda\in\Lambda\,
         \right\}
-    \]
+    $
     в конечномерном пространстве. Поскольку функция $F$ строго выпукла, то $F$ 
     достигает своего максимума на $\operatorname{ext}(C)$ --- множестве 
     экстремальных точек $C$. Следовательно,
@@ -559,14 +552,14 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
     \]
     Очевидно, что любая точка $t\in \operatorname{ext}(C)$ имеет все координаты, кроме одной,
     равные $1$ или $-1$. Поэтому,
-    \[
+    $
         \operatorname{ext}(C)=\left\{ 
             t\in\mathbb{R}^\Lambda : 
             \exists \lambda'\in\Lambda\quad |t_{\lambda'}|=\kappa^{-1}-(n-1)\,
             \wedge\, 
             \forall \lambda\in\Lambda\setminus\{\lambda'\}\quad |t_\lambda|=1
         \right\}.
-    \]
+    $
     Как следствие,
     \[
         \gamma_{\mathcal{F}_{\kappa}(\Lambda)}=(n-1+(\kappa^{-1}-(n-1))^p)^{1/p}.
@@ -579,24 +572,24 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
     \[
         \nu_{\mathcal{F}_{\kappa}(\Lambda)}
         \geq 
-        \kappa^{-1}\frac{
-            \left(
-                \left(\frac{n-1}{\kappa^{-1}-1}\right)^{\frac{p}{p-1}}+n-1
-            \right)^{1/p}
-        }{
+        \kappa^{-1}
+        \left(
+            \left(\frac{n-1}{\kappa^{-1}-1}\right)^{\frac{p}{p-1}}+n-1
+        \right)^{1/p}
+        \left(
             \left(\frac{n-1}{\kappa^{-1}-1}\right)^{\frac{1}{p-1}}-1+\kappa^{-1}
-        }.
+        \right)^{-1}.
     \]
 \end{proposition}
 \begin{proof}
     По построению
-    \[
+    $
         \mathcal{N}_{\mathcal{F}_{\kappa}(\Lambda)}=\{
             \eta\in\ell_\infty(\Lambda)^{\mathcal{F}_{\kappa}(\Lambda)}:
             \eta_{f_\lambda,\lambda}+\kappa \eta_{f_\star, \lambda}=1,\, 
             \lambda\in\Lambda
         \}.
-    \]
+    $
     Для каждого $\lambda\in\Lambda$ рассмотрим функцию
     \[
         d_\lambda:\mathcal{F}_\kappa(\Lambda)\to\Lambda,\,
@@ -693,14 +686,12 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
     \]
     Рассмотрим функции
     \[
-    \begin{aligned}
-        F_1&:\mathbb{R}_+\to\mathbb{R},\, 
-            t\mapsto t, \\
-        F_2&:\mathbb{R}_+\to\mathbb{R},\, 
-            t\mapsto t+\kappa^{-1}|1-t|, \\
-        F_3&:\mathbb{R}^n\to\mathbb{R},\, t\mapsto 
-            \left(\sum_{k=1}^n|t_k|^p\right)^{1/p}. \\
-    \end{aligned}
+        F_1:\mathbb{R}_+\to\mathbb{R},\, 
+            t\mapsto t, \quad
+        F_2:\mathbb{R}_+\to\mathbb{R},\, 
+            t\mapsto t+\kappa^{-1}|1-t|, \quad
+        F_3:\mathbb{R}^n\to\mathbb{R},\, t\mapsto 
+            \left(\sum_{k=1}^n|t_k|^p\right)^{1/p}.
     \]
     Очевидно, что для каждого $i\in\mathbb{N}_n$ функция $\alpha_i$ является 
     композицией функций $F_1$, $F_2$ и $F_3$. Поскольку $F_1$ 
@@ -722,10 +713,10 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
     \end{aligned}
     \]
     Рассмотрим функцию
-    \[
+    $
         F:\mathbb{R}_+\to\mathbb{R},\,
         s\mapsto ((n-1)s^p+(s+\kappa^{-1}|1-s|)^p)^{1/p}.
-    \]
+    $
     Очевидно, что
     \[
         F(s)=
@@ -752,34 +743,31 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
     Решение этого уравнения имеет вид
     \[
         s_0
-        =\frac{
-            \kappa^{-1}
-        }{
+        =
+        \kappa^{-1}
+        \left(
             \left(
                 \frac{n-1}{\kappa^{-1}-1}
             \right)^{\frac{1}{p-1}}
             -1+\kappa^{-1}
-        }.\\
+        \right)^{-1}.\\
     \]
     По предположению $n^{-1}<\kappa$, поэтому $\frac{n-1}{\kappa^{-1}-1}<1$ и 
     следовательно $0<s_0<1$. Поскольку $F$ выпукла, то $s_0$ является точкой 
     минимума на $[0,1]$. Минимум равен
     \[
-    \begin{aligned}
         F(s_0)
-        &=\kappa^{-1}
-            \frac{
-                \left(
-                    \left(\frac{n-1}{\kappa^{-1}-1}
-                    \right)^{\frac{p}{p-1}}
-                    -1+\kappa^{-1}
-                \right)^{1/p}
-            }{
-                \left(\frac{n-1}{\kappa^{-1}-1}
-                \right)^{\frac{1}{p-1}}
-                -1+\kappa^{-1}
-            }. \\
-    \end{aligned}
+        =\kappa^{-1}
+        \left(
+            \left(\frac{n-1}{\kappa^{-1}-1}
+            \right)^{\frac{p}{p-1}}
+            -1+\kappa^{-1}
+        \right)^{1/p}
+        \left(
+            \left(\frac{n-1}{\kappa^{-1}-1}
+            \right)^{\frac{1}{p-1}}
+            -1+\kappa^{-1}
+        \right)^{-1}.
     \]
     Это дает требуемую нижнюю оценку 
     для $\nu_{\mathcal{F}_{\kappa}(\Lambda)}$.
@@ -821,36 +809,33 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
     и \ref{ExtMorphsNormLwrBnd}, достаточно показать, что
     \[
         \kappa^{-1}
-        \frac{
-            \left(
-                \left(\frac{n-1}{\kappa^{-1}-1}
-                \right)^{\frac{p}{p-1}}
-                -1+\kappa^{-1}
-            \right)^{1/p}
-        }{
+        \left(
+            \left(\frac{n-1}{\kappa^{-1}-1}
+            \right)^{\frac{p}{p-1}}
+            -1+\kappa^{-1}
+        \right)^{1/p}
+        \left(
             \left(\frac{n-1}{\kappa^{-1}-1}
             \right)^{\frac{1}{p-1}}
             -1+\kappa^{-1}
-        }
+        \right)^{-1}
         >
         (n-1+(\kappa^{-1}-(n-1))^p)^{1/p}.
     \]
-    Сделаем замену $m=n-1$ и $\rho=\kappa^{-1}$. 
-    Тогда $m\in\mathbb{N}$, $m<\rho<m+1$ и последнее неравенство 
-    эквивалентно
+    Сделаем замену $m=n-1\in\mathbb{N}$ и $\rho=\kappa^{-1}\in(m, m+1)$. 
+    Тогда последнее неравенство эквивалентно
     \[
         \rho
-        \frac{
-            \left(
-                \left(\frac{m}{\rho-1}
-                \right)^{\frac{p}{p-1}}
-                -1+\rho
-            \right)^{1/p}
-        }{
+        \left(
+        \left(\frac{m}{\rho-1}
+            \right)^{\frac{p}{p-1}}
+            -1+\rho
+        \right)^{1/p}
+        \left(
             \left(\frac{m}{\rho-1}
             \right)^{\frac{1}{p-1}}
             -1+\rho
-        }
+        \right)^{-1}
         >
         (m+(\rho-m)^p)^{1/p}.
     \] 
@@ -968,10 +953,9 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
 обозначаются $[f]$.
 
 \begin{definition}\label{GnrlzdMean}
-    Пусть $(\Omega,\mu)$ --- пространство с мерой, $E$ - измеримое множество 
+    Пусть $(\Omega,\mu)$ --- пространство с мерой, $E$ --- измеримое множество 
     конечной положительной меры и $f:\Omega\to\mathbb{C}$ --- измеримая 
-    функция. Для любого вещественного $r\neq 0$ мы определим линейное 
-    отображение
+    функция. Для любого $r\in\mathbb{R}$ мы определим линейное отображение
     \[
         m_{E,r}(f)=\mu(E)^{\frac{1}{r}-1}\int_E f(\omega)d\mu(\omega).
     \]
@@ -979,7 +963,7 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
 
 \begin{proposition}\label{GnrlzdMeanProp}
     Пусть $E$ --- подмножество конечной меры пространства с мерой $(\Omega,\mu)$ 
-    и $r\neq 0$. Тогда для любых измеримых 
+    и $r\in\mathbb{R}$. Тогда для любых измеримых 
     функций $f:\Omega\to\mathbb{C}$, $g:\Omega\to\mathbb{C}$ выполнено:
     \begin{enumerate}[label = (\roman*)]
         \item $m_{E,r}(\chi_E)=\mu(E)^{1/r}$;
@@ -988,8 +972,7 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
         \item Если $E$ --- атом, 
         то $m_{E,\infty}(f)m_{E,\infty}(g)=m_{E,\infty}(f\cdot g)$;
         \item Если $E$ --- атом, 
-        то $m_{E,r}(f)m_{E,s}(g)=m_{E,\frac{rs}{r+s}}(f\cdot g)$ с 
-        договорённостью, что $1/0=\infty$.
+        то $m_{E,r}(f)m_{E,s}(g)=m_{E,\frac{rs}{r+s}}(f\cdot g)$.
     \end{enumerate}
 \end{proposition}
 \begin{proof}
@@ -1021,22 +1004,21 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
     Пусть $\mathcal{A}$ --- разложение $\Omega$ на атомы конечной меры. Тогда 
     для любого $1\leq p<+\infty$ линейные отображения
     \[
-    \begin{aligned}
-        &I_p:
+        I_p:
         L_p(\Omega,\mu)\to \ell_p(\mathcal{A}),\,
-        [f]\mapsto\sum_{A\in\mathcal{A}} m_{A,p}(f) e_A, \\
-        &J_p:
+        [f]\mapsto\sum_{A\in\mathcal{A}} m_{A,p}(f) e_A,
+        \quad
+        J_p:
         \ell_p(\mathcal{A})\to L_p(\Omega,\mu),\,
         x\mapsto\sum_{A\in\mathcal{A}} x_A m_{A,-p}(\chi_A) [\chi_A]\\
-    \end{aligned}
     \]
     являются взаимно обратными изометрическими изоморфизмами.
 \end{proposition}
 \begin{proof} 
-    Поскольку $\mathcal{A}$ --- разложение $\Omega$ на атомы, тогда
-    \[
+    Поскольку $\mathcal{A}$ --- разложение $\Omega$ на атомы, то
+    $
         [f]=\sum_{A\in\mathcal{A}} m_{A,\infty}(f)[\chi_A]
-    \]
+    $
     для любого $[f]\in L_p(\Omega,\mu)$. Используя 
     утверждение \ref{GnrlzdMeanProp} для 
     каждого $[f]\in L_p(\Omega,\mu)$ и $A\in\mathcal{A}$ получаем
@@ -1059,14 +1041,13 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
         =\Vert [f]\Vert.
     \end{aligned}
     \]
-    Снова используя утверждение \ref{GnrlzdMeanProp} для 
+    Снова из утверждение \ref{GnrlzdMeanProp} для 
     каждого $A\in\mathcal{A}$ получаем
-    \[
+    $
         |m_{A,-p}(\chi_A)|^p \int_{\Omega} |\chi_A(\omega)|^p d\mu(\omega)
-        =(\mu(A)^{-1/p})^p\mu(A)
         =1.
-    \]
-    Таким образом, для любого $x\in\ell_p(\mathcal{A})$, мы имеем
+    $
+    Таким образом, для любого $x\in\ell_p(\mathcal{A})$, выполнено
     \[
     \begin{aligned}
         \Vert J_p(x)\Vert
@@ -1080,16 +1061,15 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
         =\Vert x\Vert.
     \end{aligned}
     \]
-    Итак, $I_p$ и $J_p$ - изометрические отображения. Очевидно, что эти 
-    отображения линейны. Заметим, что для любого $x\in\ell_p(\mathcal{A})$ 
+    Итак, $I_p$ и $J_p$ --- изометрические отображения. Очевидно, что они 
+    линейны. Заметим, что для любого $x\in\ell_p(\mathcal{A})$ 
     и $A\in\mathcal{A}$ выполнено
-    \[
+    $
         m_{A,p}(J_p(x))
         =m_{A,p}(J_p(x)\chi_A)
         =m_{A,p}(x_A m_{A,-p}(\chi_A)[\chi_A])
-        =x_A m_{A,-p}(\chi_A)m_{A,p}(\chi_A)
         =x_A.
-    \]
+    $
     Следовательно, для любого $x\in\ell_p(\mathcal{A})$, у нас есть равенство
     \[
         I_p(J_p(x))
@@ -1097,13 +1077,11 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
         =\sum_{A\in\mathcal{A}}x_A e_A
         =x.
     \]
-    Заметим, что для любого $A\in\mathcal{A}$ выполняется
-    \[
+    Далее, для любого $A\in\mathcal{A}$ верно, что
+    $
         J_p(e_A)
-        =\sum_{A'\in\mathcal{A}} (e_A)_{A'}m_{A',-p}(\chi_{A'})[\chi_{A'}]
-        =\sum_{A'\in\mathcal{A}} \delta_{A}^{A'}m_{A',-p}(\chi_{A'})[\chi_{A'}]
         =m_{A,-p}(\chi_{A})[\chi_{A}].
-    \]
+    $
     Поэтому для любого $[f]\in L_p(\Omega,\mu)$ имеем
     \[
         J_p(I_p([f]))
@@ -1112,7 +1090,7 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
         =\sum_{A\in\mathcal{A}}m_{A,\infty}(f)[\chi_A]
         =[f].
     \]
-    Таким образом, $J_p$ и $I_p$ взаимно обратные отображения.
+    Таким образом, $J_p$ и $I_p$ взаимно обратные операторы.
 \end{proof}
 
 \begin{proposition}\label{SwtchMorphBtwnAtomMeasSp}
@@ -1133,19 +1111,19 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
 \begin{proof} 
     $(i)$ Обозначим $\phi=I_q\circ \Phi\circ J_p$, тогда по 
     утверждению \ref{GnrlzdMeanProp} для любого атома $A\in\mathcal{A}$ имеем
-    \[
+    $
         \phi(e_A)
         =I_q(\Phi(J_p(e_A)))
         =I_q(\Phi(m_{A,-p}(\chi_A)[\chi_A]))
         =m_{A,-p}(\chi_A)I_q(\Phi([\chi_A])).
-    \]
+    $
     Поскольку $A$ --- атом, то
-    \[
+    $
         \Phi([\chi_A])
         =\Phi([\chi_A]\cdot\chi_A)
         =\Phi([\chi_A])\cdot\chi_A
         =m_{A,\infty}(\Phi([\chi_A]))[\chi_A].
-    \]
+    $
     Следовательно,
     \[
     \begin{aligned}
@@ -1168,24 +1146,24 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
     \]
     Следовательно, $\phi$ является $\ell_\infty(\mathcal{A})$-морфизмом. 
     Согласно утверждению \ref{LpOnPurAtomMeasSpRepr}, отображения $I_q$ 
-    и $J_p$ являются изометрическими изоморфизмами; следовательно, $\phi$ 
+    и $J_p$ --- изометрические изоморфизмамы; следовательно, операторы $\phi$ 
     и $\Phi$ имеют одинаковую норму.
 
     $(ii)$ Обозначим $\Phi=J_q\circ \phi\circ I_p$, тогда по 
     утверждению \ref{GnrlzdMeanProp} для любого атома $A\in\mathcal{A}$ имеем
-    \[
+    $
         \Phi([\chi_A])
         =J_q(\phi(I_p([\chi_A])))
         =J_q(\phi(m_{A,p}(\chi_A)e_A))
         =m_{A,p}(\chi_A)J_q(\phi(e_A)).
-    \]
+    $
     Более того,
-    \[
+    $
         \phi(e_A)
         =\phi(e_A\cdot e_A)
         =\phi(e_A)\cdot e_A
         =\phi(e_A)_A e_A,
-    \]
+    $
     следовательно,
     \[
     \begin{aligned}
@@ -1216,32 +1194,34 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
     \end{aligned}
     \]
     Таким образом, $\Phi$ является $B(\Sigma)$-морфизмом. Согласно 
-    утверждению \ref{LpOnPurAtomMeasSpRepr}, отображения $J_q$ и $I_p$ являются 
-    изометрическими изоморфизмами; следовательно, $\Phi$ и $\phi$ имеют 
+    утверждению \ref{LpOnPurAtomMeasSpRepr}, отображения $J_q$ и $I_p$ --- 
+    изометрические изоморфизмамы; следовательно, операторы $\Phi$ и $\phi$ имеют 
     одинаковую норму.
 \end{proof}
 
 \begin{proposition}\label{LpFinDimCharac}
     Пусть $(\Omega,\mu)$ --- разложимое пространство с мерой 
     и $1\leq p\leq+\infty$. Если $L_p(\Omega,\mu)$ является конечномерным 
-    пространством, то $(\Omega,\mu)$ является чисто атомарным с конечным числом 
-    атомов конечной меры.
+    пространством, то пространство $(\Omega,\mu)$ является чисто атомарным с 
+    конечным числом атомов конечной меры.
 \end{proposition} 
 \begin{proof}
-    Предположим, что $(\Omega,\mu)$ не является чисто атомарным, тогда 
-    существует безатомное измеримое множество $E\subset \Omega$. 
+    Предположим, что пространство $(\Omega,\mu)$ не является чисто атомарным, 
+    тогда существует безатомное измеримое множество $E\subset \Omega$. 
     Из~[\cite{FremMeasTh2}, утверждение 215D] мы можем считать, что $E$ имеет 
     положительную конечную меру. Из~[\cite{FremMeasTh2}, упражнение 215X(e)] мы 
     заключаем, что существует счетное семейство $\mathcal{E}$ попарно 
     непересекающихся множеств положительной конечной меры. В этом 
     случае $([\chi_{E}])_{E\in\mathcal{E}}$ является счетным линейно независимым 
-    множеством в $L_p(\Omega,\mu)$, следовательно, $L_p(\Omega,\mu)$ является 
-    бесконечномерным. Противоречие, поэтому $(\Omega,\mu)$ является чисто 
-    атомарным. Пусть $\mathcal{A}$ --- семейство атомов, объединение которых 
-    составляет $\Omega$. Поскольку пространство $\Omega$ разложимо, то все эти 
-    атомы имеют конечную меру. Следовательно, $([\chi_{A}])_{A\in\mathcal{A}}$ 
-    является линейно независимым множеством. Поскольку $L_p(\Omega,\mu)$ 
-    является конечномерным, то $\mathcal{A}$ --- конечное множество.
+    множеством в $L_p(\Omega,\mu)$. Следовательно, пространство 
+    $L_p(\Omega,\mu)$  бесконечномерно. Противоречие, поэтому $(\Omega,\mu)$ 
+    является чисто атомарным. Пусть $\mathcal{A}$ --- семейство атомов, 
+    объединение которых составляет $\Omega$. Поскольку пространство $\Omega$ 
+    разложимо, то все эти атомы имеют конечную меру. 
+    Следовательно, $([\chi_{A}])_{A\in\mathcal{A}}$ 
+    является линейно независимым множеством. Поскольку 
+    пространство $L_p(\Omega,\mu)$ конечномерно, 
+    то $\mathcal{A}$ --- конечное множество.
 \end{proof}
 
 %-------------------------------------------------------------------------------
@@ -1294,22 +1274,23 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
 \begin{remark}\label{C0SModIsBBorSMod}
     Пусть $S$ --- хаусдорфово локально компактное пространство и $\mu$ --- 
     конечная регулярная борелевская мера на $S$. Для любого $1<p<+\infty$ мы 
-    можем рассмотреть $C_0(S)$-модуль $L_p(S,\mu)$ и используя 
+    можем рассмотреть рефлексивный $C_0(S)$-модуль $L_p(S,\mu)$ и используя 
     предложение \ref{C0SMorphBtwnReflxSpIsBMorph} сделать 
-    его $B(\operatorname{Bor}(S))$-модулем. Новое внешнее умножение будет 
-    совпадать с поточечным [\cite{HelTensProdAndMultModLp}, предложение 2.2].
+    его $B(\operatorname{Bor}(S))$-модулем. 
+    Согласно [\cite{HelTensProdAndMultModLp}, предложение 2.2] новое внешнее 
+    умножение будет совпадать с поточечным.
 \end{remark}
 
 \begin{proposition}\label{MetInjC0SModLpSmuOnFinAtmMeasSpCharac}
     Пусть $S$ --- хаусдорфово локально компактное пространство, а $\mu$ --- 
     чисто атомарная борелевская мера на $S$ с конечным числом атомов конечной 
     меры. Предположим, что $1<p<+\infty$ и $C_0(S)$-модуль $L_p(S,\mu)$ 
-    метрически инъективен. Тогда $\mu$ имеет не более чем $1$ атом.
+    метрически инъективен. Тогда $\mu$ имеет не более чем один атом.
 \end{proposition}
 \begin{proof}
     Пусть $\mathcal{A}$ --- разложение $S$ на $n$ атомов конечной меры. 
     Предположим, что $n>1$. Выберем любое $\kappa\in(n^{-1}, (n-1)^{-1})$. 
-    Теперь установим $\mathcal{F}=\mathcal{F}_{\kappa}(\mathcal{A})$. Для 
+    Теперь положим $\mathcal{F}=\mathcal{F}_{\kappa}(\mathcal{A})$. Для 
     каждого $f\in \mathcal{F}$ определим $\ell_\infty(\mathcal{A})$-морфизм 
     $
         m_f:
@@ -1329,7 +1310,7 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
         \}\to\ell_1(\mathcal{A}),
     $
     которые являются $B(\operatorname{Bor}(S))$-морфизмом 
-    и $\ell_\infty(A)$-морфизмом соответственно. Теперь 
+    и $\ell_\infty(\mathcal{A})$-морфизмом соответственно. Теперь 
     рассмотрим $B(\operatorname{Bor}(S))$-морфизмы 
     $
         I_p^\infty=\bigoplus_\infty\{I_p:f\in\mathcal{F}\},
@@ -1352,8 +1333,8 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
     $
         \Xi_{\mathcal{F}}=\sum_{f\in\mathcal{F}}\operatorname{in}_f\circ \Xi_f
     $
-    тоже является $B(\operatorname{Bor}(S))$-морфизмом и как 
-    следствие $C_0(S)$-морфизмом. Заметим, что
+    тоже является $B(\operatorname{Bor}(S))$-морфизмом и, как 
+    следствие, $C_0(S)$-морфизмом. Заметим, что
     $
         I_1^\infty\circ\Xi_\mathcal{F}\circ J_p
         = \sum_{f\in\mathcal{F}} 
@@ -1396,8 +1377,8 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
     каждого $f\in \mathcal{F}$, отображение $I_p\circ \Psi_f\circ J_1$ является 
     $\ell_\infty(\mathcal{A})$-морфизмом. Значит, $\psi$ также является 
     $\ell_\infty(\mathcal{A})$-морфизмом. Так как $I_p$ 
-    и $J_1^{\infty}$ --- изометрические изоморфизмы, то мы 
-    получаем $\Vert\psi\Vert=\Vert\Psi\Vert$. Кроме того,
+    и $J_1^{\infty}$ --- изометрические изоморфизмы, 
+    то $\Vert\psi\Vert=\Vert\Psi\Vert$. Кроме того,
     $
         \psi\circ\xi_\mathcal{F}
         = I_p\circ\Psi\circ J_1^{\infty}\circ 
@@ -1425,7 +1406,7 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
     Тогда пространство $C_0(S)$ дополняемо в $C(K)$. 
     Из [\cite{DefFloTensNorOpId}, лемма 4.4] мы знаем, что пространство $C(K)$ 
     является $\mathscr{L}_\infty^g$-пространством. Значит этому классу 
-    принадлежит и $C_0(S)$, как дополненное подпространство $C(K)$ 
+    принадлежит и $C_0(S)$, как дополняемое подпространство $C(K)$ 
     [\cite{DefFloTensNorOpId}, следствие 23.1.2(1)]. 
     Таким образом, $L_p(S,\mu)$ является рефлексивным 
     [\cite{FremMeasTh2}, теорема 244K] метрически инъективным модулем над 
@@ -1441,13 +1422,13 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
 \begin{theorem}\label{MetInjPlotjFlatC0SModLpSmuCharac}
     Пусть $S$ --- хаусдорфово локально компактное пространство, а $\mu$ --- 
     разложимая борелевская мера на $S$. Предположим, что $1 < p < +\infty$ 
-    и $C_0(S)$-модуль $L_p(S,\mu)$ метрически проективен, инъективен или 
+    и $C_0(S)$-модуль $L_p(S,\mu)$ метрически проективный, инъективный или 
     плоский. Тогда $\mu$ --- чисто атомарная мера с не более чем одним атомом.
 \end{theorem}
 \begin{proof} 
     Если $L_p(S,\mu)$ является метрически инъективным $C_0(S)$-модулем, то 
     результат следует из 
-    предложения \ref{MetInjC0SModLpSmuOnFinAtmMeasSpCharac}. 
+    предложения \ref{MetInjC0SModLpSmuCharac}. 
     
     Предположим, что $L_p(S,\mu)$ является метрически плоским $C_0(S)$-модулем. 
     Тогда из [\cite{NemGeomProjInjFlatBanMod}, предложение 2.21] следует, что
@@ -1458,7 +1439,7 @@ $\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$.
     
     Если $L_p(S,\mu)$ является метрически проективным $C_0(S)$-модулем, то 
     по [\cite{NemGeomProjInjFlatBanMod}, предложение 2.26], он также метрически 
-    плоским. Следовательно, результат следует из предыдущего абзаца.
+    плоский. Следовательно, результат следует из предыдущего абзаца.
 \end{proof}
 
 \begin{thebibliography}{999}
