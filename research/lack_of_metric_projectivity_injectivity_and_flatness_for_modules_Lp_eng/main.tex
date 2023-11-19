@@ -1288,46 +1288,50 @@ $L_p(S,\mu)$ are almost never metrically projective, injective, or flat.
     measure. Suppose $n>1$, then pick any $\kappa\in(n^{-1}, (n-1)^{-1})$. 
     Now we set $\mathcal{F}=\mathcal{F}_{\kappa}(\mathcal{A})$. For 
     each $f\in \mathcal{F}$, we define an $\ell_\infty(\mathcal{A})$-morphism 
-    \[
+    $
         m_f:
         \ell_p(\mathcal{A})\to\ell_1(\mathcal{A}),\,
         x\mapsto x\cdot f.
-    \]
-    We shall also use a natural embedding and a natural projection
-    \[
+    $
+    We shall also use a natural embedding 
+    $
         \operatorname{in}_f:
         L_1(S,\mu)\to\bigoplus_\infty\{L_1(S,\mu):f'\in\mathcal{F}\},
-        \qquad
+    $
+    and a natural projection
+    $
         \operatorname{pr}_f:
         \bigoplus_\infty\{
             \ell_1(\mathcal{A}):f'\in\mathcal{F}
         \}\to\ell_1(\mathcal{A}),
-    \]
+    $
     which are $B(\operatorname{Bor}(S))$-morphisms 
     and $\ell_\infty(A)$-morphisms respectively. 
     Now consider $B(\operatorname{Bor}(S))$-morphisms 
-    \[
+    $
         I_p^\infty=\bigoplus_\infty\{I_p:f\in\mathcal{F}\},
-        \qquad
+    $
+    and
+    $
         J_p^\infty=\bigoplus_\infty\{J_p:f\in\mathcal{F}\}.
-    \]
+    $
     These are isometric isomorphisms, and one can easily check that 
-    \[
+    $
         I_p^\infty \circ \operatorname{in}_f=\operatorname{in}_f\circ I_p,
-        \qquad 
+    $
+    and
+    $
         \operatorname{pr}_f\circ I_p^\infty=I_p\circ \operatorname{pr}_f.
-    \]
-
+    $
     By proposition \ref{SwtchMorphBtwnAtomMeasSp}, the 
     map $\Xi_f=J_1\circ m_f\circ I_p$ is 
     a $B(\operatorname{Bor}(S))$-morphism. Hence, the map 
-    \[
+    $
         \Xi_{\mathcal{F}}=\sum_{f\in\mathcal{F}}\operatorname{in}_f\circ \Xi_f
-    \]
+    $
     is a $B(\operatorname{Bor}(S))$-morphism and a fortiori a $C_0(S)$-morphism. 
     Note that
-    \[
-    \begin{aligned}
+    $
         I_1^\infty\circ\Xi_\mathcal{F}\circ J_p
         = \sum_{f\in\mathcal{F}} 
             I_1^\infty\circ\operatorname{in}_f \circ \Xi_f \circ J_p
@@ -1336,8 +1340,7 @@ $L_p(S,\mu)$ are almost never metrically projective, injective, or flat.
             J_1 \circ m_f \circ I_p \circ J_p
         =\sum_{f\in\mathcal{F}} \operatorname{in}_f\circ m_f 
         =\xi_{\mathcal{F}}.
-    \end{aligned}
-    \]
+    $
     By proposition \ref{StdEmbdSpclCoerciv}, the coercivity 
     constant $\gamma_{\mathcal{F}}$ is finite and positive, 
     so $\xi_{\mathcal{F}}$ is $\gamma_{\mathcal{F}}$-topologically injective.
@@ -1345,10 +1348,10 @@ $L_p(S,\mu)$ are almost never metrically projective, injective, or flat.
     also $\gamma_{\mathcal{F}}$-topologically injective. By assumption, 
     the $C_0(S)$-module $L_p(S,\mu)$ is metrically injective. Hence, there 
     exists a $C_0(S)$-morphism 
-    \[
+    $
         \Psi:
         \bigoplus_\infty\{ L_1(S,\mu):f\in\mathcal{F}\}\to L_p(S,\mu)
-    \]
+    $
     such that $\Psi\circ \Xi_{\mathcal{F}}=1_{L_p(S,\mu)}$ 
     and $\Vert \Psi\Vert\leq \gamma_{\mathcal{F}}$.
 
@@ -1359,12 +1362,11 @@ $L_p(S,\mu)$ are almost never metrically projective, injective, or flat.
     proposition \ref{C0SMorphBtwnReflxSpIsBMorph} and 
     remark \ref{C0SModIsBBorSMod}, for any $f\in\mathcal{F}$, the
     map $\Psi_f$ is a $B(\operatorname{Bor}(S))$-morphism. Note that
-    \[
+    $
         \Psi=\sum_{f\in\mathcal{F}} \Psi_f\circ\operatorname{pr}_f.
-    \]
+    $
     Now we define a bounded linear operator
-    \[
-    \begin{aligned}
+    $
         \psi
         =I_p\circ\Psi\circ J_1^\infty
         =I_p\circ\left(
@@ -1374,23 +1376,20 @@ $L_p(S,\mu)$ are almost never metrically projective, injective, or flat.
             I_p\circ\Psi_f\circ\operatorname{pr}_f\circ J_1^\infty 
         =\sum_{f\in\mathcal{F}} 
             I_p\circ\Psi_f\circ J_1\circ\operatorname{pr}_f.
-    \end{aligned} 
-    \]
+    $
     By proposition \ref{SwtchMorphBtwnAtomMeasSp}, for each $f\in \mathcal{F}$, 
     the map $I_p\circ \Psi_f\circ J_1$ is 
     an $\ell_\infty(\mathcal{A})$-morphism. Therefore, $\psi$ is 
     an $\ell_\infty(\mathcal{A})$-morphism too. As $I_p$ and $J_1^{\infty}$ are
     isometric isomorphisms, we have $\Vert\psi\Vert=\Vert\Psi\Vert$. Moreover,
-    \[
-    \begin{aligned}
+    $
         \psi\circ\xi_\mathcal{F}
         = I_p\circ\Psi\circ J_1^{\infty}\circ 
             I_1^{\infty}\circ \Xi_{\mathcal{F}}\circ J_p
         = I_p\circ\Psi\circ \Xi_{\mathcal{F}}\circ J_p
         = I_p\circ J_p
         = 1_{\ell_p(\mathcal{A})}.
-    \end{aligned}
-    \]
+    $
     Thus, we have constructed an $\ell_\infty(\mathcal{A})$-morphism $\psi$
     such that $\psi\circ\xi_{\mathcal{F}}=1_{\ell_p(\mathcal{A})}$ 
     and $\Vert \psi\Vert\leq\gamma_{\mathcal{F}}$. Since we assumed that $n>1$,
