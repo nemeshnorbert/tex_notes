@@ -485,8 +485,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
         \mathcal{F}_{\kappa}(\Lambda)
         =\{f_\lambda: \lambda\in\Lambda\}
         \cup
-        \{f_\star\}
-        \subset \ell_{p^*}(\Lambda).
+        \{f_\star\}.
     \]
 \end{definition}
 
@@ -520,7 +519,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
             \left( \sum_{\lambda\in\Lambda} |t_\lambda|^p\right)^{1/p} : 
             t\in\mathbb{R}^\Lambda,\, 
             \sum_{\lambda\in\Lambda} |t_\lambda|\leq \kappa^{-1},\,
-            |t_\lambda|\leq 1,\,\lambda\in\Lambda,\,
+            |t_\lambda|\leq 1,\,\lambda\in\Lambda\,
         \right\}. \\
     \end{aligned}
     \]
@@ -535,7 +534,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
         C=\left\{ 
             t\in\mathbb{R}^\Lambda : 
             \sum_{\lambda\in\Lambda} |t_\lambda|\leq \kappa^{-1},\,
-            |t_\lambda|\leq 1,\,\lambda\in\Lambda,\,
+            |t_\lambda|\leq 1,\,\lambda\in\Lambda\,
         \right\}
     \]
     in a finite-dimensional space. Since $F$ is strictly convex, then $F$ 
@@ -544,7 +543,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     \[
         \gamma_{\mathcal{F}_{\kappa}(\Lambda)}=\max\{
             F(t):t\in\operatorname{ext}(C)
-        \},
+        \}.
     \]
     Clearly, any point $t\in \operatorname{ext}(C)$ has all coordinates but one
     equal to $1$ or $-1$. Therefore,
@@ -604,7 +603,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
         &\geq\max\left\{
             \left(\sum_{\lambda\in\Lambda}
                 \left|
-                    \sum_{f\in\mathcal{F}_{\kappa(\Lambda)}} 
+                    \sum_{f\in\mathcal{F}_{\kappa}(\Lambda)} 
                         |\eta_{f,\lambda}|\delta_{\lambda}^{d_{\lambda'}(f)}
                 \right|^p
             \right)^{1/p}:
@@ -718,11 +717,11 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     \[
         F(s)=
         \begin{cases}
-            ((s+\kappa^{-1}(1-s))+(n-1)s^p)^{1/p}
+            ((s+\kappa^{-1}(1-s))^p+(n-1)s^p)^{1/p}
             \quad&\text{if }\quad 0\leq s\leq 1, \\
             \left(
                 (\kappa^{-1}+1)^p
-                \left(s-\frac{\kappa^{-1}}{\kappa^{-1}+1}\right)+
+                \left(s-\frac{\kappa^{-1}}{\kappa^{-1}+1}\right)^p+
                 (n-1)s^p
             \right)^{1/p}
             \quad&\text{if }\quad s>1.
@@ -733,7 +732,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     of $F$ on $[0, 1]$. For $s\in[0,1]$, we have
     \[
         F'(s)=
-        ((s+\kappa^{-1}(1-s))+(n-1)s^p)^{1/p-1}
+        ((s+\kappa^{-1}(1-s))^p+(n-1)s^p)^{1/p-1}
         ((\kappa^{-1}+(1-\kappa^{-1})s)^{p-1}+(n-1)s^{p-1}).
     \]
     The stationary point can be found from the equation $F'(s)=0$. 
@@ -783,7 +782,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
 \begin{proof}
     For any $r>1$ and any $x\in\mathbb{C}^n$, we have
     \[
-        \Vert x\Vert
+        \Vert x\Vert_r
         =\left(\sum_{k=1}^n |x_k|^r \right)^{1/r}
         =\left(\sum_{k=1}^n |x_k| |x_k|^{r-1} \right)^{1/r}
         \leq\left(\sum_{k=1}^n |x_k| \right)^{1/r} 
@@ -934,8 +933,8 @@ called a measure space. A measurable set $E$ is called an atom
 if $\mu(A)>0$ and for every measurable subset $B\subset A$, either $\mu(B)=0$ 
 or $\mu(A\setminus B)=0$. A measure $\mu$ is called purely atomic if every 
 measurable set of positive measure has an atom. A measure $\mu$ is semi-finite 
-if for any measurable set $A$ of infinite measure, there exists a measurable 
-subset of $A$ with finite positive measure. A family $\mathcal{D}$ of 
+if for any measurable set $E$ of infinite measure, there exists a measurable 
+subset of $E$ with finite positive measure. A family $\mathcal{D}$ of 
 measurable subsets of finite measure is called a decomposition of $\Omega$ if 
 for any measurable set $E$ holds $\mu(E)=\sum_{D\in\mathcal{D}}\mu(E\cap D)$ 
 and a set $F$ is measurable whenever $F\cap D$ is measurable for 
@@ -971,8 +970,9 @@ Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
         everywhere on $E$;
         \item If $E$ is an atom, 
         then $m_{E,\infty}(f)m_{E,\infty}(g)=m_{E,\infty}(f\cdot g)$;
-        \item If $E$ is an atom and $r+s\neq 0$, 
-        then $m_{E,r}(f)m_{E,s}(g)=m_{E,\frac{rs}{r+s}}(f\cdot g)$.
+        \item If $E$ is an atom, 
+        then $m_{E,r}(f)m_{E,s}(g)=m_{E,\frac{rs}{r+s}}(f\cdot g)$ 
+        with convention $1/0=\infty$.
     \end{enumerate}
 \end{proposition}
 \begin{proof}
@@ -1066,7 +1066,7 @@ Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
     \[
         m_{A,p}(J_p(x))
         =m_{A,p}(J_p(x)\chi_A)
-        =m_{A,p}(x_A m_{A,-p}[\chi_A])
+        =m_{A,p}(x_A m_{A,-p}(\chi_A)[\chi_A])
         =x_A m_{A,-p}(\chi_A)m_{A,p}(\chi_A)
         =x_A.
     \]
@@ -1210,12 +1210,12 @@ Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
     we may assume that $E$ has a positive finite measure. 
     By~[\cite{FremMeasTh2}, exercise 215X(e)], there is a countable 
     family $\mathcal{E}$ of disjoint sets of positive finite measure. In this 
-    case, $(\chi_{E})_{E\in\mathcal{E}}$ is a countable linearly independent 
+    case, $([\chi_{E}])_{E\in\mathcal{E}}$ is a countable linearly independent 
     set in $L_p(\Omega,\mu)$, hence $L_p(\Omega,\mu)$ is infinite-dimensional. 
     Contradiction, so $(\Omega,\mu)$ is purely atomic. Let $\mathcal{A}$ be a 
     family of atoms whose union is $\Omega$. Since $\Omega$ is decomposable, 
     then all these atoms have a finite measure. 
-    Therefore, $(\chi_{A})_{A\in\mathcal{A}}$ is a linearly independent set. 
+    Therefore, $([\chi_{A}])_{A\in\mathcal{A}}$ is a linearly independent set. 
     Since $L_p(\Omega,\mu)$ is finite-dimensional, then $\mathcal{A}$ is finite.
 \end{proof}
 
@@ -1235,13 +1235,19 @@ on $S$. We shall show that for $1<p<+\infty$, Banach $C_0(S)$-modules
 $L_p(S,\mu)$ are almost never metrically projective, injective, or flat. 
 
 \begin{proposition}\label{C0SMorphBtwnReflxSpIsBMorph}
-    Let $S$ be a locally compact Hausdorff space and $\mu$ be a decomposable 
-    Borel measure on $S$. Then any $C_0(S)$-morphism between 
-    right reflexive modules is a $B(\operatorname{Bor}(S))$-morphism. 
+    Let $S$ be a locally compact Hausdorff space. Then 
+    \begin{enumerate}[label = (\roman*)]
+        \item Any reflexive $C_0(S)$-module (left or right) can be endowed 
+        with the structure of a $B(\operatorname{Bor}(S))$-module, and the outer
+        action is consistent with multiplication by elements of the 
+        algebra $C_0(S)$;
+        \item Any $C_0(S)$-morphism between reflexive modules 
+        is a $B(\operatorname{Bor}(S))$-morphism;
+    \end{enumerate}
 \end{proposition}
 \begin{proof} 
-    Suppose $Z$ is a right $C_0(S)$-module, then $Z^{**}$ is a 
-    right $C_0(S)^{**}$-module 
+    $(i)$ Suppose $Z$ is a $C_0(S)$-module, then via Arens product 
+    $Z^{**}$ is a $C_0(S)^{**}$-module 
     [\cite{DalBanAlgAutCont}, proposition 2.6.15(iii)]. If $Z$ is reflexive, 
     then the natural embedding $\iota_Z:Z\to Z^{**}$ is an isometric 
     isomorphism. Recall that $B(\operatorname{Bor}(S))$ is a subalgebra 
@@ -1251,7 +1257,7 @@ $L_p(S,\mu)$ are almost never metrically projective, injective, or flat.
     the formula $z\cdot b=\iota_Z^{-1}(\iota_Z(z)\cdot b)$ for $z\in Z$ 
     and $b\in B(\operatorname{Bor}(S))$.
     
-    Let $\phi:X\to Y$ be a morphism of right reflexive $C_0(S)$-modules. 
+    $(ii)$ Let $\phi:X\to Y$ be a morphism of right reflexive $C_0(S)$-modules. 
     Then $\phi^{**}$ is a $C_0(S)^{**}$-morphism
     [\cite{DalBanAlgAutCont}, proposition A.3.53]. As we have noted above, $X$
     and $Y$ are $B(\operatorname{Bor}(S))$-modules, 
@@ -1259,6 +1265,17 @@ $L_p(S,\mu)$ are almost never metrically projective, injective, or flat.
     Since $\phi=\iota_Y^{-1}\circ \phi^{**}\circ \iota_X$, then $\phi$ is 
     a $B(\operatorname{Bor}(S))$-morphism.
 \end{proof}
+
+\begin{remark}\label{C0SModIsBBorSMod}
+    Let $S$ be a locally compact Hausdorff space and $\mu$ be a finite 
+    Borel measure on $S$. Using proposition \ref{C0SMorphBtwnReflxSpIsBMorph} 
+    for any $1<p<+\infty$ we can endow 
+    the $C_0(S)$-module $L_p(S,\mu)$ with the structure 
+    of $B(\operatorname{Bor}(S))$-module. This new outer action coincides with
+    the pointwise multiplication 
+    [\cite{HelTensProdAndMultModLp}, proposition 2.2].
+\end{remark}
+
 
 \begin{proposition}\label{MetInjC0SModLpSmuOnFinAtmMeasSpCharac}
     Let $S$ be a locally compact Hausdorff space and $\mu$ be a purely atomic 
@@ -1339,7 +1356,8 @@ $L_p(S,\mu)$ are almost never metrically projective, injective, or flat.
     a $C_0(S)$-morphism $\Psi_f=\Psi\circ \operatorname{in}_f$. 
     Since $\mathcal{A}$ is finite, then $L_p(S,\mu)$ and $L_1(S,\mu)$ are
     finite-dimensional and therefore reflexive. Hence, by 
-    proposition \ref{C0SMorphBtwnReflxSpIsBMorph}, for any $f\in\mathcal{F}$, the
+    proposition \ref{C0SMorphBtwnReflxSpIsBMorph} and 
+    remark \ref{C0SModIsBBorSMod}, for any $f\in\mathcal{F}$, the
     map $\Psi_f$ is a $B(\operatorname{Bor}(S))$-morphism. Note that
     \[
         \Psi=\sum_{f\in\mathcal{F}} \Psi_f\circ\operatorname{pr}_f.
@@ -1384,7 +1402,7 @@ $L_p(S,\mu)$ are almost never metrically projective, injective, or flat.
     Let $S$ be a locally compact Hausdorff space, and $\mu$ be a decomposable 
     Borel measure on $S$. Suppose $1 < p < +\infty$, and 
     the $C_0(S)$-module $L_p(S,\mu)$ is metrically injective, 
-    then $\mu$ has at most one atom.
+    then $\mu$ is purely atomic with at most one atom.
 \end{proposition}
 \begin{proof} 
     Let $K$ be the Alexandroff compactification of $S$. 
@@ -1464,6 +1482,11 @@ $L_p(S,\mu)$ are almost never metrically projective, injective, or flat.
     %
     \bibitem{DalBanAlgAutCont}\textit{H. G. Dales}, Banach algebras and 
     automatic continuity, {2000}, Clarendon Press.
+    %
+    %
+    \bibitem{HelTensProdAndMultModLp}\textit{Хелемский, А.Я.}, Тензорные 
+    произведения и мультипликаторы модулей $\it{L_p}$ на локально компактных 
+    пространствах с мерой, Матем. заметки, Vol. 96(3), p. 450--469.
     %
     %
     \bibitem{DefFloTensNorOpId}\textit{A. Defant, K. Floret}, Tensor norms and 
