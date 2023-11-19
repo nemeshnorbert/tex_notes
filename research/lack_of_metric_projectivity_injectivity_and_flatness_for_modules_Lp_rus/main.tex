@@ -1,0 +1,1526 @@
+% chktex-file 35
+\documentclass[12pt]{article}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{enumerate}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[matrix,arrow,curve]{xy}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=blue,
+    pdfborder={0 0 0}]{hyperref}
+\usepackage{enumitem}
+
+%------------------------------------------------------------------------------
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{lemma}[theorem]{Лемма}
+\newtheorem{proposition}[theorem]{Предложение}
+\newtheorem{remark}[theorem]{Замечание}
+\newtheorem{corollary}[theorem]{Следствие}
+\newtheorem{definition}[theorem]{Определение}
+\newtheorem{example}[theorem]{Пример}
+
+\newcommand{\projtens}{\mathbin{\widehat{\otimes}}}
+\newcommand{\convol}{\ast}
+\newcommand{\projmodtens}[1]{\mathbin{\widehat{\otimes}}_{#1}}
+\newcommand{\isom}[1]{\mathop{\mathbin{\cong}}\limits_{#1}}
+%------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{center}
+    \Large \textbf{Отсутствие метрической проективности, инъективности и 
+    плоскости для модулей $L_p$}\\[0.5cm]
+    \small {Н. Т. Немеш}\\[0.5cm]
+\end{center}
+
+\thispagestyle{empty}
+
+\medskip
+\textbf{Аннотация:} В данной статье мы докажем, что для хаусдорфова 
+локально-компактного пространства $S$ и разложимой борелевской меры $\mu$ 
+метрическая проективность, инъективность или 
+плоскость $C_0(S)$-модуля $L_p(S,\mu)$ влечет чистую атомарность меры $\mu$, 
+причем количество атомов не превосходит $1$.
+\medskip
+
+\textbf{Ключевые слова:} метрическая проективность, метрическая инъективность, 
+метрическая плоскость, $L_p$-пространство.
+
+\bigskip
+
+%-------------------------------------------------------------------------------
+%  Introduction
+%-------------------------------------------------------------------------------
+
+\section{Введение}\label{SctnIntro}
+
+Эта статья завершает исследование автора гомологических свойств модулей $L_p$. 
+В работе \cite{NemRelProjModLp} было показано, что модули $L_p$ относительно 
+проективны для небольшого класса пространств с мерой, а именно для чисто 
+атомарных пространств с мерой, причем атомы являются изолированными точками. Цель 
+данной статьи --- решить ту же задачу для метрической проективности, 
+инъективности и плоскости. Ожидалось, что для метрической теории класс 
+пространств с мерой должен быть еще меньше. Как показано в этой статье, этот 
+класс включает в себя только чисто атомарные пространства с мерой с не более 
+чем одним атомом. Можно сказать, что модули $L_p$ почти 
+никогда не являются метрически проективными, инъективными или плоскими.
+
+Прежде чем перейти к содержанию статьи, мы дадим несколько определений. 
+Для любого натурального числа $n\in\mathbb{N}$ мы обозначаем множество первых 
+$n$ натуральных чисел как $\mathbb{N}_n$. Пусть $M$ --- подмножество множества 
+$N$, тогда $\chi_M$ обозначает индикаторную функцию $M$. Символ $1_N$ обозначает 
+тождественное отображение на $N$. Если $k,l\in N$, то $\delta_{k}^{l}$ обозначает 
+их символ Кронекера.
+
+Все банаховы пространства, обсуждаемые в этой статье, рассматриваются над полем
+комплексных чисел. Мы будем активно использовать следующую конструкцию из 
+теории банаховых пространств: для данного семейства банаховых 
+пространств $\{E_\lambda: \lambda\in\Lambda\}$, 
+через $\bigoplus_p\{E_\lambda: \lambda\in\Lambda\}$ мы будем обозначать 
+их $\ell_p$-сумму (см. [\cite{HelLectAndExOnFuncAn}, предложение 1.1.7]). 
+Аналогично, для семейства линейных операторов $T_\lambda:E_\lambda\to F_\lambda$, 
+где $\lambda\in\Lambda$, их $\ell_p$-сумма обозначается 
+как $\bigoplus_p\{T_\lambda:\lambda\in\Lambda\}$ 
+(см. [\cite{HelLectAndExOnFuncAn}, предложение 1.1.7]). Через $E\projtens F$ мы 
+будем обозначать проективное тензорное произведение 
+банаховых пространств $E$ и $F$ [\cite{HelLectAndExOnFuncAn}, теорема 2.7.4].
+
+Пусть $T:E\to F$ --- ограниченный линейный оператор между банаховыми 
+пространствами. Далее мы дадим количественную версию определения 
+вложения с замкнутым образом: если существует константа $c>0$ такая, 
+что $c\Vert T(x)\Vert\geq \Vert x\Vert$ для всех $x\in E$, тогда оператор $T$ 
+называется $c$-топологически инъективным. Аналогично, 
+количественное определение открытого отображения звучит так: если существует 
+константа $c>0$ такая, что для любого $y\in F$ мы можем найти $x\in E$ такой, 
+что $T(x)=y$ и $c\Vert y\Vert\geq \Vert x\Vert$, то отображение $T$ 
+называется $c$-топологически сюръективным. Наконец, линейный или билинейный
+оператор называется сжимающим, если его норма не превышает $1$.
+
+Пусть $A$ --- банахова алгебра. Мы будем работать как с левыми, так и с 
+правыми банаховыми $A$-модулями, предполагая, что у всех модулей сжимающий 
+билинейный оператор внешнего умножения. Пусть 
+$X$ и $Y$ --- два банаховых $A$-модуля, тогда отображение $\phi:X\to Y$ называется 
+$A$-морфизмом, если оно является непрерывным $A$-модульным отображением. Все 
+левые банаховы $A$-модули и их $A$-морфизмы образуют категорию, обозначаемую 
+как $A-\mathbf{mod}$. Аналогично, можно определить категорию $\mathbf{mod}-A$, 
+состоящую из правых $A$-модулей. Наконец, $X\projmodtens{A} Y$ обозначает 
+проективное тензорное произведение левого $A$-модуля $X$ и 
+правого $A$-модуля $Y$ (см. [\cite{HelBanLocConvAlg}, определение VI.3.18]).
+
+Теперь мы переходим к определениям метрической проективности, инъективности 
+и плоскости. Первая работа по этой теме была опубликована в 1978 году 
+Гравеном \cite{GravInjProjBanMod}. Позже эквивалентные определения были даны 
+Уайтом \cite{WhiteInjmoduAlg} и Хелемски \cite{HelMetrFrQMod,HelMetrFlatNorMod}.
+
+Левый банахов $A$-модуль $P$ называется метрически проективным, если для 
+любого $c$-топологически сюръективного $A$-морфизма $\xi:X\to Y$ и любого 
+$A$-морфизма $\phi:P\to Y$, существует $A$-морфизм $\psi:P\to X$ такой, что 
+$\Vert\psi\Vert\leq c$ и диаграмма
+$$
+    \xymatrix{
+    & {X} \ar[d]^{\xi}\\
+    {P} \ar@{-->}[ur]^{\psi} \ar[r]^{\phi} &{Y}}
+$$
+коммутативна. Исходное определение было несколько 
+иным [\cite{GravInjProjBanMod}, определение 2.4], но оно все еще 
+эквивалентно приведенному выше. Простейшим примером метрически проективного 
+$A$-модуля является сама алгебра $A$, при условии, что она унитальна 
+[\cite{GravInjProjBanMod}, теорема 2.5].
+
+Правый банахов $A$-модуль $J$ называется метрически инъективным, если для 
+любого $c$-топологически инъективного $A$-морфизма $\xi:Y\to X$ и 
+любого $A$-морфизма $\phi:Y\to J$, существует $A$-морфизм $\psi:X\to J$ такой, 
+что $\Vert\psi\Vert\leq c$ и диаграмма
+\[
+    \xymatrix{
+    & {X} \ar@{-->}[dl]_{\psi} \\
+    {J} &{Y} \ar[l]_{\phi} \ar[u]_{\xi}}
+\]
+коммутативна. Наше определение эквивалентно исходному 
+[\cite{GravInjProjBanMod}, определение 3.1]. Следует напомнить, 
+что $P^*$ является метрически инъективным $A$-модулем, когда $P$ метрически 
+проективен [\cite{GravInjProjBanMod}, theorem 3.2]. Следовательно, если алгебра 
+$A$ унитальна, то правый банахов $A$-модуль $A^*$ метрически инъективен.
+
+Левый $A$-модуль $F$ называется метрически плоским, если для каждого 
+$c$-топологически инъективного $A$-морфизма $\xi:X\to Y$ правых $A$-модулей, 
+оператор $\xi\projmodtens{A} 1_F:X\projmodtens{A} F\to Y\projmodtens{A} F$ 
+является $c$-топологически инъективным. Это определение было неявно дано в 
+теореме [\cite{GravInjProjBanMod}, теорема 3.10]. Из этой теоремы и вышеприведенных 
+замечаний мы заключаем, что любой метрически проективный модуль также 
+метрически плоский. В частности, унитальная банахова алгебра $A$ является 
+метрически плоским $A$-модулем.
+
+%-------------------------------------------------------------------------------
+%	Metric injectivity of linftyn modules lpn
+%-------------------------------------------------------------------------------
+
+\section{Метрическая инъективность конечномерного \\
+\texorpdfstring{$\ell_\infty(\Lambda)$}{linftyLmbd}-модуля 
+\texorpdfstring{$\ell_p(\Lambda)$}{lpLmbd}}
+\label{MetrInjlinftynlpn}
+
+Пусть $\Lambda$ --- произвольное индексное множество 
+и $1\leq p\leq +\infty$, тогда через $\ell_p(\Lambda)$ мы будем обозначать 
+стандартное пространство $\ell_p$. Его норма обозначается $\Vert\cdot\Vert_p$, а 
+естественный базис $(e_\lambda)_{\lambda\in\Lambda}$. 
+Для $1\leq p<+\infty$ мы часто будем использовать отождествление
+$\ell_p(\Lambda)^*=\ell_{p^*}(\Lambda)$, где $p^*=p/(p-1)$. 
+По соглашению, $1^*=+\infty$. Пространство $\ell_p(\Lambda)$ можно рассматривать 
+как левый, так и правый банахов модуль над банаховой 
+алгеброй $\ell_\infty(\Lambda)$. В этом разделе мы покажем, что для 
+конечного $\Lambda$ правый $\ell_\infty(\Lambda)$-модуль $\ell_p(\Lambda)$ 
+метрически инъективен только если $\Lambda$ содержит не более одного элемента.
+
+\begin{definition}\label{StdEmbd} 
+    Пусть $\Lambda$ --- произвольное множество, $1<p<+\infty$ 
+    и $\mathcal{F}\subset\ell_{p^*}(\Lambda)$. Определим линейный оператор
+    \[
+        \xi_{\mathcal{F}}: 
+        \ell_p(\Lambda)\to\bigoplus_\infty\{\ell_1(\Lambda):f\in\mathcal{F}\},\,
+        x \mapsto \bigoplus_\infty\{ x\cdot f: f\in\mathcal{F}\}.
+    \]
+\end{definition}
+
+\begin{definition}\label{StdEmbdCoercv}
+    Пусть $\Lambda$ --- произвольное множество, $1<p<+\infty$ 
+    и $\mathcal{F}\subset \ell_{p^*}(\Lambda)$. Определим константу 
+    обратимости для оператора $\xi_{\mathcal{F}}$ как
+    \[
+        \gamma_{\mathcal{F}}=\sup\{
+            \Vert x\Vert_p: 
+            x\in\ell_p^n,\,\, \Vert \xi_{\mathcal{F}}(x)\Vert\leq 1
+        \}.
+    \]
+\end{definition}
+
+Заметим, что $\xi_{\mathcal{F}}$ $\gamma_{\mathcal{F}}$-топологически инъективен 
+только если $\gamma_{\mathcal{F}}$ конечно.
+
+\begin{proposition}\label{LinfnMorphlpntolqnCharac}
+    Пусть $\Lambda$ --- произвольное множество, $1\leq p,q\leq +\infty$, 
+    и задан $\ell_\infty(\Lambda)$-морфизм правых модулей 
+    $\phi:\ell_p(\Lambda)\to \ell_{q}(\Lambda)$. Тогда существует 
+    вектор $\eta\in\ell_\infty(\Lambda)$ такой, что $\phi(x)=\eta\cdot x$ 
+    для всех $x\in \ell_p(\Lambda)$.
+\end{proposition}
+\begin{proof}
+    Обозначим $\eta_\lambda=\phi(e_\lambda)_\lambda$, где $\lambda\in\Lambda$. 
+    Для любого $x\in\ell_p(\Lambda)$ и $\lambda\in\Lambda$, мы имеем
+    \[
+        \phi(x)_\lambda
+        =(\phi(x)\cdot e_\lambda)_\lambda
+        =\phi(x\cdot e_\lambda)_\lambda
+        =\phi(x_\lambda e_\lambda)_\lambda
+        =x_\lambda\phi(e_\lambda)_\lambda
+        =x_\lambda\eta_\lambda
+        =(\eta\cdot x)_\lambda.
+    \]
+    Следовательно, $\phi(x)=\eta\cdot x$. По 
+    построению $\Vert\eta\Vert_\infty\leq\Vert\phi\Vert$, 
+    так что $\eta\in\ell_\infty(\Lambda)$.
+\end{proof}
+
+\begin{proposition}\label{ExtMorphSuml1ntlpnCharac}
+    Пусть $\Lambda$ - множество, $1<p<+\infty$ 
+    и $\mathcal{F}\subset \ell_{p^*}(\Lambda)$ конечное множество. Тогда для любого 
+    морфизма правых $\ell_\infty(\Lambda)$-модулей
+    $\psi:\bigoplus_\infty\{\ell_1(\Lambda):f\in\mathcal{F}\}\to\ell_p(\Lambda)$ 
+    существует семейство векторов $\eta\in\ell_\infty(\Lambda)^\mathcal{F}$ 
+    таких, что
+    \[
+        \psi(t)=\sum_{f\in\mathcal{F}} \eta_f \cdot t_f
+    \]
+    для всех $t\in \bigoplus_\infty\{ \ell_1(\Lambda):f\in\mathcal{F}\}$.
+\end{proposition}
+\begin{proof}
+    Для каждого $f\in\mathcal{F}$ мы определяем естественное вложение
+    \[
+        \operatorname{in}_f:
+        \ell_1(\Lambda)\to\bigoplus_\infty\{\ell_1(\Lambda):f\in\mathcal{F}\},
+    \]
+    которое является морфизмом правых $\ell_\infty(\Lambda)$-модулей. Далее мы 
+    определим $\ell_\infty(\Lambda)$-морфизм 
+    $\psi_f=\psi\circ \operatorname{in}_f$. 
+    По предложению \ref{LinfnMorphlpntolqnCharac} существует 
+    вектор $\eta_f\in\ell_\infty(\Lambda)$ такой, что $\psi_f(x)=\eta_f\cdot x$ 
+    для всех $x\in\ell_1(\Lambda)$. Поскольку $\mathcal{F}$ конечно, то для 
+    всех $t\in \bigoplus_\infty\{ \ell_1(\Lambda) : f\in \mathcal{F}\}$ 
+    выполнено
+    \[
+        \psi(t)
+        =\psi\left(\bigoplus_\infty\{ t_f : f\in\mathcal{F}\}\right)
+        =\psi\left(\sum_{f\in\mathcal{F}} \operatorname{in}_f(t_f)\right)
+        =\sum_{f\in\mathcal{F}}\psi_f(t_f)
+        =\sum_{f\in\mathcal{F}} \eta_f\cdot t_f.
+    \]
+\end{proof}
+
+\begin{definition}\label{ParamExtMorph}
+    Пусть $\Lambda$ --- произвольное множество, $1<p<+\infty$ 
+    и $\mathcal{F}\subset \ell_{p^*}(\Lambda)$ --- 
+    конечное множество. Для заданного семейства 
+    $\eta\in \ell_\infty(\Lambda)^\mathcal{F}$ мы определяем линейный оператор
+    \[
+        \psi_{\eta}:
+        \bigoplus_\infty\{\ell_1(\Lambda):f\in\mathcal{F}\}\to\ell_p(\Lambda),\,
+        t\mapsto\sum_{f\in\mathcal{F}} \eta_f\cdot t_f.
+    \]
+\end{definition}
+
+\begin{definition}\label{ExtMorphs}
+    Пусть $\Lambda$ --- произвольное множество, $1<p<+\infty$ 
+    и $\mathcal{F}\subset\ell_{p^*}(\Lambda)$ --- 
+    конечное множество, тогда положим по определению
+    \[
+        \mathcal{N}_{\mathcal{F}}=\left\{
+            \eta\in \ell_\infty(\Lambda)^{\mathcal{F}} : 
+            \sum_{f\in\mathcal{F}} \eta_{f,\lambda}f_\lambda=1,\,\,
+            \lambda\in\Lambda
+        \right\}.
+    \]
+\end{definition}
+
+\begin{proposition}\label{StdEmbdLeftInvCharac}
+    Пусть $\Lambda$ --- произвольное множество, $1<p<+\infty$ 
+    и $\mathcal{F}\subset\ell_{p^*}(\Lambda)$ --- 
+    конечное множество. В этом случае $\psi_\eta$ является левым 
+    обратным $\ell_\infty(\Lambda)$-морфизмом для $\xi_{\mathcal{F}}$ тогда и 
+    только тогда, когда $\eta\in\mathcal{N}_{\mathcal{F}}$.
+\end{proposition}
+\begin{proof} 
+    Предположим, что $\psi_{\eta}$ --- левый обратный морфизм 
+    для $\xi_{\mathcal{F}}$, тогда для любого $\lambda\in\Lambda$ выполнено
+    \[
+        e_\lambda
+        =\psi_{\eta}(\xi_{\mathcal{F}}(e_\lambda))
+        =\psi_{\eta}\left(\bigoplus_\infty\{
+            e_\lambda\cdot f: f\in\mathcal{F}
+        \}\right)
+        =\sum_{f\in\mathcal{F}} \eta_{f}\cdot e_\lambda\cdot f.
+    \]
+    Для координаты $\lambda\in\Lambda$ мы получаем
+    \[
+        1=(e_\lambda)_\lambda
+        =\left(
+            \sum_{f\in\mathcal{F}} \eta_f\cdot e_\lambda\cdot f
+        \right)_\lambda
+        =\sum_{f\in\mathcal{F}} \eta_{f,\lambda}f_\lambda.
+    \]
+    Таким образом, $\eta\in\mathcal{N}_{\mathcal{F}}$.
+    Обратно, пусть $\eta\in\mathcal{N}_{\mathcal{F}}$, тогда для 
+    любого $x\in\ell_p(\Lambda)$ выполнено
+    \[
+    \begin{aligned}
+        \psi_\eta(\xi_{\mathcal{F}}(x))
+        &=\psi_{\eta}\left(\bigoplus_\infty\{x\cdot f:f\in\mathcal{F}\}\right) 
+        =\sum_{f\in\mathcal{F}}\eta_f\cdot x\cdot f 
+        =\sum_{f\in\mathcal{F}}\sum_{\lambda\in\Lambda} 
+            (\eta_f\cdot x\cdot f)_\lambda e_\lambda \\
+        &=\sum_{\lambda\in\Lambda} 
+            \left(\sum_{f\in\mathcal{F}}\eta_{f,\lambda}f_\lambda\right) 
+            x_\lambda e_\lambda 
+        =\sum_{\lambda\in\Lambda} x_\lambda e_\lambda 
+        =x. 
+    \end{aligned}
+    \]
+    Следовательно, морфизм $\psi_\eta$ является левым обратным 
+    для $\xi_{\mathcal{F}}$.
+\end{proof}
+
+\begin{proposition}\label{ExtMorphNorm}
+    Пусть $\Lambda$ --- конечное множество, $1<p<+\infty$ 
+    и $\mathcal{F}\subset\ell_{p^*}(\Lambda)$ --- конечное множество. 
+    Предположим, что $\eta\in\ell_\infty(\Lambda)^\mathcal{F}$, тогда 
+    \[
+        \Vert \psi_{\eta}\Vert
+        =\max\left\{
+            \left(\sum_{\lambda\in\Lambda}
+                \left|
+                    \sum_{f\in\mathcal{F}} |\eta_{f,\lambda}| 
+                    \delta_{\lambda}^{d(f)}
+                \right|^p
+            \right)^{1/p} : 
+            d\in\Lambda^\mathcal{F}
+        \right\}.
+    \]
+\end{proposition}
+\begin{proof}
+    По определению операторной нормы,
+    \[
+    \begin{aligned}
+        \Vert\psi_{\eta}\Vert
+        &=\sup\left\{
+            \Vert\psi_{\eta}(t)\Vert_p:
+            t\in \bigoplus_\infty\{\ell_1(\Lambda):f\in\mathcal{F}\},\,\,
+            \Vert t\Vert\leq 1
+        \right\} \\
+        &=\sup\left\{
+            \left \Vert\sum_{f\in\mathcal{F}}\eta_f\cdot t_f\right \Vert_p:
+            t_f\in\ell_1(\Lambda),\, f\in\mathcal{F},\,\,
+            \max\{\Vert t_f\Vert:f\in\mathcal{F}\}\leq 1
+        \right\} \\
+        &=\sup\left\{
+            \left(\sum_{\lambda\in\Lambda}
+                \left|
+                    \sum_{f\in\mathcal{F}}\eta_{f,\lambda} t_{f,\lambda}
+                \right|^p
+            \right)^{1/p}:
+            \sum_{\lambda\in\Lambda} |t_{f,\lambda}|\leq 1,\,\, 
+            t_{f,\lambda}\in\mathbb{C},\,\, f\in\mathcal{F}, \lambda\in\Lambda
+        \right\}.
+    \end{aligned}
+    \]
+    Для каждого $\lambda\in\Lambda$ и $f\in\mathcal{F}$ мы обозначаем 
+    $r_{f,\lambda}=|t_{f,\lambda}|$ 
+    и $\alpha_{f,\lambda}=\operatorname{arg}(t_{f,\lambda})$. 
+    Тогда $t_{f,\lambda}=r_{f,\lambda} e^{i \alpha_{f,\lambda}}$. Таким образом,
+    \[
+    \begin{aligned}
+        \Vert \psi_{\eta}\Vert
+        &=\sup\left\{
+            \left(\sum_{\lambda\in\Lambda}
+                \left|
+                    \sum_{f\in\mathcal{F}}
+                        \eta_{f,\lambda} r_{f,\lambda} e^{i \alpha_{f,\lambda}}
+                \right|^p
+            \right)^{1/p}:
+            \sum_{\lambda\in\Lambda} r_{f,\lambda}\leq 1,\,\, 
+            r_{f,\lambda}\in\mathbb{R}_+,\,\, 
+            \alpha_{f,\lambda}\in\mathbb{R},\,\, 
+            f\in\mathcal{F},\, \lambda\in\Lambda
+        \right\}.
+    \end{aligned}
+    \]
+    Для любого $\lambda\in\Lambda$ максимум выражения 
+    \[
+        \left|
+            \sum_{f\in\mathcal{F}}
+                \eta_{f,\lambda}\cdot r_{f,\lambda} e^{i \alpha_{f,\lambda}}
+        \right|
+    \]
+    достигается, 
+    если $\alpha_{f,\lambda}=\operatorname{arg}(\eta_{f,\lambda})$ для 
+    всех $f\in\mathcal{F}$ и $\lambda\in\Lambda$. В этом случае,
+    \[
+    \begin{aligned}
+        \Vert \psi_{\eta}\Vert
+        &=\sup\left\{
+            \left(\sum_{\lambda\in\Lambda}
+                \left|
+                    \sum_{f\in\mathcal{F}}|\eta_{f,\lambda}| r_{f,\lambda}
+                \right|^p
+            \right)^{1/p}:
+            \sum_{\lambda\in\Lambda} r_{f,\lambda}\leq 1,\,\, 
+            r_{f,\lambda}\in\mathbb{R}_+,\,\, 
+            f\in\mathcal{F},\, \lambda\in\Lambda
+        \right\}.
+    \end{aligned}
+    \]
+    Рассмотрим линейные операторы
+    \[
+        \tau_f:\mathbb{R}^\Lambda\to\ell_p(\Lambda): r\mapsto \eta_f\cdot r
+    \]
+    для $f\in\mathcal{F}$. Тогда,
+    \[
+    \begin{aligned}
+        \Vert\psi_{\eta}\Vert
+        &=\sup\left\{
+            \left \Vert\sum_{f\in\mathcal{F}}\tau_f(r_f)\right \Vert_p:
+            \sum_{\lambda\in\Lambda} r_{f,\lambda}\leq 1,\,\, 
+            r_{f,\lambda}\in\mathbb{R}_+,\,\, 
+            f\in\mathcal{F},\, \lambda\in\Lambda
+        \right\}.
+    \end{aligned}
+    \]
+    Поскольку линейные операторы $(\tau_f)_{f\in\mathcal{F}}$ принимают 
+    значения в $\ell_p(\Lambda)$, чья норма строго выпукла, то функция
+    \[
+        F:(\mathbb{R}^\Lambda)^\mathcal{F}\to\mathbb{R}_+,\, 
+        r\mapsto \left \Vert\sum_{f\in\mathcal{F}} \tau_f(r_f)\right \Vert_p
+    \]
+    строго выпукла. Поскольку множество
+    \[
+        C=\left\{ 
+            r\in(\mathbb{R}^\Lambda)^\mathcal{F} :
+            \sum_{\lambda\in\Lambda} r_{f,\lambda}\leq 1,\,\, 
+            r_f\in\mathbb{R}^\Lambda_+,\,\, 
+            f\in\mathcal{F},\, \lambda\in\Lambda
+        \right\}
+    \]
+    является выпуклым многогранником в конечномерном пространстве, 
+    то $F$ достигает максимума на $\operatorname{ext}(C)$ --- множестве 
+    экстремальных точек $C$. Таким образом,
+    \[
+        \Vert\psi_\eta\Vert=\max\{F(r) : r\in \operatorname{ext}(C)\},
+    \]
+    Очевидно, что $r\in \operatorname{ext}(C)$ тогда и только тогда, когда $r=0$ или для некоторой 
+    функции $d:\mathcal{F}\to\Lambda$ и для всех $\lambda\in\Lambda$, $f\in\mathcal{F}$ 
+    выполняется $r_{f,\lambda}=\delta_{\lambda}^{d(f)}$. Таким образом,
+    \[
+    \begin{aligned}
+        \Vert\psi_{\eta}\Vert
+        &=\max\left\{
+            \left(\sum_{\lambda\in\Lambda}
+                \left|
+                    \sum_{f\in\mathcal{F}}
+                        |\eta_{f,\lambda}| \delta_{\lambda}^{d(f)}
+                \right|^p
+            \right)^{1/p}:
+            d\in\Lambda^\mathcal{F}
+        \right\}.
+    \end{aligned}
+    \]
+\end{proof}
+
+\begin{definition}\label{ExtMorphsNormInf}
+    Пусть $\Lambda$ --- произвольное множество, $1<p<+\infty$ 
+    и $\mathcal{F}\subset\ell_{p^*}(\Lambda)$ --- конечное множество. 
+    Тогда положим по определению
+    \[
+        \nu_{\mathcal{F}}=\inf\{
+            \Vert\psi_{\eta}\Vert : \eta\in\mathcal{N}_{\mathcal{F}}
+        \}.
+    \]
+\end{definition}
+
+\begin{definition}\label{SpclFuncFam}
+    Пусть $\Lambda$ --- конечное множество и $\kappa\in\mathbb{R}$. 
+    Обозначим $f_\lambda=e_\lambda$ 
+    и $f_{\star}=\kappa\sum_{\lambda\in\Lambda} e_\lambda$. 
+    Теперь положим по определению
+    \[
+        \mathcal{F}_{\kappa}(\Lambda)
+        =\{f_\lambda: \lambda\in\Lambda\}
+        \cup
+        \{f_\star\}.
+    \]
+\end{definition}
+
+\begin{proposition}\label{StdEmbdSpclCoerciv}
+    Предположим, что $\Lambda$ --- конечное множество с $n>1$ 
+    элементами, $1<p<+\infty$ и $n^{-1}<\kappa<(n-1)^{-1}$. Тогда
+    \[
+        \gamma_{\mathcal{F}_{\kappa}(\Lambda)}
+        =(n-1+(\kappa^{-1}-(n-1))^p)^{1/p}.
+    \]
+\end{proposition}
+\begin{proof}
+    По определению константы обратимости,
+    \[
+    \begin{aligned}
+        \gamma_{\mathcal{F}_{\kappa}(\Lambda)}
+        &=\sup\{
+            \Vert x\Vert_p : 
+            x\in\ell_p(\Lambda),\, 
+            \Vert \xi_{\mathcal{F}_{\kappa}(\Lambda)}(x)\Vert\leq 1
+        \} \\
+        &=\sup\left\{
+            \left( \sum_{\lambda\in\Lambda} |x_\lambda|^p\right)^{1/p} : 
+            x\in\mathbb{C}^\Lambda,\, 
+            \max\left\{
+                \max\{|x_\lambda|:\lambda\in\Lambda\},
+                \kappa\sum_{\lambda\in\Lambda} |x_\lambda|
+            \right\}\leq 1
+        \right\} \\
+        &=\sup\left\{
+            \left( \sum_{\lambda\in\Lambda} |t_\lambda|^p\right)^{1/p} : 
+            t\in\mathbb{R}^\Lambda,\, 
+            \sum_{\lambda\in\Lambda} |t_\lambda|\leq \kappa^{-1},\,
+            |t_\lambda|\leq 1,\,\lambda\in\Lambda\,
+        \right\}. \\
+    \end{aligned}
+    \]
+    Рассмотрим функцию
+    \[
+        F:
+        \mathbb{R}^\Lambda\to\mathbb{R},\, 
+        t\mapsto \left(\sum_{\lambda\in\Lambda}|t_\lambda|^p\right)^{1/p}
+    \]
+    и выпуклый многогранник
+    \[
+        C=\left\{ 
+            t\in\mathbb{R}^\Lambda : 
+            \sum_{\lambda\in\Lambda} |t_\lambda|\leq \kappa^{-1},\,
+            |t_\lambda|\leq 1,\,\lambda\in\Lambda\,
+        \right\}
+    \]
+    в конечномерном пространстве. Поскольку функция $F$ строго выпукла, то $F$ 
+    достигает своего максимума на $\operatorname{ext}(C)$ --- множестве 
+    экстремальных точек $C$. Следовательно,
+    \[
+        \gamma_{\mathcal{F}_{\kappa}(\Lambda)}=\max\{
+            F(t):t\in\operatorname{ext}(C)
+        \}.
+    \]
+    Очевидно, что любая точка $t\in \operatorname{ext}(C)$ имеет все координаты, кроме одной,
+    равные $1$ или $-1$. Поэтому,
+    \[
+        \operatorname{ext}(C)=\left\{ 
+            t\in\mathbb{R}^\Lambda : 
+            \exists \lambda'\in\Lambda\quad |t_{\lambda'}|=\kappa^{-1}-(n-1)\,
+            \wedge\, 
+            \forall \lambda\in\Lambda\setminus\{\lambda'\}\quad |t_\lambda|=1
+        \right\}.
+    \]
+    Как следствие,
+    \[
+        \gamma_{\mathcal{F}_{\kappa}(\Lambda)}=(n-1+(\kappa^{-1}-(n-1))^p)^{1/p}.
+    \]
+\end{proof}
+
+\begin{proposition}\label{ExtMorphsNormLwrBnd}
+    Предположим, что $\Lambda$ --- конечное множество с $n > 1$ 
+    элементами, $1 < p < +\infty$ и $n^{-1} < \kappa < (n-1)^{-1}$. Тогда
+    \[
+        \nu_{\mathcal{F}_{\kappa}(\Lambda)}
+        \geq 
+        \kappa^{-1}\frac{
+            \left(
+                \left(\frac{n-1}{\kappa^{-1}-1}\right)^{\frac{p}{p-1}}+n-1
+            \right)^{1/p}
+        }{
+            \left(\frac{n-1}{\kappa^{-1}-1}\right)^{\frac{1}{p-1}}-1+\kappa^{-1}
+        }.
+    \]
+\end{proposition}
+\begin{proof}
+    По построению
+    \[
+        \mathcal{N}_{\mathcal{F}_{\kappa}(\Lambda)}=\{
+            \eta\in\ell_\infty(\Lambda)^{\mathcal{F}_{\kappa}(\Lambda)}:
+            \eta_{f_\lambda,\lambda}+\kappa \eta_{f_\star, \lambda}=1,\, 
+            \lambda\in\Lambda
+        \}.
+    \]
+    Для каждого $\lambda\in\Lambda$ рассмотрим функцию
+    \[
+        d_\lambda:\mathcal{F}_\kappa(\Lambda)\to\Lambda,\,
+        f_i\mapsto
+        \begin{cases}
+            i\quad &\text{если } i\neq \star,\\
+            \lambda\quad &\text{если } i=\star.
+        \end{cases}
+    \]
+    Тогда из предложения \ref{ExtMorphNorm}, для 
+    любой $\eta\in\ell_\infty(\Lambda)^{\mathcal{F}_{\kappa}(\Lambda)}$ мы 
+    получим
+    \[
+    \begin{aligned}
+        \Vert\psi_{\eta}\Vert
+        &\geq\max\left\{
+            \left(\sum_{\lambda\in\Lambda}
+                \left|
+                    \sum_{f\in\mathcal{F}_{\kappa}(\Lambda)} 
+                        |\eta_{f,\lambda}|\delta_{\lambda}^{d_{\lambda'}(f)}
+                \right|^p
+            \right)^{1/p}:
+            \lambda'\in\Lambda
+        \right\} \\
+        &=\max\left\{
+            \left(
+                \sum_{\lambda\in\Lambda,\lambda\neq \lambda'} 
+                    |\eta_{f_\lambda,\lambda}|^p+
+                    (|\eta_{f_{\lambda'},\lambda'}|+|\eta_{f_\star,\lambda'}|)^p
+            \right)^{1/p}:
+            \lambda'\in\Lambda
+        \right\}. \\
+    \end{aligned}
+    \]
+    Для любого $\eta\in\mathcal{N}_{\mathcal{F}_{\kappa}(\Lambda)}$ 
+    и $\lambda\in\Lambda$ у нас 
+    есть $\eta_{f_\lambda,\lambda}+\kappa \eta_{f_\star, \lambda}=1$. 
+    Следовательно,
+    \[
+    \begin{aligned}
+        \Vert \psi_{\eta}\Vert
+        &\geq\max\left\{
+            \left(
+                \sum_{\lambda\in\Lambda,\lambda\neq \lambda'}
+                    |\eta_{f_\lambda,\lambda}|^p+
+                    (
+                        |\eta_{f_{\lambda'},\lambda'}|+
+                        \kappa^{-1}|1-|\eta_{f_{\lambda'},\lambda'}||
+                    )^p
+            \right)^{1/p}:
+            \lambda'\in\Lambda
+        \right\} \\
+        &\geq\max\left\{
+            \left(
+                \sum_{\lambda\in\Lambda,\lambda\neq \lambda'} 
+                    |\eta_{f_\lambda,\lambda}|^p+
+                    (
+                        |\eta_{f_{\lambda'},\lambda'}|+
+                        \kappa^{-1}|1-|\eta_{f_{\lambda'},\lambda'}||
+                    )^p
+            \right)^{1/p}:
+            \lambda'\in\Lambda
+        \right\} \\
+    \end{aligned}
+    \]
+    для любой $\eta\in\mathcal{N}_{\mathcal{F}_{\kappa}(\Lambda)}$. Обозначим
+    \[
+    \begin{aligned}
+        \alpha_i&:\mathbb{R}^n\to\mathbb{R},\,
+        t\mapsto \left(
+            \sum_{k=1,k\neq i}^n |t_k|^p+(|t_i|+\kappa^{-1}|1-|t_i||)^p
+        \right)^{1/p} \quad\text{для }\quad i\in\mathbb{N}_n \\
+        \alpha&:\mathbb{R}^n\to\mathbb{R},\,
+        t\mapsto\max\{\alpha_i(t):i\in\mathbb{N}_n\}.
+    \end{aligned}
+    \]
+    Тогда для любого нумерации 
+    элементов $\Lambda=\{\lambda_1,\ldots,\lambda_n\}$ получаем
+    \[
+        \nu_{\mathcal{F}_{\kappa}(\Lambda)}
+        \geq\inf\{
+            \Vert \psi_{\eta}\Vert : 
+            \eta\in\mathcal{N}_{\mathcal{F}_{\kappa}(\Lambda)}
+        \}
+        =\inf\{
+            \alpha(
+                |\eta_{f_{\lambda_1},\lambda_1}|,
+                \ldots,
+                |\eta_{f_{\lambda_n},\lambda_n}|
+            ) : 
+            \eta\in\mathcal{N}_{\mathcal{F}_{\kappa}(\Lambda)}
+        \}
+        =\inf\{\alpha(t) : t\in\mathbb{R}_+^n\}.
+    \]
+    Рассмотрим функции
+    \[
+    \begin{aligned}
+        F_1&:\mathbb{R}_+\to\mathbb{R},\, 
+            t\mapsto t, \\
+        F_2&:\mathbb{R}_+\to\mathbb{R},\, 
+            t\mapsto t+\kappa^{-1}|1-t|, \\
+        F_3&:\mathbb{R}^n\to\mathbb{R},\, t\mapsto 
+            \left(\sum_{k=1}^n|t_k|^p\right)^{1/p}. \\
+    \end{aligned}
+    \]
+    Очевидно, что для каждого $i\in\mathbb{N}_n$ функция $\alpha_i$ является 
+    композицией функций $F_1$, $F_2$ и $F_3$. Поскольку $F_1$ 
+    и $F_2$ --- выпуклые функции, а $F_3$ --- строго выпуклая, то все 
+    функции $(\alpha_i)_{i\in\mathbb{N}_n}$ строго выпуклы 
+    на $\mathbb{R}_+^n$. Следовательно, будет строго выпуклым и их 
+    максимум $\alpha$. Заметим, что функция $\alpha$ непрерывна, строго выпукла, 
+    и $\lim_{\Vert t\Vert\to+\infty}\alpha(t)=+\infty$. Следовательно, $\alpha$ 
+    имеет единственный глобальный минимум в точке $t_0\in\mathbb{R}_+^n$. Обратим 
+    внимание, что $\alpha$ инвариантна относительно перестановки аргументов. 
+    Тогда из единственности глобального минимума мы можем заключить, что все 
+    координаты точки $t_0$ равны между собой. Как следствие,
+    \[
+    \begin{aligned}
+        \nu_{\mathcal{F}_{\kappa}(\Lambda)}
+        &\geq\inf\{\alpha(t) : t\in\mathbb{R}_+^n\} \\
+        &=\inf\{\alpha(s,\ldots,s) : s\in\mathbb{R}_+\} \\
+        &=\inf\{((n-1)s^p+(s+\kappa^{-1}|1-s|)^p)^{1/p} : s\in\mathbb{R}_+\}.
+    \end{aligned}
+    \]
+    Рассмотрим функцию
+    \[
+        F:\mathbb{R}_+\to\mathbb{R},\,
+        s\mapsto ((n-1)s^p+(s+\kappa^{-1}|1-s|)^p)^{1/p}.
+    \]
+    Очевидно, что
+    \[
+        F(s)=
+        \begin{cases}
+            ((s+\kappa^{-1}(1-s))^p+(n-1)s^p)^{1/p}
+            \quad&\text{если }\quad 0\leq s\leq 1, \\
+            \left(
+                (\kappa^{-1}+1)^p
+                \left(s-\frac{\kappa^{-1}}{\kappa^{-1}+1}\right)^p+
+                (n-1)s^p
+            \right)^{1/p}
+            \quad&\text{если }\quad s>1.
+        \end{cases}
+    \]
+    Поскольку функция $F$ непрерывна и очевидно возрастает на $(1,+\infty)$, 
+    то $F$ достигает своего минимума на $[0, 1]$. Найдем стационарные точки 
+    $F$ на $[0, 1]$. Для $s\in[0,1]$ имеем
+    \[
+        F'(s)=
+        ((s+\kappa^{-1}(1-s))^p+(n-1)s^p)^{1/p-1}
+        ((\kappa^{-1}+(1-\kappa^{-1})s)^{p-1}+(n-1)s^{p-1}).
+    \]
+    Стационарная точка может быть найдена из уравнения $F'(s)=0$. 
+    Решение этого уравнения имеет вид
+    \[
+        s_0
+        =\frac{
+            \kappa^{-1}
+        }{
+            \left(
+                \frac{n-1}{\kappa^{-1}-1}
+            \right)^{\frac{1}{p-1}}
+            -1+\kappa^{-1}
+        }.\\
+    \]
+    По предположению $n^{-1}<\kappa$, поэтому $\frac{n-1}{\kappa^{-1}-1}<1$ и 
+    следовательно $0<s_0<1$. Поскольку $F$ выпукла, то $s_0$ является точкой 
+    минимума на $[0,1]$. Минимум равен
+    \[
+    \begin{aligned}
+        F(s_0)
+        &=\kappa^{-1}
+            \frac{
+                \left(
+                    \left(\frac{n-1}{\kappa^{-1}-1}
+                    \right)^{\frac{p}{p-1}}
+                    -1+\kappa^{-1}
+                \right)^{1/p}
+            }{
+                \left(\frac{n-1}{\kappa^{-1}-1}
+                \right)^{\frac{1}{p-1}}
+                -1+\kappa^{-1}
+            }. \\
+    \end{aligned}
+    \]
+    Это дает требуемую нижнюю оценку 
+    для $\nu_{\mathcal{F}_{\kappa}(\Lambda)}$.
+\end{proof}
+
+\begin{proposition}\label{SpclLyapIneq}
+    Пусть $n\in\mathbb{N}$, $r>1$, и $x\in\mathbb{C}^n$. Тогда
+    \[
+        \Vert x\Vert_r\leq \Vert x\Vert_1^{1/r}\Vert x\Vert_\infty^{1-1/r}.
+    \]
+    Равенство достигается тогда и только тогда, когда $|x_1|=\ldots=|x_n|$.
+\end{proposition}
+\begin{proof}
+    Для любого $r>1$ и любого $x\in\mathbb{C}^n$, мы имеем
+    \[
+        \Vert x\Vert_r
+        =\left(\sum_{k=1}^n |x_k|^r \right)^{1/r}
+        =\left(\sum_{k=1}^n |x_k| |x_k|^{r-1} \right)^{1/r}
+        \leq\left(\sum_{k=1}^n |x_k| \right)^{1/r} 
+        \left(\max\limits_{k\in\mathbb{N}_n}|x_k|^{r-1}\right)^{1/r}
+        =\Vert x\Vert_1^{1/r}\Vert x\Vert_\infty^{1-1/r}.
+    \]
+    Очевидно, равенство достигается только 
+    если $|x_k|=\max\limits_{k\in\mathbb{N}_n}|x_k|$ 
+    для всех $k\in\mathbb{N}_n$.
+\end{proof}
+
+\begin{proposition}\label{CompStdEmbdCoercvAndExtMorphsNormInf}
+    Пусть $\Lambda$ - конечное множество с $n>1$ элементами, $1<p<+\infty$ 
+    и $n^{-1}<\kappa<(n-1)^{-1}$. Тогда
+    $
+    \nu_{\mathcal{F}_{\kappa}(\Lambda)}
+    >
+    \gamma_{\mathcal{F}_{\kappa}(\Lambda)}.
+    $
+\end{proposition}
+\begin{proof}
+    Используя результаты предложений \ref{StdEmbdSpclCoerciv} 
+    и \ref{ExtMorphsNormLwrBnd}, достаточно показать, что
+    \[
+        \kappa^{-1}
+        \frac{
+            \left(
+                \left(\frac{n-1}{\kappa^{-1}-1}
+                \right)^{\frac{p}{p-1}}
+                -1+\kappa^{-1}
+            \right)^{1/p}
+        }{
+            \left(\frac{n-1}{\kappa^{-1}-1}
+            \right)^{\frac{1}{p-1}}
+            -1+\kappa^{-1}
+        }
+        >
+        (n-1+(\kappa^{-1}-(n-1))^p)^{1/p}.
+    \]
+    Сделаем замену $m=n-1$ и $\rho=\kappa^{-1}$. 
+    Тогда $m\in\mathbb{N}$, $m<\rho<m+1$ и последнее неравенство 
+    эквивалентно
+    \[
+        \rho
+        \frac{
+            \left(
+                \left(\frac{m}{\rho-1}
+                \right)^{\frac{p}{p-1}}
+                -1+\rho
+            \right)^{1/p}
+        }{
+            \left(\frac{m}{\rho-1}
+            \right)^{\frac{1}{p-1}}
+            -1+\rho
+        }
+        >
+        (m+(\rho-m)^p)^{1/p}.
+    \] 
+    После упрощения мы получаем 
+    \[
+        \frac{m\rho}{\rho-1}
+        >
+        (m+(\rho-m)^p)^{1/p}
+        \left(
+            m+\left(\frac{m}{\rho-1}\right)^{p^*}
+        \right)^{1/p^*}.
+    \]
+    Чтобы доказать это неравенство, мы применяем предложение \ref{SpclLyapIneq} к 
+    вектору $x=(1,\ldots,1,\rho-m)^T\in\mathbb{C}^{m+1}$ с $r=p$ и к вектору 
+    $x=(1,\ldots,1,\frac{m}{\rho-1})\in\mathbb{C}^{m+1}$ с $r=p^*$. 
+    Поскольку $m<\rho<m+1$, то компоненты этих векторов не все попарно равны,
+    поэтому неравенства строгие:
+    \[
+    \begin{aligned}
+        (m+(\rho-m)^p)^{1/p}
+        &<
+        (m+(\rho-m))^{1/p} 1^{1-1/p},\\
+        \left(m+\left(\frac{m}{\rho-1}\right)^{p^*}\right)^{1/p^*}
+        &<
+        \left(m+\frac{m}{\rho-1}\right)^{1/p^*}
+        \left(\frac{m}{\rho-1}\right)^{1-1/p^*}.
+    \end{aligned}
+    \]
+    Перемножив эти неравенства, мы получаем желаемый результат.
+\end{proof}
+
+\begin{proposition}\label{RetrPrblmNoSln}
+    Пусть $\Lambda$ --- конечное множество с $n>1$ элементами, $1<p<+\infty$ 
+    и $n^{-1}<\kappa<(n-1)^{-1}$. Тогда для 
+    любого $\ell_\infty(\Lambda)$-морфизма $\psi$, который является левым 
+    обратным к $\xi_{\mathcal{F}_{\kappa}(\Lambda)}$, 
+    выполнено $\Vert \psi\Vert>\gamma_{\mathcal{F}_{\kappa}(\Lambda)}$.  
+\end{proposition}
+\begin{proof}
+    Из утверждения \ref{ExtMorphSuml1ntlpnCharac} мы знаем, что существует 
+    семейство 
+    векторов $\eta\in\ell_\infty(\Lambda)^{\mathcal{F}_{\kappa}(\Lambda)}$ 
+    таких, что  $\psi=\psi_{\eta}$. Из определения \ref{ExtMorphsNormInf} 
+    следует, 
+    что $\Vert \psi_{\eta}\Vert\geq \nu_{\mathcal{F}_{\kappa}(\Lambda)}$. 
+    Теперь, из утверждения \ref{CompStdEmbdCoercvAndExtMorphsNormInf} получаем 
+    $\Vert\psi\Vert\geq\nu_{\mathcal{F}_{\kappa}(\Lambda)} > 
+    \gamma_{\mathcal{F}_{\kappa}(\Lambda)}$.
+\end{proof}
+
+\begin{proposition}\label{linftnModlpnIsntMetInjCharac}
+    Пусть $\Lambda$ --- конечное множество. Тогда 
+    правый $\ell_\infty(\Lambda)$-модуль $\ell_p(\Lambda)$ метрически 
+    инъективен тогда и только тогда, когда $\Lambda$ содержит не 
+    более $1$ элемента.
+\end{proposition}
+\begin{proof}
+    Предположим, что правый $\ell_\infty(\Lambda)$-модуль $\ell_p(\Lambda)$ 
+    метрически инъективен и $\Lambda$ содержит $n$ элементов. Предположим, 
+    что $n>1$. Выберем любое вещественное число $\kappa\in(n^{-1},(n-1)^{-1})$. 
+    По утверждению \ref{StdEmbdSpclCoerciv}, 
+    константа $\gamma_{\mathcal{F}_{\kappa}(\Lambda)}$ конечна, 
+    следовательно, оператор $\xi_{\mathcal{F}_{\kappa}(\Lambda)}$
+    будет $\gamma_{\mathcal{F}_{\kappa}(\Lambda)}$-топологически инъективным. 
+    Из метрической инъективности $\ell_p(\Lambda)$ следует, что существует 
+    $\ell_\infty(\Lambda)$-морфизм $\psi$, который является левым обратным к 
+    $\xi_{\mathcal{F}_{\kappa}(\Lambda)}$, 
+    причем $\Vert\psi\Vert\leq\gamma_{\mathcal{F}_{\kappa}(\Lambda)}$. Это 
+    противоречит утверждению \ref{linftnModlpnIsntMetInjCharac}, 
+    поэтому $n\leq 1$.
+
+    Теперь предположим, что $\Lambda$ содержит не более 1 элемента. 
+    Если $\Lambda$ пусто, то $\ell_p(\Lambda)=\{0\}$. Нулевой модуль всегда 
+    инъективен. Если $\Lambda$ содержит один элемент, то $\ell_p(\Lambda)$ 
+    изометрически изоморфен $\ell_\infty(\Lambda)^*$ 
+    как $\ell_\infty(\Lambda)$-модуль. Сопряженное пространство унитарной 
+    алгебры всегда метрически инъективно.
+\end{proof}
+
+%-------------------------------------------------------------------------------
+%   Предварительные сведения теории меры
+%-------------------------------------------------------------------------------
+
+\section{Предварительные сведения по теории меры}
+\label{MeasThPrelim}
+
+В этом разделе мы подготовим почву для основной теоремы. Хотя она формулируется 
+для борелевских мер на локально компактных пространствах, мы будем доказывать 
+все утверждения этого раздела для общих измеримых пространств. Детальное 
+изучение общих измеримых пространств можно найти в~\cite{FremMeasTh2}.
+
+Пусть $\Omega$ --- некоторое множество. Под мерой мы понимаем счетно-аддитивную 
+функцию множеств со значениями в $[0,+\infty]$, определенную 
+на $\sigma$-алгебре $\Sigma$ измеримых подмножеств множества $\Omega$. 
+Пара $(\Omega,\mu)$ называется измеримым пространством. 
+Измеримое множество $E$ называется атомом, если $\mu(A)>0$ и для любого 
+измеримого подмножества $B\subset A$ либо $\mu(B)=0$, 
+либо $\mu(A\setminus B)=0$. Мера $\mu$ называется чисто атомарной, если каждое 
+измеримое множество с положительной мерой имеет атом. Мера $\mu$ называется 
+полуограниченной, если для любого измеримого множества $E$ бесконечной меры 
+существует измеримое подмножество $E$ с конечной положительной мерой. 
+Семейство $\mathcal{D}$ измеримых подмножеств с конечной мерой называется 
+разложением $\Omega$, если для любого измеримого множества $E$ 
+выполнено $\mu(E)=\sum_{D\in\mathcal{D}}\mu(E\cap D)$ и множество $F$ измеримо, 
+когда $F\cap D$ измеримо для всех $D\in\mathcal{D}$. Наконец, мера $\mu$ 
+называется разложимой, если она полуограничена и имеет разложение $\Omega$. 
+Большинство мер, встречающихся в функциональном анализе, являются разложимыми.
+
+Мы определим несколько банаховых пространств, построенных по пространствам с 
+мерой. Пусть $(\Omega,\mu)$ --- пространство с мерой. Через $B(\Sigma)$ мы 
+обозначаем алгебру ограниченных измеримых функций с нормой $\sup$. 
+Для $1\leq p\leq +\infty$ через $L_p(\Omega,\mu)$ мы обозначаем банахово 
+пространство классов эквивалентности $p$-интегрируемых (или существенно 
+ограниченных, если $p=+\infty$) функций на $\Omega$. Элементы $L_p(\Omega,\mu)$ 
+обозначаются $[f]$.
+
+\begin{definition}\label{GnrlzdMean}
+    Пусть $(\Omega,\mu)$ --- пространство с мерой, $E$ - измеримое множество 
+    конечной положительной меры и $f:\Omega\to\mathbb{C}$ --- измеримая 
+    функция. Для любого вещественного $r\neq 0$ мы определим линейное 
+    отображение
+    \[
+        m_{E,r}(f)=\mu(E)^{\frac{1}{r}-1}\int_E f(\omega)d\mu(\omega).
+    \]
+\end{definition}
+
+\begin{proposition}\label{GnrlzdMeanProp}
+    Пусть $E$ --- подмножество конечной меры пространства с мерой $(\Omega,\mu)$ 
+    и $r\neq 0$. Тогда для любых измеримых 
+    функций $f:\Omega\to\mathbb{C}$, $g:\Omega\to\mathbb{C}$ выполнено:
+    \begin{enumerate}[label = (\roman*)]
+        \item $m_{E,r}(\chi_E)=\mu(E)^{1/r}$;
+        \item $m_{E,r}(f)=m_{E,r}(f\chi_E)$;
+        \item Если $E$ --- атом, то $f=m_{E,\infty}(f)$ почти всюду на $E$;
+        \item Если $E$ --- атом, 
+        то $m_{E,\infty}(f)m_{E,\infty}(g)=m_{E,\infty}(f\cdot g)$;
+        \item Если $E$ --- атом, 
+        то $m_{E,r}(f)m_{E,s}(g)=m_{E,\frac{rs}{r+s}}(f\cdot g)$ с 
+        договорённостью, что $1/0=\infty$.
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    Пункты $(i)$ и $(ii)$ очевидны.
+
+    $(iii)$ Без потери общности предположим, что функция $f$ принимает только 
+    вещественные значения. Обозначим $k=m_{E,\infty}(f)$. Очевидно, 
+    что $k$ --- среднее значение $f$ на $E$. Рассмотрим 
+    множество $A_+=\{\omega\in E: f(\omega)>k\}$. Поскольку $A_+$ является 
+    подмножеством атома $E$ конечной меры, либо $\mu(A_+)=0$, 
+    либо $\mu(A_+)=\mu(E)>0$. В последнем случае получаем
+    \[
+        \int_E f(\omega)d\mu(\omega)
+        =\int_{A_+}f(\omega)d\mu(\omega)
+        >k\mu(A_+)
+        =k\mu(E)
+        =\int_E f(\omega)d\mu(\omega).
+    \]
+    Противоречие, так что $\mu(A_+)=0$. Аналогично можно показать, что 
+    множество $A_-=\{\omega\in E:f(\omega)<k\}$ также имеет меру ноль. 
+    Таким образом, $f=k$ почти всюду на $E$.
+
+    Пункт $(v)$ непосредственно следует из $(iv)$, который, в свою очередь, 
+    является простым следствием $(iii)$.
+\end{proof}
+
+\begin{proposition}\label{LpOnPurAtomMeasSpRepr}
+    Пусть $(\Omega,\mu)$ --- чисто атомарное пространство с мерой. 
+    Пусть $\mathcal{A}$ --- разложение $\Omega$ на атомы конечной меры. Тогда 
+    для любого $1\leq p<+\infty$ линейные отображения
+    \[
+    \begin{aligned}
+        &I_p:
+        L_p(\Omega,\mu)\to \ell_p(\mathcal{A}),\,
+        [f]\mapsto\sum_{A\in\mathcal{A}} m_{A,p}(f) e_A, \\
+        &J_p:
+        \ell_p(\mathcal{A})\to L_p(\Omega,\mu),\,
+        x\mapsto\sum_{A\in\mathcal{A}} x_A m_{A,-p}(\chi_A) [\chi_A]\\
+    \end{aligned}
+    \]
+    являются взаимно обратными изометрическими изоморфизмами.
+\end{proposition}
+\begin{proof} 
+    Поскольку $\mathcal{A}$ --- разложение $\Omega$ на атомы, тогда
+    \[
+        [f]=\sum_{A\in\mathcal{A}} m_{A,\infty}(f)[\chi_A]
+    \]
+    для любого $[f]\in L_p(\Omega,\mu)$. Используя 
+    утверждение \ref{GnrlzdMeanProp} для 
+    каждого $[f]\in L_p(\Omega,\mu)$ и $A\in\mathcal{A}$ получаем
+    \[
+        \int_A |f(\omega)|^pd\mu(\omega)
+        =\int_A\left|m_{A,\infty}(f)\right|^pd\mu(\omega)
+        =\mu(A)\left|m_{A,\infty}(f)\right|^p
+        =\left|m_{A,p}(\chi_A) m_{A,\infty}(f)\right|^p
+        =|m_{A,p}(f)|^p.
+    \]
+    Таким образом, для любого $[f]\in L_p(\Omega,\mu)$ мы имеем
+    \[
+    \begin{aligned}
+        \Vert I_p([f])\Vert
+        =\left( \sum_{A\in\mathcal{A}} |m_{A,p}(f)|^p\right)^{1/p} 
+        =\left( 
+            \sum_{A\in\mathcal{A}} \int_A |f(\omega)|^pd\mu(\omega)
+        \right)^{1/p} 
+        =\left( \int_{\Omega} |f(\omega)|^pd\mu(\omega)\right)^{1/p} 
+        =\Vert [f]\Vert.
+    \end{aligned}
+    \]
+    Снова используя утверждение \ref{GnrlzdMeanProp} для 
+    каждого $A\in\mathcal{A}$ получаем
+    \[
+        |m_{A,-p}(\chi_A)|^p \int_{\Omega} |\chi_A(\omega)|^p d\mu(\omega)
+        =(\mu(A)^{-1/p})^p\mu(A)
+        =1.
+    \]
+    Таким образом, для любого $x\in\ell_p(\mathcal{A})$, мы имеем
+    \[
+    \begin{aligned}
+        \Vert J_p(x)\Vert
+        =\left(
+            \int_{\Omega}
+                \sum_{A\in\mathcal{A}}
+                |x_A|^p|m_{A,-p}(\chi_A)|^p|\chi_A(\omega)|^p 
+            d\mu(\omega)
+        \right)^{1/p} 
+        =\left(\sum_{A\in\mathcal{A}} |x_A|^p \right)^{1/p} 
+        =\Vert x\Vert.
+    \end{aligned}
+    \]
+    Итак, $I_p$ и $J_p$ - изометрические отображения. Очевидно, что эти 
+    отображения линейны. Заметим, что для любого $x\in\ell_p(\mathcal{A})$ 
+    и $A\in\mathcal{A}$ выполнено
+    \[
+        m_{A,p}(J_p(x))
+        =m_{A,p}(J_p(x)\chi_A)
+        =m_{A,p}(x_A m_{A,-p}(\chi_A)[\chi_A])
+        =x_A m_{A,-p}(\chi_A)m_{A,p}(\chi_A)
+        =x_A.
+    \]
+    Следовательно, для любого $x\in\ell_p(\mathcal{A})$, у нас есть равенство
+    \[
+        I_p(J_p(x))
+        =\sum_{A\in\mathcal{A}}m_{A,p}(J_p(x))e_A
+        =\sum_{A\in\mathcal{A}}x_A e_A
+        =x.
+    \]
+    Заметим, что для любого $A\in\mathcal{A}$ выполняется
+    \[
+        J_p(e_A)
+        =\sum_{A'\in\mathcal{A}} (e_A)_{A'}m_{A',-p}(\chi_{A'})[\chi_{A'}]
+        =\sum_{A'\in\mathcal{A}} \delta_{A}^{A'}m_{A',-p}(\chi_{A'})[\chi_{A'}]
+        =m_{A,-p}(\chi_{A})[\chi_{A}].
+    \]
+    Поэтому для любого $[f]\in L_p(\Omega,\mu)$ имеем
+    \[
+        J_p(I_p([f]))
+        =\sum_{A\in\mathcal{A}}m_{A,p}(f)J_p(e_A)
+        =\sum_{A\in\mathcal{A}}m_{A,p}(f)m_{A,-p}(\chi_A)[\chi_A]
+        =\sum_{A\in\mathcal{A}}m_{A,\infty}(f)[\chi_A]
+        =[f].
+    \]
+    Таким образом, $J_p$ и $I_p$ взаимно обратные отображения.
+\end{proof}
+
+\begin{proposition}\label{SwtchMorphBtwnAtomMeasSp}
+    Пусть $(\Omega,\mu)$ --- чисто атомарное пространство с мерой, 
+    и $\mathcal{A}$ --- разложение $\Omega$ на атомы конечной меры. 
+    Предположим, что $1\leq p,q<+\infty$, тогда
+    \begin{enumerate}[label = (\roman*)]
+        \item Если $\Phi:L_p(\Omega,\mu)\to L_q(\Omega,\mu)$ --- 
+        $B(\Sigma)$-морфизм, то отображение $I_q\circ \Phi\circ J_p$ 
+        является $\ell_\infty(\mathcal{A})$-морфизмом с той же нормой;
+
+        \item Если $\phi:\ell_p(\mathcal{A})\to \ell_q(\mathcal{A})$ --- 
+        $\ell_\infty(\mathcal{A})$-морфизм, то 
+        отображение $J_q\circ \phi\circ I_p$ является 
+        $B(\Sigma)$-морфизмом с той же нормой;
+    \end{enumerate} 
+\end{proposition}
+\begin{proof} 
+    $(i)$ Обозначим $\phi=I_q\circ \Phi\circ J_p$, тогда по 
+    утверждению \ref{GnrlzdMeanProp} для любого атома $A\in\mathcal{A}$ имеем
+    \[
+        \phi(e_A)
+        =I_q(\Phi(J_p(e_A)))
+        =I_q(\Phi(m_{A,-p}(\chi_A)[\chi_A]))
+        =m_{A,-p}(\chi_A)I_q(\Phi([\chi_A])).
+    \]
+    Поскольку $A$ --- атом, то
+    \[
+        \Phi([\chi_A])
+        =\Phi([\chi_A]\cdot\chi_A)
+        =\Phi([\chi_A])\cdot\chi_A
+        =m_{A,\infty}(\Phi([\chi_A]))[\chi_A].
+    \]
+    Следовательно,
+    \[
+    \begin{aligned}
+        \phi(e_A)
+        &=m_{A,-p}(\chi_A)I_q(m_{A,\infty}(\Phi([\chi_A]))[\chi_A]) 
+        =m_{A,\infty}(\Phi([\chi_A]))m_{A,-p}(\chi_A)I_q([\chi_A]) \\
+        &=m_{A,\infty}(\Phi([\chi_A]))m_{A,-p}(\chi_A)m_{A,p}(\chi_A)e_A 
+        =m_{A,\infty}(\Phi([\chi_A]))e_A. \\
+    \end{aligned}
+    \]
+    Теперь для любого $x\in\ell_p(\mathcal{A})$ и $a\in\ell_\infty(A)$, имеем
+    \[
+    \begin{aligned}
+        \phi(x\cdot a)
+        =\sum_{A\in\mathcal{A}} x_A a_A \phi(e_A) 
+        =\sum_{A\in\mathcal{A}} x_A a_A m_{A,\infty}(\Phi([\chi_A]))e_A 
+        =\sum_{A\in\mathcal{A}} (x_A \phi(e_A))\cdot a 
+        =\phi(x)\cdot a. \\
+    \end{aligned}
+    \]
+    Следовательно, $\phi$ является $\ell_\infty(\mathcal{A})$-морфизмом. 
+    Согласно утверждению \ref{LpOnPurAtomMeasSpRepr}, отображения $I_q$ 
+    и $J_p$ являются изометрическими изоморфизмами; следовательно, $\phi$ 
+    и $\Phi$ имеют одинаковую норму.
+
+    $(ii)$ Обозначим $\Phi=J_q\circ \phi\circ I_p$, тогда по 
+    утверждению \ref{GnrlzdMeanProp} для любого атома $A\in\mathcal{A}$ имеем
+    \[
+        \Phi([\chi_A])
+        =J_q(\phi(I_p([\chi_A])))
+        =J_q(\phi(m_{A,p}(\chi_A)e_A))
+        =m_{A,p}(\chi_A)J_q(\phi(e_A)).
+    \]
+    Более того,
+    \[
+        \phi(e_A)
+        =\phi(e_A\cdot e_A)
+        =\phi(e_A)\cdot e_A
+        =\phi(e_A)_A e_A,
+    \]
+    следовательно,
+    \[
+    \begin{aligned}
+        \Phi([\chi_A])
+        &=m_{A,p}(\chi_A)J_q(\phi(e_A)_A e_A) 
+        =\phi(e_A)_A m_{A,p}(\chi_A)J_q( e_A) \\
+        &=\phi(e_A)_A m_{A,p}(\chi_A)m_{A,-p}(\chi_A) [\chi_A] 
+        =\phi(e_A)_A [\chi_A]. \\
+    \end{aligned}
+    \]
+    Теперь для любого $[f]\in L_p(\Omega, \mu)$ и $a\in B(\Sigma)$, имеем
+    \[
+    \begin{aligned}
+        \Phi([f]\cdot a)
+        &=\Phi\left(
+            \sum_{A\in\mathcal{A}} m_{A,\infty}(f\cdot a)[\chi_A]
+        \right) 
+        =\sum_{A\in\mathcal{A}} m_{A,\infty}(f\cdot a) \Phi([\chi_A]) \\
+        &=\sum_{A\in\mathcal{A}} 
+            m_{A,\infty}(f) m_{A,\infty}(a) \phi(e_A)_A [\chi_A] 
+        =\sum_{A\in\mathcal{A}} 
+            (m_{A,\infty}(f) \phi(e_A)_A [\chi_A])\cdot a \\
+        &=\sum_{A\in\mathcal{A}} 
+            m_{A,\infty}(f) \Phi([\chi_A])\cdot a 
+        =\Phi\left(\sum_{A\in\mathcal{A}} 
+            m_{A,\infty}(f) [\chi_A]\right)\cdot a 
+        =\Phi([f])\cdot a. \\
+    \end{aligned}
+    \]
+    Таким образом, $\Phi$ является $B(\Sigma)$-морфизмом. Согласно 
+    утверждению \ref{LpOnPurAtomMeasSpRepr}, отображения $J_q$ и $I_p$ являются 
+    изометрическими изоморфизмами; следовательно, $\Phi$ и $\phi$ имеют 
+    одинаковую норму.
+\end{proof}
+
+\begin{proposition}\label{LpFinDimCharac}
+    Пусть $(\Omega,\mu)$ --- разложимое пространство с мерой 
+    и $1\leq p\leq+\infty$. Если $L_p(\Omega,\mu)$ является конечномерным 
+    пространством, то $(\Omega,\mu)$ является чисто атомарным с конечным числом 
+    атомов конечной меры.
+\end{proposition} 
+\begin{proof}
+    Предположим, что $(\Omega,\mu)$ не является чисто атомарным, тогда 
+    существует безатомное измеримое множество $E\subset \Omega$. 
+    Из~[\cite{FremMeasTh2}, утверждение 215D] мы можем считать, что $E$ имеет 
+    положительную конечную меру. Из~[\cite{FremMeasTh2}, упражнение 215X(e)] мы 
+    заключаем, что существует счетное семейство $\mathcal{E}$ попарно 
+    непересекающихся множеств положительной конечной меры. В этом 
+    случае $([\chi_{E}])_{E\in\mathcal{E}}$ является счетным линейно независимым 
+    множеством в $L_p(\Omega,\mu)$, следовательно, $L_p(\Omega,\mu)$ является 
+    бесконечномерным. Противоречие, поэтому $(\Omega,\mu)$ является чисто 
+    атомарным. Пусть $\mathcal{A}$ --- семейство атомов, объединение которых 
+    составляет $\Omega$. Поскольку пространство $\Omega$ разложимо, то все эти 
+    атомы имеют конечную меру. Следовательно, $([\chi_{A}])_{A\in\mathcal{A}}$ 
+    является линейно независимым множеством. Поскольку $L_p(\Omega,\mu)$ 
+    является конечномерным, то $\mathcal{A}$ --- конечное множество.
+\end{proof}
+
+%-------------------------------------------------------------------------------
+% Метрическая проективность, инъективность и плоскость модулей C_0(S) L_p(S,\mu)
+%-------------------------------------------------------------------------------
+
+\section{Метрическая проективность, инъективность и плоскость модулей 
+\texorpdfstring{$C_0(S)$}{C0(S)}-modules 
+\texorpdfstring{$L_p(S,\mu)$}{LpSmu}}
+\label{MetrProInjFltOfC0SModLp}
+
+Пусть $S$ --- хаусдорфово локально компактное пространство. 
+Под $\operatorname{Bor}(S)$ мы понимаем $\sigma$-алгебру, порожденную открытыми 
+подмножествами $S$. В этом разделе мы будем рассматривать только разложимые 
+борелевские меры. Пусть $\mu$ --- такая мера на $S$. Мы покажем, что 
+для $1<p<+\infty$ банаховы $C_0(S)$-модули $L_p(S,\mu)$ практически никогда не 
+являются метрически проективными, инъективными или плоскими. 
+
+\begin{proposition}\label{C0SMorphBtwnReflxSpIsBMorph}
+    Пусть $S$ --- хаусдорфово локально компактное пространство. Тогда 
+    \begin{enumerate}[label = (\roman*)]
+        \item любой рефлексивный $C_0(S)$-модуль (левый или правый) может быть 
+        снабжен структурой $B(\operatorname{Bor}(S))$-модуля, согласованной 
+        с умножением на элементы алгебры $C_0(S)$;
+        \item любой $C_0(S)$-морфизм рефлексивных модулей 
+        является $B(\operatorname{Bor}(S))$-морфизмом;
+    \end{enumerate}     
+\end{proposition}
+\begin{proof} 
+    $(i)$ Предположим, что $Z$ --- $C_0(S)$-модуль, тогда посредством умножения 
+    Аренса $Z^{**}$ является $C_0(S)^{**}$-модулем 
+    [\cite{DalBanAlgAutCont}, предложение 2.6.15(iii)]. Если модуль $Z$ 
+    рефлексивен, то естественное вложение $\iota_Z:Z\to Z^{**}$ является 
+    изометрическим изоморфизмом. Напомним, что $B(\operatorname{Bor}(S))$ 
+    является подалгеброй $C_0(S)^{**}$ 
+    [\cite{DalBanAlgAutCont}, предложение 4.2.30], следовательно, мы можем 
+    наделить $Z$ структурой $B(\operatorname{Bor}(S))$-модуля по 
+    формуле $z\cdot b=\iota_Z^{-1}(\iota_Z(z)\cdot b)$ для $z\in Z$ 
+    и $b\in B(\operatorname{Bor}(S))$.
+    
+    $(ii)$ Пусть $\phi:X\to Y$ --- морфизм рефлексивных $C_0(S)$-модулей. 
+    Тогда $\phi^{**}$ является $C_0(S)^{**}$-морфизмом 
+    [\cite{DalBanAlgAutCont}, предложение A.3.53]. Как мы отметили 
+    выше, $X$ и $Y$ являются $B(\operatorname{Bor}(S))$-модулями 
+    и $\iota_X$, $\iota_Y$ являются изометрическими изоморфизмами. 
+    Поскольку $\phi=\iota_Y^{-1}\circ \phi^{**}\circ \iota_X$, то $\phi$ 
+    является $B(\operatorname{Bor}(S))$-морфизмом.
+\end{proof}
+
+\begin{remark}\label{C0SModIsBBorSMod}
+    Пусть $S$ --- хаусдорфово локально компактное пространство и $\mu$ --- 
+    конечная регулярная борелевская мера на $S$. Для любого $1<p<+\infty$ мы 
+    можем рассмотреть $C_0(S)$-модуль $L_p(S,\mu)$ и используя 
+    предложение \ref{C0SMorphBtwnReflxSpIsBMorph} сделать 
+    его $B(\operatorname{Bor}(S))$-модулем. Новое внешнее умножение будет 
+    совпадать с поточечным [\cite{HelTensProdAndMultModLp}, предложение 2.2].
+\end{remark}
+
+\begin{proposition}\label{MetInjC0SModLpSmuOnFinAtmMeasSpCharac}
+    Пусть $S$ --- хаусдорфово локально компактное пространство, а $\mu$ --- 
+    чисто атомарная борелевская мера на $S$ с конечным числом атомов конечной 
+    меры. Предположим, что $1<p<+\infty$ и $C_0(S)$-модуль $L_p(S,\mu)$ 
+    метрически инъективен. Тогда $\mu$ имеет не более чем $1$ атом.
+\end{proposition}
+\begin{proof}
+    Пусть $\mathcal{A}$ --- разложение $S$ на $n$ атомов конечной меры. 
+    Предположим, что $n>1$. Выберем любое $\kappa\in(n^{-1}, (n-1)^{-1})$. 
+    Теперь установим $\mathcal{F}=\mathcal{F}_{\kappa}(\mathcal{A})$. Для 
+    каждого $f\in \mathcal{F}$ определим $\ell_\infty(\mathcal{A})$-морфизм 
+    \[
+        m_f:
+        \ell_p(\mathcal{A})\to\ell_1(\mathcal{A}),\,
+        x\mapsto x\cdot f.
+    \]
+    Мы также будем использовать естественное вложение и естественную проекцию
+    \[
+        \operatorname{in}_f:
+        L_1(S,\mu)\to\bigoplus_\infty\{L_1(S,\mu):f'\in\mathcal{F}\},
+        \qquad
+        \operatorname{pr}_f:
+        \bigoplus_\infty\{
+            \ell_1(\mathcal{A}):f'\in\mathcal{F}
+        \}\to\ell_1(\mathcal{A}),
+    \]
+    которые являются $B(\operatorname{Bor}(S))$-морфизмом 
+    и $\ell_\infty(A)$-морфизмом соответственно. Теперь 
+    рассмотрим $B(\operatorname{Bor}(S))$-морфизмы 
+    \[
+        I_p^\infty=\bigoplus_\infty\{I_p:f\in\mathcal{F}\},
+        \qquad
+        J_p^\infty=\bigoplus_\infty\{J_p:f\in\mathcal{F}\}.
+    \]
+    Это изометрические изоморфизмы и легко проверить, что 
+    \[
+        I_p^\infty \circ \operatorname{in}_f=\operatorname{in}_f\circ I_p,
+        \qquad 
+        \operatorname{pr}_f\circ I_p^\infty=I_p\circ \operatorname{pr}_f.
+    \]
+
+    По утверждению \ref{SwtchMorphBtwnAtomMeasSp}, 
+    отображение $\Xi_f=J_1\circ m_f\circ I_p$ 
+    является $B(\operatorname{Bor}(S))$-морфизмом. Следовательно, оператор 
+    \[
+        \Xi_{\mathcal{F}}=\sum_{f\in\mathcal{F}}\operatorname{in}_f\circ \Xi_f
+    \]
+    тоже является $B(\operatorname{Bor}(S))$-морфизмом и как 
+    следствие $C_0(S)$-морфизмом. Заметим, что
+    \[
+    \begin{aligned}
+        I_1^\infty\circ\Xi_\mathcal{F}\circ J_p
+        = \sum_{f\in\mathcal{F}} 
+            \operatorname{in}_f\circ m_f 
+        =\xi_{\mathcal{F}}.
+    \end{aligned}
+    \]
+    По утверждению \ref{StdEmbdSpclCoerciv}, константа 
+    обратимости $\gamma_{\mathcal{F}}$ конечна и положительна, 
+    поэтому оператор $\xi_{\mathcal{F}}$ $\gamma_{\mathcal{F}}$-топологически 
+    инъективен. Поскольку $I_1$ и $J_p$ --- изометрические изоморфизмы, 
+    оператор $\Xi_{\mathcal{F}}$ также $\gamma_{\mathcal{F}}$-топологически 
+    инъективен. По предположению, $C_0(S)$-модуль $L_p(S,\mu)$ 
+    метрически инъективен, значит существует $C_0(S)$-морфизм 
+    \[
+        \Psi:
+        \bigoplus_\infty\{ L_1(S,\mu):f\in\mathcal{F}\}\to L_p(S,\mu)
+    \]
+    такой, что $\Psi\circ \Xi_{\mathcal{F}}=1_{L_p(S,\mu)}$ 
+    и $\Vert \Psi\Vert\leq \gamma_{\mathcal{F}}$.
+
+    Снова, для каждого $f\in\mathcal{F}$ мы определим 
+    $C_0(S)$-морфизм $\Psi_f=\Psi\circ \operatorname{in}_f$. 
+    Поскольку множество $\mathcal{A}$ конечно, то пространства $L_p(S,\mu)$ 
+    и $L_1(S,\mu)$ конечномерны и, следовательно, рефлексивны. 
+    Отсюда, согласно утверждению \ref{C0SMorphBtwnReflxSpIsBMorph} и 
+    замечанию \ref{C0SModIsBBorSMod}, для любого $f\in\mathcal{F}$, 
+    оператор $\Psi_f$ является $B(\operatorname{Bor}(S))$-морфизмом. 
+    Заметим, что
+    \[
+        \Psi=\sum_{f\in\mathcal{F}} \Psi_f\circ\operatorname{pr}_f.
+    \]
+    Рассмотрим ограниченный линейный оператор
+    \[
+    \begin{aligned}
+        \psi
+        =I_p\circ\Psi\circ J_1^\infty
+        =\sum_{f\in\mathcal{F}} 
+            I_p\circ\Psi_f\circ J_1\circ\operatorname{pr}_f.
+    \end{aligned} 
+    \]
+    Согласно утверждению \ref{SwtchMorphBtwnAtomMeasSp}, для 
+    каждого $f\in \mathcal{F}$, отображение $I_p\circ \Psi_f\circ J_1$ является 
+    $\ell_\infty(\mathcal{A})$-морфизмом. Значит, $\psi$ также является 
+    $\ell_\infty(\mathcal{A})$-морфизмом. Так как $I_p$ 
+    и $J_1^{\infty}$ --- изометрические изоморфизмы, то мы 
+    получаем $\Vert\psi\Vert=\Vert\Psi\Vert$. Кроме того,
+    \[
+    \begin{aligned}
+        \psi\circ\xi_\mathcal{F}
+        = I_p\circ\Psi\circ J_1^{\infty}\circ 
+            I_1^{\infty}\circ \Xi_{\mathcal{F}}\circ J_p
+        = I_p\circ\Psi\circ \Xi_{\mathcal{F}}\circ J_p
+        = I_p\circ J_p
+        = 1_{\ell_p(\mathcal{A})}.
+    \end{aligned}
+    \]
+    Таким образом, мы построили $\ell_\infty(\mathcal{A})$-морфизм $\psi$
+    такой, что $\psi\circ\xi_{\mathcal{F}}=1_{\ell_p(\mathcal{A})}$ 
+    и $\Vert \psi\Vert\leq\gamma_{\mathcal{F}}$. Поскольку мы предположили, 
+    что $n>1$, мы приходим к противоречию с утверждением \ref{RetrPrblmNoSln}. 
+    Следовательно, $n\leq 1$, то есть $\mathcal{A}$ содержит не более чем один 
+    атом.
+\end{proof}
+
+\begin{proposition}\label{MetInjC0SModLpSmuCharac}
+    Пусть $S$ --- хаусдорфово локально компактное пространство, а $\mu$ --- 
+    разложимая борелевская мера на $S$. Предположим, что $1 < p < +\infty$ 
+    и $C_0(S)$-модуль $L_p(S,\mu)$ метрически инъективен, тогда $\mu$ --- чисто 
+    атомарная мера с не более чем одним атомом.
+\end{proposition}
+\begin{proof} 
+    Пусть $K$ --- александровская компактификация пространства $S$. 
+    Тогда пространство $C_0(S)$ дополняемо в $C(K)$. 
+    Из [\cite{DefFloTensNorOpId}, лемма 4.4] мы знаем, что пространство $C(K)$ 
+    является $\mathscr{L}_\infty^g$-пространством. Значит этому классу 
+    принадлежит и $C_0(S)$, как дополненное подпространство $C(K)$ 
+    [\cite{DefFloTensNorOpId}, следствие 23.1.2(1)]. 
+    Таким образом, $L_p(S,\mu)$ является рефлексивным 
+    [\cite{FremMeasTh2}, теорема 244K] метрически инъективным модулем над 
+    алгеброй $C_0(S)$, которая является $\mathscr{L}_\infty^g$-пространством. 
+    Из [\cite{NemGeomProjInjFlatBanMod}, следствие 3.14] следует, что этот 
+    модуль должен быть конечномерным. Из предложения \ref{LpFinDimCharac} мы 
+    заключаем, что $\mu$ является чисто атомарной мерой с конечным числом атомов 
+    конечной меры. Наконец, 
+    предложение \ref{MetInjC0SModLpSmuOnFinAtmMeasSpCharac} гарантирует, что 
+    у $\mu$ не более одного атома.
+\end{proof}
+
+\begin{theorem}\label{MetInjPlotjFlatC0SModLpSmuCharac}
+    Пусть $S$ --- хаусдорфово локально компактное пространство, а $\mu$ --- 
+    разложимая борелевская мера на $S$. Предположим, что $1 < p < +\infty$ 
+    и $C_0(S)$-модуль $L_p(S,\mu)$ метрически проективен, инъективен или 
+    плоский. Тогда $\mu$ --- чисто атомарная мера с не более чем одним атомом.
+\end{theorem}
+\begin{proof} 
+    Если $L_p(S,\mu)$ является метрически инъективным $C_0(S)$-модулем, то 
+    результат следует из 
+    предложения \ref{MetInjC0SModLpSmuOnFinAtmMeasSpCharac}. 
+    
+    Предположим, что $L_p(S,\mu)$ является метрически плоским $C_0(S)$-модулем. 
+    Тогда из [\cite{NemGeomProjInjFlatBanMod}, предложение 2.21] следует, что
+    сопряженный $C_0(S)$-модуль $L_p(S,\mu)^*$ является метрически инъективным. 
+    Заметим, что $C_0(S)$-модули $L_p(S,\mu)^*$ и $L_{p^*}(S,\mu)$ изометрически 
+    изоморфны, причем $1 < p^* < +\infty$ т.к. $1 < p < +\infty$. Тогда, 
+    результат следует из предыдущего абзаца.
+    
+    Если $L_p(S,\mu)$ является метрически проективным $C_0(S)$-модулем, то 
+    по [\cite{NemGeomProjInjFlatBanMod}, предложение 2.26], он также метрически 
+    плоским. Следовательно, результат следует из предыдущего абзаца.
+\end{proof}
+
+\begin{thebibliography}{999}
+    %
+    \bibitem{NemRelProjModLp}\textit{N. T. Nemesh}, Relative projectivity of 
+    modules $\it{L_p}$, Math. Notes, 2022, Volume 111, p 103--114.
+    %
+    %
+    \bibitem{HelLectAndExOnFuncAn}\textit{A. Ya. Helemskii}, Lectures and 
+    exercises on functional analysis, Vol. 233, {2006}, 
+    American Mathematical Society Providence, RI.
+    %
+    %
+    \bibitem{HelBanLocConvAlg}\textit{A. Ya. Helemskii}, Banach and locally 
+    convex algebras, {1993}, Oxford University Press.
+    %
+    %
+    \bibitem{GravInjProjBanMod}\textit{A. W. M. Graven}, Injective and 
+    projective Banach modules, Indag. Math. (Proceedings), Vol. 82, p. 253--272,
+    Elsevier.
+    %
+    \bibitem{WhiteInjmoduAlg}\textit{M. C. White}, Injective modules for uniform 
+    algebras, Proc. Lond. Math. Soc., Vol. 3(1), p. 155--184, Oxford University 
+    Press.
+    %
+    \bibitem{HelMetrFrQMod}\textit{A. Ya. Helemskii}, Metric freeness and 
+    projectivity for classical and quantum normed modules, Sb. Mat., 
+    Vol. 204(7), p. 1056--1083, IOP Publishing.
+    %
+    %
+    \bibitem{HelMetrFlatNorMod}\textit{A. Ya. Helemskii}, Metric version of 
+    flatness and Hahn-Banach type theorems for normed modules over sequence 
+    algebras, Stud. Math., Vol. 206(2), p. 135--160, Institute of Mathematics.
+    %
+    %
+    \bibitem{FremMeasTh2}\textit{D. H. Fremlin}, Measure Theory, Vol. 2,
+    {2003}, Torres Fremlin.
+    %
+    %
+    \bibitem{DalBanAlgAutCont}\textit{H. G. Dales}, Banach algebras and 
+    automatic continuity, {2000}, Clarendon Press.
+    %
+    %
+    \bibitem{HelTensProdAndMultModLp}\textit{Хелемский, А.Я.}, Тензорные 
+    произведения и мультипликаторы модулей $\it{L_p}$ на локально компактных 
+    пространствах с мерой, Матем. заметки, Vol. 96(3), p. 450--469.
+    %
+    %
+    \bibitem{DefFloTensNorOpId}\textit{A. Defant, K. Floret}, Tensor norms and 
+    operator ideals, Vol. 176, {1992}, Elsevier.
+    %
+    %
+    \bibitem{NemGeomProjInjFlatBanMod}\textit{N. T. Nemesh}, The Geometry of 
+    projective, injective and flat Banach modules, J. Math. Sci. (New York), 
+    2019, Volume 237, Issue 3, Pages 445–459.
+\end{thebibliography}
+
+Норберт Немеш, Факультет Механики и Математики, Московский государственный 
+университет, Москва 119991, Россия
+
+\textit{Адрес электронной почты:} nemeshnorbert@yandex.ru
+
+
+\end{document}
