@@ -172,7 +172,8 @@ metrically injective only if $\Lambda$ has at most one element.
 
 \begin{definition}\label{StdEmbd} 
     Let $\Lambda$ be a set, $1<p<+\infty$, 
-    and $\mathcal{F}\subset\ell_{p^*}(\Lambda)$. We define a linear operator
+    and $\mathcal{F}$ be a bounded subset of $\ell_{p^*}(\Lambda)$. We define 
+    a linear operator
     \[
         \xi_{\mathcal{F}}: 
         \ell_p(\Lambda)\to\bigoplus_\infty\{\ell_1(\Lambda):f\in\mathcal{F}\},\,
@@ -180,10 +181,13 @@ metrically injective only if $\Lambda$ has at most one element.
     \]
 \end{definition}
 
+Clearly $\xi_{\mathcal{F}}$ is an $\ell_\infty(\Lambda)$-morphism with 
+norm $\sup\{\Vert f\Vert_{p^*}: f\in\mathcal{F}\}$.
+
 \begin{definition}\label{StdEmbdCoercv}
     Let $\Lambda$ be a set, $1<p<+\infty$, 
-    and $\mathcal{F}\subset \ell_{p^*}(\Lambda)$. We define the coercivity 
-    constant for the operator $\xi_{\mathcal{F}}$ as
+    and $\mathcal{F}$ be a bounded subset of $\ell_{p^*}(\Lambda)$. We define 
+    the coercivity constant for the operator $\xi_{\mathcal{F}}$ as
     \[
         \gamma_{\mathcal{F}}=\sup\{
             \Vert x\Vert_p: 
@@ -377,16 +381,29 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
         \right\}.
     \end{aligned}
     \]
-    For any $\lambda\in\Lambda$ the maximum of the expression 
+    For each $\lambda\in\Lambda$ consider 
+    vectors  $a_\lambda=(\eta_{f,\lambda} r_{f,\lambda})_{f\in\mathcal{F}}$ 
+    and $b_\lambda=(e^{-i\alpha_{f,\lambda}})_{f\in\mathcal{F}}$  
+    in $\ell_2(\mathcal{F})$. By Cauchy-Schwartz inequality 
+    the scalar product of $a_\lambda$ and $b_\lambda$ has the maximum absolute 
+    value only if $a_\lambda=k b_\lambda$ for some $k\in\mathbb{C}$. The latter 
+    is possible only if 
+    $
+        \operatorname{arg}(\eta_{f,\lambda} r_{f,\lambda})
+        =
+        -\alpha_{f,\lambda}+\operatorname{arg}(k)
+    $
+    for all $f\in\mathcal{F}$. As a corollary, for all $\lambda\in\Lambda$ the 
+    maximum of the expression 
     $
         \left|
             \sum_{f\in\mathcal{F}}
-                \eta_{f,\lambda}\cdot r_{f,\lambda} e^{i \alpha_{f,\lambda}}
+                \eta_{f,\lambda} r_{f,\lambda} e^{i \alpha_{f,\lambda}}
         \right|
     $
     is attained 
-    if $\alpha_{f,\lambda}=\operatorname{arg}(\eta_{f,\lambda})$ for 
-    all $f\in\mathcal{F}$ and $\lambda\in\Lambda$. In this case,
+    if $\alpha_{f,\lambda}=\operatorname{arg}(k)-\operatorname{arg}(\eta_{f,\lambda})$ for 
+    all $f\in\mathcal{F}$. In this case,
     \[
     \begin{aligned}
         \Vert \psi_{\eta}\Vert
@@ -481,6 +498,24 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     \]
 \end{definition}
 
+\begin{remark}\label{StdEmbdSpcl}
+    Let $\Lambda$ be a finite set, $1<p<+\infty$ and $\kappa\in\mathbb{R}$. 
+    Then we can regard $\mathcal{F}_{\kappa}(\Lambda)$ as a bounded subset 
+    of $\ell_{p^*}(\Lambda)$. In this case for all $x\in\ell_p(\Lambda)$ holds 
+    \[
+        \xi_{\mathcal{F}_{\kappa}(\Lambda)}(x)
+        =
+        (\kappa x)
+            \bigoplus_{\infty} 
+        \left(\bigoplus_\infty\{x_\lambda:\lambda\in\Lambda\}\right),
+        \qquad
+        \Vert\xi_{\mathcal{F}_{\kappa}(\Lambda)}(x)\Vert
+        =
+        \max\{\kappa\Vert x\Vert_1, \Vert x\Vert_\infty\}.
+    \]
+\end{remark}
+
+
 \begin{proposition}\label{StdEmbdSpclCoerciv}
     Assume $\Lambda$ is a finite set with $n>1$ elements, $1<p<+\infty$, 
     and $n^{-1}<\kappa<(n-1)^{-1}$. Then
@@ -537,8 +572,11 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
             F(t):t\in\operatorname{ext}(C)
         \}.
     \]
-    Clearly, any point $t\in \operatorname{ext}(C)$ has all coordinates but one
-    equal to $1$ or $-1$. Therefore,
+    Geometrically $C$ is an $n$-dimensional cube $[-1,1]^n$ with vertices 
+    chopped off by hyperplanes of the 
+    form $\pm t_1\pm t_2\pm\ldots\pm t_n=\kappa^{-1}$. Clearly, any 
+    point $t\in \operatorname{ext}(C)$ has all coordinates but one equal to $1$ 
+    or $-1$. Therefore,
     $
         \operatorname{ext}(C)=\left\{ 
             t\in\mathbb{R}^\Lambda : 
@@ -548,9 +586,9 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
         \right\}.
     $
     As a consequence,
-    \[
+    $
         \gamma_{\mathcal{F}_{\kappa}(\Lambda)}=(n-1+(\kappa^{-1}-(n-1))^p)^{1/p}.
-    \]
+    $
 \end{proof}
 
 \begin{proposition}\label{ExtMorphsNormLwrBnd}
@@ -603,9 +641,10 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
         \right\} \\
         &=\max\left\{
             \left(
+                (|\eta_{f_{\lambda'},\lambda'}|+|\eta_{f_\star,\lambda'}|)^p
+                +
                 \sum_{\lambda\in\Lambda,\lambda\neq \lambda'} 
-                    |\eta_{f_\lambda,\lambda}|^p+
-                    (|\eta_{f_{\lambda'},\lambda'}|+|\eta_{f_\star,\lambda'}|)^p
+                    |\eta_{f_\lambda,\lambda}|^p
             \right)^{1/p}:
             \lambda'\in\Lambda
         \right\}. \\
@@ -614,29 +653,31 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     For any $\eta\in\mathcal{N}_{\mathcal{F}_{\kappa}(\Lambda)}$ 
     and $\lambda\in\Lambda$ we 
     have $\eta_{f_\lambda,\lambda}+\kappa \eta_{f_\star, \lambda}=1$. 
-    Therefore,
+    Therefore, by reverse triangle inequality
     \[
     \begin{aligned}
         \Vert \psi_{\eta}\Vert
         &\geq\max\left\{
             \left(
+                (
+                    |\eta_{f_{\lambda'},\lambda'}|+
+                    |\kappa^{-1}(1-\eta_{f_{\lambda'},\lambda'})|
+                )^p
+                +
                 \sum_{\lambda\in\Lambda,\lambda\neq \lambda'}
-                    |\eta_{f_\lambda,\lambda}|^p+
-                    (
-                        |\eta_{f_{\lambda'},\lambda'}|+
-                        \kappa^{-1}|1-|\eta_{f_{\lambda'},\lambda'}||
-                    )^p
+                    |\eta_{f_\lambda,\lambda}|^p
             \right)^{1/p}:
             \lambda'\in\Lambda
         \right\} \\
         &\geq\max\left\{
             \left(
+                (
+                    |\eta_{f_{\lambda'},\lambda'}|+
+                    \kappa^{-1}|1-|\eta_{f_{\lambda'},\lambda'}||
+                )^p
+                +
                 \sum_{\lambda\in\Lambda,\lambda\neq \lambda'} 
-                    |\eta_{f_\lambda,\lambda}|^p+
-                    (
-                        |\eta_{f_{\lambda'},\lambda'}|+
-                        \kappa^{-1}|1-|\eta_{f_{\lambda'},\lambda'}||
-                    )^p
+                    |\eta_{f_\lambda,\lambda}|^p
             \right)^{1/p}:
             \lambda'\in\Lambda
         \right\} \\
@@ -647,7 +688,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     \begin{aligned}
         \alpha_i&:\mathbb{R}^n\to\mathbb{R},\,
         t\mapsto \left(
-            \sum_{k=1,k\neq i}^n |t_k|^p+(|t_i|+\kappa^{-1}|1-|t_i||)^p
+            (|t_i|+\kappa^{-1}|1-|t_i||)^p+\sum_{k=1,k\neq i}^n |t_k|^p
         \right)^{1/p} \quad\text{for }\quad i\in\mathbb{N}_n \\
         \alpha&:\mathbb{R}^n\to\mathbb{R},\,
         t\mapsto\max\{\alpha_i(t):i\in\mathbb{N}_n\}.
@@ -695,7 +736,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
         \nu_{\mathcal{F}_{\kappa}(\Lambda)}
         &\geq\inf\{\alpha(t) : t\in\mathbb{R}_+^n\} \\
         &=\inf\{\alpha(s,\ldots,s) : s\in\mathbb{R}_+\} \\
-        &=\inf\{((n-1)s^p+(s+\kappa^{-1}|1-s|)^p)^{1/p} : s\in\mathbb{R}_+\}.
+        &=\inf\{((s+\kappa^{-1}|1-s|)^p+(n-1)s^p)^{1/p} : s\in\mathbb{R}_+\}.
     \end{aligned}
     \]
     Consider the function
@@ -723,7 +764,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     \[
         F'(s)=
         ((s+\kappa^{-1}(1-s))^p+(n-1)s^p)^{1/p-1}
-        ((\kappa^{-1}+(1-\kappa^{-1})s)^{p-1}+(n-1)s^{p-1}).
+        ((\kappa^{-1}+(1-\kappa^{-1})s)^{p-1}(1-\kappa^{-1})+(n-1)s^{p-1}).
     \]
     The stationary point can be found from the equation $F'(s)=0$. 
     The solution is
@@ -747,7 +788,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
         \left(
             \left(\frac{n-1}{\kappa^{-1}-1}
             \right)^{\frac{p}{p-1}}
-            -1+\kappa^{-1}
+            +n-1
         \right)^{1/p}
         \left(
             \left(\frac{n-1}{\kappa^{-1}-1}
@@ -764,7 +805,8 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
     \[
         \Vert x\Vert_r\leq \Vert x\Vert_1^{1/r}\Vert x\Vert_\infty^{1-1/r}.
     \]
-    The equality holds if and only if $|x_1|=\ldots=|x_n|$.
+    The equality is attained if and only if all non-zero entries of $x$ have the
+    same absolute value.
 \end{proposition}
 \begin{proof}
     For any $r>1$ and any $x\in\mathbb{C}^n$, we have
@@ -776,8 +818,6 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
         \left(\max\limits_{k\in\mathbb{N}_n}|x_k|^{r-1}\right)^{1/r}
         =\Vert x\Vert_1^{1/r}\Vert x\Vert_\infty^{1-1/r}.
     \]
-    Clearly, the equality holds if and only if $|x_k|=\max\limits_{k\in\mathbb{N}_n}|x_k|$
-    for all $k\in\mathbb{N}_n$.
 \end{proof}
 
 \begin{proposition}\label{CompStdEmbdCoercvAndExtMorphsNormInf}
@@ -797,7 +837,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
         \left(
             \left(\frac{n-1}{\kappa^{-1}-1}
             \right)^{\frac{p}{p-1}}
-            -1+\kappa^{-1}
+            +n-1
         \right)^{1/p}
         \left(
             \left(\frac{n-1}{\kappa^{-1}-1}
@@ -815,7 +855,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
         \left(
         \left(\frac{m}{\rho-1}
             \right)^{\frac{p}{p-1}}
-            -1+\rho
+            +m
         \right)^{1/p}
         \left(
             \left(\frac{m}{\rho-1}
@@ -825,7 +865,7 @@ whenever $\gamma_{\mathcal{F}}$ is finite.
         >
         (m+(\rho-m)^p)^{1/p}.
     \] 
-    After simplifications, we arrive at the inequality
+    After simplifications, we arrive at inequality
     \[
         \frac{m\rho}{\rho-1}
         >
@@ -914,7 +954,7 @@ measure spaces can be found in~\cite{FremMeasTh2}.
 Let $\Omega$ be a set. By measure, we mean a countably additive set function 
 with values in $[0,+\infty]$, defined on a $\sigma$-algebra $\Sigma$ of 
 measurable subsets of a set $\Omega$. A pair $(\Omega,\mu)$ is 
-called a measure space. A measurable set $E$ is called an atom 
+called a measure space. A measurable set $A$ is called an atom 
 if $\mu(A)>0$ and for every measurable subset $B\subset A$, either $\mu(B)=0$ 
 or $\mu(A\setminus B)=0$. A measure $\mu$ is called purely atomic if every 
 measurable set of positive measure has an atom. A measure $\mu$ is semi-finite 
@@ -941,6 +981,8 @@ Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
     \[
         m_{E,r}(f)=\mu(E)^{\frac{1}{r}-1}\int_E f(\omega)d\mu(\omega).
     \]
+    Note that, $m_{E,r}(f)=\mu(E)^{1/r}m_{E,\infty}(f)$ and $m_{E,\infty}(f)$ is 
+    nothing more than a mean value of $f$ over $E$.
 \end{definition}
 
 \begin{proposition}\label{GnrlzdMeanProp}
@@ -951,6 +993,7 @@ Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
     \begin{enumerate}[label = (\roman*)]
         \item $m_{E,r}(\chi_E)=\mu(E)^{1/r}$;
         \item $m_{E,r}(f)=m_{E,r}(f\chi_E)$;
+        \item If $E$ is an atom, then $m_{E,\infty}(f)$ is a finite number;
         \item If $E$ is an atom, then $f=m_{E,\infty}(f)$ almost 
         everywhere on $E$;
         \item If $E$ is an atom, 
@@ -962,11 +1005,23 @@ Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
 \begin{proof}
     Paragraphs $(i)$ and $(ii)$ are obvious.
 
-    $(iii)$ Without loss of generality, we assume that $f$ is real-valued. 
-    Denote $k=m_{E,\infty}(f)$. Clearly, $k$ is a mean value of $f$ on $E$. 
-    Consider set $A_+=\{\omega\in E: f(\omega)>k\}$. Since $A_+$ is a subset of 
-    an atom $E$ of finite measure, either $\mu(A_+)=0$ or $\mu(A_+)=\mu(E)>0$. 
-    In the latter case, we get 
+    $(iii)$ Without loss of generality, we assume that $f$ is real-valued.
+    For each $n\in\mathbb{N}$ consider measurable 
+    set $A_n=\{\omega\in\Omega:f(\omega)\leq n\}$. Clearly, 
+    $(A_n)_{n\in\mathbb{N}}$ is a non-decreasing sequence 
+    and $E=\bigcup_{n\in\mathbb{N}}A_n$, 
+    so $\mu(E)=\sup\{\mu(A_n):n\in\mathbb{N}\}$. On the other hand, for 
+    each $n\in\mathbb{N}$ the set $A_n$ is a measurable subset of the atom $E$, 
+    so either $\mu(A_n)=0$ or $\mu(A_n)=\mu(E)$. Therefore, $\mu(A_N)=\mu(E)$ for
+    some $N\in\mathbb{N}$. In other words, $f\leq N$ almost everywhere on $E$.
+    Hence, $m_{E,\infty}(f)\leq N<+\infty$. Similarly, one can show 
+    that $m_{E,\infty}(f)>-\infty$.
+
+    $(iv)$ Without loss of generality, we assume that $f$ is real-valued. 
+    Denote $k=m_{E,\infty}(f)$. By paragraph $(iii)$ we know that $k$ is finite. 
+    Consider set $A_+=\{\omega\in E: f(\omega)>k\}$. Since $A_+$ is a 
+    measurable subset of the atom $E$ of finite measure, 
+    either $\mu(A_+)=0$ or $\mu(A_+)=\mu(E)>0$. In the latter case, we get 
     \[
         \int_E f(\omega)d\mu(\omega)
         =\int_{A_+}f(\omega)d\mu(\omega)
@@ -978,8 +1033,8 @@ Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
     set $A_-=\{\omega\in E:f(\omega)<k\}$ also has measure zero. Thus, $f=k$ 
     almost everywhere on $E$.
 
-    Paragraph $(v)$ immediately follows from $(iv)$, which in turn is an easy 
-    consequence of $(iii)$.
+    Paragraph $(vi)$ immediately follows from $(v)$, which in turn is an easy 
+    consequence of $(iv)$.
 \end{proof}
 
 \begin{proposition}\label{LpOnPurAtomMeasSpRepr}
@@ -998,6 +1053,7 @@ Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
     are isometric isomorphisms that are inverse to each other.
 \end{proposition}
 \begin{proof} 
+    Clearly, $I_p$ and $J_p$ are linear operators.
     Since $\mathcal{A}$ is a decomposition of $\Omega$ into atoms, then
     $
         [f]=\sum_{A\in\mathcal{A}} m_{A,\infty}(f)[\chi_A]
@@ -1020,31 +1076,11 @@ Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
             \sum_{A\in\mathcal{A}} \int_A |f(\omega)|^pd\mu(\omega)
         \right)^{1/p} 
         =\left( \int_{\Omega} |f(\omega)|^pd\mu(\omega)\right)^{1/p} 
-        =\Vert [f]\Vert.
+        =\Vert [f]\Vert,
     \end{aligned}
     \]
-    Again, using proposition \ref{GnrlzdMeanProp} for each $A\in\mathcal{A}$, 
-    we get
-    $
-        |m_{A,-p}(\chi_A)|^p \int_{\Omega} |\chi_A(\omega)|^p d\mu(\omega)
-        =1.
-    $ 
-    So for any $x\in\ell_p(\mathcal{A})$, we have
-    \[
-    \begin{aligned}
-        \Vert J_p(x)\Vert
-        =\left(
-            \int_{\Omega}
-                \sum_{A\in\mathcal{A}}
-                |x_A|^p|m_{A,-p}(\chi_A)|^p|\chi_A(\omega)|^p 
-            d\mu(\omega)
-        \right)^{1/p} 
-        =\left(\sum_{A\in\mathcal{A}} |x_A|^p \right)^{1/p} 
-        =\Vert x\Vert.
-    \end{aligned}
-    \]
-    Thus, $I_p$ and $J_p$ are isometric maps. Obviously, these maps are linear. 
-    Note that for any $x\in\ell_p(\mathcal{A})$ and $A\in\mathcal{A}$ holds
+    hence $I_p$ is isometric. Note that for any $x\in\ell_p(\mathcal{A})$ 
+    and $A\in\mathcal{A}$ holds
     $
         m_{A,p}(J_p(x))
         =m_{A,p}(J_p(x)\chi_A)
@@ -1058,20 +1094,18 @@ Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
         =\sum_{A\in\mathcal{A}}x_A e_A
         =x.
     \]
-    Note that for any $A\in\mathcal{A}$ hold
+    In other words $I_p\circ J_p=1_{\ell_p(\mathcal{A})}$. 
+    Note that 
     $
-        J_p(e_A)
-        =m_{A,-p}(\chi_{A})[\chi_{A}].
-    $
-    Therefore, for any $[f]\in L_p(\Omega,\mu)$, we have
-    \[
-        J_p(I_p([f]))
-        =\sum_{A\in\mathcal{A}}m_{A,p}(f)J_p(e_A)
-        =\sum_{A\in\mathcal{A}}m_{A,p}(f)m_{A,-p}(\chi_A)[\chi_A]
-        =\sum_{A\in\mathcal{A}}m_{A,\infty}(f)[\chi_A]
-        =[f].
-    \]
-    Thus, $J_p$ and $I_p$ are inverse to each other.
+        I_p\circ(1_{L_p(\Omega,\mu)}-J_p\circ I_p)
+        =I_p-I_p\circ J_p\circ I_p
+        =I_p-I_p
+        =0
+    $. 
+    Since $I_p$ is isometric and a fortiori injective, 
+    then $1_{L_p(\Omega,\mu)}-J_p\circ I_p=0$, 
+    i.e. $J_p\circ I_p=1_{L_p(\Omega,\mu)}$. Thus, $J_p$ and $I_p$ are inverse 
+    to each other. Then $J_p$ is isometric as the inverse of the isometry $I_p$.
 \end{proof}
 
 \begin{proposition}\label{SwtchMorphBtwnAtomMeasSp}
@@ -1110,8 +1144,8 @@ Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
         \phi(e_A)
         &=m_{A,-p}(\chi_A)I_q(m_{A,\infty}(\Phi([\chi_A]))[\chi_A]) 
         =m_{A,\infty}(\Phi([\chi_A]))m_{A,-p}(\chi_A)I_q([\chi_A]) \\
-        &=m_{A,\infty}(\Phi([\chi_A]))m_{A,-p}(\chi_A)m_{A,p}(\chi_A)e_A 
-        =m_{A,\infty}(\Phi([\chi_A]))e_A. \\
+        &=m_{A,\infty}(\Phi([\chi_A]))m_{A,-p}(\chi_A)m_{A,q}(\chi_A)e_A 
+        =\mu(A)^{1/q-1/p}m_{A,\infty}(\Phi([\chi_A]))e_A. \\
     \end{aligned}
     \]
     Now for any $x\in\ell_p(\mathcal{A})$ and $a\in\ell_\infty(A)$, we have
@@ -1119,7 +1153,8 @@ Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
     \begin{aligned}
         \phi(x\cdot a)
         =\sum_{A\in\mathcal{A}} x_A a_A \phi(e_A) 
-        =\sum_{A\in\mathcal{A}} x_A a_A m_{A,\infty}(\Phi([\chi_A]))e_A 
+        =\sum_{A\in\mathcal{A}} 
+            x_A a_A \mu(A)^{1/q-1/p}m_{A,\infty}(\Phi([\chi_A]))e_A 
         =\sum_{A\in\mathcal{A}} (x_A \phi(e_A))\cdot a 
         =\phi(x)\cdot a. \\
     \end{aligned}
@@ -1149,8 +1184,8 @@ Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
         \Phi([\chi_A])
         &=m_{A,p}(\chi_A)J_q(\phi(e_A)_A e_A) 
         =\phi(e_A)_A m_{A,p}(\chi_A)J_q( e_A) \\
-        &=\phi(e_A)_A m_{A,p}(\chi_A)m_{A,-p}(\chi_A) [\chi_A] 
-        =\phi(e_A)_A [\chi_A]. \\
+        &=\phi(e_A)_A m_{A,p}(\chi_A)m_{A,-q}(\chi_A) [\chi_A] 
+        =\mu(A)^{1/p-1/q}\phi(e_A)_A [\chi_A]. \\
     \end{aligned}
     \]
     Now for any $[f]\in L_p(\Omega, \mu)$ and $a\in B(\Sigma)$, we have
@@ -1162,9 +1197,9 @@ Elements of $L_p(\Omega,\mu)$ are denoted by $[f]$.
         \right) 
         =\sum_{A\in\mathcal{A}} m_{A,\infty}(f\cdot a) \Phi([\chi_A]) \\
         &=\sum_{A\in\mathcal{A}} 
-            m_{A,\infty}(f) m_{A,\infty}(a) \phi(e_A)_A [\chi_A] 
+            m_{A,\infty}(f) m_{A,\infty}(a) \mu(A)^{1/p-1/q} \phi(e_A)_A [\chi_A] 
         =\sum_{A\in\mathcal{A}} 
-            (m_{A,\infty}(f) \phi(e_A)_A [\chi_A])\cdot a \\
+            (m_{A,\infty}(f) \mu(A)^{1/p-1/q} \phi(e_A)_A [\chi_A])\cdot a \\
         &=\sum_{A\in\mathcal{A}} 
             m_{A,\infty}(f) \Phi([\chi_A])\cdot a 
         =\Phi\left(\sum_{A\in\mathcal{A}} 
@@ -1376,6 +1411,13 @@ $L_p(S,\mu)$ are almost never metrically projective, injective, or flat.
     Hence, $n\leq 1$, i.e., $\mathcal{A}$ has at most one atom.
 \end{proof}
 
+In the following proposition we shall mention the so 
+called $\mathscr{L}_\infty^g$-spaces. Their definition is quite 
+involved [\cite{DefFloTensNorOpId}, definition 3.13] and we shall not give 
+it here. It suffices to say that these spaces are Banach space whose 
+finite-dimensional subspaces are ``very similar'' to 
+finite-dimensional $\ell_\infty$-spaces. 
+
 \begin{proposition}\label{MetInjC0SModLpSmuCharac}
     Let $S$ be a locally compact Hausdorff space, and $\mu$ be a decomposable 
     Borel measure on $S$. Suppose $1 < p < +\infty$, and 
@@ -1424,56 +1466,58 @@ $L_p(S,\mu)$ are almost never metrically projective, injective, or flat.
 \begin{thebibliography}{999}
     %
     \bibitem{NemRelProjModLp}\textit{N. T. Nemesh}, Relative projectivity of 
-    modules $\it{L_p}$, Math. Notes, 2022, Volume 111, p 103--114.
+    modules $\it{L_p}$, Math. Notes, Volume 111, p 103--114, 2022.
     %
     %
     \bibitem{HelLectAndExOnFuncAn}\textit{A. Ya. Helemskii}, Lectures and 
-    exercises on functional analysis, Vol. 233, {2006}, 
-    American Mathematical Society Providence, RI.
+    exercises on functional analysis, Vol. 233, 
+    American Mathematical Society Providence, RI, 2006.
     %
     %
     \bibitem{HelBanLocConvAlg}\textit{A. Ya. Helemskii}, Banach and locally 
-    convex algebras, {1993}, Oxford University Press.
+    convex algebras, Oxford University Press, 1993.
     %
     %
     \bibitem{GravInjProjBanMod}\textit{A. W. M. Graven}, Injective and 
     projective Banach modules, Indag. Math. (Proceedings), Vol. 82, p. 253--272,
-    Elsevier.
+    Elsevier, 1979.
     %
     \bibitem{WhiteInjmoduAlg}\textit{M. C. White}, Injective modules for uniform 
     algebras, Proc. Lond. Math. Soc., Vol. 3(1), p. 155--184, Oxford University 
-    Press.
+    Press, 1996.
     %
     \bibitem{HelMetrFrQMod}\textit{A. Ya. Helemskii}, Metric freeness and 
     projectivity for classical and quantum normed modules, Sb. Mat., 
-    Vol. 204(7), p. 1056--1083, IOP Publishing.
+    Vol. 204(7), p. 1056--1083, IOP Publishing, 2013.
     %
     %
     \bibitem{HelMetrFlatNorMod}\textit{A. Ya. Helemskii}, Metric version of 
     flatness and Hahn-Banach type theorems for normed modules over sequence 
-    algebras, Stud. Math., Vol. 206(2), p. 135--160, Institute of Mathematics.
+    algebras, Stud. Math., Vol. 206(2), p. 135--160, Institute of Mathematics, 
+    2011.
     %
     %
     \bibitem{FremMeasTh2}\textit{D. H. Fremlin}, Measure Theory, Vol. 2,
-    {2003}, Torres Fremlin.
+    Torres Fremlin, 2003.
     %
     %
     \bibitem{DalBanAlgAutCont}\textit{H. G. Dales}, Banach algebras and 
-    automatic continuity, {2000}, Clarendon Press.
+    automatic continuity, Clarendon Press, 2000.
     %
     %
     \bibitem{HelTensProdAndMultModLp}\textit{Хелемский, А.Я.}, Тензорные 
     произведения и мультипликаторы модулей $\it{L_p}$ на локально компактных 
-    пространствах с мерой, Матем. заметки, Vol. 96(3), p. 450--469.
+    пространствах с мерой, Матем. заметки, Vol. 96(3), p. 450--469, 2014.
     %
     %
     \bibitem{DefFloTensNorOpId}\textit{A. Defant, K. Floret}, Tensor norms and 
-    operator ideals, Vol. 176, {1992}, Elsevier.
+    operator ideals, Vol. 176, Elsevier, 1992.
     %
     %
     \bibitem{NemGeomProjInjFlatBanMod}\textit{N. T. Nemesh}, The Geometry of 
     projective, injective and flat Banach modules, J. Math. Sci. (New York), 
-    2019, Volume 237, Issue 3, Pages 445–459.
+    Volume 237, Issue 3, Pages 445–459, 2019.
+    %
 \end{thebibliography}
 
 Norbert Nemesh, Faculty of Mechanics and Mathematics, Moscow State University,
