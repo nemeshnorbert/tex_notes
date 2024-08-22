@@ -32,7 +32,7 @@
 \begin{document}
 
 \begin{center}
-    \Large \textbf{Отсутствие метрической проективности, инъективности и 
+    \Large \textbf{Отсутствие метрических проективности, инъективности и 
     плоскости для модулей $L_p$}\\[0.5cm]
     \small {Н. Т. Немеш}\\[0.5cm]
 \end{center}
@@ -452,7 +452,7 @@ $\sup\{\Vert f\Vert_{p^*}: f\in\mathcal{F}\}$.
     \end{aligned}
     \]
     Поскольку линейные операторы $(\tau_f)_{f\in\mathcal{F}}$ принимают 
-    значения в $\ell_p(\Lambda)$, чья норма строго выпукла, то функция
+    значения в $\ell_p(\Lambda)$, где норма строго выпукла, то функция
     $
         F:(\mathbb{R}^\Lambda)^\mathcal{F}\to\mathbb{R}_+,\, 
         r\mapsto \left \Vert\sum_{f\in\mathcal{F}} \tau_f(r_f)\right \Vert_p
@@ -918,13 +918,13 @@ $\sup\{\Vert f\Vert_{p^*}: f\in\mathcal{F}\}$.
     выполнено $\Vert \psi\Vert>\gamma_{\mathcal{F}_{\kappa}(\Lambda)}$.  
 \end{proposition}
 \begin{proof}
-    Из утверждения \ref{ExtMorphSuml1ntlpnCharac} мы знаем, что существует 
+    Из предложения \ref{ExtMorphSuml1ntlpnCharac} мы знаем, что существует 
     семейство 
     векторов $\eta\in\ell_\infty(\Lambda)^{\mathcal{F}_{\kappa}(\Lambda)}$ 
     таких, что  $\psi=\psi_{\eta}$. Из определения \ref{ExtMorphsNormInf} 
     следует, 
     что $\Vert \psi_{\eta}\Vert\geq \nu_{\mathcal{F}_{\kappa}(\Lambda)}$. 
-    Теперь, из утверждения \ref{CompStdEmbdCoercvAndExtMorphsNormInf} получаем 
+    Теперь, из предложения \ref{CompStdEmbdCoercvAndExtMorphsNormInf} получаем 
     $\Vert\psi\Vert\geq\nu_{\mathcal{F}_{\kappa}(\Lambda)} > 
     \gamma_{\mathcal{F}_{\kappa}(\Lambda)}$.
 \end{proof}
@@ -939,7 +939,7 @@ $\sup\{\Vert f\Vert_{p^*}: f\in\mathcal{F}\}$.
     Предположим, что правый $\ell_\infty(\Lambda)$-модуль $\ell_p(\Lambda)$ 
     метрически инъективен и $\Lambda$ содержит $n$ элементов. Предположим, 
     что $n>1$. Выберем любое вещественное число $\kappa\in(n^{-1},(n-1)^{-1})$. 
-    По утверждению \ref{StdEmbdSpclCoerciv}, 
+    По предложению \ref{StdEmbdSpclCoerciv}, 
     константа $\gamma_{\mathcal{F}_{\kappa}(\Lambda)}$ конечна, 
     следовательно, оператор $\xi_{\mathcal{F}_{\kappa}(\Lambda)}$
     будет $\gamma_{\mathcal{F}_{\kappa}(\Lambda)}$-топологически инъективным. 
@@ -947,7 +947,7 @@ $\sup\{\Vert f\Vert_{p^*}: f\in\mathcal{F}\}$.
     $\ell_\infty(\Lambda)$-морфизм $\psi$, который является левым обратным к 
     $\xi_{\mathcal{F}_{\kappa}(\Lambda)}$, 
     причем $\Vert\psi\Vert\leq\gamma_{\mathcal{F}_{\kappa}(\Lambda)}$. Это 
-    противоречит утверждению \ref{linftnModlpnIsntMetInjCharac}, 
+    противоречит предложению \ref{RetrPrblmNoSln}, 
     поэтому $n\leq 1$.
 
     Теперь предположим, что $\Lambda$ содержит не более 1 элемента. 
@@ -967,7 +967,7 @@ $\sup\{\Vert f\Vert_{p^*}: f\in\mathcal{F}\}$.
 
 В этом разделе мы подготовим почву для основной теоремы. Хотя она формулируется 
 для борелевских мер на локально компактных пространствах, мы будем доказывать 
-все утверждения этого раздела для общих измеримых пространств. Детальное 
+все предложения этого раздела для общих измеримых пространств. Детальное 
 изучение общих измеримых пространств можно найти в~\cite{FremMeasTh2}.
 
 Пусть $\Omega$ --- некоторое множество. Под мерой мы понимаем счетно-аддитивную 
@@ -1026,7 +1026,7 @@ $\sup\{\Vert f\Vert_{p^*}: f\in\mathcal{F}\}$.
 
     $(iii)$ Без потери общности предположим, что функция $f$ принимает только 
     вещественные значения. Для каждого $n\in\mathbb{N}$ рассмотрим измеримое 
-    множество $A_n=\{\omega\in\Omega:f(\omega)\leq n\}$. Очевидно, 
+    множество $A_n=\{\omega\in E:f(\omega)\leq n\}$. Очевидно, 
     $(A_n)_{n\in\mathbb{N}}$ --- это неубывающая последовательность
     и $E=\bigcup_{n\in\mathbb{N}}A_n$, 
     поэтому $\mu(E)=\sup\{\mu(A_n):n\in\mathbb{N}\}$. С другой стороны, для 
@@ -1080,7 +1080,7 @@ $\sup\{\Vert f\Vert_{p^*}: f\in\mathcal{F}\}$.
         [f]=\sum_{A\in\mathcal{A}} m_{A,\infty}(f)[\chi_A]
     $
     для любого $[f]\in L_p(\Omega,\mu)$. Используя 
-    утверждение \ref{GnrlzdMeanProp} для 
+    предложение \ref{GnrlzdMeanProp} для 
     каждого $[f]\in L_p(\Omega,\mu)$ и $A\in\mathcal{A}$ получаем
     \[
         \int_A |f(\omega)|^pd\mu(\omega)
@@ -1148,7 +1148,7 @@ $\sup\{\Vert f\Vert_{p^*}: f\in\mathcal{F}\}$.
 \end{proposition}
 \begin{proof} 
     $(i)$ Обозначим $\phi=I_q\circ \Phi\circ J_p$, тогда по 
-    утверждению \ref{GnrlzdMeanProp} для любого атома $A\in\mathcal{A}$ имеем
+    предложению \ref{GnrlzdMeanProp} для любого атома $A\in\mathcal{A}$ имеем
     $
         \phi(e_A)
         =I_q(\Phi(J_p(e_A)))
@@ -1184,12 +1184,12 @@ $\sup\{\Vert f\Vert_{p^*}: f\in\mathcal{F}\}$.
     \end{aligned}
     \]
     Следовательно, $\phi$ является $\ell_\infty(\mathcal{A})$-морфизмом. 
-    Согласно утверждению \ref{LpOnPurAtomMeasSpRepr}, отображения $I_q$ 
+    Согласно предложению \ref{LpOnPurAtomMeasSpRepr}, отображения $I_q$ 
     и $J_p$ --- изометрические изоморфизмамы; следовательно, операторы $\phi$ 
     и $\Phi$ имеют одинаковую норму.
 
     $(ii)$ Обозначим $\Phi=J_q\circ \phi\circ I_p$, тогда по 
-    утверждению \ref{GnrlzdMeanProp} для любого атома $A\in\mathcal{A}$ имеем
+    предложению \ref{GnrlzdMeanProp} для любого атома $A\in\mathcal{A}$ имеем
     $
         \Phi([\chi_A])
         =J_q(\phi(I_p([\chi_A])))
@@ -1233,7 +1233,7 @@ $\sup\{\Vert f\Vert_{p^*}: f\in\mathcal{F}\}$.
     \end{aligned}
     \]
     Таким образом, $\Phi$ является $B(\Sigma)$-морфизмом. Согласно 
-    утверждению \ref{LpOnPurAtomMeasSpRepr}, отображения $J_q$ и $I_p$ --- 
+    предложению \ref{LpOnPurAtomMeasSpRepr}, отображения $J_q$ и $I_p$ --- 
     изометрические изоморфизмамы; следовательно, операторы $\Phi$ и $\phi$ имеют 
     одинаковую норму.
 \end{proof}
@@ -1247,7 +1247,7 @@ $\sup\{\Vert f\Vert_{p^*}: f\in\mathcal{F}\}$.
 \begin{proof}
     Предположим, что пространство $(\Omega,\mu)$ не является чисто атомарным, 
     тогда существует безатомное измеримое множество $E\subset \Omega$. 
-    Из~[\cite{FremMeasTh2}, утверждение 215D] мы можем считать, что $E$ имеет 
+    Из~[\cite{FremMeasTh2}, предложение 215D] мы можем считать, что $E$ имеет 
     положительную конечную меру. Из~[\cite{FremMeasTh2}, упражнение 215X(e)] мы 
     заключаем, что существует счетное семейство $\mathcal{E}$ попарно 
     непересекающихся множеств положительной конечной меры. В этом 
@@ -1366,7 +1366,7 @@ $\sup\{\Vert f\Vert_{p^*}: f\in\mathcal{F}\}$.
     $
         \operatorname{pr}_f\circ I_p^\infty=I_p\circ \operatorname{pr}_f.
     $
-    По утверждению \ref{SwtchMorphBtwnAtomMeasSp}, 
+    По предложению \ref{SwtchMorphBtwnAtomMeasSp}, 
     отображение $\Xi_f=J_1\circ m_f\circ I_p$ 
     является $B(\operatorname{Bor}(S))$-морфизмом. Следовательно, оператор 
     $
@@ -1380,7 +1380,7 @@ $\sup\{\Vert f\Vert_{p^*}: f\in\mathcal{F}\}$.
             \operatorname{in}_f\circ m_f 
         =\xi_{\mathcal{F}}.
     $
-    По утверждению \ref{StdEmbdSpclCoerciv}, константа 
+    По предложению \ref{StdEmbdSpclCoerciv}, константа 
     обратимости $\gamma_{\mathcal{F}}$ конечна и положительна, 
     поэтому оператор $\xi_{\mathcal{F}}$ $\gamma_{\mathcal{F}}$-топологически 
     инъективен. Поскольку $I_1$ и $J_p$ --- изометрические изоморфизмы, 
@@ -1398,7 +1398,7 @@ $\sup\{\Vert f\Vert_{p^*}: f\in\mathcal{F}\}$.
     $C_0(S)$-морфизм $\Psi_f=\Psi\circ \operatorname{in}_f$. 
     Поскольку множество $\mathcal{A}$ конечно, то пространства $L_p(S,\mu)$ 
     и $L_1(S,\mu)$ конечномерны и, следовательно, рефлексивны. 
-    Отсюда, согласно утверждению \ref{C0SMorphBtwnReflxSpIsBMorph} и 
+    Отсюда, согласно предложению \ref{C0SMorphBtwnReflxSpIsBMorph} и 
     замечанию \ref{C0SModIsBBorSMod}, для любого $f\in\mathcal{F}$, 
     оператор $\Psi_f$ является $B(\operatorname{Bor}(S))$-морфизмом. 
     Заметим, что
@@ -1412,7 +1412,7 @@ $\sup\{\Vert f\Vert_{p^*}: f\in\mathcal{F}\}$.
         =\sum_{f\in\mathcal{F}} 
             I_p\circ\Psi_f\circ J_1\circ\operatorname{pr}_f.
     $
-    Согласно утверждению \ref{SwtchMorphBtwnAtomMeasSp}, для 
+    Согласно предложению \ref{SwtchMorphBtwnAtomMeasSp}, для 
     каждого $f\in \mathcal{F}$, отображение $I_p\circ \Psi_f\circ J_1$ является 
     $\ell_\infty(\mathcal{A})$-морфизмом. Значит, $\psi$ также является 
     $\ell_\infty(\mathcal{A})$-морфизмом. Так как $I_p$ 
@@ -1429,7 +1429,7 @@ $\sup\{\Vert f\Vert_{p^*}: f\in\mathcal{F}\}$.
     Таким образом, мы построили $\ell_\infty(\mathcal{A})$-морфизм $\psi$
     такой, что $\psi\circ\xi_{\mathcal{F}}=1_{\ell_p(\mathcal{A})}$ 
     и $\Vert \psi\Vert\leq\gamma_{\mathcal{F}}$. Поскольку мы предположили, 
-    что $n>1$, мы приходим к противоречию с утверждением \ref{RetrPrblmNoSln}. 
+    что $n>1$, мы приходим к противоречию с предложением \ref{RetrPrblmNoSln}. 
     Следовательно, $n\leq 1$, то есть $\mathcal{A}$ содержит не более чем один 
     атом.
 \end{proof}
