@@ -54,9 +54,7 @@
             // Spell check
             "valentjn.vscode-ltex",
             // LaTeX
-            "james-yu.latex-workshop",
-            // Git
-            "eamodio.gitlens"
+            "james-yu.latex-workshop"
         ]
       }
     }
