@@ -10,11 +10,10 @@
     "files.associations": {
         "*.tex": "latex"
     },
-    // Workbench
-    "workbench.panel.defaultLocation": "bottom",
     // Latex-workshop
-    "latex-workshop.chktex.enabled": true,
-    "latex-workshop.chktex.run": "onType",
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "latex-workshop.linting.chktex.enabled": true,
+    "latex-workshop.linting.run": "onType",
     "latex-workshop.latex.outDir": "./out",
     "latex-workshop.latex.clean.subfolder.enabled": true,
     "latex-workshop.latex.autoClean.run": "onBuilt",
@@ -25,8 +24,8 @@
         "-y",
         "defaultIndent: '    '"
     ],
-    "latex-workshop.view.pdf.viewer": "none",
-    "latex-workshop.chktex.args.active": [
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.linting.chktex.exec.args": [
         "-wall",
         "-n22",
         "-n30",
@@ -74,7 +73,7 @@
             "env": {}
         }
     ],
-    // Rewrap
-    "rewrap.wrappingColumn": 80,
-    "rewrap.autoWrap.enabled": true
+    // Workbench
+    "workbench.panel.defaultLocation": "bottom",
+    "workbench.settings.editor": "json" 
 }
