@@ -2,7 +2,7 @@ services:
   latex:
     build:
       context: .
-      dockerfile: ../Dockerfile
+      dockerfile: ../.docker/Dockerfile
       args:
         uid: 1000
         gid: 1000
