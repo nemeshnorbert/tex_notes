@@ -44,3 +44,4 @@
 
 #Microsoft
 .cache/
+.dotnet/
