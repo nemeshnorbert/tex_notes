@@ -1,0 +1,726 @@
+% chktex-file 35
+% chktex-file 21
+% chktex-file 3
+\documentclass[12pt]{article}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[matrix,arrow,curve]{xy}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=blue,
+    pdfborder={0 0 0}]{hyperref}
+
+%-------------------------------------------------------------------------------
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\newcommand{\projtens}{\mathbin{\widehat{\otimes}}}
+\newcommand{\convol}{\ast}
+\newcommand{\projmodtens}[1]{\mathbin{\widehat{\otimes}}_{#1}}
+\newcommand{\isom}[1]{\mathop{\mathbin{\cong}}\limits_{#1}}
+%-------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{center}
+    \Large \textbf{$\mathcal{K}(\ell_p(\Lambda))$ is relatively injective as a 
+    right $\mathcal{B}(\ell_p(\Lambda))$-module}\\[0.5cm]
+    \small {N. T. Nemesh}\\[0.5cm]
+\end{center}
+
+\thispagestyle{empty}
+
+\medskip
+\textbf{Abstract:} In this note we prove a somewhat unexpected result: the 
+Banach space of compact operators on a reflexive $\ell_p$-space is relatively 
+injective as a right Banach module over the algebra of bounded linear operators 
+on the same space.
+\medskip
+
+\textbf{Keywords:} injective Banach module, compact operators, $\ell_p$-space.
+
+\bigskip
+
+%-------------------------------------------------------------------------------
+%	Introduction
+%-------------------------------------------------------------------------------
+
+
+
+\section{Introduction}\label{SectionIntroduction}
+
+Extension problems have been an important topic of functional analysis since its
+inception. The first example of a successfully solved extension problem is the
+Hahn-Banach theorem~\cite{HahnLinSystInLinSp,BanachOnLinFuncI,BanachOnLinFuncII}. 
+In modern terms this theorem states that the field of complex numbers is an 
+injective object in the category of Banach spaces. All known injective Banach 
+spaces are isomorphic to the space of continuous functions on some compact
+space~\cite{BlascIvorConstrInjSpCK}. The property of the object in a given 
+category to be injective depends on the ``size'' of the category and 
+the ``abundance'' of morphisms. For example, if one restricts the category of 
+Banach spaces to separable ones, the space $c_0$ of vanishing sequences becomes 
+injective~\cite{SobProjmOnc0}. Even more, Zippin, showed 
+in~\cite{ZipSepExtProbm} that all injective spaces in the category of separable 
+Banach spaces are isomorphic to $c_0$. Similarly if one restricts the set of 
+morphisms to module maps, without changing the class of objects, then for any 
+set $\Lambda$ the space $c_0(\Lambda)$ is relatively injective as a 
+right $\ell_\infty(\Lambda)$ module~\cite{NemRelInjC0SmodC0S}. These 
+results rely on specific Banach geometric properties of $c_0$-spaces. It is 
+reasonable to expect, that its non-commutative counterpart --- the space of 
+compact operators on a Hilbert space $\mathcal{K}(H)$ is not injective, as 
+its geometry is quite distinct. Nevertheless it is true, not only for Hilbert 
+spaces, but for all reflexive $\ell_p$-spaces. 
+
+%-------------------------------------------------------------------------------
+%	Preliminaries
+%-------------------------------------------------------------------------------
+
+\section{Notation and definitions}\label{SectionNotationAndDefinitions} 
+Before we proceed to the main topic we shall give a few definitions.
+
+Let $M$ be a subset of a set $N$, then $\chi_M$ denotes the indicator function
+of $M$. If $f:N\to L$ is an arbitrary function, then $f|_M$ denotes its
+restriction to $M$.
+
+For a given infinite set $\Lambda$ we can consider the
+filter $\mathfrak{F}_{\Lambda}$ consisting of complements of finite subsets 
+of $\Lambda$. It is called the \textit{Frechet filter} 
+on $\Lambda$. The standard notion of convergence of sequences is convergence 
+along filter $\mathfrak{F}_{\mathbb{N}}$. Recall that an 
+ultrafilter $\mathfrak{U}$ on $\Lambda$ is a free if and only if it contains 
+the Frechet filter $\mathfrak{F}_{\Lambda}$. 
+
+For a given Banach spaces $E$ and $F$ by $\mathcal{B}(E, F)$ we denote the 
+space of all bounded linear operators from $E$ to $F$. 
+Similarly, $\mathcal{K}(E, F)$ stands for the space of compact operators 
+from $E$ to $F$. We use 
+shortcuts $\mathcal{B}(E):=\mathcal{B}(E, E)$ 
+and $\mathcal{K}(E):=\mathcal{K}(E, E)$. The symbol $1_E$ stands for the 
+identity operator on $E$. By
+$
+    \langle\cdot,\cdot\rangle: E\times E^*\to\mathbb{C}, (x,f)\mapsto f(x)
+$
+we denote the standard duality between $E$ and $E^*$. For a given $x\in F$ 
+and $f\in E^*$, by $x\bigcirc f$ we denotes the rank one operator from $E$ 
+to $F$ well defined by equality $(x\bigcirc f)(y)=\langle y, f\rangle x$. One
+can easily check that $\Vert x\bigcirc f\Vert=\Vert x\Vert\Vert f\Vert$.
+
+For a given familty of Banach spaces 
+$\{E_\lambda:\lambda\in\Lambda\}$ and $p\in[1,+\infty]$
+by $\bigoplus_p\{E_\lambda:\lambda\in\Lambda\}$ we denote 
+their $\ell_p$-sum. Clearly, 
+$\ell_p(\Lambda)=\bigoplus_p\{\mathbb{C}:\lambda\in\Lambda\}$.
+
+Now we shall remind a few notions from the geometry of Banach spaces. A 
+sequence $(x_n)_{n\in\mathbb{N}}$ in a Banach space $E$ is called 
+\textit{weakly null}, \textit{weak* null} or \textit{norm null} if it converges 
+to zero weakly, weakly* or in norm, respectively. The 
+sequence $(x_n)_{n\in\mathbb{N}}$ is called \textit{semi-normalized} if norms 
+of its elements have positive lower bound and finite upper bound. 
+Let $(\Lambda, <)$ be a well-ordered set. A family of 
+vectors $(e_\lambda)_{\lambda\in\Lambda}$ is called a \textit{Schauder basis} 
+of $E$ if for any vector $x\in E$ there exists a unique family of scalars 
+$(f_\lambda(x))_{\lambda\in\Lambda}\subset\mathbb{C}$ such that 
+\[
+    x=\sum_{\lambda\in\Lambda}f_\lambda(x) e_\lambda
+\]
+Note that the resulting sum depends on the ordering. If it is not, the basis is 
+called \textit{unconditional}. One can 
+show [\cite{KalAlbTopicsBanSpTh}, theorem 1.1.3] that 
+mappings $(f_\lambda)_{\lambda\in\Lambda}$ are well defined bounded linear 
+functionals. They are called the \textit{biorthogonal functionals}
+of $(e_\lambda)_{\lambda\in\Lambda}$. 
+
+A sequence of 
+vectors $(e_n)_{n\in\mathbb{N}}$ in $E$ is called a \textit{basic sequence} if 
+it is a Schauder basis of its closed linear span. The following construction 
+gives an important source of examples of basic sequences. 
+Suppose $(e_\lambda)_{\lambda\in\Lambda}$ is a Schauder basis of some Banach 
+space $E$, and let $(\Lambda_n)_{n\in\mathbb{N}}$ is a sequence of disjoint 
+finite subsets of $\Lambda$ such that $\max(\Lambda_n)<\min(\Lambda_{n+1})$ for 
+all $n\in\mathbb{N}$. The sequence of non-zero vectors $(u_n)_{n\in\mathbb{N}}$ 
+such that $u_n$ lies in the linear span of $(e_\lambda)_{\lambda\in\Lambda_n}$ 
+is called a \textit{block-basic sequence}. Such sequences are indeed 
+basic [\cite{KalAlbTopicsBanSpTh}, lemma 1.3.5]. Suppose $E$ and $F$ --- two 
+Banach space, then two sequences $(u_n)_{n\in\mathbb{N}}\subset E$ 
+and $(v_n)_{n\in\mathbb{N}}\subset F$ are called \textit{equivalent} if there 
+is an isomorphism of Banach spaces $T:E\to F$ such that $T(u_n)=v_n$ for 
+all $n\in\mathbb{N}$.
+
+Finally, we give a short introduction into the Banach homology theory. Let $A$ 
+be a Banach algebra. We shall consider only right Banach modules over
+$A$ with contractive outer action $\cdot:X\times A\to X$. Let $X$ and $Y$ be two
+right Banach $A$-modules, then a map $\phi:X\to Y$ is an \textit{$A$-morphism}
+if it is a continuous $A$-module map. Banach $A$-modules and $A$-morphisms form
+a category which we denote by $\mathbf{mod}-A$.
+
+In $\mathbf{mod}-A$ the notion of injectivity can be defined in different ways. 
+We will concern with relative injectivity. Let $\xi:X\to Y$ be an $A$-morphism. 
+Then it is called $c$-\textit{relatively admissible} if $T\circ \xi=1_X$ 
+for some bounded linear operator $T:Y\to X$ with $\Vert T\Vert\leq c$. 
+A Banach $A$-module $J$ is called $C$-\textit{relatively injective} if for any 
+$c$-relatively admissible $A$-morphism $\xi:X\to Y$ and 
+any $A$-morphism $\phi:X\to J$ there exists a continuous $A$-module 
+map $\psi:Y\to J$ such that $\Vert\psi\Vert\leq cC\Vert\phi\Vert$ and the 
+diagram
+\[
+    \xymatrix{
+    & {Y} \\
+    {J} \ar@{<--}[ur]^{\psi} &{X} \ar[u]^{\xi} \ar[l]^{\phi}}  % chktex 3
+\]
+commutative. A right Banach $A$-module is called \textit{relatively injective} 
+if it is $C$-relatively injective for some $C\geq 1$. As an example, 
+if $A=\{0\}$, the category $\mathbf{mod}-A$ turns into the ordinary category of 
+Banach spaces. In this case all Banach spaces are relatively injective. 
+
+%-------------------------------------------------------------------------------
+%   Relative injectivity of the right $\mathcal{B}(H)$-module $\mathcal{K}(H)$
+%-------------------------------------------------------------------------------
+
+\section{Main result}\label{SecionMainResult}
+
+In this section we shall prove that for any Hilbert space $H$ the 
+right Banach $\mathcal{B}(H)$-module $\mathcal{K}(H)$ is relatively injective.
+
+\begin{proposition}\label{LInftyStateByUltrfltr} Let $\Lambda$ be an arbitrary 
+    set, then for a any ultrafilter $\mathfrak{U}$ on $\Lambda$ the map 
+    \[
+        m_{\mathfrak{U}}:\ell_{\infty}(\Lambda)\to\mathbb{C},
+        x\mapsto \lim_{\lambda\to\mathfrak{U}}x(\lambda)
+    \] 
+    is a well defined contractive linear operator of norm one such 
+    that $m_{\mathfrak{U}}(\chi_{\Lambda})=1$.
+\end{proposition}
+\begin{proof} For any $x\in\ell_\infty(\Lambda)$ the 
+    set $\{x(\lambda): \lambda\in\Lambda\}$ is bounded in $\mathbb{C}$, hence it
+    is a subset of a Hausdorff compact. Therefore 
+    [\cite{GoldbrUltfltrMath}, corollary 3.1.11], we have a well defined 
+    limit $\lim_{\lambda\to\mathfrak{U}}x(\lambda)$. Hence the 
+    map $m_{\mathfrak{U}}$ is well defined. By properties of 
+    limits [\cite{GoldbrUltfltrMath}, exercise 3.1.5] 
+    the map $m_{\mathfrak{U}}$ is linear, and
+    $
+        m_{\mathfrak{U}}(\chi_{\Lambda})=1
+    $
+    Continuous functions preserve 
+    ultralimits [\cite{GoldbrUltfltrMath}, theorem 3.1.14], so 
+    $
+        |m_{\mathfrak{U}}(x)|
+        =\lim_{\lambda\to\mathfrak{U}}|x(\lambda)|
+        \leq \lim_{\lambda\to\mathfrak{U}}\Vert x\Vert
+        =\Vert x\Vert.
+    $
+    Therfore $m_{\mathfrak{U}}$ is contractive.
+\end{proof}
+
+\begin{proposition}\label{LInftyStateByUltrfltrProps} Let $\Lambda$ be an infinite 
+    set, and $\mathfrak{U}$ be a free ultrafilter on $\Lambda$. Then 
+    \begin{enumerate}[label = (\roman*)]
+        \item $m_{\mathfrak{U}}|_{c_0(\Lambda)}=0$;
+        \item if $|m_{\mathfrak{U}}(x)|\geq c$ for 
+        some $x\in\ell_\infty(\Lambda)$ and $c>0$, then for any $c'<c$ the 
+        set $\{\lambda\in\Lambda: |x(\lambda)|>c'\}$ is infinite.
+    \end{enumerate} 
+\end{proposition}
+\begin{proof} $(i)$ Let $x\in c_0(\Lambda)$, then 
+    $
+        \lim_{\lambda\to\mathfrak{F}_{\Lambda}}x(\lambda) = 0
+    $.
+    Since $\Lambda$ is infinite, the free ultrafilter $\mathfrak{U}$ contains 
+    the Frechet filter $\mathfrak{F}_{\Lambda}$, so
+    $
+        m_{\mathfrak{U}}(x)
+        =\lim_{\lambda\to\mathfrak{U}}x(\lambda)
+        =\lim_{\lambda\to\mathfrak{F}_{\Lambda}}x(\lambda)=0
+    $.
+    Hence $m_{\mathfrak{U}}|_{c_0(\Lambda)}=0$. 
+    
+    $(ii)$ From the definition of limit along filter the 
+    set $A:=\{\lambda\in\Lambda: |x(\lambda)|>c'\}$ belongs to $\mathfrak{U}$. 
+    Since $\mathfrak{U}$ is a filter, 
+    then $\Lambda\setminus A\notin \mathfrak{U}$. 
+    A fortiori $\Lambda\setminus A\notin \mathfrak{F}_{\Lambda}$, so $A$ is 
+    infinite.
+\end{proof}
+
+\begin{proposition}\label{EInftyStateByUltrfltrProps} Let $E$ be a reflexive
+    Banach space, and $\mathfrak{U}$ be an ultrafilter on some set $\Lambda$. 
+    Then there exists a contractive linear operator 
+    $
+        M_{\mathfrak{U}}:
+        \bigoplus\nolimits_\infty\{ E : \lambda\in\Lambda \}\to E
+    $
+    such that: 
+    \begin{enumerate}[label = (\roman*)]
+        \item 
+            $\langle M_{\mathfrak{U}}(\xi), f\rangle
+            =m_{\mathfrak{U}}\left(
+                \bigoplus_\infty\{ \langle \xi(\lambda), f\rangle: 
+                    \lambda\in\Lambda\}
+            \right)
+            $ for all $\xi\in \bigoplus_\infty\{ E : \lambda\in\Lambda \}$ 
+            and $f \in E^*$;
+        \item 
+            $
+            M_{\mathfrak{U}}\left(
+                \bigoplus_\infty\{ x: \lambda\in\Lambda\}
+            \right) = x
+            $ for any $x \in E$;
+    \end{enumerate} 
+\end{proposition}
+\begin{proof} $(i)$ Let $\xi\in \bigoplus_\infty\{ E : \lambda\in\Lambda \}$, 
+    then $\{\langle \xi(\lambda), f\rangle:\lambda\in\Lambda\}\subset\mathbb{C}$ 
+    is bounded, so the map
+    \[
+        F_{\mathfrak{U},\xi}: E^*\to\mathbb{C},\, 
+        f\mapsto m_{\mathfrak{U}}\left(
+            \bigoplus\nolimits_\infty\{\langle \xi(\lambda), f\rangle: 
+                \lambda\in\Lambda\}
+        \right)
+    \]
+    is well defined. Clearly, it is a bounded linear functional 
+    with $\Vert F_{\mathfrak{U},\xi}\Vert\leq\Vert \xi\Vert$. Since $E$ is 
+    reflexive, then there exists a unique vector $M_{\mathfrak{U},\xi}\in E$ such 
+    that $\Vert M_{\mathfrak{U},\xi}\Vert=\Vert F_{\mathfrak{U},\xi}\Vert$ 
+    and $F_{\mathfrak{U},\xi}(f)=\langle M_{\mathfrak{U},\xi}, f\rangle$ 
+    for all $f\in E^*$. Consider map
+    $
+        M_{\mathfrak{U}}:
+        \bigoplus\nolimits_\infty\{ E : \lambda\in\Lambda \}\to E,\, 
+        \xi\mapsto M_{\mathfrak{U},\xi}.
+    $
+    It is easy to check that $M_{\mathfrak{U}}$ is a linear operator. This 
+    operator is contractive because 
+    $
+        \Vert M_{\mathfrak{U}}(\xi)\Vert
+        =\Vert F_{\mathfrak{U},\xi}\Vert
+        \leq\Vert \xi\Vert.
+    $
+    Now we proceed to the proof of the properties of $M_{\mathfrak{U}}$.
+
+    $(i)$ This equality directly follows from the properties of the 
+    vector $M_{\mathfrak{U},\xi}$.
+
+    $(ii)$ From proposition~\ref{LInftyStateByUltrfltr} for 
+    any $x\in E$ and $f\in E^*$ we have 
+    \[
+        \left\langle M_{\mathfrak{U}}\left(
+            \bigoplus\nolimits_\infty\{ x: \lambda\in\Lambda\}
+            \right),
+            f
+        \right\rangle
+        =m_{\mathfrak{U}}\left(\bigoplus\nolimits_\infty\left\{
+            \left\langle x, f\right\rangle:\lambda\in\Lambda
+        \right\}\right)
+        =\langle x,f \rangle m_{\mathfrak{U}}(\chi_{\Lambda})
+        =\langle x,f \rangle. 
+    \]
+    Since $f\in E^*$ is arbitrary we get the desired equality.
+\end{proof}
+
+\begin{proposition}\label{TUTMapIsLinAndBnd}
+    Let $E$ be a reflexive Banach space. 
+    Let ${(e_\lambda)}_{\lambda\in\Lambda}\subset E$ 
+    and ${(f_\lambda)}_{\lambda\in\Lambda}\subset E^*$ be two families such
+    that $\sup\{\Vert e_\lambda\Vert\Vert f_\lambda\Vert: \lambda\in\Lambda\}$ 
+    is finite. Then for any ultrafilter $\mathfrak{U}$ on $\Lambda$ and any 
+    bounded linear operator $\mathcal{T}:\mathcal{B}(E)\to\mathcal{B}(E)$ the 
+    map
+    \[
+        T_{\mathfrak{U},\mathcal{T}}: 
+        E\to E,\, 
+        x\mapsto M_{\mathfrak{U}}\left(
+            \bigoplus\nolimits_{\infty}\{ 
+                \mathcal{T}(x\bigcirc f_\lambda)(e_\lambda) : \lambda\in\Lambda 
+            \}
+        \right)
+    \]
+    is a well defined bounded linear operator with norm  at 
+    most 
+    $
+        \Vert \mathcal{T} \Vert
+        \sup\{ \Vert e_\lambda\Vert \Vert f_\lambda\Vert : \lambda\in\Lambda\}.
+    $
+\end{proposition}
+\begin{proof}
+    Let $x\in E$, then denote 
+    $
+        \xi_{\mathcal{T},x}=\bigoplus\nolimits_{\infty}\{ 
+            \mathcal{T}(x\bigcirc f_\lambda)(e_\lambda) : \lambda\in\Lambda 
+        \}.
+    $ 
+    Clearly, 
+    \[
+        \sup\{\Vert \xi_{\mathcal{T},x}(\lambda)\Vert:\lambda\in\Lambda\}
+        \leq
+        \Vert \mathcal{T}\Vert \Vert x\Vert
+        \sup\{ \Vert e_\lambda\Vert \Vert f_\lambda\Vert : \lambda\in\Lambda\}
+    \]
+    so 
+    $
+        \xi_{\mathcal{T},x}\in
+            \bigoplus\nolimits_{\infty}{}\{E:\lambda\in\Lambda\}
+    $ 
+    and the value $M_{\mathfrak{U}}(\xi_{\mathcal{T},x})$ is well defined. So is 
+    the map $T_{\mathfrak{U},\mathcal{T}}$. It is easy to check 
+    that $T_{\mathfrak{U},\mathcal{T}}$ is linear. Furthermore, using 
+    proposition~\ref{EInftyStateByUltrfltrProps} for any $x\in E$
+    we get
+    \[
+        \Vert T_{\mathfrak{U},\mathcal{T}}(x)\Vert
+        \leq\Vert M_{\mathfrak{U}}\Vert\Vert \xi_{\mathcal{T},x}\Vert
+        \leq\Vert \mathcal{T}\Vert \Vert x\Vert
+        \sup\{ \Vert e_\lambda\Vert \Vert f_\lambda\Vert : \lambda\in\Lambda\}.
+    \] 
+    This proves norm estimate for $T_{\mathfrak{U},\mathcal{T}}$.
+\end{proof}
+
+\begin{proposition}\label{BlckBasForNonCompOp}
+    Let $E$ be a reflexive Banach space with a Schauder 
+    basis $(e_\lambda)_{\lambda\in\Lambda}$. Let $T:E\to E$ be a non-compact 
+    bounded linear operator. Then there exists a weakly null, semi-normalized 
+    block-basic 
+    sequence $(u_n)_{n\in\mathbb{N}}$ of $(e_\lambda)_{\lambda\in\Lambda}$
+    such that $(T(u_n))_{n\in\mathbb{N}}$ is semi-normalized.
+\end{proposition} 
+\begin{proof} Note that the property of a sequence to be weakly null, norm null
+    or semi-normalized is preserved when passing to subsequences or 
+    equivalent sequences. We shall use these facts many times during the proof.
+    
+    Since $T$ is not compact, then there exists a weakly null 
+    sequence $(x_n)_{n\in\mathbb{N}}\subset E$ such 
+    that $(T(x_n))_{n\in\mathbb{N}}$ is not norm null. Passing to a subsequence
+    we can assume that $\inf\{\Vert T(x_n)\Vert: n\in\mathbb{N}\}>0$. Note 
+    that $(x_n)_{n\in\mathbb{N}}$ cannot be norm null, because 
+    otherwise $(T(x_n))_{n\in\mathbb{N}}$ would be norm null. Therefore passing
+    to a subsequence once again we may additionally assume  
+    that $\inf\{\Vert x_n\Vert: n\in\mathbb{N}\}>0$. As $(x_n)_{n\in\mathbb{N}}$
+    is weakly convergent, it is bounded. So is $(T(x_n))_{n\in\mathbb{N}}$, 
+    because $T$ is bounded. Thus we have constructed a weakly null, 
+    semi-normalized sequence $(x_n)_{n\in\mathbb{N}}$ such 
+    that $(T(x_n))_{n\in\mathbb{N}}$ is also semi-normalized.
+
+    Since $(x_n)_{n\in\mathbb{N}}$ is a countable family, it lies in a 
+    closed linear span of some countable 
+    subbasis $(e_\lambda)_{\lambda\in\Lambda'}$ of the 
+    basis $(e_\lambda)_{\lambda\in\lambda}$. Now by Bessaga-Pelczyński selection 
+    principle [\cite{KalAlbTopicsBanSpTh} proposition 1.3.10] there exists
+    a block-basic sequence $(u_k)_{k\in\mathbb{N}}$ 
+    of $(e_\lambda)_{\lambda\in\Lambda'}$ which is equivalent to some 
+    subsequence of $(x_n)_{n\in\mathbb{N}}$. As $(u_k)_{k\in\mathbb{N}}$ is a 
+    block-basic sequence of $(e_\lambda)_{\lambda\in\Lambda'}$ it is a 
+    block-basic sequence of the superset 
+    basis $(e_\lambda)_{\lambda\in\Lambda}$. Recall 
+    that $(x_n)_{n\in\mathbb{N}}$ is weakly null, semi-normalized 
+    with $(T(x_n))_{n\in\mathbb{N}}$ being also semi-normalized. The 
+    sequence $(u_k)_{k\in\mathbb{N}}$ also possesses these properites as it is 
+    equivalent to a subsequence of $(x_n)_{n\in\mathbb{N}}$.
+\end{proof}
+
+\begin{proposition}\label{TUTMapIsComp}
+    Let $\Lambda$ be a set and $p\in(1,+\infty)$, then 
+    denote $E=\ell_p(\Lambda)$. Let $(e_\lambda)_{\lambda\in\Lambda}\subset E$ 
+    be the standard basis and $(f_\lambda)_{\lambda\in\Lambda}\subset E^*$ be 
+    the respective biorthogonal functionals. Then for any (free, if $\Lambda$ is 
+    infinite) ultrafilter $\mathfrak{U}$ on $\Lambda$, and any bounded linear 
+    operator $\mathcal{T}:\mathcal{B}(E)\to\mathcal{K}(E)$ the 
+    map $T_{\mathfrak{U}, \mathcal{T}}$ is a compact linear operator of norm at 
+    most $\Vert \mathcal{T}\Vert$. 
+\end{proposition}
+\begin{proof} If $E$ is finite-dimensional, then 
+    $\mathcal{B}(E)=\mathcal{K}(E)$, so there is nothing to prove.
+
+    Suppose $E$ is infinite dimensional, then $\Lambda$ is infinite. 
+    Denote $T:=T_{\mathfrak{U}, \mathcal{T}}$ By 
+    proposition~\ref{TUTMapIsLinAndBnd} the map $T$ is a bounded 
+    linear operator with $\Vert T\Vert\leq\Vert \mathcal{T}\Vert$.
+    Assume towards a contradiction, that $T$ is not compact. 
+    From~\ref{BlckBasForNonCompOp} we get a block-basic 
+    sequence $(u_n)_{n\in\mathbb{N}}$ of $(e_\lambda)_{\lambda\in\Lambda}$ such
+    that $c:=\inf\{\Vert T(u_n)\Vert:n\in\mathbb{N}\}>0$ 
+    and $C:=\sup\{\Vert u_n\Vert:n\in\mathbb{N}\Vert\}<+\infty$.
+
+    Fix $n\in\mathbb{N}$. By Hahn-Banach theorem there exists $g_n\in E^*$ such
+    that $\Vert g_n\Vert=1$ and 
+    $
+        \langle T(u_n), g_n\rangle=\Vert T(u_n)\Vert
+    $.
+    Consider vector 
+    $
+        s_n:=\bigoplus\nolimits_\infty\{
+            \langle \mathcal{T}(u_n\bigcirc f_\lambda)(e_\lambda), g_n\rangle: 
+            \lambda\in\Lambda
+        \}.
+    $
+    Note that $s_n\in\ell_\infty(\Lambda)$, 
+    because 
+    $
+        \sup\{|s_n(\lambda)| : \lambda\in\Lambda\} \leq C\Vert \mathcal{T}\Vert.
+    $ 
+    It is easy to check that
+    $
+        m_{\mathfrak{U}}(s_n)=\langle T(u_n), g_n\rangle
+    $,
+    so $|m_{\mathfrak{U}}(s_n)|=m_{\mathfrak{U}}(s_n)\geq c$. By 
+    proposition~\ref{LInftyStateByUltrfltrProps} the 
+    set $A_n:=\{\lambda\in\Lambda: |s_n(\lambda)|> c/2\}$ is infinite.
+    Since sets $A_n$ are infinite for all $n\in\mathbb{N}$, by induction we can 
+    construct an infinite sequence of distinct 
+    elements $(\lambda_n)_{n\in\mathbb{N}}\subset\Lambda$ such 
+    that $\lambda_n\in A_n$ for all $n\in\mathbb{N}$. In other words there 
+    exists a sequence of distinct 
+    elments $(\lambda_n)_{n\in\mathbb{N}}\subset\Lambda$ such that
+    $
+        \langle 
+            \mathcal{T}(u_n\bigcirc f_{\lambda_n})(e_{\lambda_n}), g_n
+        \rangle > c/2.
+    $
+
+    Since $(u_n)_{n\in\mathbb{N}}$ is a block basis of the standard basis 
+    of $E$, then supports of these vectors are disjoint, so for 
+    any $x\in\ell_\infty(\mathbb{N})$ and $y\in\ell_p(\Lambda)$ we get
+    \[
+        \begin{aligned}
+            \sum_{n\in\mathbb{N}}\Vert x(n) \langle y, f_{\lambda_n}\rangle u_n \Vert
+            =\left(
+                \sum_{n\in\mathbb{N}}
+                    |x(n)|^p|\langle y, f_{\lambda_n}\rangle|^p \Vert u_n \Vert^p
+            \right)^{1/p}
+            \leq C \Vert x\Vert \left(
+                \sum_{n\in\mathbb{N}}|\langle y, f_{\lambda_n}\rangle|^p
+            \right)^{1/p}
+            \leq C \Vert x\Vert\Vert y\Vert
+        \end{aligned}.
+    \]
+    This means that the series 
+    $
+        \sum_{n\in\mathbb{N}} x(n) \langle y, f_{\lambda_n}\rangle u_n
+    $
+    is absolutely convergent and a fortiori convergent.
+    Therefore, for each $x\in\ell_\infty(\mathbb{N})$ we have a well define a map: 
+    \[
+        S_x: 
+        E\to E, \,
+        y\mapsto \sum_{n\in\mathbb{N}} x(n)(u_n\bigcirc f_{\lambda_n})(y)
+    \]
+    One can easily check that $S_x$ is a linear operator. From the proof of 
+    absolute convergence one can easily derive that  
+    $\Vert S_x\Vert\leq C\Vert x\Vert$. Now for each $n\in\mathbb{N}$ we define
+    a map
+    \[
+        f_n: 
+        \ell_\infty\to\mathbb{C}, \,
+        x\mapsto \langle \mathcal{T}(S_x)(e_{\lambda_n}), g_n\rangle
+    \]
+    Clearly, it is a bounded linear functional. 
+    Obviously $(e_{\lambda_n})_{n\in\mathbb{N}}$ is weakly null. By definition 
+    of $\mathcal{T}$ the operator $\mathcal{T}(S_x)$ is 
+    compact, so  the sequence 
+    $
+        (\mathcal{T}(S_x)(e_{\lambda_n}))_{n\in\mathbb{N}}
+    $ is norm null. As functionals $(g_n)_{n\in\mathbb{N}}\subset E^*$ are norm 
+    bounded, we conclude
+    \[
+        \lim_{n\to\infty}f_n(x)
+        =\lim_{n\to\infty}\langle \mathcal{T}(S_x)(e_{\lambda_n}), g_n\rangle
+        =0.
+    \]
+    This means that $(f_n)_{n\in\mathbb{N}}$ is a weak* null sequence. On the 
+    other hand 
+    \[
+        \sum_{k\in\mathbb{N}}|f_n(\chi_{\{k\}})|
+        \geq |f_n(\chi_{\{n\}})|
+        =|\langle 
+            \mathcal{T}(u_n\bigcirc f_{\lambda_n})(e_{\lambda_n}), g_n
+        \rangle|
+        > c/2.
+    \]
+    So $\liminf_{n\to\infty}\sum_{k\in\mathbb{N}}|f_n(\chi_{\{k\}})|>0$.
+    This contradicts Phillips' lemma [\cite{PhilOnLinTransfrm}, corollary 3.4].
+    Therefore $\mathcal{T}$ is compact.
+\end{proof}
+
+\begin{proposition}\label{TauMapProps}
+    Let $\Lambda$ be a set and $p\in(1,+\infty)$, then 
+    denote $E=\ell_p(\Lambda)$. Let $(e_\lambda)_{\lambda\in\Lambda}\subset E$ 
+    be the standard basis and $(f_\lambda)_{\lambda\in\Lambda}\subset E^*$ be 
+    the respective biorthogonal functionals. Let $\mathfrak{U}$ be any 
+    (free, if $\Lambda$ is infinite) ultrafilter on $\Lambda$. Define
+    \[
+        \tau_{\mathfrak{U}}:
+        \mathcal{B}(\mathcal{B}(E), \mathcal{K}(E))\to\mathcal{K}(E), \,
+        \mathcal{T}\mapsto T_{\mathfrak{U}, \mathcal{T}}.
+    \]
+    Then $\tau_{\mathfrak{U}}$ is a contractive $\mathcal{B}(E)$-morphism of 
+    right $\mathcal{B}(E)$-modules such 
+    that $\tau_{\mathfrak{U}}\circ\rho_{\mathcal{K}(E)}=1_{\mathcal{K}(E)}$, 
+    where 
+    $
+        \rho_{\mathcal{K}(E)}:
+        \mathcal{K}(E)\to\mathcal{B}(\mathcal{B}(E), \mathcal{K}(E)), \,
+        K\mapsto(T\mapsto K\circ T)
+    $.
+\end{proposition}
+\begin{proof} By proposition~\ref{TUTMapIsComp} the map $\tau_{\mathfrak{U}}$ is 
+    well defined. It is routine to check that $\tau_{\mathfrak{U}}$ is linear. 
+    From the same proposition we also get 
+    that $\Vert \tau_{\mathfrak{U}}(\mathcal{T})\Vert\leq\Vert \mathcal{T}\Vert$, 
+    so $\tau_{\mathfrak{U}}$ is contractive. For 
+    any $\mathcal{T}\in\mathcal{B}(\mathcal{B}(E), \mathcal{K}(E))$, 
+    $A\in\mathcal{B}(E)$ and $x\in E$ we have
+    \[
+        \begin{aligned}
+            \tau_{\mathfrak{U}}(\mathcal{T}\cdot A)(x)
+            &=M_{\mathfrak{U}}\left(
+                \bigoplus\nolimits_{\infty}\{ 
+                    (\mathcal{T}\cdot A)(x\bigcirc f_\lambda)(e_\lambda) : 
+                    \lambda\in\Lambda 
+                \}
+            \right)\\
+            &=M_{\mathfrak{U}}\left(
+                \bigoplus\nolimits_{\infty}\{ 
+                    \mathcal{T}(A(x)\bigcirc f_\lambda)(e_\lambda) : 
+                    \lambda\in\Lambda 
+                \}
+            \right)\\
+            &=\tau_{\mathfrak{U}}(\mathcal{T})(A (x))\\
+            &=(\tau_{\mathfrak{U}}(\mathcal{T})\cdot A)(x).
+        \end{aligned}
+    \]
+    Therefore $\tau_{\mathfrak{U}}$ is a right $\mathcal{B}(E)$-module map. 
+    Finally, using proposition~\ref{EInftyStateByUltrfltrProps} and 
+    biorthogonality of the families $(e_\lambda)_{\lambda\in\Lambda}$ 
+    and $(f_\lambda)_{\lambda\in\Lambda}$ we get
+        \[
+        \begin{aligned}
+            \tau_{\mathfrak{U}}(\rho_{\mathcal{K}(H)}(K))(x)
+            &=M_{\mathfrak{U}}\left(
+                \bigoplus\nolimits_{\infty}\{ 
+                    \rho_{\mathcal{K}(H)}(K)(x\bigcirc f_\lambda)(e_\lambda) : 
+                    \lambda\in\Lambda 
+                \}
+            \right)\\
+            &=M_{\mathfrak{U}}\left(
+                \bigoplus\nolimits_{\infty}\{ 
+                    \langle e_\lambda, f_\lambda\rangle K(x)  : 
+                    \lambda\in\Lambda 
+                \}
+            \right)\\
+            &=M_{\mathfrak{U}}\left(
+                \bigoplus\nolimits_{\infty}\{ 
+                     K(x): \lambda\in\Lambda 
+                \}
+            \right)\\
+            &=K(x).
+        \end{aligned}
+    \]
+    for all $K\in\mathcal{K}(E)$ and $x\in E$. In other 
+    words, $\tau_{\mathfrak{U}}\circ\rho_{\mathcal{K}(E)}=1_{\mathcal{K}(E)}$.
+\end{proof}
+
+\begin{theorem}\label{BHModKHIsRelInj}
+    Let $E$ be an $\ell_p$-space for some $p\in(1,+\infty)$, then the 
+    right $\mathcal{B}(E)$-module $\mathcal{K}(E)$ is 1-relatively injective.
+\end{theorem}
+\begin{proof} By assumption $E=\ell_p(\Lambda)$ for some set $\Lambda$. Pick any 
+    (free, if $\Lambda$ is infinite) ultrafilter $\mathfrak{U}$ on $\Lambda$. By 
+    proposition~\ref{TauMapProps} there exists a right 
+    contractive $\mathcal{B}(E)$-morphism $\tau_{\mathfrak{U}}$ which is a left
+    inverse for 
+    $
+        \rho_{\mathcal{K}(E)}:
+        \mathcal{K}(E)\to\mathcal{B}(\mathcal{B}(E), \mathcal{K}(E)), \,
+        K\mapsto(T\mapsto K\circ T).
+    $
+    By proposition [\cite{HelBanLocConvAlg}, proposition VII.1.39(III)] the 
+    right $\mathcal{B}(E)$-module $\mathcal{K}(E)$ is relatively injective. 
+    As $\tau_{\mathfrak{U}}$ is contractive the module $\mathcal{K}(E)$ 
+    is $1$-relatively injective [\cite{WhiteInjmoduAlg}, proposition 3.8].
+\end{proof}
+
+
+%-------------------------------------------------------------------------------
+%   Bibliography
+%-------------------------------------------------------------------------------
+
+\begin{thebibliography}{999}
+    %
+    \bibitem{HahnLinSystInLinSp}
+    \textit{Hahn, H.}, {\"U}ber lineare Gleichungssysteme in linearen
+    R{\"a}umen., J. Reine Angew. Math., 157, 214--229, 1927.
+    %
+    %
+    \bibitem{BanachOnLinFuncI}
+    \textit{Banach, S.}, Sur les fonctionnelles lin{\'e}aires, Stud. Math.,
+    1(1), 211--216, 1929.
+    %
+    %
+    \bibitem{BanachOnLinFuncII}
+    \textit{Banach, S.}, Sur les fonctionnelles lin{\'e}aires II, Stud. Math.,
+    1(1), 223--239, 1929.
+    %
+    %
+    \bibitem{BlascIvorConstrInjSpCK}
+    \textit{Blasco, J.L. and Ivorra, C.}, On constructing injective spaces of
+    type $C(K)$, Indagationes Mathematicae, 9(12), 161--172, 1998.
+    %
+    %
+    \bibitem{SobProjmOnc0}
+    \textit{Sobczyk, A.}, Projection of the space ($m$) on its subspace ($c_0$),
+    Bulletin of the American Mathematical Society, 47(12), 938--947, 1941.
+    %
+    %
+    \bibitem{ZipSepExtProbm}
+    \textit{Zippin, M.}, The separable extension problem, Israel Journal of
+    Mathematics, 26(3--4), 372--387, 1977.
+    %
+    %
+    \bibitem{NemRelInjC0SmodC0S}
+    \textit{Nemesh, N.T.}, A note on relatively injective $C_0(S)$-modules 
+    $C_0(S)$, Functional Analysis and its applications, 55, 298--303, 2021.
+    %
+    %
+    \bibitem{GoldbrUltfltrMath}
+    \textit{Goldbring, I.}, Ultrafilters throughout mathematics,
+    American Mathematicsl Society, 2022.
+    %
+    %
+    \bibitem{PhilOnLinTransfrm}
+    \textit{Phillips, R.S.}, On linear transformations,
+    Transactions of American Mathematical Society, 48(3), 516--541, 1940.
+    %
+    %
+    \bibitem{HelBanLocConvAlg}
+    \textit{A.Ya. Helemskii}, Banach and locally convex algebras. Oxford
+    University Press, (1993)
+    %
+    %
+    \bibitem{KalAlbTopicsBanSpTh}
+    \textit{Albiac F., Kalton, N.J.} Topics in Banach space theory, 
+    Springer, 2006.
+    %
+    %
+    \bibitem{WhiteInjmoduAlg}\textit{M. C. White}, Injective modules for uniform 
+    algebras, Proceedings of London Mathematical Society, 3(1), p. 155--184, 
+    1991.
+    Press, 1996.
+    %
+
+\end{thebibliography}
+
+Norbert Nemesh, Faculty of Mechanics and Mathematics, Moscow State University,
+Moscow 119991 Russia
+
+\textit{E-mail:} nemeshnorbert@yandex.ru
+
+
+\end{document}  % chktex 17
