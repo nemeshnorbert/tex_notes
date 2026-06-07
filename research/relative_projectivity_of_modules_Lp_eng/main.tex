@@ -1,4 +1,6 @@
+% chktex-file 19
 % chktex-file 35
+% chktex-file 36
  \documentclass[12pt]{article}
  \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
  \usepackage{amssymb}
@@ -43,8 +45,7 @@ measurable functions ($1\leq p\leq +\infty$) and the algebra of continuous
 functions vanishing at infinity ($1\leq p< +\infty$). The main result is as
 follows: for a locally compact Hausdorff space $S$ and a locally finite inner
 compact regular Borel measure $\mu$ relative projectivity of $C_0(S)$-module
-$L_\infty(S,\mu)$ forces $\mu$ to be inner open regular with pseudocompact
-support.
+$L_\infty(S,\mu)$ forces $\mu$ to be normal with pseudocompact support.
 \medskip
 
 \textbf{Keywords:} projective module, $L_p$-space, atom, normal measure,
@@ -478,29 +479,35 @@ $\mu$ is inner compact regular.
         \item $\mu$ is inner open regular if and only if
               $\mu(E)=\mu(\operatorname{int}_S(E))$ for $E\in Bor(S)$;
 
+        \item if $\mu$ is inner open regular, then it is residual;
+
         \item if $\mu$ is finite and inner open regular, then
               $\mu(E)=\mu(\operatorname{int}_S(E))=\mu(\operatorname{cl}_S(E))$
-              and $\mu$ is residual;
+              for $E\in Bor(S)$;
 
-        \item if $\mu$ is finite, inner compact regular and inner open regular,
-              then $\mu$ is normal;
+        \item if $\mu$ is inner compact regular and inner open regular,
+              then it is normal;
     \end{enumerate}
 \end{proposition}
 \begin{proof} $(i)$ It is enough to note that the supremum in the definition of
     inner open regular measure is attained at maximal open subset of $E$, which
     is $\operatorname{int}_S(E)$.
 
-    $(ii)$ The first equality was proved in the previous paragraph. Since $\mu$
+    $(ii)$. If $E$ is nowhere dense Borel set, 
+    then $\operatorname{int}_S(\operatorname{cl}_S(E))=\varnothing$. 
+    Clearly, $\operatorname{int}_S(E)
+        \subset\operatorname{int}_S(\operatorname{cl}_S(E))$, 
+    so $\mu(E)=\mu(\operatorname{int}_S(E))\leq\mu(\varnothing)=0$. Since $E$ 
+    is arbitrary, $\mu$ is residual;
+
+    $(iii)$ The first equality was proved in the paragraph $(i)$. Since $\mu$
     is finite for all $E\in Bor(S)$ we have
     $\mu(E)=\mu(S)-\mu(\operatorname{int}_S(S\setminus E))=\mu(S)-\mu(S\setminus
-        \operatorname{cl}_S(E))=\mu(\operatorname{cl}_S(E))$. Now consider a nowhere
-    dense Borel set $E\subset S$, then $\mu(E)=\mu(\operatorname{cl}_S(E))
-        =\mu(\operatorname{cl}_S(\operatorname{int}_S(E)))=\mu(\varnothing)=0$.
-    Since $E$ is arbitrary, then $\mu$ is residual.
+        \operatorname{cl}_S(E))=\mu(\operatorname{cl}_S(E))$. 
 
-    $(iii)$ Any inner compact regular measure has support and is fully supported
+    $(iv)$ Any inner compact regular measure has support and is fully supported
         [\cite{FremMeasTh4.1}, propositions 411C, 411N (d)]. The rest follows
-    from paragraphs $(i)$ and $(ii)$.
+    from paragraph $(ii)$.
 \end{proof}
 
 \begin{proposition}\label{NormalMeasCharac} Let $S$ be a locally compact
@@ -633,6 +640,56 @@ to have a simple criterion.
     Therefore $\mu(U)>0$ because by construction $[g]\chi_{S\setminus U}=0$.
 \end{proof}
 
+\begin{proposition}\label{MorphLpC0Prop} Let $S$ be a locally compact Hausdorff 
+    space, let $\mu$ be a locally finite inner compact regular Borel measure 
+    on $S$, and let $1\leq p<+\infty$. Let $\psi: L_p(S,\mu)_{ess}\to C_0(S)$ be 
+    a $C_0(S)$-morphism and let $t\in S$ be a point with $\mu(\{t\})=0$. 
+    Then $\psi([f])(t)=0$ for every $[f]\in L_p(S,\mu)$.
+\end{proposition}
+\begin{proof} By paragraph $(ii)$ of proposition \ref{LpEssC0ModCharac} we 
+    have $L^p(S,\mu)_{ess}=L^p(S,\mu)$. Let $q$ be the conjugate exponent 
+    of $p$, so that $1/p+1/q=1$ (with $q=+\infty$ when $p=1$). Since $\mu$ is 
+    locally finite and inner compact regular, so is its complete locally 
+    determined version $\hat{\mu}$ [\cite{FremMeasTh4.1}, proposition 412H (a)]. 
+    Therefore, $\hat{\mu}$ is a Radon 
+    measure [\cite{FremMeasTh4.1}, proposition 411H (b)], hence strictly 
+    localizable [\cite{FremMeasTh4.1}, proposition 416B]. As a consequence, 
+    $\mu$ is localizable [\cite{FremMeasTh2}, proposition 212G(a)]. 
+    Therefore the map
+    $$
+        I:L_q(S,\mu)\to L_p(S,\mu)^*,
+        [g]\mapsto\Big([f]\mapsto\int_S f(s)g(s)\,d\mu(s)\Big)
+    $$
+    is an isometric isomorphism [\cite{FremMeasTh2}, 243G(b), 244O(c)]. 
+    Define a linear functional 
+    $l: L_p(S,\mu)\to\mathbb{C}, [f]\mapsto\psi([f])(t)$. Clearly, it is 
+    bounded. Choose $[h]\in L_q(S,\mu)$ such that $I([h])=l$ and 
+    $h$ Borel measurable.
+
+    Fix $a\in C_0(S)$. As $\psi$ is a $C_0(S)$-morphism, for 
+    every $[f]\in L_p(S,\mu)$ we get
+    $$
+        I([(a-a(t)\chi_S)h])([f])
+        =l([af])-a(t)l([f])
+        =\psi([af])(t)-a(t)\psi([f])(t)=0.
+    $$
+    Since $[f]\in L_p(S, \mu)$ is arbitrary and $I$ is isometric we 
+    get $[(a-a(t)\chi_S)h]=0$ in $L_q(S, \mu)$. In other words $[ah]=a(t)[h]$ 
+    in $L_q(S, \mu)$ for all $a\in C_0(S)$. Suppose $[h]\neq 0$ and 
+    define a Borel set $E=\{x\in S:h(x)\neq 0\}$. Then $\mu(E)>0$. 
+    As $\mu(\{t\})=0$ we have $\mu(E\setminus \{t\})>0$, and by inner compact 
+    regularity there is a compact set $K\subset E\setminus \{t\}$ 
+    with $\mu(K)>0$. In particular $t\notin K$. Since $S$ is Hausdorff and $K$ 
+    is compact, there is an open set $V$ with $K\subset V$ and $t\notin V$. 
+    By [\cite{DalesBanSpContFunDualSp}, theorem 1.4.25] there 
+    exists $\hat{a}\in C_0(S)$ with $\hat{a}|_K=1$ 
+    and $\hat{a}|_{S\setminus V}=0$. As $t\in S\setminus V$ we 
+    have $\hat{a}(t)=0$. Then at every $s\in K$ 
+    holds $\hat{a}(s) h(s)\neq \hat{a}(t)h(s)$, while $\mu(K)>0$. In particular,
+    $[\hat{a}h]\neq \hat{a}(t)[h]$ in $L_q(S,\mu)$. Hence $[h]=0$ and $l=0$, 
+    that is $\psi([f])(t)=0$ for all $[f]\in L_p(S,\mu)$.
+\end{proof}
+
 \begin{proposition}\label{LpC0ModNecessCond} Let $S$ be a locally compact
     Hausdorff space and $\mu$ be a locally finite inner compact regular Borel
     measure on $S$. Let $1\leq p\leq +\infty$ and $L_p(S,\mu)$ is a relatively
@@ -642,10 +699,9 @@ to have a simple criterion.
 
     $(ii)$ any atom of $\mu$ is an isolated point in $S$;
 
-    $(iii)$ if $p<+\infty$ and $\mu$ is outer open regular then $\mu$ is purely
-    atomic.
+    $(iii)$ if $p<+\infty$, then $\mu$ is purely atomic.
 \end{proposition}
-\begin{proof} $(i)$ Let $K\subset S$ be a compact set with of positive measure.
+\begin{proof} $(i)$ Let $K\subset S$ be a compact set of positive measure.
     Then by paragraph $(i)$ of proposition~\ref{LpEssC0ModCharac} the function
     $[f]:=[\chi_K]$ is non-zero in ${L_p(S,\mu)}_{ess}$. Since $C_0(S)$-module
     $L_p(S,\mu)$ is relatively projective, then by paragraph $(ii)$ of
@@ -656,7 +712,7 @@ to have a simple criterion.
     are in position to apply paragraph $(ii)$ of
     proposition~\ref{NormalMeasCharac}. Hence
     $\mu(B)=\mu(\operatorname{int}_S(B))$ for any Borel set $B\subset S$. It
-    remains to apply proposition~\ref{InnerOpenRegMeasCharac}.
+    remains to apply proposition~\ref{InnerOpenRegMeasCharac}~$(i)$.
 
     $(ii)$ Let $A$ be an atom of $\mu$. By paragraph $(ii)$ of
     proposition~\ref{MeasAtomCharac} there exists a point $s\in A$ such that
@@ -675,24 +731,9 @@ to have a simple criterion.
     $\psi:{L_p(S,\mu)}_{ess}\to C_0(S)$ such that $\psi([f])\neq 0$ and
     $\psi([f])|_{S\setminus K}=0$. Denote $a:=\psi([f])\neq 0$. Since
     $a|_{S\setminus K}=0$, there exists a point $s\in K$ such that $a(s)\neq 0$.
-    Fix $\varepsilon > 0$. Note that $s$ is not an atom because $s\in K\subset
-        S_c^\mu$, hence from outer open regularity of $\mu$ we get an open set
-    $W\subset S$ such that $s\in W$ and $\mu(W)<\varepsilon$. Since $\{s\}$ is
-    compact, then there exists a continuous function $b\in C_0(S)$ such that
-    $b(s)=1$, $0\leq b\leq 1$ and $b|_{S\setminus W}=0$
-    [\cite{DalesBanSpContFunDualSp}, theorem 1.4.25]. As $p<+\infty$ we get
-    $\Vert b[f]\Vert_{L_p(S,\mu)} \leq {\mu(W\cap K)}^{1/p}<\varepsilon^{1/p}$.
-    Finally,
-    $$
-        |a(s)|=|a(s)b(s)|=|(ba)(s)|=|(b\psi([f]))(s)|=|\psi(b[f])(s)|
-        \leq\Vert \psi (b[f])\Vert_{C_0(S)}\leq
-    $$
-    $$
-        \leq\Vert\psi\Vert\Vert b[f]\Vert_{L_p(S,\mu)}
-        \leq\Vert\psi\Vert\varepsilon^{1/p}
-    $$
-    Since $\varepsilon>0$ is arbitrary $|a(s)|=0$, but $a(s)\neq 0$ by choice of
-    $s$. Contradiction, hence $\mu(K)=0$. As $K\subset S_c^\mu$ is arbitrary
+    On the other hand, $s\in K\subset S_c^{\mu}$, so $\mu(\{s\})=0$ and by 
+    proposition \ref{MorphLpC0Prop} we get $a(s)=\psi([f])(s)=0$. Contradiction, 
+    therefore $\mu(K)=0$. As $K\subset S_c^\mu$ is arbitrary
     from inner compact regularity of $\mu$ we get $\mu(S_c^\mu)=0$. In other
     words $\mu$ is purely atomic.
 \end{proof}
@@ -817,6 +858,7 @@ finite family of non-empty open sets is finite.
 \begin{proposition}\label{LInfRelProjSuppCond} Let $S$ be an locally compact
     Hausdorff space and $\mu$ be a locally finite Borel measure on $S$. If
     $L_\infty(S,\mu)$ is relatively projective as $C_0(S)$-module then
+
     $\operatorname{supp}(\mu)$ is pseudocompact.
 \end{proposition}
 \begin{proof} Denote $M:=\operatorname{supp}(\mu)$. Assume that $M$ is not
@@ -848,12 +890,15 @@ finite family of non-empty open sets is finite.
 \begin{theorem}\label{LInfReProjNecessCond} Let $S$ be a locally compact
     Hausdorff space and $\mu$ be a locally finite inner compact regular Borel
     measure on $S$. If $L_\infty(S,\mu)$ is relatively projective as
-    $C_0(S)$-module then $\mu$ is inner open regular and
+    $C_0(S)$-module then $\mu$ is normal and
     $\operatorname{supp}(\mu)$ is pseudocompact.
 
 \end{theorem}
-\begin{proof} The result follows from propositions~\ref{LpC0ModNecessCond}
-    and~\ref{LInfRelProjSuppCond}.
+\begin{proof} From proposition~\ref{LInfRelProjSuppCond} we conclude 
+    that $\operatorname{supp}(\mu)$ is pseudocompact. By 
+    proposition~\ref{LpC0ModNecessCond}~$(i)$ the measure $\mu$ is inner open 
+    regular. By assumption $\mu$ is inner compact regular, so 
+    from~\ref{InnerOpenRegMeasCharac}~$(iv)$ we get that $\mu$ is normal.
 \end{proof}
 
 Even though the last theorem is not a criterion we shall say a few words on how
