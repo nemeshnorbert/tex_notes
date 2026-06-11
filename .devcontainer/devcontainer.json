@@ -1,6 +1,6 @@
 {
     // A display name for the container.
-    "name": "latex-dev",
+    "name": "latex-tex-notes",
     // Required. Path or an ordered list of paths to Docker Compose files
     // relative to the devcontainer.json file. Using an array is useful when
     // extending your Docker Compose configuration. The order of the array

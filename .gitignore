@@ -42,6 +42,6 @@
 .lesshst
 .dotnet/
 
-#Microsoft
+# Other
 .cache/
-.dotnet/
+.local/
