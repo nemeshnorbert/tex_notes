@@ -8,7 +8,7 @@
 \usepackage{amsthm}
 \usepackage{enumerate}
 \usepackage{enumitem}
-\usepackage[T1,T2A]{fontenc}
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[matrix,arrow,curve]{xy}
 \usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=blue,
@@ -59,112 +59,126 @@ on the same space.
 \section{Introduction}\label{SectionIntroduction}
 
 Extension problems have been an important topic of functional analysis since its
-inception. The first example of a successfully solved extension problem is the
-Hahn-Banach theorem~\cite{HahnLinSystInLinSp,BanachOnLinFuncI,BanachOnLinFuncII}. 
-In modern terms this theorem states that the field of complex numbers is an 
-injective object in the category of Banach spaces. All known injective Banach 
+inception. Such a problem asks whether a morphism defined on a subobject can be 
+extended to the whole object; the objects into which every morphism extends are 
+precisely the injective ones. Injectivity is therefore the categorical 
+counterpart of the solvability of extension problems. For instance, the field of 
+complex numbers is an injective object in the category of Banach spaces. All known injective Banach 
 spaces are isomorphic to the space of continuous functions on some compact
 space~\cite{BlascIvorConstrInjSpCK}. The property of the object in a given 
 category to be injective depends on the ``size'' of the category and 
 the ``abundance'' of morphisms. For example, if one restricts the category of 
 Banach spaces to separable ones, the space $c_0$ of vanishing sequences becomes 
-injective~\cite{SobProjmOnc0}. Even more, Zippin, showed 
+injective~\cite{SobProjmOnc0}. Moreover, Zippin showed 
 in~\cite{ZipSepExtProbm} that all injective spaces in the category of separable 
-Banach spaces are isomorphic to $c_0$. Similarly if one restricts the set of 
+Banach spaces are isomorphic to $c_0$. Similarly, if one restricts the set of 
 morphisms to module maps, without changing the class of objects, then for any 
 set $\Lambda$ the space $c_0(\Lambda)$ is relatively injective as a 
-right $\ell_\infty(\Lambda)$ module~\cite{NemRelInjC0SmodC0S}. These 
-results rely on specific Banach geometric properties of $c_0$-spaces. It is 
-reasonable to expect, that its non-commutative counterpart --- the space of 
-compact operators on a Hilbert space $\mathcal{K}(H)$ is not injective, as 
-its geometry is quite distinct. Nevertheless it is true, not only for Hilbert 
-spaces, but for all reflexive $\ell_p$-spaces. 
+right $\ell_\infty(\Lambda)$-module~\cite{NemRelInjC0SmodC0S}. These 
+results rely on specific Banach-geometric properties of $c_0$-spaces. One might 
+therefore expect that the non-commutative counterpart of these results fails: 
+that the space of compact operators on a Hilbert space $\mathcal{K}(H)$ is not 
+injective, its geometry being quite different. Nevertheless the result holds, 
+not only for Hilbert spaces, but for all reflexive $\ell_p$-spaces.
 
 %-------------------------------------------------------------------------------
 %	Preliminaries
 %-------------------------------------------------------------------------------
 
 \section{Notation and definitions}\label{SectionNotationAndDefinitions} 
-Before we proceed to the main topic we shall give a few definitions.
+Before we proceed to the main topic, we fix some notation and recall a few 
+definitions.
 
-Let $M$ be a subset of a set $N$, then $\chi_M$ denotes the indicator function
+If $M$ is a subset of a set $N$, then $\chi_M$ denotes the indicator function
 of $M$. If $f:N\to L$ is an arbitrary function, then $f|_M$ denotes its
 restriction to $M$.
 
-For a given infinite set $\Lambda$ we can consider the
-filter $\mathfrak{F}_{\Lambda}$ consisting of complements of finite subsets 
-of $\Lambda$. It is called the \textit{Frechet filter} 
-on $\Lambda$. The standard notion of convergence of sequences is convergence 
-along filter $\mathfrak{F}_{\mathbb{N}}$. Recall that an 
-ultrafilter $\mathfrak{U}$ on $\Lambda$ is a free if and only if it contains 
-the Frechet filter $\mathfrak{F}_{\Lambda}$. 
-
-For a given Banach spaces $E$ and $F$ by $\mathcal{B}(E, F)$ we denote the 
-space of all bounded linear operators from $E$ to $F$. 
-Similarly, $\mathcal{K}(E, F)$ stands for the space of compact operators 
-from $E$ to $F$. We use 
-shortcuts $\mathcal{B}(E):=\mathcal{B}(E, E)$ 
+For given Banach spaces $E$ and $F$, by $\mathcal{B}(E, F)$ we denote the 
+space of all bounded linear operators from $E$ to $F$, and 
+by $\mathcal{K}(E, F)$ the space of compact operators 
+from $E$ to $F$. We use the 
+abbreviations $\mathcal{B}(E):=\mathcal{B}(E, E)$ 
 and $\mathcal{K}(E):=\mathcal{K}(E, E)$. The symbol $1_E$ stands for the 
 identity operator on $E$. By
 $
     \langle\cdot,\cdot\rangle: E\times E^*\to\mathbb{C}, (x,f)\mapsto f(x)
 $
-we denote the standard duality between $E$ and $E^*$. For a given $x\in F$ 
-and $f\in E^*$, by $x\bigcirc f$ we denotes the rank one operator from $E$ 
-to $F$ well defined by equality $(x\bigcirc f)(y)=\langle y, f\rangle x$. One
+we denote the standard duality between $E$ and $E^*$. For given $x\in F$ 
+and $f\in E^*$, by $x\bigcirc f$ we denote the rank-one operator from $E$ 
+to $F$ defined by the equality $(x\bigcirc f)(y)=\langle y, f\rangle x$. One
 can easily check that $\Vert x\bigcirc f\Vert=\Vert x\Vert\Vert f\Vert$.
 
-For a given familty of Banach spaces 
-$\{E_\lambda:\lambda\in\Lambda\}$ and $p\in[1,+\infty]$
+For an infinite set $\Lambda$ we write $c_0(\Lambda)$ for the space of all 
+functions $x:\Lambda\to\mathbb{C}$ such that for every $\varepsilon>0$ the 
+set $\{\lambda\in\Lambda:|x(\lambda)|\geq\varepsilon\}$ is finite, and 
+$\ell_\infty(\Lambda)$ for the space of all bounded such functions. For 
+$p\in[1,+\infty)$ the space $\ell_p(\Lambda)$ consists of all 
+functions $x:\Lambda\to\mathbb{C}$ with finite $\ell_p$-norm
+$\Vert x\Vert_p:=(\sum_{\lambda\in\Lambda}|x(\lambda)|^p)^{1/p}$. For a 
+family of Banach spaces $\{E_\lambda:\lambda\in\Lambda\}$ and $p\in[1,+\infty]$
 by $\bigoplus_p\{E_\lambda:\lambda\in\Lambda\}$ we denote 
 their $\ell_p$-sum. Clearly, 
 $\ell_p(\Lambda)=\bigoplus_p\{\mathbb{C}:\lambda\in\Lambda\}$.
 
-Now we shall remind a few notions from the geometry of Banach spaces. A 
+A bounded linear functional $\mu\in\ell_\infty(\Lambda)^*$ is called 
+a \textit{singular state} on $\ell_\infty(\Lambda)$ if (i) $\Vert\mu\Vert=1$; 
+(ii) $\mu(\chi_\Lambda)=1$; and (iii) $\mu|_{c_0(\Lambda)}=0$. Conditions (i) 
+and (ii) say that $\mu$ is a state on the unital Banach algebra 
+$\ell_\infty(\Lambda)$, while (iii) says that $\mu$ vanishes on $c_0(\Lambda)$. 
+Singular states exist for every infinite $\Lambda$: the quotient 
+$\ell_\infty(\Lambda)/c_0(\Lambda)$ is a unital commutative $C^*$-algebra, hence 
+carries a state $\sigma$ (for instance the evaluation at any point of its 
+maximal ideal space), and the composition of $\sigma$ with the quotient 
+homomorphism $\ell_\infty(\Lambda)\to\ell_\infty(\Lambda)/c_0(\Lambda)$ is a 
+singular state on $\ell_\infty(\Lambda)$. We do not require $\mu$ to be 
+multiplicative.
+
+Now we shall recall a few notions from the geometry of Banach spaces. A 
 sequence $(x_n)_{n\in\mathbb{N}}$ in a Banach space $E$ is called 
 \textit{weakly null}, \textit{weak* null} or \textit{norm null} if it converges 
 to zero weakly, weakly* or in norm, respectively. The 
-sequence $(x_n)_{n\in\mathbb{N}}$ is called \textit{semi-normalized} if norms 
-of its elements have positive lower bound and finite upper bound. 
+sequence $(x_n)_{n\in\mathbb{N}}$ is called \textit{semi-normalized} if the norms 
+of its elements have a positive lower bound and a finite upper bound. 
 Let $(\Lambda, <)$ be a well-ordered set. A family of 
 vectors $(e_\lambda)_{\lambda\in\Lambda}$ is called a \textit{Schauder basis} 
 of $E$ if for any vector $x\in E$ there exists a unique family of scalars 
 $(f_\lambda(x))_{\lambda\in\Lambda}\subset\mathbb{C}$ such that 
 \[
-    x=\sum_{\lambda\in\Lambda}f_\lambda(x) e_\lambda
+    x=\sum_{\lambda\in\Lambda}f_\lambda(x) e_\lambda.
 \]
-Note that the resulting sum depends on the ordering. If it is not, the basis is 
-called \textit{unconditional}. One can 
-show [\cite{KalAlbTopicsBanSpTh}, theorem 1.1.3] that 
-mappings $(f_\lambda)_{\lambda\in\Lambda}$ are well defined bounded linear 
+In general the value of this sum may depend on the ordering of $\Lambda$; if it 
+does not, the basis is called \textit{unconditional}. One can 
+show [\cite{KalAlbTopicsBanSpTh}, theorem 1.1.3] that the 
+maps $(f_\lambda)_{\lambda\in\Lambda}$ are well-defined bounded linear 
 functionals. They are called the \textit{biorthogonal functionals}
 of $(e_\lambda)_{\lambda\in\Lambda}$. 
 
 A sequence of 
 vectors $(e_n)_{n\in\mathbb{N}}$ in $E$ is called a \textit{basic sequence} if 
 it is a Schauder basis of its closed linear span. The following construction 
-gives an important source of examples of basic sequences. 
+gives an important source of basic sequences. 
 Suppose $(e_\lambda)_{\lambda\in\Lambda}$ is a Schauder basis of some Banach 
-space $E$, and let $(\Lambda_n)_{n\in\mathbb{N}}$ is a sequence of disjoint 
+space $E$, and let $(\Lambda_n)_{n\in\mathbb{N}}$ be a sequence of disjoint 
 finite subsets of $\Lambda$ such that $\max(\Lambda_n)<\min(\Lambda_{n+1})$ for 
-all $n\in\mathbb{N}$. The sequence of non-zero vectors $(u_n)_{n\in\mathbb{N}}$ 
+all $n\in\mathbb{N}$. A sequence of non-zero vectors $(u_n)_{n\in\mathbb{N}}$ 
 such that $u_n$ lies in the linear span of $(e_\lambda)_{\lambda\in\Lambda_n}$ 
 is called a \textit{block-basic sequence}. Such sequences are indeed 
-basic [\cite{KalAlbTopicsBanSpTh}, lemma 1.3.5]. Suppose $E$ and $F$ --- two 
-Banach space, then two sequences $(u_n)_{n\in\mathbb{N}}\subset E$ 
+basic [\cite{KalAlbTopicsBanSpTh}, lemma 1.3.5]. If $E$ and $F$ are two 
+Banach spaces, then two sequences $(u_n)_{n\in\mathbb{N}}\subset E$ 
 and $(v_n)_{n\in\mathbb{N}}\subset F$ are called \textit{equivalent} if there 
 is an isomorphism of Banach spaces $T:E\to F$ such that $T(u_n)=v_n$ for 
 all $n\in\mathbb{N}$.
 
-Finally, we give a short introduction into the Banach homology theory. Let $A$ 
+Finally, we give a short introduction to Banach homology theory. Let $A$ 
 be a Banach algebra. We shall consider only right Banach modules over
-$A$ with contractive outer action $\cdot:X\times A\to X$. Let $X$ and $Y$ be two
+$A$ with contractive outer action $\cdot:X\times A\to X$. If $X$ and $Y$ are two
 right Banach $A$-modules, then a map $\phi:X\to Y$ is an \textit{$A$-morphism}
 if it is a continuous $A$-module map. Banach $A$-modules and $A$-morphisms form
 a category which we denote by $\mathbf{mod}-A$.
 
 In $\mathbf{mod}-A$ the notion of injectivity can be defined in different ways. 
-We will concern with relative injectivity. Let $\xi:X\to Y$ be an $A$-morphism. 
+We shall be concerned with relative injectivity. Let $\xi:X\to Y$ be an 
+$A$-morphism. 
 Then it is called $c$-\textit{relatively admissible} if $T\circ \xi=1_X$ 
 for some bounded linear operator $T:Y\to X$ with $\Vert T\Vert\leq c$. 
 A Banach $A$-module $J$ is called $C$-\textit{relatively injective} if for any 
@@ -177,10 +191,31 @@ diagram
     & {Y} \\
     {J} \ar@{<--}[ur]^{\psi} &{X} \ar[u]^{\xi} \ar[l]^{\phi}}  % chktex 3
 \]
-commutative. A right Banach $A$-module is called \textit{relatively injective} 
+commutes. A right Banach $A$-module is called \textit{relatively injective} 
 if it is $C$-relatively injective for some $C\geq 1$. As an example, 
-if $A=\{0\}$, the category $\mathbf{mod}-A$ turns into the ordinary category of 
-Banach spaces. In this case all Banach spaces are relatively injective. 
+if $A=\{0\}$, the category $\mathbf{mod}-A$ reduces to the ordinary category of 
+Banach spaces, and in this case all Banach spaces are relatively injective. 
+
+All injectivity statements in this note are verified by means of a single 
+criterion, due to Helemskii, which reduces relative injectivity to the 
+existence of one module retraction. Suppose $A$ is a unital Banach algebra 
+acting on itself by multiplication, and let $J$ be a right Banach $A$-module. 
+The space $\mathcal{B}(A, J)$ of bounded linear operators from $A$ to $J$ is a 
+right $A$-module under the action $(\mathcal{T}\cdot a)(b):=\mathcal{T}(ab)$; it 
+is the \textit{cofree} module cogenerated by $J$. There is a canonical 
+$A$-morphism
+\[
+    \rho_J: J\to\mathcal{B}(A, J),\quad x\mapsto(a\mapsto x\cdot a),
+\]
+and $\rho_J$ always admits a bounded linear (not necessarily module) left 
+inverse, namely $\mathcal{T}\mapsto\mathcal{T}(1_A)$, so it is relatively 
+admissible. Helemskii's criterion [\cite{HelBanLocConvAlg}, proposition 
+VII.1.39(III)] states that $J$ is relatively injective if and only if 
+$\rho_J$ admits a left inverse \textit{in the category} $\mathbf{mod}-A$, that 
+is, a right $A$-module map $\tau:\mathcal{B}(A, J)\to J$ 
+with $\tau\circ\rho_J=1_J$. Moreover, by a theorem of 
+White [\cite{WhiteInjmoduAlg}, proposition 3.8], if such a $\tau$ can be chosen 
+contractive then $J$ is $1$-relatively injective.
 
 %-------------------------------------------------------------------------------
 %   Relative injectivity of the right $\mathcal{B}(H)$-module $\mathcal{K}(H)$
@@ -188,82 +223,116 @@ Banach spaces. In this case all Banach spaces are relatively injective.
 
 \section{Main result}\label{SecionMainResult}
 
-In this section we shall prove that for any Hilbert space $H$ the 
-right Banach $\mathcal{B}(H)$-module $\mathcal{K}(H)$ is relatively injective.
+In this section we shall prove that for any reflexive $\ell_p$-space the 
+right Banach $\mathcal{B}(\ell_p(\Lambda))$-module $\mathcal{K}(\ell_p(\Lambda))$ 
+is relatively injective.
 
-\begin{proposition}\label{LInftyStateByUltrfltr} Let $\Lambda$ be an arbitrary 
-    set, then for a any ultrafilter $\mathfrak{U}$ on $\Lambda$ the map 
+Before turning to compact operators, we recall that the ambient algebra is 
+always relatively injective as a module over itself, and explain why the 
+passage to the ideal of compact operators is harder.
+
+\begin{proposition}\label{BEModBEIsRelInj}
+    For any Banach space $E$ the right $\mathcal{B}(E)$-module 
+    $\mathcal{B}(E)$ is $1$-relatively injective.
+\end{proposition}
+\begin{proof} If $E=\{0\}$ then $\mathcal{B}(E)=\{0\}$ and the claim is trivial, 
+    so assume $E\neq\{0\}$. Fix $e_0\in E$ and $f_0\in E^*$ with 
+    $\langle e_0, f_0\rangle = 1$ and $\Vert e_0\Vert=\Vert f_0\Vert=1$, and 
+    define
     \[
-        m_{\mathfrak{U}}:\ell_{\infty}(\Lambda)\to\mathbb{C},
-        x\mapsto \lim_{\lambda\to\mathfrak{U}}x(\lambda)
-    \] 
-    is a well defined contractive linear operator of norm one such 
-    that $m_{\mathfrak{U}}(\chi_{\Lambda})=1$.
-\end{proposition}
-\begin{proof} For any $x\in\ell_\infty(\Lambda)$ the 
-    set $\{x(\lambda): \lambda\in\Lambda\}$ is bounded in $\mathbb{C}$, hence it
-    is a subset of a Hausdorff compact. Therefore 
-    [\cite{GoldbrUltfltrMath}, corollary 3.1.11], we have a well defined 
-    limit $\lim_{\lambda\to\mathfrak{U}}x(\lambda)$. Hence the 
-    map $m_{\mathfrak{U}}$ is well defined. By properties of 
-    limits [\cite{GoldbrUltfltrMath}, exercise 3.1.5] 
-    the map $m_{\mathfrak{U}}$ is linear, and
-    $
-        m_{\mathfrak{U}}(\chi_{\Lambda})=1
-    $
-    Continuous functions preserve 
-    ultralimits [\cite{GoldbrUltfltrMath}, theorem 3.1.14], so 
-    $
-        |m_{\mathfrak{U}}(x)|
-        =\lim_{\lambda\to\mathfrak{U}}|x(\lambda)|
-        \leq \lim_{\lambda\to\mathfrak{U}}\Vert x\Vert
-        =\Vert x\Vert.
-    $
-    Therfore $m_{\mathfrak{U}}$ is contractive.
+        \tau:
+        \mathcal{B}(\mathcal{B}(E), \mathcal{B}(E))\to\mathcal{B}(E),\quad
+        \mathcal{T}\mapsto(x\mapsto \mathcal{T}(x\bigcirc f_0)(e_0)).
+    \]
+    Using the identity $A\circ(x\bigcirc f_0)=(Ax)\bigcirc f_0$ together with 
+    $\langle e_0, f_0\rangle=1$, it is trivial to check that $\tau$ is a 
+    contractive right $\mathcal{B}(E)$-module map which is a left inverse for the 
+    canonical morphism $\rho_{\mathcal{B}(E)}$. By Helemskii's criterion and 
+    White's theorem, recalled in 
+    Section~\ref{SectionNotationAndDefinitions}, the module $\mathcal{B}(E)$ 
+    is $1$-relatively injective.
 \end{proof}
 
-\begin{proposition}\label{LInftyStateByUltrfltrProps} Let $\Lambda$ be an infinite 
-    set, and $\mathfrak{U}$ be a free ultrafilter on $\Lambda$. Then 
-    \begin{enumerate}[label = (\roman*)]
-        \item $m_{\mathfrak{U}}|_{c_0(\Lambda)}=0$;
-        \item if $|m_{\mathfrak{U}}(x)|\geq c$ for 
-        some $x\in\ell_\infty(\Lambda)$ and $c>0$, then for any $c'<c$ the 
-        set $\{\lambda\in\Lambda: |x(\lambda)|>c'\}$ is infinite.
-    \end{enumerate} 
+The single evaluation works because $\tau(\mathcal{T})$ may be any bounded 
+operator. This fails in the compact case. If 
+$\mathcal{T}:\mathcal{B}(E)\to\mathcal{K}(E)$ and we keep the same formula, then 
+$\tau(\mathcal{T})$ need not be compact: for $\mathcal{T}(S):=(Se_0)\bigcirc f_0$ 
+the formula gives $\tau(\mathcal{T})=1_E$, which is non-compact in infinite 
+dimensions. To keep the value in $\mathcal{K}(E)$ we average the evaluation over 
+a whole biorthogonal system instead of reading it off at one point. The singular 
+state below provides this average.
+
+There is also an a priori obstruction that explains why compactness cannot be 
+taken for granted. We record it as a necessary condition for the ideal of 
+compact operators.
+
+\begin{proposition}\label{KNotComplemented}
+    Let $E$ be an infinite-dimensional Banach space. If the right 
+    $\mathcal{B}(E)$-module $\mathcal{K}(E)$ is relatively injective, then 
+    $\mathcal{K}(E)$ is not complemented in $\mathcal{B}(E)$ as a Banach space.
 \end{proposition}
-\begin{proof} $(i)$ Let $x\in c_0(\Lambda)$, then 
-    $
-        \lim_{\lambda\to\mathfrak{F}_{\Lambda}}x(\lambda) = 0
-    $.
-    Since $\Lambda$ is infinite, the free ultrafilter $\mathfrak{U}$ contains 
-    the Frechet filter $\mathfrak{F}_{\Lambda}$, so
-    $
-        m_{\mathfrak{U}}(x)
-        =\lim_{\lambda\to\mathfrak{U}}x(\lambda)
-        =\lim_{\lambda\to\mathfrak{F}_{\Lambda}}x(\lambda)=0
-    $.
-    Hence $m_{\mathfrak{U}}|_{c_0(\Lambda)}=0$. 
-    
-    $(ii)$ From the definition of limit along filter the 
-    set $A:=\{\lambda\in\Lambda: |x(\lambda)|>c'\}$ belongs to $\mathfrak{U}$. 
-    Since $\mathfrak{U}$ is a filter, 
-    then $\Lambda\setminus A\notin \mathfrak{U}$. 
-    A fortiori $\Lambda\setminus A\notin \mathfrak{F}_{\Lambda}$, so $A$ is 
-    infinite.
+\begin{proof} The ideal $\mathcal{K}(E)$ has no left identity: if $u\in
+    \mathcal{K}(E)$ satisfied $u\circ K=K$ for all $K\in\mathcal{K}(E)$, then 
+    testing on the rank-one operators $K=x\bigcirc f$ would give $u(x)=x$ for 
+    all $x\in E$, that is $u=1_E$, which is not compact in infinite 
+    dimensions. On the other hand, by a result of 
+    Ramsden [\cite{RamsdenThesis}, proposition 2.2.8(iii)], a relatively 
+    injective closed right ideal of a Banach algebra which is complemented as a 
+    subspace possesses a left identity. Were $\mathcal{K}(E)$ relatively 
+    injective and complemented in $\mathcal{B}(E)$, this would furnish a left 
+    identity for $\mathcal{K}(E)$, a contradiction.
 \end{proof}
 
-\begin{proposition}\label{EInftyStateByUltrfltrProps} Let $E$ be a reflexive
-    Banach space, and $\mathfrak{U}$ be an ultrafilter on some set $\Lambda$. 
-    Then there exists a contractive linear operator 
+Proposition~\ref{KNotComplemented} is a necessary condition only, and a weak 
+one, since $\mathcal{K}(E)$ is uncomplemented in $\mathcal{B}(E)$ for most 
+classical $E$. It is not vacuous, however. If the Calkin algebra 
+$\mathcal{B}(E)/\mathcal{K}(E)$ is finite-dimensional, then $\mathcal{K}(E)$ is 
+finite-codimensional and hence complemented, so by 
+Proposition~\ref{KNotComplemented} its module $\mathcal{K}(E)$ is not relatively 
+injective. Such spaces exist: on the Argyros-Haydon space $\mathfrak{X}_{AH}$ 
+every operator is a scalar plus a compact one, so the Calkin algebra is 
+one-dimensional \cite{ArgyrosHaydon}; Tarbard constructed preduals of $\ell_1$ 
+whose Calkin algebra is finite-dimensional of any prescribed dimension 
+\cite{Tarbard}. The point of the proposition is that 
+relative injectivity of $\mathcal{K}(E)$ cannot come from a bounded projection 
+and must be witnessed by a module splitting of the cofree module. We construct 
+such a splitting for reflexive $\ell_p$-spaces in the rest of this section.
+
+\begin{proposition}\label{LInftyStateByMeanProps} Let $\Lambda$ be an infinite 
+    set, and $\mu$ be a singular state on $\ell_\infty(\Lambda)$. 
+    If $|\mu(x)|\geq c$ for 
+    some $x\in\ell_\infty(\Lambda)$ and $c>0$, then for any $c'<c$ the 
+    set $\{\lambda\in\Lambda: |x(\lambda)|>c'\}$ is infinite.
+\end{proposition}
+\begin{proof} Suppose to the contrary that for some $c'<c$ the 
+    set $F:=\{\lambda\in\Lambda: |x(\lambda)|>c'\}$ is finite. Decompose 
+    $x=x\chi_F+x\chi_{\Lambda\setminus F}$. Since $F$ is finite, 
+    $x\chi_F\in c_0(\Lambda)$, hence $\mu(x\chi_F)=0$ by property $(iii)$ of a 
+    singular state. On the complement we 
+    have $\Vert x\chi_{\Lambda\setminus F}\Vert\leq c'$, so 
+    \[
+        |\mu(x)|
+        =|\mu(x\chi_F)+\mu(x\chi_{\Lambda\setminus F})|
+        =|\mu(x\chi_{\Lambda\setminus F})|
+        \leq\Vert\mu\Vert\Vert x\chi_{\Lambda\setminus F}\Vert
+        \leq c' < c,
+    \]
+    which contradicts $|\mu(x)|\geq c$. Therefore $F$ is infinite.
+\end{proof}
+
+\begin{proposition}\label{EInftyStateByMeanProps} Let $E$ be a reflexive
+    Banach space, let $\Lambda$ be an infinite set, and let $\mu$ be a singular 
+    state on $\ell_\infty(\Lambda)$. Then there exists a contractive linear 
+    operator 
     $
-        M_{\mathfrak{U}}:
+        M_{\mu}:
         \bigoplus\nolimits_\infty\{ E : \lambda\in\Lambda \}\to E
     $
     such that: 
     \begin{enumerate}[label = (\roman*)]
         \item 
-            $\langle M_{\mathfrak{U}}(\xi), f\rangle
-            =m_{\mathfrak{U}}\left(
+            $\langle M_{\mu}(\xi), f\rangle
+            =\mu\left(
                 \bigoplus_\infty\{ \langle \xi(\lambda), f\rangle: 
                     \lambda\in\Lambda\}
             \right)
@@ -271,60 +340,60 @@ right Banach $\mathcal{B}(H)$-module $\mathcal{K}(H)$ is relatively injective.
             and $f \in E^*$;
         \item 
             $
-            M_{\mathfrak{U}}\left(
+            M_{\mu}\left(
                 \bigoplus_\infty\{ x: \lambda\in\Lambda\}
             \right) = x
             $ for any $x \in E$;
     \end{enumerate} 
 \end{proposition}
-\begin{proof} $(i)$ Let $\xi\in \bigoplus_\infty\{ E : \lambda\in\Lambda \}$, 
+\begin{proof} Let $\xi\in \bigoplus_\infty\{ E : \lambda\in\Lambda \}$, 
     then $\{\langle \xi(\lambda), f\rangle:\lambda\in\Lambda\}\subset\mathbb{C}$ 
     is bounded, so the map
     \[
-        F_{\mathfrak{U},\xi}: E^*\to\mathbb{C},\, 
-        f\mapsto m_{\mathfrak{U}}\left(
+        F_{\mu,\xi}: E^*\to\mathbb{C},\, 
+        f\mapsto \mu\left(
             \bigoplus\nolimits_\infty\{\langle \xi(\lambda), f\rangle: 
                 \lambda\in\Lambda\}
         \right)
     \]
     is well defined. Clearly, it is a bounded linear functional 
-    with $\Vert F_{\mathfrak{U},\xi}\Vert\leq\Vert \xi\Vert$. Since $E$ is 
-    reflexive, then there exists a unique vector $M_{\mathfrak{U},\xi}\in E$ such 
-    that $\Vert M_{\mathfrak{U},\xi}\Vert=\Vert F_{\mathfrak{U},\xi}\Vert$ 
-    and $F_{\mathfrak{U},\xi}(f)=\langle M_{\mathfrak{U},\xi}, f\rangle$ 
-    for all $f\in E^*$. Consider map
+    with $\Vert F_{\mu,\xi}\Vert\leq\Vert \xi\Vert$. Since $E$ is 
+    reflexive, there exists a unique vector $M_{\mu,\xi}\in E$ such 
+    that $\Vert M_{\mu,\xi}\Vert=\Vert F_{\mu,\xi}\Vert$ 
+    and $F_{\mu,\xi}(f)=\langle M_{\mu,\xi}, f\rangle$ 
+    for all $f\in E^*$. Consider the map
     $
-        M_{\mathfrak{U}}:
+        M_{\mu}:
         \bigoplus\nolimits_\infty\{ E : \lambda\in\Lambda \}\to E,\, 
-        \xi\mapsto M_{\mathfrak{U},\xi}.
+        \xi\mapsto M_{\mu,\xi}.
     $
-    It is easy to check that $M_{\mathfrak{U}}$ is a linear operator. This 
-    operator is contractive because 
+    It is easy to check that $M_{\mu}$ is a linear operator. It is 
+    contractive because 
     $
-        \Vert M_{\mathfrak{U}}(\xi)\Vert
-        =\Vert F_{\mathfrak{U},\xi}\Vert
+        \Vert M_{\mu}(\xi)\Vert
+        =\Vert F_{\mu,\xi}\Vert
         \leq\Vert \xi\Vert.
     $
-    Now we proceed to the proof of the properties of $M_{\mathfrak{U}}$.
+    We now verify the two properties of $M_{\mu}$.
 
-    $(i)$ This equality directly follows from the properties of the 
-    vector $M_{\mathfrak{U},\xi}$.
+    $(i)$ This equality follows directly from the defining property of the 
+    vector $M_{\mu,\xi}$.
 
-    $(ii)$ From proposition~\ref{LInftyStateByUltrfltr} for 
+    $(ii)$ Using the equality $\mu(\chi_\Lambda)=1$, for 
     any $x\in E$ and $f\in E^*$ we have 
     \[
-        \left\langle M_{\mathfrak{U}}\left(
+        \left\langle M_{\mu}\left(
             \bigoplus\nolimits_\infty\{ x: \lambda\in\Lambda\}
             \right),
             f
         \right\rangle
-        =m_{\mathfrak{U}}\left(\bigoplus\nolimits_\infty\left\{
+        =\mu\left(\bigoplus\nolimits_\infty\left\{
             \left\langle x, f\right\rangle:\lambda\in\Lambda
         \right\}\right)
-        =\langle x,f \rangle m_{\mathfrak{U}}(\chi_{\Lambda})
+        =\langle x,f \rangle \mu(\chi_{\Lambda})
         =\langle x,f \rangle. 
     \]
-    Since $f\in E^*$ is arbitrary we get the desired equality.
+    Since $f\in E^*$ is arbitrary, we obtain the desired equality.
 \end{proof}
 
 \begin{proposition}\label{TUTMapIsLinAndBnd}
@@ -332,19 +401,19 @@ right Banach $\mathcal{B}(H)$-module $\mathcal{K}(H)$ is relatively injective.
     Let ${(e_\lambda)}_{\lambda\in\Lambda}\subset E$ 
     and ${(f_\lambda)}_{\lambda\in\Lambda}\subset E^*$ be two families such
     that $\sup\{\Vert e_\lambda\Vert\Vert f_\lambda\Vert: \lambda\in\Lambda\}$ 
-    is finite. Then for any ultrafilter $\mathfrak{U}$ on $\Lambda$ and any 
-    bounded linear operator $\mathcal{T}:\mathcal{B}(E)\to\mathcal{B}(E)$ the 
+    is finite. Then for any singular state $\mu$ on $\ell_\infty(\Lambda)$ and 
+    any bounded linear operator $\mathcal{T}:\mathcal{B}(E)\to\mathcal{B}(E)$ the 
     map
     \[
-        T_{\mathfrak{U},\mathcal{T}}: 
+        T_{\mu,\mathcal{T}}: 
         E\to E,\, 
-        x\mapsto M_{\mathfrak{U}}\left(
+        x\mapsto M_{\mu}\left(
             \bigoplus\nolimits_{\infty}\{ 
                 \mathcal{T}(x\bigcirc f_\lambda)(e_\lambda) : \lambda\in\Lambda 
             \}
         \right)
     \]
-    is a well defined bounded linear operator with norm  at 
+    is a well-defined bounded linear operator with norm at 
     most 
     $
         \Vert \mathcal{T} \Vert
@@ -352,7 +421,7 @@ right Banach $\mathcal{B}(H)$-module $\mathcal{K}(H)$ is relatively injective.
     $
 \end{proposition}
 \begin{proof}
-    Let $x\in E$, then denote 
+    For $x\in E$, denote 
     $
         \xi_{\mathcal{T},x}=\bigoplus\nolimits_{\infty}\{ 
             \mathcal{T}(x\bigcirc f_\lambda)(e_\lambda) : \lambda\in\Lambda 
@@ -363,25 +432,25 @@ right Banach $\mathcal{B}(H)$-module $\mathcal{K}(H)$ is relatively injective.
         \sup\{\Vert \xi_{\mathcal{T},x}(\lambda)\Vert:\lambda\in\Lambda\}
         \leq
         \Vert \mathcal{T}\Vert \Vert x\Vert
-        \sup\{ \Vert e_\lambda\Vert \Vert f_\lambda\Vert : \lambda\in\Lambda\}
+        \sup\{ \Vert e_\lambda\Vert \Vert f_\lambda\Vert : \lambda\in\Lambda\},
     \]
     so 
     $
         \xi_{\mathcal{T},x}\in
             \bigoplus\nolimits_{\infty}{}\{E:\lambda\in\Lambda\}
     $ 
-    and the value $M_{\mathfrak{U}}(\xi_{\mathcal{T},x})$ is well defined. So is 
-    the map $T_{\mathfrak{U},\mathcal{T}}$. It is easy to check 
-    that $T_{\mathfrak{U},\mathcal{T}}$ is linear. Furthermore, using 
-    proposition~\ref{EInftyStateByUltrfltrProps} for any $x\in E$
+    and the value $M_{\mu}(\xi_{\mathcal{T},x})$ is well defined; hence so is 
+    the map $T_{\mu,\mathcal{T}}$. It is easy to check 
+    that $T_{\mu,\mathcal{T}}$ is linear. Furthermore, using 
+    proposition~\ref{EInftyStateByMeanProps}, for any $x\in E$
     we get
     \[
-        \Vert T_{\mathfrak{U},\mathcal{T}}(x)\Vert
-        \leq\Vert M_{\mathfrak{U}}\Vert\Vert \xi_{\mathcal{T},x}\Vert
+        \Vert T_{\mu,\mathcal{T}}(x)\Vert
+        \leq\Vert M_{\mu}\Vert\Vert \xi_{\mathcal{T},x}\Vert
         \leq\Vert \mathcal{T}\Vert \Vert x\Vert
         \sup\{ \Vert e_\lambda\Vert \Vert f_\lambda\Vert : \lambda\in\Lambda\}.
     \] 
-    This proves norm estimate for $T_{\mathfrak{U},\mathcal{T}}$.
+    This proves the norm estimate for $T_{\mu,\mathcal{T}}$.
 \end{proof}
 
 \begin{proposition}\label{BlckBasForNonCompOp}
@@ -396,65 +465,65 @@ right Banach $\mathcal{B}(H)$-module $\mathcal{K}(H)$ is relatively injective.
     or semi-normalized is preserved when passing to subsequences or 
     equivalent sequences. We shall use these facts many times during the proof.
     
-    Since $T$ is not compact, then there exists a weakly null 
+    Since $T$ is not compact, there exists a weakly null 
     sequence $(x_n)_{n\in\mathbb{N}}\subset E$ such 
-    that $(T(x_n))_{n\in\mathbb{N}}$ is not norm null. Passing to a subsequence
-    we can assume that $\inf\{\Vert T(x_n)\Vert: n\in\mathbb{N}\}>0$. Note 
-    that $(x_n)_{n\in\mathbb{N}}$ cannot be norm null, because 
-    otherwise $(T(x_n))_{n\in\mathbb{N}}$ would be norm null. Therefore passing
-    to a subsequence once again we may additionally assume  
+    that $(T(x_n))_{n\in\mathbb{N}}$ is not norm null. Passing to a subsequence,
+    we may assume that $\inf\{\Vert T(x_n)\Vert: n\in\mathbb{N}\}>0$. Note 
+    that $(x_n)_{n\in\mathbb{N}}$ cannot be norm null, since 
+    otherwise $(T(x_n))_{n\in\mathbb{N}}$ would be norm null. Therefore, passing
+    to a subsequence once again, we may additionally assume  
     that $\inf\{\Vert x_n\Vert: n\in\mathbb{N}\}>0$. As $(x_n)_{n\in\mathbb{N}}$
-    is weakly convergent, it is bounded. So is $(T(x_n))_{n\in\mathbb{N}}$, 
+    is weakly convergent, it is bounded; so is $(T(x_n))_{n\in\mathbb{N}}$, 
     because $T$ is bounded. Thus we have constructed a weakly null, 
     semi-normalized sequence $(x_n)_{n\in\mathbb{N}}$ such 
     that $(T(x_n))_{n\in\mathbb{N}}$ is also semi-normalized.
 
-    Since $(x_n)_{n\in\mathbb{N}}$ is a countable family, it lies in a 
+    Since $(x_n)_{n\in\mathbb{N}}$ is a countable family, it lies in the 
     closed linear span of some countable 
-    subbasis $(e_\lambda)_{\lambda\in\Lambda'}$ of the 
-    basis $(e_\lambda)_{\lambda\in\lambda}$. Now by Bessaga-Pelczyński selection 
-    principle [\cite{KalAlbTopicsBanSpTh} proposition 1.3.10] there exists
-    a block-basic sequence $(u_k)_{k\in\mathbb{N}}$ 
+    subfamily $(e_\lambda)_{\lambda\in\Lambda'}$ of the 
+    basis $(e_\lambda)_{\lambda\in\Lambda}$. By the Bessaga--Pe{\l}czy\'nski 
+    selection principle [\cite{KalAlbTopicsBanSpTh}, proposition 1.3.10] there 
+    exists a block-basic sequence $(u_k)_{k\in\mathbb{N}}$ 
     of $(e_\lambda)_{\lambda\in\Lambda'}$ which is equivalent to some 
     subsequence of $(x_n)_{n\in\mathbb{N}}$. As $(u_k)_{k\in\mathbb{N}}$ is a 
-    block-basic sequence of $(e_\lambda)_{\lambda\in\Lambda'}$ it is a 
-    block-basic sequence of the superset 
+    block-basic sequence of $(e_\lambda)_{\lambda\in\Lambda'}$, it is also a 
+    block-basic sequence of the larger 
     basis $(e_\lambda)_{\lambda\in\Lambda}$. Recall 
-    that $(x_n)_{n\in\mathbb{N}}$ is weakly null, semi-normalized 
-    with $(T(x_n))_{n\in\mathbb{N}}$ being also semi-normalized. The 
-    sequence $(u_k)_{k\in\mathbb{N}}$ also possesses these properites as it is 
+    that $(x_n)_{n\in\mathbb{N}}$ is weakly null and semi-normalized, 
+    with $(T(x_n))_{n\in\mathbb{N}}$ also semi-normalized. The 
+    sequence $(u_k)_{k\in\mathbb{N}}$ inherits these properties, since it is 
     equivalent to a subsequence of $(x_n)_{n\in\mathbb{N}}$.
 \end{proof}
 
 \begin{proposition}\label{TUTMapIsComp}
-    Let $\Lambda$ be a set and $p\in(1,+\infty)$, then 
+    Let $\Lambda$ be a set, let $p\in(1,+\infty)$, and 
     denote $E=\ell_p(\Lambda)$. Let $(e_\lambda)_{\lambda\in\Lambda}\subset E$ 
-    be the standard basis and $(f_\lambda)_{\lambda\in\Lambda}\subset E^*$ be 
-    the respective biorthogonal functionals. Then for any (free, if $\Lambda$ is 
-    infinite) ultrafilter $\mathfrak{U}$ on $\Lambda$, and any bounded linear 
+    be the standard basis and $(f_\lambda)_{\lambda\in\Lambda}\subset E^*$ the 
+    respective biorthogonal functionals. Then for any singular state $\mu$ 
+    on $\ell_\infty(\Lambda)$ and any bounded linear 
     operator $\mathcal{T}:\mathcal{B}(E)\to\mathcal{K}(E)$ the 
-    map $T_{\mathfrak{U}, \mathcal{T}}$ is a compact linear operator of norm at 
+    map $T_{\mu, \mathcal{T}}$ is a compact linear operator of norm at 
     most $\Vert \mathcal{T}\Vert$. 
 \end{proposition}
 \begin{proof} If $E$ is finite-dimensional, then 
     $\mathcal{B}(E)=\mathcal{K}(E)$, so there is nothing to prove.
 
-    Suppose $E$ is infinite dimensional, then $\Lambda$ is infinite. 
-    Denote $T:=T_{\mathfrak{U}, \mathcal{T}}$ By 
-    proposition~\ref{TUTMapIsLinAndBnd} the map $T$ is a bounded 
+    Suppose $E$ is infinite-dimensional, so that $\Lambda$ is infinite, and 
+    denote $T:=T_{\mu, \mathcal{T}}$. By 
+    proposition~\ref{TUTMapIsLinAndBnd}, the map $T$ is a bounded 
     linear operator with $\Vert T\Vert\leq\Vert \mathcal{T}\Vert$.
-    Assume towards a contradiction, that $T$ is not compact. 
-    From~\ref{BlckBasForNonCompOp} we get a block-basic 
+    Assume, towards a contradiction, that $T$ is not compact. 
+    By proposition~\ref{BlckBasForNonCompOp} we obtain a block-basic 
     sequence $(u_n)_{n\in\mathbb{N}}$ of $(e_\lambda)_{\lambda\in\Lambda}$ such
     that $c:=\inf\{\Vert T(u_n)\Vert:n\in\mathbb{N}\}>0$ 
-    and $C:=\sup\{\Vert u_n\Vert:n\in\mathbb{N}\Vert\}<+\infty$.
+    and $C:=\sup\{\Vert u_n\Vert:n\in\mathbb{N}\}<+\infty$.
 
-    Fix $n\in\mathbb{N}$. By Hahn-Banach theorem there exists $g_n\in E^*$ such
-    that $\Vert g_n\Vert=1$ and 
+    Fix $n\in\mathbb{N}$. By the Hahn-Banach theorem there exists $g_n\in E^*$ 
+    such that $\Vert g_n\Vert=1$ and 
     $
         \langle T(u_n), g_n\rangle=\Vert T(u_n)\Vert
     $.
-    Consider vector 
+    Consider the vector 
     $
         s_n:=\bigoplus\nolimits_\infty\{
             \langle \mathcal{T}(u_n\bigcirc f_\lambda)(e_\lambda), g_n\rangle: 
@@ -468,25 +537,25 @@ right Banach $\mathcal{B}(H)$-module $\mathcal{K}(H)$ is relatively injective.
     $ 
     It is easy to check that
     $
-        m_{\mathfrak{U}}(s_n)=\langle T(u_n), g_n\rangle
+        \mu(s_n)=\langle T(u_n), g_n\rangle
     $,
-    so $|m_{\mathfrak{U}}(s_n)|=m_{\mathfrak{U}}(s_n)\geq c$. By 
-    proposition~\ref{LInftyStateByUltrfltrProps} the 
+    so $|\mu(s_n)|=\mu(s_n)\geq c$. By 
+    proposition~\ref{LInftyStateByMeanProps}, the 
     set $A_n:=\{\lambda\in\Lambda: |s_n(\lambda)|> c/2\}$ is infinite.
-    Since sets $A_n$ are infinite for all $n\in\mathbb{N}$, by induction we can 
-    construct an infinite sequence of distinct 
-    elements $(\lambda_n)_{n\in\mathbb{N}}\subset\Lambda$ such 
-    that $\lambda_n\in A_n$ for all $n\in\mathbb{N}$. In other words there 
+    Since the sets $A_n$ are infinite for all $n\in\mathbb{N}$, by induction we 
+    can construct a sequence of distinct 
+    elements $(\lambda_n)_{n\in\mathbb{N}}\subset\Lambda$ 
+    with $\lambda_n\in A_n$ for all $n\in\mathbb{N}$. In other words, there 
     exists a sequence of distinct 
-    elments $(\lambda_n)_{n\in\mathbb{N}}\subset\Lambda$ such that
+    elements $(\lambda_n)_{n\in\mathbb{N}}\subset\Lambda$ such that
     $
-        \langle 
+        |\langle 
             \mathcal{T}(u_n\bigcirc f_{\lambda_n})(e_{\lambda_n}), g_n
-        \rangle > c/2.
+        \rangle| > c/2.
     $
 
     Since $(u_n)_{n\in\mathbb{N}}$ is a block basis of the standard basis 
-    of $E$, then supports of these vectors are disjoint, so for 
+    of $E$, the supports of these vectors are disjoint, so for 
     any $x\in\ell_\infty(\mathbb{N})$ and $y\in\ell_p(\Lambda)$ we get
     \[
         \begin{aligned}
@@ -505,37 +574,37 @@ right Banach $\mathcal{B}(H)$-module $\mathcal{K}(H)$ is relatively injective.
     $
         \sum_{n\in\mathbb{N}} x(n) \langle y, f_{\lambda_n}\rangle u_n
     $
-    is absolutely convergent and a fortiori convergent.
-    Therefore, for each $x\in\ell_\infty(\mathbb{N})$ we have a well define a map: 
+    is absolutely convergent, and a fortiori convergent.
+    Therefore, for each $x\in\ell_\infty(\mathbb{N})$ we obtain a well-defined 
+    map 
     \[
         S_x: 
         E\to E, \,
-        y\mapsto \sum_{n\in\mathbb{N}} x(n)(u_n\bigcirc f_{\lambda_n})(y)
+        y\mapsto \sum_{n\in\mathbb{N}} x(n)(u_n\bigcirc f_{\lambda_n})(y).
     \]
-    One can easily check that $S_x$ is a linear operator. From the proof of 
-    absolute convergence one can easily derive that  
-    $\Vert S_x\Vert\leq C\Vert x\Vert$. Now for each $n\in\mathbb{N}$ we define
-    a map
+    One can easily check that $S_x$ is a linear operator, and the estimate above 
+    shows that $\Vert S_x\Vert\leq C\Vert x\Vert$. Now for each $n\in\mathbb{N}$ 
+    we define a map
     \[
         f_n: 
-        \ell_\infty\to\mathbb{C}, \,
-        x\mapsto \langle \mathcal{T}(S_x)(e_{\lambda_n}), g_n\rangle
+        \ell_\infty(\mathbb{N})\to\mathbb{C}, \,
+        x\mapsto \langle \mathcal{T}(S_x)(e_{\lambda_n}), g_n\rangle.
     \]
-    Clearly, it is a bounded linear functional. 
-    Obviously $(e_{\lambda_n})_{n\in\mathbb{N}}$ is weakly null. By definition 
+    Clearly, it is a bounded linear functional. The 
+    sequence $(e_{\lambda_n})_{n\in\mathbb{N}}$ is weakly null, and by definition 
     of $\mathcal{T}$ the operator $\mathcal{T}(S_x)$ is 
-    compact, so  the sequence 
+    compact, so the sequence 
     $
         (\mathcal{T}(S_x)(e_{\lambda_n}))_{n\in\mathbb{N}}
-    $ is norm null. As functionals $(g_n)_{n\in\mathbb{N}}\subset E^*$ are norm 
-    bounded, we conclude
+    $ is norm null. As the functionals $(g_n)_{n\in\mathbb{N}}\subset E^*$ are 
+    norm bounded, we conclude that
     \[
         \lim_{n\to\infty}f_n(x)
         =\lim_{n\to\infty}\langle \mathcal{T}(S_x)(e_{\lambda_n}), g_n\rangle
         =0.
     \]
     This means that $(f_n)_{n\in\mathbb{N}}$ is a weak* null sequence. On the 
-    other hand 
+    other hand, 
     \[
         \sum_{k\in\mathbb{N}}|f_n(\chi_{\{k\}})|
         \geq |f_n(\chi_{\{n\}})|
@@ -544,25 +613,25 @@ right Banach $\mathcal{B}(H)$-module $\mathcal{K}(H)$ is relatively injective.
         \rangle|
         > c/2.
     \]
-    So $\liminf_{n\to\infty}\sum_{k\in\mathbb{N}}|f_n(\chi_{\{k\}})|>0$.
-    This contradicts Phillips' lemma [\cite{PhilOnLinTransfrm}, corollary 3.4].
-    Therefore $\mathcal{T}$ is compact.
+    So $\liminf_{n\to\infty}\sum_{k\in\mathbb{N}}|f_n(\chi_{\{k\}})|>0$,
+    which contradicts Phillips' lemma [\cite{PhilOnLinTransfrm}, corollary 3.4].
+    Therefore $T$ is compact.
 \end{proof}
 
 \begin{proposition}\label{TauMapProps}
-    Let $\Lambda$ be a set and $p\in(1,+\infty)$, then 
+    Let $\Lambda$ be a set, let $p\in(1,+\infty)$, and 
     denote $E=\ell_p(\Lambda)$. Let $(e_\lambda)_{\lambda\in\Lambda}\subset E$ 
-    be the standard basis and $(f_\lambda)_{\lambda\in\Lambda}\subset E^*$ be 
-    the respective biorthogonal functionals. Let $\mathfrak{U}$ be any 
-    (free, if $\Lambda$ is infinite) ultrafilter on $\Lambda$. Define
+    be the standard basis and $(f_\lambda)_{\lambda\in\Lambda}\subset E^*$ the 
+    respective biorthogonal functionals. Let $\mu$ be any 
+    singular state on $\ell_\infty(\Lambda)$. Define
     \[
-        \tau_{\mathfrak{U}}:
+        \tau_{\mu}:
         \mathcal{B}(\mathcal{B}(E), \mathcal{K}(E))\to\mathcal{K}(E), \,
-        \mathcal{T}\mapsto T_{\mathfrak{U}, \mathcal{T}}.
+        \mathcal{T}\mapsto T_{\mu, \mathcal{T}}.
     \]
-    Then $\tau_{\mathfrak{U}}$ is a contractive $\mathcal{B}(E)$-morphism of 
+    Then $\tau_{\mu}$ is a contractive $\mathcal{B}(E)$-morphism of 
     right $\mathcal{B}(E)$-modules such 
-    that $\tau_{\mathfrak{U}}\circ\rho_{\mathcal{K}(E)}=1_{\mathcal{K}(E)}$, 
+    that $\tau_{\mu}\circ\rho_{\mathcal{K}(E)}=1_{\mathcal{K}(E)}$, 
     where 
     $
         \rho_{\mathcal{K}(E)}:
@@ -570,52 +639,53 @@ right Banach $\mathcal{B}(H)$-module $\mathcal{K}(H)$ is relatively injective.
         K\mapsto(T\mapsto K\circ T)
     $.
 \end{proposition}
-\begin{proof} By proposition~\ref{TUTMapIsComp} the map $\tau_{\mathfrak{U}}$ is 
-    well defined. It is routine to check that $\tau_{\mathfrak{U}}$ is linear. 
-    From the same proposition we also get 
-    that $\Vert \tau_{\mathfrak{U}}(\mathcal{T})\Vert\leq\Vert \mathcal{T}\Vert$, 
-    so $\tau_{\mathfrak{U}}$ is contractive. For 
+\begin{proof} By proposition~\ref{TUTMapIsComp}, the map $\tau_{\mu}$ is 
+    well defined. It is routine to check that $\tau_{\mu}$ is linear. 
+    From the same proposition we also obtain 
+    that $\Vert \tau_{\mu}(\mathcal{T})\Vert\leq\Vert \mathcal{T}\Vert$, 
+    so $\tau_{\mu}$ is contractive. For 
     any $\mathcal{T}\in\mathcal{B}(\mathcal{B}(E), \mathcal{K}(E))$, 
     $A\in\mathcal{B}(E)$ and $x\in E$ we have
     \[
         \begin{aligned}
-            \tau_{\mathfrak{U}}(\mathcal{T}\cdot A)(x)
-            &=M_{\mathfrak{U}}\left(
+            \tau_{\mu}(\mathcal{T}\cdot A)(x)
+            &=M_{\mu}\left(
                 \bigoplus\nolimits_{\infty}\{ 
                     (\mathcal{T}\cdot A)(x\bigcirc f_\lambda)(e_\lambda) : 
                     \lambda\in\Lambda 
                 \}
             \right)\\
-            &=M_{\mathfrak{U}}\left(
+            &=M_{\mu}\left(
                 \bigoplus\nolimits_{\infty}\{ 
                     \mathcal{T}(A(x)\bigcirc f_\lambda)(e_\lambda) : 
                     \lambda\in\Lambda 
                 \}
             \right)\\
-            &=\tau_{\mathfrak{U}}(\mathcal{T})(A (x))\\
-            &=(\tau_{\mathfrak{U}}(\mathcal{T})\cdot A)(x).
+            &=\tau_{\mu}(\mathcal{T})(A (x))\\
+            &=(\tau_{\mu}(\mathcal{T})\cdot A)(x).
         \end{aligned}
     \]
-    Therefore $\tau_{\mathfrak{U}}$ is a right $\mathcal{B}(E)$-module map. 
-    Finally, using proposition~\ref{EInftyStateByUltrfltrProps} and 
+    Therefore $\tau_{\mu}$ is a right $\mathcal{B}(E)$-module map. 
+    Finally, using proposition~\ref{EInftyStateByMeanProps} and the 
     biorthogonality of the families $(e_\lambda)_{\lambda\in\Lambda}$ 
-    and $(f_\lambda)_{\lambda\in\Lambda}$ we get
+    and $(f_\lambda)_{\lambda\in\Lambda}$, we obtain, for 
+    all $K\in\mathcal{K}(E)$ and $x\in E$,
         \[
         \begin{aligned}
-            \tau_{\mathfrak{U}}(\rho_{\mathcal{K}(H)}(K))(x)
-            &=M_{\mathfrak{U}}\left(
+            \tau_{\mu}(\rho_{\mathcal{K}(E)}(K))(x)
+            &=M_{\mu}\left(
                 \bigoplus\nolimits_{\infty}\{ 
-                    \rho_{\mathcal{K}(H)}(K)(x\bigcirc f_\lambda)(e_\lambda) : 
+                    \rho_{\mathcal{K}(E)}(K)(x\bigcirc f_\lambda)(e_\lambda) : 
                     \lambda\in\Lambda 
                 \}
             \right)\\
-            &=M_{\mathfrak{U}}\left(
+            &=M_{\mu}\left(
                 \bigoplus\nolimits_{\infty}\{ 
                     \langle e_\lambda, f_\lambda\rangle K(x)  : 
                     \lambda\in\Lambda 
                 \}
             \right)\\
-            &=M_{\mathfrak{U}}\left(
+            &=M_{\mu}\left(
                 \bigoplus\nolimits_{\infty}\{ 
                      K(x): \lambda\in\Lambda 
                 \}
@@ -623,28 +693,32 @@ right Banach $\mathcal{B}(H)$-module $\mathcal{K}(H)$ is relatively injective.
             &=K(x).
         \end{aligned}
     \]
-    for all $K\in\mathcal{K}(E)$ and $x\in E$. In other 
-    words, $\tau_{\mathfrak{U}}\circ\rho_{\mathcal{K}(E)}=1_{\mathcal{K}(E)}$.
+    In other words, $\tau_{\mu}\circ\rho_{\mathcal{K}(E)}=1_{\mathcal{K}(E)}$.
 \end{proof}
 
 \begin{theorem}\label{BHModKHIsRelInj}
-    Let $E$ be an $\ell_p$-space for some $p\in(1,+\infty)$, then the 
-    right $\mathcal{B}(E)$-module $\mathcal{K}(E)$ is 1-relatively injective.
+    Let $E$ be an $\ell_p$-space for some $p\in(1,+\infty)$. Then the 
+    right $\mathcal{B}(E)$-module $\mathcal{K}(E)$ is $1$-relatively injective.
 \end{theorem}
-\begin{proof} By assumption $E=\ell_p(\Lambda)$ for some set $\Lambda$. Pick any 
-    (free, if $\Lambda$ is infinite) ultrafilter $\mathfrak{U}$ on $\Lambda$. By 
-    proposition~\ref{TauMapProps} there exists a right 
-    contractive $\mathcal{B}(E)$-morphism $\tau_{\mathfrak{U}}$ which is a left
+\begin{proof} By assumption $E=\ell_p(\Lambda)$ for some set $\Lambda$. If 
+    $\Lambda$ is finite, then $E$ is finite-dimensional, 
+    so $\mathcal{K}(E)=\mathcal{B}(E)$, and this module is $1$-relatively 
+    injective by Proposition~\ref{BEModBEIsRelInj}. 
+    Assume now that $\Lambda$ is infinite, and fix a singular state $\mu$ 
+    on $\ell_\infty(\Lambda)$, which exists by the discussion in 
+    Section~\ref{SectionNotationAndDefinitions}. By 
+    proposition~\ref{TauMapProps} there exists a contractive right 
+    $\mathcal{B}(E)$-morphism $\tau_{\mu}$ which is a left
     inverse for 
     $
         \rho_{\mathcal{K}(E)}:
         \mathcal{K}(E)\to\mathcal{B}(\mathcal{B}(E), \mathcal{K}(E)), \,
         K\mapsto(T\mapsto K\circ T).
     $
-    By proposition [\cite{HelBanLocConvAlg}, proposition VII.1.39(III)] the 
-    right $\mathcal{B}(E)$-module $\mathcal{K}(E)$ is relatively injective. 
-    As $\tau_{\mathfrak{U}}$ is contractive the module $\mathcal{K}(E)$ 
-    is $1$-relatively injective [\cite{WhiteInjmoduAlg}, proposition 3.8].
+    By Helemskii's criterion and White's theorem 
+    (Section~\ref{SectionNotationAndDefinitions}), the contractivity 
+    of $\tau_{\mu}$ shows that the right $\mathcal{B}(E)$-module 
+    $\mathcal{K}(E)$ is $1$-relatively injective.
 \end{proof}
 
 
@@ -653,21 +727,6 @@ right Banach $\mathcal{B}(H)$-module $\mathcal{K}(H)$ is relatively injective.
 %-------------------------------------------------------------------------------
 
 \begin{thebibliography}{999}
-    %
-    \bibitem{HahnLinSystInLinSp}
-    \textit{Hahn, H.}, {\"U}ber lineare Gleichungssysteme in linearen
-    R{\"a}umen., J. Reine Angew. Math., 157, 214--229, 1927.
-    %
-    %
-    \bibitem{BanachOnLinFuncI}
-    \textit{Banach, S.}, Sur les fonctionnelles lin{\'e}aires, Stud. Math.,
-    1(1), 211--216, 1929.
-    %
-    %
-    \bibitem{BanachOnLinFuncII}
-    \textit{Banach, S.}, Sur les fonctionnelles lin{\'e}aires II, Stud. Math.,
-    1(1), 223--239, 1929.
-    %
     %
     \bibitem{BlascIvorConstrInjSpCK}
     \textit{Blasco, J.L. and Ivorra, C.}, On constructing injective spaces of
@@ -685,13 +744,8 @@ right Banach $\mathcal{B}(H)$-module $\mathcal{K}(H)$ is relatively injective.
     %
     %
     \bibitem{NemRelInjC0SmodC0S}
-    \textit{Nemesh, N.T.}, A note on relatively injective $C_0(S)$-modules 
-    $C_0(S)$, Functional Analysis and its applications, 55, 298--303, 2021.
-    %
-    %
-    \bibitem{GoldbrUltfltrMath}
-    \textit{Goldbring, I.}, Ultrafilters throughout mathematics,
-    American Mathematicsl Society, 2022.
+    \textit{Nemesh, N.T.}, A note on relatively injective $C_0(S)$-modules, 
+    Functional Analysis and Its Applications, 55, 298--303, 2021.
     %
     %
     \bibitem{PhilOnLinTransfrm}
@@ -712,7 +766,22 @@ right Banach $\mathcal{B}(H)$-module $\mathcal{K}(H)$ is relatively injective.
     \bibitem{WhiteInjmoduAlg}\textit{M. C. White}, Injective modules for uniform 
     algebras, Proceedings of London Mathematical Society, 3(1), p. 155--184, 
     1991.
-    Press, 1996.
+    %
+    %
+    \bibitem{RamsdenThesis}\textit{P. Ramsden}, Homological properties of 
+    semigroup algebras, PhD thesis, University of Leeds, 2009.
+    %
+    %
+    \bibitem{ArgyrosHaydon}\textit{S. A. Argyros and R. G. Haydon}, A 
+    hereditarily indecomposable $\mathcal{L}_\infty$-space that solves the 
+    scalar-plus-compact problem, Acta Mathematica, 206(1), 1--54, 2011. 
+    \url{https://doi.org/10.1007/s11511-011-0058-y}
+    %
+    %
+    \bibitem{Tarbard}\textit{M. Tarbard}, Hereditarily indecomposable, separable 
+    $\mathcal{L}_\infty$ Banach spaces with $\ell_1$ dual having few but not very 
+    few operators, Journal of the London Mathematical Society, 85(3), 737--764, 
+    2012. \url{https://arxiv.org/abs/1011.4776}
     %
 
 \end{thebibliography}
