@@ -118,7 +118,7 @@ any $p\in\mathbb{R}_0[t]$ has no constant term, then $p(a)\in I$.  Hence, we hav
 a well-defined $\mathbb{R}$-linear homomorphism of algebras
 $\operatorname{RPol}_a^0:\mathbb{R}_0[t]\to I:p\mapsto p(a)$. By continuous
 functional calculus for any polynomial $p$ 
-holds $\Vert p(a)\Vert=\Vert p|_{\operatorname{sp}_A(a)}\Vert_\infty$, so
+it holds that $\Vert p(a)\Vert=\Vert p|_{\operatorname{sp}_A(a)}\Vert_\infty$, so
 $\Vert\operatorname{RPol}_a^0(p)\Vert
 =\Vert p|_{\operatorname{sp}_A(a)}\Vert_\infty$. 
 Thus, $\operatorname{RPol}_a^0$ is isometric. 
@@ -173,7 +173,7 @@ $\Vert\sigma_d(x)\Vert
 =\lim_\nu\Vert x\sigma_d(e_\nu)\Vert 
 \leq\Vert x\Vert\liminf_\nu\Vert\sigma_d(e_\nu)\Vert$, 
 so $\Vert\sigma_d\Vert\leq \liminf_\nu\Vert\sigma_d(e_\nu)\Vert$. 
-Then for all $S\in\mathcal{P}_{f}(B_I)$ holds
+Then for all $S\in\mathcal{P}_{f}(B_I)$ it holds that
 $$
 \sum_{d\in S}\Vert \sigma_d\Vert
 \leq \sum_{d\in S}\liminf_\nu\Vert \sigma_d(e_\nu)\Vert
@@ -277,7 +277,7 @@ $\lim_{m\to\infty} g_m(t_{0,m})=M-1<0$, $g_m(0)=M>0$ and $\lim_{t\to\infty}
 g_m(t)=+\infty$, then for sufficiently big $m$ the function $g_m$ has exactly
 two zeros: $0<t_{1,m}<t_{0,m}$ and $t_{2,m} > t_{0,m}$. Therefore, $g_m(t)\geq 0$
 for $0\leq t\leq t_{1,m}$ or $t\geq t_{2,m}$. Hence, for all sufficiently big
-$m$ holds $\operatorname{sp}_{A_\#}(b)\subset T_{t_{1,m},t_{2,m}}$, 
+$m$ it holds that $\operatorname{sp}_{A_\#}(b)\subset T_{t_{1,m},t_{2,m}}$, 
 where $T_{a, b}:=\{t\in\mathbb{R} : 0\leq t \leq a \vee t \geq b\}$. 
 Since $\lim_{m\to\infty} t_{0,m}=0$, then $\lim_{m\to\infty} t_{1,m}=0$ too. 
 Note that $g_m(1)=4N+M-1>0$, so for sufficiently big $m$ we also 
@@ -857,7 +857,7 @@ $\mathcal{B}(H)$ is a relatively projective $\mathcal{B}(H)$-module. From
 [\cite{RamsHomPropSemgroupAlg}, propositions 2.3.3, 2.3.4] we know that
 $\langle$~an essential relatively projective / a faithful relatively
 injective~$\rangle$ module over an ideal of a Banach algebra 
-is $\langle$~relatively projective / relative injective~$\rangle$ over 
+is $\langle$~relatively projective / relatively injective~$\rangle$ over 
 the algebra itself. Since $\mathcal{K}(H)$ and $\mathcal{N}(H)$ are essential 
 and faithful $\mathcal{K}(H)$-modules, then from the results of the previous paragraph
 $\mathcal{N}(H)$ is relatively projective and injective, while $\mathcal{K}(H)$
@@ -1403,7 +1403,7 @@ $\ell_\infty(\Lambda)$ is a relatively projective $\ell_\infty(\Lambda)$-module.
 In [\cite{NemANoteOnRelInjC0ModC0}, theorem 4.4] it was shown 
 that the $\ell_\infty(\Lambda)$-module $c_0(\Lambda)$ is relatively injective. 
 From [\cite{RamsHomPropSemgroupAlg}, propositions 2.3.3, 2.3.4] we know that
-$\langle$~an essential relatively projective / a  faithful relatively
+$\langle$~an essential relatively projective / a faithful relatively
 injective~$\rangle$ module over an ideal of a Banach algebra is 
 $\langle$~relatively projective / relatively injective~$\rangle$ over the algebra 
 itself. For each $1\leq p<+\infty$, the $c_0(\Lambda)$-module $\ell_p(\Lambda)$  
@@ -2004,7 +2004,7 @@ proposition~\ref{IdealofCommCStarAlgMetTopProjCharac} /
 $C_0(S)$ is $\langle$~compact / compact / paracompact~$\rangle$. 
 
 $(ii)$ The result on metric injectivity is a weakened version of
-proposition~\ref{MetInjCStarAlgCharac}. The result on relatively injectivity 
+proposition~\ref{MetInjCStarAlgCharac}. The result on relative injectivity 
 follows from~[\cite{NemANoteOnRelInjC0ModC0}, theorem 4.4]. It remains to recall
 that by proposition~\ref{MetInjIsTopInjAndTopInjIsRelInj} any metrically injective
 module is relatively injective.
@@ -2616,7 +2616,7 @@ and $M_s(G)$ is an annihilator $L_1(G)$-module.
 Finally, $M(G)=M_a(G)$ iff $G$ is discrete. 
 
 Now we proceed to the discussion of standard left and right modules 
-over $L_1(G)$ and $M(G)$. Since the Banach algebra $L_1(G)$ can be 
+over $L_1(G)$ and $M(G)$. The Banach algebra $L_1(G)$ can be 
 regarded as a closed two-sided ideal  of $M(G)$ because of the isometric 
 left and right $M(G)$-morphism $i:L_1(G)\to M(G):f\mapsto f m_G$. 
 Therefore, it is enough to define all module structures over $M(G)$. 
@@ -2636,7 +2636,7 @@ $$
 These module actions turn any Banach space $L_p(G)$ for $1<p\leq+\infty$ into 
 a left and right $M(G)$-module too. This special choice of module structure 
 nicely interacts with duality. Indeed, we have 
-and ${(L_p(G),\convol_p)}^*\isom{\mathbf{mod}_1-M(G)}(L_{p^*}(G),\cdot_{p^*})$ 
+${(L_p(G),\convol_p)}^*\isom{\mathbf{mod}_1-M(G)}(L_{p^*}(G),\cdot_{p^*})$ 
 for all $1\leq p<+\infty$. Finally, the Banach space $C_0(G)$ also becomes a left 
 and right $M(G)$-module when endowed with $\cdot_\infty$ in the role of module 
 action. Even more, $C_0(G)$ is a closed left and right $M(G)$-submodule 
@@ -3039,7 +3039,7 @@ infinite locally compact group. Then
 \end{proposition}
 
 $(iv)$ $L_p(G)$ for $1<p<\infty$ are neither topologically nor metrically
-projective, injective or flat $A$-flat.
+projective, injective or flat $A$-modules.
 
 \begin{proof} $(i)$ The result follows from
 propositions~\ref{TopProjInjFlatModOverL1Charac} paragraph $(i)$ and
@@ -3138,7 +3138,7 @@ denotes the unique group of two elements.
 
 \begin{proposition}\label{StdModFinGrL1MGTopInjProjFlatCharac} Let $G$ be a
 finite group. Then the $A$-modules $C_0(G)$, $M(G)$, $L_p(G)$ 
-for $1\leq p\leq \infty$ are both topologically projective, injective and flat.
+for $1\leq p\leq \infty$ are topologically projective, injective and flat.
 \end{proposition} 
 \begin{proof}
 Since the group $G$ is finite, we have $M(G)=L_1(G)$ and $C_0(G)=L_\infty(G)$, 
@@ -3171,7 +3171,7 @@ homologically trivial modules $\mathbb{C}_\gamma$ in the case of relative theory
 the same as in
 propositions~\ref{OneDimL1ModMetTopProjCharac},
 ~\ref{OneDimL1ModMetTopInjFlatCharac}
-and~\ref{OneDimL1ModMetTopInjFlatCharac}. As usually, we use ${}^{*}$ to
+and~\ref{OneDimL1ModMetTopInjFlatCharac}. As usual, we use ${}^{*}$ to
 indicate that only a necessary condition is known. As we showed above, even
 topological theory is too restrictive for $L_1(G)$ to be projective as an
 $L_1(G)$-module. Similarly, a Banach space is topologically projective iff it is
