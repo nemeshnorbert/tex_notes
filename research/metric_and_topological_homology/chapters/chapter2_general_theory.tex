@@ -71,7 +71,7 @@ set. Then the left $A$-modules $A_+ \projtens \ell_1(\Lambda)$
 and $A_\times \projtens \ell_1(\Lambda)$ 
 are $\langle$~metrically / $1$-topologically~$\rangle$ projective. 
 \end{proposition}
-\begin{proof} By $A_\bullet$ we denote either $A_+$ or $A_\times$. 
+\begin{proof}
 Consider an arbitrary $A$-morphism 
 $\phi:A_\bullet\projtens\ell_1(\Lambda)\to X$ and a 
 strictly $\langle$~coisometric / $c$-topologically surjective~$\rangle$ 
@@ -94,18 +94,18 @@ projective.
 \end{proof}
 
 
-\begin{proposition}\label{UnitalAlgIsMetTopProj} The left $A$-module $A_\times$
+\begin{proposition}\label{UnitalAlgIsMetTopProj} The left $A$-module $A_\bullet$
 is $\langle$~metrically / $1$-topologically~$\rangle$ projective.
 \end{proposition} 
 \begin{proof} Consider the set $\Lambda=\mathbb{N}_1$. 
 By proposition~\ref{MetCTopFreeMod} the 
-$A$-module $A_\times\projtens\ell_1(\Lambda)$ is metrically 
+$A$-module $A_\bullet\projtens\ell_1(\Lambda)$ is metrically 
 and $1$-topologically projective. Now it remains to note that 
-$A_\times\projtens\ell_1(\Lambda)
+$A_\bullet\projtens\ell_1(\Lambda)
 \isom{A-\mathbf{mod}_1}
-A_\times\projtens \mathbb{C}
+A_\bullet\projtens \mathbb{C}
 \isom{A-\mathbf{mod}_1}
-A_\times$.
+A_\bullet$.
 \end{proof}
 
 \begin{proposition}[\cite{WhiteInjmoduAlg}, 
@@ -553,54 +553,54 @@ projective cyclic modules. It is almost identical to [\cite{WhiteInjmoduAlg},
 proposition 2.11].
 
 \begin{proposition}\label{MetTopProjCycModCharac} Let $I$ be a closed left ideal in
-$A_\times $. Assume the natural projection $\pi:A_\times\to A_\times/I$ is
+$A_\bullet $. Assume the natural projection $\pi:A_\bullet\to A_\bullet/I$ is
 strictly $\langle$~coisometric / $c$-topologically surjective~$\rangle$. 
 Then the following holds:
 
 \begin{enumerate}[label = (\roman*)]
-    \item If $A_\times /I$ is $\langle$~metrically / $C$-topologically~$\rangle$
+    \item If $A_\bullet /I$ is $\langle$~metrically / $C$-topologically~$\rangle$
     projective as an $A$-module, then there exists an idempotent $p\in I$ such that
-    $I=Ap$ and $\Vert e_{A_\times}-p\Vert$ is $\langle$~at most $1$ / at most
+    $I=Ap$ and $\Vert e_{A_\bullet}-p\Vert$ is $\langle$~at most $1$ / at most
     $cC$~$\rangle$;
 
-    \item If there exists an idempotent $p\in I$ such that $I=A_\times  p$ and
-    $\Vert e_{A_\times }-p\Vert$ is $\langle$~at most $1$ / at most
-    $C$~$\rangle$, then $A_\times/I$ is $\langle$~metrically /
+    \item If there exists an idempotent $p\in I$ such that $I=A_\bullet  p$ and
+    $\Vert e_{A_\bullet }-p\Vert$ is $\langle$~at most $1$ / at most
+    $C$~$\rangle$, then $A_\bullet/I$ is $\langle$~metrically /
     $C$-topologically~$\rangle$ projective.
 \end{enumerate}
 \end{proposition}
 \begin{proof} $(i)$ Since the natural quotient map $\pi$ is strictly 
-$\langle$~coisometric / $c$-topologically surjective~$\rangle$ and $A_\times /I$
+$\langle$~coisometric / $c$-topologically surjective~$\rangle$ and $A_\bullet /I$
 is $\langle$~metrically / $C$-topologically~$\rangle$ projective, $\pi$ has
 a right inverse $A$-morphism $\sigma$ with norm $\langle$~at most $1$ / at most
-$cC$~$\rangle$. We set $e_{A_\times }-p=(\sigma\pi)(e_{A_\times })$. Then
-$(\sigma\pi)(a)=a(e_{A_\times }-p)$. By construction, $\pi\sigma=1_{A_\times }$,
+$cC$~$\rangle$. We set $e_{A_\bullet }-p=(\sigma\pi)(e_{A_\bullet })$. Then
+$(\sigma\pi)(a)=a(e_{A_\bullet }-p)$. By construction, $\pi\sigma=1_{A_\bullet }$,
 so  
 $$
-e_{A_\times }-p
-=(\sigma\pi)(e_{A_\times })
-=(\sigma\pi)(\sigma\pi)(e_{A_\times })
-=(\sigma\pi)(e_{A_\times }-p)
-=(e_{A_\times }-p)(\sigma\pi)(e_{A_\times })
-={(e_{A_\times }-p)}^2
+e_{A_\bullet }-p
+=(\sigma\pi)(e_{A_\bullet })
+=(\sigma\pi)(\sigma\pi)(e_{A_\bullet })
+=(\sigma\pi)(e_{A_\bullet }-p)
+=(e_{A_\bullet }-p)(\sigma\pi)(e_{A_\bullet })
+={(e_{A_\bullet }-p)}^2
 $$
-This equality shows that $p^2=p$. Therefore, $A_\times
+This equality shows that $p^2=p$. Therefore, $A_\bullet
 p=\operatorname{Ker}(\sigma\pi)$ because $(\sigma\pi)(a)=a-ap$. Since $\sigma$
-is injective, this is equivalent to $A_\times p=\operatorname{Ker}(\pi)$ which
+is injective, this is equivalent to $A_\bullet p=\operatorname{Ker}(\pi)$ which
 equals $I$. Finally, note that 
-$\Vert e_{A_\times }-p\Vert
-=\Vert(\sigma\pi)(e_{A_\times})\Vert
-\leq\Vert\sigma\Vert\Vert\pi\Vert\Vert e_{A_\times }\Vert
+$\Vert e_{A_\bullet }-p\Vert
+=\Vert(\sigma\pi)(e_{A_\bullet})\Vert
+\leq\Vert\sigma\Vert\Vert\pi\Vert\Vert e_{A_\bullet }\Vert
 =\Vert\sigma\Vert$.
 
-$(ii)$ Since $p^2=p$, we have a well-defined closed left ideal $I=A_\times p$ and
-an $A$-module map $\sigma:A_\times /I\to A_\times:a+I\mapsto a-ap$. It is easy
-to check that $\pi\sigma=1_{A_\times/I}$ 
-and $\Vert\sigma\Vert\leq\Vert e_{A_\times }-p\Vert$. 
-This means that $\pi:A_\times \to A_\times /I$ is a
+$(ii)$ Since $p^2=p$, we have a well-defined closed left ideal $I=A_\bullet p$ and
+an $A$-module map $\sigma:A_\bullet /I\to A_\bullet:a+I\mapsto a-ap$. It is easy
+to check that $\pi\sigma=1_{A_\bullet/I}$ 
+and $\Vert\sigma\Vert\leq\Vert e_{A_\bullet }-p\Vert$. 
+This means that $\pi:A_\bullet \to A_\bullet /I$ is a
 $\langle$~$1$-retraction / $C$-retraction~$\rangle$. From
 propositions~\ref{UnitalAlgIsMetTopProj} 
-and~\ref{RetrMetCTopProjIsMetCTopProj} it follows that $A_\times /I$ is
+and~\ref{RetrMetCTopProjIsMetCTopProj} it follows that $A_\bullet /I$ is
 $\langle$~metrically / $C$-topologically~$\rangle$ projective.
 \end{proof} 
 
@@ -669,13 +669,13 @@ set, then the left $A$-modules $\mathcal{B}(A_+, \ell_\infty(\Lambda))$
 and $\mathcal{B}(A_\times, \ell_\infty(\Lambda))$
 are $\langle$~metrically / $1$-topologically~$\rangle$ injective. 
 \end{proposition}
-\begin{proof} By $A_\bullet$ we denote either $A_+$ or $A_\times$.
+\begin{proof}
 Consider an arbitrary $A$-morphism 
 $\phi:Y\to \mathcal{B}(A_\bullet, \ell_\infty(\Lambda))$ and 
 $\langle$~an isometric / a $c$-topologically injective~$\rangle$ 
 $A$-morphism $\xi:Y\to X$. Fix an arbitrary $\lambda\in\Lambda$ and define 
 a bounded linear functional 
-$h_\lambda:Y\to\mathbb{C},\, y\mapsto \phi(y)(e_{A_\times})(\lambda)$. 
+$h_\lambda:Y\to\mathbb{C},\, y\mapsto \phi(y)(e_{A_\bullet})(\lambda)$. 
 Clearly, $\Vert h_\lambda\Vert\leq\Vert \phi\Vert$.
 Denote $X_0=\operatorname{Im}(\xi)$ and consider 
 the $A$-morphism $\eta=\xi|^{X_0}$. Since $\xi$ is 
@@ -704,17 +704,17 @@ $\langle$~metrically / $1$-topologically~$\rangle$ injective.
 
 
 \begin{proposition}\label{DualOfUnitalAlgIsMetTopInj} The right $A$-module
-$A_\times^*$ is metrically and $1$-topologically injective.
+$A_\bullet^*$ is metrically and $1$-topologically injective.
 \end{proposition}
 \begin{proof} Consider the set $\Lambda=\mathbb{N}_1$. 
 By proposition~\ref{MetCTopCofreeMod} the 
-$A$-module $\mathcal{B}(A_\times, \ell_\infty(\Lambda))$ is metrically 
+$A$-module $\mathcal{B}(A_\bullet, \ell_\infty(\Lambda))$ is metrically 
 and $1$-topologically injective. Now it remains to note that 
-$\mathcal{B}(A_\times, \ell_\infty(\Lambda))
+$\mathcal{B}(A_\bullet, \ell_\infty(\Lambda))
 \isom{\mathbf{mod}_1-A}\\
-\mathcal{B}(A_\times, \mathbb{C})
+\mathcal{B}(A_\bullet, \mathbb{C})
 \isom{\mathbf{mod}_1-A}
-A_\times^*$.
+A_\bullet^*$.
 \end{proof}
 
 \begin{proposition}[\cite{WhiteInjmoduAlg}, 
@@ -1358,71 +1358,71 @@ The ``metric'' part of the following proposition is a slight modification of
 solved by Helemskii in [\cite{HelHomolBanTopAlg}, theorem VI.1.20].
 
 \begin{proposition}\label{MetTopFlatCycModCharac} Let $I$ be a closed left proper ideal
-of $A_\times $. Then the following are equivalent:
+of $A_\bullet $. Then the following are equivalent:
 
 \begin{enumerate}[label = (\roman*)]
-    \item $A_\times /I$ is a $\langle$~metrically / $C$-topologically~$\rangle$
+    \item $A_\bullet /I$ is a $\langle$~metrically / $C$-topologically~$\rangle$
     flat $A$-module;
 
     \item $I$ has a right bounded approximate identity ${(e_\nu)}_{\nu\in N}$
-    with $\sup_{\nu\in N}\Vert e_{A_\times }-e_\nu\Vert$ $\langle$~at most $1$ /
+    with $\sup_{\nu\in N}\Vert e_{A_\bullet }-e_\nu\Vert$ $\langle$~at most $1$ /
     at most $C$~$\rangle$
 \end{enumerate}
 \end{proposition}
-\begin{proof} $(i)\implies (ii)$  Since $A_\times /I$ is $\langle$~metrically
+\begin{proof} $(i)\implies (ii)$  Since $A_\bullet /I$ is $\langle$~metrically
 / $C$-topologically~$\rangle$ flat, by proposition~\ref{MetCTopFlatCharac} 
-the right $A$-module ${(A_\times /I)}^*$ is $\langle$~metrically /
-$C$-topologically~$\rangle$ injective. Let $\pi:A_\times \to A_\times /I$ be the
-natural quotient map; then $\pi^*:{(A_\times /I)}^*\to A_\times ^*$ is an
-isometry. Since ${(A_\times /I)}^*$ is $\langle$~metrically /
+the right $A$-module ${(A_\bullet /I)}^*$ is $\langle$~metrically /
+$C$-topologically~$\rangle$ injective. Let $\pi:A_\bullet \to A_\bullet /I$ be the
+natural quotient map; then $\pi^*:{(A_\bullet /I)}^*\to A_\bullet ^*$ is an
+isometry. Since ${(A_\bullet /I)}^*$ is $\langle$~metrically /
 $C$-topologically~$\rangle$ injective, $\pi^*$ is a coretraction, i.e.\
 there exists a $\langle$~strictly coisometric / topologically
-surjective~$\rangle$ $A$-morphism $\tau:A_\times ^*\to {(A_\times /I)}^*$ of
+surjective~$\rangle$ $A$-morphism $\tau:A_\bullet ^*\to {(A_\bullet /I)}^*$ of
 norm $\langle$~at most $1$ / at most $C$~$\rangle$ such that
-$\tau\pi^*=1_{{(A_\times /I)}^*}$. Consider $p\in A^{**}$ such that
-$\iota_{A_\times }(e_{A_\times })-p
-=\tau^*(\pi^{**}(\iota_{A_\times }(e_{A_\times })))$. 
-Fix $f\in I^\perp$. Since $I^\perp=\pi^*({(A_\times /I)}^*)$, 
-there exists a functional $g\in {(A_\times /I)}^*$ such 
+$\tau\pi^*=1_{{(A_\bullet /I)}^*}$. Consider $p\in A^{**}$ such that
+$\iota_{A_\bullet }(e_{A_\bullet })-p
+=\tau^*(\pi^{**}(\iota_{A_\bullet }(e_{A_\bullet })))$. 
+Fix $f\in I^\perp$. Since $I^\perp=\pi^*({(A_\bullet /I)}^*)$, 
+there exists a functional $g\in {(A_\bullet /I)}^*$ such 
 that $f=\pi^*(g)$. Thus,
 $$
-(\iota_{A_\times }(e_{A_\times })-p)(f)
-=\tau^*(\pi^{**}(\iota_{A_\times }(e_{A_\times })))(\pi^*(g))
-=\pi^{**}(\iota_{A_\times }(e_{A_\times }))(\tau(\pi^*(g)))
+(\iota_{A_\bullet }(e_{A_\bullet })-p)(f)
+=\tau^*(\pi^{**}(\iota_{A_\bullet }(e_{A_\bullet })))(\pi^*(g))
+=\pi^{**}(\iota_{A_\bullet }(e_{A_\bullet }))(\tau(\pi^*(g)))
 $$
 $$
-=\pi^{**}(\iota_{A_\times }(e_{A_\times }))(g)
-=\iota_{A_\times }(e_{A_\times })(\pi^*(g))
-=\iota_{A_\times }(e_{A_\times })(f).
+=\pi^{**}(\iota_{A_\bullet }(e_{A_\bullet }))(g)
+=\iota_{A_\bullet }(e_{A_\bullet })(\pi^*(g))
+=\iota_{A_\bullet }(e_{A_\bullet })(f).
 $$
 Therefore, $p(f)=0$ for all $f\in I^\perp$, i.e. $p\in I^{\perp\perp}$. Recall
 that $I^{\perp\perp}$ is the weak${}^*$ closure of $I$ in $A^{**}$, so we can
 choose a net ${(e_\nu'')}_{\nu\in N''}\subset I$ such that
 ${(\iota_I(e_\nu''))}_{\nu\in N''}$ converges to $p$ in the weak${}^*$ topology.
-Clearly, ${(\iota_{A_\times }(e_{A_\times }-e_\nu''))}_{\nu\in N''}$ converges to
-$\iota_{A_\times }(e_{A_\times })-p$ in the same topology. By
+Clearly, ${(\iota_{A_\bullet }(e_{A_\bullet }-e_\nu''))}_{\nu\in N''}$ converges to
+$\iota_{A_\bullet }(e_{A_\bullet })-p$ in the same topology. By
 [\cite{PosAndApproxIdinBanAlg}, lemma 1.1] there exists a net in the convex hull
 $\operatorname{conv}{
-    (\iota_{A_\times }(e_{A_\times }-e_\nu''))
+    (\iota_{A_\bullet }(e_{A_\bullet }-e_\nu''))
 }_{\nu\in N''}
-=\iota_{A_\times }(e_{A_\times })
--\operatorname{conv}{(\iota_{A_\times}(e_\nu''))}_{\nu\in N''}$ 
-that weak${}^*$ converges to $\iota_{A_\times }(e_{A_\times })-p$ and 
+=\iota_{A_\bullet }(e_{A_\bullet })
+-\operatorname{conv}{(\iota_{A_\bullet}(e_\nu''))}_{\nu\in N''}$ 
+that weak${}^*$ converges to $\iota_{A_\bullet }(e_{A_\bullet })-p$ and 
 all elements of this net are bounded in norm 
-by $\Vert \iota_{A_\times }(e_{A_\times})-p\Vert$. Denote this net by 
-${(\iota_{A_\times }(e_{A_\times })-\iota_{A_\times }(e_\nu'))}_{\nu\in N'}$; 
-then ${(\iota_{A_\times }(e_\nu'))}_{\nu\in N'}$ weak${}^*$ converges to $p$. 
+by $\Vert \iota_{A_\bullet }(e_{A_\bullet})-p\Vert$. Denote this net by 
+${(\iota_{A_\bullet }(e_{A_\bullet })-\iota_{A_\bullet }(e_\nu'))}_{\nu\in N'}$; 
+then ${(\iota_{A_\bullet }(e_\nu'))}_{\nu\in N'}$ weak${}^*$ converges to $p$. 
 For any $a\in I$ and $f\in I^*$ we have
 $$
 \lim_{\nu}f(ae_\nu')
-=\lim_{\nu}\iota_{A_\times }(e_\nu')(f\cdot a)
+=\lim_{\nu}\iota_{A_\bullet }(e_\nu')(f\cdot a)
 =p(f\cdot a)
-=\iota_{A_\times }(e_{A_\times })(f\cdot a)
--\tau^*(\pi^{**}(\iota_{A_\times }(e_{A_\times })))(f\cdot a)
+=\iota_{A_\bullet }(e_{A_\bullet })(f\cdot a)
+-\tau^*(\pi^{**}(\iota_{A_\bullet }(e_{A_\bullet })))(f\cdot a)
 $$
 $$
-=f(a)-\iota_{A_\times }(e_{A_\times })(\pi^*(\tau(f\cdot a)))
-=f(a)-\pi^*(\tau(f)\cdot a)(e_{A_\times })
+=f(a)-\iota_{A_\bullet }(e_{A_\bullet })(\pi^*(\tau(f\cdot a)))
+=f(a)-\pi^*(\tau(f)\cdot a)(e_{A_\bullet })
 =f(a)-\tau(f)(\pi(a))
 =f(a)
 $$
@@ -1430,39 +1430,39 @@ hence ${(e_\nu')}_{\nu\in N'}$ is a weak right bounded approximate identity for
 $I$. By [\cite{AppIdAndFactorInBanAlg}, proposition 33.2] there is a net
 ${(e_\nu)}_{\nu\in N}\subset\operatorname{conv}{(e_\nu')}_{\nu\in N'}$ which is
 a right bounded approximate identity for $I$. For any $\nu\in N$ we have
-$e_{A_\times }-e_\nu\in\operatorname{conv}{(e_{A_\times }-e_\nu')}_{\nu\in N'}$,
+$e_{A_\bullet }-e_\nu\in\operatorname{conv}{(e_{A_\bullet }-e_\nu')}_{\nu\in N'}$,
 so taking into account the norm bound 
-on ${(\iota_{A_\times }(e_{A_\times}-e_\nu'))}_{\nu\in N'}$ we get 
+on ${(\iota_{A_\bullet }(e_{A_\bullet}-e_\nu'))}_{\nu\in N'}$ we get 
 $$
-\sup_{\nu\in N}\Vert e_{A_\times }-e_\nu\Vert
-\leq\Vert \iota_{A_\times }(e_{A_\times })-p\Vert
-\leq\Vert\tau^*(\pi^{**}(\iota_{A_\times }(e_{A_\times })))\Vert
-\leq\Vert\tau^*\Vert\Vert\pi^{**}\Vert\Vert\iota_{A_\times }(e_{A_\times })\Vert
+\sup_{\nu\in N}\Vert e_{A_\bullet }-e_\nu\Vert
+\leq\Vert \iota_{A_\bullet }(e_{A_\bullet })-p\Vert
+\leq\Vert\tau^*(\pi^{**}(\iota_{A_\bullet }(e_{A_\bullet })))\Vert
+\leq\Vert\tau^*\Vert\Vert\pi^{**}\Vert\Vert\iota_{A_\bullet }(e_{A_\bullet })\Vert
 =\Vert\tau\Vert
 $$
 Since $\tau$ has norm $\langle$~at most $1$ / at most $C$~$\rangle$, we get the
 desired bound. By construction, ${(e_\nu)}_{\nu\in N}$ is a right bounded
 approximate identity for $I$.
 
-$(ii)\implies (i)$ Denote $D=\sup_{\nu\in N}\Vert e_{A_\times }-e_\nu\Vert$.
+$(ii)\implies (i)$ Denote $D=\sup_{\nu\in N}\Vert e_{A_\bullet }-e_\nu\Vert$.
 Let $\mathfrak{F}$ be the section filter on $N$ and let $\mathfrak{U}$ be an
-ultrafilter dominating $\mathfrak{F}$. For a fixed $f\in A_\times ^*$ 
-and $a\in A_\times $ we have 
-$|f(a-a e_\nu)|=|f(a(e_{A_\times }-e_\nu))|
-\leq\Vert f\Vert\Vert a\Vert\Vert e_{A_\times }-e_\nu\Vert
+ultrafilter dominating $\mathfrak{F}$. For a fixed $f\in A_\bullet ^*$ 
+and $a\in A_\bullet $ we have 
+$|f(a-a e_\nu)|=|f(a(e_{A_\bullet }-e_\nu))|
+\leq\Vert f\Vert\Vert a\Vert\Vert e_{A_\bullet }-e_\nu\Vert
 \leq D\Vert f\Vert\Vert a\Vert$,
 i.e. ${(f(a-ae_\nu))}_{\nu\in N}$ is a bounded net of complex numbers. Therefore,
 we have a well-defined limit $\lim_{\mathfrak{U}}f(a-ae_\nu)$ along the ultrafilter
 $\mathfrak{U}$. Since ${(e_\nu)}_{\nu\in N}$ is a right approximate identity for
 $I$ and $\mathfrak{U}$ contains the section filter, for all $a\in I$ we have
 $\lim_{\mathfrak{U}}f(a-ae_\nu)=\lim_{\nu}f(a-ae_\nu)=0$. Therefore, for each
-$f\in A_\times ^*$ we have a well-defined map $\tau(f):A_\times /I\to
+$f\in A_\bullet ^*$ we have a well-defined map $\tau(f):A_\bullet /I\to
 \mathbb{C},\, a+I\mapsto \lim_{\mathfrak{U}} f(a-ae_\nu)$. Clearly, this is a
 linear functional and from the inequalities above we see that its norm is bounded 
 by $D\Vert f\Vert$. Now it is routine to check 
-that $\tau:A_\times ^*\to {(A_\times /I)}^*,\, f\mapsto \tau(f)$ is 
+that $\tau:A_\bullet ^*\to {(A_\bullet /I)}^*,\, f\mapsto \tau(f)$ is 
 an $A$-morphism with norm $\langle$~at most $1$ / at most $C$~$\rangle$. 
-For all $g\in{(A_\times /I)}^*$ and $a+I\in A_\times /I$ we have
+For all $g\in{(A_\bullet /I)}^*$ and $a+I\in A_\bullet /I$ we have
 $$
 \tau(\pi^*(g))(a+I)
 =\lim_{\mathfrak{U}}\pi^*(g)(a-ae_\nu)
@@ -1470,13 +1470,13 @@ $$
 =\lim_{\mathfrak{U}} g(a+I)
 =g(a+I)
 $$
-i.e. $\tau:A_\times ^*\to {(A_\times /I)}^*$ is a retraction. The right
-$A$-module $A_\times ^*$ is $\langle$~metrically / $1$-topologically~$\rangle$
+i.e. $\tau:A_\bullet ^*\to {(A_\bullet /I)}^*$ is a retraction. The right
+$A$-module $A_\bullet ^*$ is $\langle$~metrically / $1$-topologically~$\rangle$
 injective by proposition~\ref{DualOfUnitalAlgIsMetTopInj}, hence its
-$\langle$~$1$-retract / $C$-retract~$\rangle$ ${(A_\times /I)}^*$ is
+$\langle$~$1$-retract / $C$-retract~$\rangle$ ${(A_\bullet /I)}^*$ is
 $\langle$~metrically / $C$-topologically~$\rangle$ injective. 
 Proposition~\ref{MetCTopFlatCharac} gives that the
-module $A_\times /I$ is $\langle$~metrically / $C$-topologically~$\rangle$ flat.
+module $A_\bullet /I$ is $\langle$~metrically / $C$-topologically~$\rangle$ flat.
 \end{proof}
 
 It is worth mentioning that every operator algebra $A$ (not necessarily self
