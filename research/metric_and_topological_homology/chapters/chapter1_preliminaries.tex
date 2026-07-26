@@ -238,7 +238,7 @@ that any filter is dominated by some ultrafilter.
 Let $\mathfrak{F}$ be a filter on the set $M$, and $\phi:M\to S$ be a map from
 $M$ to the Hausdorff topological space $S$. We say that $x$ is a limit of $\phi$
 along $\mathfrak{F}$ and write $x=\lim_{\mathfrak{F}} \phi(m)$ if for every open
-neighborhood $U$ of $x$ holds $\phi^{-1}(U)\in\mathfrak{F}$. Directly from the
+neighborhood $U$ of $x$ it holds that $\phi^{-1}(U)\in\mathfrak{F}$. Directly from the
 definition it follows that if $\phi$ has a limit along $\mathfrak{F}$, then it
 has the same limit along any filter that dominates $\mathfrak{F}$. 
 
@@ -333,7 +333,7 @@ $ \{E_\lambda:\lambda\in\Lambda \}$ of finite measure such that:
   \item $E$ is measurable iff $E\cap E_\lambda$ is measurable for all
   $\lambda\in\Lambda$;
 
-  \item for any measurable set $E$ holds 
+  \item for any measurable set $E$ it holds that 
   $\mu(E)=\sum_{\lambda\in\Lambda}\mu(E\cap E_\lambda)$. 
 \end{enumerate}
   
@@ -442,13 +442,13 @@ always closed. A Borel measure $\mu$ is called
   \item locally finite if every point has an open neighborhood of finite measure; 
 
   \item inner regular with respect to a
-  class $\mathcal{C}$ of Borel sets if for any Borel set $E$ holds 
+  class $\mathcal{C}$ of Borel sets if for any Borel set $E$ it holds that 
   $$
   \mu(E)=\sup \{\mu(K): K\subset E, K\in\mathcal{C} \};
   $$
 
   \item outer regular with respect to a 
-  class $\mathcal{C}$ of Borel sets if for any Borel set $E$ holds 
+  class $\mathcal{C}$ of Borel sets if for any Borel set $E$ it holds that 
   $$
   \mu(E)=\inf \{\mu(K): K\subset E, K\in\mathcal{C} \};
   $$
@@ -1516,7 +1516,7 @@ contractivity / amenability~$\rangle$ constant.  With slight modifications of
 $c$-relatively $\langle$~contractible / amenable~$\rangle$ iff there exists
 $\langle$~an element $d\in A\projtens A$ / a net 
 ${(d_\nu)}_{\nu\in N}\subset A\projtens A$~$\rangle$ with 
-norm not greater than $c$ such that for all $a\in A$ holds 
+norm not greater than $c$ such that for all $a\in A$ it holds that 
 $\langle$~$a\cdot d-d\cdot a=0$ and $a\Pi_A(d)=a$ / 
 $\lim_\nu(a\cdot d_\nu-d_\nu\cdot a)=0$ 
 and $\lim_\nu a\Pi_A(d_\nu)=a$~$\rangle$. Note that 
