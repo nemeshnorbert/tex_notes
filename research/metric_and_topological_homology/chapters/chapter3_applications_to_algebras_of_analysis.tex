@@ -593,7 +593,7 @@ of a $C^*$-algebra $A$. Then $I$ is metrically and topologically flat as
 $A$-module.
 \end{proposition}
 \begin{proof} From [\cite{HelBanLocConvAlg}, proposition 4.7.78] it follows that
-$I$ has a right contractive identity. It remains to apply
+$I$ has an approximate identity. It remains to apply
 proposition~\ref{MetTopFlatIdealsInUnitalAlg}.
 \end{proof}
 
@@ -1325,9 +1325,7 @@ flatness follow from proposition~\ref{MetTopProjIsMetTopFlat}.
 \end{proof}
 
 \begin{proposition}\label{c0AndlInftyModlp} Let $\Lambda$ be a set and
-$1<p<+\infty$. Then $\ell_p(\Lambda)$ is metrically or topologically projective,
-injective or flat as $\ell_\infty(\Lambda)$- or $c_0(\Lambda)$-module iff
-$\Lambda$ is finite.
+$1<p<+\infty$. Then 
 
 \begin{enumerate}[label = (\roman*)]
     \item $\ell_p(\Lambda)$ is topologically projective,
@@ -1335,21 +1333,24 @@ $\Lambda$ is finite.
     $\Lambda$ is finite;
 
     \item if $\ell_p(\Lambda)$ is metrically projective,
-    injective or flat as $\ell_\infty(\Lambda)$- or $c_0(\Lambda)$-module then
-    $\Lambda$ is finite;
+    injective or flat as $\ell_\infty(\Lambda)$- or $c_0(\Lambda)$-module iff
+    $\Lambda$ has at most one element;
 \end{enumerate}
 \end{proposition}
-\begin{proof} $(i)$, $(ii)$ Let $A$ be either $\ell_\infty(\Lambda)$ 
-or $c_0(\Lambda)$, then $A$ is an $\mathscr{L}_\infty^g$-space. 
-Since $\ell_p(\Lambda)$ is reflexive for $1<p<+\infty$, then from corollary
-~\ref{NoInfDimRefMetTopProjInjFlatModOverMthscrL1OrLInfty} it follows that
-$\ell_p(\Lambda)$ is necessarily finite dimensional if it is metrically or
+\begin{proof} Let $A$ be either $\ell_\infty(\Lambda)$ 
+or $c_0(\Lambda)$, then $A$ is an $\mathscr{L}_\infty^g$-space.
+
+$(i)$ Since $\ell_p(\Lambda)$ is reflexive for $1<p<+\infty$, then from 
+corollary~\ref{NoInfDimRefMetTopProjInjFlatModOverMthscrL1OrLInfty} it follows 
+that $\ell_p(\Lambda)$ is necessarily finite dimensional if it is 
 topologically projective injective or flat. This is equivalent to $\Lambda$
 being finite. If $\Lambda$ is finite then
 $\ell_p(\Lambda)\isom{A-\mathbf{mod}}\ell_1(\Lambda)$ and
 $\ell_p(\Lambda)\isom{\mathbf{mod}-A}\ell_1(\Lambda)$, so topological
 projectivity injectivity and flatness follow from
 proposition~\ref{c0AndlInftyModl1}.
+
+$(ii)$ The result follows from [\cite{NemMetProjInjFlatModLp}, theorem 4.5].
 \end{proof}
 
 \begin{proposition}\label{c0AndlInftyModsRelTh} Let $\Lambda$ be a set. Then
@@ -1486,28 +1487,28 @@ flat as $\ell_\infty(\Lambda)$- or $c_0(\Lambda)$-module in all three theories.
     \hline 
         $\ell_p(\Lambda)$ & 
         \begin{tabular}{@{}c@{}}
-            $\operatorname{Card}(\Lambda)<\aleph_0$ \\ 
-            \mbox{\ref{c0AndlInftyModlp}}${}^*$
+            $\operatorname{Card}(\Lambda)\leq 1$ \\ 
+            \mbox{\ref{c0AndlInftyModlp}}
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
-            $\operatorname{Card}(\Lambda)<\aleph_0$ \\ 
-            \mbox{\ref{c0AndlInftyModlp}}${}^*$
+            $\operatorname{Card}(\Lambda)\leq 1$ \\ 
+            \mbox{\ref{c0AndlInftyModlp}}
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
-            $\operatorname{Card}(\Lambda)<\aleph_0$ \\ 
-            \mbox{\ref{c0AndlInftyModlp}}${}^*$
+            $\operatorname{Card}(\Lambda)\leq 1$ \\ 
+            \mbox{\ref{c0AndlInftyModlp}}
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
-            $\operatorname{Card}(\Lambda)<\aleph_0$ \\ 
-            \mbox{\ref{c0AndlInftyModlp}}${}^*$
+            $\operatorname{Card}(\Lambda)\leq 1$ \\ 
+            \mbox{\ref{c0AndlInftyModlp}}
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
-            $\operatorname{Card}(\Lambda)<\aleph_0$ \\ 
-            \mbox{\ref{c0AndlInftyModlp}}${}^*$
+            $\operatorname{Card}(\Lambda)\leq 1$ \\ 
+            \mbox{\ref{c0AndlInftyModlp}}
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
-            $\operatorname{Card}(\Lambda)<\aleph_0$ \\ 
-            \mbox{\ref{c0AndlInftyModlp}}${}^*$
+            $\operatorname{Card}(\Lambda)\leq 1$ \\ 
+            \mbox{\ref{c0AndlInftyModlp}}
         \end{tabular} \\
     \hline
         $\ell_\infty(\Lambda)$ & 
