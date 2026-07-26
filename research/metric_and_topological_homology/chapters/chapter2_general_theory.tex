@@ -319,13 +319,17 @@ $\langle$~norm $1$ / norm $c$ / norm $c$~$\rangle$ such that $r|_I=1_I$.
 Consider the operator $R=r\projtens 1_P$. Then $R|_{I\projtens P}=1_{I\projtens P}$ 
 and $\Vert R\Vert\leq\Vert r\Vert$. Since $P$ 
 is $\langle$~metrically / $C$-topologically / $C$-relatively~$\rangle$ 
-projective, by proposition~\ref{MetCTopProjModViaCanonicMorph} the 
-$A$-morphism $\pi_P^+$ has a right inverse morphism $\sigma^+$ of norm
+projective, consider the $A$-morphism
+$\varpi_P:A_+\projtens P\to P,\, a\projtens x\mapsto a\cdot x$. It is strictly
+coisometric, and $x\mapsto e_{A_+}\projtens x$ is a bounded linear right inverse
+for it of norm $1$, so $\varpi_P$ is in addition a $1$-relatively admissible
+epimorphism. Lifting $1_P$ along $\varpi_P$ therefore gives an $A$-morphism
+$\sigma^+:P\to A_+\projtens P$ with $\varpi_P\sigma^+=1_P$ of norm
 $\langle$~at most $1$ / at most $C$ / at most $C$~$\rangle$. Now consider a 
-bounded linear operator $p=\pi_P^+ R \sigma^+$. Clearly,
-$\operatorname{Im}(p)=\pi_P^+(R(\sigma^+(P)))
-\subset\pi_P^+(R(A_+\projtens P))
-\subset \pi_P^+(I\projtens P)
+bounded linear operator $p=\varpi_P R \sigma^+$. Clearly,
+$\operatorname{Im}(p)=\varpi_P(R(\sigma^+(P)))
+\subset\varpi_P(R(A_+\projtens P))
+\subset \varpi_P(I\projtens P)
 \subset \operatorname{cl}_P(I P)$.
 Since $I$ is a right ideal of $A$ and $\sigma^+$ is an $A$-morphism, 
 $$
@@ -337,9 +341,9 @@ $$
 $$
 In particular, for all $x\in \operatorname{cl}_P(I P)$, we have 
 $p(x)
-=\pi_P^+(R(\sigma^+(x)))
-=\pi_P^+(1_{I\projtens P}(\sigma^+(x)))
-=\pi_P^+(\sigma^+(x))
+=\varpi_P(R(\sigma^+(x)))
+=\varpi_P(1_{I\projtens P}(\sigma^+(x)))
+=\varpi_P(\sigma^+(x))
 =x$. 
 Thus, $p$ is a projection onto $\operatorname{cl}_P(I P)$ with norm at 
 most $\Vert \sigma^+\Vert\Vert r\Vert$. Hence, $\operatorname{cl}_P(I P)$ 
