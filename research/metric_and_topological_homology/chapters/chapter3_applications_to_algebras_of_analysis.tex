@@ -278,11 +278,17 @@ for $0\leq t\leq t_{1,m}$ or $t\geq t_{2,m}$. Hence, for all sufficiently big
 $m$ it holds that $\operatorname{sp}_{A_\#}(b)\subset T_{t_{1,m},t_{2,m}}$, 
 where $T_{a, b}:=\{t\in\mathbb{R} : 0\leq t \leq a \vee t \geq b\}$. 
 Since $\lim_{m\to\infty} t_{0,m}=0$, $\lim_{m\to\infty} t_{1,m}=0$ too. 
-Note that $g_m(1)=4N+M-1>0$, so for sufficiently big $m$ we also 
-have $t_{2,m}\leq 1$. Consequently,
-$\operatorname{sp}_{A_\#}(b)\subset T_{0,1}$.
+Since $t^{2/m}\to 1$ as $m\to\infty$ for every $t>0$, the functions $g_m$
+converge to $g_\infty:t\mapsto 4Nt+M-1$ uniformly on compact subsets
+of $(0,+\infty)$. The only zero of $g_\infty$ is $\theta:=(1-M)/(4N)>0$
+and $g_\infty'\equiv 4N>0$, so $\lim_{m\to\infty}t_{2,m}=\theta$. Hence for
+every $\delta\in(0,\theta)$ and all sufficiently big $m$ we have
+$t_{1,m}<\delta$ and $t_{2,m}>\theta-\delta$, and therefore
+$\operatorname{sp}_{A_\#}(b)\subset T_{\delta,\theta-\delta}$. Since $\delta$ is
+arbitrary and the spectrum is closed,
+$\operatorname{sp}_{A_\#}(b)\subset T_{0,\theta}$.
 
-Consider a continuous function $h:\mathbb{R}_+\to\mathbb{R}:t\mapsto\min(1, t)$,
+Consider a continuous function $h:\mathbb{R}_+\to\mathbb{R}:t\mapsto\min(1, t/\theta)$,
 then from lemma~\ref{ContFuncCalcOnIdealOfCStarAlg} we get an idempotent
 $p=h(b)=\operatorname{RCont}_b^0(h)\in I$ such that $\Vert
 p\Vert=\sup_{t\in\operatorname{sp}_{A_\#}(b)}|h(t)|\leq 1$. Therefore, $p$ is a
