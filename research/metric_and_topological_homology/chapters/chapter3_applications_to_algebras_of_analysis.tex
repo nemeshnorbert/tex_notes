@@ -174,17 +174,17 @@ $\lVert\sigma_d(x)\rVert
 \leq\lVert x\rVert\liminf_\nu\lVert\sigma_d(e_\nu)\rVert$, 
 so $\lVert\sigma_d\rVert\leq \liminf_\nu\lVert\sigma_d(e_\nu)\rVert$. 
 Then for all $S\in\mathcal{P}_{f}(B_I)$ it holds that
-$$
+\[
 \sum_{d\in S}\lVert \sigma_d\rVert
 \leq \sum_{d\in S}\liminf_\nu\lVert \sigma_d(e_\nu)\rVert
 \leq \liminf_\nu\sum_{d\in S}\lVert \sigma_d(e_\nu)\rVert
 \leq \liminf_\nu\sum_{d\in B_I}\lVert \sigma_d(e_\nu) \rVert
-$$
-$$
+\]
+\[
 =\liminf_{\nu}\lVert\sigma(e_\nu)\rVert
 \leq \lVert\sigma\rVert\liminf_{\nu}\lVert e_\nu\rVert
 \leq \lVert\sigma\rVert
-$$
+\]
 Since $S\in \mathcal{P}_{f}(B_I)$ is arbitrary, the sum 
 $\sum_{d\in B_I}\lVert\sigma_d\rVert$ is finite. As a consequence, the 
 sum $\sum_{d\in B_I}\lVert\sigma_d\rVert^2$ is finite too. 
@@ -204,20 +204,20 @@ $\lVert b^{1/m}\rVert
 Therefore, $\lVert b^{1/m}\rVert\leq 2$ for sufficiently big $m$. Denote
 $\varsigma_d=\sigma_d(b^{1/m})$, $u=\sum_{d\in S}\varsigma_d d$ and
 $v=\sum_{d\in B_I\setminus S}\varsigma_d d$, so 
-$$
+\[
 b^{2/m}={(b^{1/m})}^*b^{1/m}=u^*u+u^*v+v^*u+v^*v
-$$
+\]
 Clearly, $\varsigma_d^*\varsigma_d\leq \lVert \varsigma_d\rVert^2 e_{A_\#}\leq
 \lVert \sigma_d\rVert^2\lVert b^{1/m}\rVert^2 e_{A_\#}\leq 4\lVert \sigma_d\rVert^2
 e_{A_\#}$. For any $x,y\in A$ we have $x^*x+y^*y-(x^*y+y^*x)={(x-y)}^*(x-y)\geq
 0$, therefore 
-$$
+\[
 d^*\varsigma_d^* \varsigma_c c+c^*\varsigma_c^* \varsigma_d d
 \leq d^*\varsigma_d^*\varsigma_d d + c^*\varsigma_c^*\varsigma_c c
 \leq 4\lVert \sigma_d\rVert^2 d^*d+4\lVert \sigma_c\rVert^2 c^*c
-$$
+\]
 for all $c,d\in B_I$. We sum up these inequalities over $c\in S$ and $d\in S$. Then 
-$$
+\[
 \begin{aligned}
 \sum_{c\in S}\sum_{d\in S}c^*\varsigma_c^* \varsigma_d d
 &=\frac{1}{2}\left(
@@ -229,18 +229,18 @@ $$
 4 N\sum_{c\in S} \lVert \sigma_c\rVert^2 c^*c\right)\\
 &=4 N\sum_{d\in S} \lVert \sigma_d\rVert^2 d^*d.
 \end{aligned}
-$$
+\]
 Therefore,
-$$
+\[
 u^*u
 ={\left(\sum_{c\in S}\varsigma_c c\right)}^*
 \left(\sum_{d\in S}\varsigma_d d\right)
 =\sum_{c\in S}\sum_{d\in S}c^*\varsigma_c^* \varsigma_d d
 \leq 4N\sum_{d\in S} \lVert \sigma_d\rVert^2 d^*d
 \leq 4N b
-$$
+\]
 Note that
-$$
+\[
 \lVert u\rVert
 \leq \sum_{d\in S}\lVert\varsigma_d\rVert\lVert d\rVert
 \leq \sum_{d\in S}2\lVert\sigma_d\rVert
@@ -250,16 +250,16 @@ $$
 \leq \sum_{d\in B_I\setminus S}\lVert\varsigma_d\rVert\lVert d\rVert
 \leq \sum_{d\in B_I\setminus S}2\lVert\sigma_d\rVert
 \leq 2\epsilon,
-$$
+\]
 so $\lVert u^*v+v^*u\rVert\leq 8\lVert\sigma\rVert\epsilon$ 
 and $\lVert v^*v\rVert\leq 4\epsilon^2$. Since $u^*v+v^*u$ and $v^*v$ are self-adjoint, $u^*v+v^*u\leq 8\lVert\sigma\rVert\epsilon e_{A_\#}$ 
 and $v^*v\leq 4\epsilon^2 e_{A_\#}$. Therefore for any $\epsilon>0$ and 
 sufficiently big $m$ we have 
-$$
+\[
 b^{2/m}
 =u^*u+u^*v+v^*u+v^*v
 \leq 4Nb+\epsilon(8\lVert\sigma\rVert+4\epsilon)e_{A_\#}.
-$$
+\]
 
 
 In other words, $g_m(b)\geq 0$ for a continuous function
@@ -294,11 +294,11 @@ $p=h(b)=\operatorname{RCont}_b^0(h)\in I$ such that $\lVert
 p\rVert=\sup_{t\in\operatorname{sp}_{A_\#}(b)}|h(t)|\leq 1$. Therefore, $p$ is a
 self-adjoint idempotent. Since $h(t)t=th(t)=t$ for all $t\in
 \operatorname{sp}_{A_\#}(b)$, we have $bp=pb=b$. The last equality implies
-$$
+\[
 0=(e_{A_\#}-p)b(e_{A_\#}-p)
 =\sum_{d\in B_I}
     {(\lVert\sigma_d\rVert d(e_{A_\#}-p))}^*\lVert\sigma_d\rVert d(e_{A_\#}-p).
-$$
+\]
 Since the right-hand side of this equality is non-negative, $d=dp$ for all
 $d\in B_I$ with $\sigma_d\neq 0$. Finally, for any $x\in I$ we obtain
 $xp=\sum_{d\in B_I}\sigma_d(x)dp=\sum_{d\in B_I}\sigma_d(x)d=x$, i.e. $I=Ap$,
@@ -426,7 +426,7 @@ ${}^*$-subalgebra for arbitrarily big $n\in\mathbb{N}$.
 \begin{proof} By Gelfand-Naimark's theorem \cite[theorem 4.7.57]{HelBanLocConvAlg} there exists a Hilbert space $H$ and an isometric ${}^*$-homomorphism
 $\varrho:A\to\mathcal{B}(H)$. Denote $\Lambda:=B_{H_\varrho^{cc}}$. It is easy
 to check that 
-$$
+\[
 \rho:
 A
     \to
@@ -434,7 +434,7 @@ A
 a
     \mapsto 
 \bigoplus\nolimits_\infty \{\overline{x}\cdot a:\overline{x}\in \Lambda \}
-$$
+\]
 is an isometric $A$-morphism of right $A$-modules. Since $A$ is a topologically
 injective $A$-module, $\rho$ has a left inverse $A$-morphism $\tau$.
 Therefore, $A$ is complemented in $E:=\bigoplus_\infty
@@ -510,20 +510,20 @@ x\mapsto \bigoplus_\infty \{x(s):s\in K \}$
 admits a left inverse contractive $C(K)$-morphism 
 $\widetilde{\tau}:\bigoplus_\infty \{ \mathbb{C}_s:s\in K \} \to C(K)$. 
 It is routine to check now that linear operators
-$$
+\[
 \rho:
 M_n(C(K))\to\bigoplus\nolimits_\infty \{M_n(\mathbb{C}_s):s\in K \},\, 
 x\mapsto \bigoplus\nolimits_\infty \{
     {(x_{i,j}(s))}_{i,j\in\mathbb{N}_n}:s\in K
  \}
-$$
-$$
+\]
+\[
 \tau
 :\bigoplus\nolimits_\infty \{M_n(\mathbb{C}_s):s\in K \}\to M_n(C(K))
 :y\mapsto {\left(
     \widetilde{\tau}\left(\bigoplus\nolimits_\infty \{y_{s,i,j}:s\in K \}\right)
 \right)}_{i,j\in\mathbb{N}_n}
-$$
+\]
 are bounded $M_n(C(K))$-morphisms such that $\tau \rho=1_{M_n(C(K))}$. That is,
 $M_n(C(K))$ is a retract of the topologically injective $M_n(C(K))$-module
 $\bigoplus_\infty \{M_n(\mathbb{C}_s):s\in K \}$ in $\mathbf{mod}\text{-}M_n(C(K))$.
@@ -1201,9 +1201,9 @@ $\ell_\infty(\Lambda)$- and $c_0(\Lambda)$-modules.
 For a given $\lambda\in\Lambda$ we define $\mathbb{C}_\lambda$ as a left or right
 $\ell_\infty(\Lambda)$- or $c_0(\Lambda)$-module $\mathbb{C}$ with module action
 defined by
-$$
+\[
 a\cdot_\lambda z=a(\lambda)z,\qquad z\cdot_\lambda a=a(\lambda) z
-$$
+\]
 for $a\in \ell_\infty(\Lambda)$ or $a\in c_0(\Lambda)$ and $z\in\mathbb{C}_\lambda$. 
 
 \begin{proposition}\label{OneDimlInftyc0ModMetTopProjIngFlat} Let $\Lambda$ be a
@@ -1924,9 +1924,9 @@ though their methods have much in common.
 
 For a fixed point $s\in S$, by $\mathbb{C}_s$ we denote the left or right Banach
 $C_0(S)$-module $\mathbb{C}$ with the module action defined by
-$$
+\[
 a\cdot_s z=a(s)z,\qquad z\cdot_s a=a(s)z
-$$
+\]
 \begin{proposition}\label{OneDimC0SModMetTopRelProjIngFlat} Let $S$ be a locally
 compact Hausdorff space and let $s\in S$. Then 
 
@@ -2589,11 +2589,11 @@ operator $R_s:L_1(G)\to L_1(G),\, f\mapsto (t\mapsto f(ts))$.
 
 The group structure of $G$ allows us to introduce the Banach algebra structure on
 $L_1(G)$. For given $f,g\in L_1(G)$ we define their convolution as
-$$
+\[
 (f\convol g)(s)=\int_G f(t)g(t^{-1}s)\,dm_G(t)=\int_G f(st)g(t^{-1})\,dm_G(t)
-$$
-$$=\int_G f(st^{-1})g(t)\Delta_G(t^{-1})\,dm_G(t)
-$$
+\]
+\[=\int_G f(st^{-1})g(t)\Delta_G(t^{-1})\,dm_G(t)
+\]
 for almost all $s\in G$. In this case the Banach space $L_1(G)$ endowed with 
 the convolution product becomes a Banach algebra. The Banach algebra $L_1(G)$ has a 
 contractive two-sided approximate identity consisting of positive compactly 
@@ -2602,9 +2602,9 @@ discrete, and in this case $\delta_{e_G}$ is the identity of $L_1(G)$.
 The group structure of $G$ allows us to turn the Banach space of complex finite 
 Borel regular measures $M(G)$ into a Banach algebra too. We define the 
 convolution of two measures $\mu,\nu\in M(G)$ as
-$$
+\[
 (\mu\convol \nu)(E)=\int_G\nu(s^{-1}E)d\mu(s)=\int_G\mu(Es^{-1})d\nu(s)
-$$
+\]
 for all $E\in Bor(G)$. The Banach space $M(G)$ along with this convolution is 
 a unital Banach algebra. The role of the identity is played by Dirac's delta 
 measure $\delta_{e_G}$ supported on $e_G$. In fact $M(G)$ is a coproduct 
@@ -2621,18 +2621,18 @@ regarded as a closed two-sided ideal  of $M(G)$ because of the isometric
 left and right $M(G)$-morphism $i:L_1(G)\to M(G):f\mapsto f m_G$. 
 Therefore, it is enough to define all module structures over $M(G)$. 
 For $1\leq p<+\infty$ and any $f\in L_p(G)$, $\mu\in M(G)$ we define
-$$
+\[
 (\mu\convol_p f)(s)=\int_G f(t^{-1}s)d\mu(t), \qquad\qquad (f\convol_p
 \mu)(s)=\int_G f(st^{-1}){\Delta_G(t^{-1})}^{1/p}d\mu(t)
-$$
+\]
 These module actions turn any Banach space $L_p(G)$ for $1\leq p<+\infty$ into 
 a left and right $M(G)$-module. Note that for $p=1$ and $\mu\in M_a(G)$ we 
 get the usual definition of convolution. For $1<p\leq +\infty$ and 
 any $f\in L_p(G)$, $\mu\in M(G)$ we define module actions
-$$
+\[
 (\mu\cdot_p f)(s)=\int_G {\Delta_G(t)}^{1/p}f(st)d\mu(t), \qquad\qquad (f\cdot_p
 \mu)(s)=\int_G f(ts)d\mu(t)
-$$
+\]
 These module actions turn any Banach space $L_p(G)$ for $1<p\leq+\infty$ into 
 a left and right $M(G)$-module too. This special choice of module structure 
 nicely interacts with duality. Indeed, we have 
@@ -2659,10 +2659,10 @@ M(G)\to\mathbb{C},\,
 \mu\mapsto\int_{G} \overline{\gamma(s)}d\mu(s)$. By $\mathbb{C}_\gamma$ we 
 denote the respective augmentation left and right $L_1(G)$- or $M(G)$-module. 
 Their module actions are defined by
-$$
+\[
 f\cdot_{\gamma}z=z\cdot_{\gamma}f=\varkappa_\gamma^L(f)z \qquad\qquad
 \mu\cdot_{\gamma}z=z\cdot_{\gamma}\mu=\varkappa_\gamma^M(\mu)z
-$$
+\]
 for all $f\in L_1(G)$, $\mu\in M(G)$ and $z\in\mathbb{C}$. 
 
 One of the numerous definitions of an amenable group says that a locally compact 
@@ -2730,19 +2730,19 @@ projective, there exists an $L_1(G)$-morphism $\sigma:\mathbb{C}_\gamma\to
 L_1(G)$ such that $\pi\sigma=1_{\mathbb{C}_\gamma}$. Let $f=\sigma(1)\in L_1(G)$
 and ${(e_\nu)}_{\nu\in N}$ be a standard approximate identity of $L_1(G)$. Since
 $\sigma$ is an $L_1(G)$-morphism, for all $s,t\in G$ we have 
-$$
+\[
 f(s^{-1}t)
 =L_s(f)(t)
 =\lim_\nu L_s(e_\nu\convol \sigma(1))(t)
 =\lim_\nu((\delta_s\convol e_\nu)\convol \sigma(1))(t)
 =\lim_\nu\sigma((\delta_s\convol e_\nu)\cdot_{\gamma} 1)(t)
-$$
-$$
+\]
+\[
 =\lim_\nu\sigma(\varkappa_\gamma^L(\delta_s\convol e_\nu))(t)
 =\lim_\nu\varkappa_\gamma^L(\delta_s\convol e_\nu)\sigma(1)(t)
 =\lim_\nu(e_\nu\convol\gamma)(s^{-1})f(t)
 =\gamma(s^{-1})f(t).
-$$
+\]
 Therefore, for the function $g(t):=\gamma(t^{-1})f(t)$ in $L_1(G)$ we have
 $g(st)=g(t)$ for all $s,t\in G$. Thus, $g$ is a constant function in $L_1(G)$,
 which is possible only when $G$ is compact.
@@ -2770,14 +2770,14 @@ operators $\rho:\mathbb{C}_\gamma\to L_\infty(G),\, z\mapsto z\overline{\gamma}$
 and $\tau:L_\infty(G)\to\mathbb{C}_\gamma,\, f\mapsto M(f\gamma)$. These are
 $L_1(G)$-morphisms of right $L_1(G)$-modules. We shall check this for the operator
 $\tau$: for all $f\in L_\infty(G)$ and $g\in L_1(G)$ we have
-$$
+\[
 \tau(f\cdot_\infty g)
 =M((f\cdot_\infty g)\gamma)
 =M(f\gamma\cdot_\infty g\overline{\gamma})
 =M(f\gamma)\cdot_{e_{\widehat{G}}} g\overline{\gamma}
 =M(f\gamma)\varkappa_\gamma^L(g)
 =\tau(f)\cdot_{\gamma} g.
-$$  
+\]  
 It is easy to check that $\rho$ and $\tau$ are contractive and
 $\tau\rho=1_{\mathbb{C}_\gamma}$. Therefore, $\mathbb{C}_\gamma$ is a retract of
 $L_\infty(G)$ in $\mathbf{mod}_1\text{-}L_1(G)$. From
@@ -2793,14 +2793,14 @@ its left inverse morphism by $\pi$; then
 $\pi(\overline{\gamma})=\pi(\rho(1))=1$. Consider a bounded linear functional
 $M:L_\infty(G)\to\mathbb{C}_{e_{\widehat{G}}}:f\mapsto \pi(f\overline{\gamma})$. For all
 $f\in L_\infty(G)$ and $g\in L_1(G)$ we have
-$$
+\[
 M(f\cdot_\infty g)
 =\pi((f\cdot_\infty g)\overline{\gamma})
 =\pi(f\overline{\gamma}\cdot_\infty g\gamma)
 =\pi(f\overline{\gamma})\cdot_{\gamma} g\gamma
 =M(f)\varkappa_\gamma^L(g\gamma)
 =M(f)\cdot_{e_{\widehat{G}}}g.
-$$
+\]
 Therefore, $M$ is an $L_1(G)$-morphism, but we also have
 $M(\chi_G)=\pi(\overline{\gamma})=1$. Therefore, $G$ is amenable.
 
@@ -3118,7 +3118,7 @@ It is worth mentioning here that if we considered all Banach spaces over the
 field of real numbers, then the $L_1(G)$-modules $L_\infty(G)$ and $L_1(G)$ 
 would be metrically projective and injective respectively, 
 additionally for $G$ consisting of two elements, because
-$$
+\[
 L_\infty(\mathbb{Z}_2)
 \isom{L_1(\mathbb{Z}_2)\text{-}\mathbf{mod}_1}
 \mathbb{R}_{\gamma_0}\bigoplus\nolimits_1\mathbb{R}_{\gamma_1},
@@ -3126,7 +3126,7 @@ L_\infty(\mathbb{Z}_2)
 L_1(\mathbb{Z}_2)
 \isom{L_1(\mathbb{Z}_2)\text{-}\mathbf{mod}_1}
 \mathbb{R}_{\gamma_0}\bigoplus\nolimits_\infty\mathbb{R}_{\gamma_1}
-$$
+\]
 for $\gamma_0,\gamma_1\in\widehat{\mathbb{Z}_2}$ defined by
 $\gamma_0(0)=\gamma_0(1)=\gamma_1(0)=-\gamma_1(1)=1$. Here $\mathbb{Z}_2$
 denotes the unique group of two elements.

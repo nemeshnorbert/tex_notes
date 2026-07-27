@@ -79,18 +79,18 @@ Other examples will be given later. Two main examples of functors that any
 category has are functors of morphisms. For a fixed
 $X\in\operatorname{Ob}(\mathbf{C})$ we define covariant and contravariant
 functors
-$$
+\[
 \operatorname{Hom}_{\mathbf{C}}(X,-)
 :\mathbf{C}\to\mathbf{Set},\,
 Y\mapsto \operatorname{Hom}_{\mathbf{C}}(X,Y), 
 \phi\mapsto(\psi\mapsto \phi\psi),
-$$
-$$
+\]
+\[
 \operatorname{Hom}_{\mathbf{C}}(-,X)
 :\mathbf{C}\to\mathbf{Set},\,
 Y\mapsto \operatorname{Hom}_{\mathbf{C}}(Y,X), 
 \phi\mapsto(\psi\mapsto \psi\phi).
-$$
+\]
 This construction has its reminiscent analogs in many categories of mathematics
 with a slight modification of the categories between which these functors act.
 
@@ -255,12 +255,12 @@ Limits along filters respect continuous functions. Rigorously this is formulated
 follows. Assume for each $\lambda\in\Lambda$ a function $\phi_\lambda:M\to
 S_\lambda$ has a limit along filter $\mathfrak{F}$; then for any continuous
 function $g:\prod_{\lambda\in\Lambda}S_\lambda\to Y$ holds
-$$
+\[
 \lim_{\mathfrak{F}}g\left(
   \prod_{\lambda\in\Lambda}\phi_\lambda(m)
 \right)
 =g\left(\prod_{\lambda\in\Lambda}\lim_{\mathfrak{F}}\phi_\lambda(m)\right).
-$$
+\]
 In particular, limits along filters are linear and multiplicative, just like
 ordinary sequences.
 
@@ -396,17 +396,17 @@ measure $\mu$ can be represented as $\mu=\mu_1-\mu_2+i(\mu_3-\mu_4)$, where
 $\mu_1,\mu_2,\mu_3,\mu_4$ are finite measures. As a consequence, every
 complex measure is finite, and therefore we have a well-defined total variation
 measure:
-$$
+\[
 |\mu|:\Sigma\to\mathbb{R}_+,\,
 E\mapsto\sup\left \{\sum_{n\in\mathbb{N}}|\mu(E_n)|
 : \{E_n:n\in\mathbb{N} \}\subset\Sigma,\,\, E=\bigsqcup\limits_{n\in\mathbb{N}} E_n\right \}
-$$
+\]
 
 Densities provide a convenient source of measures. If $f:\Omega\to[0,+\infty]$
 is a measurable function on $(\Omega,\Sigma,\mu)$, then the formula
-$$
+\[
 f\mu:E\mapsto\int_{E}f(\omega)\,d\mu(\omega)
-$$
+\]
 defines a measure $f\mu:\Sigma\to[0,+\infty]$. If $f:\Omega\to\mathbb{C}$ is an
 integrable function on $(\Omega,\Sigma,\mu)$, then the same formula defines a
 complex measure $f\mu:\Sigma\to\mathbb{C}$.
@@ -447,15 +447,15 @@ always closed. A Borel measure $\mu$ is called
 
   \item inner regular with respect to a
   class $\mathcal{C}$ of Borel sets if for any Borel set $E$ it holds that 
-  $$
+  \[
   \mu(E)=\sup \{\mu(K): K\subset E, K\in\mathcal{C} \};
-  $$
+  \]
 
   \item outer regular with respect to a 
   class $\mathcal{C}$ of Borel sets if for any Borel set $E$ it holds that 
-  $$
+  \[
   \mu(E)=\inf \{\mu(U): E\subset U, U\in\mathcal{C} \};
-  $$
+  \]
 
   \item residual if $\mu(E)=0$ for any Borel nowhere dense set $E$;
 
@@ -508,9 +508,9 @@ ${(E^{cc})}^{cc}=E$.
 
 If $F$ is a closed subspace of the Banach space $E$, then $E/F$ stands for 
 the linear quotient Banach space. Its norm is defined by the equality 
-$$
+\[
 \lVert x+F\rVert=\inf \{\lVert x+y\rVert: y\in F \},
-$$
+\]
 where $x+F\in E/F$.
 
 Now fix two Banach spaces $E$ and $F$. A map $T:E\to F$ is called conjugate
@@ -536,14 +536,14 @@ $F$. If $F=E$, we use the shortcut $\langle$~$\mathcal{B}(E)$ / $\mathcal{K}(E)$
 / $\mathcal{N}(E)$~$\rangle$ for this space. The norms in $\mathcal{B}(E,F)$ and
 $\mathcal{K}(E,F)$ are just the usual operator norms. The norm of a nuclear
 operator $T$ is defined by the equality
-$$
+\[
 \lVert T\rVert
 :=\inf\left \{
   \sum_{n=1}^\infty\lVert S_n\rVert
   :T=\sum_{n=1}^\infty S_n,\quad 
   {(S_n)}_{n\in\mathbb{N}} - \mbox{ rank one operators}
 \right \}.
-$$
+\]
 
 By $\mathbf{Ban}$ we shall denote the category of Banach spaces with bounded
 linear operators in the role of morphisms, while $\mathbf{Ban}_1$ stands for the
@@ -559,12 +559,12 @@ $E$ and $F$ are $\langle$~isometrically isomorphic / topologically
 isomorphic~$\rangle$ Banach spaces means that
 $\langle$~$E\isom{\mathbf{Ban}_1}F$ / $E\isom{\mathbf{Ban}}F$~$\rangle$. The
 Banach-Mazur distance between $E$ and $F$ is defined by the formula 
-$$
+\[
 d_{BM}(E,F):=\inf \{
   \lVert T\rVert\lVert T^{-1}\rVert
   :T \in \mathcal{B}(E,F) \mbox{ --- a topological isomorphism}
  \}.
-$$ 
+\] 
 If $E$ and $F$ are not topologically isomorphic, the Banach-Mazur distance
 between them is infinite.
 
@@ -573,17 +573,17 @@ By $E^*$ we denote the space of bounded linear functionals on $E$, that is,
 $E^*=\mathcal{B}(E, \mathbb{C})$. It is called the dual space of $E$. Similarly,
 one can define the second and higher duals of $E$. An important corollary of the
 Hahn-Banach theorem says that the bounded linear operator 
-$$
+\[
 \iota_E:E\to E^{**},\,x\mapsto (f\mapsto f(x))
-$$ 
+\] 
 is isometric. We call this operator the natural embedding of $E$ into its 
 second dual $E^{**}$.
 
 For a given bounded linear operator $T:E\to F$, its adjoint is a bounded linear 
 operator 
-$$
+\[
 T^*:F^*\to E^*,\,f\mapsto (x\mapsto f(T(x))).
-$$
+\]
 Again from the Hahn-Banach 
 theorem it follows that $\lVert T^*\rVert=\lVert T\rVert$. One can easily check 
 that $T^{**}\iota_E=\iota_F T$.  
@@ -597,11 +597,11 @@ Clearly, $E^{\perp} = \{ 0\}$, $0^{\perp}=E^*$
 and ${}^{\perp}E^*= \{ 0\}$, ${}^{\perp}0= E$. Annihilators are closely related
 to quotient spaces. One can show that 
 the operators 
-$$
+\[
 i: E^*/F^{\perp}\to F^*,\, f+F^\perp\mapsto f|_F,
 \quad\quad 
 q:{(E/F)}^*\to F^{\perp},\, f\mapsto (x\mapsto f(x + F))
-$$ 
+\] 
 are isometric isomorphisms.
 
 A few words on the classification of bounded linear operators. A bounded linear
@@ -679,9 +679,9 @@ $\ell_\infty(\mathbb{N})$ by the Dixmier projection.
 
 Let $E$, $F$ and $G$ be three Banach spaces; then a bilinear operator
 $\Phi:E\times F\to G$ is called bounded if its norm 
-$$
+\[
 \lVert \Phi\rVert:=\sup \{\lVert \Phi(x,y)\rVert:x\in B_E, y\in B_F \}
-$$ 
+\] 
 is finite. 
 The Banach space of all bounded bilinear operators on $E\times F$ with 
 values in $G$ is denoted by $\mathcal{B}(E\times F,G)$.
@@ -690,7 +690,7 @@ Now consider the algebraic tensor product $E\otimes F$ of Banach spaces $E$ and
 $F$. This linear space can be endowed with different norms, but the most
 important is the projective norm. For $u\in E\otimes F$ we define its projective
 norm as
-$$
+\[
 \lVert u\rVert
 :=\inf\left \{
   \sum_{i=1}^n \lVert x_i\rVert\lVert y_i\rVert
@@ -698,7 +698,7 @@ $$
   {(x_i)}_{i\in\mathbb{N}_n}\subset E, 
   {(y_i)}_{i\in\mathbb{N}_n}\subset F
 \right \}.
-$$
+\]
 It is indeed a norm, but not complete in general. The symbol $E\projtens F$
 stands for the completion of $E\otimes F$ under the projective norm. We call the
 resulting completion the projective tensor product of Banach spaces $E$ and $F$.
@@ -706,41 +706,41 @@ The resulting bilinear operator
 $\theta:E\times F\to E\projtens F,\,(x,y)\mapsto x\otimes y$ is contractive.
 Let $T:E_1\to E_2$ and $S:F_1\to F_2$ be two bounded linear operators between
 Banach spaces; then there exists a unique bounded linear operator 
-$$
+\[
 T\projtens S:E_1\projtens F_1\to E_2\projtens F_2
-$$ 
+\] 
 such that  $(T\projtens S)(x\otimes y)=T(x)\otimes S(y)$ 
 for all $x\in E_1$ and $y\in F_1$. 
 Even more, $\lVert T\projtens S\rVert=\lVert T\rVert\lVert S\rVert$. The main feature 
 of the projective tensor product which makes it so important is the following 
 universal property: for any Banach spaces $E$, $F$ and $G$ there is a 
 natural isometric isomorphism:
-$$
+\[
 \mathcal{B}(E\projtens F,G)\isom{\mathbf{Ban}_1}\mathcal{B}(E\times F,G)
-$$
+\]
 In other words, the projective tensor product linearizes bounded bilinear operators.
 Also, we have the following two (natural in $E$, $F$ and $G$) isometric
 isomorphisms:
-$$
+\[
 \mathcal{B}(E\projtens F,G)
 \isom{\mathbf{Ban}_1}\mathcal{B}(E,\mathcal{B}(F,G))
 \isom{\mathbf{Ban}_1}\mathcal{B}(F,\mathcal{B}(E,G))
-$$
+\]
 The last isomorphism is called the law of adjoint associativity. There are many
 other tensor norms on the algebraic tensor product of Banach spaces. Their
 thorough treatment can be found in~\cite{DiestMetTheoryOfTensProd}.
 
 Now we are able to craft four very important functors:
-$$
+\[
 \mathcal{B}(-,E):\mathbf{Ban}\to\mathbf{Ban}
 \qquad\qquad
 \mathcal{B}(E,-):\mathbf{Ban}\to\mathbf{Ban}
-$$
-$$
+\]
+\[
 -\projtens E:\mathbf{Ban}\to\mathbf{Ban}
 \qquad\qquad
 E\projtens -:\mathbf{Ban}\to\mathbf{Ban}.
-$$
+\]
 We shall often encounter them. For example, the well known adjoint functor
 ${}^*$ is nothing more than $\mathcal{B}(-,\mathbb{C})$. All these functors have
 their obvious analogs on $\mathbf{Ban}_1$.
@@ -754,20 +754,20 @@ measure space.  For $1\leq p<\infty$, as usual, the symbol $L_p(\Omega,\mu)$
 stands for the Banach space of equivalence classes of functions
 $f:\Omega\to\mathbb{C}$ such that $|f|^p$ is Lebesgue integrable with respect to
 measure $\mu$. The norm of such a function is defined by
-$$
+\[
 \lVert f\rVert
 :={\left(
   \int\limits_{\Omega}{|f(\omega)|}^p\,d\mu(\omega)
 \right)}^{1/p}.
-$$ 
+\] 
 By $L_\infty(\Omega,\mu)$ we denote the Banach space of equivalence classes of
 bounded measurable functions with norm defined as 
-$$
+\[
 \lVert f\rVert:=\inf\left \{
   \sup_{\omega\in\Omega\setminus N}|f(\omega)|
   :N\subset\Omega - \mbox{is negligible}
 \right \}.
-$$
+\]
 For simplicity, we shall speak of functions in $L_p(\Omega,\mu)$ instead of their
 equivalence classes. All equalities and inequalities about functions of
 $L_p$-spaces are understood up to negligible sets. It is well-known that
@@ -831,26 +831,26 @@ Banach spaces $ \{E_\lambda:\lambda\in\Lambda \}$. It is almost tautological
 that the Banach space $\ell_p(\Lambda)$ is the $\bigoplus_p$-sum of the family $
 \{\mathbb{C}:\lambda\in\Lambda \}$. A nice property of $\bigoplus_p$-sums is
 their interrelation with duality:
-$$
+\[
 {\left(\bigoplus\nolimits_p \{E_\lambda:\lambda\in\Lambda \}\right)}^*
 \isom{\mathbf{Ban}_1}
 \bigoplus\nolimits_{p^*} \{E_\lambda^*:\lambda\in\Lambda \}
-$$
+\]
 for all $1\leq p<+\infty$ and 
-$$
+\[
 {\left(\bigoplus\nolimits_0 \{E_\lambda:\lambda\in\Lambda \}\right)}^*
 \isom{\mathbf{Ban}_1}
 \bigoplus\nolimits_1 \{E_\lambda^*:\lambda\in\Lambda \}
-$$
+\]
 If $ \{T_\lambda\in\mathcal{B}(E_\lambda, F_\lambda):\lambda\in\Lambda \}$ is a
 family of bounded linear operators, then for all $1\leq p\leq+\infty$ and $p=0$
 we have a well-defined linear operator
-$$
+\[
 T:\bigoplus\nolimits_p \{E_\lambda:\lambda\in\Lambda \}
   \to 
 \bigoplus\nolimits_p \{ F_\lambda:\lambda\in\Lambda \}
 :x\mapsto {(T_\lambda(x_\lambda))}_{\lambda\in\Lambda}
-$$
+\]
 which we shall denote by $\bigoplus_p \{T_\lambda:\lambda\in\Lambda \}$. Its
 norm equals $\sup_{\lambda\in\Lambda}\lVert T_\lambda\rVert$.
 
@@ -982,11 +982,11 @@ subspace of a space with an unconditional basis \cite[proposition 3.5.4]{KalAlbT
 ${(x_\lambda)}_{\lambda\in\Lambda}$ in $E$ satisfies the following property
 \cite[proposition 1.6]{DiestAbsSumOps}: there exists a constant $\kappa\geq 1$
 such that
-$$
+\[
 \left\lVert \sum_{\lambda\in\Lambda}t_\lambda f_\lambda(x)x_\lambda\right\rVert
 \leq
 \kappa\left\lVert \sum_{\lambda\in\Lambda}f_\lambda(x)x_\lambda\right\rVert
-$$
+\]
 for all $x\in E$ and $t\in B_{\ell_\infty(\Lambda)}$. The least such constant
 $\kappa$ among all unconditional Schauder bases of $E$ is denoted by
 $\kappa(E)$. A similar constant could be defined for Banach spaces without
@@ -1184,11 +1184,11 @@ specific and highly important construction for $C^*$-algebras --- the matrix
 algebras. For a given $C^*$-algebra $A$, by $M_n(A)$ we denote the linear space
 of $n\times n$ matrices with entries in $A$. In fact $M_n(A)$ is a ${}^*$-algebra
 with involution and multiplication defined by the equalities 
-$$
+\[
 {(ab)}_{i,j}=\sum_{k=1}^n a_{i,k}b_{k,j}
 \qquad\qquad
 {(a^*)}_{i,j}={(a_{j,i})}^*
-$$ 
+\] 
 for all $a,b\in M_n(A)$ and $i,j\in\mathbb{N}_n$. There is a unique norm on
 $M_n(A)$ that makes it a $C^*$-algebra \cite[theorem 3.4.2]{MurphyCStarAlgsAndOpTh}. Obviously, $M_n(\mathbb{C})$ is isometrically isomorphic as
 a ${}^*$-algebra to $\mathcal{B}(\ell_2(\mathbb{N}_n))$. From
@@ -1199,20 +1199,20 @@ and projections
 $\pi_{k,l}:M_n(A)\to A:a\mapsto a_{k,l}$ are continuous. Therefore, for a given
 bounded linear operator $\phi:A\to B$ between $C^*$-algebras $A$ and $B$, the
 linear operator 
-$$
+\[
 M_n(\phi):M_n(A)\to M_n(B),\, a\mapsto {(\phi(a_{i,j}))}_{i,j\in\mathbb{N}_n}
-$$ 
+\] 
 is also bounded. Even more, if $\phi$ is an $A$-morphism or ${}^*$-homomorphism,
 then so is $M_n(\phi)$. Finally, we shall mention two isometric isomorphisms
 that will be of use:
-$$
+\[
 M_n\left(\bigoplus\nolimits_\infty \{A_\lambda:\lambda\in\Lambda \}\right)
 \isom{\mathbf{Ban}_1}
 \bigoplus\nolimits_\infty \{M_n\left(A_\lambda\right):\lambda\in\Lambda \},
-$$
-$$
+\]
+\[
 M_n(C(K))\isom{\mathbf{Ban}_1}C(K,M_n(\mathbb{C}))
-$$
+\]
 
 Now a few facts on approximate identities and identities of $C^*$-algebras and
 their ideals. Any closed two-sided ideal of a $C^*$-algebra has a two-sided
@@ -1272,11 +1272,11 @@ $\operatorname{Hom}_{\mathbf{mod}\text{-}A}(X,Y)=\mathcal{B}_A(X,Y)$~$\rangle$.
 For a given left Banach $A$-module $X$ and $S\subset A$, $M\subset X$ we define 
 their products $S\cdot M= \{a\cdot x:a\in S, x\in M \}$, 
 $SM=\operatorname{span} (S\cdot M)$ and algebraic annihilators 
-$$
+\[
 S^{\perp M}= \{a\in S:a\cdot M= \{0 \} \},
 \qquad\qquad
 {}^{S\perp}M= \{x\in M: S\cdot x= \{0 \} \}.
-$$ 
+\] 
 The essential and annihilator
 parts of $X$ are defined as $X_{ess}=\operatorname{cl}_X(A X)$,
 $X_{ann}={}^{A\perp}X$. The module $X$ is called $\langle$~faithful /
@@ -1340,9 +1340,9 @@ Let $\phi\in\mathcal{B}_A(X_1,X_2)$ and $\psi\in{}_A\mathcal{B}(Y_1,Y_2)$
 for right Banach $A$-modules $X_1$, $X_2$ and left 
 Banach $A$-modules $Y_1$, $Y_2$. Then there exists a unique bounded 
 linear operator 
-$$
+\[
 \phi\projmodtens{A} \psi:X_1\projmodtens{A} Y_1\to X_2\projmodtens{A} Y_2
-$$ 
+\] 
 such that
 $(\phi\projmodtens{A} \psi)(x\projmodtens{A} y)=\phi(x)\projmodtens{A} \psi(y)$
 for all $x\in X_1$ and $y\in Y_1$. Even more 
@@ -1350,39 +1350,39 @@ $\lVert \phi\projmodtens{A} \psi\rVert\leq\lVert \phi\rVert\lVert \psi\rVert$.
 The projective module tensor product has its own universal property: for any
 right Banach $A$-module $X$, any left Banach $A$-module $Y$ and any Banach space
 $E$ there exists an isometric isomorphism:
-$$
+\[
 \mathcal{B}(X\projmodtens{A}Y,E)
 \isom{\mathbf{Ban}_1}
 \mathcal{B}_{bal}(X\times Y, E)
-$$
+\]
 where $\mathcal{B}_{bal}(X\times Y, E)$ stands for the Banach space of bilinear
 operators $\Phi:X\times Y\to E$ satisfying $\Phi(x\cdot a,y)=\Phi(x,a\cdot y)$
 for all $x\in X$, $y\in Y$ and $a\in A$. Such bilinear operators are called
 balanced. Furthermore, we have two (natural in $X$, $Y$ and $E$) isometric
 isomorphisms:
-$$
+\[
 \mathcal{B}(X\projmodtens{A}Y,E)
 \isom{\mathbf{Ban}_1}
 {}_A\mathcal{B}(Y,\mathcal{B}(X,E))
 \isom{\mathbf{Ban}_1}
 \mathcal{B}_A(X,\mathcal{B}(Y,E))
-$$
+\]
 Analogously to Banach space theory, we may define the following functors:
-$$
+\[
 \mathcal{B}(-,E):A\text{-}\mathbf{mod}\to \mathbf{mod}\text{-}A
 \qquad\qquad
 \mathcal{B}(-,E):\mathbf{mod}\text{-}A\to A\text{-}\mathbf{mod}
-$$
-$$
+\]
+\[
 \mathcal{B}(E,-):A\text{-}\mathbf{mod}\to A\text{-}\mathbf{mod}
 \qquad\qquad
 \mathcal{B}(E,-):\mathbf{mod}\text{-}A\to \mathbf{mod}\text{-}A
-$$
-$$
+\]
+\[
 -\projmodtens{A} Y:\mathbf{mod}\text{-}A\to\mathbf{Ban}
 \qquad\qquad
 X\projmodtens{A} -:A\text{-}\mathbf{mod}\to\mathbf{Ban}
-$$
+\]
 where $E$ is a Banach space, $X$ is a right $A$-module and $Y$ is a left
 $A$-module. All these functors have their counterparts for categories
 $A\text{-}\mathbf{mod}_1$, $\mathbf{mod}_1\text{-}A$. 
@@ -1392,11 +1392,11 @@ product. For example \cite[proposition 6.3.24]{HelBanLocConvAlg}, if $A$ is a
 Banach algebra and $I$ is a closed right ideal of $A_+$ with 
 a left $\langle$~contractive / bounded~$\rangle$ approximate identity, and $X$ is 
 a left Banach $A$-module, then the linear operator 
-$$
+\[
 i_{I,X}
 :I\projmodtens{A}X \to \operatorname{cl}_X(IX)
 :a\projmodtens{A} x\mapsto a\cdot x
-$$
+\]
 is $\langle$~an isometric isomorphism / a topological isomorphism~$\rangle$ of
 Banach spaces. If $I$ is a closed two-sided ideal, then $i_{I,X}$ is a morphism of left
 $A$-modules. We call reduced all left Banach modules of the form
@@ -1432,11 +1432,11 @@ if for any $c$-relatively admissible epimorphism $\xi:X\to Y$ and
 for any  $A$-morphism $\phi:P\to Y$ there exists 
 an $A$-morphism $\psi:P\to X$ such 
 that $\lVert \psi\rVert\leq cC\lVert \phi\rVert$ and the diagram
-$$
+\[
 \xymatrix{
 & {X} \ar[d]^{\xi}\\  % chktex 3
 {P} \ar@{-->}[ur]^{\psi} \ar[r]^{\phi} &{Y}}  % chktex 3
-$$
+\]
 is commutative. Such an $A$-morphism $\psi$ is called a lifting of $\phi$, and it is
 not unique in general. Similarly,  we say that a morphism $\xi:Y\to X$ of right
 $A$-modules $X$ and $Y$ is a $c$-relatively admissible monomorphism if it admits
@@ -1445,11 +1445,11 @@ $A$-module $J$ is called $C$-relatively injective if for any $c$-relatively
 admissible monomorphism $\xi:Y\to X$ and for 
 any $A$-morphism $\phi:Y\to J$ there exists an $A$-morphism $\psi:X\to J$ such 
 that $\lVert\psi\rVert\leq cC\lVert\phi\rVert$ and the diagram
-$$
+\[
 \xymatrix{
 & {X} \ar@{-->}[dl]_{\psi} \\  % chktex 3
 {J} &{Y} \ar[l]_{\phi} \ar[u]_{\xi}}  % chktex 3
-$$
+\]
 is commutative. Such an $A$-morphism $\psi$ is called an extension of $\phi$, and it
 is not unique in general.
 
