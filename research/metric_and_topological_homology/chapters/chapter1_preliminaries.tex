@@ -389,11 +389,7 @@ parts of the measure space $(\Omega,\Sigma,\mu)$.
 By a measurable function we always mean a complex or real valued function on
 a measurable space, with the property that the preimage of every open set is
 measurable. We say that two measurable functions are equivalent if the set where
-they are different is negligible. If $f:\Omega\to\mathbb{R}$ is an  integrable
-function on $(\Omega,\Sigma,\mu)$, then we may define a new measure 
-$$
-f\mu:\Sigma\to[0,+\infty],\,E\mapsto\int_{E}f(\omega)\,d\mu(\omega).
-$$
+they are different is negligible.
 
 The notion of measure can be extended by changing the range of values that a
 measure can attain. Any $\sigma$-additive function $\mu:\Sigma\to\mathbb{C}$ on
@@ -407,6 +403,15 @@ $$
 E\mapsto\sup\left \{\sum_{n\in\mathbb{N}}|\mu(E_n)|
 : \{E_n:n\in\mathbb{N} \}\subset\Sigma,\,\, E=\bigsqcup\limits_{n\in\mathbb{N}} E_n\right \}
 $$
+
+Densities provide a convenient source of measures. If $f:\Omega\to[0,+\infty]$
+is a measurable function on $(\Omega,\Sigma,\mu)$, then the formula
+$$
+f\mu:E\mapsto\int_{E}f(\omega)\,d\mu(\omega)
+$$
+defines a measure $f\mu:\Sigma\to[0,+\infty]$. If $f:\Omega\to\mathbb{C}$ is an
+integrable function on $(\Omega,\Sigma,\mu)$, then the same formula defines a
+complex measure $f\mu:\Sigma\to\mathbb{C}$.
 
 Let $\mu$ and $\nu$ be two measures on a measurable space $(\Omega,\Sigma)$. We
 say that $\mu$ and $\nu$ are mutually singular and write $\mu\perp\nu$ if there
