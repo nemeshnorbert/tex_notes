@@ -355,6 +355,53 @@ in $P$.
 proposition~\ref{MetTopRelProjModCompIdealPartCompl}.
 \end{proof}
 
+\begin{proposition}\label{MetTopProjModEssQuotIsProjBanSp} Let $P$ be a
+$\langle$~metrically / $C$-topologically~$\rangle$ projective $A$-module. Then
+$P/P_{ess}$ is a $\langle$~metrically / $C$-topologically~$\rangle$ projective
+Banach space. As a consequence,
+$\langle$~$P/P_{ess}\isom{\mathbf{Ban}_1}\ell_1(\Lambda)$ /
+$P/P_{ess}\isom{\mathbf{Ban}}\ell_1(\Lambda)$~$\rangle$ for some set $\Lambda$.
+\end{proposition}
+\begin{proof} Put $Q:=P/P_{ess}$ and let $q:P\to Q$ be the natural quotient
+morphism. Since $a\cdot x\in P_{ess}$ for all $a\in A$ and $x\in P$, the
+$A$-module $Q$ is annihilator. Endow $\ell_1(B_Q)$ with the annihilator
+$A$-module structure and consider the strict coisometry $\pi:\ell_1(B_Q)\to Q$
+well-defined by the equality $\pi(\delta_y)=y$ for all $y\in B_Q$. Since $Q$
+and $\ell_1(B_Q)$ are annihilator modules, $\pi$ is also an $A$-module map.
+Recall that strict coisometries are exactly the contractive strictly
+$1$-topologically surjective operators, so $\pi$ belongs to the class of
+morphisms considered in definition~\ref{MetCTopProjMod} for both types of
+projectivity. Since $P$ is $\langle$~metrically / $C$-topologically~$\rangle$
+projective, there exists an $A$-morphism $\psi:P\to\ell_1(B_Q)$ such
+that $\pi\psi=q$ and $\langle$~$\lVert\psi\rVert\leq\lVert q\rVert$ /
+$\lVert\psi\rVert\leq C\lVert q\rVert$~$\rangle$. As $\lVert q\rVert\leq 1$,
+the norm of $\psi$ is $\langle$~at most $1$ / at most $C$~$\rangle$.
+
+Since $\ell_1(B_Q)$ is an annihilator module, $\psi(a\cdot x)=a\cdot\psi(x)=0$
+for all $a\in A$ and $x\in P$. By linearity and continuity $\psi$ vanishes on
+$P_{ess}=\operatorname{cl}_P(AP)=\operatorname{Ker}(q)$, so there exists a
+unique operator $\overline{\psi}:Q\to\ell_1(B_Q)$ satisfying
+$\overline{\psi}q=\psi$. For all $x\in P$ and $n\in P_{ess}$ we have
+$\lVert\overline{\psi}(q(x))\rVert
+=\lVert\psi(x+n)\rVert\leq\lVert\psi\rVert\lVert x+n\rVert$, and
+therefore $\lVert\overline{\psi}\rVert\leq\lVert\psi\rVert$.
+From $\pi\overline{\psi}q=\pi\psi=q$ and surjectivity of $q$ we
+get $\pi\overline{\psi}=1_Q$. Thus, the Banach space $Q$ is
+a $\langle$~$1$-retract / $C$-retract~$\rangle$ of $\ell_1(B_Q)$.
+
+It remains to note that, regarding Banach spaces as modules over the zero
+algebra, we have
+$\ell_1(B_Q)\isom{\mathbf{Ban}_1}\mathbb{C}\projtens\ell_1(B_Q)$, so by
+proposition~\ref{MetCTopFreeMod} the Banach space $\ell_1(B_Q)$ is
+$\langle$~metrically / $1$-topologically~$\rangle$ projective. By
+proposition~\ref{RetrMetCTopProjIsMetCTopProj} the Banach space $Q$ is
+$\langle$~metrically / $C$-topologically~$\rangle$ projective. Now
+from $\langle$~\cite[proposition 3.2]{HelMetrFrQMod} / results
+of~\cite{KotheTopProjBanSp}~$\rangle$ we get that $Q$ is
+$\langle$~isometrically / topologically~$\rangle$ isomorphic
+to $\ell_1(\Lambda)$ for some set $\Lambda$.
+\end{proof}
+
 %-------------------------------------------------------------------------------
 %    Metric and topological projectivity of ideals and cyclic modules
 %-------------------------------------------------------------------------------
