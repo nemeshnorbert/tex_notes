@@ -2572,10 +2572,10 @@ Let $G$ be a locally compact group. Its identity we shall denote by $e_G$. By
 well known Haar's theorem \cite[section 15.8]{HewRossAbstrHarmAnalVol1} there
 exists a unique up to a positive constant Borel regular measure $m_G$ which is
 finite on all compact sets, positive on all open sets and left translation
-invariant, that is $m_G(sE)=m_G(E)$ for all $s\in G$ and $E\in Bor(G)$. It is
+invariant, that is $m_G(sE)=m_G(E)$ for all $s\in G$ and $E\in \operatorname{Bor}(G)$. It is
 called the left Haar measure of the group $G$. If $G$ is compact, we assume that 
 $m_G(G)=1$. If $G$ is infinite and discrete, we choose $m_G$ as the counting measure.
-For each $s\in G$ the map $m:Bor(G)\to[0,+\infty]:E\mapsto m_G(Es)$ is also a
+For each $s\in G$ the map $m:\operatorname{Bor}(G)\to[0,+\infty]:E\mapsto m_G(Es)$ is also a
 left Haar measure, so from uniqueness we infer that $m(E)=\Delta_G(s)m_G(E)$ for
 some $\Delta_G(s)>0$. The function $\Delta_G:G\to(0,+\infty)$ is called the
 modular function of the group $G$. It is clear that
@@ -2603,9 +2603,9 @@ The group structure of $G$ allows us to turn the Banach space of complex finite
 Borel regular measures $M(G)$ into a Banach algebra too. We define the 
 convolution of two measures $\mu,\nu\in M(G)$ as
 \[
-(\mu\convol \nu)(E)=\int_G\nu(s^{-1}E)d\mu(s)=\int_G\mu(Es^{-1})d\nu(s)
+(\mu\convol \nu)(E)=\int_G\nu(s^{-1}E)\,d\mu(s)=\int_G\mu(Es^{-1})\,d\nu(s)
 \]
-for all $E\in Bor(G)$. The Banach space $M(G)$ along with this convolution is 
+for all $E\in \operatorname{Bor}(G)$. The Banach space $M(G)$ along with this convolution is 
 a unital Banach algebra. The role of the identity is played by Dirac's delta 
 measure $\delta_{e_G}$ supported on $e_G$. In fact $M(G)$ is a coproduct 
 in $L_1(G)\text{-}\mathbf{mod}_1$ (but not in $M(G)\text{-}\mathbf{mod}_1$) of the 
@@ -2622,16 +2622,16 @@ left and right $M(G)$-morphism $i:L_1(G)\to M(G):f\mapsto f m_G$.
 Therefore, it is enough to define all module structures over $M(G)$. 
 For $1\leq p<+\infty$ and any $f\in L_p(G)$, $\mu\in M(G)$ we define
 \[
-(\mu\convol_p f)(s)=\int_G f(t^{-1}s)d\mu(t), \qquad\qquad (f\convol_p
-\mu)(s)=\int_G f(st^{-1}){\Delta_G(t^{-1})}^{1/p}d\mu(t)
+(\mu\convol_p f)(s)=\int_G f(t^{-1}s)\,d\mu(t), \qquad\qquad (f\convol_p
+\mu)(s)=\int_G f(st^{-1}){\Delta_G(t^{-1})}^{1/p}\,d\mu(t)
 \]
 These module actions turn any Banach space $L_p(G)$ for $1\leq p<+\infty$ into 
 a left and right $M(G)$-module. Note that for $p=1$ and $\mu\in M_a(G)$ we 
 get the usual definition of convolution. For $1<p\leq +\infty$ and 
 any $f\in L_p(G)$, $\mu\in M(G)$ we define module actions
 \[
-(\mu\cdot_p f)(s)=\int_G {\Delta_G(t)}^{1/p}f(st)d\mu(t), \qquad\qquad (f\cdot_p
-\mu)(s)=\int_G f(ts)d\mu(t)
+(\mu\cdot_p f)(s)=\int_G {\Delta_G(t)}^{1/p}f(st)\,d\mu(t), \qquad\qquad (f\cdot_p
+\mu)(s)=\int_G f(ts)\,d\mu(t)
 \]
 These module actions turn any Banach space $L_p(G)$ for $1<p\leq+\infty$ into 
 a left and right $M(G)$-module too. This special choice of module structure 
@@ -2650,13 +2650,13 @@ considered with the compact open topology. Any character $\gamma\in\widehat{G}$
 gives rise to a continuous character 
 $\varkappa_\gamma^L:
 L_1(G)\to\mathbb{C},\, 
-f\mapsto \int_G f(s)\overline{\gamma(s)}dm_G(s)$ on $L_1(G)$. In fact all 
+f\mapsto \int_G f(s)\overline{\gamma(s)}\,dm_G(s)$ on $L_1(G)$. In fact all 
 characters of $L_1(G)$ arise this way. This result is due to 
 Gelfand \cite[theorems 2.7.2, 2.7.5]{KaniBanAlg}. Similarly, for 
 each $\gamma\in\widehat{G}$ we have a character on $M(G)$ defined by 
 $\varkappa_\gamma^M:
 M(G)\to\mathbb{C},\, 
-\mu\mapsto\int_{G} \overline{\gamma(s)}d\mu(s)$. By $\mathbb{C}_\gamma$ we 
+\mu\mapsto\int_{G} \overline{\gamma(s)}\,d\mu(s)$. By $\mathbb{C}_\gamma$ we 
 denote the respective augmentation left and right $L_1(G)$- or $M(G)$-module. 
 Their module actions are defined by
 \[
