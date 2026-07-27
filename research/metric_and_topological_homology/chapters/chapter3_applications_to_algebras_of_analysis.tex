@@ -2099,13 +2099,15 @@ $S$. Assume $1<p<+\infty$. Then
     it is a relatively projective $C_0(S)$-module iff $\mu$ is purely atomic,
     and all atoms are isolated points;
 
-    \item $L_p(S,\mu)$ is a topologically projective or injective or flat 
-    $C_0(S)$-module iff $\mu$ is purely atomic with finitely many atoms,
-    and all atoms are isolated points;
+    \item $L_p(S,\mu)$ is a topologically projective $C_0(S)$-module iff $\mu$
+    is purely atomic with finitely many atoms, and all atoms are isolated
+    points; it is a topologically injective or flat $C_0(S)$-module iff $\mu$
+    is purely atomic with finitely many atoms;
 
-    \item $L_p(S,\mu)$ is a metrically projective or injective or flat 
-    $C_0(S)$-module iff $\mu$ is purely atomic with at most one atom,
-    which is an isolated point.
+    \item $L_p(S,\mu)$ is a metrically projective $C_0(S)$-module iff $\mu$ is
+    purely atomic with at most one atom, which is an isolated point; it is a
+    metrically injective or flat $C_0(S)$-module iff $\mu$ is purely atomic
+    with at most one atom.
 \end{enumerate}
 \end{proposition}
 \begin{proof} $(i)$ By [\cite{HelBanLocConvAlg}, theorem 7.1.87] the algebra
@@ -2131,27 +2133,34 @@ or injective or flat $C_0(S)$-module. Since $L_p(S,\mu)$ is reflexive and
 $C_0(S)$ is an $\mathscr{L}_\infty^g$-space, $L_p(S,\mu)$ is finite
 dimensional by
 corollary~\ref{NoInfDimRefMetTopProjInjFlatModOverMthscrL1OrLInfty}. The latter
-is equivalent to the measure $\mu$ being purely atomic with finitely many atoms, and
-all atoms being isolated points. On the other hand, if $\mu$ is purely atomic 
-with finitely many atoms, all of which are isolated points, then
+is equivalent to the measure $\mu$ being purely atomic with finitely many
+atoms. If in addition $L_p(S,\mu)$ is topologically projective, then it is
+relatively projective by
+proposition~\ref{MetProjIsTopProjAndTopProjIsRelProj}, so all atoms of $\mu$
+are isolated points by proposition~\ref{AtomsOfRelProjLpMod}. On the other
+hand, if $\mu$ is purely atomic with finitely many atoms, then
 $L_p(S,\mu)$ is topologically isomorphic 
 to $L_1(S,\mu)$ as a left or right $C_0(S)$-module. The latter module is 
-topologically projective, injective and flat by 
-proposition~\ref{L1C0SModMetTopRelProjInjFlat}. Hence, so is $L_p(S,\mu)$.
+topologically injective and flat by 
+proposition~\ref{L1C0SModMetTopRelProjInjFlat}, and it is topologically
+projective whenever all atoms of $\mu$ are isolated points. Hence, so
+is $L_p(S,\mu)$.
 
 $(iii)$ Suppose $L_p(S,\mu)$ is a metrically $\langle$~projective / injective / 
 flat~$\rangle$ $C_0(S)$-module. Then by 
 proposition $\langle$~\ref{MetProjIsTopProjAndTopProjIsRelProj} / 
 \ref{MetInjIsTopInjAndTopInjIsRelInj} / 
 \ref{MetFlatIsTopFlatAndTopFlatIsRelFlat}~$\rangle$ this module is topologically
-$\langle$~projective / injective / flat~$\rangle$. By the previous paragraph we get
-that the measure $\mu$ is purely atomic with all atoms being isolated points.
+$\langle$~projective / injective / flat~$\rangle$. By the previous paragraph the
+measure $\mu$ is purely atomic with finitely many atoms, and in the projective
+case all of them are isolated points.
 From [\cite{NemMetProjInjFlatModLp}, theorem 4.5] we know that the number of 
-atoms is at most one. Conversely, if $\mu$ has at most one atom $s\in S$ which 
-is an isolated point, then $L_p(S,\mu)$ is isometrically isomorphic 
+atoms is at most one. Conversely, if $\mu$ has at most one atom $s\in S$, 
+then $L_p(S,\mu)$ is isometrically isomorphic 
 to $\mathbb{C}_s$ as a $C_0(S)$-module. By 
 proposition~\ref{OneDimC0SModMetTopRelProjIngFlat} this module is metrically 
-projective, injective and flat.
+injective and flat, and it is metrically projective whenever $s$ is an isolated
+point.
 \end{proof}
 
 \begin{proposition}\label{LinftyC0SModMetTopRelProjIngFlat} Let $S$ be a locally
@@ -2285,15 +2294,13 @@ compact support.
             \mbox{\ref{LpC0SModMetTopRelProjIngFlat}} (iii)
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
-            $\mu$\mbox{ is purely atomic with } \\
-            \mbox{ at most one atom, which } \\ 
-            \mbox{ is an isolated point} \\
+            $\mu$\mbox{ is purely atomic } \\
+            \mbox{ with at most one atom } \\ 
             \mbox{\ref{LpC0SModMetTopRelProjIngFlat}} (iii)
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
-            $\mu$\mbox{ is purely atomic with } \\
-            \mbox{ at most one atom, which } \\ 
-            \mbox{ is an isolated point} \\
+            $\mu$\mbox{ is purely atomic } \\
+            \mbox{ with at most one atom } \\ 
             \mbox{\ref{LpC0SModMetTopRelProjIngFlat}} (iii)
         \end{tabular} \\
     \hline
@@ -2387,14 +2394,12 @@ compact support.
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
             $\mu$\mbox{ is purely atomic with } \\ 
-            \mbox{ finitely many atoms, all } \\ 
-            \mbox{ atoms are isolated points} \\
+            \mbox{ finitely many atoms } \\ 
             \mbox{\ref{LpC0SModMetTopRelProjIngFlat}} (ii)
         \end{tabular} & 
         \begin{tabular}{@{}c@{}}
             $\mu$\mbox{ is purely atomic with } \\ 
-            \mbox{ finitely many atoms, all } \\ 
-            \mbox{ atoms are isolated points} \\
+            \mbox{ finitely many atoms } \\ 
             \mbox{\ref{LpC0SModMetTopRelProjIngFlat}} (ii)
         \end{tabular} \\
     \hline
