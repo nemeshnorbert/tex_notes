@@ -1259,13 +1259,16 @@ $X$ and $Y$ are $\langle$~left / right~$\rangle$ annihilator $A$-modules, then
 $\langle$~${}_A\mathcal{B}(X,Y)=\mathcal{B}(X,Y)$ /
 $\mathcal{B}_A(X,Y)=\mathcal{B}(X,Y)$~$\rangle$.
 
-If $X$ is a left Banach $A$-module and $E$ is a
-Banach space, then $\langle$~$\mathcal{B}(X,E)$ / $\mathcal{B}(E,X)$~$\rangle$
-is a $\langle$~right / left~$\rangle$ Banach $A$-module with module action
-defined by $\langle$~$(T\cdot a)(x)=T(a\cdot x)$ for all $a\in A$, $x\in X$ and
-$T\in\mathcal{B}(X, E)$ / $(a\cdot T)(x)=a\cdot T(x)$ for all $a\in A$, $x\in E$
-and $T\in\mathcal{B}(E, X)$~$\rangle$. In particular, $X^*$ is a right Banach
-$A$-module.
+Let $X$ be a $\langle$~left / right~$\rangle$ Banach $A$-module and $E$ be a
+Banach space. Then $\mathcal{B}(X,E)$ is a $\langle$~right / left~$\rangle$ 
+Banach $A$-module with module action defined 
+by $\langle$~$(T\cdot a)(x)=T(a\cdot x)$ / $(a\cdot T)(x)=T(x\cdot a)$~$\rangle$ 
+for all $a\in A$, $x\in X$. In particular, $X^*$ is 
+a $\langle$~right / left~$\rangle$ Banach $A$-module. Similarly, 
+$\mathcal{B}(E, X)$ is a $\langle$~left / right~$\rangle$ Banach $A$-module 
+with module action defined 
+by $\langle$~$(a\cdot T)(x)=a\cdot T(x)$ / $(T\cdot a)(x)=T(x)\cdot a$~$\rangle$ 
+for all $a\in A$, $x\in E$.
 
 By $\langle A-\mathbf{mod}$ / $\mathbf{mod}-A\rangle$ we shall denote the
 category of $\langle$~left / right~$\rangle$ $A$-modules with continuous
@@ -1377,6 +1380,11 @@ $$
 Analogously to Banach space theory, we may define the following functors:
 $$
 \mathcal{B}(-,E):A-\mathbf{mod}\to \mathbf{mod}-A
+\qquad\qquad
+\mathcal{B}(-,E):\mathbf{mod}-A\to A-\mathbf{mod}
+$$
+$$
+\mathcal{B}(E,-):A-\mathbf{mod}\to A-\mathbf{mod}
 \qquad\qquad
 \mathcal{B}(E,-):\mathbf{mod}-A\to \mathbf{mod}-A
 $$
