@@ -1066,6 +1066,39 @@ $(1+C)$-complemented~$\rangle$ in $J$.
 proposition~\ref{MetTopRelInjModCompIdealAnnihCompl}.
 \end{proof}
 
+\begin{proposition}\label{MetTopInjModAnnihPartIsInjBanSp} Let $J$ be a
+$\langle$~metrically / $C$-topologically~$\rangle$ injective right $A$-module.
+Then $J_{ann}$ is a $\langle$~metrically / $C$-topologically~$\rangle$ injective
+Banach space. $\langle$~As a consequence,
+$J_{ann}\isom{\mathbf{Ban}_1}C(K)$ for some Stonean space $K$ /~$\rangle$.
+\end{proposition}
+\begin{proof} Consider an arbitrary $\langle$~isometric /
+$c$-topologically injective~$\rangle$ operator $\iota:Y\to X$ of Banach spaces
+and an arbitrary bounded linear operator $\phi:Y\to J_{ann}$. Endow $X$ and $Y$
+with the annihilator right $A$-module structure; then $\iota$ is an
+$A$-morphism. Let $j:J_{ann}\to J$ be the natural isometric embedding. Since
+$J_{ann}\cdot A= \{0 \}$, for all $y\in Y$ and $a\in A$ we
+have $(j\phi)(y\cdot a)=(j\phi)(0)=0=(j\phi)(y)\cdot a$, so $j\phi$ is an
+$A$-morphism too. Since $J$ is a $\langle$~metrically /
+$C$-topologically~$\rangle$ injective $A$-module, by
+definition~\ref{MetCTopInjMod} there exists an $A$-morphism $\psi:X\to J$ such
+that $\psi\iota=j\phi$ and $\langle$~$\lVert\psi\rVert\leq\lVert j\phi\rVert$ /
+$\lVert\psi\rVert\leq cC\lVert j\phi\rVert$~$\rangle$. As $j$ is isometric, the
+norm of $\psi$ is $\langle$~at most $\lVert\phi\rVert$ / at most
+$cC\lVert\phi\rVert$~$\rangle$.
+
+Since $X$ is an annihilator module, $\psi(x)\cdot a=\psi(x\cdot a)=\psi(0)=0$
+for all $x\in X$ and $a\in A$, that is, $\psi(X)\subset J_{ann}$. Therefore,
+$\psi$ admits a corestriction $\widetilde{\psi}:X\to J_{ann}$ of the same norm,
+and $j\widetilde{\psi}\iota=\psi\iota=j\phi$ gives $\widetilde{\psi}\iota=\phi$
+because $j$ is injective. Thus, $J_{ann}$ solves every $\langle$~metric /
+$C$-topological~$\rangle$ extension problem for Banach spaces, that is, it is a
+$\langle$~metrically / $C$-topologically~$\rangle$ injective Banach space.
+$\langle$~From \cite[theorem 3.11.6]{LaceyIsomThOfClassicBanSp} the Banach
+space $J_{ann}$ is isometrically isomorphic to $C(K)$ for some Stonean
+space $K$. /~$\rangle$
+\end{proof}
+
 %-------------------------------------------------------------------------------
 %    Metric and topological flatness
 %-------------------------------------------------------------------------------
