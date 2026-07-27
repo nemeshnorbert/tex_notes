@@ -509,7 +509,7 @@ ${(E^{cc})}^{cc}=E$.
 If $F$ is a closed subspace of the Banach space $E$, then $E/F$ stands for 
 the linear quotient Banach space. Its norm is defined by the equality 
 $$
-\Vert x+F\Vert=\inf \{\Vert x+y\Vert: y\in F \},
+\lVert x+F\rVert=\inf \{\lVert x+y\rVert: y\in F \},
 $$
 where $x+F\in E/F$.
 
@@ -517,7 +517,7 @@ Now fix two Banach spaces $E$ and $F$. A map $T:E\to F$ is called conjugate
 linear if the respective map $T:E^{cc}\to F$ is linear. A linear operator
 $T:E\to F$ is called:
 \begin{enumerate}[label = (\roman*)]
-  \item bounded if its norm $\Vert T\Vert:=\sup \{\Vert T(x)\Vert:x\in B_E \}$ 
+  \item bounded if its norm $\lVert T\rVert:=\sup \{\lVert T(x)\rVert:x\in B_E \}$ 
   is finite;
 
   \item contractive if its norm is at most $1$;
@@ -537,9 +537,9 @@ $F$. If $F=E$, we use the shortcut $\langle$~$\mathcal{B}(E)$ / $\mathcal{K}(E)$
 $\mathcal{K}(E,F)$ are just the usual operator norms. The norm of a nuclear
 operator $T$ is defined by the equality
 $$
-\Vert T\Vert
+\lVert T\rVert
 :=\inf\left \{
-  \sum_{n=1}^\infty\Vert S_n\Vert
+  \sum_{n=1}^\infty\lVert S_n\rVert
   :T=\sum_{n=1}^\infty S_n,\quad 
   {(S_n)}_{n\in\mathbb{N}} - \mbox{ rank one operators}
 \right \}.
@@ -561,7 +561,7 @@ $\langle$~$E\isom{\mathbf{Ban}_1}F$ / $E\isom{\mathbf{Ban}}F$~$\rangle$. The
 Banach-Mazur distance between $E$ and $F$ is defined by the formula 
 $$
 d_{BM}(E,F):=\inf \{
-  \Vert T\Vert\Vert T^{-1}\Vert
+  \lVert T\rVert\lVert T^{-1}\rVert
   :T \in \mathcal{B}(E,F) \mbox{ --- a topological isomorphism}
  \}.
 $$ 
@@ -585,7 +585,7 @@ $$
 T^*:F^*\to E^*,\,f\mapsto (x\mapsto f(T(x))).
 $$
 Again from the Hahn-Banach 
-theorem it follows that $\Vert T^*\Vert=\Vert T\Vert$. One can easily check 
+theorem it follows that $\lVert T^*\rVert=\lVert T\rVert$. One can easily check 
 that $T^{**}\iota_E=\iota_F T$.  
 
 For a given subspace $F$ of $\langle$~$E$ / $E^*$~$\rangle$, we define 
@@ -615,7 +615,7 @@ operator $T:E\to F$ is called:
 
   \item strictly coisometric if it maps the closed unit ball onto the closed unit ball; 
 
-  \item $c$-topologically injective, if $\Vert x\Vert\leq c\Vert  T(x)\Vert$ for
+  \item $c$-topologically injective, if $\lVert x\rVert\leq c\lVert  T(x)\rVert$ for
   all $x\in E$;
 
   \item $c$-topologically surjective, if $cT(B_E^\circ)\supset B_F^\circ$;
@@ -648,7 +648,7 @@ Let us discuss relations between Banach spaces and their subspaces. A bounded
 linear operator $T:E\to F$ is called a $\langle$~$c$-retraction /
 $c$-coretraction~$\rangle$ if there exists a bounded linear operator $S:F\to E$
 such that $\langle$~$T S=1_F$ / $S T=1_E$~$\rangle$ 
-and $\Vert T\Vert\Vert S\Vert\leq c$. In this case we say 
+and $\lVert T\rVert\lVert S\rVert\leq c$. In this case we say 
 that $\langle$~$F$ / $E$~$\rangle$ has a
 $c$-complemented copy in $\langle$~$E$ / $F$~$\rangle$ via the topologically $\langle$~surjective /
 injective~$\rangle$ operator $T$. If the natural embedding of a subspace $F$
@@ -657,7 +657,7 @@ $c$-complemented in $E$. Complemented subspaces can be described in terms of so-
 projections. A bounded linear operator $P:E\to E$ is called a projection 
 of $E$ onto $F$ if $P^2=P$, $\operatorname{Im}(P)=F$. One can show that 
 $F$ is $c$-complemented in $E$ iff there is a projection $P$ from $E$ onto $F$ 
-with $\Vert P\Vert\leq c$. We say that $F$ is weakly $c$-complemented in $E$
+with $\lVert P\rVert\leq c$. We say that $F$ is weakly $c$-complemented in $E$
 if $F^*$ is $c$-complemented in $E^*$ via the map $i^*$, which is the adjoint of
 the natural embedding. If $F$ is $c$-complemented in $E$, then it is 
 weakly $c$-complemented in $E$.  The term ``contractively complemented'' will 
@@ -680,7 +680,7 @@ $\ell_\infty(\mathbb{N})$ by the Dixmier projection.
 Let $E$, $F$ and $G$ be three Banach spaces; then a bilinear operator
 $\Phi:E\times F\to G$ is called bounded if its norm 
 $$
-\Vert \Phi\Vert:=\sup \{\Vert \Phi(x,y)\Vert:x\in B_E, y\in B_F \}
+\lVert \Phi\rVert:=\sup \{\lVert \Phi(x,y)\rVert:x\in B_E, y\in B_F \}
 $$ 
 is finite. 
 The Banach space of all bounded bilinear operators on $E\times F$ with 
@@ -691,9 +691,9 @@ $F$. This linear space can be endowed with different norms, but the most
 important is the projective norm. For $u\in E\otimes F$ we define its projective
 norm as
 $$
-\Vert u\Vert
+\lVert u\rVert
 :=\inf\left \{
-  \sum_{i=1}^n \Vert x_i\Vert\Vert y_i\Vert
+  \sum_{i=1}^n \lVert x_i\rVert\lVert y_i\rVert
   :u=\sum_{i=1}^n x_i\otimes y_i, 
   {(x_i)}_{i\in\mathbb{N}_n}\subset E, 
   {(y_i)}_{i\in\mathbb{N}_n}\subset F
@@ -711,7 +711,7 @@ T\projtens S:E_1\projtens F_1\to E_2\projtens F_2
 $$ 
 such that  $(T\projtens S)(x\otimes y)=T(x)\otimes S(y)$ 
 for all $x\in E_1$ and $y\in F_1$. 
-Even more, $\Vert T\projtens S\Vert=\Vert T\Vert\Vert S\Vert$. The main feature 
+Even more, $\lVert T\projtens S\rVert=\lVert T\rVert\lVert S\rVert$. The main feature 
 of the projective tensor product which makes it so important is the following 
 universal property: for any Banach spaces $E$, $F$ and $G$ there is a 
 natural isometric isomorphism:
@@ -755,7 +755,7 @@ stands for the Banach space of equivalence classes of functions
 $f:\Omega\to\mathbb{C}$ such that $|f|^p$ is Lebesgue integrable with respect to
 measure $\mu$. The norm of such a function is defined by
 $$
-\Vert f\Vert
+\lVert f\rVert
 :={\left(
   \int\limits_{\Omega}{|f(\omega)|}^p\,d\mu(\omega)
 \right)}^{1/p}.
@@ -763,7 +763,7 @@ $$
 By $L_\infty(\Omega,\mu)$ we denote the Banach space of equivalence classes of
 bounded measurable functions with norm defined as 
 $$
-\Vert f\Vert:=\inf\left \{
+\lVert f\rVert:=\inf\left \{
   \sup_{\omega\in\Omega\setminus N}|f(\omega)|
   :N\subset\Omega - \mbox{is negligible}
 \right \}.
@@ -795,7 +795,7 @@ the $\sup$-norm or $L_\infty(\Omega,\mu)$ are $C(K)$ spaces for some compact
 Hausdorff space $K$ \cite[remark 4.2.8]{KalAlbTopicsBanSpTh}. 
 By $M(S)$ we denote the Banach space of
 complex finite Borel regular measures on $S$. The norm of a measure $\mu\in M(S)$
-is defined by the equality $\Vert\mu\Vert=|\mu|(S)$, where $|\mu|$ is the total
+is defined by the equality $\lVert\mu\rVert=|\mu|(S)$, where $|\mu|$ is the total
 variation measure of the measure $\mu$. By the Riesz-Markov-Kakutani theorem
 \cite[section C.18]{ConwACoursInFuncAn} we have
 ${C_0(S)}^*\isom{\mathbf{Ban}_1}M(S)$. In fact, $M(S)$ is an $L_1$-space, see
@@ -811,21 +811,21 @@ $1\leq p\leq+\infty$. This example motivates the following construction.
 
 Let $ \{E_\lambda:\lambda\in\Lambda \}$ be an arbitrary family of Banach spaces.
 For each $x\in \prod_{\lambda\in\Lambda} E_\lambda$ we define 
-$\Vert x\Vert_p
-=\Vert{
-  (\Vert x_\lambda\Vert)}_{\lambda\in\Lambda}
-\Vert_{\ell_p(\Lambda)}$
+$\lVert x\rVert_p
+=\lVert{
+  (\rVert x_\lambda\lVert)}_{\lambda\in\Lambda}
+\rVert_{\ell_p(\Lambda)}$
 for $1\leq p\leq +\infty$ and 
-$\Vert x\Vert_0
-=\Vert
-  {(\Vert x_\lambda\Vert)}_{\lambda\in\Lambda}
-\Vert_{c_0(\Lambda)}$. 
+$\lVert x\rVert_0
+=\lVert
+  {(\rVert x_\lambda\lVert)}_{\lambda\in\Lambda}
+\rVert_{c_0(\Lambda)}$. 
 Then the Banach space
 $\left \{
   x\in \prod_{\lambda\in\Lambda} E_\lambda
-  :\Vert x\Vert_p<+\infty
+  :\lVert x\rVert_p<+\infty
 \right \}$ 
-with the norm $\Vert\cdot\Vert_p$ is denoted by $\bigoplus_p
+with the norm $\lVert\cdot\rVert_p$ is denoted by $\bigoplus_p
 \{E_\lambda:\lambda\in\Lambda \}$. We call these objects $\bigoplus_p$-sums of
 Banach spaces $ \{E_\lambda:\lambda\in\Lambda \}$. It is almost tautological
 that the Banach space $\ell_p(\Lambda)$ is the $\bigoplus_p$-sum of the family $
@@ -852,7 +852,7 @@ T:\bigoplus\nolimits_p \{E_\lambda:\lambda\in\Lambda \}
 :x\mapsto {(T_\lambda(x_\lambda))}_{\lambda\in\Lambda}
 $$
 which we shall denote by $\bigoplus_p \{T_\lambda:\lambda\in\Lambda \}$. Its
-norm equals $\sup_{\lambda\in\Lambda}\Vert T_\lambda\Vert$.
+norm equals $\sup_{\lambda\in\Lambda}\lVert T_\lambda\rVert$.
 
 Among different $\bigoplus_p$-sums, the $\langle$~$\bigoplus_1$-sums /
 $\bigoplus_\infty$-sums~$\rangle$ play a special role in Banach space theory.
@@ -876,7 +876,7 @@ Let $1\leq p\leq +\infty$. We say that $E$ is an $\mathscr{L}_{p,C}^g$-space if
 for any $\epsilon>0$ and any finite dimensional subspace $F$ of $E$ there exists
 a finite dimensional $\ell_p$-space $G$ and two bounded linear operators 
 $S:F\to G$, $T:G\to E$ such that $TS|^F=1_F$ and 
-$\Vert T\Vert\Vert S\Vert\leq C+\epsilon$. 
+$\lVert T\rVert\lVert S\rVert\leq C+\epsilon$. 
 If $E$ is an $\mathscr{L}_{p,C}^g$-space for some $C\geq 1$, we
 simply say that $E$ is an $\mathscr{L}_p^g$-space. This definition
 \cite[definition 23.1]{DefFloTensNorOpId} is an improvement of the definition
@@ -950,7 +950,7 @@ $\operatorname{Re}(E)$ called the real part of $E$, which is a real vector latti
 \end{enumerate}
 
 A Banach lattice $E$ is a Banach space with the structure of a complex vector
-lattice such that $\Vert x\Vert\leq \Vert y\Vert$ whenever $x, y\in E$ 
+lattice such that $\lVert x\rVert\leq \lVert y\rVert$ whenever $x, y\in E$ 
 and $|x|\leq |y|$. A classical example of a Banach lattice is an $L_p$-space 
 or a $C(K)$-space. In both cases their real part consists of real 
 valued functions. If $ \{E_\lambda:\lambda\in\Lambda \}$ is a family 
@@ -983,9 +983,9 @@ ${(x_\lambda)}_{\lambda\in\Lambda}$ in $E$ satisfies the following property
 \cite[proposition 1.6]{DiestAbsSumOps}: there exists a constant $\kappa\geq 1$
 such that
 $$
-\left\Vert \sum_{\lambda\in\Lambda}t_\lambda f_\lambda(x)x_\lambda\right\Vert
+\left\lVert \sum_{\lambda\in\Lambda}t_\lambda f_\lambda(x)x_\lambda\right\rVert
 \leq
-\kappa\left\Vert \sum_{\lambda\in\Lambda}f_\lambda(x)x_\lambda\right\Vert
+\kappa\left\lVert \sum_{\lambda\in\Lambda}f_\lambda(x)x_\lambda\right\rVert
 $$
 for all $x\in E$ and $t\in B_{\ell_\infty(\Lambda)}$. The least such constant
 $\kappa$ among all unconditional Schauder bases of $E$ is denoted by
@@ -994,8 +994,8 @@ unconditional Schauder bases. The local unconditional constant $\kappa_u(E)$ of
 a Banach space $E$ is defined to be the infimum of all scalars $c$ with the
 following property: given any finite dimensional subspace $F$ of $E$ there
 exists a Banach space $G$ with an unconditional Schauder basis and two bounded
-linear operators $S:F\to G$, $T:G\to E$ such that $TS|^{F}=1_F$ and $\Vert
-T\Vert\Vert S\Vert\kappa(G)\leq c$. We say that a Banach space $E$ has the local
+linear operators $S:F\to G$, $T:G\to E$ such that $TS|^{F}=1_F$ and $\lVert
+T\rVert\lVert S\rVert\kappa(G)\leq c$. We say that a Banach space $E$ has the local
 unconditional structure property (the l.u.st.\ property for short) if
 $\kappa_u(E)$ is finite. Clearly, any Banach space $E$ with an unconditional
 Schauder basis has the l.u.st.\ property with $\kappa_u(E)\leq\kappa(E)$. In
@@ -1017,8 +1017,8 @@ The last property we shall discuss is the well known approximation property
 introduced by Grothendieck in~\cite{GrothProdTenTopNucl}. We say that a Banach
 space $E$ has the approximation property if for any compact set $K\subset E$ and
 any $\epsilon>0$ there exists a finite rank operator $T:E\to E$ such 
-that $\Vert T(x)-x\Vert<\epsilon$ for all $x\in K$. If $T$ can be 
-chosen with $\Vert T\Vert\leq c$, then $E$ is said to have the $c$-bounded
+that $\lVert T(x)-x\rVert<\epsilon$ for all $x\in K$. If $T$ can be 
+chosen with $\lVert T\rVert\leq c$, then $E$ is said to have the $c$-bounded
 approximation property. The metric approximation property is another name for
 the $1$-bounded approximation property. We say that $E$ has the bounded
 approximation property if $E$ has the $c$-bounded approximation property for
@@ -1094,13 +1094,13 @@ all $a\in A$. Here convergence of nets is understood
 in the norm topology. If we replace the norm topology with the weak topology, we get
 definitions of left, right and two-sided weak approximate identities. We say
 that an approximate identity ${(e_\nu)}_{\nu\in N}$ is $c$-bounded if
-$\sup_\nu\Vert e_\nu\Vert\leq c$. An approximate identity ${(e_\nu)}_{\nu\in N}$
+$\sup_\nu\lVert e_\nu\rVert\leq c$. An approximate identity ${(e_\nu)}_{\nu\in N}$
 is called $\langle$~contractive / bounded~$\rangle$ if it is
 $\langle$~$1$-bounded / $c$-bounded for some $c\geq 1$~$\rangle$. Occasionally
 we will use the following simple fact: if $A$ is a Banach algebra which has a
 $\langle$~left / right~$\rangle$ identity $p$ and a $\langle$~right /
 left~$\rangle$ approximate identity ${(e_\nu)}_{\nu\in N}$, then $A$ is unital
-with identity $p$ of norm $\lim_\nu\Vert e_\nu\Vert$. 
+with identity $p$ of norm $\lim_\nu\lVert e_\nu\rVert$. 
 
 If $A$ is a unital Banach algebra, we define the spectrum
 $\operatorname{sp}_A(a)$ of an element $a\in A$ as the set of all complex numbers
@@ -1140,7 +1140,7 @@ called a ${}^*$-Banach algebra. An example of such an algebra is the Banach alge
 of bounded linear operators on a Hilbert space with the operation of taking the
 Hilbert adjoint operator in the role of involution. In fact there is much more
 to this algebra than one could expect. We say that a ${}^*$-Banach algebra $A$
-is a $C^*$-algebra if it satisfies $\Vert a^*a\Vert=\Vert a\Vert^2$ for all
+is a $C^*$-algebra if it satisfies $\lVert a^*a\rVert=\lVert a\rVert^2$ for all
 $a\in A$. One of the biggest advantages of $C^*$-algebras is their celebrated
 representation theorems by Gelfand and Naimark. The first representation theorem
 \cite[theorem 4.7.13]{HelBanLocConvAlg} states that any commutative
@@ -1161,8 +1161,8 @@ if $a=a^*=a^2$, self-adjoint if $a=a^*$, positive if $a=b^*b$ for
 some $b\in A$, and unitary if $a^*a=aa^*=e_A$. The set $A_{pos}$ of all positive 
 elements of $A$ is a closed cone in $A$. If an element $a\in A$ 
 is $\langle$~self-adjoint / positive~$\rangle$, then
-$\langle$~$\operatorname{sp}_A(a)\subset[-\Vert a\Vert, \Vert a\Vert]$ /
-$\operatorname{sp}_A(a)\subset[0,\Vert a\Vert]$~$\rangle$. For a given
+$\langle$~$\operatorname{sp}_A(a)\subset[-\lVert a\rVert, \lVert a\rVert]$ /
+$\operatorname{sp}_A(a)\subset[0,\lVert a\rVert]$~$\rangle$. For a given
 self-adjoint element $a\in A$, there always exists the isometric
 ${}^*$-homomorphism $\operatorname{Cont}_a:C(\operatorname{sp}_A(a))\to A$ such
 that $\operatorname{Cont}_a(f)=a$, where
@@ -1290,7 +1290,7 @@ category of Banach modules. But for this particular case we have several
 refinements for standard definitions. An $A$-morphism $\xi:X\to Y$ is called
 a $\langle$~$c$-retraction / $c$-coretraction~$\rangle$ if there exists an
 $A$-morphism $\eta:Y\to X$ such that $\langle$~$\xi\eta=1_Y$ /
-$\eta\xi=1_X$~$\rangle$ and $\Vert\xi\Vert\Vert\eta\Vert\leq c$. From the
+$\eta\xi=1_X$~$\rangle$ and $\lVert\xi\rVert\lVert\eta\rVert\leq c$. From the
 definition it follows that the composition of $\langle$~$c_1$- and $c_2$-retraction
 / $c_1$- and $c_2$-coretraction~$\rangle$ gives a $\langle$~$c_1c_2$-retraction
 / $c_1c_2$-coretraction~$\rangle$. Clearly, the adjoint of
@@ -1298,7 +1298,7 @@ a $\langle$~$c$-retraction / $c$-coretraction~$\rangle$ is a
 $\langle$~$c$-coretraction / $c$-retraction~$\rangle$. Finally, an $A$-morphism
 $\xi:X\to Y$ is called a $c$-isomorphism if there exists an $A$-morphism
 $\eta:Y\to X$ such that $\xi\eta=1_Y$, $\eta\xi=1_X$ and
-$\Vert\xi\Vert\Vert\eta\Vert\leq c$. In this case we say that $A$-modules $X$
+$\lVert\xi\rVert\lVert\eta\rVert\leq c$. In this case we say that $A$-modules $X$
 and $Y$ are $c$-isomorphic.
 
 Now we mention several constructions over Banach modules that we will encounter
@@ -1346,7 +1346,7 @@ $$
 such that
 $(\phi\projmodtens{A} \psi)(x\projmodtens{A} y)=\phi(x)\projmodtens{A} \psi(y)$
 for all $x\in X_1$ and $y\in Y_1$. Even more 
-$\Vert \phi\projmodtens{A} \psi\Vert\leq\Vert \phi\Vert\Vert \psi\Vert$. 
+$\lVert \phi\projmodtens{A} \psi\rVert\leq\lVert \phi\rVert\lVert \psi\rVert$. 
 The projective module tensor product has its own universal property: for any
 right Banach $A$-module $X$, any left Banach $A$-module $Y$ and any Banach space
 $E$ there exists an isometric isomorphism:
@@ -1431,7 +1431,7 @@ norm at most $c$. A left $A$-module $P$ is called $C$-relatively projective
 if for any $c$-relatively admissible epimorphism $\xi:X\to Y$ and 
 for any  $A$-morphism $\phi:P\to Y$ there exists 
 an $A$-morphism $\psi:P\to X$ such 
-that $\Vert \psi\Vert\leq cC\Vert \phi\Vert$ and the diagram
+that $\lVert \psi\rVert\leq cC\lVert \phi\rVert$ and the diagram
 $$
 \xymatrix{
 & {X} \ar[d]^{\xi}\\  % chktex 3
@@ -1444,7 +1444,7 @@ a left inverse bounded linear operator of norm at most $c$. A right
 $A$-module $J$ is called $C$-relatively injective if for any $c$-relatively 
 admissible monomorphism $\xi:Y\to X$ and for 
 any $A$-morphism $\phi:Y\to J$ there exists an $A$-morphism $\psi:X\to J$ such 
-that $\Vert\psi\Vert\leq cC\Vert\phi\Vert$ and the diagram
+that $\lVert\psi\rVert\leq cC\lVert\phi\rVert$ and the diagram
 $$
 \xymatrix{
 & {X} \ar@{-->}[dl]_{\psi} \\  % chktex 3

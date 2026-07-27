@@ -56,7 +56,7 @@ form $ \{x\bigcirc x_0:x\in H \}$ for some non-zero $x_0\in H$.
 Then the left $A$-module $H_\varrho$ is metrically projective and flat, 
 while the  right $A$-module $H_\varrho^{cc}$ is metrically injective.
 \end{proposition}
-\begin{proof} Without loss of generality we may assume that $\Vert x_0\Vert=1$.
+\begin{proof} Without loss of generality we may assume that $\lVert x_0\rVert=1$.
 Consider linear operators 
 $\pi:A_+\to H_\varrho:a\oplus_1 z\mapsto \varrho(a)(x_0)+zx_0$ 
 and $\sigma:H_\varrho\to A_+:x\mapsto \varrho^{-1}(x\bigcirc x_0)$. 
@@ -118,9 +118,9 @@ any $p\in\mathbb{R}_0[t]$ has no constant term, $p(a)\in I$.  Hence, we have
 a well-defined $\mathbb{R}$-linear homomorphism of algebras
 $\operatorname{RPol}_a^0:\mathbb{R}_0[t]\to I:p\mapsto p(a)$. By continuous
 functional calculus for any polynomial $p$ 
-it holds that $\Vert p(a)\Vert=\Vert p|_{\operatorname{sp}_A(a)}\Vert_\infty$, so
-$\Vert\operatorname{RPol}_a^0(p)\Vert
-=\Vert p|_{\operatorname{sp}_A(a)}\Vert_\infty$. 
+it holds that $\lVert p(a)\rVert=\lVert p|_{\operatorname{sp}_A(a)}\rVert_\infty$, so
+$\lVert\operatorname{RPol}_a^0(p)\rVert
+=\lVert p|_{\operatorname{sp}_A(a)}\rVert_\infty$. 
 Thus, $\operatorname{RPol}_a^0$ is isometric. 
 As $\mathbb{R}_0[t]$ is dense in $E$ and $I$ is complete
 $\operatorname{RPol}_a^0$ has an isometric extension
@@ -144,7 +144,7 @@ ideal of a $C^*$-algebra $A$. Then the following are equivalent:
 \end{enumerate}
 \end{theorem}
 \begin{proof} $(i)\implies (ii)$ Since $p$ is a self-adjoint idempotent
-$\Vert p\Vert=1$, so by proposition~\ref{UnIdeallIsMetTopProj} paragraph $(i)$
+$\lVert p\rVert=1$, so by proposition~\ref{UnIdeallIsMetTopProj} paragraph $(i)$
 the ideal $I$ is metrically projective as an $A$-module.
 
 $(ii)\implies (iii)$ See
@@ -163,58 +163,58 @@ $\sigma(x)=\sum_{d\in B_I}\sigma_d(x)\projtens \delta_d$ for all $x\in I$. From
 the identification 
 $A\projtens\ell_1(B_I)\isom{\mathbf{Ban}_1}\bigoplus_1 \{ A:d\in B_I \}$, 
 for all $x\in I$ we 
-have $\Vert\sigma(x)\Vert=\sum_{d\in B_I} \Vert\sigma_d(x)\Vert$. 
+have $\lVert\sigma(x)\rVert=\sum_{d\in B_I} \lVert\sigma_d(x)\rVert$. 
 Since $\sigma$ is a right inverse morphism of $\pi_I$, we
 have $x=\pi_I(\sigma(x))=\sum_{d\in B_I}\sigma_d(x)d$ for all $x\in I$. 
 
 For all $x\in I$ we have 
-$\Vert\sigma_d(x)\Vert
-=\Vert\sigma_d(\lim_\nu xe_\nu)\Vert
-=\lim_\nu\Vert x\sigma_d(e_\nu)\Vert 
-\leq\Vert x\Vert\liminf_\nu\Vert\sigma_d(e_\nu)\Vert$, 
-so $\Vert\sigma_d\Vert\leq \liminf_\nu\Vert\sigma_d(e_\nu)\Vert$. 
+$\lVert\sigma_d(x)\rVert
+=\lVert\sigma_d(\lim_\nu xe_\nu)\rVert
+=\lim_\nu\lVert x\sigma_d(e_\nu)\rVert 
+\leq\lVert x\rVert\liminf_\nu\lVert\sigma_d(e_\nu)\rVert$, 
+so $\lVert\sigma_d\rVert\leq \liminf_\nu\lVert\sigma_d(e_\nu)\rVert$. 
 Then for all $S\in\mathcal{P}_{f}(B_I)$ it holds that
 $$
-\sum_{d\in S}\Vert \sigma_d\Vert
-\leq \sum_{d\in S}\liminf_\nu\Vert \sigma_d(e_\nu)\Vert
-\leq \liminf_\nu\sum_{d\in S}\Vert \sigma_d(e_\nu)\Vert
-\leq \liminf_\nu\sum_{d\in B_I}\Vert \sigma_d(e_\nu) \Vert
+\sum_{d\in S}\lVert \sigma_d\rVert
+\leq \sum_{d\in S}\liminf_\nu\lVert \sigma_d(e_\nu)\rVert
+\leq \liminf_\nu\sum_{d\in S}\lVert \sigma_d(e_\nu)\rVert
+\leq \liminf_\nu\sum_{d\in B_I}\lVert \sigma_d(e_\nu) \rVert
 $$
 $$
-=\liminf_{\nu}\Vert\sigma(e_\nu)\Vert
-\leq \Vert\sigma\Vert\liminf_{\nu}\Vert e_\nu\Vert
-\leq \Vert\sigma\Vert
+=\liminf_{\nu}\lVert\sigma(e_\nu)\rVert
+\leq \lVert\sigma\rVert\liminf_{\nu}\lVert e_\nu\rVert
+\leq \lVert\sigma\rVert
 $$
 Since $S\in \mathcal{P}_{f}(B_I)$ is arbitrary, the sum 
-$\sum_{d\in B_I}\Vert\sigma_d\Vert$ is finite. As a consequence, the 
-sum $\sum_{d\in B_I}\Vert\sigma_d\Vert^2$ is finite too. 
+$\sum_{d\in B_I}\lVert\sigma_d\rVert$ is finite. As a consequence, the 
+sum $\sum_{d\in B_I}\lVert\sigma_d\rVert^2$ is finite too. 
 
 Now we regard $A$ as an ideal in its unitization $A_\#$. Then $I$ is an ideal of
 $A_\#$ too. Fix a natural number $m\in\mathbb{N}$ and a real number
 $\epsilon>0$. Then there exists a set $S\in\mathcal{P}_{f}(B_I)$ such that
-$\sum_{d\in B_I\setminus S}\Vert\sigma_d\Vert<\epsilon$. Denote its cardinality
+$\sum_{d\in B_I\setminus S}\lVert\sigma_d\rVert<\epsilon$. Denote its cardinality
 by $N$. Consider a positive element 
-$b=\sum_{d\in B_I}\Vert\sigma_d\Vert^2 d^*d\in I$. Now we perform 
+$b=\sum_{d\in B_I}\lVert\sigma_d\rVert^2 d^*d\in I$. Now we perform 
 a ``power trick'' by considering different powers $b^{1/m}$ of the positive element 
 $b$, where $m\in\mathbb{N}$. By lemma~\ref{ContFuncCalcOnIdealOfCStarAlg} we 
 have that $b^{1/m}\in I$, so $b^{1/m}=\sum_{d\in B_I}\sigma_d(b^{1/m})d$. 
 By continuous functional calculus we have 
-$\Vert b^{1/m}\Vert
-=\sup_{t\in\operatorname{sp}_{A_\#}(b)} t^{1/m}\leq\Vert b\Vert^{1/m}$. Then $\limsup_{m\to\infty}\Vert b^{1/m}\Vert\leq 1$. 
-Therefore, $\Vert b^{1/m}\Vert\leq 2$ for sufficiently big $m$. Denote
+$\lVert b^{1/m}\rVert
+=\sup_{t\in\operatorname{sp}_{A_\#}(b)} t^{1/m}\leq\lVert b\rVert^{1/m}$. Then $\limsup_{m\to\infty}\lVert b^{1/m}\rVert\leq 1$. 
+Therefore, $\lVert b^{1/m}\rVert\leq 2$ for sufficiently big $m$. Denote
 $\varsigma_d=\sigma_d(b^{1/m})$, $u=\sum_{d\in S}\varsigma_d d$ and
 $v=\sum_{d\in B_I\setminus S}\varsigma_d d$, so 
 $$
 b^{2/m}={(b^{1/m})}^*b^{1/m}=u^*u+u^*v+v^*u+v^*v
 $$
-Clearly, $\varsigma_d^*\varsigma_d\leq \Vert \varsigma_d\Vert^2 e_{A_\#}\leq
-\Vert \sigma_d\Vert^2\Vert b^{1/m}\Vert^2 e_{A_\#}\leq 4\Vert \sigma_d\Vert^2
+Clearly, $\varsigma_d^*\varsigma_d\leq \lVert \varsigma_d\rVert^2 e_{A_\#}\leq
+\lVert \sigma_d\rVert^2\lVert b^{1/m}\rVert^2 e_{A_\#}\leq 4\lVert \sigma_d\rVert^2
 e_{A_\#}$. For any $x,y\in A$ we have $x^*x+y^*y-(x^*y+y^*x)={(x-y)}^*(x-y)\geq
 0$, therefore 
 $$
 d^*\varsigma_d^* \varsigma_c c+c^*\varsigma_c^* \varsigma_d d
 \leq d^*\varsigma_d^*\varsigma_d d + c^*\varsigma_c^*\varsigma_c c
-\leq 4\Vert \sigma_d\Vert^2 d^*d+4\Vert \sigma_c\Vert^2 c^*c
+\leq 4\lVert \sigma_d\rVert^2 d^*d+4\lVert \sigma_c\rVert^2 c^*c
 $$
 for all $c,d\in B_I$. We sum up these inequalities over $c\in S$ and $d\in S$. Then 
 $$
@@ -225,9 +225,9 @@ $$
     +
     \sum_{c\in S}\sum_{d\in S}c^*\varsigma_c^* \varsigma_d d
 \right)\\
-&\leq\frac{1}{2}\left(4 N\sum_{d\in S} \Vert \sigma_d\Vert^2 d^*d+
-4 N\sum_{c\in S} \Vert \sigma_c\Vert^2 c^*c\right)\\
-&=4 N\sum_{d\in S} \Vert \sigma_d\Vert^2 d^*d.
+&\leq\frac{1}{2}\left(4 N\sum_{d\in S} \lVert \sigma_d\rVert^2 d^*d+
+4 N\sum_{c\in S} \lVert \sigma_c\rVert^2 c^*c\right)\\
+&=4 N\sum_{d\in S} \lVert \sigma_d\rVert^2 d^*d.
 \end{aligned}
 $$
 Therefore,
@@ -236,36 +236,36 @@ u^*u
 ={\left(\sum_{c\in S}\varsigma_c c\right)}^*
 \left(\sum_{d\in S}\varsigma_d d\right)
 =\sum_{c\in S}\sum_{d\in S}c^*\varsigma_c^* \varsigma_d d
-\leq 4N\sum_{d\in S} \Vert \sigma_d\Vert^2 d^*d
+\leq 4N\sum_{d\in S} \lVert \sigma_d\rVert^2 d^*d
 \leq 4N b
 $$
 Note that
 $$
-\Vert u\Vert
-\leq \sum_{d\in S}\Vert\varsigma_d\Vert\Vert d\Vert
-\leq \sum_{d\in S}2\Vert\sigma_d\Vert
-\leq 2\Vert\sigma\Vert,
+\lVert u\rVert
+\leq \sum_{d\in S}\lVert\varsigma_d\rVert\lVert d\rVert
+\leq \sum_{d\in S}2\lVert\sigma_d\rVert
+\leq 2\lVert\sigma\rVert,
 \qquad
-\Vert v\Vert
-\leq \sum_{d\in B_I\setminus S}\Vert\varsigma_d\Vert\Vert d\Vert
-\leq \sum_{d\in B_I\setminus S}2\Vert\sigma_d\Vert
+\lVert v\rVert
+\leq \sum_{d\in B_I\setminus S}\lVert\varsigma_d\rVert\lVert d\rVert
+\leq \sum_{d\in B_I\setminus S}2\lVert\sigma_d\rVert
 \leq 2\epsilon,
 $$
-so $\Vert u^*v+v^*u\Vert\leq 8\Vert\sigma\Vert\epsilon$ 
-and $\Vert v^*v\Vert\leq 4\epsilon^2$. Since $u^*v+v^*u$ and $v^*v$ are self-adjoint, $u^*v+v^*u\leq 8\Vert\sigma\Vert\epsilon e_{A_\#}$ 
+so $\lVert u^*v+v^*u\rVert\leq 8\lVert\sigma\rVert\epsilon$ 
+and $\lVert v^*v\rVert\leq 4\epsilon^2$. Since $u^*v+v^*u$ and $v^*v$ are self-adjoint, $u^*v+v^*u\leq 8\lVert\sigma\rVert\epsilon e_{A_\#}$ 
 and $v^*v\leq 4\epsilon^2 e_{A_\#}$. Therefore for any $\epsilon>0$ and 
 sufficiently big $m$ we have 
 $$
 b^{2/m}
 =u^*u+u^*v+v^*u+v^*v
-\leq 4Nb+\epsilon(8\Vert\sigma\Vert+4\epsilon)e_{A_\#}.
+\leq 4Nb+\epsilon(8\lVert\sigma\rVert+4\epsilon)e_{A_\#}.
 $$
 
 
 In other words, $g_m(b)\geq 0$ for a continuous function
 $g_m:\mathbb{R}_+\to\mathbb{R}:t\mapsto
-4Nt+\epsilon(8\Vert\sigma\Vert+4\epsilon)-t^{2/m}$. Now choose $\epsilon>0$ such
-that $M:=\epsilon(8\Vert\sigma\Vert+4\epsilon)<1$.  By the spectral mapping theorem
+4Nt+\epsilon(8\lVert\sigma\rVert+4\epsilon)-t^{2/m}$. Now choose $\epsilon>0$ such
+that $M:=\epsilon(8\lVert\sigma\rVert+4\epsilon)<1$.  By the spectral mapping theorem
 \cite[theorem 6.4.2]{HelLectAndExOnFuncAn} we get
 $g_m(\operatorname{sp}_{A_\#}(b))
 =\operatorname{sp}_{A_\#}(g_m(b))\subset\mathbb{R}_+$.
@@ -290,14 +290,14 @@ $\operatorname{sp}_{A_\#}(b)\subset T_{0,\theta}$.
 
 Consider a continuous function $h:\mathbb{R}_+\to\mathbb{R}:t\mapsto\min(1, t/\theta)$,
 then from lemma~\ref{ContFuncCalcOnIdealOfCStarAlg} we get an idempotent
-$p=h(b)=\operatorname{RCont}_b^0(h)\in I$ such that $\Vert
-p\Vert=\sup_{t\in\operatorname{sp}_{A_\#}(b)}|h(t)|\leq 1$. Therefore, $p$ is a
+$p=h(b)=\operatorname{RCont}_b^0(h)\in I$ such that $\lVert
+p\rVert=\sup_{t\in\operatorname{sp}_{A_\#}(b)}|h(t)|\leq 1$. Therefore, $p$ is a
 self-adjoint idempotent. Since $h(t)t=th(t)=t$ for all $t\in
 \operatorname{sp}_{A_\#}(b)$, we have $bp=pb=b$. The last equality implies
 $$
 0=(e_{A_\#}-p)b(e_{A_\#}-p)
 =\sum_{d\in B_I}
-    {(\Vert\sigma_d\Vert d(e_{A_\#}-p))}^*\Vert\sigma_d\Vert d(e_{A_\#}-p).
+    {(\lVert\sigma_d\rVert d(e_{A_\#}-p))}^*\lVert\sigma_d\rVert d(e_{A_\#}-p).
 $$
 Since the right-hand side of this equality is non-negative, $d=dp$ for all
 $d\in B_I$ with $\sigma_d\neq 0$. Finally, for any $x\in I$ we obtain
@@ -638,13 +638,13 @@ closed two-sided ideal of a  $C^*$-algebra $A$. Then the following are equivalen
 $I$ is a two-sided ideal, it has a contractive approximate identity
 ${(e_\nu)}_{\nu\in N}$ such that $0\leq e_\nu\leq e_{A_\#}$
 \cite[theorem 4.7.79]{HelBanLocConvAlg}. As a 
-corollary $\sup_{\nu\in N}\Vert e_{A_\#}-e_\nu\Vert\leq 1$. Since $I$ has an 
+corollary $\sup_{\nu\in N}\lVert e_{A_\#}-e_\nu\rVert\leq 1$. Since $I$ has an 
 approximate identity, we also have $A_{ess}:=\operatorname{cl}_A(IA)=I$. 
 Since $I$ is a two-sided ideal, $A/I$ is a $C^*$-algebra 
 \cite[theorem 4.7.81]{HelBanLocConvAlg}.
 
 Assume $A$ is a metrically flat $I$-module. Since 
-$\sup_{\nu\in N}\Vert e_{A_\#}-e_\nu\Vert\leq 1$, paragraph $(ii)$ of
+$\sup_{\nu\in N}\lVert e_{A_\#}-e_\nu\rVert\leq 1$, paragraph $(ii)$ of
 proposition~\ref{DualBanModDecomp} tells us that ${(A/A_{ess})}^*={(A/I)}^*$ is 
 a retract of $A^*$ in $\mathbf{mod}_1\text{-}I$. Now from
 propositions~\ref{MetCTopFlatCharac} and~\ref{RetrMetCTopInjIsMetCTopInj} it
@@ -2713,7 +2713,7 @@ compact group, and $\gamma\in\widehat{G}$. Then the following are equivalent:
 $\sigma^+:\mathbb{C}_\gamma\to {L_1(G)}_+,\, z\mapsto z\gamma \oplus_1 0$ 
 and $\pi^+:{L_1(G)}_+\to\mathbb{C}_\gamma,\, f\oplus_1 w\mapsto f\cdot_{\gamma}1+w$. 
 One can easily check 
-that $\Vert\pi^+\Vert=\Vert\sigma^+\Vert=1$ 
+that $\lVert\pi^+\rVert=\lVert\sigma^+\rVert=1$ 
 and $\pi^+\sigma^+=1_{\mathbb{C}_\gamma}$. Therefore, $\mathbb{C}_\gamma$ is a 
 retract of ${L_1(G)}_+$ in $L_1(G)\text{-}\mathbf{mod}_1$. From 
 propositions~\ref{UnitalAlgIsMetTopProj} 
@@ -2839,7 +2839,7 @@ Set $p=\mu\convol e\in I$; then $\mu=p m_G$.
 
 We conjecture that the left ideal $L_1(G)\convol \mu$ for an idempotent measure
 $\mu\in M(G)$ is a metrically projective $L_1(G)$-module iff $\mu=p m_G$ where $p\in I$
-and $\Vert p\Vert=1$.
+and $\lVert p\rVert=1$.
 
 \begin{theorem}\label{L1ModL1MetTopProjCharac} Let $G$ be a locally compact
 group. Then the following are equivalent:
