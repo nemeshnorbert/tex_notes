@@ -2909,14 +2909,24 @@ to zero. The last is equivalent to $G$ being discrete.
 \begin{proposition}\label{MeasAlgIsL1TopFlat} Let $G$ be a locally compact
 group. Then $M(G)$ is a topologically flat $L_1(G)$-module.
 \end{proposition}
-\begin{proof} Since $M(G)$ is an $L_1$-space, it is a fortiori an
-$\mathscr{L}_1^g$-space. Since $M_s(G)$ is complemented in $M(G)$, $M_s(G)$
-is an $\mathscr{L}_1^g$-space too \cite[corollary 23.2.1(2)]{DefFloTensNorOpId}. As $M_s(G)$ is an annihilator $L_1(G)$-module, from
-proposition~\ref{MetTopFlatAnnihModCharac} we have that $M_s(G)$ is
-a topologically flat $L_1(G)$-module. The $L_1(G)$-module $L_1(G)$ is also
-topologically flat by proposition~\ref{LInfIsL1MetrInj}. Since
-$M(G)\isom{L_1(G)\text{-}\mathbf{mod}_1}L_1(G)\bigoplus_1 M_s(G)$, $M(G)$ is
-a topologically flat $L_1(G)$-module by proposition~\ref{MetTopFlatModCoProd}.
+\begin{proof} We regard $M(G)$ as a left module over its closed two-sided ideal
+$M_a(G)\isom{M(G)\text{-}\mathbf{mod}_1}L_1(G)$. Since $M_a(G)$ is an ideal, we
+have $L_1(G)M(G)\subset M_a(G)$ and hence ${M(G)}_{ess}\subset M_a(G)$; since
+$L_1(G)$ has a contractive approximate identity, it is an essential left
+$L_1(G)$-module and hence $M_a(G)\subset{M(G)}_{ess}$. Therefore
+${M(G)}_{ess}=M_a(G)$, and this module is topologically flat by
+proposition~\ref{LInfIsL1MetrInj}.
+
+By the Lebesgue decomposition theorem
+$M(G)\isom{\mathbf{Ban}_1}M_a(G)\bigoplus_1 M_s(G)$, so the Banach space
+$M(G)/{M(G)}_{ess}$ is isometrically isomorphic to $M_s(G)$. Since $M(G)$ is an
+$L_1$-space, it is a fortiori an $\mathscr{L}_1^g$-space, and $M_s(G)$ is
+$1$-complemented in $M(G)$, so $M_s(G)$ is an $\mathscr{L}_1^g$-space too
+\cite[corollary 23.2.1(2)]{DefFloTensNorOpId}.
+
+The algebra $L_1(G)$ has a two-sided contractive approximate identity, so
+paragraph $(iii)$ of proposition~\ref{TopFlatModCharac} applies to the
+$L_1(G)$-module $M(G)$ and shows that it is topologically flat.
 \end{proof}
 
 %-------------------------------------------------------------------------------
