@@ -362,42 +362,42 @@ Banach space. As a consequence,
 $\langle$~$P/P_{ess}\isom{\mathbf{Ban}_1}\ell_1(\Lambda)$ /
 $P/P_{ess}\isom{\mathbf{Ban}}\ell_1(\Lambda)$~$\rangle$ for some set $\Lambda$.
 \end{proposition}
-\begin{proof} Put $Q:=P/P_{ess}$ and let $q:P\to Q$ be the natural quotient
+\begin{proof} Put $E:=P/P_{ess}$ and let $q:P\to E$ be the natural quotient
 morphism. Since $a\cdot x\in P_{ess}$ for all $a\in A$ and $x\in P$, the
-$A$-module $Q$ is annihilator. Endow $\ell_1(B_Q)$ with the annihilator
-$A$-module structure and consider the strict coisometry $\pi:\ell_1(B_Q)\to Q$
-well-defined by the equality $\pi(\delta_y)=y$ for all $y\in B_Q$. Since $Q$
-and $\ell_1(B_Q)$ are annihilator modules, $\pi$ is also an $A$-module map.
+$A$-module $E$ is annihilator. Endow $\ell_1(B_E)$ with the annihilator
+$A$-module structure and consider the strict coisometry $\pi:\ell_1(B_E)\to E$
+well-defined by the equality $\pi(\delta_y)=y$ for all $y\in B_E$. Since $E$
+and $\ell_1(B_E)$ are annihilator modules, $\pi$ is also an $A$-module map.
 Recall that strict coisometries are exactly the contractive strictly
 $1$-topologically surjective operators, so $\pi$ belongs to the class of
 morphisms considered in definition~\ref{MetCTopProjMod} for both types of
 projectivity. Since $P$ is $\langle$~metrically / $C$-topologically~$\rangle$
-projective, there exists an $A$-morphism $\psi:P\to\ell_1(B_Q)$ such
+projective, there exists an $A$-morphism $\psi:P\to\ell_1(B_E)$ such
 that $\pi\psi=q$ and $\langle$~$\lVert\psi\rVert\leq\lVert q\rVert$ /
 $\lVert\psi\rVert\leq C\lVert q\rVert$~$\rangle$. As $\lVert q\rVert\leq 1$,
 the norm of $\psi$ is $\langle$~at most $1$ / at most $C$~$\rangle$.
 
-Since $\ell_1(B_Q)$ is an annihilator module, $\psi(a\cdot x)=a\cdot\psi(x)=0$
+Since $\ell_1(B_E)$ is an annihilator module, $\psi(a\cdot x)=a\cdot\psi(x)=0$
 for all $a\in A$ and $x\in P$. By linearity and continuity $\psi$ vanishes on
 $P_{ess}=\operatorname{cl}_P(AP)=\operatorname{Ker}(q)$, so there exists a
-unique operator $\overline{\psi}:Q\to\ell_1(B_Q)$ satisfying
-$\overline{\psi}q=\psi$. For all $x\in P$ and $n\in P_{ess}$ we have
+unique operator $\overline{\psi}:E\to\ell_1(B_E)$ satisfying
+$\overline{\psi}q=\psi$. For all $x\in P$ and $y\in P_{ess}$ we have
 $\lVert\overline{\psi}(q(x))\rVert
-=\lVert\psi(x+n)\rVert\leq\lVert\psi\rVert\lVert x+n\rVert$, and
+=\lVert\psi(x+y)\rVert\leq\lVert\psi\rVert\lVert x+y\rVert$, and
 therefore $\lVert\overline{\psi}\rVert\leq\lVert\psi\rVert$.
 From $\pi\overline{\psi}q=\pi\psi=q$ and surjectivity of $q$ we
-get $\pi\overline{\psi}=1_Q$. Thus, the Banach space $Q$ is
-a $\langle$~$1$-retract / $C$-retract~$\rangle$ of $\ell_1(B_Q)$.
+get $\pi\overline{\psi}=1_E$. Thus, the Banach space $E$ is
+a $\langle$~$1$-retract / $C$-retract~$\rangle$ of $\ell_1(B_E)$.
 
 It remains to note that, regarding Banach spaces as modules over the zero
 algebra, we have
-$\ell_1(B_Q)\isom{\mathbf{Ban}_1}\mathbb{C}\projtens\ell_1(B_Q)$, so by
-proposition~\ref{MetCTopFreeMod} the Banach space $\ell_1(B_Q)$ is
+$\ell_1(B_E)\isom{\mathbf{Ban}_1}\mathbb{C}\projtens\ell_1(B_E)$, so by
+proposition~\ref{MetCTopFreeMod} the Banach space $\ell_1(B_E)$ is
 $\langle$~metrically / $1$-topologically~$\rangle$ projective. By
-proposition~\ref{RetrMetCTopProjIsMetCTopProj} the Banach space $Q$ is
+proposition~\ref{RetrMetCTopProjIsMetCTopProj} the Banach space $E$ is
 $\langle$~metrically / $C$-topologically~$\rangle$ projective. Now
 from $\langle$~\cite[proposition 3.2]{HelMetrFrQMod} / results
-of~\cite{KotheTopProjBanSp}~$\rangle$ we get that $Q$ is
+of~\cite{KotheTopProjBanSp}~$\rangle$ we get that $E$ is
 $\langle$~isometrically / topologically~$\rangle$ isomorphic
 to $\ell_1(\Lambda)$ for some set $\Lambda$.
 \end{proof}
@@ -1073,16 +1073,16 @@ Banach space. $\langle$~As a consequence,
 $J_{ann}\isom{\mathbf{Ban}_1}C(K)$ for some Stonean space $K$ /~$\rangle$.
 \end{proposition}
 \begin{proof} Consider an arbitrary $\langle$~isometric /
-$c$-topologically injective~$\rangle$ operator $\iota:Y\to X$ of Banach spaces
+$c$-topologically injective~$\rangle$ operator $\xi:Y\to X$ of Banach spaces
 and an arbitrary bounded linear operator $\phi:Y\to J_{ann}$. Endow $X$ and $Y$
-with the annihilator right $A$-module structure; then $\iota$ is an
+with the annihilator right $A$-module structure; then $\xi$ is an
 $A$-morphism. Let $j:J_{ann}\to J$ be the natural isometric embedding. Since
 $J_{ann}\cdot A= \{0 \}$, for all $y\in Y$ and $a\in A$ we
 have $(j\phi)(y\cdot a)=(j\phi)(0)=0=(j\phi)(y)\cdot a$, so $j\phi$ is an
 $A$-morphism too. Since $J$ is a $\langle$~metrically /
 $C$-topologically~$\rangle$ injective $A$-module, by
 definition~\ref{MetCTopInjMod} there exists an $A$-morphism $\psi:X\to J$ such
-that $\psi\iota=j\phi$ and $\langle$~$\lVert\psi\rVert\leq\lVert j\phi\rVert$ /
+that $\psi\xi=j\phi$ and $\langle$~$\lVert\psi\rVert\leq\lVert j\phi\rVert$ /
 $\lVert\psi\rVert\leq cC\lVert j\phi\rVert$~$\rangle$. As $j$ is isometric, the
 norm of $\psi$ is $\langle$~at most $\lVert\phi\rVert$ / at most
 $cC\lVert\phi\rVert$~$\rangle$.
@@ -1090,7 +1090,7 @@ $cC\lVert\phi\rVert$~$\rangle$.
 Since $X$ is an annihilator module, $\psi(x)\cdot a=\psi(x\cdot a)=\psi(0)=0$
 for all $x\in X$ and $a\in A$, that is, $\psi(X)\subset J_{ann}$. Therefore,
 $\psi$ admits a corestriction $\widetilde{\psi}:X\to J_{ann}$ of the same norm,
-and $j\widetilde{\psi}\iota=\psi\iota=j\phi$ gives $\widetilde{\psi}\iota=\phi$
+and $j\widetilde{\psi}\xi=\psi\xi=j\phi$ gives $\widetilde{\psi}\xi=\phi$
 because $j$ is injective. Thus, $J_{ann}$ solves every $\langle$~metric /
 $C$-topological~$\rangle$ extension problem for Banach spaces, that is, it is a
 $\langle$~metrically / $C$-topologically~$\rangle$ injective Banach space.
