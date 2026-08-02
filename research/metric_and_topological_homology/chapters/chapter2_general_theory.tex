@@ -365,39 +365,35 @@ $P/P_{ess}\isom{\mathbf{Ban}}\ell_1(\Lambda)$~$\rangle$ for some set $\Lambda$.
 \end{proposition}
 \begin{proof} Put $E:=P/P_{ess}$ and let $q:P\to E$ be the natural quotient
 morphism. Since $a\cdot x\in P_{ess}$ for all $a\in A$ and $x\in P$, the
-$A$-module $E$ is annihilator. Endow $\ell_1(B_E)$ with the annihilator
-$A$-module structure and consider the strict coisometry $\pi:\ell_1(B_E)\to E$
-well-defined by the equality $\pi(\delta_u)=u$ for all $u\in B_E$. Since $E$
-and $\ell_1(B_E)$ are annihilator modules, $\pi$ is also an $A$-module map.
-Recall that strict coisometries are exactly the contractive strictly
-$1$-topologically surjective operators, so $\pi$ belongs to the class of
-morphisms considered in definition~\ref{MetCTopProjMod} for both types of
-projectivity. Since $P$ is $\langle$~metrically / $C$-topologically~$\rangle$
-projective, there exists an $A$-morphism $\psi:P\to\ell_1(B_E)$ such
-that $\pi\psi=q$ and $\langle$~$\lVert\psi\rVert\leq\lVert q\rVert$ /
-$\lVert\psi\rVert\leq C\lVert q\rVert$~$\rangle$. As $\lVert q\rVert\leq 1$,
-the norm of $\psi$ is $\langle$~at most $1$ / at most $C$~$\rangle$.
+$A$-module $E$ is annihilator.
 
-Since $\ell_1(B_E)$ is an annihilator module, $\psi(a\cdot x)=a\cdot\psi(x)=0$
-for all $a\in A$ and $x\in P$. By linearity and continuity $\psi$ vanishes on
+Consider an arbitrary strictly $\langle$~coisometric /
+$c$-topologically surjective~$\rangle$ operator $\xi:X\to Y$ of Banach spaces
+and an arbitrary bounded linear operator $\phi:E\to Y$. Endow $X$ and $Y$
+with the annihilator $A$-module structure; then $\xi$ is an $A$-morphism.
+Since $E$ and $Y$ are annihilator modules, for all $x\in P$ and $a\in A$ we
+have $\phi(q(a\cdot x))=\phi(0)=0=a\cdot\phi(q(x))$, so $\phi q$ is an
+$A$-morphism too. Since $P$ is $\langle$~metrically /
+$C$-topologically~$\rangle$ projective, by definition~\ref{MetCTopProjMod}
+there exists an $A$-morphism $\psi:P\to X$ such that $\xi\psi=\phi q$
+and $\langle$~$\lVert\psi\rVert\leq\lVert\phi q\rVert$ /
+$\lVert\psi\rVert\leq cC\lVert\phi q\rVert$~$\rangle$. As $\lVert q\rVert\leq 1$, 
+we get $\langle$~$\lVert\psi\rVert\leq\lVert\phi\rVert$ /
+$\lVert\psi\rVert\leq cC\lVert\phi \rVert$~$\rangle$. Since $X$ is an 
+annihilator module, $\psi(a\cdot x)=a\cdot\psi(x)=0$ for all $a\in A$ 
+and $x\in P$. By linearity and continuity $\psi$ vanishes on 
 $P_{ess}=\operatorname{cl}_P(AP)=\operatorname{Ker}(q)$, so there exists a
-unique operator $\overline{\psi}:E\to\ell_1(B_E)$ satisfying
-$\overline{\psi}q=\psi$. For all $x\in P$ and $y\in P_{ess}$ we have
-$\lVert\overline{\psi}(q(x))\rVert
-=\lVert\psi(x+y)\rVert\leq\lVert\psi\rVert\lVert x+y\rVert$, and
-therefore $\lVert\overline{\psi}\rVert\leq\lVert\psi\rVert$.
-From $\pi\overline{\psi}q=\pi\psi=q$ and surjectivity of $q$ we
-get $\pi\overline{\psi}=1_E$. Thus, the Banach space $E$ is
-a $\langle$~$1$-retract / $C$-retract~$\rangle$ of $\ell_1(B_E)$.
-
-It remains to note that, regarding Banach spaces as modules over the zero
-algebra, we have
-$\ell_1(B_E)\isom{\mathbf{Ban}_1}\mathbb{C}\projtens\ell_1(B_E)$, so by
-proposition~\ref{MetCTopFreeMod} the Banach space $\ell_1(B_E)$ is
-$\langle$~metrically / $1$-topologically~$\rangle$ projective. By
-proposition~\ref{RetrMetCTopProjIsMetCTopProj} the Banach space $E$ is
-$\langle$~metrically / $C$-topologically~$\rangle$ projective. Now
-from $\langle$~\cite[proposition 3.2]{HelMetrFrQMod} / results
+unique operator $\widetilde{\psi}:E\to X$ satisfying
+$\widetilde{\psi}q=\psi$. For all $x\in P$ and $y\in P_{ess}$ we have
+$\lVert\widetilde{\psi}(q(x))\rVert
+=\lVert\widetilde{\psi}(q(x+y))\rVert
+\leq\lVert\psi\rVert\lVert x+y\rVert$, and
+therefore $\lVert\widetilde{\psi}\rVert\leq\lVert\psi\rVert$.
+From $\xi\widetilde{\psi}q=\xi\psi=\phi q$ and surjectivity of $q$ we
+get $\xi\widetilde{\psi}=\phi$. Thus, $E$ solves every $\langle$~metric /
+$C$-topological~$\rangle$ lifting problem for Banach spaces, that is, it is a
+$\langle$~metrically / $C$-topologically~$\rangle$ projective Banach space.
+Now from $\langle$~\cite[proposition 3.2]{HelMetrFrQMod} / results
 of~\cite{KotheTopProjBanSp}~$\rangle$ we get that $E$ is
 $\langle$~isometrically / topologically~$\rangle$ isomorphic
 to $\ell_1(\Lambda)$ for some set $\Lambda$.
