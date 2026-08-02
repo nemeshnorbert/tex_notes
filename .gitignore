@@ -42,6 +42,10 @@
 .lesshst
 .dotnet/
 
+# Claude Code
+.claude.json
+.claude/
+
 # Other
 .cache/
 .local/
