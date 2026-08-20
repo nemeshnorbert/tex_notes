@@ -2892,13 +2892,22 @@ proposition~\ref{MetProjIsTopProjAndTopProjIsRelProj}.
 
 $(ii)\implies (iv)$ See proposition~\ref{MetTopProjIsMetTopFlat}.
 
-$(iii)\implies (i)$ Note that $M(G)\isom{L_1(G)\text{-}\mathbf{mod}_1}
-L_1(G)\bigoplus_1 M_s(G)$, so $M_s(G)$ is topologically projective by
-proposition~\ref{MetTopProjModCoprod}. Note that $M_s(G)$ is an annihilator
-$L_1(G)$-module; then by proposition~\ref{MetTopProjOfAnnihModCharac} the
-algebra $L_1(G)$ has a right identity. Recall that $L_1(G)$ also has a two-sided
-bounded approximate identity, so $L_1(G)$ is unital. The last is equivalent to
-$G$ being discrete.
+$(iii)\implies (i)$ Note that $M(G)\isom{\mathbf{Ban}_1}
+L_1(G)\bigoplus_1 M_s(G)$, with the first summand being the essential part. 
+Hence  $M_s(G)\isom{\mathbf{Ban}_1}M(G)/{M(G)}_{ess}$. Since $M(G)$ is 
+topologically projective, proposition~\ref{MetTopProjModEssQuotIsProjBanSp} 
+shows that $M_s(G)$ is isomorphic to $\ell_1(\Lambda)$ for some $\Lambda$.
+
+Assume that $G$ is not discrete. By~\cite[section 19.26]{HewRossAbstrHarmAnalVol1} 
+there exists a continuous probability measure $\mu\in M(G)$ singular with 
+respect to $m_G$. Every measure absolutely continuous with respect to $\mu$ is 
+singular with respect to $m_G$, so $L_1(G,\mu)$ is a closed subspace 
+of $M_s(G)$. Since $\mu$ is continuous, the Banach space $L_1([0,1])$ 
+isometrically embeds 
+in $L_1(G,\mu)$~\cite[theorem 4.4.14]{DalDasLauStrBanSpContFuncAsDualSp}, and 
+hence in $\ell_1(\Lambda)$. This is 
+impossible~\cite[corollary 4.4.18]{DalDasLauStrBanSpContFuncAsDualSp}, so $G$ is
+discrete.
 
 $(iv)\implies (i)$ Note that $M(G)\isom{L_1(G)\text{-}\mathbf{mod}_1}
 L_1(G)\bigoplus_1 M_s(G)$, so $M_s(G)$ is metrically flat by
