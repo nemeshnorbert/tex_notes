@@ -55,15 +55,19 @@ $C$-topologically projective in the category of normed spaces for every $C>1$.
 Helemskii proved that the spaces $\lo{\Lambda}$ of finitely supported functions
 on a set $\Lambda$ with the $\ell_1$-norm are extremally projective and asked
 whether every extremally projective normed space is isometrically isomorphic to
-some $\lo{\Lambda}$. We answer this question in the negative and show that
-extremal projectivity is an almost isometric rather than an isometric property:
-a normed space $P$ is extremally projective if and only if for every
-$\varepsilon>0$ the Banach-Mazur distance between $P$ and $\lo{\Lambda}$ is less
-than $1+\varepsilon$, where $\Lambda$ is any set of cardinality equal to the
-algebraic dimension of $P$. Along the way we show that extremally projective
-normed spaces contain no infinite dimensional complete subspaces, so that no
-infinite dimensional Banach space is extremally projective in the category of
-normed spaces.
+some $\lo{\Lambda}$. We answer this question in the negative. Then we show
+that the completion of an extremally projective normed space is isometrically
+isomorphic to $\ellone{\Gamma}$ for some set $\Gamma$, and that extremally
+projective normed spaces contain no infinite dimensional complete subspaces;
+in particular, no infinite dimensional Banach space is extremally projective
+in the category of normed spaces. For normed spaces of countable algebraic
+dimension these necessary conditions turn out to be sufficient: such a space
+$P$ is extremally projective if and only if its completion is isometrically
+isomorphic to $\ellone{\Gamma}$ for a countable set $\Gamma$, if and only if
+the Banach-Mazur distance between $P$ and $\lo{\Gamma}$ equals $1$. Thus,
+extremal projectivity is an almost isometric rather than an isometric
+property. In particular, every dense subspace of $\ell_1$ of countable
+dimension is extremally projective.
 \medskip
 
 \textbf{Keywords:} projective normed space, topological projectivity, extremal
@@ -115,19 +119,24 @@ The main results of this paper are the following. First, the answer to
 Helemskii's question is negative: the subspace of $\ell_1$ spanned by the
 finitely supported sequences and a single sequence with infinite support is
 extremally projective but not isometrically isomorphic to any $\lo{\Lambda}$.
-Second, extremal projectivity turns out to be an almost isometric property: a
-normed space $P$ is extremally projective if and only if for every
-$\varepsilon>0$ there is a linear bijection $T:P\to\lo{\Lambda}$ with
-$\norm{T}\norm{T^{-1}}<1+\varepsilon$, where $\Lambda$ is a set of cardinality
-$\dim P$. Third, extremally projective normed spaces have no infinite
-dimensional complete subspaces. In particular, an infinite dimensional Banach
+Second, extremally projective normed spaces have no infinite dimensional
+complete subspaces, while their completions are isometrically isomorphic to
+the spaces $\ellone{\Gamma}$. In particular, an infinite dimensional Banach
 space is never extremally projective in $\Nor$, although it may well be
-extremally projective in the category $\Ban$ of Banach spaces. The last fact
-explains the main technical difficulty of the subject: when the lifting
-problems are posed for all normed spaces rather than Banach spaces, the
-standard tools of Banach space geometry, which rely on completeness, are no
-longer available, and we must work with the finite dimensional pieces of our
-spaces directly.
+extremally projective in the category $\Ban$ of Banach spaces. Third, for
+normed spaces of countable algebraic dimension extremal projectivity turns out
+to be an almost isometric property: such a space $P$ is extremally projective
+if and only if its completion is isometrically isomorphic to $\ellone{\Gamma}$
+for a countable set $\Gamma$, if and only if for every $\varepsilon>0$ there
+is a linear bijection $T:P\to\lo{\Gamma}$ with
+$\norm{T}\norm{T^{-1}}<1+\varepsilon$. The second result explains the main
+technical difficulty of the subject: when the lifting problems are posed for
+all normed spaces rather than Banach spaces, the standard tools of Banach
+space geometry, which rely on completeness, are no longer available, and we
+must work with the finite dimensional pieces of our spaces directly. The
+uncountable case remains open; we give a necessary condition of Baire category
+type and examples showing that in this case extremal projectivity is not
+determined by the completion.
 
 Let us fix the notation and recall the definitions. All normed spaces are
 considered over the complex field; the real case is identical. For a normed
@@ -195,7 +204,8 @@ topologically projective normed spaces do not contain infinite dimensional
 Banach subspaces. Section~\ref{SectionCounterexample} contains the
 counterexample to Helemskii's question. Section~\ref{SectionMainTheorem} is
 devoted to the almost isometric characterization of extremally projective
-normed spaces.
+normed spaces of countable dimension and to the discussion of the uncountable
+case.
 
 %-------------------------------------------------------------------------------
 %	Basic theory
@@ -948,5 +958,226 @@ based on theorem~\ref{OneVectorTheorem} and on the following two lemmas.
     $(b)$ and $(c)$ there is $d\in D$ with $A_i(d)=e_i\in Y_i$, and by $(d)$
     we get $T(d)=A_i(d)=e_i$. Hence $\lo{\mathbb{N}}\subset T(D)$.
 \end{proof}
+
+Now we are ready to prove the main result of the paper.
+
+\begin{theorem}\label{MainTheorem} Let $P$ be a normed space of countable
+    (finite or countably infinite) algebraic dimension. Then the following
+    conditions are equivalent:
+    \begin{enumerate}[label = (\roman*)]
+        \item $P$ is extremally projective;
+        \item $\overline{P}$ is isometrically isomorphic to $\ellone{\Gamma}$
+              for some countable set $\Gamma$;
+        \item $\BM(P,\lo{\Gamma})=1$ for some countable set $\Gamma$;
+        \item for every $\varepsilon>0$ there is a set $\Lambda$ with
+              $\BM(P,\lo{\Lambda})<1+\varepsilon$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof} $(i)\implies(ii)$ By theorem~\ref{CompletionIsEllOne} the space
+    $\overline{P}$ is isometrically isomorphic to $\ellone{\Gamma}$ for some
+    set $\Gamma$. The rational linear span of a countable Hamel basis of $P$
+    is a countable dense subset of $\overline{P}$, so $\overline{P}$ is
+    separable and $\Gamma$ is countable.
+
+    $(ii)\implies(iii)$ Let $J:\overline{P}\to\ellone{\Gamma}$ be an isometric
+    isomorphism. If $\Gamma$ is finite, then $\overline{P}$ is finite
+    dimensional, so $P=\overline{P}$ and $J$ maps $P$ onto
+    $\ellone{\Gamma}=\lo{\Gamma}$. If $\Gamma$ is infinite, we may assume that
+    $\Gamma=\mathbb{N}$. Then $D=J(P)$ is a dense subspace of $\ell_1$ of
+    countable algebraic dimension, and by theorem~\ref{BackAndForth}
+    $\BM(P,\lo{\mathbb{N}})=\BM(D,\lo{\mathbb{N}})=1$.
+
+    $(iii)\implies(iv)$ is obvious.
+
+    $(iv)\implies(i)$ Fix $\varepsilon>0$ and a linear bijection
+    $S:P\to\lo{\Lambda}$ with $\norm{S}\norm{S^{-1}}<1+\varepsilon$. Then $P$
+    is a $(1+\varepsilon)$-retract of $\lo{\Lambda}$ via $S^{-1}$ and $S$, so
+    $P$ is extremally projective by theorem~\ref{ExtrProjCriterion}.
+\end{proof}
+
+\begin{corollary}\label{DenseCountableSubspaces} Every subspace of $\ell_1$
+    of countable algebraic dimension which is dense in $\ell_1$ is extremally
+    projective and almost isometric to $\lo{\mathbb{N}}$, that is, has
+    Banach-Mazur distance $1$ to $\lo{\mathbb{N}}$.
+\end{corollary}
+
+Condition $(ii)$ of theorem~\ref{MainTheorem} shows that for normed spaces of
+countable dimension extremal projectivity is a property of the completion. By
+example~\ref{WeightedExample} this is no longer true for spaces of uncountable
+dimension. The following necessary condition explains what goes wrong in the
+uncountable case. Recall that a topological space is called a Baire space if
+the intersection of every sequence of its open dense subsets is dense; every
+non-empty open subset of a Baire space is a Baire space, and complete metric
+spaces and compact Hausdorff spaces are Baire spaces.
+
+\begin{definition}\label{BaireLFD} We say that a normed space $P$ is
+    Baire-locally finite dimensional if for every Baire space $K$, every
+    continuous map $\gamma:K\to P$ and every non-empty open set $W\subset K$
+    there is a non-empty open set $U\subset W$ such that $\gamma(U)$ is
+    contained in a finite dimensional subspace of $P$.
+\end{definition}
+
+\begin{proposition}\label{BaireLFDProps}
+    \begin{enumerate}[label = (\roman*)]
+        \item Every normed space of countable algebraic dimension is
+              Baire-locally finite dimensional.
+        \item If $P$ is Baire-locally finite dimensional and $Q$ is a normed
+              space admitting an injective bounded linear operator
+              $\sigma:Q\to P$, then $Q$ is Baire-locally finite dimensional.
+        \item For every set $\Lambda$ the space $\lo{\Lambda}$ is
+              Baire-locally finite dimensional.
+        \item Every topologically projective normed space is Baire-locally
+              finite dimensional.
+    \end{enumerate}
+\end{proposition}
+\begin{proof} $(i)$ Let $P=\bigcup_{n\in\mathbb{N}}E_n$ be an increasing union
+    of finite dimensional subspaces, $\gamma:K\to P$ be continuous and
+    $W\subset K$ be non-empty and open. The sets $\gamma^{-1}(E_n)\cap W$ are
+    closed in $W$ and cover $W$, so by the Baire category theorem one of them
+    has non-empty interior $U$ in $W$, and $\gamma(U)\subset E_n$.
+
+    $(ii)$ If $\gamma:K\to Q$ is continuous, then so is $\sigma\gamma:K\to P$.
+    If $\sigma\gamma(U)$ is contained in a finite dimensional subspace $E$ of
+    $P$, then $\gamma(U)\subset\sigma^{-1}(E)$, which is finite dimensional
+    because $\sigma$ is injective.
+
+    $(iii)$ Let $\gamma:K\to\lo{\Lambda}$ be continuous and $W\subset K$ be
+    non-empty and open. For $k\in K$ put $s(k)=|\supp(\gamma(k))|$. For every
+    $\lambda\in\Lambda$ the function $k\mapsto\gamma(k)(\lambda)$ is
+    continuous, so the set $\{k\in K:\gamma(k)(\lambda)\neq 0\}$ is open.
+    Therefore for every $m$ the set
+    \[
+    \{k\in K:s(k)\geq m\}=\bigcup_{F\subset\Lambda,\,|F|=m}\ \bigcap_{\lambda\in F}
+    \{k\in K:\gamma(k)(\lambda)\neq 0\}
+    \]
+    is open. In particular, the sets $K_m=\{k\in W:s(k)\leq m\}$,
+    $m\in\mathbb{N}\cup\{0\}$, are closed in $W$, and they cover $W$ because
+    the elements of $\lo{\Lambda}$ are finitely supported. Since $W$ is a
+    Baire space, some $K_m$ contains a non-empty open set $V$. Let
+    $m'=\max\{s(k):k\in V\}\leq m$ and $U=\{k\in V:s(k)\geq m'\}$. Then $U$ is
+    open, non-empty, and $s(k)=m'$ for all $k\in U$. Fix $k_0\in U$ and put
+    $F=\supp(\gamma(k_0))$, so $|F|=m'$. The set
+    $U_0=\{k\in U:\gamma(k)(\lambda)\neq 0\text{ for all }\lambda\in F\}$ is
+    an open neighbourhood of $k_0$. For $k\in U_0$ we have
+    $F\subset\supp(\gamma(k))$ and $|\supp(\gamma(k))|=m'=|F|$, so
+    $\supp(\gamma(k))=F$ and $\gamma(k)\in\Lin\{e_\lambda:\lambda\in F\}$.
+    Thus, $U_0\subset W$ is a non-empty open set with $\gamma(U_0)$ contained
+    in a finite dimensional subspace.
+
+    $(iv)$ If $P$ is topologically projective, then by
+    proposition~\ref{CanonicalMorphismCriterion} there is a bounded linear
+    operator $\sigma:P\to\lo{B_P}$ with $\pi_P\sigma=1_P$, which is injective.
+    It remains to apply $(ii)$ and $(iii)$.
+\end{proof}
+
+Theorem~\ref{NoCompleteSubspaces} is a special case of
+proposition~\ref{BaireLFDProps}~$(iv)$: if $Z\subset P$ is infinite
+dimensional and complete with respect to a norm dominating the norm of $P$,
+then the inclusion $(Z,\norm{\cdot}')\to P$ is a continuous map from a Baire
+space, and no non-empty open subset of an infinite dimensional normed space
+is contained in a finite dimensional subspace. Here is an example of a
+different nature.
+
+\begin{example}\label{CurveExample} For $0<\alpha<1$ let
+    $v_\alpha={(\alpha^n)}_{n\in\mathbb{N}}\in\ell_1$, and let
+    \[
+    P=\lo{\mathbb{N}}+\Lin\{v_\alpha:1/3\leq\alpha\leq 2/3\}\subset\ell_1
+    \]
+    with the norm inherited from $\ell_1$. Then $P$ is a dense subspace of
+    $\ell_1$ which is not topologically projective.
+\end{example}
+\begin{proof} The map $\gamma:[1/3,2/3]\to P$, $\alpha\mapsto v_\alpha$, is
+    continuous, because
+    $\norm{v_\alpha-v_\beta}=\sum_{n=1}^\infty|\alpha^n-\beta^n|
+    \leq|\alpha-\beta|\sum_{n=1}^\infty n{(2/3)}^{n-1}$. Let $U$ be a non-empty
+    open subset of the compact space $[1/3,2/3]$. Then $U$ is infinite, and
+    for pairwise distinct $\alpha_1,\ldots,\alpha_m\in U$ the vectors
+    $v_{\alpha_1},\ldots,v_{\alpha_m}$ are linearly independent: if
+    $\sum_{i=1}^m c_iv_{\alpha_i}=0$, then $\sum_{i=1}^m c_i\alpha_i^n=0$ for
+    $n=1,\ldots,m$, and the Vandermonde matrix ${(\alpha_i^n)}_{i,n=1}^m$ is
+    invertible, so all $c_i$ vanish. Hence $\gamma(U)$ is not contained in a
+    finite dimensional subspace, $P$ is not Baire-locally finite dimensional,
+    and by proposition~\ref{BaireLFDProps}~$(iv)$ it is not topologically
+    projective.
+\end{proof}
+
+Note that example~\ref{CurveExample} is of the form $\lo{\mathbb{N}}+V$, as
+the extremally projective spaces of theorem~\ref{FiniteDimPerturbation} and
+corollary~\ref{DenseCountableSubspaces}, but now $V$ has uncountable
+dimension. On the other hand, uncountable dimension alone is not an
+obstruction.
+
+\begin{proposition}\label{UncountableExamples} Let $\Gamma$ be a set and
+    $V$ be a subspace of $\ellone{\Gamma}$ of countable algebraic dimension.
+    Then $\lo{\Gamma}+V$ is extremally projective.
+\end{proposition}
+\begin{proof} The set $\Gamma_0=\bigcup\{\supp(v):v\in V\}$ is countable,
+    being the union of the supports of the vectors of a countable Hamel basis
+    of $V$. Put $P_0=\lo{\Gamma_0}+V\subset\ellone{\Gamma_0}$. Then
+    $\lo{\Gamma}+V=\lo{\Gamma\setminus\Gamma_0}\bigoplus_1 P_0$ isometrically.
+    The space $P_0$ has countable dimension and its completion is
+    $\ellone{\Gamma_0}$, so it is extremally projective by
+    theorem~\ref{MainTheorem}. By propositions~\ref{FreeIsExtrProj}
+    and~\ref{SumsOfExtrProj} the space $\lo{\Gamma}+V$ is extremally projective.
+\end{proof}
+
+By theorem~\ref{CompletionIsEllOne} and proposition~\ref{BaireLFDProps}, an
+extremally projective normed space is a Baire-locally finite dimensional
+dense subspace of some $\ellone{\Gamma}$. For spaces of countable dimension
+the converse holds by theorem~\ref{MainTheorem}, since such spaces are
+automatically Baire-locally finite dimensional. We do not know whether the
+converse holds in general.
+
+\begin{question}\label{OpenQuestion} Let $\Gamma$ be an uncountable set and
+    $P$ be a dense subspace of $\ellone{\Gamma}$ which is Baire-locally finite
+    dimensional. Is $P$ extremally projective? Is $\BM(P,\lo{\Gamma})=1$?
+\end{question}
+
+\begin{thebibliography}{999}
+    %
+    \bibitem{HelHomolBanTopAlg}
+    \textit{A. Ya. Helemskii} The homology of Banach and topological algebras,
+    Kluwer, Dordrecht (1989)
+    %
+    %
+    \bibitem{HelMetrFrQMod}
+    \textit{A. Ya. Helemskii} Metric freeness and projectivity for classical
+    and quantum normed modules, Sb. Math., 204:7 (2013), 1056--1083
+    %
+    %
+    \bibitem{HelExtrProjSeqAlg}
+    \textit{A. Ya. Helemskii} Extreme version of projectivity for normed
+    modules over sequence algebras, Canad. J. Math., 65:3 (2013), 559--574
+    %
+    %
+    \bibitem{WhiteInjmoduAlg}
+    \textit{M. C. White} Injective modules for uniform algebras, Proc. London
+    Math. Soc. (3), 73:1 (1996), 155--184
+    %
+    %
+    \bibitem{NemMetrTopHomol}
+    \textit{N. T. Nemesh} Metric and topological homology, in preparation
+    %
+    %
+    \bibitem{KotheTopProjBanSp}
+    \textit{G. K\"othe} Hebbare lokalkonvexe R\"aume, Math. Ann., 165 (1966),
+    181--195
+    %
+    %
+    \bibitem{GrothMetrProjFlatBanSp}
+    \textit{A. Grothendieck} Une caract\'erisation vectorielle-m\'etrique des
+    espaces $L_1$, Canad. J. Math., 7 (1955), 552--561
+    %
+    %
+    \bibitem{GronLiftProbNormSp}
+    \textit{N. Gr{\o}nb{\ae}k} Lifting problems for normed spaces,
+    % TODO: journal, volume, year and pages to be filled in
+    %
+\end{thebibliography}
+
+Norbert Nemesh, Faculty of Mechanics and Mathematics, Moscow State University,
+Moscow 119991 Russia
+
+\textit{E-mail address:} nemeshnorbert@yandex.ru
 
 \end{document}
