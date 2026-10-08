@@ -69,7 +69,11 @@ extremal projectivity is an almost isometric rather than an isometric
 property. In particular, every dense subspace of $\ell_1$ of countable
 dimension is extremally projective, and a separable normed space is
 extremally projective if and only if it has countable algebraic dimension and
-its completion is isometrically isomorphic to $\ell_1$ or to $\ell_1^n$.
+its completion is isometrically isomorphic to $\ell_1$ or to $\ell_1^n$. In
+the non-separable case we obtain a necessary condition of set-theoretic
+nature, based on Fodor's lemma, and use it to construct a dense subspace of
+$\ellone{\omega_1}$ all of whose separable subspaces have countable dimension
+which is not topologically projective.
 \medskip
 
 \textbf{Keywords:} projective normed space, topological projectivity, extremal
@@ -155,8 +159,18 @@ in the category $\Ban$ of Banach spaces. The last fact explains the main
 technical difficulty of the subject: when the lifting problems are posed for
 all normed spaces rather than Banach spaces, the standard tools of Banach
 space geometry, which rely on completeness, are no longer available, and we
-must work with the finite dimensional pieces of our spaces directly. The
-non-separable case remains open.
+must work with the finite dimensional pieces of our spaces directly. Fourth,
+in the non-separable case the dimension restriction admits a set-theoretic
+refinement: by Fodor's lemma, the closed linear spans of the initial segments
+of an $\omega_1$-sequence of vectors in a topologically projective normed
+space must behave continuously at almost all limit stages. Using this we
+construct a dense subspace of $\ellone{\omega_1}$, built from a ladder system
+on $\omega_1$, which is not topologically projective although all its
+separable subspaces have countable dimension and all its countably generated
+pieces are extremally projective. Thus, for uncountable $\Lambda$ the
+question of Helemskii on dense subspaces of $\ellone{\Lambda}$ does not
+reduce to the countable case, and the almost isometric characterization of
+extremally projective normed spaces of uncountable dimension remains open.
 
 Let us fix the notation and recall the definitions. All normed spaces are
 considered over the complex field; the real case is identical. For a normed
@@ -1112,13 +1126,155 @@ extremally projective normed space is, up to an isometric isomorphism, a
 dense subspace of some $\ellone{\Gamma}$ all of whose separable subspaces have
 countable algebraic dimension; by the theorem of Gr{\o}nb{\ae}k it is also
 topologically isomorphic to $\lo{\Gamma}$. For countable $\Gamma$ the first
-two conditions are also sufficient by theorem~\ref{SeparableCase}. We do not
-know whether this remains true for uncountable $\Gamma$.
+two conditions are also sufficient by theorem~\ref{SeparableCase}. We shall
+now show that for uncountable $\Gamma$ they are not. The obstruction is a
+set-theoretic refinement of theorem~\ref{SeparableSubspaces}. Recall that a
+subset of the first uncountable ordinal $\omega_1$ is called closed unbounded
+if it is unbounded in $\omega_1$ and contains the supremum of each of its
+countable subsets, and stationary if it intersects every closed unbounded
+set. The set of limit ordinals below $\omega_1$ is closed unbounded. We shall
+use Fodor's lemma \cite[theorem 8.7]{JechSetTheory}: if $E\subset\omega_1$ is
+stationary and $\gamma:E\to\omega_1$ satisfies $\gamma(\alpha)<\alpha$ for all
+$\alpha\in E$, then $\gamma$ is constant on some stationary subset of $E$.
+For a subset $M$ of a normed space $P$ we denote by $\overline{\Lin}(M)$ the
+closure of $\Lin(M)$ in $P$.
 
-\begin{question}\label{OpenQuestion} Let $\Gamma$ be an uncountable set and
-    $P$ be a dense subspace of $\ellone{\Gamma}$ such that every separable
-    subspace of $P$ has countable algebraic dimension. Is $P$ extremally
-    projective? Is $\BM(P,\lo{\Gamma})=1$?
+\begin{theorem}\label{FodorObstruction} Let $P$ be a topologically
+    projective normed space, ${(X_\beta)}_{\beta<\omega_1}$ be a family of
+    countable subsets of $P$, $E$ be a stationary set of limit ordinals below
+    $\omega_1$, and ${(v_\alpha)}_{\alpha\in E}$ be a family in $P$ such that
+    $v_\alpha\in\overline{\Lin}\bigl(\bigcup_{\beta<\alpha}X_\beta\bigr)$ for
+    every $\alpha\in E$. Then there is a stationary set $E'\subset E$ such that
+    $\Lin\{v_\alpha:\alpha\in E'\}$ has countable algebraic dimension. In
+    particular, the family ${(v_\alpha)}_{\alpha\in E}$ is linearly dependent.
+\end{theorem}
+\begin{proof} By proposition~\ref{CanonicalMorphismCriterion}~$(i)$ there is
+    a bounded linear operator $\sigma:P\to\lo{B_P}$ with $\pi_P\sigma=1_P$; it
+    is injective. For $\alpha<\omega_1$ put
+    \[
+    S_\alpha=\bigcup_{\beta<\alpha}\ \bigcup_{x\in X_\beta}\supp(\sigma(x)),
+    \]
+    a countable subset of $B_P$. Let $\alpha\in E$. Then $\sigma(v_\alpha)$
+    lies in the closure in $\ellone{B_P}$ of
+    $\sigma\bigl(\Lin\bigcup_{\beta<\alpha}X_\beta\bigr)\subset\lo{S_\alpha}$,
+    and since the coordinate functionals are continuous, $\sigma(v_\alpha)$ is
+    supported in $S_\alpha$. Thus, the finite set $F_\alpha=\supp(\sigma(v_\alpha))$
+    is contained in $S_\alpha=\bigcup_{\beta<\alpha}S_{\beta+1}$, and since
+    $\alpha$ is a limit ordinal there is $\gamma(\alpha)<\alpha$ with
+    $F_\alpha\subset S_{\gamma(\alpha)}$. By Fodor's lemma there are a
+    stationary set $E'\subset E$ and $\gamma_0<\omega_1$ with
+    $\gamma(\alpha)=\gamma_0$ for all $\alpha\in E'$. Then
+    $\sigma(v_\alpha)\in\lo{S_{\gamma_0}}$ for all $\alpha\in E'$. The space
+    $\lo{S_{\gamma_0}}$ has countable algebraic dimension and $\sigma$ is
+    injective, so $\Lin\{v_\alpha:\alpha\in E'\}$ has countable algebraic
+    dimension. As $E'$ is uncountable, the family ${(v_\alpha)}_{\alpha\in E'}$,
+    and a fortiori ${(v_\alpha)}_{\alpha\in E}$, is linearly dependent.
+\end{proof}
+
+\begin{corollary}\label{OmegaOneContinuity} Let $P$ be a topologically
+    projective normed space and ${(X_\beta)}_{\beta<\omega_1}$ be a family of
+    countable subsets of $P$. For $\alpha<\omega_1$ put
+    $D_\alpha=\overline{\Lin}\bigl(\bigcup_{\beta<\alpha}X_\beta\bigr)$. Then
+    the set of limit ordinals $\alpha<\omega_1$ for which
+    $D_\alpha\neq\bigcup_{\alpha'<\alpha}D_{\alpha'}$ is not stationary.
+\end{corollary}
+\begin{proof} Assume that this set $E$ is stationary and for every
+    $\alpha\in E$ choose $v_\alpha\in D_\alpha\setminus\bigcup_{\alpha'<\alpha}D_{\alpha'}$.
+    The family ${(v_\alpha)}_{\alpha\in E}$ is linearly independent. Indeed,
+    let $\sum_{\alpha\in F}c_\alpha v_\alpha=0$ for a finite set $F\subset E$
+    and non-zero scalars $c_\alpha$, and let $\alpha_0=\max F$. Since
+    $v_{\alpha_0}\neq 0$, the set $F\setminus\{\alpha_0\}$ is non-empty; put
+    $\alpha_1=\max(F\setminus\{\alpha_0\})<\alpha_0$. The spaces $D_\alpha$
+    increase with $\alpha$, so
+    $v_{\alpha_0}=-c_{\alpha_0}^{-1}\sum_{\alpha\in F\setminus\{\alpha_0\}}c_\alpha v_\alpha
+    \in D_{\alpha_1}$, which contradicts the choice of $v_{\alpha_0}$. Now
+    theorem~\ref{FodorObstruction} gives a contradiction.
+\end{proof}
+
+Theorem~\ref{SeparableSubspaces} says that the closed linear span of
+countably many vectors of a topologically projective space has countable
+dimension; corollary~\ref{OmegaOneContinuity} says that, in addition, the
+closed linear spans of initial segments of an $\omega_1$-sequence of vectors
+must behave continuously at almost all limit stages. The following example
+shows that the second condition is not implied by the first one, even for
+dense subspaces of $\ellone{\Gamma}$.
+
+\begin{example}\label{LadderSpace} For every limit ordinal $\alpha<\omega_1$
+    fix a strictly increasing sequence ${(\alpha_n)}_{n\in\mathbb{N}}$ of
+    ordinals with $\sup_n\alpha_n=\alpha$ and put
+    $v_\alpha=\sum_{n=1}^\infty 2^{-n}e_{\alpha_n}\in\ellone{\omega_1}$. Let
+    \[
+    P_L=\lo{\omega_1}+\Lin\{v_\alpha:\alpha<\omega_1\text{ is a limit ordinal}\}
+    \subset\ellone{\omega_1}
+    \]
+    with the norm inherited from $\ellone{\omega_1}$. Then
+    \begin{enumerate}[label = (\roman*)]
+        \item $P_L$ is dense in $\ellone{\omega_1}$;
+        \item for every countable ordinal $\delta$ the space
+              $P_L\cap\ellone{\delta}=\lo{\delta}+\Lin\{v_\alpha:\alpha\leq\delta
+              \text{ is a limit ordinal}\}$ is an extremally projective normed
+              space of countable algebraic dimension; in particular, every
+              separable subspace of $P_L$ has countable algebraic dimension;
+        \item $P_L$ is not topologically projective.
+    \end{enumerate}
+\end{example}
+\begin{proof} $(i)$ is obvious, since $P_L\supset\lo{\omega_1}$.
+
+    First we note that for limit ordinals $\alpha<\beta$ the set
+    $\supp(v_\alpha)\cap\supp(v_\beta)$ is finite: $\supp(v_\alpha)\subset\alpha$,
+    while only finitely many $\beta_n$ are smaller than $\alpha$, because
+    $\sup_n\beta_n=\beta>\alpha$.
+
+    $(ii)$ Let $\delta$ be a countable ordinal and let
+    $x=y+\sum_{\alpha\in F}c_\alpha v_\alpha\in P_L\cap\ellone{\delta}$, where
+    $y\in\lo{\omega_1}$, $F$ is a finite set of limit ordinals and $c_\alpha\neq 0$
+    for $\alpha\in F$. Suppose that $F\not\subset[0,\delta]$ and put
+    $\alpha_0=\max F>\delta$. The set $\supp(v_{\alpha_0})\cap[\delta,\alpha_0)$
+    is infinite, because $\sup_n\alpha_{0,n}=\alpha_0>\delta$, while the sets
+    $\supp(y)$ and $\supp(v_\alpha)\cap\supp(v_{\alpha_0})$, $\alpha\in F\setminus\{\alpha_0\}$,
+    are finite. Hence $x$ has infinitely many non-zero coordinates in
+    $[\delta,\alpha_0)$, which contradicts $x\in\ellone{\delta}$. Therefore
+    $F\subset[0,\delta]$, and then also $\supp(y)\subset\delta$. This proves
+    the formula for $P_L\cap\ellone{\delta}$. The space $P_L\cap\ellone{\delta}$
+    has countable algebraic dimension, and it is dense in $\ellone{\delta}$,
+    because it contains $\lo{\delta}$. By theorem~\ref{MainTheorem} it is
+    extremally projective. Finally, if $Z$ is a separable subspace of $P_L$,
+    then the supports of the elements of $Z$ are contained in a countable
+    subset of $\omega_1$, hence in some countable ordinal $\delta$, so
+    $Z\subset P_L\cap\ellone{\delta}$ has countable algebraic dimension.
+
+    $(iii)$ Let $E$ be the set of limit ordinals below $\omega_1$; it is
+    closed unbounded, hence stationary. For $\alpha\in E$ we have
+    $v_\alpha=\lim_N\sum_{n=1}^N 2^{-n}e_{\alpha_n}\in\overline{\Lin}\{e_\beta:\beta<\alpha\}$.
+    The family ${(v_\alpha)}_{\alpha\in E}$ is linearly independent: if
+    $\sum_{\alpha\in F}c_\alpha v_\alpha=0$ with $F\subset E$ finite and
+    $c_\alpha\neq 0$, then for $\alpha_0=\max F$ and all sufficiently large
+    $n$ the coordinate of the left hand side at $\alpha_{0,n}$ equals
+    $2^{-n}c_{\alpha_0}\neq 0$, because the supports of the other $v_\alpha$
+    meet $\supp(v_{\alpha_0})$ in finite sets. By
+    theorem~\ref{FodorObstruction}, applied to $X_\beta=\{e_\beta\}$, the space
+    $P_L$ is not topologically projective.
+\end{proof}
+
+Thus, a dense subspace of $\ellone{\Gamma}$ all of whose separable subspaces
+have countable algebraic dimension need not be topologically projective, and
+the answer to the question of Helemskii on dense subspaces of
+$\ellone{\Lambda}$ is more involved for uncountable $\Lambda$. Note that the
+space $P_L$ is ``locally'' extremally projective: all its countably generated
+pieces $P_L\cap\ellone{\delta}$ are extremally projective. So extremal
+projectivity of a normed space is not determined by its separable subspaces.
+On the other hand, by proposition~\ref{UncountableExamples} the spaces
+$\lo{\Gamma}+V$ with $V$ of countable dimension are extremally projective for
+every $\Gamma$, and by proposition~\ref{SumsOfExtrProj} so are all
+$\bigoplus_1^0$-sums of extremally projective spaces of countable dimension.
+We do not know whether these examples exhaust the extremally projective
+normed spaces up to almost isometry.
+
+\begin{question}\label{OpenQuestion} Let $P$ be an extremally projective
+    normed space of uncountable algebraic dimension and $\Gamma$ be a set of
+    the same cardinality. Is $\BM(P,\lo{\Gamma})=1$? More generally, is $P$
+    $(1+\varepsilon)$-isomorphic for every $\varepsilon>0$ to a
+    $\bigoplus_1^0$-sum of normed spaces of countable dimension?
 \end{question}
 
 Let us comment on the possible approach to question~\ref{OpenQuestion}. The
@@ -1135,10 +1291,11 @@ step. In the countable case theorem~\ref{BackAndForth} replaces the
 decomposition method by a back-and-forth construction whose perturbations
 form a convergent infinite product. For uncountable $\Gamma$ such a product
 can only converge if all but countably many of its factors act on pairwise
-disjoint blocks of coordinates, so an affirmative answer to
-question~\ref{OpenQuestion} would seem to require a decomposition of $P$
-into countably generated pieces supported on disjoint subsets of $\Gamma$, as
-in proposition~\ref{UncountableExamples}.
+disjoint blocks of coordinates. Corollary~\ref{OmegaOneContinuity} suggests
+that an extremally projective space should admit a continuous transfinite
+chain of countably generated subspaces along which the construction could be
+carried out, and example~\ref{LadderSpace} shows that the limit stages of
+such a chain are precisely the place where the construction may break down.
 
 \begin{thebibliography}{999}
     %
@@ -1190,6 +1347,11 @@ in proposition~\ref{UncountableExamples}.
     \bibitem{LowigDimLinRaume}
     \textit{H. L\"owig} \"Uber die Dimension linearer R\"aume, Studia Math.,
     5 (1934), 18--23
+    %
+    %
+    \bibitem{JechSetTheory}
+    \textit{T. Jech} Set theory. The third millennium edition, Springer,
+    Berlin (2003)
     %
 \end{thebibliography}
 
