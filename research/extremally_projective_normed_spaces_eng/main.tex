@@ -1,0 +1,200 @@
+% chktex-file 19
+% chktex-file 35
+% chktex-file 36
+ \documentclass[12pt]{article}
+ \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+ \usepackage{amssymb}
+ \usepackage{amsmath}
+ \usepackage{amsthm}
+ \usepackage{enumerate}
+ \usepackage[T1,T2A]{fontenc}
+ \usepackage[utf8]{inputenc}
+ \usepackage[matrix,arrow,curve]{xy}
+ \usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=blue,
+     pdfborder={0 0 0}]{hyperref}
+\usepackage{enumitem}
+
+ %------------------------------------------------------------------------------
+ \newtheorem{theorem}{Theorem}[section]
+ \newtheorem{lemma}[theorem]{Lemma}
+ \newtheorem{proposition}[theorem]{Proposition}
+ \newtheorem{remark}[theorem]{Remark}
+ \newtheorem{corollary}[theorem]{Corollary}
+ \newtheorem{definition}[theorem]{Definition}
+ \newtheorem{example}[theorem]{Example}
+ \newtheorem{question}[theorem]{Question}
+
+ \newcommand{\projtens}{\mathbin{\widehat{\otimes}}}
+ \newcommand{\isom}[1]{\mathop{\mathbin{\cong}}\limits_{#1}}
+ \newcommand{\Nor}{\mathbf{Nor}}
+ \newcommand{\Ban}{\mathbf{Ban}}
+ \newcommand{\lo}[1]{\ell_1^0(#1)}
+ \newcommand{\ellone}[1]{\ell_1(#1)}
+ \newcommand{\norm}[1]{\lVert #1\rVert}
+ \newcommand{\supp}{\operatorname{supp}}
+ \newcommand{\ext}{\operatorname{ext}}
+ \newcommand{\conv}{\operatorname{conv}}
+ \newcommand{\Lin}{\operatorname{span}}
+ \newcommand{\Im}{\operatorname{Im}}
+ \newcommand{\Ker}{\operatorname{Ker}}
+ \newcommand{\BM}{d_{BM}}
+ %------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{center}
+    \Large \textbf{Extremally projective normed spaces}\\[0.5cm]
+    \small {N. T. Nemesh}\\[0.5cm]
+\end{center}
+
+\thispagestyle{empty}
+
+\medskip
+\textbf{Abstract:} A normed space is called extremally projective if it is
+$C$-topologically projective in the category of normed spaces for every $C>1$.
+Helemskii proved that the spaces $\lo{\Lambda}$ of finitely supported functions
+on a set $\Lambda$ with the $\ell_1$-norm are extremally projective and asked
+whether every extremally projective normed space is isometrically isomorphic to
+some $\lo{\Lambda}$. We answer this question in the negative and show that
+extremal projectivity is an almost isometric rather than an isometric property:
+a normed space $P$ is extremally projective if and only if for every
+$\varepsilon>0$ the Banach-Mazur distance between $P$ and $\lo{\Lambda}$ is less
+than $1+\varepsilon$, where $\Lambda$ is any set of cardinality equal to the
+algebraic dimension of $P$. Along the way we show that extremally projective
+normed spaces contain no infinite dimensional complete subspaces, so that no
+infinite dimensional Banach space is extremally projective in the category of
+normed spaces.
+\medskip
+
+\textbf{Keywords:} projective normed space, topological projectivity, extremal
+projectivity, Banach-Mazur distance, $\ell_1$-space.
+
+\bigskip
+
+%-------------------------------------------------------------------------------
+%	Introduction
+%-------------------------------------------------------------------------------
+
+\section{Introduction}\label{SectionIntroduction}
+
+Projectivity in categories of normed and Banach modules admits several
+non-equivalent versions. Besides the classical relative projectivity of
+Helemskii~\cite{HelHomolBanTopAlg}, which ignores the norms of lifting
+operators, there are so-called metric and topological
+projectivity~\cite{HelMetrFrQMod, WhiteInjmoduAlg, NemMetrTopHomol}, where the
+norm of a lifting is controlled by a constant. In the metric theory this
+constant is $1$, and in the topological theory it is some fixed $C\geq 1$. The
+present paper is devoted to the limiting case between these two theories: a
+module is called extremally projective if it is $C$-topologically projective for
+every $C>1$. This notion was introduced and studied by Helemskii under the name
+of extreme projectivity~\cite{HelExtrProjSeqAlg, HelMetrFrQMod}. We restrict
+ourselves to the simplest possible algebra, namely the zero algebra. Normed
+modules over the zero algebra are just normed spaces, so we deal with extremal
+projectivity in the category $\Nor$ of normed spaces and bounded linear
+operators.
+
+For Banach spaces the corresponding questions are classical. By a theorem of
+K\"othe~\cite{KotheTopProjBanSp} topologically projective Banach spaces are
+exactly the Banach spaces topologically isomorphic to $\ellone{\Lambda}$ for some
+set $\Lambda$, and by a theorem of Grothendieck~\cite{GrothMetrProjFlatBanSp}
+a Banach space has the metric lifting property if and only if it is
+isometrically isomorphic to some $\ellone{\Lambda}$. For normed spaces the
+answers are different, because the category $\Nor$ has its own free objects.
+These are the spaces $\lo{\Lambda}$ of finitely supported functions on a set
+$\Lambda$ with the $\ell_1$-norm. Gr{\o}nb{\ae}k~\cite{GronLiftProbNormSp}
+extended K\"othe's theorem to $\Nor$: a normed space is topologically projective
+if and only if it is topologically isomorphic to $\lo{\Lambda}$ for some set
+$\Lambda$. Helemskii~\cite{HelMetrFrQMod} proved the metric counterpart: a
+normed space is metrically projective if and only if it is isometrically
+isomorphic to some $\lo{\Lambda}$. He also showed that the spaces $\lo{\Lambda}$
+are extremally projective and asked whether, conversely, every extremally
+projective normed space is isometrically isomorphic to some $\lo{\Lambda}$
+\cite[section 2]{HelExtrProjSeqAlg}, \cite[section 1]{HelMetrFrQMod}.
+
+The main results of this paper are the following. First, the answer to
+Helemskii's question is negative: the subspace of $\ell_1$ spanned by the
+finitely supported sequences and a single sequence with infinite support is
+extremally projective but not isometrically isomorphic to any $\lo{\Lambda}$.
+Second, extremal projectivity turns out to be an almost isometric property: a
+normed space $P$ is extremally projective if and only if for every
+$\varepsilon>0$ there is a linear bijection $T:P\to\lo{\Lambda}$ with
+$\norm{T}\norm{T^{-1}}<1+\varepsilon$, where $\Lambda$ is a set of cardinality
+$\dim P$. Third, extremally projective normed spaces have no infinite
+dimensional complete subspaces. In particular, an infinite dimensional Banach
+space is never extremally projective in $\Nor$, although it may well be
+extremally projective in the category $\Ban$ of Banach spaces. The last fact
+explains the main technical difficulty of the subject: when the lifting
+problems are posed for all normed spaces rather than Banach spaces, the
+standard tools of Banach space geometry, which rely on completeness, are no
+longer available, and we must work with the finite dimensional pieces of our
+spaces directly.
+
+Let us fix the notation and recall the definitions. All normed spaces are
+considered over the complex field; the real case is identical. For a normed
+space $E$ we denote by $B_E$ its closed unit ball and by $B_E^\circ$ its open
+unit ball. By $\Nor$ we denote the category of normed spaces and bounded linear
+operators and by $\Ban$ its full subcategory of Banach spaces. For a set
+$\Lambda$ we denote by $\ellone{\Lambda}$ the Banach space of absolutely
+summable families and by $\lo{\Lambda}$ its dense subspace consisting of finitely
+supported families. For $\lambda\in\Lambda$ the symbol $e_\lambda$ denotes the
+family which equals $1$ at $\lambda$ and $0$ elsewhere; the family
+${(e_\lambda)}_{\lambda\in\Lambda}$ is a Hamel basis of $\lo{\Lambda}$. For a
+normed space $E$ and a set $\Lambda$ there is a bijection between bounded
+families ${(x_\lambda)}_{\lambda\in\Lambda}$ in $E$ and bounded linear
+operators $T:\lo{\Lambda}\to E$, given by $T(e_\lambda)=x_\lambda$, and
+$\norm{T}=\sup_{\lambda\in\Lambda}\norm{x_\lambda}$. This is the sense in
+which the spaces $\lo{\Lambda}$ are free objects of $\Nor$; note that no
+completeness of $E$ is required here, in contrast with the case of
+$\ellone{\Lambda}$.
+
+Following~\cite{NemMetrTopHomol}, we say that a bounded linear operator
+$\xi:X\to Y$ between normed spaces is $c$-topologically surjective, where
+$c\geq 1$, if $c\,\xi(B_X^\circ)\supset B_Y^\circ$, and that $\xi$ is
+coisometric if it is contractive and $1$-topologically surjective, that is, if
+$\xi(B_X^\circ)=B_Y^\circ$. Equivalently, $\xi$ is $c$-topologically surjective
+if for every $y\in Y$ and every $\delta>0$ there exists $x\in X$ with
+$\xi(x)=y$ and $\norm{x}<c\norm{y}+\delta$. A linear bijection $T:E\to F$ is
+called a $c$-isomorphism if $\norm{T}\norm{T^{-1}}\leq c$. The Banach-Mazur
+distance between $E$ and $F$ is
+\[
+\BM(E,F)=\inf\{\norm{T}\norm{T^{-1}}:T:E\to F \mbox{ is a linear bijection}\},
+\]
+with $\BM(E,F)=+\infty$ if there are no bounded linear bijections with bounded
+inverses between $E$ and $F$. A bounded linear operator $\zeta:E\to F$ is
+called a $c$-retraction if there exists a bounded linear operator $\eta:F\to E$
+with $\zeta\eta=1_F$ and $\norm{\zeta}\norm{\eta}\leq c$. In this case $F$ is
+called a $c$-retract of $E$.
+
+\begin{definition}\label{DefTopProj} Let $C\geq 1$. A normed space $P$ is
+    called $C$-topologically projective if for every $c\geq 1$, every
+    $c$-topologically surjective operator $\xi:X\to Y$ between normed spaces
+    and every bounded linear operator $\phi:P\to Y$ there exists a bounded
+    linear operator $\psi:P\to X$ such that $\xi\psi=\phi$ and
+    $\norm{\psi}\leq cC\norm{\phi}$. A normed space is called topologically
+    projective if it is $C$-topologically projective for some $C\geq 1$, and
+    extremally projective if it is $C$-topologically projective for every
+    $C>1$.
+\end{definition}
+
+The operator $\psi$ in definition~\ref{DefTopProj} is called a lifting of
+$\phi$ along $\xi$. Extremal projectivity is precisely the extreme projectivity
+of Helemskii, see proposition~\ref{EquivWithHelemskii} below. We emphasize that
+the spaces $X$ and $Y$ in definition~\ref{DefTopProj} are arbitrary normed
+spaces. If we restrict them to Banach spaces, we obtain the notions of
+topological and extremal projectivity in $\Ban$, which we shall mention only
+for comparison. The two notions differ substantially, see
+section~\ref{SectionNecessaryConditions}.
+
+The paper is organized as follows. In section~\ref{SectionBasicTheory} we
+collect the basic properties of extremally projective normed spaces: the
+spaces $\lo{\Lambda}$ are extremally projective, extremal projectivity passes
+to $(1+\varepsilon)$-retracts, and a normed space is extremally projective if
+and only if it is a $(1+\varepsilon)$-retract of a free normed space for every
+$\varepsilon>0$. In section~\ref{SectionNecessaryConditions} we show that
+topologically projective normed spaces do not contain infinite dimensional
+Banach subspaces. Section~\ref{SectionCounterexample} contains the
+counterexample to Helemskii's question. Section~\ref{SectionMainTheorem} is
+devoted to the almost isometric characterization of extremally projective
+normed spaces.
+
+\end{document}
