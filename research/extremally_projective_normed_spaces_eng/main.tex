@@ -35,7 +35,7 @@
  \newcommand{\ext}{\operatorname{ext}}
  \newcommand{\conv}{\operatorname{conv}}
  \newcommand{\Lin}{\operatorname{span}}
- \newcommand{\Im}{\operatorname{Im}}
+ \renewcommand{\Im}{\operatorname{Im}}
  \newcommand{\Ker}{\operatorname{Ker}}
  \newcommand{\BM}{d_{BM}}
  %------------------------------------------------------------------------------
@@ -196,5 +196,359 @@ Banach subspaces. Section~\ref{SectionCounterexample} contains the
 counterexample to Helemskii's question. Section~\ref{SectionMainTheorem} is
 devoted to the almost isometric characterization of extremally projective
 normed spaces.
+
+%-------------------------------------------------------------------------------
+%	Basic theory
+%-------------------------------------------------------------------------------
+
+\section{Basic properties of extremally projective normed
+  spaces}\label{SectionBasicTheory}
+
+We start with the free objects of $\Nor$.
+
+\begin{proposition}\label{FreeIsExtrProj} Let $\Lambda$ be a set. Then
+    $\lo{\Lambda}$ is $(1+\varepsilon)$-topologically projective for every
+    $\varepsilon>0$. In particular, $\lo{\Lambda}$ is extremally projective.
+\end{proposition}
+\begin{proof} Let $\xi:X\to Y$ be a $c$-topologically surjective operator and
+    $\phi:\lo{\Lambda}\to Y$ be a bounded linear operator. Fix
+    $\varepsilon>0$. For every $\lambda\in\Lambda$ put $y_\lambda=\phi(e_\lambda)$,
+    so $\norm{y_\lambda}\leq\norm{\phi}$. If $y_\lambda=0$, put $x_\lambda=0$.
+    Otherwise $(1+\varepsilon)^{-1}\norm{y_\lambda}^{-1}y_\lambda\in B_Y^\circ$,
+    so there exists $x_\lambda'\in B_X^\circ$ with
+    $c\,\xi(x_\lambda')=(1+\varepsilon)^{-1}\norm{y_\lambda}^{-1}y_\lambda$.
+    Put $x_\lambda=c(1+\varepsilon)\norm{y_\lambda}x_\lambda'$, then
+    $\xi(x_\lambda)=y_\lambda$ and
+    $\norm{x_\lambda}<c(1+\varepsilon)\norm{y_\lambda}\leq
+    c(1+\varepsilon)\norm{\phi}$. Since the family
+    ${(x_\lambda)}_{\lambda\in\Lambda}$ is bounded, there is a bounded linear
+    operator $\psi:\lo{\Lambda}\to X$ with $\psi(e_\lambda)=x_\lambda$ for all
+    $\lambda\in\Lambda$ and $\norm{\psi}=\sup_{\lambda}\norm{x_\lambda}\leq
+    c(1+\varepsilon)\norm{\phi}$. Finally, $\xi\psi$ and $\phi$ coincide on
+    the Hamel basis ${(e_\lambda)}_{\lambda\in\Lambda}$, so $\xi\psi=\phi$.
+\end{proof}
+
+The constant $1+\varepsilon$ in proposition~\ref{FreeIsExtrProj} cannot be
+replaced by $1$. In fact, with the convention of
+definition~\ref{DefTopProj}, $1$-topological projectivity is an empty notion
+in $\Nor$.
+
+\begin{proposition}\label{NoOneTopProj} The only $1$-topologically projective
+    normed space is the zero space.
+\end{proposition}
+\begin{proof} Let $X$ be the space of finitely supported sequences with the
+    $\sup$-norm and $f:X\to\mathbb{C}$ be the functional
+    $f(x)=s^{-1}\sum_{n=1}^\infty 2^{-n}(1-2^{-n})x_n$, where
+    $s=\sum_{n=1}^\infty 2^{-n}(1-2^{-n})$. Clearly, $\norm{f}\leq 1$. The
+    operator $f$ is coisometric: for $z\in B^\circ_\mathbb{C}$ choose $N$ with
+    $|z|<s^{-1}\sum_{n=1}^N 2^{-n}(1-2^{-n})$, then $z=f(x)$ for the sequence
+    $x=t\,\operatorname{sgn}(z)\sum_{n=1}^N e_n$ with a suitable $t\in[0,1)$,
+    and $\norm{x}<1$. On the other hand, $|f(x)|=1$ for $x\in B_X$ would
+    force $x_n=\operatorname{sgn}(f(x))$ for all $n$, which is impossible for
+    a finitely supported sequence. Thus, $f(B_X)=f(B_X^\circ)=B^\circ_\mathbb{C}$.
+
+    Now let $P$ be a non-zero $1$-topologically projective normed space. Take
+    $p\in P$ with $\norm{p}=1$ and, by the Hahn-Banach theorem, a functional
+    $g\in P^*$ with $\norm{g}=g(p)=1$. Lifting $g$ along the coisometric
+    operator $f$ we get an operator $\psi:P\to X$ with $f\psi=g$ and
+    $\norm{\psi}\leq 1$. Then $x=\psi(p)\in B_X$ and $f(x)=g(p)=1$, which
+    contradicts the previous paragraph.
+\end{proof}
+
+Proposition~\ref{NoOneTopProj} shows why in $\Nor$ it is natural to consider
+all constants $C>1$ at once, instead of the single constant $C=1$ of the
+metric theory.
+
+\begin{remark}\label{RemarkStrictConvention} The proof of
+    proposition~\ref{NoOneTopProj} uses only the fact that the coisometric
+    functional $f$ does not attain its norm. Functionals of this kind exist on
+    Banach spaces too, for example $x\mapsto\sum_{n=1}^\infty(1-2^{-n})x_n$ on
+    $\ell_1$. Therefore, if $c$-topologically surjective operators are defined
+    via open balls as in definition~\ref{DefTopProj}, then $1$-topological
+    projectivity is an empty notion in $\Ban$ as well, and the free Banach
+    spaces $\ellone{\Lambda}$ are only $(1+\varepsilon)$-topologically projective
+    for every $\varepsilon>0$. The metric theory of \cite{HelMetrFrQMod} avoids
+    this problem by posing lifting problems along strictly coisometric
+    operators, that is, operators mapping the closed unit ball onto the closed
+    unit ball; with this convention $\ellone{\Lambda}$ and $\lo{\Lambda}$ are
+    $1$-topologically projective in $\Ban$ and $\Nor$ respectively, and
+    $1$-topological projectivity coincides with metric projectivity, as in
+    \cite[proposition 2.1.9]{NemMetrTopHomol}. For the purposes of this paper
+    the choice of convention is immaterial: if we call $\xi:X\to Y$ strictly
+    $c$-topologically surjective whenever $c\,\xi(B_X)\supset B_Y$ and define
+    strict $C$-topological projectivity by lifting along such operators with
+    the same bound $\norm{\psi}\leq cC\norm{\phi}$, then every
+    $C$-topologically projective space is strictly $C$-topologically projective,
+    and every strictly $C$-topologically projective space is
+    $C(1+\varepsilon)$-topologically projective for every $\varepsilon>0$. The
+    first claim is obvious, since strictly $c$-topologically surjective
+    operators are $c$-topologically surjective. For the second one, given a
+    $c$-topologically surjective operator $\xi:X\to Y$ and $\varepsilon>0$,
+    endow $X$ with the equivalent norm
+    $\norm{x}''=\max(\norm{x},(1+\varepsilon)c\norm{\xi(x)})$; then
+    $(1+\varepsilon)c\xi$ becomes a contractive operator mapping the closed
+    unit ball onto the closed unit ball, and a lifting $\psi''$ along it with
+    $\norm{\psi''}''\leq C\norm{\phi}$ gives the lifting
+    $\psi=(1+\varepsilon)c\psi''$ along $\xi$ with
+    $\norm{\psi}\leq(1+\varepsilon)cC\norm{\phi}$. In particular, the two
+    conventions lead to the same notion of extremal projectivity.
+\end{remark}
+
+Our definition of extremal projectivity is equivalent to Helemskii's definition
+of extreme projectivity~\cite[definition 1.3]{HelExtrProjSeqAlg}: a normed
+space $P$ is extremely projective if for every coisometric operator
+$\xi:X\to Y$, every bounded linear operator $\phi:P\to Y$ and every
+$\delta>0$ there exists a lifting $\psi:P\to X$ of $\phi$ along $\xi$ with
+$\norm{\psi}<\norm{\phi}+\delta$.
+
+\begin{proposition}\label{EquivWithHelemskii} A normed space is extremally
+    projective if and only if it is extremely projective in the sense of
+    Helemskii.
+\end{proposition}
+\begin{proof} Let $P$ be extremally projective, $\xi:X\to Y$ be a coisometric
+    operator, $\phi:P\to Y$ be a bounded linear operator and $\delta>0$. If
+    $\phi=0$ we take $\psi=0$. Otherwise we put
+    $C=1+\delta\norm{\phi}^{-1}/2$. Since $\xi$ is $1$-topologically surjective,
+    $C$-topological projectivity of $P$ gives a lifting $\psi$ of $\phi$ along
+    $\xi$ with $\norm{\psi}\leq C\norm{\phi}<\norm{\phi}+\delta$.
+
+    Conversely, let $P$ be extremely projective, $C>1$, $\xi:X\to Y$ be a
+    $c$-topologically surjective operator and $\phi:P\to Y$ be a non-zero
+    bounded linear operator. Consider the operator $\xi'=c\xi$ and endow the
+    vector space $X$ with the norm $\norm{x}'=\max(\norm{x},\norm{\xi'(x)})$,
+    which is equivalent to the original one since $\norm{x}\leq\norm{x}'\leq
+    \max(1,c\norm{\xi})\norm{x}$. Denote the resulting normed space by $X'$.
+    The operator $\xi':X'\to Y$ is contractive by construction. If $y\in
+    B_Y^\circ$, then by $c$-topological surjectivity of $\xi$ there is $x\in
+    B_X^\circ$ with $\xi'(x)=y$, and $\norm{x}'=\max(\norm{x},\norm{y})<1$.
+    Thus, $\xi':X'\to Y$ is coisometric. By extreme projectivity there is a
+    lifting $\psi':P\to X'$ of $\phi$ along $\xi'$ with $\norm{\psi'}<
+    \norm{\phi}+(C-1)\norm{\phi}=C\norm{\phi}$. Regarded as an operator into
+    $X$, the operator $\psi=c\psi'$ satisfies $\xi\psi=\xi'\psi'=\phi$ and
+    $\norm{\psi}\leq c\norm{\psi'}'\leq cC\norm{\phi}$. Since $C>1$ is arbitrary,
+    $P$ is extremally projective.
+\end{proof}
+
+Next we record the standard permanence properties. The proofs are the same as
+in the Banach case, see \cite[lemma 2.7]{WhiteInjmoduAlg} or
+\cite[proposition 2.1.3]{NemMetrTopHomol}, and we include them only for
+completeness.
+
+\begin{proposition}\label{RetractOfProj} Let $P'$ be a $C$-topologically
+    projective normed space and $P$ be a $c$-retract of $P'$. Then $P$ is
+    $cC$-topologically projective. Consequently, a normed space which is a
+    $(1+\varepsilon)$-retract of an extremally projective normed space for every
+    $\varepsilon>0$ is extremally projective.
+\end{proposition}
+\begin{proof} Let $\zeta:P'\to P$ and $\eta:P\to P'$ be bounded linear
+    operators with $\zeta\eta=1_P$ and $\norm{\zeta}\norm{\eta}\leq c$.
+    Consider a $c'$-topologically surjective operator $\xi:X\to Y$ and a
+    bounded linear operator $\phi:P\to Y$. By $C$-topological projectivity of
+    $P'$ there is a lifting $\psi':P'\to X$ of $\phi\zeta$ along $\xi$ with
+    $\norm{\psi'}\leq c'C\norm{\phi\zeta}$. Then $\psi=\psi'\eta$ satisfies
+    $\xi\psi=\phi\zeta\eta=\phi$ and $\norm{\psi}\leq
+    c'C\norm{\phi}\norm{\zeta}\norm{\eta}\leq c'cC\norm{\phi}$.
+\end{proof}
+
+For a normed space $P$ consider the operator
+\[
+\pi_P:\lo{B_P}\to P,\quad e_x\mapsto x.
+\]
+It is well defined and contractive, because the family
+${(x)}_{x\in B_P}$ is bounded by $1$. Moreover, $\pi_P(B_{\lo{B_P}})=B_P$,
+since $\pi_P(e_x)=x$ for $x\in B_P$; so $\pi_P$ is strictly coisometric and, a
+fortiori, coisometric.
+
+\begin{proposition}\label{CanonicalMorphismCriterion} Let $P$ be a normed
+    space and $C\geq 1$. Then
+    \begin{enumerate}[label = (\roman*)]
+        \item if $P$ is $C$-topologically projective, then $\pi_P$ has a right
+              inverse bounded linear operator of norm at most $C$;
+        \item if $\pi_P$ has a right inverse bounded linear operator of norm at
+              most $C$, then $P$ is $C(1+\varepsilon)$-topologically projective
+              for every $\varepsilon>0$.
+    \end{enumerate}
+\end{proposition}
+\begin{proof} $(i)$ Lift $1_P$ along the $1$-topologically surjective operator
+    $\pi_P$: we get $\sigma:P\to\lo{B_P}$ with $\pi_P\sigma=1_P$ and
+    $\norm{\sigma}\leq C$.
+
+    $(ii)$ If $\pi_P\sigma=1_P$ with $\norm{\sigma}\leq C$, then $P$ is a
+    $C$-retract of $\lo{B_P}$, which is $(1+\varepsilon)$-topologically
+    projective by proposition~\ref{FreeIsExtrProj}. It remains to apply
+    proposition~\ref{RetractOfProj}.
+\end{proof}
+
+\begin{theorem}\label{ExtrProjCriterion} For a normed space $P$ the following
+    conditions are equivalent:
+    \begin{enumerate}[label = (\roman*)]
+        \item $P$ is extremally projective;
+        \item for every $\varepsilon>0$ the operator $\pi_P$ has a right
+              inverse bounded linear operator of norm at most $1+\varepsilon$;
+        \item for every $\varepsilon>0$ there is a set $\Lambda$ such that $P$
+              is a $(1+\varepsilon)$-retract of $\lo{\Lambda}$;
+        \item for every $\varepsilon>0$ there are a set $\Lambda$, a subspace
+              $Z\subset\lo{\Lambda}$ and a projection $Q:\lo{\Lambda}\to\lo{\Lambda}$
+              onto $Z$ with $\norm{Q}\leq 1+\varepsilon$ such that
+              $\BM(P,Z)\leq 1+\varepsilon$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof} $(i)\implies(ii)$ is proposition~\ref{CanonicalMorphismCriterion}~$(i)$,
+    and $(ii)\implies(iii)$ is obvious.
+
+    $(iii)\implies(iv)$ Let $\zeta:\lo{\Lambda}\to P$ and $\eta:P\to\lo{\Lambda}$
+    satisfy $\zeta\eta=1_P$ and $\norm{\zeta}\norm{\eta}\leq 1+\varepsilon$. Replacing
+    $\zeta$ by $\norm{\zeta}^{-1}\zeta$ and $\eta$ by $\norm{\zeta}\eta$ we may
+    assume that $\norm{\zeta}=1$ and $\norm{\eta}\leq 1+\varepsilon$. Put
+    $Z=\eta(P)$ and $Q=\eta\zeta$. Then $Q^2=\eta(\zeta\eta)\zeta=Q$,
+    $\Im(Q)=Z$ and $\norm{Q}\leq 1+\varepsilon$. The operator $\eta:P\to Z$
+    is a bijection with $\norm{\eta}\leq 1+\varepsilon$ and
+    $\eta^{-1}=\zeta|_Z$, so $\norm{\eta^{-1}}\leq 1$ and
+    $\BM(P,Z)\leq 1+\varepsilon$.
+
+    $(iv)\implies(i)$ Let $T:P\to Z$ be a linear bijection with
+    $\norm{T}\norm{T^{-1}}\leq 1+\varepsilon$. Put $\eta=T$ and
+    $\zeta=T^{-1}Q:\lo{\Lambda}\to P$. Then $\zeta\eta=T^{-1}QT=T^{-1}T=1_P$ and
+    $\norm{\zeta}\norm{\eta}\leq(1+\varepsilon)^2$. By
+    propositions~\ref{FreeIsExtrProj} and~\ref{RetractOfProj} the space $P$ is
+    $(1+\varepsilon)^3$-topologically projective. As $\varepsilon>0$ is
+    arbitrary, $P$ is extremally projective.
+\end{proof}
+
+We finish this section with a simple way of constructing new extremally
+projective spaces from old ones. For a family ${(P_\lambda)}_{\lambda\in\Lambda}$
+of normed spaces we denote by $\bigoplus_1^0\{P_\lambda:\lambda\in\Lambda\}$
+the subspace of the $\ell_1$-sum $\bigoplus_1\{P_\lambda:\lambda\in\Lambda\}$
+consisting of families with finitely many non-zero members. Clearly,
+$\bigoplus_1^0\{\mathbb{C}:\lambda\in\Lambda\}=\lo{\Lambda}$.
+
+\begin{proposition}\label{SumsOfExtrProj} Let ${(P_\lambda)}_{\lambda\in\Lambda}$
+    be a family of extremally projective normed spaces. Then
+    $\bigoplus_1^0\{P_\lambda:\lambda\in\Lambda\}$ is extremally projective.
+    If $\Lambda$ is finite, then
+    $\bigoplus_1\{P_\lambda:\lambda\in\Lambda\}$ is extremally projective.
+\end{proposition}
+\begin{proof} Fix $\varepsilon>0$. By theorem~\ref{ExtrProjCriterion} for
+    every $\lambda\in\Lambda$ there are a set $S_\lambda$ and operators
+    $\zeta_\lambda:\lo{S_\lambda}\to P_\lambda$, $\eta_\lambda:P_\lambda\to\lo{S_\lambda}$
+    with $\zeta_\lambda\eta_\lambda=1_{P_\lambda}$, $\norm{\zeta_\lambda}\leq 1$
+    and $\norm{\eta_\lambda}\leq 1+\varepsilon$. Let $S$ be the disjoint union of
+    the sets $S_\lambda$. Then
+    $\lo{S}=\bigoplus_1^0\{\lo{S_\lambda}:\lambda\in\Lambda\}$ isometrically,
+    and the operators $\zeta=\bigoplus_1^0\zeta_\lambda$ and
+    $\eta=\bigoplus_1^0\eta_\lambda$ are well defined bounded linear operators
+    between $\lo{S}$ and $P=\bigoplus_1^0\{P_\lambda:\lambda\in\Lambda\}$ with
+    $\zeta\eta=1_P$, $\norm{\zeta}\leq 1$ and $\norm{\eta}\leq 1+\varepsilon$.
+    By theorem~\ref{ExtrProjCriterion} the space $P$ is extremally projective.
+    For finite $\Lambda$ the sums $\bigoplus_1$ and $\bigoplus_1^0$ coincide.
+\end{proof}
+
+%-------------------------------------------------------------------------------
+%	Necessary conditions
+%-------------------------------------------------------------------------------
+
+\section{Topologically projective normed spaces have no large complete
+  subspaces}\label{SectionNecessaryConditions}
+
+The free normed spaces $\lo{\Lambda}$ are far from being complete. In this
+section we show that this incompleteness is inherited by all topologically
+projective normed spaces. The main tool is the Baire category theorem applied
+to the finite dimensional pieces of $\lo{\Lambda}$.
+
+\begin{lemma}\label{CompleteSubspOfFree} Let $S$ be a set and $Z$ be a
+    subspace of $\lo{S}$ which is complete with respect to some norm
+    $\norm{\cdot}'$ satisfying $\norm{z}\leq K\norm{z}'$ for all $z\in Z$ and
+    some constant $K>0$. Then $Z$ is finite dimensional.
+\end{lemma}
+\begin{proof} Assume that $Z$ is infinite dimensional. Choose a linearly
+    independent sequence ${(z_n)}_{n\in\mathbb{N}}$ in $Z$ and let $Z_0$ be
+    the closure of its linear span in $(Z,\norm{\cdot}')$. Then
+    $(Z_0,\norm{\cdot}')$ is a separable infinite dimensional Banach space.
+    The set $S_0=\bigcup_{n\in\mathbb{N}}\supp(z_n)$ is countable, and every
+    element of $\Lin\{z_n:n\in\mathbb{N}\}$ is supported in $S_0$. Since the
+    coordinate functionals $x\mapsto x(s)$, $s\in S$, are continuous with
+    respect to $\norm{\cdot}$ and a fortiori with respect to $\norm{\cdot}'$,
+    every element of $Z_0$ is supported in $S_0$ too. As $Z_0$ is infinite
+    dimensional, the set $S_0$ is infinite, so we may enumerate it as
+    $S_0=\{s_1,s_2,\ldots\}$. For $n\in\mathbb{N}$ put
+    \[
+    E_n=\{z\in Z_0:\supp(z)\subset\{s_1,\ldots,s_n\}\}
+    =Z_0\cap\Lin\{e_{s_1},\ldots,e_{s_n}\}.
+    \]
+    Each $E_n$ is a finite dimensional, hence closed, subspace of
+    $(Z_0,\norm{\cdot}')$, and $Z_0=\bigcup_{n\in\mathbb{N}}E_n$ because the
+    elements of $Z_0\subset\lo{S}$ are finitely supported. By the Baire
+    category theorem some $E_n$ has non-empty interior in $Z_0$, so
+    $E_n=Z_0$ and $Z_0$ is finite dimensional. This contradiction proves the
+    lemma.
+\end{proof}
+
+\begin{theorem}\label{NoCompleteSubspaces} Let $P$ be a topologically
+    projective normed space, $Z$ be a subspace of $P$ and $\norm{\cdot}'$ be a
+    norm on $Z$ such that $(Z,\norm{\cdot}')$ is complete and
+    $\norm{z}\leq K\norm{z}'$ for all $z\in Z$ and some constant $K>0$. Then
+    $Z$ is finite dimensional. In particular, every complete subspace of $P$
+    is finite dimensional.
+\end{theorem}
+\begin{proof} By proposition~\ref{CanonicalMorphismCriterion}~$(i)$ there
+    exists a bounded linear operator $\sigma:P\to\lo{B_P}$ with
+    $\pi_P\sigma=1_P$. Since $\pi_P$ is contractive, $\norm{x}\leq\norm{\sigma(x)}$
+    for all $x\in P$, so $\sigma$ is injective and
+    $\norm{\sigma^{-1}(y)}\leq\norm{y}$ for $y\in\sigma(P)$. Consider the
+    subspace $\sigma(Z)$ of $\lo{B_P}$ with the norm
+    $\norm{y}''=\norm{\sigma^{-1}(y)}'$. Then $(\sigma(Z),\norm{\cdot}'')$ is
+    complete, being isometric to $(Z,\norm{\cdot}')$, and
+    $\norm{y}\leq\norm{\sigma}\norm{\sigma^{-1}(y)}\leq K\norm{\sigma}\norm{y}''$
+    for $y\in\sigma(Z)$. By lemma~\ref{CompleteSubspOfFree} the space
+    $\sigma(Z)$ is finite dimensional, and so is $Z$.
+\end{proof}
+
+\begin{corollary}\label{BanachNotProjInNor} No infinite dimensional Banach
+    space is topologically projective in $\Nor$. In particular, for an
+    infinite set $\Lambda$ the space $\ellone{\Lambda}$, which is metrically
+    projective in $\Ban$, is not even topologically projective in $\Nor$.
+\end{corollary}
+
+For modules over sequence algebras this phenomenon was observed by Helemskii
+\cite{HelExtrProjSeqAlg}. Theorem~\ref{NoCompleteSubspaces} says more: a
+topologically projective normed space cannot even contain an infinite
+dimensional subspace that is complete with respect to a stronger norm. The
+following example shows that this stronger form is useful. It also shows
+that topological projectivity of a normed space is not determined by its
+completion.
+
+\begin{example}\label{WeightedExample} Let ${(w_n)}_{n\in\mathbb{N}}$ be a
+    sequence of real numbers with $w_n\geq 1$ and $\lim_n w_n=+\infty$, and let
+    \[
+    P_w=\Bigl\{x\in\ell_1:\sum_{n=1}^\infty w_n|x_n|<+\infty\Bigr\}
+    \]
+    with the norm inherited from $\ell_1$. Then $P_w$ is a dense subspace of
+    $\ell_1$ containing $\lo{\mathbb{N}}$, so its completion is $\ell_1$, and
+    \begin{enumerate}[label = (\roman*)]
+        \item every complete subspace of $P_w$ is finite dimensional;
+        \item $P_w$ is not topologically projective.
+    \end{enumerate}
+\end{example}
+\begin{proof} Denote $\norm{x}_w=\sum_{n=1}^\infty w_n|x_n|$ for $x\in P_w$.
+    Then $(P_w,\norm{\cdot}_w)$ is the Banach space $\ell_1(w)$ of
+    $w$-weighted summable sequences and $\norm{x}\leq\norm{x}_w$ for $x\in
+    P_w$.
+
+    $(i)$ Let $Z$ be a complete subspace of $P_w$. If ${(z_k)}_{k\in\mathbb{N}}$
+    is a sequence in $Z$ converging to $z\in P_w$ with respect to
+    $\norm{\cdot}_w$, then it converges to $z$ in $\ell_1$, so $z\in Z$. Thus,
+    $Z$ is closed in $(P_w,\norm{\cdot}_w)$ and the two norms $\norm{\cdot}$
+    and $\norm{\cdot}_w$ are complete on $Z$. Since $\norm{\cdot}\leq
+    \norm{\cdot}_w$, by the open mapping theorem there is a constant $K$ with
+    $\norm{z}_w\leq K\norm{z}$ for all $z\in Z$. Assume that $Z$ is infinite
+    dimensional and fix $N\in\mathbb{N}$. The linear map $Z\to\mathbb{C}^N$,
+    $z\mapsto(z_1,\ldots,z_N)$ has a non-trivial kernel, so there exists $z\in
+    Z$ with $\norm{z}=1$ and $z_n=0$ for $n\leq N$. Then
+    $K\geq\norm{z}_w=\sum_{n>N}w_n|z_n|\geq\inf_{n>N}w_n$. Since $N$ is
+    arbitrary and $\lim_n w_n=+\infty$, we get a contradiction.
+
+    $(ii)$ Apply theorem~\ref{NoCompleteSubspaces} to $Z=P_w$ and
+    $\norm{\cdot}'=\norm{\cdot}_w$.
+\end{proof}
 
 \end{document}
