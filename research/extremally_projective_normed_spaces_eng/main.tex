@@ -551,4 +551,193 @@ completion.
     $\norm{\cdot}'=\norm{\cdot}_w$.
 \end{proof}
 
+%-------------------------------------------------------------------------------
+%	Counterexample
+%-------------------------------------------------------------------------------
+
+\section{Extremally projective spaces which are not free}\label{SectionCounterexample}
+
+In this section we show that extremal projectivity is not an isometric
+invariant of the form ``$P$ is isometrically isomorphic to $\lo{\Lambda}$''.
+Our examples are subspaces of $\ell_1=\ellone{\mathbb{N}}$ containing
+$\lo{\mathbb{N}}$. For a sequence $x\in\ell_1$ and $N\in\mathbb{N}\cup\{0\}$
+we denote by $x|_N$ the sequence which coincides with $x$ at $n\leq N$ and
+vanishes at $n>N$. For a finite dimensional subspace $V$ of $\ell_1$ we
+consider the normed space
+\[
+P_V=\lo{\mathbb{N}}+V\subset\ell_1
+\]
+with the norm inherited from $\ell_1$. Clearly, $\lo{\mathbb{N}}\subset
+P_V\subset\ell_1$, so $P_V$ is dense in $\ell_1$. Since $\lo{\mathbb{N}}$ has
+countable algebraic dimension, so does $P_V$.
+
+\begin{theorem}\label{OneVectorTheorem} Let $v\in\ell_1$ and $0<\delta<1$.
+    Then there exists a linear bijection $T:\ell_1\to\ell_1$ with
+    $\norm{T}\leq 1+\delta$ and $\norm{T^{-1}}\leq{(1-\delta)}^{-1}$ such
+    that $T(\lo{\mathbb{N}})\subset\lo{\mathbb{N}}$, $T(v)\in\lo{\mathbb{N}}$
+    and $T^{-1}(\lo{\mathbb{N}})\subset\lo{\mathbb{N}}+\mathbb{C}v$. In
+    particular, $T$ maps $\lo{\mathbb{N}}+\mathbb{C}v$ onto $\lo{\mathbb{N}}$.
+\end{theorem}
+\begin{proof} If $v$ is finitely supported, take $T=1_{\ell_1}$. Assume that
+    $v$ has infinite support. For $N\in\mathbb{N}\cup\{0\}$ put
+    $t_N=\norm{v-v|_N}=\sum_{n>N}|v_n|$. Then $t_0=\norm{v}$, the sequence
+    ${(t_N)}_N$ is non-increasing, $t_N>0$ for all $N$ because $v$ has
+    infinite support, and $\lim_N t_N=0$. Choose integers
+    $0=N_0<N_1<N_2<\ldots$ such that $t_{N_k}\leq(\delta/2)t_{N_{k-1}}$ for
+    all $k\in\mathbb{N}$. The sets $B_k=\{n\in\mathbb{N}:N_{k-1}<n\leq N_k\}$,
+    $k\in\mathbb{N}$, are finite and form a partition of $\mathbb{N}$. Put
+    $w_k=v|_{N_k}-v|_{N_{k-1}}$, that is, $w_k$ is the restriction of $v$ to
+    $B_k$. Then $w_k\in\lo{\mathbb{N}}$, $v=\sum_{k=1}^\infty w_k$ in
+    $\ell_1$, $\supp(w_k)\subset B_k$, and
+    \[
+    \norm{w_k}=t_{N_{k-1}}-t_{N_k}\geq(1-\delta/2)t_{N_{k-1}}>0,\qquad
+    \norm{w_{k+1}}\leq t_{N_k}\leq(\delta/2)t_{N_{k-1}}\leq
+    \frac{\delta/2}{1-\delta/2}\norm{w_k}\leq\delta\norm{w_k},
+    \]
+    where the last inequality holds because $\delta\leq 1$. For
+    $k\in\mathbb{N}$ define the functional
+    \[
+    g_k:\ell_1\to\mathbb{C},\quad
+    g_k(x)=\sum_{n\in B_k}\overline{\operatorname{sgn}(v_n)}\,x_n,
+    \]
+    where $\operatorname{sgn}(z)=z/|z|$ for $z\neq 0$ and
+    $\operatorname{sgn}(0)=0$. Then $|g_k(x)|\leq\sum_{n\in B_k}|x_n|$ for
+    all $x\in\ell_1$, $g_k(w_k)=\norm{w_k}$ and $g_k(w_j)=0$ for $j\neq k$,
+    because the supports of $w_j$ and $g_k$ are disjoint. Now define
+    \[
+    R:\ell_1\to\ell_1,\quad
+    R(x)=\sum_{k=1}^\infty\frac{g_k(x)}{\norm{w_k}}\,w_{k+1}.
+    \]
+    The series converges absolutely, since
+    \[
+    \sum_{k=1}^\infty\frac{|g_k(x)|}{\norm{w_k}}\norm{w_{k+1}}
+    \leq\delta\sum_{k=1}^\infty\sum_{n\in B_k}|x_n|=\delta\norm{x},
+    \]
+    so $R$ is a well defined bounded linear operator with $\norm{R}\leq\delta<1$.
+    Put $T=1_{\ell_1}-R$. Then $T$ is a linear bijection of $\ell_1$ with
+    $\norm{T}\leq 1+\delta$, $T^{-1}=\sum_{m=0}^\infty R^m$ and
+    $\norm{T^{-1}}\leq{(1-\delta)}^{-1}$. We verify the remaining properties.
+
+    If $x\in\lo{\mathbb{N}}$, then $g_k(x)\neq 0$ only for the finitely many
+    $k$ with $B_k\cap\supp(x)\neq\varnothing$, so $R(x)$ is a finite linear
+    combination of the finitely supported sequences $w_{k+1}$. Hence
+    $R(\lo{\mathbb{N}})\subset\lo{\mathbb{N}}$ and
+    $T(\lo{\mathbb{N}})\subset\lo{\mathbb{N}}$.
+
+    Since $g_k(v)=\sum_{j=1}^\infty g_k(w_j)=g_k(w_k)=\norm{w_k}$, we get
+    $R(v)=\sum_{k=1}^\infty w_{k+1}=v-w_1$, so $T(v)=w_1\in\lo{\mathbb{N}}$.
+
+    Finally, let $x\in\lo{\mathbb{N}}$ and let $K$ be the finite set of those
+    $k$ for which $g_k(x)\neq 0$. Put $c_k=g_k(x)/\norm{w_k}$ for $k\in K$.
+    Since $g_j(w_k)=\delta_{jk}\norm{w_k}$, we have $R(w_k)=w_{k+1}$ for all
+    $k$, hence $R^m(x)=\sum_{k\in K}c_k w_{k+m}$ for $m\geq 1$ and
+    \[
+    T^{-1}(x)=x+\sum_{k\in K}c_k\sum_{m=1}^\infty w_{k+m}
+    =x+\sum_{k\in K}c_k(v-v|_{N_k})\in\lo{\mathbb{N}}+\mathbb{C}v.
+    \]
+    Thus, $T^{-1}(\lo{\mathbb{N}})\subset\lo{\mathbb{N}}+\mathbb{C}v$, that
+    is, $\lo{\mathbb{N}}\subset T(\lo{\mathbb{N}}+\mathbb{C}v)$. Together with
+    the two previous paragraphs this gives
+    $T(\lo{\mathbb{N}}+\mathbb{C}v)=\lo{\mathbb{N}}$.
+\end{proof}
+
+\begin{theorem}\label{FiniteDimPerturbation} Let $V$ be a finite dimensional
+    subspace of $\ell_1$. Then $\BM(P_V,\lo{\mathbb{N}})=1$. Consequently,
+    $P_V$ is extremally projective.
+\end{theorem}
+\begin{proof} We use induction on $m=\dim V$. If $m=0$, then
+    $P_V=\lo{\mathbb{N}}$. Let $m\geq 1$, fix $0<\delta<1$ and write
+    $V=\mathbb{C}v+V'$ with $\dim V'=m-1$. Let $T$ be the operator given by
+    theorem~\ref{OneVectorTheorem} for $v$ and $\delta$. Then
+    \[
+    T(P_V)=T(\lo{\mathbb{N}}+\mathbb{C}v)+T(V')=\lo{\mathbb{N}}+T(V')=P_{T(V')},
+    \]
+    and $T(V')$ is a subspace of $\ell_1$ of dimension $m-1$. The restriction
+    of $T$ to $P_V$ is a linear bijection onto $P_{T(V')}$ with
+    $\norm{T|_{P_V}}\norm{(T|_{P_V})^{-1}}\leq(1+\delta)/(1-\delta)$, so
+    $\BM(P_V,\lo{\mathbb{N}})\leq\frac{1+\delta}{1-\delta}\BM(P_{T(V')},\lo{\mathbb{N}})
+    =\frac{1+\delta}{1-\delta}$ by the induction hypothesis. Since $\delta$ is
+    arbitrary, $\BM(P_V,\lo{\mathbb{N}})=1$.
+
+    Now let $\varepsilon>0$ and let $S:P_V\to\lo{\mathbb{N}}$ be a linear
+    bijection with $\norm{S}\norm{S^{-1}}\leq 1+\varepsilon$. Then $P_V$ is a
+    $(1+\varepsilon)$-retract of $\lo{\mathbb{N}}$ via $S^{-1}$ and $S$, and by
+    propositions~\ref{FreeIsExtrProj} and~\ref{RetractOfProj} it is
+    ${(1+\varepsilon)}^2$-topologically projective. As $\varepsilon$ is
+    arbitrary, $P_V$ is extremally projective.
+\end{proof}
+
+To see that the spaces $P_V$ with $V\not\subset\lo{\mathbb{N}}$ are not
+isometrically isomorphic to free normed spaces we look at extreme points of
+unit balls. By $\ext(B)$ we denote the set of extreme points of a convex set
+$B$ and by $\conv(M)$ the convex hull of a set $M$.
+
+\begin{lemma}\label{ExtremePointsLemma} Let $S$ be a set and $E$ be a
+    subspace of $\ellone{S}$ containing $\lo{S}$, endowed with the norm of
+    $\ellone{S}$. Then
+    $\ext(B_E)=\{\lambda e_s:s\in S,\ \lambda\in\mathbb{C},\ |\lambda|=1\}$
+    and $\conv(\ext(B_E))=B_{\lo{S}}$.
+\end{lemma}
+\begin{proof} The points $\lambda e_s$ with $|\lambda|=1$ are extreme points
+    of $B_{\ellone{S}}$, and $B_E=B_{\ellone{S}}\cap E$, so they are extreme
+    points of $B_E$. Conversely, let $x\in B_E$ be not of this form. If
+    $x=0$, then $x=\frac12 e_s+\frac12(-e_s)$ for any $s\in S$. If
+    $0<\norm{x}<1$, then $x=\frac12(1+t)x+\frac12(1-t)x$ for $t=1-\norm{x}>0$,
+    and both $(1\pm t)x$ belong to $B_E$. If $\norm{x}=1$, then $x$ has at
+    least two non-zero coordinates $x_n$ and $x_m$, $n\neq m$. Put
+    $t=\min(|x_n|,|x_m|)>0$ and
+    $u=t(\operatorname{sgn}(x_n)e_n-\operatorname{sgn}(x_m)e_m)\in\lo{S}\subset E$.
+    Then $x\pm u\in E$ and
+    \[
+    \norm{x\pm u}=(|x_n|\pm t)+(|x_m|\mp t)+\sum_{s\neq n,m}|x_s|=\norm{x}=1,
+    \]
+    so $x=\frac12(x+u)+\frac12(x-u)$ with $u\neq 0$. In all three cases $x$ is
+    not an extreme point of $B_E$.
+
+    Every finite convex combination of the points $\lambda e_s$ is a finitely
+    supported element of $B_{\ellone{S}}$, so $\conv(\ext(B_E))\subset
+    B_{\lo{S}}$. Conversely, if $x\in B_{\lo{S}}$, then
+    \[
+    x=\sum_{s\in\supp(x)}|x_s|\,\operatorname{sgn}(x_s)e_s+(1-\norm{x})\cdot 0,
+    \]
+    and $0=\frac12 e_s+\frac12(-e_s)$, so $x\in\conv(\ext(B_E))$.
+\end{proof}
+
+\begin{theorem}\label{NotIsometricToFree} Let $S$ be a set and $E$ be a
+    subspace of $\ellone{S}$ containing $\lo{S}$, endowed with the norm of
+    $\ellone{S}$. If $E$ is isometrically isomorphic to $\lo{\Lambda}$ for
+    some set $\Lambda$, then $E=\lo{S}$.
+\end{theorem}
+\begin{proof} Let $T:\lo{\Lambda}\to E$ be an isometric isomorphism. Then
+    $T(B_{\lo{\Lambda}})=B_E$ and $T$ maps $\ext(B_{\lo{\Lambda}})$ onto
+    $\ext(B_E)$. Applying lemma~\ref{ExtremePointsLemma} to $E$ and to
+    $\lo{\Lambda}$ itself we get
+    \[
+    B_E=T(B_{\lo{\Lambda}})=T(\conv(\ext(B_{\lo{\Lambda}})))
+    =\conv(T(\ext(B_{\lo{\Lambda}})))=\conv(\ext(B_E))=B_{\lo{S}}.
+    \]
+    Hence $E=\lo{S}$.
+\end{proof}
+
+\begin{corollary}\label{CounterexampleCorollary} Let $V$ be a finite
+    dimensional subspace of $\ell_1$ with $V\not\subset\lo{\mathbb{N}}$, for
+    example $V=\mathbb{C}v$ for $v={(2^{-n})}_{n\in\mathbb{N}}$. Then $P_V$ is
+    an extremally projective normed space which is not isometrically
+    isomorphic to $\lo{\Lambda}$ for any set $\Lambda$.
+\end{corollary}
+\begin{proof} Combine theorems~\ref{FiniteDimPerturbation}
+    and~\ref{NotIsometricToFree}.
+\end{proof}
+
+Corollary~\ref{CounterexampleCorollary} answers the question of Helemskii
+from~\cite[section 2]{HelExtrProjSeqAlg} and~\cite[section 1]{HelMetrFrQMod}
+in the negative. Note that by theorem~\ref{NotIsometricToFree} every subspace
+$E$ with $\lo{\mathbb{N}}\subsetneq E\subset\ell_1$ fails to be isometrically
+isomorphic to a free normed space, but by example~\ref{WeightedExample} not
+all of these subspaces are extremally projective. Thus, between
+$\lo{\mathbb{N}}$ and $\ell_1$ there are both extremally projective and
+non-projective normed spaces, and the difference between them is invisible on
+the level of completions. The next section provides a criterion which
+distinguishes them.
+
 \end{document}
