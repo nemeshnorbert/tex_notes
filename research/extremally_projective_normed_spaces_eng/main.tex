@@ -365,9 +365,9 @@ For a normed space $P$ consider the operator
 \pi_P:\lo{B_P}\to P,\quad e_x\mapsto x.
 \]
 It is well defined and contractive, because the family
-${(x)}_{x\in B_P}$ is bounded by $1$. Moreover, $\pi_P(B_{\lo{B_P}})=B_P$,
-since $\pi_P(e_x)=x$ for $x\in B_P$; so $\pi_P$ is strictly coisometric and, a
-fortiori, coisometric.
+${(x)}_{x\in B_P}$ is bounded by $1$. Moreover, $\pi_P$ maps the closed unit
+ball of $\lo{B_P}$ onto $B_P$, since $\pi_P(e_x)=x$ for $x\in B_P$. Thus,
+$\pi_P$ is strictly coisometric and, a fortiori, coisometric.
 
 \begin{proposition}\label{CanonicalMorphismCriterion} Let $P$ be a normed
     space and $C\geq 1$. Then
@@ -805,6 +805,25 @@ the same norm, and these extensions respect compositions.
     also~\cite{GrothMetrProjFlatBanSp} and~\cite[proposition 3.2]{HelMetrFrQMod})
     $\overline{P}$ is isometrically isomorphic to $\ellone{\Gamma}$ for some
     set $\Gamma$.
+
+    For the convenience of the reader we sketch the classical argument behind
+    the last step. Taking adjoints of $\overline{\pi}$ and $\overline{\sigma}$
+    we see that ${\overline{P}}^*$ is a $(1+\varepsilon)$-retract of the
+    $1$-injective Banach space $\ell_\infty(B_P)$, so ${\overline{P}}^*$ is
+    $(1+\varepsilon)$-injective for every $\varepsilon>0$, that is, every
+    bounded linear operator from a subspace of a Banach space into
+    ${\overline{P}}^*$ extends to the whole space with norm increased by at
+    most $1+\varepsilon$. Passing to the infimum over $\varepsilon$ we get that
+    ${\overline{P}}^*$ is $1$-injective, hence isometrically isomorphic to
+    $C(K)$ for a Stonean space $K$ \cite[theorem 3.11.6]{LaceyIsomThOfClassicBanSp},
+    and by Grothendieck's theorem~\cite{GrothMetrProjFlatBanSp}
+    (see~\cite[section 17]{LaceyIsomThOfClassicBanSp}) a Banach space whose
+    dual is $1$-injective is isometrically isomorphic to $L_1(\Omega,\mu)$ for
+    some measure space $(\Omega,\mu)$. Finally, $\overline{P}$ is isomorphic
+    to a complemented subspace of $\ellone{B_P}$ and therefore has the Schur
+    property, which forces $\mu$ to be purely atomic, and $L_1$ of a purely
+    atomic measure is isometrically isomorphic to $\ellone{\Gamma}$, where
+    $\Gamma$ is the set of atoms.
 \end{proof}
 
 \begin{corollary}\label{FiniteDimCase} A finite dimensional normed space is
@@ -1167,6 +1186,11 @@ converse holds in general.
     \bibitem{GrothMetrProjFlatBanSp}
     \textit{A. Grothendieck} Une caract\'erisation vectorielle-m\'etrique des
     espaces $L_1$, Canad. J. Math., 7 (1955), 552--561
+    %
+    %
+    \bibitem{LaceyIsomThOfClassicBanSp}
+    \textit{H. E. Lacey} The isometric theory of classical Banach spaces,
+    Springer, Berlin (1974)
     %
     %
     \bibitem{GronLiftProbNormSp}
