@@ -571,23 +571,36 @@ with the norm inherited from $\ell_1$. Clearly, $\lo{\mathbb{N}}\subset
 P_V\subset\ell_1$, so $P_V$ is dense in $\ell_1$. Since $\lo{\mathbb{N}}$ has
 countable algebraic dimension, so does $P_V$.
 
-\begin{theorem}\label{OneVectorTheorem} Let $v\in\ell_1$ and $0<\delta<1$.
-    Then there exists a linear bijection $T:\ell_1\to\ell_1$ with
+\begin{theorem}\label{OneVectorTheorem} Let $v\in\ell_1$,
+    $N\in\mathbb{N}\cup\{0\}$ and $0<\delta<1$. Then there exists a bounded
+    linear operator $R:\ell_1\to\ell_1$ with $\norm{R}\leq\delta$ such that
+    \begin{enumerate}[label = (\roman*)]
+        \item $R(x)=0$ for every $x\in\ell_1$ with $x=x|_N$;
+        \item $R(\lo{\mathbb{N}})\subset\lo{\mathbb{N}}$;
+        \item $(1_{\ell_1}-R)(v)\in\lo{\mathbb{N}}$;
+        \item ${(1_{\ell_1}-R)}^{-1}(\lo{\mathbb{N}})\subset\lo{\mathbb{N}}+\mathbb{C}v$.
+    \end{enumerate}
+    In particular, $T=1_{\ell_1}-R$ is a linear bijection of $\ell_1$ with
     $\norm{T}\leq 1+\delta$ and $\norm{T^{-1}}\leq{(1-\delta)}^{-1}$ such
-    that $T(\lo{\mathbb{N}})\subset\lo{\mathbb{N}}$, $T(v)\in\lo{\mathbb{N}}$
-    and $T^{-1}(\lo{\mathbb{N}})\subset\lo{\mathbb{N}}+\mathbb{C}v$. In
-    particular, $T$ maps $\lo{\mathbb{N}}+\mathbb{C}v$ onto $\lo{\mathbb{N}}$.
+    that $T(x)=x$ whenever $x=x|_N$, $T(\lo{\mathbb{N}})\subset\lo{\mathbb{N}}$
+    and $T(\lo{\mathbb{N}}+\mathbb{C}v)=\lo{\mathbb{N}}$.
 \end{theorem}
-\begin{proof} If $v$ is finitely supported, take $T=1_{\ell_1}$. Assume that
-    $v$ has infinite support. For $N\in\mathbb{N}\cup\{0\}$ put
-    $t_N=\norm{v-v|_N}=\sum_{n>N}|v_n|$. Then $t_0=\norm{v}$, the sequence
-    ${(t_N)}_N$ is non-increasing, $t_N>0$ for all $N$ because $v$ has
-    infinite support, and $\lim_N t_N=0$. Choose integers
-    $0=N_0<N_1<N_2<\ldots$ such that $t_{N_k}\leq(\delta/2)t_{N_{k-1}}$ for
-    all $k\in\mathbb{N}$. The sets $B_k=\{n\in\mathbb{N}:N_{k-1}<n\leq N_k\}$,
-    $k\in\mathbb{N}$, are finite and form a partition of $\mathbb{N}$. Put
+\begin{proof} Since $\norm{R}\leq\delta<1$, the operator $T=1_{\ell_1}-R$ is a
+    linear bijection with $T^{-1}=\sum_{m=0}^\infty R^m$,
+    $\norm{T}\leq 1+\delta$ and $\norm{T^{-1}}\leq{(1-\delta)}^{-1}$, and the
+    properties of $T$ listed in the last sentence follow from $(i)$--$(iv)$.
+    So we only need to construct $R$ with the properties $(i)$--$(iv)$.
+
+    If $v-v|_N$ is finitely supported, take $R=0$. Assume that $v-v|_N$ has
+    infinite support. For $M\geq N$ put $t_M=\norm{v-v|_M}=\sum_{n>M}|v_n|$.
+    Then the sequence ${(t_M)}_{M\geq N}$ is non-increasing, $t_M>0$ for all
+    $M\geq N$ because $v-v|_N$ has infinite support, and $\lim_M t_M=0$.
+    Choose integers $N=N_0<N_1<N_2<\ldots$ such that
+    $t_{N_k}\leq(\delta/2)t_{N_{k-1}}$ for all $k\in\mathbb{N}$. The sets
+    $B_k=\{n\in\mathbb{N}:N_{k-1}<n\leq N_k\}$, $k\in\mathbb{N}$, are finite,
+    pairwise disjoint and cover $\{n\in\mathbb{N}:n>N\}$. Put
     $w_k=v|_{N_k}-v|_{N_{k-1}}$, that is, $w_k$ is the restriction of $v$ to
-    $B_k$. Then $w_k\in\lo{\mathbb{N}}$, $v=\sum_{k=1}^\infty w_k$ in
+    $B_k$. Then $w_k\in\lo{\mathbb{N}}$, $v-v|_N=\sum_{k=1}^\infty w_k$ in
     $\ell_1$, $\supp(w_k)\subset B_k$, and
     \[
     \norm{w_k}=t_{N_{k-1}}-t_{N_k}\geq(1-\delta/2)t_{N_{k-1}}>0,\qquad
@@ -613,32 +626,30 @@ countable algebraic dimension, so does $P_V$.
     \sum_{k=1}^\infty\frac{|g_k(x)|}{\norm{w_k}}\norm{w_{k+1}}
     \leq\delta\sum_{k=1}^\infty\sum_{n\in B_k}|x_n|=\delta\norm{x},
     \]
-    so $R$ is a well defined bounded linear operator with $\norm{R}\leq\delta<1$.
-    Put $T=1_{\ell_1}-R$. Then $T$ is a linear bijection of $\ell_1$ with
-    $\norm{T}\leq 1+\delta$, $T^{-1}=\sum_{m=0}^\infty R^m$ and
-    $\norm{T^{-1}}\leq{(1-\delta)}^{-1}$. We verify the remaining properties.
+    so $R$ is a well defined bounded linear operator with $\norm{R}\leq\delta$.
+    We verify the properties $(i)$--$(iv)$.
 
-    If $x\in\lo{\mathbb{N}}$, then $g_k(x)\neq 0$ only for the finitely many
-    $k$ with $B_k\cap\supp(x)\neq\varnothing$, so $R(x)$ is a finite linear
-    combination of the finitely supported sequences $w_{k+1}$. Hence
-    $R(\lo{\mathbb{N}})\subset\lo{\mathbb{N}}$ and
-    $T(\lo{\mathbb{N}})\subset\lo{\mathbb{N}}$.
+    $(i)$ If $x=x|_N$, then $g_k(x)=0$ for all $k$, because
+    $\supp(g_k)\subset B_k\subset\{n:n>N\}$. Hence $R(x)=0$.
 
-    Since $g_k(v)=\sum_{j=1}^\infty g_k(w_j)=g_k(w_k)=\norm{w_k}$, we get
-    $R(v)=\sum_{k=1}^\infty w_{k+1}=v-w_1$, so $T(v)=w_1\in\lo{\mathbb{N}}$.
+    $(ii)$ If $x\in\lo{\mathbb{N}}$, then $g_k(x)\neq 0$ only for the finitely
+    many $k$ with $B_k\cap\supp(x)\neq\varnothing$, so $R(x)$ is a finite
+    linear combination of the finitely supported sequences $w_{k+1}$.
 
-    Finally, let $x\in\lo{\mathbb{N}}$ and let $K$ be the finite set of those
+    $(iii)$ Since $g_k(v|_N)=0$ and
+    $g_k(v-v|_N)=\sum_{j=1}^\infty g_k(w_j)=g_k(w_k)=\norm{w_k}$, we get
+    $R(v)=\sum_{k=1}^\infty w_{k+1}=v-v|_N-w_1$, so
+    $(1_{\ell_1}-R)(v)=v|_N+w_1\in\lo{\mathbb{N}}$.
+
+    $(iv)$ Let $x\in\lo{\mathbb{N}}$ and let $K$ be the finite set of those
     $k$ for which $g_k(x)\neq 0$. Put $c_k=g_k(x)/\norm{w_k}$ for $k\in K$.
     Since $g_j(w_k)=\delta_{jk}\norm{w_k}$, we have $R(w_k)=w_{k+1}$ for all
     $k$, hence $R^m(x)=\sum_{k\in K}c_k w_{k+m}$ for $m\geq 1$ and
     \[
-    T^{-1}(x)=x+\sum_{k\in K}c_k\sum_{m=1}^\infty w_{k+m}
+    {(1_{\ell_1}-R)}^{-1}(x)=\sum_{m=0}^\infty R^m(x)
+    =x+\sum_{k\in K}c_k\sum_{m=1}^\infty w_{k+m}
     =x+\sum_{k\in K}c_k(v-v|_{N_k})\in\lo{\mathbb{N}}+\mathbb{C}v.
     \]
-    Thus, $T^{-1}(\lo{\mathbb{N}})\subset\lo{\mathbb{N}}+\mathbb{C}v$, that
-    is, $\lo{\mathbb{N}}\subset T(\lo{\mathbb{N}}+\mathbb{C}v)$. Together with
-    the two previous paragraphs this gives
-    $T(\lo{\mathbb{N}}+\mathbb{C}v)=\lo{\mathbb{N}}$.
 \end{proof}
 
 \begin{theorem}\label{FiniteDimPerturbation} Let $V$ be a finite dimensional
@@ -648,7 +659,7 @@ countable algebraic dimension, so does $P_V$.
 \begin{proof} We use induction on $m=\dim V$. If $m=0$, then
     $P_V=\lo{\mathbb{N}}$. Let $m\geq 1$, fix $0<\delta<1$ and write
     $V=\mathbb{C}v+V'$ with $\dim V'=m-1$. Let $T$ be the operator given by
-    theorem~\ref{OneVectorTheorem} for $v$ and $\delta$. Then
+    theorem~\ref{OneVectorTheorem} for $v$, $N=0$ and $\delta$. Then
     \[
     T(P_V)=T(\lo{\mathbb{N}}+\mathbb{C}v)+T(V')=\lo{\mathbb{N}}+T(V')=P_{T(V')},
     \]
@@ -739,5 +750,203 @@ $\lo{\mathbb{N}}$ and $\ell_1$ there are both extremally projective and
 non-projective normed spaces, and the difference between them is invisible on
 the level of completions. The next section provides a criterion which
 distinguishes them.
+
+%-------------------------------------------------------------------------------
+%	Main theorem
+%-------------------------------------------------------------------------------
+
+\section{Extremally projective normed spaces of countable
+  dimension}\label{SectionMainTheorem}
+
+We start with a necessary condition which holds in all dimensions. Recall that
+the completion $\overline{P}$ of a normed space $P$ is a Banach space containing
+$P$ as a dense subspace. Every bounded linear operator between normed spaces
+extends uniquely to a bounded linear operator between their completions with
+the same norm, and these extensions respect compositions.
+
+\begin{theorem}\label{CompletionIsEllOne} Let $P$ be an extremally projective
+    normed space. Then $\overline{P}$ is isometrically isomorphic to
+    $\ellone{\Gamma}$ for some set $\Gamma$.
+\end{theorem}
+\begin{proof} Fix $\varepsilon>0$. By theorem~\ref{ExtrProjCriterion} there is
+    a bounded linear operator $\sigma:P\to\lo{B_P}$ with $\pi_P\sigma=1_P$ and
+    $\norm{\sigma}\leq 1+\varepsilon$. The completion of $\lo{B_P}$ is
+    $\ellone{B_P}$, so $\pi_P$ and $\sigma$ extend to bounded linear operators
+    $\overline{\pi}:\ellone{B_P}\to\overline{P}$ and
+    $\overline{\sigma}:\overline{P}\to\ellone{B_P}$ with
+    $\overline{\pi}\,\overline{\sigma}=1_{\overline{P}}$,
+    $\norm{\overline{\pi}}\leq 1$ and $\norm{\overline{\sigma}}\leq 1+\varepsilon$.
+    Thus, $\overline{P}$ is a $(1+\varepsilon)$-retract of $\ellone{B_P}$ in
+    $\Ban$. The proof of proposition~\ref{FreeIsExtrProj} shows that
+    $\ellone{\Lambda}$ is $(1+\varepsilon)$-topologically projective in $\Ban$
+    for every set $\Lambda$: in the notation of that proof, for a Banach space
+    $X$ the family ${(x_\lambda)}_{\lambda\in\Lambda}$ defines a bounded
+    linear operator $\psi:\ellone{\Lambda}\to X$,
+    $\psi(x)=\sum_{\lambda\in\Lambda}x(\lambda)x_\lambda$, where the series
+    converges absolutely. The proof of proposition~\ref{RetractOfProj} works
+    in $\Ban$ verbatim, so $\overline{P}$ is
+    ${(1+\varepsilon)}^2$-topologically projective in $\Ban$. Since
+    $\varepsilon$ is arbitrary, $\overline{P}$ is extremally projective in
+    $\Ban$. The proof of proposition~\ref{EquivWithHelemskii} also works in
+    $\Ban$ verbatim, because the space $X'$ constructed there is complete
+    whenever $X$ is. Hence $\overline{P}$ is extremely projective in $\Ban$ in
+    the sense of Helemskii, and by Grothendieck's theorem in the form given
+    in~\cite[section 2]{HelExtrProjSeqAlg} (see
+    also~\cite{GrothMetrProjFlatBanSp} and~\cite[proposition 3.2]{HelMetrFrQMod})
+    $\overline{P}$ is isometrically isomorphic to $\ellone{\Gamma}$ for some
+    set $\Gamma$.
+\end{proof}
+
+\begin{corollary}\label{FiniteDimCase} A finite dimensional normed space is
+    extremally projective if and only if it is isometrically isomorphic to
+    $\ell_1^n$ for some $n\in\mathbb{N}\cup\{0\}$.
+\end{corollary}
+\begin{proof} A finite dimensional normed space coincides with its completion,
+    so the necessity follows from theorem~\ref{CompletionIsEllOne}. The
+    sufficiency follows from proposition~\ref{FreeIsExtrProj}, since
+    $\ell_1^n=\lo{\{1,\ldots,n\}}$.
+\end{proof}
+
+Thus, the examples of section~\ref{SectionCounterexample} are necessarily
+infinite dimensional. Theorems~\ref{NoCompleteSubspaces}
+and~\ref{CompletionIsEllOne} describe extremally projective normed spaces
+from two opposite sides: they are dense subspaces of the spaces
+$\ellone{\Gamma}$ which are small enough not to contain infinite dimensional
+complete subspaces. In this section we show that for spaces of countable
+dimension there is nothing in between: every dense subspace of $\ell_1$ of
+countable algebraic dimension is extremally projective, and even almost
+isometric to $\lo{\mathbb{N}}$. The proof is a back-and-forth construction
+based on theorem~\ref{OneVectorTheorem} and on the following two lemmas.
+
+\begin{lemma}\label{HittingLemma} Let $Y$ be a finite dimensional subspace
+    of $\lo{\mathbb{N}}$ and $n\in\mathbb{N}$ be such that $e_n\notin Y$.
+    Then there is a constant $C\geq 1$ such that for every
+    $z\in\lo{\mathbb{N}}$ with $\norm{z-e_n}\leq{(4C)}^{-1}$ there exists a
+    linear bijection $S:\ell_1\to\ell_1$ with
+    $\norm{S-1_{\ell_1}}\leq 2C\norm{z-e_n}\leq 1/2$,
+    $S(y)=y$ for all $y\in Y$ and $S(z)=e_n$.
+\end{lemma}
+\begin{proof} Since $Y$ is finite dimensional, it is closed in $\ell_1$, so
+    $d=\inf\{\norm{e_n-y}:y\in Y\}>0$. By the Hahn-Banach theorem there is
+    $f\in\ell_1^*$ with $f(y)=0$ for $y\in Y$, $f(e_n)=1$ and $\norm{f}=d^{-1}$.
+    Put $C=\max(1,d^{-1})$. Let $z\in\lo{\mathbb{N}}$ satisfy
+    $\norm{z-e_n}\leq{(4C)}^{-1}$. Then
+    $|f(z)-1|=|f(z-e_n)|\leq C\norm{z-e_n}\leq 1/4$, so $|f(z)|\geq 3/4$.
+    Define
+    \[
+    S:\ell_1\to\ell_1,\quad S(x)=x+\frac{f(x)}{f(z)}(e_n-z).
+    \]
+    Then $S(y)=y$ for $y\in Y$ because $f$ vanishes on $Y$, and
+    $S(z)=z+(e_n-z)=e_n$. Moreover,
+    $\norm{S-1_{\ell_1}}\leq\norm{f}|f(z)|^{-1}\norm{e_n-z}\leq
+    \frac43 C\norm{z-e_n}\leq 2C\norm{z-e_n}\leq 1/2$, so $S$ is a linear
+    bijection of $\ell_1$ by the Neumann series.
+\end{proof}
+
+\begin{lemma}\label{ProductLemma} Let $X$ be a Banach space and
+    ${(F_m)}_{m\in\mathbb{N}}$ be a sequence of bounded linear operators on $X$
+    such that $\theta_m=\norm{F_m-1_X}<1$ for all $m$ and
+    $\sum_{m=1}^\infty\theta_m<+\infty$. Put $A_j=F_jF_{j-1}\cdots F_1$ for
+    $j\in\mathbb{N}$. Then the sequence ${(A_j)}_{j\in\mathbb{N}}$ converges in
+    the operator norm to a linear bijection $T$ of $X$ with
+    \[
+    \norm{T}\leq\prod_{m=1}^\infty(1+\theta_m),\qquad
+    \norm{T^{-1}}\leq\prod_{m=1}^\infty{(1-\theta_m)}^{-1}.
+    \]
+\end{lemma}
+\begin{proof} Both products converge because $\sum_m\theta_m<+\infty$; denote
+    them by $M$ and $M'$. Then $\norm{A_j}\leq M$ and, since each $F_m$ is
+    invertible with $\norm{F_m^{-1}}\leq{(1-\theta_m)}^{-1}$ by the Neumann
+    series, $\norm{A_j^{-1}}\leq M'$ for all $j$. From
+    $\norm{A_j-A_{j-1}}=\norm{(F_j-1_X)A_{j-1}}\leq\theta_j M$ we see that
+    ${(A_j)}_j$ is a Cauchy sequence; let $T$ be its limit, so $\norm{T}\leq M$.
+    Also $\norm{A_j^{-1}-A_k^{-1}}=\norm{A_j^{-1}(A_k-A_j)A_k^{-1}}\leq
+    {M'}^2\norm{A_k-A_j}$, so ${(A_j^{-1})}_j$ is a Cauchy sequence with a
+    limit $B$, $\norm{B}\leq M'$. Passing to the limit in
+    $A_jA_j^{-1}=A_j^{-1}A_j=1_X$ we get $TB=BT=1_X$.
+\end{proof}
+
+\begin{theorem}\label{BackAndForth} Let $D$ be a dense subspace of $\ell_1$ of
+    countable algebraic dimension and $\varepsilon>0$. Then there exists a
+    linear bijection $T:\ell_1\to\ell_1$ with
+    $\norm{T}\norm{T^{-1}}\leq 1+\varepsilon$ and $T(D)=\lo{\mathbb{N}}$. In
+    particular, $\BM(D,\lo{\mathbb{N}})=1$.
+\end{theorem}
+\begin{proof} Since $\ell_1$ is infinite dimensional and $D$ is dense in
+    $\ell_1$, the algebraic dimension of $D$ is countably infinite. Let
+    ${(d_j)}_{j\in\mathbb{N}}$ be a Hamel basis of $D$. Choose a sequence
+    ${(\theta_m)}_{m\in\mathbb{N}}$ of numbers in $(0,1/2]$ with
+    $\prod_{m=1}^\infty(1+\theta_m){(1-\theta_m)}^{-1}\leq 1+\varepsilon$.
+
+    We construct by induction linear bijections $F_1,F_2,\ldots$ of $\ell_1$
+    with $\norm{F_m-1_{\ell_1}}\leq\theta_m$ and finite dimensional subspaces
+    $Y_0=\{0\}\subset Y_1\subset Y_2\subset\ldots$ of $\lo{\mathbb{N}}$ such
+    that, with $A_0=1_{\ell_1}$ and $A_j=F_{2j}F_{2j-1}A_{j-1}$, for every
+    $j\in\mathbb{N}$ the following conditions hold:
+    \begin{enumerate}[label = (\alph*)]
+        \item $A_j(d_i)\in Y_j$ for $i\leq j$;
+        \item $e_i\in Y_j$ for $i\leq j$;
+        \item $Y_j\subset A_j(D)$;
+        \item $F_{2j-1}$ and $F_{2j}$ act as the identity on $Y_{j-1}$.
+    \end{enumerate}
+    Suppose that $A_{j-1}$ and $Y_{j-1}$ have been constructed (for $j=1$
+    there is nothing to suppose). Let $N$ be an integer not smaller than every
+    element of the supports of the vectors of some basis of $Y_{j-1}$, so that
+    $y=y|_N$ for all $y\in Y_{j-1}$. Apply theorem~\ref{OneVectorTheorem} to
+    the vector $v=A_{j-1}(d_j)$, the integer $N$ and $\delta=\theta_{2j-1}$,
+    and let $F_{2j-1}=1_{\ell_1}-R$ be the resulting operator. Then
+    $\norm{F_{2j-1}-1_{\ell_1}}\leq\theta_{2j-1}$, $F_{2j-1}$ acts as the
+    identity on $Y_{j-1}$, and $y_j=F_{2j-1}A_{j-1}(d_j)\in\lo{\mathbb{N}}$.
+    Put $A'=F_{2j-1}A_{j-1}$ and $Y'=Y_{j-1}+\mathbb{C}y_j\subset\lo{\mathbb{N}}$.
+    Note that $Y'\subset A'(D)$: indeed, $Y_{j-1}\subset A_{j-1}(D)$ by the
+    induction hypothesis (for $j=1$ trivially), $F_{2j-1}$ fixes $Y_{j-1}$, so
+    $Y_{j-1}=F_{2j-1}(Y_{j-1})\subset A'(D)$, and $y_j=A'(d_j)\in A'(D)$.
+
+    If $e_j\in Y'$, put $F_{2j}=1_{\ell_1}$ and $Y_j=Y'$. Otherwise, let $C$
+    be the constant given by lemma~\ref{HittingLemma} for $Y'$ and $n=j$, and
+    let $N'$ be an integer not smaller than $j$ and than every element of the
+    supports of the vectors of some basis of $Y'$. Since $A'$ is a linear
+    bijection of $\ell_1$ and $D$ is dense, $A'(D)$ is dense in $\ell_1$, so
+    there is $d\in D$ with
+    \[
+    \norm{A'(d)-e_j}\leq\frac{\theta_{2j}}{16C}.
+    \]
+    Apply theorem~\ref{OneVectorTheorem} to the vector $A'(d)$, the integer
+    $N'$ and $\delta=\theta_{2j}/2$, and let $G=1_{\ell_1}-R'$ be the
+    resulting operator. Then $G$ fixes $Y'$ and $e_j$,
+    $\norm{G-1_{\ell_1}}\leq\theta_{2j}/2$, $\norm{G}\leq 5/4$ because
+    $\theta_{2j}\leq 1/2$, and $z=GA'(d)\in\lo{\mathbb{N}}$ satisfies
+    \[
+    \norm{z-e_j}=\norm{G(A'(d)-e_j)}\leq\frac{5\theta_{2j}}{64C}\leq\frac{1}{4C}.
+    \]
+    Let $S$ be the operator given by lemma~\ref{HittingLemma} for $Y'$, $n=j$
+    and $z$. Then $S$ fixes $Y'$, $S(z)=e_j$ and
+    $\norm{S-1_{\ell_1}}\leq 2C\norm{z-e_j}\leq 5\theta_{2j}/32$. Put $F_{2j}=SG$
+    and $Y_j=Y'+\mathbb{C}e_j$. Then
+    \[
+    \norm{F_{2j}-1_{\ell_1}}\leq\norm{(S-1_{\ell_1})G}+\norm{G-1_{\ell_1}}
+    \leq\frac{5\theta_{2j}}{32}\cdot\frac54+\frac{\theta_{2j}}{2}
+    \leq\theta_{2j}.
+    \]
+    Let us check $(a)$--$(d)$ for $j$. The operator $F_{2j}$ acts as the
+    identity on $Y'\supset Y_{j-1}$, which together with the first step gives
+    $(d)$. For $i<j$ we have $A_{j-1}(d_i)\in Y_{j-1}$, so
+    $A_j(d_i)=F_{2j}F_{2j-1}A_{j-1}(d_i)=A_{j-1}(d_i)\in Y_j$, and
+    $A_j(d_j)=F_{2j}(y_j)=y_j\in Y_j$; this is $(a)$. Condition $(b)$ holds
+    by the definition of $Y_j$ and the induction hypothesis. Finally,
+    $Y'\subset A'(D)$ and $F_{2j}$ fixes $Y'$, so $Y'\subset F_{2j}A'(D)=A_j(D)$,
+    and $e_j=SGA'(d)=A_j(d)\in A_j(D)$; this is $(c)$.
+
+    By lemma~\ref{ProductLemma} the operators $A_j$ converge in norm to a
+    linear bijection $T$ of $\ell_1$ with
+    $\norm{T}\norm{T^{-1}}\leq\prod_m(1+\theta_m){(1-\theta_m)}^{-1}\leq
+    1+\varepsilon$. For every $i\in\mathbb{N}$ and $j\geq i$ we have
+    $A_j(d_i)\in Y_j$ by $(a)$, and by $(d)$ the operators $F_{2j+1},F_{2j+2},\ldots$
+    fix $Y_j$, so $A_k(d_i)=A_j(d_i)$ for all $k\geq j$ and
+    $T(d_i)=A_i(d_i)\in Y_i\subset\lo{\mathbb{N}}$. Hence
+    $T(D)\subset\lo{\mathbb{N}}$. Similarly, for every $i\in\mathbb{N}$ by
+    $(b)$ and $(c)$ there is $d\in D$ with $A_i(d)=e_i\in Y_i$, and by $(d)$
+    we get $T(d)=A_i(d)=e_i$. Hence $\lo{\mathbb{N}}\subset T(D)$.
+\end{proof}
 
 \end{document}
