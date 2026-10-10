@@ -222,7 +222,7 @@ called a $c$-retract of $E$.
 
 The operator $\psi$ in definition~\ref{DefTopProj} is called a lifting of
 $\phi$ along $\xi$. Extremal projectivity is precisely the extreme projectivity
-of Helemskii, see proposition~\ref{EquivWithHelemskii} below. We emphasize that
+of Helemskii, see proposition~\ref{EquivWithHelemskii}. We emphasize that
 the spaces $X$ and $Y$ in definition~\ref{DefTopProj} are arbitrary normed
 spaces. If we restrict them to Banach spaces, we obtain the notions of
 topological and extremal projectivity in $\Ban$, which we shall mention only
@@ -250,16 +250,52 @@ contains the ladder space example and the main theorem.
 \section{Basic properties of extremally projective normed
   spaces}\label{SectionBasicTheory}
 
-We start with the free objects of $\Nor$.
+We start by comparing definition~\ref{DefTopProj} with Helemskii's one.
+Our definition of extremal projectivity is equivalent to Helemskii's definition
+of extreme projectivity~\cite[definition I]{HelExtrProjSeqAlg}: a normed
+space $P$ is extremely projective if for every coisometric operator
+$\xi:X\to Y$, every bounded linear operator $\phi:P\to Y$ and every
+$\delta>0$ there exists a lifting $\psi:P\to X$ of $\phi$ along $\xi$ with
+$\norm{\psi}<\norm{\phi}+\delta$.
+
+\begin{proposition}\label{EquivWithHelemskii} A normed space is extremally
+    projective if and only if it is extremely projective in the sense of
+    Helemskii.
+\end{proposition}
+\begin{proof} Let $P$ be extremally projective, $\xi:X\to Y$ be a coisometric
+    operator, $\phi:P\to Y$ be a bounded linear operator and $\delta>0$. If
+    $\phi=0$ we take $\psi=0$. Otherwise we put
+    $C=1+\delta\norm{\phi}^{-1}/2$. Since $\xi$ is $1$-topologically surjective,
+    $C$-topological projectivity of $P$ gives a lifting $\psi$ of $\phi$ along
+    $\xi$ with $\norm{\psi}\leq C\norm{\phi}<\norm{\phi}+\delta$.
+
+    Conversely, let $P$ be extremely projective, $C>1$, $\xi:X\to Y$ be a
+    $c$-topologically surjective operator and $\phi:P\to Y$ be a non-zero
+    bounded linear operator. Consider the operator $\xi'=c\xi$ and endow the
+    vector space $X$ with the norm $\norm{x}'=\max(\norm{x},\norm{\xi'(x)})$,
+    which is equivalent to the original one since $\norm{x}\leq\norm{x}'\leq
+    \max(1,c\norm{\xi})\norm{x}$. Denote the resulting normed space by $X'$.
+    The operator $\xi':X'\to Y$ is contractive by construction. If $y\in
+    B_Y^\circ$, then by $c$-topological surjectivity of $\xi$ there is $x\in
+    B_X^\circ$ with $\xi'(x)=y$, and $\norm{x}'=\max(\norm{x},\norm{y})<1$.
+    Thus, $\xi':X'\to Y$ is coisometric. By extreme projectivity there is a
+    lifting $\psi':P\to X'$ of $\phi$ along $\xi'$ with $\norm{\psi'}<
+    \norm{\phi}+(C-1)\norm{\phi}=C\norm{\phi}$. Regarded as an operator into
+    $X$, the operator $\psi=c\psi'$ satisfies $\xi\psi=\xi'\psi'=\phi$ and
+    $\norm{\psi}\leq c\norm{\psi'}'\leq cC\norm{\phi}$. Since $C>1$ is arbitrary,
+    $P$ is extremally projective.
+\end{proof}
+
+Now we turn to the free objects of $\Nor$.
 
 \begin{proposition}\label{FreeIsExtrProj} Let $\Lambda$ be a set. Then
     $\lo{\Lambda}$ is $(1+\varepsilon)$-topologically projective for every
     $\varepsilon>0$. In particular, $\lo{\Lambda}$ is extremally projective.
 \end{proposition}
 \begin{proof} By \cite[proposition 2.2]{HelExtrProjSeqAlg} the space
-    $\lo{\Lambda}$ is extremely projective in the sense of Helemskii, see
-    proposition~\ref{EquivWithHelemskii} below, and the proof of that
-    proposition shows that extreme projectivity gives exactly
+    $\lo{\Lambda}$ is extremely projective in the sense of Helemskii, and
+    the proof of proposition~\ref{EquivWithHelemskii} shows that extreme
+    projectivity gives exactly
     $(1+\varepsilon)$-topological projectivity for every $\varepsilon>0$.
 \end{proof}
 
@@ -328,41 +364,6 @@ metric theory.
     $\norm{\psi}\leq(1+\varepsilon)cC\norm{\phi}$. In particular, the two
     conventions lead to the same notion of extremal projectivity.
 \end{remark}
-
-Our definition of extremal projectivity is equivalent to Helemskii's definition
-of extreme projectivity~\cite[definition I]{HelExtrProjSeqAlg}: a normed
-space $P$ is extremely projective if for every coisometric operator
-$\xi:X\to Y$, every bounded linear operator $\phi:P\to Y$ and every
-$\delta>0$ there exists a lifting $\psi:P\to X$ of $\phi$ along $\xi$ with
-$\norm{\psi}<\norm{\phi}+\delta$.
-
-\begin{proposition}\label{EquivWithHelemskii} A normed space is extremally
-    projective if and only if it is extremely projective in the sense of
-    Helemskii.
-\end{proposition}
-\begin{proof} Let $P$ be extremally projective, $\xi:X\to Y$ be a coisometric
-    operator, $\phi:P\to Y$ be a bounded linear operator and $\delta>0$. If
-    $\phi=0$ we take $\psi=0$. Otherwise we put
-    $C=1+\delta\norm{\phi}^{-1}/2$. Since $\xi$ is $1$-topologically surjective,
-    $C$-topological projectivity of $P$ gives a lifting $\psi$ of $\phi$ along
-    $\xi$ with $\norm{\psi}\leq C\norm{\phi}<\norm{\phi}+\delta$.
-
-    Conversely, let $P$ be extremely projective, $C>1$, $\xi:X\to Y$ be a
-    $c$-topologically surjective operator and $\phi:P\to Y$ be a non-zero
-    bounded linear operator. Consider the operator $\xi'=c\xi$ and endow the
-    vector space $X$ with the norm $\norm{x}'=\max(\norm{x},\norm{\xi'(x)})$,
-    which is equivalent to the original one since $\norm{x}\leq\norm{x}'\leq
-    \max(1,c\norm{\xi})\norm{x}$. Denote the resulting normed space by $X'$.
-    The operator $\xi':X'\to Y$ is contractive by construction. If $y\in
-    B_Y^\circ$, then by $c$-topological surjectivity of $\xi$ there is $x\in
-    B_X^\circ$ with $\xi'(x)=y$, and $\norm{x}'=\max(\norm{x},\norm{y})<1$.
-    Thus, $\xi':X'\to Y$ is coisometric. By extreme projectivity there is a
-    lifting $\psi':P\to X'$ of $\phi$ along $\xi'$ with $\norm{\psi'}<
-    \norm{\phi}+(C-1)\norm{\phi}=C\norm{\phi}$. Regarded as an operator into
-    $X$, the operator $\psi=c\psi'$ satisfies $\xi\psi=\xi'\psi'=\phi$ and
-    $\norm{\psi}\leq c\norm{\psi'}'\leq cC\norm{\phi}$. Since $C>1$ is arbitrary,
-    $P$ is extremally projective.
-\end{proof}
 
 Next we record the standard permanence property of projectivity. The proof
 is the same as in the Banach case, see \cite[lemma 2.7]{WhiteInjmoduAlg} or
