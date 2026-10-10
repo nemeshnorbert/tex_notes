@@ -73,7 +73,12 @@ its completion is isometrically isomorphic to $\ell_1$ or to $\ell_1^n$. In
 the non-separable case we obtain a necessary condition of set-theoretic
 nature, based on Fodor's lemma, and use it to construct a dense subspace of
 $\ellone{\omega_1}$ all of whose separable subspaces have countable dimension
-which is not topologically projective.
+which is not topologically projective. On the other hand, a transfinite
+back-and-forth construction shows that every topologically projective dense
+subspace of $\ellone{\Gamma}$ with $|\Gamma|\leq\aleph_1$ is extremally
+projective and almost isometric to $\lo{\Gamma}$; so for spaces of dimension
+at most $\aleph_1$ the conjecture of Gr{\o}nb{\ae}k holds in the almost
+isometric form.
 \medskip
 
 \textbf{Keywords:} projective normed space, topological projectivity, extremal
@@ -169,8 +174,16 @@ on $\omega_1$, which is not topologically projective although all its
 separable subspaces have countable dimension and all its countably generated
 pieces are extremally projective. Thus, for uncountable $\Lambda$ the
 question of Helemskii on dense subspaces of $\ellone{\Lambda}$ does not
-reduce to the countable case, and the almost isometric characterization of
-extremally projective normed spaces of uncountable dimension remains open.
+reduce to the countable case. Finally, we prove a transfinite version of the
+back-and-forth theorem: a dense subspace of $\ellone{\Gamma}$ which admits a
+continuous transfinite filtration with countable steps is almost isometric
+to $\lo{\Gamma}$. Combined with the Fodor-type necessary condition this gives
+a complete description for sets $\Gamma$ of cardinality at most $\aleph_1$:
+a dense subspace of such $\ellone{\Gamma}$ is extremally projective if and
+only if it is topologically projective, and then it is almost isometric to
+$\lo{\Gamma}$. In particular, the conjecture of Gr{\o}nb{\ae}k holds in the
+almost isometric form for all normed spaces of algebraic dimension at most
+$\aleph_1$. For larger cardinalities the problem remains open.
 
 Let us fix the notation and recall the definitions. All normed spaces are
 considered over the complex field; the real case is identical. For a normed
@@ -239,8 +252,8 @@ dimension restrictions on topologically projective normed spaces.
 Section~\ref{SectionCounterexample} contains the counterexample to the
 question of Helemskii and Gr{\o}nb{\ae}k. Section~\ref{SectionMainTheorem} is
 devoted to the almost isometric characterization of extremally projective
-normed spaces of countable dimension and to the discussion of the
-non-separable case.
+normed spaces of countable dimension, and section~\ref{SectionUncountable} to
+spaces of uncountable dimension.
 
 %-------------------------------------------------------------------------------
 %	Basic theory
@@ -1095,6 +1108,13 @@ spaces.
     theorem~\ref{MainTheorem}.
 \end{proof}
 
+%-------------------------------------------------------------------------------
+%	Uncountable dimension
+%-------------------------------------------------------------------------------
+
+\section{Extremally projective normed spaces of uncountable
+  dimension}\label{SectionUncountable}
+
 Condition $(ii)$ of theorem~\ref{MainTheorem} shows that for normed spaces of
 countable dimension extremal projectivity is a property of the completion. By
 example~\ref{WeightedExample} this is no longer true for spaces of uncountable
@@ -1263,22 +1283,281 @@ $\ellone{\Lambda}$ is more involved for uncountable $\Lambda$. Note that the
 space $P_L$ is ``locally'' extremally projective: all its countably generated
 pieces $P_L\cap\ellone{\delta}$ are extremally projective. So extremal
 projectivity of a normed space is not determined by its separable subspaces.
-On the other hand, by proposition~\ref{UncountableExamples} the spaces
-$\lo{\Gamma}+V$ with $V$ of countable dimension are extremally projective for
-every $\Gamma$, and by proposition~\ref{SumsOfExtrProj} so are all
-$\bigoplus_1^0$-sums of extremally projective spaces of countable dimension.
-We do not know whether these examples exhaust the extremally projective
-normed spaces up to almost isometry.
 
-\begin{question}\label{OpenQuestion} Let $P$ be an extremally projective
-    normed space of uncountable algebraic dimension and $\Gamma$ be a set of
-    the same cardinality. Is $\BM(P,\lo{\Gamma})=1$? More generally, is $P$
-    $(1+\varepsilon)$-isomorphic for every $\varepsilon>0$ to a
-    $\bigoplus_1^0$-sum of normed spaces of countable dimension?
+We now turn to positive results. The obstruction in example~\ref{LadderSpace}
+is the discontinuity of the chain $P_L\cap\ellone{\delta}$ at limit stages.
+We show that this is the only obstruction: if a dense subspace of
+$\ellone{\Gamma}$ admits a continuous transfinite filtration with countable
+steps, then it is almost isometric to $\lo{\Gamma}$. The proof is a transfinite
+version of theorem~\ref{BackAndForth}. The key point is that the perturbations
+used at different steps of the construction are controlled on pairwise
+disjoint blocks of coordinates, so that their ``product'' has norm bounded
+independently of the length of the construction.
+
+Let $\Gamma$ be a set, $\kappa$ be an ordinal and ${(\Gamma_\delta)}_{\delta\leq\kappa}$
+be an increasing family of subsets of $\Gamma$ such that $\Gamma_0=\varnothing$,
+$\Gamma_\kappa=\Gamma$, $\Gamma_\delta=\bigcup_{\delta'<\delta}\Gamma_{\delta'}$
+for every limit ordinal $\delta\leq\kappa$, and the sets
+$N_\delta=\Gamma_{\delta+1}\setminus\Gamma_\delta$ are at most countable for
+every $\delta<\kappa$. We call such a family a countable filtration of
+$\Gamma$. Note that $\Gamma_\delta=\bigsqcup_{\delta'<\delta}N_{\delta'}$ for
+all $\delta\leq\kappa$, and that $\ellone{\Gamma_\delta}$ is the $\ell_1$-sum of
+the spaces $\ellone{N_{\delta'}}$, $\delta'<\delta$. For $x\in\ellone{\Gamma}$
+and $A\subset\Gamma$ we denote by $x|_A$ the restriction of $x$ to $A$,
+extended by zero. For a subspace $P\subset\ellone{\Gamma}$ we put
+$P_\delta=P\cap\ellone{\Gamma_\delta}$.
+
+\begin{theorem}\label{TransfiniteBackAndForth} Let $\Gamma$ be a set, $P$ be
+    a dense subspace of $\ellone{\Gamma}$ and ${(\Gamma_\delta)}_{\delta\leq\kappa}$
+    be a countable filtration of $\Gamma$ such that
+    \begin{enumerate}[label = (\roman*)]
+        \item $P_\delta$ is dense in $\ellone{\Gamma_\delta}$ for every
+              $\delta\leq\kappa$;
+        \item $P_\delta=\bigcup_{\delta'<\delta}P_{\delta'}$ for every limit
+              ordinal $\delta\leq\kappa$;
+        \item $P_{\delta+1}/P_\delta$ has at most countable algebraic
+              dimension for every $\delta<\kappa$.
+    \end{enumerate}
+    Then for every $\varepsilon>0$ there exists a linear bijection
+    $T:\ellone{\Gamma}\to\ellone{\Gamma}$ with
+    $\norm{T}\norm{T^{-1}}\leq 1+\varepsilon$ and $T(P)=\lo{\Gamma}$. In
+    particular, $\BM(P,\lo{\Gamma})=1$ and $P$ is extremally projective.
+\end{theorem}
+\begin{proof} Fix $0<\theta<1/2$ with ${(1+\theta)}^2{(1-\theta)}^{-1}\leq 1+\varepsilon$.
+    We shall construct by transfinite recursion, for every $\delta<\kappa$,
+    a bounded linear operator $V_\delta:\ellone{N_\delta}\to\ellone{\Gamma_\delta}$
+    with $\norm{V_\delta}\leq\theta$ and a linear bijection $U_\delta$ of
+    $\ellone{N_\delta}$ with $\norm{U_\delta}\leq 1+\theta$ and
+    $\norm{U_\delta^{-1}}\leq 1$. For $\delta\leq\kappa$ and $x\in\ellone{\Gamma_\delta}$
+    put
+    \[
+    W_\delta(x)=x+\sum_{\delta'<\delta}V_{\delta'}(x|_{N_{\delta'}}),\qquad
+    U_{<\delta}(x)=\sum_{\delta'<\delta}U_{\delta'}(x|_{N_{\delta'}}),\qquad
+    T_\delta=U_{<\delta}W_\delta.
+    \]
+    Since the sets $N_{\delta'}$ are pairwise disjoint and
+    $\norm{x}=\sum_{\delta'<\delta}\norm{x|_{N_{\delta'}}}$, the series defining
+    $W_\delta(x)$ converges absolutely in $\ellone{\Gamma_\delta}$,
+    $\norm{W_\delta-1}\leq\theta$, so $W_\delta$ is a linear bijection of
+    $\ellone{\Gamma_\delta}$ with $\norm{W_\delta^{-1}}\leq{(1-\theta)}^{-1}$;
+    the operator $U_{<\delta}$ is the $\ell_1$-sum of the operators
+    $U_{\delta'}$, so it is a linear bijection of $\ellone{\Gamma_\delta}$ with
+    $\norm{U_{<\delta}}\leq 1+\theta$ and $\norm{U_{<\delta}^{-1}}\leq 1$.
+    Hence $T_\delta$ is a linear bijection of $\ellone{\Gamma_\delta}$ with
+    $\norm{T_\delta}\norm{T_\delta^{-1}}\leq{(1+\theta)}^2{(1-\theta)}^{-1}\leq 1+\varepsilon$.
+    Moreover, for $\delta'<\delta$ the operator $T_\delta$ coincides with
+    $T_{\delta'}$ on $\ellone{\Gamma_{\delta'}}$, because for
+    $x\in\ellone{\Gamma_{\delta'}}$ we have $x|_{N_{\delta''}}=0$ for
+    $\delta''\geq\delta'$. The operators $V_\delta$ and $U_\delta$ will be
+    chosen so that
+    \begin{equation}\label{InductiveClaim}
+    T_\delta(P_\delta)=\lo{\Gamma_\delta}\quad\text{for all }\delta\leq\kappa.
+    \end{equation}
+    Then $T=T_\kappa$ is the required operator.
+
+    Let $\delta<\kappa$ and suppose that $V_{\delta'}$ and $U_{\delta'}$ have
+    been constructed for all $\delta'<\delta$ in such a way that
+    \eqref{InductiveClaim} holds for all ordinals $\leq\delta$ (this is the
+    recursion hypothesis; for $\delta=0$ it is trivial, since $\Gamma_0=\varnothing$).
+    We construct $V_\delta$ and $U_\delta$ so that \eqref{InductiveClaim}
+    holds for $\delta+1$; note that \eqref{InductiveClaim} for a limit
+    ordinal $\lambda\leq\kappa$ follows from \eqref{InductiveClaim} for all
+    $\delta<\lambda$, because by $(ii)$ and the compatibility of the operators
+    $T_\delta$ we have
+    $T_\lambda(P_\lambda)=\bigcup_{\delta<\lambda}T_\delta(P_\delta)
+    =\bigcup_{\delta<\lambda}\lo{\Gamma_\delta}=\lo{\Gamma_\lambda}$.
+
+    Consider the subspace $D=\{x|_{N_\delta}:x\in P_{\delta+1}\}$ of
+    $\ellone{N_\delta}$. It is dense in $\ellone{N_\delta}$, because $P_{\delta+1}$
+    is dense in $\ellone{\Gamma_{\delta+1}}$ by $(i)$ and the restriction map
+    $x\mapsto x|_{N_\delta}$ is a contractive surjection of
+    $\ellone{\Gamma_{\delta+1}}$ onto $\ellone{N_\delta}$. The kernel of this
+    map on $P_{\delta+1}$ is $P_{\delta+1}\cap\ellone{\Gamma_\delta}=P_\delta$,
+    so $D$ is isomorphic as a vector space to $P_{\delta+1}/P_\delta$ and
+    has at most countable algebraic dimension by $(iii)$. If $N_\delta$ is
+    finite, then $D=\ellone{N_\delta}=\lo{N_\delta}$, and we put $A=1_{\ellone{N_\delta}}$.
+    If $N_\delta$ is countably infinite, then by theorem~\ref{BackAndForth}
+    there is a linear bijection $A$ of $\ellone{N_\delta}$ with
+    $A(D)=\lo{N_\delta}$ and $\norm{A}\norm{A^{-1}}\leq 1+\theta$; multiplying
+    $A$ by a scalar we may assume that $\norm{A^{-1}}\leq 1$ and
+    $\norm{A}\leq 1+\theta$. If $N_\delta=\varnothing$, then
+    $P_{\delta+1}=P_\delta$, $T_{\delta+1}=T_\delta$ and there is nothing to
+    prove, so we assume that $N_\delta\neq\varnothing$. Put $U_\delta=A$ and
+    $y_n=A^{-1}(e_n)$ for $n\in N_\delta$. Then ${(y_n)}_{n\in N_\delta}$ is a Hamel basis of $D$ and
+    \[
+    \Bigl\lVert\sum_{n}c_ny_n\Bigr\rVert\geq\norm{A}^{-1}\Bigl\lVert\sum_n c_ne_n\Bigr\rVert
+    \geq{(1+\theta)}^{-1}\sum_n|c_n|
+    \]
+    for all finitely supported families ${(c_n)}_{n\in N_\delta}$ of scalars.
+    For every $n\in N_\delta$ choose $x_n\in P_{\delta+1}$ with
+    $x_n|_{N_\delta}=y_n$. Since $P_\delta$ is dense in $\ellone{\Gamma_\delta}$
+    by $(i)$, the coset $-x_n|_{\Gamma_\delta}+P_\delta$ is dense in
+    $\ellone{\Gamma_\delta}$, and we can choose $z_n\in\ellone{\Gamma_\delta}$ with
+    \[
+    x_n|_{\Gamma_\delta}+z_n\in P_\delta,\qquad\norm{z_n}\leq\theta{(1+\theta)}^{-2}.
+    \]
+    Define $V_\delta$ on $D$ by $V_\delta(\sum_n c_ny_n)=\sum_n c_nW_\delta(z_n)$.
+    Then
+    \[
+    \Bigl\lVert V_\delta\Bigl(\sum_n c_ny_n\Bigr)\Bigr\rVert
+    \leq\norm{W_\delta}\,\theta{(1+\theta)}^{-2}\sum_n|c_n|
+    \leq\theta{(1+\theta)}^{-1}\sum_n|c_n|
+    \leq\theta\Bigl\lVert\sum_n c_ny_n\Bigr\rVert,
+    \]
+    so $V_\delta$ extends by continuity to a bounded linear operator
+    $V_\delta:\ellone{N_\delta}\to\ellone{\Gamma_\delta}$ with $\norm{V_\delta}\leq\theta$.
+
+    We claim that
+    \begin{equation}\label{KeyInclusion}
+    x|_{\Gamma_\delta}+W_\delta^{-1}V_\delta(x|_{N_\delta})\in P_\delta
+    \quad\text{for every }x\in P_{\delta+1}.
+    \end{equation}
+    Indeed, write $x|_{N_\delta}=\sum_n c_ny_n$ with finitely many non-zero
+    $c_n$. Then $x-\sum_n c_nx_n\in P_{\delta+1}$ vanishes on $N_\delta$, so it
+    belongs to $P_\delta$, and hence
+    $x|_{\Gamma_\delta}=\sum_n c_nx_n|_{\Gamma_\delta}+p$ for some $p\in P_\delta$.
+    Therefore
+    \[
+    x|_{\Gamma_\delta}+W_\delta^{-1}V_\delta(x|_{N_\delta})
+    =\sum_n c_n\bigl(x_n|_{\Gamma_\delta}+z_n\bigr)+p\in P_\delta.
+    \]
+
+    Now let $x\in P_{\delta+1}$. Since $W_{\delta+1}(x)=W_\delta(x|_{\Gamma_\delta})
+    +V_\delta(x|_{N_\delta})+x|_{N_\delta}$ and $U_{<\delta+1}$ acts as
+    $U_{<\delta}$ on $\ellone{\Gamma_\delta}$ and as $U_\delta$ on
+    $\ellone{N_\delta}$, we get
+    \[
+    T_{\delta+1}(x)=U_{<\delta}W_\delta\bigl(x|_{\Gamma_\delta}+W_\delta^{-1}V_\delta(x|_{N_\delta})\bigr)
+    +U_\delta(x|_{N_\delta})
+    =T_\delta\bigl(x|_{\Gamma_\delta}+W_\delta^{-1}V_\delta(x|_{N_\delta})\bigr)
+    +A(x|_{N_\delta}).
+    \]
+    By \eqref{KeyInclusion} and \eqref{InductiveClaim} for $\delta$, the
+    first summand belongs to $\lo{\Gamma_\delta}$, and the second one belongs
+    to $A(D)=\lo{N_\delta}$. Hence $T_{\delta+1}(P_{\delta+1})\subset\lo{\Gamma_{\delta+1}}$.
+    Conversely, $\lo{\Gamma_\delta}=T_\delta(P_\delta)=T_{\delta+1}(P_\delta)
+    \subset T_{\delta+1}(P_{\delta+1})$, and for every $n\in N_\delta$ the
+    above formula gives $T_{\delta+1}(x_n)\in\lo{\Gamma_\delta}+A(y_n)
+    =\lo{\Gamma_\delta}+e_n$, so $e_n\in T_{\delta+1}(P_{\delta+1})$. Thus,
+    $T_{\delta+1}(P_{\delta+1})=\lo{\Gamma_{\delta+1}}$, which completes the
+    recursion and the proof.
+\end{proof}
+
+Example~\ref{LadderSpace} shows that condition $(ii)$ of
+theorem~\ref{TransfiniteBackAndForth} cannot be dropped: for the filtration
+$\Gamma_\delta=\delta$ of $\omega_1$ the space $P_L$ satisfies $(i)$ and
+$(iii)$, but fails $(ii)$ at every limit ordinal. On the other hand,
+corollary~\ref{OmegaOneContinuity} says that for a topologically projective
+space condition $(ii)$ holds on a closed unbounded set of limit ordinals. For
+sets $\Gamma$ of cardinality at most $\aleph_1$ this allows us to prove the
+converse of theorem~\ref{TransfiniteBackAndForth}.
+
+\begin{theorem}\label{AlephOneTheorem} Let $\Gamma$ be a set of cardinality
+    at most $\aleph_1$ and $P$ be a dense subspace of $\ellone{\Gamma}$. Then
+    the following conditions are equivalent:
+    \begin{enumerate}[label = (\roman*)]
+        \item $P$ is topologically projective;
+        \item $P$ is extremally projective;
+        \item $\BM(P,\lo{\Gamma})=1$;
+        \item $P$ admits a countable filtration of $\Gamma$ satisfying
+              conditions $(i)$--$(iii)$ of theorem~\ref{TransfiniteBackAndForth}.
+    \end{enumerate}
+\end{theorem}
+\begin{proof} $(iv)\implies(iii)\implies(ii)$ by
+    theorem~\ref{TransfiniteBackAndForth} and theorem~\ref{ExtrProjCriterion},
+    and $(ii)\implies(i)$ is trivial. It remains to prove $(i)\implies(iv)$.
+    If $\Gamma$ is countable, then $P$ has countable algebraic dimension by
+    theorem~\ref{SeparableSubspaces}, and the filtration $\Gamma_0=\varnothing$,
+    $\Gamma_1=\Gamma$ satisfies $(i)$--$(iii)$. So let $\Gamma$ be
+    uncountable, and let ${(\gamma_\xi)}_{\xi<\omega_1}$ be an enumeration of
+    $\Gamma$. Since $P$ is dense in $\ellone{\Gamma}$, for every $\gamma\in\Gamma$
+    we can fix a sequence ${(p^\gamma_n)}_{n\in\mathbb{N}}$ in $P$ converging
+    to $e_\gamma$. We say that a subset $A\subset\Gamma$ is closed if
+    $\supp(p^\gamma_n)\subset A$ for all $\gamma\in A$ and $n\in\mathbb{N}$.
+    Every countable subset of $\Gamma$ is contained in a countable closed
+    subset, because the supports of the elements of $\ellone{\Gamma}$ are
+    countable, and unions of increasing families of closed sets are closed.
+    By transfinite recursion we construct an increasing family
+    ${(\Gamma_\delta)}_{\delta<\omega_1}$ of countable closed subsets of
+    $\Gamma$ with $\Gamma_0=\varnothing$, $\gamma_\delta\in\Gamma_{\delta+1}$
+    and $\Gamma_\delta=\bigcup_{\delta'<\delta}\Gamma_{\delta'}$ for limit
+    $\delta$; then $\bigcup_{\delta<\omega_1}\Gamma_\delta=\Gamma$. If $A$ is
+    closed, then $P\cap\ellone{A}$ contains the sequences $p^\gamma_n$,
+    $\gamma\in A$, so it is dense in $\ellone{A}$. Thus, the chain
+    ${(P_\delta)}_{\delta<\omega_1}$ satisfies condition $(i)$. Every $P_\delta$
+    is a separable subspace of $P$, so by theorem~\ref{SeparableSubspaces} it
+    has countable algebraic dimension, and condition $(iii)$ holds for every
+    subfamily of our chain.
+
+    For $\beta<\omega_1$ let $X_\beta$ be a Hamel basis of $P_{\beta+1}$; it
+    is countable. For $\alpha<\omega_1$ put
+    $D_\alpha=\overline{\Lin}\bigl(\bigcup_{\beta<\alpha}X_\beta\bigr)$, the
+    closure being taken in $P$. We claim that $D_\alpha=P_\alpha$ for all
+    $\alpha<\omega_1$. For $\alpha=0$ both spaces are zero. If
+    $\alpha=\beta+1$, then $\Lin\bigcup_{\beta'<\alpha}X_{\beta'}=
+    \bigcup_{\beta'\leq\beta}P_{\beta'+1}=P_{\beta+1}$, which is closed in $P$
+    because $\ellone{\Gamma_{\beta+1}}$ is closed in $\ellone{\Gamma}$. If
+    $\alpha$ is a limit ordinal, then
+    $\Lin\bigcup_{\beta<\alpha}X_\beta=\bigcup_{\beta<\alpha}P_\beta$ is dense
+    in $\bigcup_{\beta<\alpha}\ellone{\Gamma_\beta}$ by $(i)$, which in turn
+    is dense in $\ellone{\Gamma_\alpha}$, because $\Gamma_\alpha=\bigcup_{\beta<\alpha}\Gamma_\beta$;
+    hence $D_\alpha=P\cap\ellone{\Gamma_\alpha}=P_\alpha$. By
+    corollary~\ref{OmegaOneContinuity} there is a closed unbounded set
+    $C\subset\omega_1$ consisting of limit ordinals such that
+    $P_\alpha=\bigcup_{\alpha'<\alpha}P_{\alpha'}$ for all $\alpha\in C$.
+    Let ${(c_\nu)}_{\nu<\omega_1}$ be the increasing enumeration of $C$ and
+    put $\Gamma'_0=\varnothing$, $\Gamma'_\nu=\Gamma_{c_\nu}$ for
+    $1\leq\nu<\omega_1$ and $\Gamma'_{\omega_1}=\Gamma$. Since $C$ is closed,
+    $c_\nu=\sup_{\mu<\nu}c_\mu$ for every limit ordinal $\nu$, so
+    ${(\Gamma'_\nu)}_{\nu\leq\omega_1}$ is a countable filtration of $\Gamma$
+    (the sets $\Gamma'_{\nu+1}\setminus\Gamma'_\nu$ are countable as subsets
+    of the countable sets $\Gamma_{c_{\nu+1}}$). Condition $(i)$ for this
+    filtration has already been verified, and $(iii)$ holds because all the
+    spaces $P_{c_\nu}$ have countable algebraic dimension. Finally, let
+    $\nu\leq\omega_1$ be a limit ordinal. If $\nu=\omega_1$, then
+    $P=\bigcup_{\nu'<\omega_1}P_{c_{\nu'}}$, because every element of $P$ has
+    countable support, which is contained in some $\Gamma_{c_{\nu'}}$. If
+    $\nu<\omega_1$, then $c_\nu\in C$ and
+    $P_{c_\nu}=\bigcup_{\alpha'<c_\nu}P_{\alpha'}=\bigcup_{\mu<\nu}P_{c_\mu}$.
+    This is condition $(ii)$.
+\end{proof}
+
+\begin{corollary}\label{AlephOneCorollary} Let $P$ be a normed space whose
+    completion is isometrically isomorphic to $\ellone{\Gamma}$ for a set
+    $\Gamma$ of cardinality at most $\aleph_1$. Then $P$ is extremally
+    projective if and only if it is topologically projective, and in this case
+    $\BM(P,\lo{\Gamma})=1$. In particular, every extremally projective normed
+    space of algebraic dimension at most $\aleph_1$ is almost isometric to
+    $\lo{\Gamma}$ for a set $\Gamma$ of the same cardinality.
+\end{corollary}
+\begin{proof} The first claim is theorem~\ref{AlephOneTheorem} applied to
+    the image of $P$ in $\ellone{\Gamma}$. If $P$ is extremally projective of
+    algebraic dimension at most $\aleph_1$, then by theorem~\ref{CompletionIsEllOne}
+    its completion is $\ellone{\Gamma}$ for some $\Gamma$, and the
+    cardinality of $\Gamma$, being the density character of $P$, is at most
+    the algebraic dimension of $P$; by theorem~\ref{AlephOneTheorem}
+    $\BM(P,\lo{\Gamma})=1$, and then $\Gamma$ has the same cardinality as the
+    algebraic dimension of $P$.
+\end{proof}
+
+Thus, Gr{\o}nb{\ae}k's conjecture \cite[conjecture 3.1]{GronLiftProbNormSp}
+holds in the almost isometric form for all normed spaces of dimension at most
+$\aleph_1$. The only place where the cardinality restriction was used is the
+verification of condition $(iii)$ in the proof of theorem~\ref{AlephOneTheorem}:
+for a countable filtration of a set of cardinality greater than $\aleph_1$
+the spaces $P_\delta$ are no longer separable, and we do not know whether the
+quotients $P_{\delta+1}/P_\delta$ can always be made countable dimensional by
+a suitable choice of the filtration.
+
+\begin{question}\label{OpenQuestion} Let $P$ be a topologically projective
+    dense subspace of $\ellone{\Gamma}$, where $\Gamma$ has cardinality
+    greater than $\aleph_1$. Does $P$ admit a countable filtration of $\Gamma$
+    satisfying conditions $(i)$--$(iii)$ of theorem~\ref{TransfiniteBackAndForth}?
+    Is $\BM(P,\lo{\Gamma})=1$?
 \end{question}
 
-Let us comment on the possible approach to question~\ref{OpenQuestion}. The
-proof of the theorem of Gr{\o}nb{\ae}k consists of two steps: a transfinite
+Let us finally compare theorem~\ref{TransfiniteBackAndForth} with the proof
+of the theorem of Gr{\o}nb{\ae}k, which consists of two steps: a transfinite
 construction which finds in every subspace $Y$ of $\lo{\Lambda}$ a
 complemented subspace isomorphic to $\lo{\Lambda'}$, where the cardinality of
 $\Lambda'$ is the density character of $Y$
@@ -1287,15 +1566,10 @@ Pe{\l}czy\'nski \cite[proposition 2.3]{GronLiftProbNormSp}. An inspection of
 the first step shows that it produces, for every $\varepsilon>0$, a subspace
 which is $(1+\varepsilon)$-isomorphic to $\lo{\Lambda'}$ and
 $(1+\varepsilon)$-complemented, so the constants are lost only in the second
-step. In the countable case theorem~\ref{BackAndForth} replaces the
-decomposition method by a back-and-forth construction whose perturbations
-form a convergent infinite product. For uncountable $\Gamma$ such a product
-can only converge if all but countably many of its factors act on pairwise
-disjoint blocks of coordinates. Corollary~\ref{OmegaOneContinuity} suggests
-that an extremally projective space should admit a continuous transfinite
-chain of countably generated subspaces along which the construction could be
-carried out, and example~\ref{LadderSpace} shows that the limit stages of
-such a chain are precisely the place where the construction may break down.
+step. Theorems~\ref{BackAndForth} and~\ref{TransfiniteBackAndForth} replace
+the decomposition method by back-and-forth constructions which keep the
+constants, at the price of the continuity condition $(ii)$, which, as
+example~\ref{LadderSpace} shows, is not available for free.
 
 \begin{thebibliography}{999}
     %
