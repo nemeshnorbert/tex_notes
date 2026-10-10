@@ -60,7 +60,7 @@ this question in the negative and prove that the conjecture holds in the
 almost isometric form: a normed space $P$ is extremally projective if and only
 if it is topologically projective and its completion is isometrically
 isomorphic to $\ellone{\Gamma}$ for some set $\Gamma$, if and only if the
-Banach-Mazur distance between $P$ and $\lo{\Gamma}$ equals $1$. For spaces of
+Banach--Mazur distance between $P$ and $\lo{\Gamma}$ equals $1$. For spaces of
 countable dimension this means that $P$ is extremally projective if and only
 if its completion is isometrically isomorphic to $\ell_1$ or $\ell_1^n$. The
 proof is a transfinite back-and-forth construction. Along the way we show that
@@ -68,11 +68,11 @@ extremally projective normed spaces contain no infinite dimensional complete
 subspaces, so that no infinite dimensional Banach space is extremally
 projective in the category of normed spaces, and we use Fodor's lemma to
 construct a dense subspace of $\ellone{\omega_1}$ all of whose separable
-subspaces have countable dimension which is not topologically projective.
+subspaces have countable dimension but which is not topologically projective.
 \medskip
 
 \textbf{Keywords:} projective normed space, topological projectivity, extremal
-projectivity, Banach-Mazur distance, $\ell_1$-space.
+projectivity, Banach--Mazur distance, $\ell_1$-space.
 
 \bigskip
 
@@ -165,7 +165,7 @@ of the initial segments of an $\omega_1$-sequence of vectors in a
 topologically projective normed space must behave continuously at almost all
 limit stages. Using this we construct a dense subspace of $\ellone{\omega_1}$,
 built from a ladder system on $\omega_1$, which is not topologically
-projective although all its separable subspaces have countable dimension and
+projective, although all its separable subspaces have countable dimension and
 all its countably generated pieces are extremally projective. Thus, for
 uncountable $\Lambda$ the question of Helemskii on dense subspaces of
 $\ellone{\Lambda}$ does not reduce to the countable case: a dense subspace of
@@ -198,7 +198,7 @@ coisometric if it is contractive and $1$-topologically surjective, that is, if
 $\xi(B_X^\circ)=B_Y^\circ$. Equivalently, $\xi$ is $c$-topologically surjective
 if for every $y\in Y$ and every $\delta>0$ there exists $x\in X$ with
 $\xi(x)=y$ and $\norm{x}<c\norm{y}+\delta$. A linear bijection $T:E\to F$ is
-called a $c$-isomorphism if $\norm{T}\norm{T^{-1}}\leq c$. The Banach-Mazur
+called a $c$-isomorphism if $\norm{T}\norm{T^{-1}}\leq c$. The Banach--Mazur
 distance between $E$ and $F$ is
 \[
 \BM(E,F)=\inf\{\norm{T}\norm{T^{-1}}:T:E\to F \mbox{ is a linear bijection}\},
@@ -236,11 +236,12 @@ to $(1+\varepsilon)$-retracts, and a normed space is extremally projective if
 and only if it is a $(1+\varepsilon)$-retract of a free normed space for every
 $\varepsilon>0$. In section~\ref{SectionNecessaryConditions} we discuss the
 dimension restrictions on topologically projective normed spaces.
-Section~\ref{SectionCounterexample} contains the counterexample to the
-question of Helemskii and Gr{\o}nb{\ae}k. Section~\ref{SectionMainTheorem} is
-devoted to the almost isometric characterization of extremally projective
-normed spaces of countable dimension, and section~\ref{SectionUncountable} to
-spaces of uncountable dimension.
+Section~\ref{SectionMainTheorem} is devoted to the almost isometric
+characterization of extremally projective normed spaces of countable
+dimension, and section~\ref{SectionCounterexample} contains the
+counterexample to the question of Helemskii and Gr{\o}nb{\ae}k.
+Section~\ref{SectionUncountable} treats spaces of uncountable dimension; it
+contains the ladder space example and the main theorem.
 
 %-------------------------------------------------------------------------------
 %	Basic theory
@@ -249,30 +250,17 @@ spaces of uncountable dimension.
 \section{Basic properties of extremally projective normed
   spaces}\label{SectionBasicTheory}
 
-We start with the free objects of $\Nor$. The following proposition is
-\cite[proposition 2.2]{HelExtrProjSeqAlg} with explicit constants; we include
-the short proof for completeness.
+We start with the free objects of $\Nor$.
 
 \begin{proposition}\label{FreeIsExtrProj} Let $\Lambda$ be a set. Then
     $\lo{\Lambda}$ is $(1+\varepsilon)$-topologically projective for every
     $\varepsilon>0$. In particular, $\lo{\Lambda}$ is extremally projective.
 \end{proposition}
-\begin{proof} Let $\xi:X\to Y$ be a $c$-topologically surjective operator and
-    $\phi:\lo{\Lambda}\to Y$ be a bounded linear operator. Fix
-    $\varepsilon>0$. For every $\lambda\in\Lambda$ put $y_\lambda=\phi(e_\lambda)$,
-    so $\norm{y_\lambda}\leq\norm{\phi}$. If $y_\lambda=0$, put $x_\lambda=0$.
-    Otherwise $(1+\varepsilon)^{-1}\norm{y_\lambda}^{-1}y_\lambda\in B_Y^\circ$,
-    so there exists $x_\lambda'\in B_X^\circ$ with
-    $c\,\xi(x_\lambda')=(1+\varepsilon)^{-1}\norm{y_\lambda}^{-1}y_\lambda$.
-    Put $x_\lambda=c(1+\varepsilon)\norm{y_\lambda}x_\lambda'$, then
-    $\xi(x_\lambda)=y_\lambda$ and
-    $\norm{x_\lambda}<c(1+\varepsilon)\norm{y_\lambda}\leq
-    c(1+\varepsilon)\norm{\phi}$. Since the family
-    ${(x_\lambda)}_{\lambda\in\Lambda}$ is bounded, there is a bounded linear
-    operator $\psi:\lo{\Lambda}\to X$ with $\psi(e_\lambda)=x_\lambda$ for all
-    $\lambda\in\Lambda$ and $\norm{\psi}=\sup_{\lambda}\norm{x_\lambda}\leq
-    c(1+\varepsilon)\norm{\phi}$. Finally, $\xi\psi$ and $\phi$ coincide on
-    the Hamel basis ${(e_\lambda)}_{\lambda\in\Lambda}$, so $\xi\psi=\phi$.
+\begin{proof} By \cite[proposition 2.2]{HelExtrProjSeqAlg} the space
+    $\lo{\Lambda}$ is extremely projective in the sense of Helemskii, see
+    proposition~\ref{EquivWithHelemskii} below, and the proof of that
+    proposition shows that extreme projectivity gives exactly
+    $(1+\varepsilon)$-topological projectivity for every $\varepsilon>0$.
 \end{proof}
 
 The constant $1+\varepsilon$ in proposition~\ref{FreeIsExtrProj} cannot be
@@ -295,7 +283,7 @@ in $\Nor$.
     a finitely supported sequence. Thus, $f(B_X)=f(B_X^\circ)=B^\circ_\mathbb{C}$.
 
     Now let $P$ be a non-zero $1$-topologically projective normed space. Take
-    $p\in P$ with $\norm{p}=1$ and, by the Hahn-Banach theorem, a functional
+    $p\in P$ with $\norm{p}=1$ and, by the Hahn--Banach theorem, a functional
     $g\in P^*$ with $\norm{g}=g(p)=1$. Lifting $g$ along the coisometric
     operator $f$ we get an operator $\psi:P\to X$ with $f\psi=g$ and
     $\norm{\psi}\leq 1$. Then $x=\psi(p)\in B_X$ and $f(x)=g(p)=1$, which
@@ -376,10 +364,9 @@ $\norm{\psi}<\norm{\phi}+\delta$.
     $P$ is extremally projective.
 \end{proof}
 
-Next we record the standard permanence properties. The proofs are the same as
-in the Banach case, see \cite[lemma 2.7]{WhiteInjmoduAlg} or
-\cite[proposition 2.1.3]{NemMetrTopHomol}, and we include them only for
-completeness; for the second part of the next proposition see also
+Next we record the standard permanence property of projectivity. The proof
+is the same as in the Banach case, see \cite[lemma 2.7]{WhiteInjmoduAlg} or
+\cite[proposition 2.1.3]{NemMetrTopHomol}; for the second part see also
 \cite[proposition 1.1]{HelExtrProjSeqAlg}.
 
 \begin{proposition}\label{RetractOfProj} Let $P'$ be a $C$-topologically
@@ -388,15 +375,6 @@ completeness; for the second part of the next proposition see also
     $(1+\varepsilon)$-retract of an extremally projective normed space for every
     $\varepsilon>0$ is extremally projective.
 \end{proposition}
-\begin{proof} Let $\zeta:P'\to P$ and $\eta:P\to P'$ be bounded linear
-    operators with $\zeta\eta=1_P$ and $\norm{\zeta}\norm{\eta}\leq c$.
-    Consider a $c'$-topologically surjective operator $\xi:X\to Y$ and a
-    bounded linear operator $\phi:P\to Y$. By $C$-topological projectivity of
-    $P'$ there is a lifting $\psi':P'\to X$ of $\phi\zeta$ along $\xi$ with
-    $\norm{\psi'}\leq c'C\norm{\phi\zeta}$. Then $\psi=\psi'\eta$ satisfies
-    $\xi\psi=\phi\zeta\eta=\phi$ and $\norm{\psi}\leq
-    c'C\norm{\phi}\norm{\zeta}\norm{\eta}\leq c'cC\norm{\phi}$.
-\end{proof}
 
 For a normed space $P$ consider the operator
 \[
@@ -470,34 +448,6 @@ $<1+\varepsilon$ for every $\varepsilon>0$.
     arbitrary, $P$ is extremally projective.
 \end{proof}
 
-We finish this section with a simple way of constructing new extremally
-projective spaces from old ones. For a family ${(P_\lambda)}_{\lambda\in\Lambda}$
-of normed spaces we denote by $\bigoplus_1^0\{P_\lambda:\lambda\in\Lambda\}$
-the subspace of the $\ell_1$-sum $\bigoplus_1\{P_\lambda:\lambda\in\Lambda\}$
-consisting of families with finitely many non-zero members. Clearly,
-$\bigoplus_1^0\{\mathbb{C}:\lambda\in\Lambda\}=\lo{\Lambda}$.
-
-\begin{proposition}\label{SumsOfExtrProj} Let ${(P_\lambda)}_{\lambda\in\Lambda}$
-    be a family of extremally projective normed spaces. Then
-    $\bigoplus_1^0\{P_\lambda:\lambda\in\Lambda\}$ is extremally projective.
-    If $\Lambda$ is finite, then
-    $\bigoplus_1\{P_\lambda:\lambda\in\Lambda\}$ is extremally projective.
-\end{proposition}
-\begin{proof} Fix $\varepsilon>0$. By theorem~\ref{ExtrProjCriterion} for
-    every $\lambda\in\Lambda$ there are a set $S_\lambda$ and operators
-    $\zeta_\lambda:\lo{S_\lambda}\to P_\lambda$, $\eta_\lambda:P_\lambda\to\lo{S_\lambda}$
-    with $\zeta_\lambda\eta_\lambda=1_{P_\lambda}$, $\norm{\zeta_\lambda}\leq 1$
-    and $\norm{\eta_\lambda}\leq 1+\varepsilon$. Let $S$ be the disjoint union of
-    the sets $S_\lambda$. Then
-    $\lo{S}=\bigoplus_1^0\{\lo{S_\lambda}:\lambda\in\Lambda\}$ isometrically,
-    and the operators $\zeta=\bigoplus_1^0\zeta_\lambda$ and
-    $\eta=\bigoplus_1^0\eta_\lambda$ are well defined bounded linear operators
-    between $\lo{S}$ and $P=\bigoplus_1^0\{P_\lambda:\lambda\in\Lambda\}$ with
-    $\zeta\eta=1_P$, $\norm{\zeta}\leq 1$ and $\norm{\eta}\leq 1+\varepsilon$.
-    By theorem~\ref{ExtrProjCriterion} the space $P$ is extremally projective.
-    For finite $\Lambda$ the sums $\bigoplus_1$ and $\bigoplus_1^0$ coincide.
-\end{proof}
-
 %-------------------------------------------------------------------------------
 %	Necessary conditions
 %-------------------------------------------------------------------------------
@@ -516,23 +466,28 @@ Helemskii proved that a separable topologically projective normed space has at
 most countable algebraic dimension \cite[proposition 2.4]{HelExtrProjSeqAlg},
 and deduced that $\ellone{\Lambda}$ is not topologically projective in $\Nor$
 for any infinite set $\Lambda$ \cite[proposition 2.5]{HelExtrProjSeqAlg}. His
-argument applies verbatim to separable subspaces of non-separable spaces, and
-in this hereditary form it will be convenient for us.
+argument applies verbatim to subspaces of arbitrary density character, and in
+this hereditary form it will be convenient for us.
 
 \begin{theorem}\label{SeparableSubspaces} Let $P$ be a topologically
-    projective normed space. Then every separable subspace of $P$ has at most
-    countable algebraic dimension.
+    projective normed space and $Z$ be a subspace of $P$. Then the algebraic
+    dimension of $Z$ is at most $\max(\operatorname{dens}(Z),\aleph_0)$,
+    where $\operatorname{dens}(Z)$ is the density character of $Z$, that is,
+    the smallest cardinality of a dense subset of $Z$. In particular, every
+    separable subspace of $P$ has at most countable algebraic dimension.
 \end{theorem}
 \begin{proof} By proposition~\ref{CanonicalMorphismCriterion}~$(i)$ there
     exists a bounded linear operator $\sigma:P\to\lo{B_P}$ with
-    $\pi_P\sigma=1_P$; in particular, $\sigma$ is injective. Let $Z$ be a
-    separable subspace of $P$ and $M$ be a countable dense subset of $Z$. The
-    set $S_0=\bigcup_{x\in M}\supp(\sigma(x))$ is countable. If $z\in Z$, then
-    $\sigma(z)$ is the limit in $\ellone{B_P}$ of a sequence of elements of
-    $\sigma(M)$, which are supported in $S_0$; since the coordinate
+    $\pi_P\sigma=1_P$; in particular, $\sigma$ is injective. Let $M$ be a
+    dense subset of $Z$ of cardinality $\operatorname{dens}(Z)$ and
+    $S_0=\bigcup_{x\in M}\supp(\sigma(x))$; since the supports are finite,
+    $S_0$ has cardinality at most $\max(\operatorname{dens}(Z),\aleph_0)$. If
+    $z\in Z$, then $\sigma(z)$ is the limit in $\ellone{B_P}$ of a sequence of
+    elements of $\sigma(M)$, which are supported in $S_0$; since the coordinate
     functionals are continuous, $\sigma(z)$ is supported in $S_0$ as well.
-    Thus, $\sigma(Z)\subset\lo{S_0}=\Lin\{e_s:s\in S_0\}$, a space of countable
-    algebraic dimension, and $\sigma|_Z$ is injective.
+    Thus, $\sigma(Z)\subset\lo{S_0}=\Lin\{e_s:s\in S_0\}$, a space whose
+    algebraic dimension is the cardinality of $S_0$, and $\sigma|_Z$ is
+    injective.
 \end{proof}
 
 \begin{corollary}\label{NoCompleteSubspaces} Let $P$ be a topologically
@@ -541,7 +496,8 @@ in this hereditary form it will be convenient for us.
     $\norm{z}\leq K\norm{z}'$ for all $z\in Z$ and some constant $K>0$. Then
     $Z$ is finite dimensional. In particular, every complete subspace of $P$
     is finite dimensional, and no infinite dimensional Banach space is
-    topologically projective in $\Nor$.
+    topologically projective in $\Nor$ (for the spaces $\ellone{\Lambda}$ this
+    is \cite[proposition 2.5]{HelExtrProjSeqAlg}).
 \end{corollary}
 \begin{proof} Assume that $Z$ is infinite dimensional. Choose a linearly
     independent sequence ${(z_n)}_{n\in\mathbb{N}}$ in $Z$ and let $Z_0$ be
@@ -562,8 +518,8 @@ of $E$. Since for infinite $\Lambda$ the algebraic dimension of $\lo{\Lambda}$
 equals the cardinality of $\Lambda$, the algebraic dimension of an infinite
 dimensional topologically projective normed space coincides with its density
 character. Theorem~\ref{SeparableSubspaces} is a hereditary version of this
-equality: it applies to all separable subspaces of $P$, which are, of course,
-not topologically projective in general.
+equality: it applies to all subspaces of $P$, which are, of course, not
+topologically projective in general.
 
 The following example shows that corollary~\ref{NoCompleteSubspaces} is
 sharper than its last claim: a normed space may have no infinite dimensional
@@ -596,7 +552,7 @@ completion.
     \norm{\cdot}_w$, by the open mapping theorem there is a constant $K$ with
     $\norm{z}_w\leq K\norm{z}$ for all $z\in Z$. Assume that $Z$ is infinite
     dimensional and fix $N\in\mathbb{N}$. The linear map $Z\to\mathbb{C}^N$,
-    $z\mapsto(z_1,\ldots,z_N)$ has a non-trivial kernel, so there exists $z\in
+    $z\mapsto(z_1,\ldots,z_N)$ has a non-zero kernel, so there exists $z\in
     Z$ with $\norm{z}=1$ and $z_n=0$ for $n\leq N$. Then
     $K\geq\norm{z}_w=\sum_{n>N}w_n|z_n|\geq\inf_{n>N}w_n$. Since $N$ is
     arbitrary and $\lim_n w_n=+\infty$, we get a contradiction.
@@ -609,26 +565,55 @@ completion.
 \end{proof}
 
 %-------------------------------------------------------------------------------
-%	Counterexample
+%	Main theorem
 %-------------------------------------------------------------------------------
 
-\section{Extremally projective spaces which are not free}\label{SectionCounterexample}
+\section{Extremally projective normed spaces of countable
+  dimension}\label{SectionMainTheorem}
 
-In this section we show that extremal projectivity is not an isometric
-invariant of the form ``$P$ is isometrically isomorphic to $\lo{\Lambda}$''.
-Our examples are subspaces of $\ell_1=\ellone{\mathbb{N}}$ containing
-$\lo{\mathbb{N}}$. For a sequence $x\in\ell_1$ and $N\in\mathbb{N}\cup\{0\}$
-we denote by $x|_N$ the sequence which coincides with $x$ at $n\leq N$ and
-vanishes at $n>N$. For a finite dimensional subspace $V$ of $\ell_1$ we
-consider the normed space
-\[
-P_V=\lo{\mathbb{N}}+V\subset\ell_1
-\]
-with the norm inherited from $\ell_1$. Clearly, $\lo{\mathbb{N}}\subset
-P_V\subset\ell_1$, so $P_V$ is dense in $\ell_1$. Since $\lo{\mathbb{N}}$ has
-countable algebraic dimension, so does $P_V$.
+We start with a necessary condition which holds in all dimensions. Recall that
+the completion $\overline{P}$ of a normed space $P$ is a Banach space containing
+$P$ as a dense subspace. Every bounded linear operator between normed spaces
+extends uniquely to a bounded linear operator between their completions with
+the same norm, and these extensions respect compositions. The following
+theorem is \cite[proposition 2.3]{HelExtrProjSeqAlg}; see also
+\cite[section 3]{GronLiftProbNormSp}.
 
-\begin{theorem}\label{OneVectorTheorem} Let $v\in\ell_1$,
+\begin{theorem}\label{CompletionIsEllOne} Let $P$ be an extremally projective
+    normed space. Then $\overline{P}$ is isometrically isomorphic to
+    $\ellone{\Gamma}$ for some set $\Gamma$.
+\end{theorem}
+\begin{proof} We only indicate the argument. By theorem~\ref{ExtrProjCriterion}
+    for every $\varepsilon>0$ the space $\overline{P}$ is a
+    $(1+\varepsilon)$-retract of the Banach space $\ellone{B_P}$, so by
+    Grothendieck's theorem \cite{GrothMetrProjFlatBanSp} in the form given
+    in~\cite[section 2]{HelExtrProjSeqAlg} (see also \cite[proposition 3.2]{HelMetrFrQMod})
+    $\overline{P}$ is isometrically isomorphic to $\ellone{\Gamma}$ for some
+    set $\Gamma$. Explicitly, taking adjoints one sees that ${\overline{P}}^*$
+    is $(1+\varepsilon)$-injective for every $\varepsilon>0$, hence
+    $1$-injective, hence isometrically isomorphic to $C(K)$ for a Stonean
+    space $K$ \cite[theorem 3.11.6]{LaceyIsomThOfClassicBanSp}; a Banach space
+    whose dual is $1$-injective is isometrically isomorphic to some
+    $L_1(\Omega,\mu)$ \cite[section 17]{LaceyIsomThOfClassicBanSp}; and
+    $\overline{P}$ has the Schur property as a complemented subspace of
+    $\ellone{B_P}$, which forces $\mu$ to be purely atomic.
+\end{proof}
+
+Theorems~\ref{SeparableSubspaces}
+and~\ref{CompletionIsEllOne} describe extremally projective normed spaces
+from two opposite sides: they are dense subspaces of the spaces
+$\ellone{\Gamma}$ which are small enough to have separable subspaces of
+countable algebraic dimension only. In this section we show that for spaces of
+countable dimension there is nothing in between: every dense subspace of
+$\ell_1$ of countable algebraic dimension is extremally projective, and even
+almost isometric to $\lo{\mathbb{N}}$. This answers the question of
+Helemskii~\cite[section 2]{HelExtrProjSeqAlg} on dense subspaces of
+$\ellone{\Lambda}$ for countable $\Lambda$. The proof is a back-and-forth
+construction based on the following three lemmas. For a sequence
+$x\in\ell_1$ and $N\in\mathbb{N}\cup\{0\}$ we denote by $x|_N$ the sequence
+which coincides with $x$ at $n\leq N$ and vanishes at $n>N$.
+
+\begin{lemma}\label{OneVectorTheorem} Let $v\in\ell_1$,
     $N\in\mathbb{N}\cup\{0\}$ and $0<\delta<1$. Then there exists a bounded
     linear operator $R:\ell_1\to\ell_1$ with $\norm{R}\leq\delta$ such that
     \begin{enumerate}[label = (\roman*)]
@@ -641,7 +626,7 @@ countable algebraic dimension, so does $P_V$.
     $\norm{T}\leq 1+\delta$ and $\norm{T^{-1}}\leq{(1-\delta)}^{-1}$ such
     that $T(x)=x$ whenever $x=x|_N$, $T(\lo{\mathbb{N}})\subset\lo{\mathbb{N}}$
     and $T(\lo{\mathbb{N}}+\mathbb{C}v)=\lo{\mathbb{N}}$.
-\end{theorem}
+\end{lemma}
 \begin{proof} Since $\norm{R}\leq\delta<1$, the operator $T=1_{\ell_1}-R$ is a
     linear bijection with $T^{-1}=\sum_{m=0}^\infty R^m$,
     $\norm{T}\leq 1+\delta$ and $\norm{T^{-1}}\leq{(1-\delta)}^{-1}$, and the
@@ -709,198 +694,6 @@ countable algebraic dimension, so does $P_V$.
     \]
 \end{proof}
 
-\begin{theorem}\label{FiniteDimPerturbation} Let $V$ be a finite dimensional
-    subspace of $\ell_1$. Then $\BM(P_V,\lo{\mathbb{N}})=1$. Consequently,
-    $P_V$ is extremally projective.
-\end{theorem}
-\begin{proof} We use induction on $m=\dim V$. If $m=0$, then
-    $P_V=\lo{\mathbb{N}}$. Let $m\geq 1$, fix $0<\delta<1$ and write
-    $V=\mathbb{C}v+V'$ with $\dim V'=m-1$. Let $T$ be the operator given by
-    theorem~\ref{OneVectorTheorem} for $v$, $N=0$ and $\delta$. Then
-    \[
-    T(P_V)=T(\lo{\mathbb{N}}+\mathbb{C}v)+T(V')=\lo{\mathbb{N}}+T(V')=P_{T(V')},
-    \]
-    and $T(V')$ is a subspace of $\ell_1$ of dimension $m-1$. The restriction
-    of $T$ to $P_V$ is a linear bijection onto $P_{T(V')}$ with
-    $\norm{T|_{P_V}}\norm{(T|_{P_V})^{-1}}\leq(1+\delta)/(1-\delta)$, so
-    $\BM(P_V,\lo{\mathbb{N}})\leq\frac{1+\delta}{1-\delta}\BM(P_{T(V')},\lo{\mathbb{N}})
-    =\frac{1+\delta}{1-\delta}$ by the induction hypothesis. Since $\delta$ is
-    arbitrary, $\BM(P_V,\lo{\mathbb{N}})=1$.
-
-    Now let $\varepsilon>0$ and let $S:P_V\to\lo{\mathbb{N}}$ be a linear
-    bijection with $\norm{S}\norm{S^{-1}}\leq 1+\varepsilon$. Then $P_V$ is a
-    $(1+\varepsilon)$-retract of $\lo{\mathbb{N}}$ via $S^{-1}$ and $S$, and by
-    propositions~\ref{FreeIsExtrProj} and~\ref{RetractOfProj} it is
-    ${(1+\varepsilon)}^2$-topologically projective. As $\varepsilon$ is
-    arbitrary, $P_V$ is extremally projective.
-\end{proof}
-
-To see that the spaces $P_V$ with $V\not\subset\lo{\mathbb{N}}$ are not
-isometrically isomorphic to free normed spaces we look at extreme points of
-unit balls. By $\ext(B)$ we denote the set of extreme points of a convex set
-$B$ and by $\conv(M)$ the convex hull of a set $M$.
-
-\begin{lemma}\label{ExtremePointsLemma} Let $S$ be a set and $E$ be a
-    subspace of $\ellone{S}$ containing $\lo{S}$, endowed with the norm of
-    $\ellone{S}$. Then
-    $\ext(B_E)=\{\lambda e_s:s\in S,\ \lambda\in\mathbb{C},\ |\lambda|=1\}$
-    and $\conv(\ext(B_E))=B_{\lo{S}}$.
-\end{lemma}
-\begin{proof} The points $\lambda e_s$ with $|\lambda|=1$ are extreme points
-    of $B_{\ellone{S}}$, and $B_E=B_{\ellone{S}}\cap E$, so they are extreme
-    points of $B_E$. Conversely, let $x\in B_E$ be not of this form. If
-    $x=0$, then $x=\frac12 e_s+\frac12(-e_s)$ for any $s\in S$. If
-    $0<\norm{x}<1$, then $x=\frac12(1+t)x+\frac12(1-t)x$ for $t=1-\norm{x}>0$,
-    and both $(1\pm t)x$ belong to $B_E$. If $\norm{x}=1$, then $x$ has at
-    least two non-zero coordinates $x_n$ and $x_m$, $n\neq m$. Put
-    $t=\min(|x_n|,|x_m|)>0$ and
-    $u=t(\operatorname{sgn}(x_n)e_n-\operatorname{sgn}(x_m)e_m)\in\lo{S}\subset E$.
-    Then $x\pm u\in E$ and
-    \[
-    \norm{x\pm u}=(|x_n|\pm t)+(|x_m|\mp t)+\sum_{s\neq n,m}|x_s|=\norm{x}=1,
-    \]
-    so $x=\frac12(x+u)+\frac12(x-u)$ with $u\neq 0$. In all three cases $x$ is
-    not an extreme point of $B_E$.
-
-    Every finite convex combination of the points $\lambda e_s$ is a finitely
-    supported element of $B_{\ellone{S}}$, so $\conv(\ext(B_E))\subset
-    B_{\lo{S}}$. Conversely, if $x\in B_{\lo{S}}$, then
-    \[
-    x=\sum_{s\in\supp(x)}|x_s|\,\operatorname{sgn}(x_s)e_s+(1-\norm{x})\cdot 0,
-    \]
-    and $0=\frac12 e_s+\frac12(-e_s)$, so $x\in\conv(\ext(B_E))$.
-\end{proof}
-
-\begin{theorem}\label{NotIsometricToFree} Let $S$ be a set and $E$ be a
-    subspace of $\ellone{S}$ containing $\lo{S}$, endowed with the norm of
-    $\ellone{S}$. If $E$ is isometrically isomorphic to $\lo{\Lambda}$ for
-    some set $\Lambda$, then $E=\lo{S}$.
-\end{theorem}
-\begin{proof} Let $T:\lo{\Lambda}\to E$ be an isometric isomorphism. Then
-    $T(B_{\lo{\Lambda}})=B_E$ and $T$ maps $\ext(B_{\lo{\Lambda}})$ onto
-    $\ext(B_E)$. Applying lemma~\ref{ExtremePointsLemma} to $E$ and to
-    $\lo{\Lambda}$ itself we get
-    \[
-    B_E=T(B_{\lo{\Lambda}})=T(\conv(\ext(B_{\lo{\Lambda}})))
-    =\conv(T(\ext(B_{\lo{\Lambda}})))=\conv(\ext(B_E))=B_{\lo{S}}.
-    \]
-    Hence $E=\lo{S}$.
-\end{proof}
-
-\begin{corollary}\label{CounterexampleCorollary} Let $V$ be a finite
-    dimensional subspace of $\ell_1$ with $V\not\subset\lo{\mathbb{N}}$, for
-    example $V=\mathbb{C}v$ for $v={(2^{-n})}_{n\in\mathbb{N}}$. Then $P_V$ is
-    an extremally projective normed space which is not isometrically
-    isomorphic to $\lo{\Lambda}$ for any set $\Lambda$.
-\end{corollary}
-\begin{proof} Combine theorems~\ref{FiniteDimPerturbation}
-    and~\ref{NotIsometricToFree}.
-\end{proof}
-
-Corollary~\ref{CounterexampleCorollary} answers the question of Helemskii
-from~\cite[section 2]{HelExtrProjSeqAlg} and~\cite[section 1]{HelMetrFrQMod}
-in the negative and disproves \cite[conjecture 3.1]{GronLiftProbNormSp}. Note
-that by theorem~\ref{NotIsometricToFree} every subspace
-$E$ with $\lo{\mathbb{N}}\subsetneq E\subset\ell_1$ fails to be isometrically
-isomorphic to a free normed space, but by example~\ref{WeightedExample} not
-all of these subspaces are extremally projective. Thus, between
-$\lo{\mathbb{N}}$ and $\ell_1$ there are both extremally projective and
-non-projective normed spaces, and the difference between them is invisible on
-the level of completions. The next section provides a criterion which
-distinguishes them.
-
-%-------------------------------------------------------------------------------
-%	Main theorem
-%-------------------------------------------------------------------------------
-
-\section{Extremally projective normed spaces of countable
-  dimension}\label{SectionMainTheorem}
-
-We start with a necessary condition which holds in all dimensions. Recall that
-the completion $\overline{P}$ of a normed space $P$ is a Banach space containing
-$P$ as a dense subspace. Every bounded linear operator between normed spaces
-extends uniquely to a bounded linear operator between their completions with
-the same norm, and these extensions respect compositions. The following
-theorem is \cite[proposition 2.3]{HelExtrProjSeqAlg}, see also
-\cite[section 3]{GronLiftProbNormSp}; we include the proof to make the paper
-self-contained.
-
-\begin{theorem}\label{CompletionIsEllOne} Let $P$ be an extremally projective
-    normed space. Then $\overline{P}$ is isometrically isomorphic to
-    $\ellone{\Gamma}$ for some set $\Gamma$.
-\end{theorem}
-\begin{proof} Fix $\varepsilon>0$. By theorem~\ref{ExtrProjCriterion} there is
-    a bounded linear operator $\sigma:P\to\lo{B_P}$ with $\pi_P\sigma=1_P$ and
-    $\norm{\sigma}\leq 1+\varepsilon$. The completion of $\lo{B_P}$ is
-    $\ellone{B_P}$, so $\pi_P$ and $\sigma$ extend to bounded linear operators
-    $\overline{\pi}:\ellone{B_P}\to\overline{P}$ and
-    $\overline{\sigma}:\overline{P}\to\ellone{B_P}$ with
-    $\overline{\pi}\,\overline{\sigma}=1_{\overline{P}}$,
-    $\norm{\overline{\pi}}\leq 1$ and $\norm{\overline{\sigma}}\leq 1+\varepsilon$.
-    Thus, $\overline{P}$ is a $(1+\varepsilon)$-retract of $\ellone{B_P}$ in
-    $\Ban$. The proof of proposition~\ref{FreeIsExtrProj} shows that
-    $\ellone{\Lambda}$ is $(1+\varepsilon)$-topologically projective in $\Ban$
-    for every set $\Lambda$: in the notation of that proof, for a Banach space
-    $X$ the family ${(x_\lambda)}_{\lambda\in\Lambda}$ defines a bounded
-    linear operator $\psi:\ellone{\Lambda}\to X$,
-    $\psi(x)=\sum_{\lambda\in\Lambda}x(\lambda)x_\lambda$, where the series
-    converges absolutely. The proof of proposition~\ref{RetractOfProj} works
-    in $\Ban$ verbatim, so $\overline{P}$ is
-    ${(1+\varepsilon)}^2$-topologically projective in $\Ban$. Since
-    $\varepsilon$ is arbitrary, $\overline{P}$ is extremally projective in
-    $\Ban$. The proof of proposition~\ref{EquivWithHelemskii} also works in
-    $\Ban$ verbatim, because the space $X'$ constructed there is complete
-    whenever $X$ is. Hence $\overline{P}$ is extremely projective in $\Ban$ in
-    the sense of Helemskii, and by Grothendieck's theorem in the form given
-    in~\cite[section 2]{HelExtrProjSeqAlg} (see
-    also~\cite{GrothMetrProjFlatBanSp} and~\cite[proposition 3.2]{HelMetrFrQMod})
-    $\overline{P}$ is isometrically isomorphic to $\ellone{\Gamma}$ for some
-    set $\Gamma$.
-
-    For the convenience of the reader we sketch the classical argument behind
-    the last step. Taking adjoints of $\overline{\pi}$ and $\overline{\sigma}$
-    we see that ${\overline{P}}^*$ is a $(1+\varepsilon)$-retract of the
-    $1$-injective Banach space $\ell_\infty(B_P)$, so ${\overline{P}}^*$ is
-    $(1+\varepsilon)$-injective for every $\varepsilon>0$, that is, every
-    bounded linear operator from a subspace of a Banach space into
-    ${\overline{P}}^*$ extends to the whole space with norm increased by at
-    most $1+\varepsilon$. Passing to the infimum over $\varepsilon$ we get that
-    ${\overline{P}}^*$ is $1$-injective, hence isometrically isomorphic to
-    $C(K)$ for a Stonean space $K$ \cite[theorem 3.11.6]{LaceyIsomThOfClassicBanSp},
-    and by Grothendieck's theorem~\cite{GrothMetrProjFlatBanSp}
-    (see~\cite[section 17]{LaceyIsomThOfClassicBanSp}) a Banach space whose
-    dual is $1$-injective is isometrically isomorphic to $L_1(\Omega,\mu)$ for
-    some measure space $(\Omega,\mu)$. Finally, $\overline{P}$ is isomorphic
-    to a complemented subspace of $\ellone{B_P}$ and therefore has the Schur
-    property, which forces $\mu$ to be purely atomic, and $L_1$ of a purely
-    atomic measure is isometrically isomorphic to $\ellone{\Gamma}$, where
-    $\Gamma$ is the set of atoms.
-\end{proof}
-
-\begin{corollary}\label{FiniteDimCase} A finite dimensional normed space is
-    extremally projective if and only if it is isometrically isomorphic to
-    $\ell_1^n$ for some $n\in\mathbb{N}\cup\{0\}$.
-\end{corollary}
-\begin{proof} A finite dimensional normed space coincides with its completion,
-    so the necessity follows from theorem~\ref{CompletionIsEllOne}. The
-    sufficiency follows from proposition~\ref{FreeIsExtrProj}, since
-    $\ell_1^n=\lo{\{1,\ldots,n\}}$.
-\end{proof}
-
-Thus, the examples of section~\ref{SectionCounterexample} are necessarily
-infinite dimensional. Theorems~\ref{SeparableSubspaces}
-and~\ref{CompletionIsEllOne} describe extremally projective normed spaces
-from two opposite sides: they are dense subspaces of the spaces
-$\ellone{\Gamma}$ which are small enough to have separable subspaces of
-countable algebraic dimension only. In this section we show that for spaces of
-countable dimension there is nothing in between: every dense subspace of
-$\ell_1$ of countable algebraic dimension is extremally projective, and even
-almost isometric to $\lo{\mathbb{N}}$. This answers the question of
-Helemskii~\cite[section 2]{HelExtrProjSeqAlg} on dense subspaces of
-$\ellone{\Lambda}$ for countable $\Lambda$. The proof is a back-and-forth
-construction based on theorem~\ref{OneVectorTheorem} and on the following two
-lemmas.
-
 \begin{lemma}\label{HittingLemma} Let $Y$ be a finite dimensional subspace
     of $\lo{\mathbb{N}}$ and $n\in\mathbb{N}$ be such that $e_n\notin Y$.
     Then there is a constant $C\geq 1$ such that for every
@@ -910,7 +703,7 @@ lemmas.
     $S(y)=y$ for all $y\in Y$ and $S(z)=e_n$.
 \end{lemma}
 \begin{proof} Since $Y$ is finite dimensional, it is closed in $\ell_1$, so
-    $d=\inf\{\norm{e_n-y}:y\in Y\}>0$. By the Hahn-Banach theorem there is
+    $d=\inf\{\norm{e_n-y}:y\in Y\}>0$. By the Hahn--Banach theorem there is
     $f\in\ell_1^*$ with $f(y)=0$ for $y\in Y$, $f(e_n)=1$ and $\norm{f}=d^{-1}$.
     Put $C=\max(1,d^{-1})$. Let $z\in\lo{\mathbb{N}}$ satisfy
     $\norm{z-e_n}\leq{(4C)}^{-1}$. Then
@@ -975,7 +768,7 @@ lemmas.
     Suppose that $A_{j-1}$ and $Y_{j-1}$ have been constructed (for $j=1$
     there is nothing to suppose). Let $N$ be an integer not smaller than every
     element of the supports of the vectors of some basis of $Y_{j-1}$, so that
-    $y=y|_N$ for all $y\in Y_{j-1}$. Apply theorem~\ref{OneVectorTheorem} to
+    $y=y|_N$ for all $y\in Y_{j-1}$. Apply lemma~\ref{OneVectorTheorem} to
     the vector $v=A_{j-1}(d_j)$, the integer $N$ and $\delta=\theta_{2j-1}$,
     and let $F_{2j-1}=1_{\ell_1}-R$ be the resulting operator. Then
     $\norm{F_{2j-1}-1_{\ell_1}}\leq\theta_{2j-1}$, $F_{2j-1}$ acts as the
@@ -994,7 +787,7 @@ lemmas.
     \[
     \norm{A'(d)-e_j}\leq\frac{\theta_{2j}}{16C}.
     \]
-    Apply theorem~\ref{OneVectorTheorem} to the vector $A'(d)$, the integer
+    Apply lemma~\ref{OneVectorTheorem} to the vector $A'(d)$, the integer
     $N'$ and $\delta=\theta_{2j}/2$, and let $G=1_{\ell_1}-R'$ be the
     resulting operator. Then $G$ fixes $Y'$ and $e_j$,
     $\norm{G-1_{\ell_1}}\leq\theta_{2j}/2$, $\norm{G}\leq 5/4$ because
@@ -1071,29 +864,94 @@ Now we are ready to prove the main result of the paper.
 \begin{corollary}\label{DenseCountableSubspaces} Every subspace of $\ell_1$
     of countable algebraic dimension which is dense in $\ell_1$ is extremally
     projective and almost isometric to $\lo{\mathbb{N}}$, that is, has
-    Banach-Mazur distance $1$ to $\lo{\mathbb{N}}$.
+    Banach--Mazur distance $1$ to $\lo{\mathbb{N}}$.
 \end{corollary}
 
-Combining theorem~\ref{MainTheorem} with theorem~\ref{SeparableSubspaces} we
-obtain a complete description of separable extremally projective normed
-spaces.
+%-------------------------------------------------------------------------------
+%	Counterexample
+%-------------------------------------------------------------------------------
 
-\begin{theorem}\label{SeparableCase} Let $P$ be a separable normed space.
-    Then the following conditions are equivalent:
-    \begin{enumerate}[label = (\roman*)]
-        \item $P$ is extremally projective;
-        \item $P$ has at most countable algebraic dimension and
-              $\overline{P}$ is isometrically isomorphic to $\ellone{\Gamma}$
-              for some countable set $\Gamma$;
-        \item $P$ has at most countable algebraic dimension and
-              $\BM(P,\lo{\Gamma})=1$ for some countable set $\Gamma$.
-    \end{enumerate}
-\end{theorem}
-\begin{proof} If $P$ is extremally projective, then it has at most countable
-    algebraic dimension by theorem~\ref{SeparableSubspaces} (or by
-    \cite[proposition 2.4]{HelExtrProjSeqAlg}). It remains to apply
-    theorem~\ref{MainTheorem}.
+\section{Extremally projective spaces which are not free}\label{SectionCounterexample}
+
+In this section we show that extremal projectivity is not an isometric
+invariant of the form ``$P$ is isometrically isomorphic to $\lo{\Lambda}$''.
+By corollary~\ref{DenseCountableSubspaces}, for every subspace $V$ of $\ell_1$
+of countable algebraic dimension the space $\lo{\mathbb{N}}+V$ is extremally
+projective. To see that such spaces are not isometrically isomorphic to free normed
+spaces whenever $V\not\subset\lo{\mathbb{N}}$, we look at extreme points of
+unit balls. By $\ext(B)$ we denote the set of extreme points of a convex set
+$B$ and by $\conv(M)$ the convex hull of a set $M$.
+
+\begin{lemma}\label{ExtremePointsLemma} Let $S$ be a set and $E$ be a
+    subspace of $\ellone{S}$ containing $\lo{S}$, endowed with the norm of
+    $\ellone{S}$. Then
+    $\ext(B_E)=\{\lambda e_s:s\in S,\ \lambda\in\mathbb{C},\ |\lambda|=1\}$
+    and $\conv(\ext(B_E))=B_{\lo{S}}$.
+\end{lemma}
+\begin{proof} The points $\lambda e_s$ with $|\lambda|=1$ are extreme points
+    of $B_{\ellone{S}}$, and $B_E=B_{\ellone{S}}\cap E$, so they are extreme
+    points of $B_E$. Conversely, let $x\in B_E$ be not of this form. If
+    $x=0$, then $x=\frac12 e_s+\frac12(-e_s)$ for any $s\in S$. If
+    $0<\norm{x}<1$, then $x=\frac12(1+t)x+\frac12(1-t)x$ for $t=1-\norm{x}>0$,
+    and both $(1\pm t)x$ belong to $B_E$. If $\norm{x}=1$, then $x$ has at
+    least two non-zero coordinates $x_n$ and $x_m$, $n\neq m$. Put
+    $t=\min(|x_n|,|x_m|)>0$ and
+    $u=t(\operatorname{sgn}(x_n)e_n-\operatorname{sgn}(x_m)e_m)\in\lo{S}\subset E$.
+    Then $x\pm u\in E$ and
+    \[
+    \norm{x\pm u}=(|x_n|\pm t)+(|x_m|\mp t)+\sum_{s\neq n,m}|x_s|=\norm{x}=1,
+    \]
+    so $x=\frac12(x+u)+\frac12(x-u)$ with $u\neq 0$. In all three cases $x$ is
+    not an extreme point of $B_E$.
+
+    Every finite convex combination of the points $\lambda e_s$ is a finitely
+    supported element of $B_{\ellone{S}}$, so $\conv(\ext(B_E))\subset
+    B_{\lo{S}}$. Conversely, if $x\in B_{\lo{S}}$, then
+    \[
+    x=\sum_{s\in\supp(x)}|x_s|\,\operatorname{sgn}(x_s)e_s+(1-\norm{x})\cdot 0,
+    \]
+    and $0=\frac12 e_s+\frac12(-e_s)$, so $x\in\conv(\ext(B_E))$.
 \end{proof}
+
+\begin{theorem}\label{NotIsometricToFree} Let $S$ be a set and $E$ be a
+    subspace of $\ellone{S}$ containing $\lo{S}$, endowed with the norm of
+    $\ellone{S}$. If $E$ is isometrically isomorphic to $\lo{\Lambda}$ for
+    some set $\Lambda$, then $E=\lo{S}$.
+\end{theorem}
+\begin{proof} Let $T:\lo{\Lambda}\to E$ be an isometric isomorphism. Then
+    $T(B_{\lo{\Lambda}})=B_E$ and $T$ maps $\ext(B_{\lo{\Lambda}})$ onto
+    $\ext(B_E)$. Applying lemma~\ref{ExtremePointsLemma} to $E$ and to
+    $\lo{\Lambda}$ itself we get
+    \[
+    B_E=T(B_{\lo{\Lambda}})=T(\conv(\ext(B_{\lo{\Lambda}})))
+    =\conv(T(\ext(B_{\lo{\Lambda}})))=\conv(\ext(B_E))=B_{\lo{S}}.
+    \]
+    Hence $E=\lo{S}$.
+\end{proof}
+
+\begin{corollary}\label{CounterexampleCorollary} Let $V$ be a subspace of
+    $\ell_1$ of countable algebraic dimension with $V\not\subset\lo{\mathbb{N}}$,
+    for example $V=\mathbb{C}v$ for $v={(2^{-n})}_{n\in\mathbb{N}}$. Then
+    $\lo{\mathbb{N}}+V$ is an extremally projective normed space which is not
+    isometrically isomorphic to $\lo{\Lambda}$ for any set $\Lambda$.
+\end{corollary}
+\begin{proof} The space $\lo{\mathbb{N}}+V$ is dense in $\ell_1$ and has
+    countable algebraic dimension, so it is extremally projective by
+    corollary~\ref{DenseCountableSubspaces}, and it is not isometrically
+    isomorphic to any $\lo{\Lambda}$ by theorem~\ref{NotIsometricToFree}.
+\end{proof}
+
+Corollary~\ref{CounterexampleCorollary} answers the question of Helemskii
+from~\cite[section 2]{HelExtrProjSeqAlg} and~\cite[section 1]{HelMetrFrQMod}
+in the negative and disproves \cite[conjecture 3.1]{GronLiftProbNormSp}. Note
+that by theorem~\ref{NotIsometricToFree} every subspace
+$E$ with $\lo{\mathbb{N}}\subsetneq E\subset\ell_1$ fails to be isometrically
+isomorphic to a free normed space, but by example~\ref{WeightedExample} not
+all of these subspaces are extremally projective. Thus, between
+$\lo{\mathbb{N}}$ and $\ell_1$ there are both extremally projective and
+non-projective normed spaces, and the difference between them is invisible on
+the level of completions. The next section provides a criterion which
+distinguishes them.
 
 %-------------------------------------------------------------------------------
 %	Uncountable dimension
@@ -1105,36 +963,17 @@ spaces.
 Condition $(ii)$ of theorem~\ref{MainTheorem} shows that for normed spaces of
 countable dimension extremal projectivity is a property of the completion. By
 example~\ref{WeightedExample} this is no longer true for spaces of uncountable
-dimension, and theorem~\ref{SeparableCase} explains why: the dimension
-restriction of theorem~\ref{SeparableSubspaces} is an independent necessary
-condition. Note that example~\ref{WeightedExample} is of the form
-$\lo{\mathbb{N}}+V$, as the extremally projective spaces of
-theorem~\ref{FiniteDimPerturbation} and
-corollary~\ref{DenseCountableSubspaces}, but now $V$ has uncountable
-dimension. On the other hand, uncountable dimension alone is not an
-obstruction.
-
-\begin{proposition}\label{UncountableExamples} Let $\Gamma$ be a set and
-    $V$ be a subspace of $\ellone{\Gamma}$ of countable algebraic dimension.
-    Then $\lo{\Gamma}+V$ is extremally projective.
-\end{proposition}
-\begin{proof} The set $\Gamma_0=\bigcup\{\supp(v):v\in V\}$ is countable,
-    being the union of the supports of the vectors of a countable Hamel basis
-    of $V$. Put $P_0=\lo{\Gamma_0}+V\subset\ellone{\Gamma_0}$. Then
-    $\lo{\Gamma}+V=\lo{\Gamma\setminus\Gamma_0}\bigoplus_1 P_0$ isometrically.
-    The space $P_0$ has countable dimension and its completion is
-    $\ellone{\Gamma_0}$, so it is extremally projective by
-    theorem~\ref{MainTheorem}. By propositions~\ref{FreeIsExtrProj}
-    and~\ref{SumsOfExtrProj} the space $\lo{\Gamma}+V$ is extremally projective.
-\end{proof}
+dimension: the dimension restriction of theorem~\ref{SeparableSubspaces} is an
+independent necessary condition.
 
 By theorems~\ref{SeparableSubspaces} and~\ref{CompletionIsEllOne}, an
 extremally projective normed space is, up to an isometric isomorphism, a
 dense subspace of some $\ellone{\Gamma}$ all of whose separable subspaces have
 countable algebraic dimension; by the theorem of Gr{\o}nb{\ae}k it is also
 topologically isomorphic to $\lo{\Gamma}$. For countable $\Gamma$ the first
-two conditions are also sufficient by theorem~\ref{SeparableCase}. We shall
-now show that for uncountable $\Gamma$ they are not. The obstruction is a
+two conditions are also sufficient by theorems~\ref{SeparableSubspaces}
+and~\ref{MainTheorem}. We shall now show that for uncountable $\Gamma$ they
+are not. The obstruction is a
 set-theoretic refinement of theorem~\ref{SeparableSubspaces}. Recall that a
 subset of the first uncountable ordinal $\omega_1$ is called closed unbounded
 if it is unbounded in $\omega_1$ and contains the supremum of each of its
@@ -1439,30 +1278,9 @@ condition $(ii)$ cannot be dropped: for the filtration $\Gamma_\delta=\delta$
 of $\omega_1$ the space $P_L$ satisfies $(i)$ and $(iii)$, but fails $(ii)$
 at every limit ordinal.
 
-
 We proceed to the construction of filtrations satisfying the hypotheses of
-theorem~\ref{TransfiniteBackAndForth}. First we extend
-theorem~\ref{SeparableSubspaces} to subspaces of arbitrary density character.
-Recall that the density character $\operatorname{dens}(Z)$ of a normed space
-$Z$ is the smallest cardinality of a dense subset of $Z$.
-
-\begin{lemma}\label{DimVsDens} Let $P$ be a topologically projective normed
-    space and $Z$ be a subspace of $P$. Then the algebraic dimension of $Z$
-    is at most $\max(\operatorname{dens}(Z),\aleph_0)$.
-\end{lemma}
-\begin{proof} Let $\sigma:P\to\lo{B_P}$ be an injective bounded linear
-    operator with $\pi_P\sigma=1_P$, see
-    proposition~\ref{CanonicalMorphismCriterion}. Let $M$ be a dense subset
-    of $Z$ of cardinality $\operatorname{dens}(Z)$ and
-    $S_0=\bigcup_{x\in M}\supp(\sigma(x))$, a set of cardinality at most
-    $\max(\operatorname{dens}(Z),\aleph_0)$. Every element of $\sigma(Z)$ is a
-    limit of elements of $\sigma(M)$, so it is supported in $S_0$ by
-    continuity of the coordinate functionals. Thus,
-    $\sigma(Z)\subset\lo{S_0}$, whose algebraic dimension is the cardinality
-    of $S_0$, and $\sigma$ is injective.
-\end{proof}
-
-For the rest of this section we fix a set $\Gamma$, a dense topologically
+theorem~\ref{TransfiniteBackAndForth}. For the rest of this section we fix a
+set $\Gamma$, a dense topologically
 projective subspace $P$ of $\ellone{\Gamma}$, a set $S$ and bounded linear
 operators $\sigma:P\to\lo{S}$ and $\pi:\lo{S}\to P$ with $\pi\sigma=1_P$ and
 $\norm{\pi}\leq 1$; these exist by proposition~\ref{CanonicalMorphismCriterion}.
@@ -1501,7 +1319,7 @@ to $e_\gamma$. For $A\subset\Gamma$ we put $P_A=P\cap\ellone{A}$.
     $B=B_0\subset B_1\subset\ldots$ as follows. Given $A_k$ and $B_k$ of
     cardinality at most $\mu$, let $H_k$ be a Hamel basis of $P_{A_k}$. Since
     $P_{A_k}\subset\ellone{A_k}$ has density character at most $\mu$, by
-    lemma~\ref{DimVsDens} $|H_k|\leq\mu$. Put
+    theorem~\ref{SeparableSubspaces} $|H_k|\leq\mu$. Put
     \[
     B_{k+1}=B_k\cup\bigcup_{x\in H_k}\supp(\sigma(x)),\qquad
     A_{k+1}=A_k\cup\bigcup_{s\in B_{k+1}}\supp(\pi(e_s))
@@ -1565,7 +1383,8 @@ direct argument. The same argument proves the following lemma.
     \quad(x\in P_{A'},\ x|_N=y),
     \]
     is well defined; it is linear, because if $x_1,x_2\in P_{A'}$ restrict
-    to $y_1,y_2$, then $x_1+cx_2$ restricts to $y_1+cy_2$. It is bounded: given $y\in D$, $x_0\in P_{A'}$
+    to $y_1,y_2$, then $x_1+cx_2$ restricts to $y_1+cy_2$. It is bounded:
+    given $y\in D$, $x_0\in P_{A'}$
     with $x_0|_N=y$ and $\varepsilon>0$, use the density of $P_A$ in
     $\ellone{A}$ to find $p\in P_A$ with $\norm{x_0|_A+p}\leq\varepsilon$;
     then $x=x_0+p\in P_{A'}$ satisfies $x|_N=y$ and
@@ -1585,7 +1404,6 @@ direct argument. The same argument proves the following lemma.
     proposition~\ref{RetractOfProj}.
 \end{proof}
 
-%%%% ---- main theorem ----
 \begin{theorem}\label{GeneralTheorem} Let $\Gamma$ be a set and $P$ be a
     dense topologically projective subspace of $\ellone{\Gamma}$. Then for
     every $\theta>0$ there is a linear bijection $T$ of $\ellone{\Gamma}$ with
@@ -1601,7 +1419,8 @@ direct argument. The same argument proves the following lemma.
     $T$ by a scalar we get $\norm{T^{-1}}\leq 1$ and $\norm{T}\leq 1+\theta$.
 
     Let $\kappa$ be uncountable and assume that the theorem holds for all
-    sets of cardinality less than $\kappa$. Fix $\theta\in(0,1/2)$ and put
+    sets of cardinality less than $\kappa$. Since the conclusion for a smaller
+    $\theta$ is stronger, we may fix $\theta\in(0,1/2)$; put
     $\theta'=\theta/8$, so that ${(1+\theta')}^2{(1-\theta')}^{-1}\leq 1+\theta$.
     Fix $S$, $\sigma$, $\pi$ and the sequences $p^\gamma_n$ as above. Let
     $\lambda$ be the cofinality of $\kappa$ and ${(\Gamma^\delta)}_{\delta<\lambda}$
@@ -1653,9 +1472,8 @@ theorem~\ref{GeneralTheorem} has blocks $N_\delta$ of cardinality less than
 $|\Gamma|$, not necessarily countable ones; this is why
 theorem~\ref{TransfiniteBackAndForth} was formulated for arbitrary blocks.
 
-Theorem~\ref{GeneralTheorem} shows that the conditions of
-theorems~\ref{SeparableSubspaces} and~\ref{CompletionIsEllOne} are not only
-necessary but also sufficient, and we arrive at the main result of the paper.
+Together with theorem~\ref{CompletionIsEllOne}, theorem~\ref{GeneralTheorem}
+gives the main result of the paper.
 
 \begin{theorem}\label{FinalCharacterization} For a normed space $P$ the
     following conditions are equivalent:
@@ -1670,7 +1488,7 @@ necessary but also sufficient, and we arrive at the main result of the paper.
     \end{enumerate}
     Moreover, in $(iii)$ the set $\Gamma$ necessarily has the cardinality of
     the algebraic dimension of $P$ if $P$ is infinite dimensional, and the
-    Banach-Mazur distance in $(iii)$ is realized by linear bijections
+    Banach--Mazur distance in $(iii)$ is realized by linear bijections
     $T:\overline{P}\to\ellone{\Gamma}$ with $T(P)=\lo{\Gamma}$ and
     $\norm{T}\norm{T^{-1}}$ arbitrarily close to $1$.
 \end{theorem}
@@ -1715,7 +1533,8 @@ step. Theorems~\ref{BackAndForth} and~\ref{TransfiniteBackAndForth} replace
 the decomposition method by back-and-forth constructions which keep the
 constants, at the price of the continuity condition $(ii)$, and
 lemmas~\ref{ClosingOff} and~\ref{UnionsOfClosedPairs} show that this
-condition can always be achieved for topologically projective spaces. Next, theorem~\ref{FinalCharacterization}
+condition can always be achieved for topologically projective spaces. Next,
+theorem~\ref{FinalCharacterization}
 shows that for dense subspaces of the spaces $\ellone{\Gamma}$ topological and
 extremal projectivity coincide. This is a feature of the exact norm of
 $\ellone{\Gamma}$: if $E$ is an infinite dimensional Banach space which is
