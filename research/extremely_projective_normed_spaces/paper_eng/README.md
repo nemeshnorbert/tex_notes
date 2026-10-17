@@ -6,4 +6,5 @@
 
 or run `pdflatex main.tex` twice, and copy the result to `out/main.pdf`, where
 the compiled PDF is kept under version control.
-The talk based on this paper is in `../extremely_projective_normed_spaces_talk_eng`.
+The talk based on this paper is in `../talk`, and a set theory primer for
+sections 6 and 7 is in `../preliminaries`.
