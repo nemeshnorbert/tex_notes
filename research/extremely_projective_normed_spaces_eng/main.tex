@@ -66,18 +66,16 @@ if its completion is isometrically isomorphic to $\ell_1$ or $\ell_1^n$. The
 proof is a transfinite back-and-forth construction. Along the way we show that
 extremely projective normed spaces contain no infinite dimensional complete
 subspaces, so that no infinite dimensional Banach space is extremely
-projective in the category of normed spaces, and we use Fodor's lemma to
-construct a dense subspace of $\ellone{\omega_1}$ all of whose separable
-subspaces have countable dimension but which is not topologically projective.
-Finally, we show that a dense subspace of $\ellone{\Gamma}$ is extremely
-projective if and only if it admits a continuous filtration with countable
-blocks, dense pieces and countable dimensional successive quotients. For
-$|\Gamma|=\aleph_1$ this becomes a criterion in the spirit of the theory of
-almost free abelian groups, requiring the countably generated pieces to
-have countable dimension and the set of discontinuities of their chain to
-be non-stationary,
-and it yields $2^{\aleph_1}$ pairwise non-isomorphic dense subspaces of
-$\ellone{\omega_1}$ all of whose countably generated pieces are extremely
+projective in the category of normed spaces. Finally, we show that a dense
+subspace of $\ellone{\Gamma}$ is extremely projective if and only if it
+admits a continuous filtration with countable blocks, dense pieces and
+countable dimensional successive quotients. For $|\Gamma|=\aleph_1$ this
+becomes a criterion in the spirit of the theory of almost free abelian
+groups, requiring the countably generated pieces to have countable dimension
+and the set of discontinuities of their chain to be non-stationary. Using
+ladder systems on stationary sets we construct $2^{\aleph_1}$ pairwise
+non-isomorphic dense subspaces of $\ellone{\omega_1}$ all of whose countably
+generated pieces are extremely projective, none of which is topologically
 projective.
 \medskip
 
@@ -174,33 +172,27 @@ case of countable dimension replaces the decomposition method of
 Pe{\l}czy\'nski in the proofs of K\"othe and Gr{\o}nb{\ae}k, and in the
 general case takes the form of a transfinite recursion along a filtration of
 $\Gamma$ whose perturbations are controlled on disjoint blocks of
-coordinates. Fourth, in the non-separable case the dimension restriction
-admits a set-theoretic refinement: by Fodor's lemma, the closed linear spans
-of the initial segments of an $\omega_1$-sequence of vectors in a
-topologically projective normed space must behave continuously at almost all
-limit stages. Using this we construct a dense subspace of $\ellone{\omega_1}$,
-built from a ladder system on $\omega_1$, which is not topologically
-projective, although all its separable subspaces have countable dimension and
-all its countably generated pieces are extremely projective. Thus, for
+coordinates. Fourth, we describe the topologically projective dense
+subspaces of $\ellone{\Gamma}$ in terms of the coordinate structure of
+$\ellone{\Gamma}$ only: a dense subspace $P$ is extremely projective if and
+only if $\Gamma$ admits a continuous filtration with countable blocks along
+which the pieces $P\cap\ellone{\Gamma_\delta}$ are dense, form a continuous
+chain and have countable dimensional successive quotients. Thus, for
 uncountable $\Lambda$ the question of Helemskii on dense subspaces of
 $\ellone{\Lambda}$ does not reduce to the countable case: a dense subspace of
 $\ellone{\Lambda}$ is extremely projective if and only if it is topologically
 projective, and for uncountable $\Lambda$ this is a genuine restriction.
-Fifth, we describe the topologically projective dense subspaces of
-$\ellone{\Gamma}$ in terms of the coordinate structure of $\ellone{\Gamma}$
-only: a dense subspace $P$ is extremely projective if and only if $\Gamma$
-admits a continuous filtration with countable blocks along which the pieces
-$P\cap\ellone{\Gamma_\delta}$ are dense, form a continuous chain and have
-countable dimensional successive quotients. For $|\Gamma|=\aleph_1$ this is a
-criterion in the spirit of the theory of almost free abelian groups: a dense
-subspace $P$ of $\ellone{\omega_1}$ is extremely projective if and only if
-its subspaces $P\cap\ellone{\delta}$, $\delta<\omega_1$, have countable
-dimension and the set of limit ordinals at which the chain of these
-subspaces is discontinuous is not stationary. The class of this set modulo
-non-stationary sets is an isomorphism invariant of $P$, and ladder spaces
-built on stationary sets provide $2^{\aleph_1}$ pairwise non-isomorphic dense
-subspaces of $\ellone{\omega_1}$ all of whose countably generated pieces are
-extremely projective.
+Fifth, for $|\Gamma|=\aleph_1$ we obtain a criterion in the spirit of the
+theory of almost free abelian groups: a dense subspace $P$ of
+$\ellone{\omega_1}$ is extremely projective if and only if its subspaces
+$P\cap\ellone{\delta}$, $\delta<\omega_1$, have countable dimension and the
+set of limit ordinals at which the chain of these subspaces is discontinuous
+is not stationary. The class of this set modulo non-stationary sets is an
+isomorphism invariant of $P$. Using it we construct, from ladder systems on
+stationary subsets of $\omega_1$, $2^{\aleph_1}$ pairwise non-isomorphic
+dense subspaces of $\ellone{\omega_1}$ which are not topologically
+projective, although all their separable subspaces have countable dimension
+and all their countably generated pieces are extremely projective.
 
 Let us fix the notation and recall the definitions. All normed spaces are
 considered over the complex field; the real case is identical. For a normed
@@ -271,11 +263,11 @@ Section~\ref{SectionMainTheorem} is devoted to the almost isometric
 characterization of extremely projective normed spaces of countable
 dimension, and section~\ref{SectionCounterexample} contains the
 counterexample to the question of Helemskii and Gr{\o}nb{\ae}k.
-Section~\ref{SectionUncountable} treats spaces of uncountable dimension; it
-contains the ladder space example and the main theorem.
-Section~\ref{SectionIntrinsic} describes topologically projective dense
-subspaces of $\ellone{\Gamma}$ by filtrations with countable blocks and
-treats the case $|\Gamma|=\aleph_1$.
+Section~\ref{SectionUncountable} treats spaces of uncountable dimension: it
+contains the transfinite back-and-forth construction, the closing-off
+arguments and the main theorem. Section~\ref{SectionIntrinsic} is devoted to
+the case $|\Gamma|=\aleph_1$: it contains the criterion in terms of
+stationary sets, the isomorphism invariant and the ladder spaces.
 
 %-------------------------------------------------------------------------------
 %	Basic theory
@@ -507,28 +499,35 @@ Helemskii proved that a separable topologically projective normed space has at
 most countable algebraic dimension \cite[proposition 2.4]{HelExtrProjSeqAlg},
 and deduced that $\ellone{\Lambda}$ is not topologically projective in $\Nor$
 for any infinite set $\Lambda$ \cite[proposition 2.5]{HelExtrProjSeqAlg}. His
-argument applies verbatim to subspaces of arbitrary density character, and in
-this hereditary form it will be convenient for us.
+argument uses only the existence of a bounded injective operator into a free
+normed space, and we state it in this form.
+
+\begin{lemma}\label{InjectionDimension} Let $Z$ be a normed space, $S$ be a
+    set and $\rho:Z\to\lo{S}$ be an injective bounded linear operator. Then
+    the algebraic dimension of $Z$ is at most $\max(\operatorname{dens}(Z),\aleph_0)$,
+    where $\operatorname{dens}(Z)$ is the density character of $Z$, that is,
+    the smallest cardinality of a dense subset of $Z$.
+\end{lemma}
+\begin{proof} Let $M$ be a dense subset of $Z$ of cardinality
+    $\operatorname{dens}(Z)$ and $S_0=\bigcup_{x\in M}\supp(\rho(x))$, a set
+    of cardinality at most $\max(\operatorname{dens}(Z),\aleph_0)$. For
+    $z\in Z$ the vector $\rho(z)$ is the limit in $\ellone{S}$ of a sequence
+    of elements of $\rho(M)$, which are supported in $S_0$, so $\rho(z)$ is
+    supported in $S_0$ by the continuity of the coordinate functionals. Thus,
+    $\rho$ is an injective linear map of $Z$ into $\lo{S_0}$, whose algebraic
+    dimension is the cardinality of $S_0$.
+\end{proof}
 
 \begin{theorem}\label{SeparableSubspaces} Let $P$ be a topologically
     projective normed space and $Z$ be a subspace of $P$. Then the algebraic
-    dimension of $Z$ is at most $\max(\operatorname{dens}(Z),\aleph_0)$,
-    where $\operatorname{dens}(Z)$ is the density character of $Z$, that is,
-    the smallest cardinality of a dense subset of $Z$. In particular, every
-    separable subspace of $P$ has at most countable algebraic dimension.
+    dimension of $Z$ is at most $\max(\operatorname{dens}(Z),\aleph_0)$. In
+    particular, every separable subspace of $P$ has at most countable
+    algebraic dimension.
 \end{theorem}
 \begin{proof} By proposition~\ref{CanonicalMorphismCriterion}~$(i)$ there
     exists a bounded linear operator $\sigma:P\to\lo{B_P}$ with
-    $\pi_P\sigma=1_P$; in particular, $\sigma$ is injective. Let $M$ be a
-    dense subset of $Z$ of cardinality $\operatorname{dens}(Z)$ and
-    $S_0=\bigcup_{x\in M}\supp(\sigma(x))$; since the supports are finite,
-    $S_0$ has cardinality at most $\max(\operatorname{dens}(Z),\aleph_0)$. If
-    $z\in Z$, then $\sigma(z)$ is the limit in $\ellone{B_P}$ of a sequence of
-    elements of $\sigma(M)$, which are supported in $S_0$; since the coordinate
-    functionals are continuous, $\sigma(z)$ is supported in $S_0$ as well.
-    Thus, $\sigma(Z)\subset\lo{S_0}=\Lin\{e_s:s\in S_0\}$, a space whose
-    algebraic dimension is the cardinality of $S_0$, and $\sigma|_Z$ is
-    injective.
+    $\pi_P\sigma=1_P$; in particular, $\sigma$ is injective. It remains to
+    apply lemma~\ref{InjectionDimension} to $\sigma|_Z$.
 \end{proof}
 
 \begin{corollary}\label{NoCompleteSubspaces} Let $P$ be a topologically
@@ -1032,160 +1031,21 @@ dense subspace of some $\ellone{\Gamma}$ all of whose separable subspaces have
 countable algebraic dimension; by the theorem of Gr{\o}nb{\ae}k it is also
 topologically isomorphic to $\lo{\Gamma}$. For countable $\Gamma$ the first
 two conditions are also sufficient by theorems~\ref{SeparableSubspaces}
-and~\ref{MainTheorem}. We shall now show that for uncountable $\Gamma$ they
-are not. The obstruction is a
-set-theoretic refinement of theorem~\ref{SeparableSubspaces}. By a limit
-ordinal we always mean a non-zero ordinal which is not a successor. Recall
-that a subset of the first uncountable ordinal $\omega_1$ is called closed unbounded
-if it is unbounded in $\omega_1$ and contains the supremum of each of its
-countable subsets, and stationary if it intersects every closed unbounded
-set. The set of limit ordinals below $\omega_1$ is closed unbounded. We shall
-use Fodor's lemma \cite[theorem 8.7]{JechSetTheory}: if $E\subset\omega_1$ is
-stationary and $\gamma:E\to\omega_1$ satisfies $\gamma(\alpha)<\alpha$ for all
-$\alpha\in E$, then $\gamma$ is constant on some stationary subset of $E$.
-For a subset $M$ of a normed space $P$ we denote by $\overline{\Lin}(M)$ the
-closure of $\Lin(M)$ in $P$.
-
-\begin{theorem}\label{FodorObstruction} Let $P$ be a topologically
-    projective normed space, ${(X_\beta)}_{\beta<\omega_1}$ be a family of
-    countable subsets of $P$, $E$ be a stationary set of limit ordinals below
-    $\omega_1$, and ${(v_\alpha)}_{\alpha\in E}$ be a family in $P$ such that
-    $v_\alpha\in\overline{\Lin}\bigl(\bigcup_{\beta<\alpha}X_\beta\bigr)$ for
-    every $\alpha\in E$. Then there is a stationary set $E'\subset E$ such that
-    $\Lin\{v_\alpha:\alpha\in E'\}$ has countable algebraic dimension. In
-    particular, the family ${(v_\alpha)}_{\alpha\in E}$ is linearly dependent.
-\end{theorem}
-\begin{proof} By proposition~\ref{CanonicalMorphismCriterion}~$(i)$ there is
-    a bounded linear operator $\sigma:P\to\lo{B_P}$ with $\pi_P\sigma=1_P$; it
-    is injective. For $\alpha<\omega_1$ put
-    \[
-    S_\alpha=\bigcup_{\beta<\alpha}\ \bigcup_{x\in X_\beta}\supp(\sigma(x)),
-    \]
-    a countable subset of $B_P$. Let $\alpha\in E$. Then $\sigma(v_\alpha)$
-    lies in the closure in $\ellone{B_P}$ of
-    $\sigma\bigl(\Lin\bigcup_{\beta<\alpha}X_\beta\bigr)\subset\lo{S_\alpha}$,
-    and since the coordinate functionals are continuous, $\sigma(v_\alpha)$ is
-    supported in $S_\alpha$. Thus, the finite set $F_\alpha=\supp(\sigma(v_\alpha))$
-    is contained in $S_\alpha=\bigcup_{\beta<\alpha}S_{\beta+1}$, and since
-    $\alpha$ is a limit ordinal there is $\gamma(\alpha)<\alpha$ with
-    $F_\alpha\subset S_{\gamma(\alpha)}$. By Fodor's lemma there are a
-    stationary set $E'\subset E$ and $\gamma_0<\omega_1$ with
-    $\gamma(\alpha)=\gamma_0$ for all $\alpha\in E'$. Then
-    $\sigma(v_\alpha)\in\lo{S_{\gamma_0}}$ for all $\alpha\in E'$. The space
-    $\lo{S_{\gamma_0}}$ has countable algebraic dimension and $\sigma$ is
-    injective, so $\Lin\{v_\alpha:\alpha\in E'\}$ has countable algebraic
-    dimension. As $E'$ is uncountable, the family ${(v_\alpha)}_{\alpha\in E'}$,
-    and a fortiori ${(v_\alpha)}_{\alpha\in E}$, is linearly dependent.
-\end{proof}
-
-\begin{corollary}\label{OmegaOneContinuity} Let $P$ be a topologically
-    projective normed space and ${(X_\beta)}_{\beta<\omega_1}$ be a family of
-    countable subsets of $P$. For $\alpha<\omega_1$ put
-    $D_\alpha=\overline{\Lin}\bigl(\bigcup_{\beta<\alpha}X_\beta\bigr)$. Then
-    the set of limit ordinals $\alpha<\omega_1$ for which
-    $D_\alpha\neq\bigcup_{\alpha'<\alpha}D_{\alpha'}$ is not stationary.
-\end{corollary}
-\begin{proof} Assume that this set $E$ is stationary and for every
-    $\alpha\in E$ choose $v_\alpha\in D_\alpha\setminus\bigcup_{\alpha'<\alpha}D_{\alpha'}$.
-    The family ${(v_\alpha)}_{\alpha\in E}$ is linearly independent. Indeed,
-    let $\sum_{\alpha\in F}c_\alpha v_\alpha=0$ for a finite set $F\subset E$
-    and non-zero scalars $c_\alpha$, and let $\alpha_0=\max F$. Since
-    $v_{\alpha_0}\neq 0$, the set $F\setminus\{\alpha_0\}$ is non-empty; put
-    $\alpha_1=\max(F\setminus\{\alpha_0\})<\alpha_0$. The spaces $D_\alpha$
-    increase with $\alpha$, so
-    $v_{\alpha_0}=-c_{\alpha_0}^{-1}\sum_{\alpha\in F\setminus\{\alpha_0\}}c_\alpha v_\alpha
-    \in D_{\alpha_1}$, which contradicts the choice of $v_{\alpha_0}$. Now
-    theorem~\ref{FodorObstruction} gives a contradiction.
-\end{proof}
-
-Theorem~\ref{SeparableSubspaces} says that the closed linear span of
-countably many vectors of a topologically projective space has countable
-dimension; corollary~\ref{OmegaOneContinuity} says that, in addition, the
-closed linear spans of initial segments of an $\omega_1$-sequence of vectors
-must behave continuously at almost all limit stages. The following example
-shows that the second condition is not implied by the first one, even for
-dense subspaces of $\ellone{\Gamma}$.
-
-\begin{example}\label{LadderSpace} For every limit ordinal $\alpha<\omega_1$
-    fix a strictly increasing sequence ${(\alpha_n)}_{n\in\mathbb{N}}$ of
-    ordinals with $\sup_n\alpha_n=\alpha$ and put
-    $v_\alpha=\sum_{n=1}^\infty 2^{-n}e_{\alpha_n}\in\ellone{\omega_1}$. Let
-    \[
-    P_L=\lo{\omega_1}+\Lin\{v_\alpha:\alpha<\omega_1\text{ is a limit ordinal}\}
-    \subset\ellone{\omega_1}
-    \]
-    with the norm inherited from $\ellone{\omega_1}$. Then
-    \begin{enumerate}[label = (\roman*)]
-        \item $P_L$ is dense in $\ellone{\omega_1}$;
-        \item for every countable ordinal $\delta$ the space
-              $P_L\cap\ellone{\delta}=\lo{\delta}+\Lin\{v_\alpha:\alpha\leq\delta
-              \text{ is a limit ordinal}\}$ is an extremely projective normed
-              space of countable algebraic dimension; in particular, every
-              separable subspace of $P_L$ has countable algebraic dimension;
-        \item $P_L$ is not topologically projective.
-    \end{enumerate}
-\end{example}
-\begin{proof} $(i)$ is obvious, since $P_L\supset\lo{\omega_1}$.
-
-    First we note that for limit ordinals $\alpha<\beta$ the set
-    $\supp(v_\alpha)\cap\supp(v_\beta)$ is finite: $\supp(v_\alpha)\subset\alpha$,
-    while only finitely many $\beta_n$ are smaller than $\alpha$, because
-    $\sup_n\beta_n=\beta>\alpha$.
-
-    $(ii)$ Let $\delta$ be a countable ordinal and let
-    $x=y+\sum_{\alpha\in F}c_\alpha v_\alpha\in P_L\cap\ellone{\delta}$, where
-    $y\in\lo{\omega_1}$, $F$ is a finite set of limit ordinals and $c_\alpha\neq 0$
-    for $\alpha\in F$. Suppose that $F\not\subset[0,\delta]$ and put
-    $\alpha_0=\max F>\delta$. The set $\supp(v_{\alpha_0})\cap[\delta,\alpha_0)$
-    is infinite, because $\sup_n\alpha_{0,n}=\alpha_0>\delta$, while the sets
-    $\supp(y)$ and $\supp(v_\alpha)\cap\supp(v_{\alpha_0})$, $\alpha\in F\setminus\{\alpha_0\}$,
-    are finite. Hence $x$ has infinitely many non-zero coordinates in
-    $[\delta,\alpha_0)$, which contradicts $x\in\ellone{\delta}$. Therefore
-    $F\subset[0,\delta]$, and then also $\supp(y)\subset\delta$. This proves
-    the formula for $P_L\cap\ellone{\delta}$. The space $P_L\cap\ellone{\delta}$
-    has countable algebraic dimension, and it is dense in $\ellone{\delta}$,
-    because it contains $\lo{\delta}$. By theorem~\ref{MainTheorem} it is
-    extremely projective. Finally, if $Z$ is a separable subspace of $P_L$,
-    then the supports of the elements of $Z$ are contained in a countable
-    subset of $\omega_1$, hence in some countable ordinal $\delta$, so
-    $Z\subset P_L\cap\ellone{\delta}$ has countable algebraic dimension.
-
-    $(iii)$ Let $E$ be the set of limit ordinals below $\omega_1$; it is
-    closed unbounded, hence stationary. For $\alpha\in E$ we have
-    $v_\alpha=\lim_N\sum_{n=1}^N 2^{-n}e_{\alpha_n}\in\overline{\Lin}\{e_\beta:\beta<\alpha\}$.
-    The family ${(v_\alpha)}_{\alpha\in E}$ is linearly independent: if
-    $\sum_{\alpha\in F}c_\alpha v_\alpha=0$ with $F\subset E$ finite and
-    $c_\alpha\neq 0$, then for $\alpha_0=\max F$ and all sufficiently large
-    $n$ the coordinate of the left hand side at $\alpha_{0,n}$ equals
-    $2^{-n}c_{\alpha_0}\neq 0$, because the supports of the other $v_\alpha$
-    meet $\supp(v_{\alpha_0})$ in finite sets. By
-    theorem~\ref{FodorObstruction}, applied to $X_\beta=\{e_\beta\}$, the space
-    $P_L$ is not topologically projective.
-\end{proof}
-
-Ladder systems and Fodor's lemma have been used before in Banach space
-theory, for instance in the study of the spaces $C(K)$ of ladder system
-compacta \cite{AvilesKoszmiderLadder}; here they enter through the dimension
-restrictions of topologically projective normed spaces.
-
-Thus, a dense subspace of $\ellone{\Gamma}$ all of whose separable subspaces
-have countable algebraic dimension need not be topologically projective, and
-the answer to the question of Helemskii on dense subspaces of
-$\ellone{\Lambda}$ is more involved for uncountable $\Lambda$. Note that the
-space $P_L$ is ``locally'' extremely projective: all its countably generated
-pieces $P_L\cap\ellone{\delta}$ are extremely projective. So extreme
-projectivity of a normed space is not determined by its separable subspaces.
-
-We now turn to positive results. The obstruction in example~\ref{LadderSpace}
-is the discontinuity of the chain $P_L\cap\ellone{\delta}$ at limit stages.
-We shall show that for topologically projective spaces such discontinuities
-can always be avoided, and that this leads to a complete description of
-extremely projective normed spaces of arbitrary dimension. The proof is a
-transfinite version of theorem~\ref{BackAndForth} combined with an induction
-on the cardinality of $\Gamma$. The key point of the transfinite construction
-is that the perturbations used at different steps are controlled on pairwise
-disjoint blocks of coordinates, so that their ``product'' has norm bounded
-independently of the length of the construction.
+and~\ref{MainTheorem}. In section~\ref{SectionIntrinsic} we shall see that
+for uncountable $\Gamma$ they are not: the chain of the subspaces
+$P\cap\ellone{\delta}$, $\delta<\omega_1$, of a topologically projective
+dense subspace $P$ of $\ellone{\omega_1}$ must be continuous at almost all
+limit stages, and ladder systems on $\omega_1$ produce dense subspaces for
+which it is not. In this section we prove the positive results: a
+description of the topologically projective dense subspaces of
+$\ellone{\Gamma}$ by filtrations with countable blocks, and the almost
+isometric characterization of extremely projective normed spaces of
+arbitrary dimension. The main tool is a transfinite version of
+theorem~\ref{BackAndForth}. Its key point is that the perturbations used at
+different steps are controlled on pairwise disjoint blocks of coordinates,
+so that their ``product'' has norm bounded independently of the length of
+the construction. By a limit ordinal we always mean a non-zero ordinal which
+is not a successor.
 
 Let $\Gamma$ be a set, $\lambda$ be an ordinal and ${(\Gamma_\delta)}_{\delta\leq\lambda}$
 be an increasing family of subsets of $\Gamma$ such that $\Gamma_0=\varnothing$,
@@ -1208,23 +1068,45 @@ $P_{\delta+1}$ is $P_{\delta+1}\cap\ellone{\Gamma_\delta}=P_\delta$, the space
 $D_\delta$ is isomorphic as a vector space to $P_{\delta+1}/P_\delta$.
 
 \begin{theorem}\label{TransfiniteBackAndForth} Let $\Gamma$ be a set, $P$ be
-    a dense subspace of $\ellone{\Gamma}$, ${(\Gamma_\delta)}_{\delta\leq\lambda}$
-    be a filtration of $\Gamma$ and $0<\theta<1/2$. Suppose that
+    a dense subspace of $\ellone{\Gamma}$ and ${(\Gamma_\delta)}_{\delta\leq\lambda}$
+    be a filtration of $\Gamma$ all of whose blocks $N_\delta$ are at most
+    countable. Suppose that
     \begin{enumerate}[label = (\roman*)]
         \item $P_\delta$ is dense in $\ellone{\Gamma_\delta}$ for every
               $\delta\leq\lambda$;
         \item $P_\delta=\bigcup_{\delta'<\delta}P_{\delta'}$ for every limit
               ordinal $\delta\leq\lambda$;
-        \item for every $\delta<\lambda$ there is a linear bijection $U_\delta$
-              of $\ellone{N_\delta}$ with $U_\delta(D_\delta)=\lo{N_\delta}$,
-              $\norm{U_\delta}\leq 1+\theta$ and $\norm{U_\delta^{-1}}\leq 1$.
+        \item the algebraic dimension of $P_{\delta+1}/P_\delta$ is at most
+              countable for every $\delta<\lambda$.
     \end{enumerate}
-    Then there exists a linear bijection $T:\ellone{\Gamma}\to\ellone{\Gamma}$
-    with $T(P)=\lo{\Gamma}$, $\norm{T}\leq{(1+\theta)}^2$ and
-    $\norm{T^{-1}}\leq{(1-\theta)}^{-1}$.
+    Then for every $\varepsilon>0$ there exists a linear bijection
+    $T:\ellone{\Gamma}\to\ellone{\Gamma}$ with $T(P)=\lo{\Gamma}$,
+    $\norm{T}\leq 1+\varepsilon$ and $\norm{T^{-1}}\leq 1$. In particular,
+    $\BM(P,\lo{\Gamma})=1$.
 \end{theorem}
 
-\begin{proof} We shall construct by transfinite recursion, for every
+\begin{proof} Fix $\theta\in(0,1/2)$ with
+    ${(1+\theta)}^2{(1-\theta)}^{-1}\leq 1+\varepsilon$. First we construct,
+    for every $\delta<\lambda$, a linear bijection $U_\delta$ of
+    $\ellone{N_\delta}$ with $U_\delta(D_\delta)=\lo{N_\delta}$,
+    $\norm{U_\delta}\leq 1+\theta$ and $\norm{U_\delta^{-1}}\leq 1$. If
+    $N_\delta=\varnothing$, then $\ellone{N_\delta}=\{0\}$ and $U_\delta=0$
+    works. Otherwise note that the restriction map $x\mapsto x|_{N_\delta}$
+    is a contractive surjection of $\ellone{\Gamma_{\delta+1}}$ onto
+    $\ellone{N_\delta}$ and $P_{\delta+1}$ is dense in
+    $\ellone{\Gamma_{\delta+1}}$ by $(i)$, so $D_\delta$ is dense in
+    $\ellone{N_\delta}$; moreover, $D_\delta$ has at most countable algebraic
+    dimension by $(iii)$. If $N_\delta$ is finite, then
+    $D_\delta=\ellone{N_\delta}=\lo{N_\delta}$ and $U_\delta=1_{\ellone{N_\delta}}$
+    works. If $N_\delta$ is countably infinite, we identify
+    $\ellone{N_\delta}$ with $\ell_1$ by means of a bijection between
+    $N_\delta$ and $\mathbb{N}$, which preserves finitely supported families,
+    and apply theorem~\ref{BackAndForth} to $D_\delta$ and $\theta$: we get a
+    linear bijection $U$ of $\ellone{N_\delta}$ with $U(D_\delta)=\lo{N_\delta}$
+    and $\norm{U}\norm{U^{-1}}\leq 1+\theta$, and $U_\delta=\norm{U^{-1}}U$
+    has the required properties.
+
+    Now we construct by transfinite recursion, for every
     $\delta<\lambda$, a bounded linear operator
     $V_\delta:\ellone{N_\delta}\to\ellone{\Gamma_\delta}$ with
     $\norm{V_\delta}\leq\theta$. For $\delta\leq\lambda$ and
@@ -1251,7 +1133,11 @@ $D_\delta$ is isomorphic as a vector space to $P_{\delta+1}/P_\delta$.
     \begin{equation}\label{InductiveClaim}
     T_\delta(P_\delta)=\lo{\Gamma_\delta}\quad\text{for all }\delta\leq\lambda.
     \end{equation}
-    Then $T=T_\lambda$ is the required operator.
+    Then $T_\lambda$ is a linear bijection of $\ellone{\Gamma}$ with
+    $T_\lambda(P)=\lo{\Gamma}$, and $T=\norm{T_\lambda^{-1}}T_\lambda$
+    satisfies $\norm{T^{-1}}=1$ and
+    $\norm{T}\leq{(1+\theta)}^2{(1-\theta)}^{-1}\leq 1+\varepsilon$, as
+    required.
 
     Let $\delta<\lambda$ and suppose that $V_{\delta'}$ has been constructed
     for all $\delta'<\delta$ in such a way that \eqref{InductiveClaim} holds
@@ -1267,7 +1153,7 @@ $D_\delta$ is isomorphic as a vector space to $P_{\delta+1}/P_\delta$.
     If $N_\delta=\varnothing$, then $P_{\delta+1}=P_\delta$,
     $T_{\delta+1}=T_\delta$, and we put $V_\delta=0$. So let
     $N_\delta\neq\varnothing$, and put $U=U_\delta$ and $y_n=U^{-1}(e_n)$ for
-    $n\in N_\delta$. By $(iii)$, ${(y_n)}_{n\in N_\delta}$ is a Hamel basis of
+    $n\in N_\delta$. Since $U(D_\delta)=\lo{N_\delta}$, ${(y_n)}_{n\in N_\delta}$ is a Hamel basis of
     $D_\delta$ and
     \[
     \Bigl\lVert\sum_{n}c_ny_n\Bigr\rVert\geq\norm{U}^{-1}\Bigl\lVert\sum_n c_ne_n\Bigr\rVert
@@ -1331,21 +1217,6 @@ $D_\delta$ is isomorphic as a vector space to $P_{\delta+1}/P_\delta$.
     recursion and the proof.
 \end{proof}
 
-If all the sets $N_\delta$ are at most countable and $P_{\delta+1}/P_\delta$
-has at most countable algebraic dimension for every $\delta<\lambda$, then
-condition $(iii)$ is automatically satisfied for every $\theta>0$: indeed,
-$D_\delta$ is a dense subspace of $\ellone{N_\delta}$ of countable algebraic
-dimension, so for infinite $N_\delta$ theorem~\ref{BackAndForth} provides a
-linear bijection $U_\delta$ with $U_\delta(D_\delta)=\lo{N_\delta}$ and
-$\norm{U_\delta}\norm{U_\delta^{-1}}\leq 1+\theta$, which can be normalized by
-a scalar, and for finite $N_\delta$ we have $D_\delta=\ellone{N_\delta}$ and
-$U_\delta=1_{\ellone{N_\delta}}$ works. Example~\ref{LadderSpace} shows that
-condition $(ii)$ cannot be dropped: for the filtration $\Gamma_\delta=\delta$
-of $\omega_1$ the space $P_L$ satisfies $(i)$ and $(iii)$, but fails $(ii)$
-at every countable limit ordinal (at $\delta=\omega_1$ itself condition
-$(ii)$ holds trivially, since every element of $\ellone{\omega_1}$ has
-countable support).
-
 We proceed to the construction of filtrations satisfying the hypotheses of
 theorem~\ref{TransfiniteBackAndForth}. For the rest of this section we fix a
 set $\Gamma$, a dense topologically
@@ -1378,301 +1249,6 @@ to $e_\gamma$. For $A\subset\Gamma$ we put $P_A=P\cap\ellone{A}$.
     claim is now obvious.
 \end{proof}
 
-\begin{lemma}\label{ClosingOff} Let $\mu$ be an infinite cardinal,
-    $A\subset\Gamma$ and $B\subset S$ be sets of cardinality at most $\mu$.
-    Then there is a closed pair $(A',B')$ with $A\subset A'$, $B\subset B'$ and
-    $|A'|,|B'|\leq\mu$.
-\end{lemma}
-\begin{proof} Define increasing sequences $A=A_0\subset A_1\subset\ldots$ and
-    $B=B_0\subset B_1\subset\ldots$ as follows. Given $A_k$ and $B_k$ of
-    cardinality at most $\mu$, let $H_k$ be a Hamel basis of $P_{A_k}$. Since
-    $P_{A_k}\subset\ellone{A_k}$ has density character at most $\mu$ (the
-    density character of a metric space is inherited by its subspaces), by
-    theorem~\ref{SeparableSubspaces} $|H_k|\leq\mu$. Put
-    \[
-    B_{k+1}=B_k\cup\bigcup_{x\in H_k}\supp(\sigma(x)),\qquad
-    A_{k+1}=A_k\cup\bigcup_{s\in B_{k+1}}\supp(\pi(e_s))
-    \cup\bigcup_{\gamma\in A_k,\,n\in\mathbb{N}}\supp(p^\gamma_n).
-    \]
-    All supports are countable, so $|A_{k+1}|,|B_{k+1}|\leq\mu$. Put
-    $A'=\bigcup_k A_k$ and $B'=\bigcup_k B_k$. Conditions $(a)$ and $(c)$ hold
-    for $(A',B')$, since every $s\in B'$ and every $\gamma\in A'$ belongs to
-    some $B_{k+1}$ or $A_k$ respectively. To verify $(b)$, note first that
-    $\bigcup_k P_{A_k}$ is dense in $\ellone{A'}$: indeed, $P_{A_{k+1}}$
-    contains $p^\gamma_n$ for all $\gamma\in A_k$, so the closure of
-    $\bigcup_k P_{A_k}$ contains $\lo{A'}$. Let $x\in P_{A'}$ and choose
-    $x_j\in\bigcup_k P_{A_k}$ with $x_j\to x$. Then $\sigma(x_j)\in\lo{B_{k_j+1}}
-    \subset\ellone{B'}$ for suitable $k_j$, because $\supp(\sigma(y))\subset
-    B_{k+1}$ for $y\in P_{A_k}$ by the choice of $B_{k+1}$. Since $\sigma$ is
-    continuous and $\ellone{B'}$ is closed in $\ellone{S}$, we get
-    $\sigma(x)\in\ellone{B'}\cap\lo{S}=\lo{B'}$.
-\end{proof}
-
-Note that in the last argument the support of $x\in P_{A'}$ need not be
-contained in a single $A_k$; this is why density was used instead of a
-direct argument. The same argument proves the following lemma.
-
-\begin{lemma}\label{UnionsOfClosedPairs} Let ${((A_\delta,B_\delta))}_{\delta<\lambda}$
-    be an increasing family of closed pairs indexed by a limit ordinal
-    $\lambda$, and let $A_\lambda=\bigcup_{\delta<\lambda}A_\delta$,
-    $B_\lambda=\bigcup_{\delta<\lambda}B_\delta$. Then $(A_\lambda,B_\lambda)$
-    is a closed pair and $P_{A_\lambda}=\bigcup_{\delta<\lambda}P_{A_\delta}$.
-\end{lemma}
-\begin{proof} Conditions $(a)$ and $(c)$ are inherited from the pairs
-    $(A_\delta,B_\delta)$. By lemma~\ref{ClosedPairProps} each $P_{A_\delta}$
-    is dense in $\ellone{A_\delta}$, so $\bigcup_{\delta<\lambda}P_{A_\delta}$
-    is dense in $\ellone{A_\lambda}$. If $x\in P_{A_\lambda}$, choose
-    $x_j\in\bigcup_\delta P_{A_\delta}$ with $x_j\to x$; then
-    $\sigma(x_j)\in\ellone{B_\lambda}$ by $(b)$ for the pairs
-    $(A_\delta,B_\delta)$, hence $\sigma(x)\in\ellone{B_\lambda}\cap\lo{S}=\lo{B_\lambda}$.
-    This is $(b)$ for $(A_\lambda,B_\lambda)$. Finally, by
-    lemma~\ref{ClosedPairProps},
-    $P_{A_\lambda}=\pi(\lo{B_\lambda})=\bigcup_{\delta<\lambda}\pi(\lo{B_\delta})
-    =\bigcup_{\delta<\lambda}P_{A_\delta}$.
-\end{proof}
-
-\begin{lemma}\label{BlockRetract} Let $(A,B)\subset(A',B')$ be closed pairs,
-    that is, $A\subset A'$ and $B\subset B'$, and let $N=A'\setminus A$. Then
-    $D=\{x|_N:x\in P_{A'}\}$ is a dense subspace of $\ellone{N}$ which is a
-    retract of $\lo{B'\setminus B}$. In particular, $D$ is topologically
-    projective.
-\end{lemma}
-\begin{proof} The restriction map $r:\ellone{A'}\to\ellone{N}$, $x\mapsto x|_N$,
-    is a contractive surjection and $P_{A'}$ is dense in $\ellone{A'}$ by
-    lemma~\ref{ClosedPairProps}, so $D=r(P_{A'})$ is dense in $\ellone{N}$.
-    The kernel of $r|_{P_{A'}}$ is $P_{A'}\cap\ellone{A}=P_A$.
-
-    Let $y\in D$ and $x\in P_{A'}$ with $x|_N=y$. By $(b)$ for $(A',B')$ we
-    have $\sigma(x)\in\lo{B'}$. If $x'\in P_{A'}$ is another element with
-    $x'|_N=y$, then $x-x'\in P_A$, so $\sigma(x-x')\in\lo{B}$ by $(b)$ for
-    $(A,B)$, and $\sigma(x)|_{S\setminus B}=\sigma(x')|_{S\setminus B}$.
-    Therefore the map
-    \[
-    \rho:D\to\lo{B'\setminus B},\qquad\rho(y)=\sigma(x)|_{S\setminus B}
-    \quad(x\in P_{A'},\ x|_N=y),
-    \]
-    is well defined; it is linear, because if $x_1,x_2\in P_{A'}$ restrict
-    to $y_1,y_2$, then $x_1+cx_2$ restricts to $y_1+cy_2$. It is bounded:
-    given $y\in D$, $x_0\in P_{A'}$
-    with $x_0|_N=y$ and $\varepsilon>0$, use the density of $P_A$ in
-    $\ellone{A}$ to find $p\in P_A$ with $\norm{x_0|_A+p}\leq\varepsilon$;
-    then $x=x_0+p\in P_{A'}$ satisfies $x|_N=y$ and
-    $\norm{x}=\norm{x|_A}+\norm{y}\leq\norm{y}+\varepsilon$, so
-    $\norm{\rho(y)}\leq\norm{\sigma(x)}\leq\norm{\sigma}(\norm{y}+\varepsilon)$.
-    Hence $\norm{\rho}\leq\norm{\sigma}$. Finally, let $r\pi:\lo{B'\setminus B}\to\ellone{N}$
-    be the composition of $\pi$ with the restriction to $N$. For $y=x|_N$ as
-    above,
-    \[
-    r\pi\rho(y)=r\bigl(\pi\sigma(x)-\pi(\sigma(x)|_B)\bigr)
-    =r(x)-r\bigl(\pi(\sigma(x)|_B)\bigr)=y,
-    \]
-    because $\pi(\sigma(x)|_B)\in\pi(\lo{B})=P_A\subset\ellone{A}$ vanishes on
-    $N$. Thus, $r\pi$ maps $\lo{B'\setminus B}$ into $D$ (its range is
-    contained in $r(P_{A'})=D$) and $r\pi\rho=1_D$; so $D$ is a retract of
-    $\lo{B'\setminus B}$ and is topologically projective by
-    proposition~\ref{RetractOfProj}.
-\end{proof}
-
-\begin{theorem}\label{GeneralTheorem} Let $\Gamma$ be a set and $P$ be a
-    dense topologically projective subspace of $\ellone{\Gamma}$. Then for
-    every $\theta>0$ there is a linear bijection $T$ of $\ellone{\Gamma}$ with
-    $T(P)=\lo{\Gamma}$, $\norm{T}\leq 1+\theta$ and $\norm{T^{-1}}\leq 1$. In
-    particular, $\BM(P,\lo{\Gamma})=1$ and $P$ is extremely projective.
-\end{theorem}
-\begin{proof} We proceed by induction on the cardinality $\kappa$ of
-    $\Gamma$. If $\Gamma$ is finite, then $P=\ellone{\Gamma}=\lo{\Gamma}$ and
-    $T=1_{\ellone{\Gamma}}$ works. If $\Gamma$ is countably infinite, then
-    $P$ has countable algebraic dimension by theorem~\ref{SeparableSubspaces},
-    and theorem~\ref{BackAndForth} provides a linear bijection $T$ with
-    $T(P)=\lo{\Gamma}$ and $\norm{T}\norm{T^{-1}}\leq 1+\theta$; multiplying
-    $T$ by a scalar we get $\norm{T^{-1}}\leq 1$ and $\norm{T}\leq 1+\theta$.
-
-    Let $\kappa$ be uncountable and assume that the theorem holds for all
-    sets of cardinality less than $\kappa$. Since the conclusion for a smaller
-    $\theta$ is stronger, we may fix $\theta\in(0,1/2)$; put
-    $\theta'=\theta/8$, so that ${(1+\theta')}^2{(1-\theta')}^{-1}\leq 1+\theta$.
-    Fix $S$, $\sigma$, $\pi$ and the sequences $p^\gamma_n$ as above. Let
-    $\lambda$ be the cofinality of $\kappa$ and ${(\Gamma^\delta)}_{\delta<\lambda}$
-    be a family of subsets of $\Gamma$ of cardinality less than $\kappa$ with
-    $\bigcup_{\delta<\lambda}\Gamma^\delta=\Gamma$. Such a family exists: if
-    $\kappa$ is regular, then $\lambda=\kappa$ and we may take
-    $\Gamma^\delta=\{\gamma_\delta\}$ for an enumeration
-    ${(\gamma_\delta)}_{\delta<\kappa}$ of $\Gamma$; if $\kappa$ is singular,
-    we take an enumeration ${(\gamma_\alpha)}_{\alpha<\kappa}$ of $\Gamma$, an
-    increasing sequence of cardinals ${(\kappa_\delta)}_{\delta<\lambda}$ with
-    supremum $\kappa$, and $\Gamma^\delta=\{\gamma_\alpha:\alpha<\kappa_\delta\}$.
-    By transfinite recursion
-    we define an increasing family ${((A_\delta,B_\delta))}_{\delta\leq\lambda}$
-    of closed pairs with $|A_\delta|,|B_\delta|<\kappa$ for $\delta<\lambda$:
-    put $A_0=B_0=\varnothing$; given $(A_\delta,B_\delta)$ with $\delta<\lambda$,
-    let $(A_{\delta+1},B_{\delta+1})$ be a closed pair containing
-    $(A_\delta\cup\Gamma^\delta,B_\delta)$ with
-    $|A_{\delta+1}|,|B_{\delta+1}|\leq\max(|A_\delta|,|B_\delta|,|\Gamma^\delta|,\aleph_0)<\kappa$,
-    which exists by lemma~\ref{ClosingOff}; for a limit ordinal
-    $\delta\leq\lambda$ let $A_\delta$ and $B_\delta$ be the unions of the
-    previous sets. For a limit ordinal $\delta<\lambda$ the set $A_\delta$ is
-    a union of fewer than $\operatorname{cf}(\kappa)$ sets of cardinality
-    less than $\kappa$, so $|A_\delta|<\kappa$, and similarly $|B_\delta|<\kappa$;
-    by lemma~\ref{UnionsOfClosedPairs} the pairs $(A_\delta,B_\delta)$ are
-    closed for all $\delta\leq\lambda$. Finally, $A_\lambda=\Gamma$.
-
-    Thus, ${(A_\delta)}_{\delta\leq\lambda}$ is a filtration of $\Gamma$, and
-    we verify the hypotheses of theorem~\ref{TransfiniteBackAndForth} for
-    this filtration and $\theta'$, where $P_\delta=P_{A_\delta}$ and
-    $N_\delta=A_{\delta+1}\setminus A_\delta$. Condition $(i)$ holds by
-    lemma~\ref{ClosedPairProps}, and condition $(ii)$ holds by
-    lemma~\ref{UnionsOfClosedPairs}. For $(iii)$, let $\delta<\lambda$. By
-    lemma~\ref{BlockRetract} the space $D_\delta=\{x|_{N_\delta}:x\in P_{\delta+1}\}$
-    is a dense topologically projective subspace of $\ellone{N_\delta}$, and
-    $|N_\delta|\leq|A_{\delta+1}|<\kappa$. By the induction hypothesis there
-    is a linear bijection $U_\delta$ of $\ellone{N_\delta}$ with
-    $U_\delta(D_\delta)=\lo{N_\delta}$, $\norm{U_\delta}\leq 1+\theta'$ and
-    $\norm{U_\delta^{-1}}\leq 1$ (if $N_\delta=\varnothing$ there is nothing to
-    do). Now theorem~\ref{TransfiniteBackAndForth} gives a linear bijection
-    $T$ of $\ellone{\Gamma}$ with $T(P)=\lo{\Gamma}$ and
-    $\norm{T}\norm{T^{-1}}\leq{(1+\theta')}^2{(1-\theta')}^{-1}\leq 1+\theta$;
-    after multiplication by a scalar, $\norm{T^{-1}}\leq 1$ and
-    $\norm{T}\leq 1+\theta$. The last claim of the theorem follows from
-    theorem~\ref{ExtrProjCriterion}.
-\end{proof}
-
-Note that the filtration constructed in the proof of
-theorem~\ref{GeneralTheorem} has blocks $N_\delta$ of cardinality less than
-$|\Gamma|$, not necessarily countable ones; this is why
-theorem~\ref{TransfiniteBackAndForth} was formulated for arbitrary blocks.
-
-Together with theorem~\ref{CompletionIsEllOne}, theorem~\ref{GeneralTheorem}
-gives the main result of the paper.
-
-\begin{theorem}\label{FinalCharacterization} For a normed space $P$ the
-    following conditions are equivalent:
-    \begin{enumerate}[label = (\roman*)]
-        \item $P$ is extremely projective;
-        \item $P$ is topologically projective and $\overline{P}$ is
-              isometrically isomorphic to $\ellone{\Gamma}$ for some set
-              $\Gamma$;
-        \item $\BM(P,\lo{\Gamma})=1$ for some set $\Gamma$;
-        \item for every $\varepsilon>0$ there is a set $\Lambda$ with
-              $\BM(P,\lo{\Lambda})<1+\varepsilon$.
-    \end{enumerate}
-    Moreover, in $(iii)$ the set $\Gamma$ necessarily has the cardinality of
-    the algebraic dimension of $P$, and the Banach--Mazur distance in
-    $(iii)$ is realized by linear bijections
-    $T:\overline{P}\to\ellone{\Gamma}$ with $T(P)=\lo{\Gamma}$ and
-    $\norm{T}\norm{T^{-1}}$ arbitrarily close to $1$.
-\end{theorem}
-\begin{proof} $(i)\implies(ii)$ Extremely projective spaces are
-    topologically projective, and their completions are described by
-    theorem~\ref{CompletionIsEllOne}.
-
-    $(ii)\implies(iii)$ Let $J:\overline{P}\to\ellone{\Gamma}$ be an isometric
-    isomorphism. Then $J(P)$ is a dense topologically projective subspace of
-    $\ellone{\Gamma}$, and theorem~\ref{GeneralTheorem} gives
-    $\BM(P,\lo{\Gamma})=\BM(J(P),\lo{\Gamma})=1$, realized by linear
-    bijections of the required form.
-
-    $(iii)\implies(iv)$ is obvious, and $(iv)\implies(i)$ follows from
-    theorem~\ref{ExtrProjCriterion}, since a linear bijection $S:P\to\lo{\Lambda}$
-    with $\norm{S}\norm{S^{-1}}<1+\varepsilon$ makes $P$ a
-    $(1+\varepsilon)$-retract of $\lo{\Lambda}$. Finally, if
-    $\BM(P,\lo{\Gamma})<\infty$, then $P$ and $\lo{\Gamma}$ are isomorphic as
-    vector spaces, and the algebraic dimension of $\lo{\Gamma}$ is the
-    cardinality of $\Gamma$; so the set $\Gamma$ in $(iii)$ is determined up
-    to a bijection, and the realization of the distance obtained in
-    $(ii)\implies(iii)$ applies to it.
-\end{proof}
-
-\begin{corollary}\label{GronbaekConjecture} Every extremely projective
-    normed space $P$ is almost isometric to $\lo{\Gamma}$, where $\Gamma$ is a
-    set whose cardinality is the algebraic dimension of $P$. In particular,
-    the conjecture of Gr{\o}nb{\ae}k \cite[conjecture 3.1]{GronLiftProbNormSp}
-    holds in the almost isometric form, while corollary~\ref{CounterexampleCorollary}
-    shows that it fails in the isometric form.
-\end{corollary}
-
-We finish with some comments. Let us compare our argument with the proof
-of the theorem of Gr{\o}nb{\ae}k, which consists of two steps: a transfinite
-construction which finds in every subspace $Y$ of $\lo{\Lambda}$ a
-complemented subspace isomorphic to $\lo{\Lambda'}$, where the cardinality of
-$\Lambda'$ is the density character of $Y$
-\cite[proposition 2.2]{GronLiftProbNormSp}, and the decomposition method of
-Pe{\l}czy\'nski \cite[proposition 2.3]{GronLiftProbNormSp}. An inspection of
-the first step shows that it produces, for every $\varepsilon>0$, a subspace
-which is $(1+\varepsilon)$-isomorphic to $\lo{\Lambda'}$ and
-$(1+\varepsilon)$-complemented, so the constants are lost only in the second
-step. Theorems~\ref{BackAndForth} and~\ref{TransfiniteBackAndForth} replace
-the decomposition method by back-and-forth constructions which keep the
-constants, at the price of the continuity condition $(ii)$, and
-lemmas~\ref{ClosingOff} and~\ref{UnionsOfClosedPairs} show that this
-condition can always be achieved for topologically projective spaces. Next,
-theorem~\ref{FinalCharacterization}
-shows that for dense subspaces of the spaces $\ellone{\Gamma}$ topological and
-extreme projectivity coincide. This is a feature of the exact norm of
-$\ellone{\Gamma}$: if $E$ is an infinite dimensional Banach space which is
-topologically but not almost isometrically isomorphic to $\ellone{\Gamma}$,
-for instance $\ellone{\Gamma}$ with a suitable equivalent norm, then every
-dense subspace of $E$ of the form $J(\lo{\Gamma})$, $J$ a topological
-isomorphism, is topologically but not extremely projective by
-theorem~\ref{CompletionIsEllOne}. Further, by theorem~\ref{FinalCharacterization}
-and example~\ref{LadderSpace}, the question of Helemskii on dense subspaces of
-$\ellone{\Lambda}$ has the following answer: a dense subspace $P$ of
-$\ellone{\Lambda}$ is extremely projective if and only if it is
-topologically projective, if and only if it admits a filtration with the
-properties $(i)$--$(iii)$ of theorem~\ref{TransfiniteBackAndForth}; for
-countable $\Lambda$ this means that $P$ has countable algebraic dimension, but
-for uncountable $\Lambda$ the continuity condition $(ii)$ is a genuine
-restriction, as the ladder space shows. The positive results of this section
-use only the closing-off arguments of lemmas~\ref{ClosingOff}
-and~\ref{UnionsOfClosedPairs}. In the next section we sharpen the last
-answer: condition $(iii)$ of theorem~\ref{TransfiniteBackAndForth} can be
-replaced by a dimension count, and for $|\Lambda|=\aleph_1$ the answer takes
-the form of a criterion in terms of stationary sets.
-
-%-------------------------------------------------------------------------------
-%	Filtrations with countable blocks
-%-------------------------------------------------------------------------------
-
-\section{Filtrations with countable blocks and the case of dimension
-  $\aleph_1$}\label{SectionIntrinsic}
-
-In this section we return to the question of Helemskii on dense subspaces of
-$\ellone{\Gamma}$ and describe the topologically projective ones in terms of
-the coordinate structure of $\ellone{\Gamma}$ only, without reference to a
-retraction onto a free space. Note that this structure is intrinsic: by
-lemma~\ref{ExtremePointsLemma}, applied to $E=\ellone{\Gamma}$, the extreme
-points of the unit ball of $\ellone{\Gamma}$ are exactly the vectors
-$\lambda e_\gamma$ with $|\lambda|=1$, so the family of the one dimensional
-subspaces $\mathbb{C}e_\gamma$, $\gamma\in\Gamma$, is determined by the norm
-of $\ellone{\Gamma}$. As before, for a subspace $P$ of $\ellone{\Gamma}$ and
-$A\subset\Gamma$ we write $P_A=P\cap\ellone{A}$, and for a filtration
-${(\Gamma_\delta)}_{\delta\leq\lambda}$ of $\Gamma$ we write
-$P_\delta=P_{\Gamma_\delta}$.
-
-We begin with a reformulation of theorem~\ref{SeparableSubspaces}. Its proof
-uses only the existence of a bounded injective operator into a free normed
-space, so it gives the following statement.
-
-\begin{lemma}\label{InjectionDimension} Let $Z$ be a normed space, $S$ be a
-    set and $\rho:Z\to\lo{S}$ be an injective bounded linear operator. Then
-    the algebraic dimension of $Z$ is at most $\max(\operatorname{dens}(Z),\aleph_0)$.
-\end{lemma}
-\begin{proof} Let $M$ be a dense subset of $Z$ of cardinality
-    $\operatorname{dens}(Z)$ and $S_0=\bigcup_{x\in M}\supp(\rho(x))$, a set
-    of cardinality at most $\max(\operatorname{dens}(Z),\aleph_0)$. For
-    $z\in Z$ the vector $\rho(z)$ is the limit in $\ellone{S}$ of a sequence
-    of elements of $\rho(M)$, which are supported in $S_0$, so $\rho(z)$ is
-    supported in $S_0$ by the continuity of the coordinate functionals. Thus,
-    $\rho$ is an injective linear map of $Z$ into $\lo{S_0}$, whose algebraic
-    dimension is the cardinality of $S_0$.
-\end{proof}
-
-For the next two lemmas we return to the standing assumptions of
-section~\ref{SectionUncountable}: $P$ is a dense topologically projective
-subspace of $\ellone{\Gamma}$, the operators $\sigma:P\to\lo{S}$ and
-$\pi:\lo{S}\to P$ satisfy $\pi\sigma=1_P$ and $\norm{\pi}\leq 1$, the
-sequences ${(p^\gamma_n)}_{n\in\mathbb{N}}$ in $P$ converge to $e_\gamma$,
-and closed pairs are understood in the sense of definition~\ref{ClosedPair}.
-
 \begin{lemma}\label{CountableQuotient} Let $(A,B)$ be a closed pair and
     $A'\subset\Gamma$ be a set with $A\subset A'$ such that $A'\setminus A$
     is at most countable. Then the algebraic dimension of $P_{A'}/P_A$ is at
@@ -1681,8 +1257,7 @@ and closed pairs are understood in the sense of definition~\ref{ClosedPair}.
 \begin{proof} Put $N=A'\setminus A$ and let $r:\ellone{A'}\to\ellone{N}$ be
     the restriction map. The kernel of $r|_{P_{A'}}$ is $P_{A'}\cap\ellone{A}=P_A$,
     so $D=r(P_{A'})$ is isomorphic as a vector space to $P_{A'}/P_A$, and $D$
-    is separable as a subspace of $\ellone{N}$. As in the proof of
-    lemma~\ref{BlockRetract}, the map
+    is separable as a subspace of $\ellone{N}$. The map
     \[
     \rho:D\to\lo{S\setminus B},\qquad\rho(y)=\sigma(x)|_{S\setminus B}
     \quad(x\in P_{A'},\ x|_N=y),
@@ -1739,6 +1314,31 @@ and closed pairs are understood in the sense of definition~\ref{ClosedPair}.
     This is condition $(b)$ for $(A',B')$.
 \end{proof}
 
+Note that in the last argument the support of $x\in P_{A'}$ need not be
+contained in a single $A_k$; this is why density was used instead of a
+direct argument. The same argument proves the following lemma.
+
+\begin{lemma}\label{UnionsOfClosedPairs} Let ${((A_\delta,B_\delta))}_{\delta<\lambda}$
+    be an increasing family of closed pairs indexed by a limit ordinal
+    $\lambda$, and let $A_\lambda=\bigcup_{\delta<\lambda}A_\delta$,
+    $B_\lambda=\bigcup_{\delta<\lambda}B_\delta$. Then $(A_\lambda,B_\lambda)$
+    is a closed pair and $P_{A_\lambda}=\bigcup_{\delta<\lambda}P_{A_\delta}$.
+\end{lemma}
+\begin{proof} Conditions $(a)$ and $(c)$ are inherited from the pairs
+    $(A_\delta,B_\delta)$. By lemma~\ref{ClosedPairProps} each $P_{A_\delta}$
+    is dense in $\ellone{A_\delta}$, so $\bigcup_{\delta<\lambda}P_{A_\delta}$
+    is dense in $\ellone{A_\lambda}$. If $x\in P_{A_\lambda}$, choose
+    $x_j\in\bigcup_\delta P_{A_\delta}$ with $x_j\to x$; then
+    $\sigma(x_j)\in\ellone{B_\lambda}$ by $(b)$ for the pairs
+    $(A_\delta,B_\delta)$, hence $\sigma(x)\in\ellone{B_\lambda}\cap\lo{S}=\lo{B_\lambda}$.
+    This is $(b)$ for $(A_\lambda,B_\lambda)$. Finally, by
+    lemma~\ref{ClosedPairProps},
+    $P_{A_\lambda}=\pi(\lo{B_\lambda})=\bigcup_{\delta<\lambda}\pi(\lo{B_\delta})
+    =\bigcup_{\delta<\lambda}P_{A_\delta}$.
+\end{proof}
+
+We can now prove the main result of this section.
+
 \begin{theorem}\label{CountableBlocksCriterion} Let $\Gamma$ be a set and
     $P$ be a dense subspace of $\ellone{\Gamma}$. Then the following
     conditions are equivalent:
@@ -1758,18 +1358,21 @@ and closed pairs are understood in the sense of definition~\ref{ClosedPair}.
                         at most countable for every $\delta<\lambda$.
               \end{enumerate}
     \end{enumerate}
+    If these conditions hold, then for every $\varepsilon>0$ there is a
+    linear bijection $T$ of $\ellone{\Gamma}$ with $T(P)=\lo{\Gamma}$,
+    $\norm{T}\leq 1+\varepsilon$ and $\norm{T^{-1}}\leq 1$; in particular,
+    $\BM(P,\lo{\Gamma})=1$.
 \end{theorem}
-\begin{proof} $(i)\iff(ii)$ follows from theorem~\ref{FinalCharacterization},
-    since the completion of $P$ is $\ellone{\Gamma}$.
+\begin{proof} $(i)\implies(ii)$ is trivial.
 
-    $(iii)\implies(i)$ Let $0<\theta<1/2$. By the remark after
-    theorem~\ref{TransfiniteBackAndForth}, conditions $(a)$ and $(c)$ imply
-    condition $(iii)$ of that theorem for the given filtration and $\theta$,
-    while $(a)$ and $(b)$ are its conditions $(i)$ and $(ii)$. Hence there
-    is a linear bijection $T$ of $\ellone{\Gamma}$ with $T(P)=\lo{\Gamma}$
-    and $\norm{T}\norm{T^{-1}}\leq{(1+\theta)}^2{(1-\theta)}^{-1}$. As
-    $\theta$ is arbitrary, $\BM(P,\lo{\Gamma})=1$, and $P$ is extremely
-    projective by theorem~\ref{FinalCharacterization}.
+    $(iii)\implies(i)$ and the last claim. By theorem~\ref{TransfiniteBackAndForth},
+    for every $\varepsilon>0$ there is a linear bijection $T$ of
+    $\ellone{\Gamma}$ with $T(P)=\lo{\Gamma}$, $\norm{T}\leq 1+\varepsilon$
+    and $\norm{T^{-1}}\leq 1$. Then $\zeta=T^{-1}|_{\lo{\Gamma}}:\lo{\Gamma}\to P$
+    and $\eta=T|_P:P\to\lo{\Gamma}$ satisfy $\zeta\eta=1_P$ and
+    $\norm{\zeta}\norm{\eta}\leq 1+\varepsilon$, so $P$ is a
+    $(1+\varepsilon)$-retract of $\lo{\Gamma}$ for every $\varepsilon>0$, and
+    $P$ is extremely projective by theorem~\ref{ExtrProjCriterion}.
 
     $(ii)\implies(iii)$ Fix $S$, $\sigma$, $\pi$ and the sequences
     $p^\gamma_n$ as above, and an enumeration ${(\gamma_\alpha)}_{\alpha<\kappa}$
@@ -1790,17 +1393,116 @@ and closed pairs are understood in the sense of definition~\ref{ClosedPair}.
     lemma~\ref{CountableQuotient}.
 \end{proof}
 
+Together with theorem~\ref{CompletionIsEllOne}, theorem~\ref{CountableBlocksCriterion}
+gives the main result of the paper.
+
+\begin{theorem}\label{FinalCharacterization} For a normed space $P$ the
+    following conditions are equivalent:
+    \begin{enumerate}[label = (\roman*)]
+        \item $P$ is extremely projective;
+        \item $P$ is topologically projective and $\overline{P}$ is
+              isometrically isomorphic to $\ellone{\Gamma}$ for some set
+              $\Gamma$;
+        \item $\BM(P,\lo{\Gamma})=1$ for some set $\Gamma$;
+        \item for every $\varepsilon>0$ there is a set $\Lambda$ with
+              $\BM(P,\lo{\Lambda})<1+\varepsilon$.
+    \end{enumerate}
+    Moreover, in $(iii)$ the set $\Gamma$ necessarily has the cardinality of
+    the algebraic dimension of $P$, and the Banach--Mazur distance in
+    $(iii)$ is realized by linear bijections
+    $T:\overline{P}\to\ellone{\Gamma}$ with $T(P)=\lo{\Gamma}$ and
+    $\norm{T}\norm{T^{-1}}$ arbitrarily close to $1$.
+\end{theorem}
+\begin{proof} $(i)\implies(ii)$ Extremely projective spaces are
+    topologically projective, and their completions are described by
+    theorem~\ref{CompletionIsEllOne}.
+
+    $(ii)\implies(iii)$ Let $J:\overline{P}\to\ellone{\Gamma}$ be an isometric
+    isomorphism. Then $J(P)$ is a dense topologically projective subspace of
+    $\ellone{\Gamma}$, and theorem~\ref{CountableBlocksCriterion} gives
+    $\BM(P,\lo{\Gamma})=\BM(J(P),\lo{\Gamma})=1$, realized by linear
+    bijections of the required form.
+
+    $(iii)\implies(iv)$ is obvious, and $(iv)\implies(i)$ follows from
+    theorem~\ref{ExtrProjCriterion}, since a linear bijection $S:P\to\lo{\Lambda}$
+    with $\norm{S}\norm{S^{-1}}<1+\varepsilon$ makes $P$ a
+    $(1+\varepsilon)$-retract of $\lo{\Lambda}$. Finally, if
+    $\BM(P,\lo{\Gamma})<\infty$, then $P$ and $\lo{\Gamma}$ are isomorphic as
+    vector spaces, and the algebraic dimension of $\lo{\Gamma}$ is the
+    cardinality of $\Gamma$; so the set $\Gamma$ in $(iii)$ is determined up
+    to a bijection, and the realization of the distance obtained in
+    $(ii)\implies(iii)$ applies to it.
+\end{proof}
+
+\begin{corollary}\label{GronbaekConjecture} Every extremely projective
+    normed space $P$ is almost isometric to $\lo{\Gamma}$, where $\Gamma$ is a
+    set whose cardinality is the algebraic dimension of $P$. In particular,
+    the conjecture of Gr{\o}nb{\ae}k \cite[conjecture 3.1]{GronLiftProbNormSp}
+    holds in the almost isometric form, while corollary~\ref{CounterexampleCorollary}
+    shows that it fails in the isometric form.
+\end{corollary}
+
+We finish this section with some comments. Let us compare our argument with the proof
+of the theorem of Gr{\o}nb{\ae}k, which consists of two steps: a transfinite
+construction which finds in every subspace $Y$ of $\lo{\Lambda}$ a
+complemented subspace isomorphic to $\lo{\Lambda'}$, where the cardinality of
+$\Lambda'$ is the density character of $Y$
+\cite[proposition 2.2]{GronLiftProbNormSp}, and the decomposition method of
+Pe{\l}czy\'nski \cite[proposition 2.3]{GronLiftProbNormSp}. An inspection of
+the first step shows that it produces, for every $\varepsilon>0$, a subspace
+which is $(1+\varepsilon)$-isomorphic to $\lo{\Lambda'}$ and
+$(1+\varepsilon)$-complemented, so the constants are lost only in the second
+step. Theorems~\ref{BackAndForth} and~\ref{TransfiniteBackAndForth} replace
+the decomposition method by back-and-forth constructions which keep the
+constants, at the price of the continuity condition $(ii)$, and
+lemmas~\ref{CountableClosingOff} and~\ref{UnionsOfClosedPairs} show that
+this condition can always be achieved for topologically projective spaces. Next,
+theorem~\ref{FinalCharacterization}
+shows that for dense subspaces of the spaces $\ellone{\Gamma}$ topological and
+extreme projectivity coincide. This is a feature of the exact norm of
+$\ellone{\Gamma}$: if $E$ is an infinite dimensional Banach space which is
+topologically but not almost isometrically isomorphic to $\ellone{\Gamma}$,
+for instance $\ellone{\Gamma}$ with a suitable equivalent norm, then every
+dense subspace of $E$ of the form $J(\lo{\Gamma})$, $J$ a topological
+isomorphism, is topologically but not extremely projective by
+theorem~\ref{CompletionIsEllOne}. Finally, by
+theorem~\ref{CountableBlocksCriterion}, the question of Helemskii on dense
+subspaces of $\ellone{\Lambda}$ has the following answer: a dense subspace
+$P$ of $\ellone{\Lambda}$ is extremely projective if and only if it is
+topologically projective, if and only if it admits a filtration with
+countable blocks satisfying conditions $(a)$--$(c)$ of
+theorem~\ref{CountableBlocksCriterion}; for countable $\Lambda$ this means
+that $P$ has countable algebraic dimension, but for uncountable $\Lambda$
+the continuity condition $(b)$ is a genuine restriction, as the ladder
+spaces of the next section show.
+
+%-------------------------------------------------------------------------------
+%	Dimension aleph_1
+%-------------------------------------------------------------------------------
+
+\section{Extremely projective normed spaces of dimension
+  $\aleph_1$}\label{SectionIntrinsic}
+
 Condition $(iii)$ of theorem~\ref{CountableBlocksCriterion} refers only to the
-subspaces $P\cap\ellone{A}$, $A\subset\Gamma$. For sets $\Gamma$ of
-cardinality $\aleph_1$ it can be stated as a condition on a single chain of
-subspaces. In the rest of this section we take $\Gamma=\omega_1$; every set
+subspaces $P\cap\ellone{A}$, $A\subset\Gamma$, that is, to the coordinate
+structure of $\ellone{\Gamma}$. Note that this structure is intrinsic: by
+lemma~\ref{ExtremePointsLemma}, applied to $E=\ellone{\Gamma}$, the extreme
+points of the unit ball of $\ellone{\Gamma}$ are exactly the vectors
+$\lambda e_\gamma$ with $|\lambda|=1$, so the family of the one dimensional
+subspaces $\mathbb{C}e_\gamma$, $\gamma\in\Gamma$, is determined by the norm
+of $\ellone{\Gamma}$. For sets $\Gamma$ of cardinality $\aleph_1$ condition
+$(iii)$ can be stated as a condition on a single chain of subspaces. In this
+section we take $\Gamma=\omega_1$; every set
 of cardinality $\aleph_1$ can be enumerated by $\omega_1$, and we shall see in
 proposition~\ref{InvarianceOfDelta} that the choice of the enumeration is
 immaterial. For $\delta\leq\omega_1$ we write $P_\delta=P\cap\ellone{\delta}$,
 where $\ellone{\delta}$ is the subspace of $\ellone{\omega_1}$ consisting of
-the families supported in $\delta=\{\beta:\beta<\delta\}$. We shall use the
-following standard facts about closed unbounded subsets of $\omega_1$
-\cite[chapter 8]{JechSetTheory}: the intersection of two closed unbounded
+the families supported in $\delta=\{\beta:\beta<\delta\}$. Recall that a
+subset of $\omega_1$ is called closed unbounded if it is unbounded in
+$\omega_1$ and contains the supremum of each of its countable subsets, and
+stationary if it intersects every closed unbounded set; the set of limit
+ordinals below $\omega_1$ is closed unbounded. We shall use the following
+standard facts about closed unbounded sets \cite[chapter 8]{JechSetTheory}: the intersection of two closed unbounded
 sets is closed unbounded, and for every function $h:\omega_1\to\omega_1$ the
 set of ordinals $\delta<\omega_1$ such that $h(\alpha)<\delta$ for all
 $\alpha<\delta$ is closed unbounded; we call such ordinals closed under $h$.
@@ -1891,8 +1593,9 @@ $\alpha<\omega_1$.
 \end{proof}
 
 Neither of the conditions of theorem~\ref{AlephOneCriterion} can be dropped:
-the ladder space $P_L$ of example~\ref{LadderSpace} satisfies $(i)$ but not
-$(ii)$, as we shall see again below, while the space
+the ladder spaces on stationary sets constructed in
+theorem~\ref{LadderSpacesOnE} below satisfy $(i)$ but not $(ii)$, while the
+space
 $P=P_w+\lo{\omega_1\setminus\omega}$, where $P_w\subset\ellone{\omega}$ is the
 weighted space of example~\ref{WeightedExample}, satisfies $(ii)$ but not
 $(i)$: here $\Delta(P)=\{\omega\}$, because every element of $P$ is the sum
@@ -1946,15 +1649,18 @@ but only up to a non-stationary set.
     respect to the other enumeration.
 \end{proof}
 
-We now describe the ladder spaces built on arbitrary sets of limit ordinals.
+We now construct the ladder spaces.
 Let $E$ be a set of limit ordinals below $\omega_1$. For every $\alpha\in E$
 fix a strictly increasing sequence ${(\alpha_n)}_{n\in\mathbb{N}}$ with
-$\sup_n\alpha_n=\alpha$ and put $v_\alpha=\sum_{n=1}^\infty 2^{-n}e_{\alpha_n}$,
-as in example~\ref{LadderSpace}, and let
+$\sup_n\alpha_n=\alpha$, a ladder at $\alpha$, and put
+$v_\alpha=\sum_{n=1}^\infty 2^{-n}e_{\alpha_n}\in\ellone{\omega_1}$, and let
 \[
 P_E=\lo{\omega_1}+\Lin\{v_\alpha:\alpha\in E\}\subset\ellone{\omega_1}.
 \]
-Thus, $P_L=P_E$ for the set $E$ of all limit ordinals below $\omega_1$.
+We call $P_E$ the ladder space on $E$. Ladder systems have been used before
+in Banach space theory, for instance in the study of the spaces $C(K)$ of
+ladder system compacta \cite{AvilesKoszmiderLadder}; here they enter through
+the continuity condition of theorem~\ref{AlephOneCriterion}.
 
 \begin{theorem}\label{LadderSpacesOnE} Let $E$ and $E'$ be sets of limit
     ordinals below $\omega_1$. Then
@@ -1976,14 +1682,24 @@ Thus, $P_L=P_E$ for the set $E$ of all limit ordinals below $\omega_1$.
     extremely projective itself.
 \end{theorem}
 \begin{proof} $(i)$ The space $P_E$ contains $\lo{\omega_1}$, so it is dense
-    and has algebraic dimension $\aleph_1$. The proof of part $(ii)$ of
-    example~\ref{LadderSpace} uses only the facts that
-    $\supp(v_\alpha)\cap\supp(v_\beta)$ is finite for limit ordinals
-    $\alpha<\beta$ and that $\supp(v_\alpha)\cap[\delta,\alpha)$ is infinite
-    for $\delta<\alpha$, which hold regardless of $E$; it gives
-    the formula for $(P_E)_\delta$, and this space has countable algebraic
-    dimension and is dense in $\ellone{\delta}$, hence extremely projective
-    by theorem~\ref{MainTheorem}.
+    and has algebraic dimension $\aleph_1$. For limit ordinals $\alpha<\beta$
+    the set $\supp(v_\alpha)\cap\supp(v_\beta)$ is finite:
+    $\supp(v_\alpha)\subset\alpha$, while only finitely many $\beta_n$ are
+    smaller than $\alpha$, because $\sup_n\beta_n=\beta>\alpha$. Let
+    $\delta<\omega_1$ and $x=y+\sum_{\alpha\in F}c_\alpha v_\alpha\in(P_E)_\delta$,
+    where $y\in\lo{\omega_1}$, $F\subset E$ is finite and $c_\alpha\neq 0$ for
+    $\alpha\in F$. Suppose that $F\not\subset[0,\delta]$ and put
+    $\alpha_0=\max F>\delta$. The set $\supp(v_{\alpha_0})\cap[\delta,\alpha_0)$
+    is infinite, because $\sup_n\alpha_{0,n}=\alpha_0>\delta$, while the sets
+    $\supp(y)$ and $\supp(v_\alpha)\cap\supp(v_{\alpha_0})$,
+    $\alpha\in F\setminus\{\alpha_0\}$, are finite. Hence $x$ has infinitely
+    many non-zero coordinates in $[\delta,\alpha_0)$, which contradicts
+    $x\in\ellone{\delta}$. Therefore $F\subset[0,\delta]$, and then also
+    $\supp(y)\subset\delta$. This proves the inclusion $\subset$ in the
+    formula for $(P_E)_\delta$, and the reverse inclusion is obvious. The
+    space $(P_E)_\delta$ has countable algebraic dimension and is dense in
+    $\ellone{\delta}$, because it contains $\lo{\delta}$, so it is extremely
+    projective by theorem~\ref{MainTheorem}.
 
     $(ii)$ Let $\delta<\omega_1$ be a limit ordinal. By $(i)$,
     \[
@@ -2016,13 +1732,7 @@ Thus, $P_L=P_E$ for the set $E$ of all limit ordinals below $\omega_1$.
     $P_{E_\varnothing}=\lo{\omega_1}$.
 \end{proof}
 
-\begin{remark}\label{RemarkAlmostFree} Theorems~\ref{AlephOneCriterion}
-    and~\ref{LadderSpacesOnE} give a second proof of part $(iii)$ of
-    example~\ref{LadderSpace} which does not use Fodor's lemma; the latter
-    is now needed only for theorem~\ref{FodorObstruction} and
-    corollary~\ref{OmegaOneContinuity}, which concern arbitrary
-    $\omega_1$-sequences of vectors rather than the coordinate subspaces
-    $P_\delta$. The results of this section are parallel to the theory of
+\begin{remark}\label{RemarkAlmostFree} The results of this section are parallel to the theory of
     almost free abelian groups, see \cite{EklofMeklerAlmostFree}:
     theorem~\ref{CountableBlocksCriterion} corresponds to the criteria of
     Pontryagin and Hill for freeness in terms of filtrations by countable
