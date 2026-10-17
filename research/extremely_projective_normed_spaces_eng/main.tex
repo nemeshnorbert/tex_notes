@@ -1,0 +1,1676 @@
+% chktex-file 19
+% chktex-file 35
+% chktex-file 36
+ \documentclass[12pt]{article}
+ \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+ \usepackage{amssymb}
+ \usepackage{amsmath}
+ \usepackage{amsthm}
+ \usepackage{enumerate}
+ \usepackage[T1,T2A]{fontenc}
+ \usepackage[utf8]{inputenc}
+ \usepackage[matrix,arrow,curve]{xy}
+ \usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=blue,
+     pdfborder={0 0 0}]{hyperref}
+\usepackage{enumitem}
+
+ %------------------------------------------------------------------------------
+ \newtheorem{theorem}{Theorem}[section]
+ \newtheorem{lemma}[theorem]{Lemma}
+ \newtheorem{proposition}[theorem]{Proposition}
+ \newtheorem{remark}[theorem]{Remark}
+ \newtheorem{corollary}[theorem]{Corollary}
+ \newtheorem{definition}[theorem]{Definition}
+ \newtheorem{example}[theorem]{Example}
+ \newtheorem{question}[theorem]{Question}
+
+ \newcommand{\projtens}{\mathbin{\widehat{\otimes}}}
+ \newcommand{\isom}[1]{\mathop{\mathbin{\cong}}\limits_{#1}}
+ \newcommand{\Nor}{\mathbf{Nor}}
+ \newcommand{\Ban}{\mathbf{Ban}}
+ \newcommand{\lo}[1]{\ell_1^0(#1)}
+ \newcommand{\ellone}[1]{\ell_1(#1)}
+ \newcommand{\norm}[1]{\lVert #1\rVert}
+ \newcommand{\supp}{\operatorname{supp}}
+ \newcommand{\ext}{\operatorname{ext}}
+ \newcommand{\conv}{\operatorname{conv}}
+ \newcommand{\Lin}{\operatorname{span}}
+ \renewcommand{\Im}{\operatorname{Im}}
+ \newcommand{\Ker}{\operatorname{Ker}}
+ \newcommand{\BM}{d_{BM}}
+ %------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{center}
+    \Large \textbf{Extremely projective normed spaces}\\[0.5cm]
+    \small {N. T. Nemesh}\\[0.5cm]
+\end{center}
+
+\thispagestyle{empty}
+
+\medskip
+\textbf{Abstract:} A normed space is called extremely projective if it is
+$C$-topologically projective in the category of normed spaces for every $C>1$.
+Helemskii proved that the spaces $\lo{\Lambda}$ of finitely supported functions
+on a set $\Lambda$ with the $\ell_1$-norm are extremely projective and asked
+whether every extremely projective normed space is isometrically isomorphic to
+some $\lo{\Lambda}$; the same conjecture was raised by Gr{\o}nb{\ae}k. We answer
+this question in the negative and prove that the conjecture holds in the
+almost isometric form: a normed space $P$ is extremely projective if and only
+if it is topologically projective and its completion is isometrically
+isomorphic to $\ellone{\Gamma}$ for some set $\Gamma$, if and only if the
+Banach--Mazur distance between $P$ and $\lo{\Gamma}$ equals $1$. For spaces of
+countable dimension this means that $P$ is extremely projective if and only
+if its completion is isometrically isomorphic to $\ell_1$ or $\ell_1^n$. The
+proof is a transfinite back-and-forth construction. Along the way we show that
+extremely projective normed spaces contain no infinite dimensional complete
+subspaces, so that no infinite dimensional Banach space is extremely
+projective in the category of normed spaces, and we use Fodor's lemma to
+construct a dense subspace of $\ellone{\omega_1}$ all of whose separable
+subspaces have countable dimension but which is not topologically projective.
+\medskip
+
+\textbf{Keywords:} projective normed space, topological projectivity, extreme
+projectivity, Banach--Mazur distance, $\ell_1$-space.
+
+\bigskip
+
+%-------------------------------------------------------------------------------
+%	Introduction
+%-------------------------------------------------------------------------------
+
+\section{Introduction}\label{SectionIntroduction}
+
+Projectivity in categories of normed and Banach modules admits several
+non-equivalent versions. Besides the classical relative projectivity of
+Helemskii~\cite{HelHomolBanTopAlg}, which ignores the norms of lifting
+operators, there are so-called metric and topological
+projectivity~\cite{HelMetrFrQMod, WhiteInjmoduAlg}, where the
+norm of a lifting is controlled by a constant. In the metric theory this
+constant is $1$, and in the topological theory it is some fixed $C\geq 1$. The
+present paper is devoted to the limiting case between these two theories: a
+module is called extremely projective if it is $C$-topologically projective for
+every $C>1$. This notion was introduced and studied by
+Helemskii~\cite{HelExtrProjSeqAlg, HelMetrFrQMod}, whose definition is
+formally different but equivalent to ours, see
+proposition~\ref{EquivWithHelemskii}. We restrict
+ourselves to the simplest possible algebra, namely the zero algebra. Normed
+modules over the zero algebra are just normed spaces, so we deal with extreme
+projectivity in the category $\Nor$ of normed spaces and bounded linear
+operators.
+
+For Banach spaces the corresponding questions are classical. By a theorem of
+K\"othe~\cite{KotheTopProjBanSp} topologically projective Banach spaces are
+exactly the Banach spaces topologically isomorphic to $\ellone{\Lambda}$ for some
+set $\Lambda$, and by a theorem of Grothendieck~\cite{GrothMetrProjFlatBanSp}
+a Banach space has the metric lifting property if and only if it is
+isometrically isomorphic to some $\ellone{\Lambda}$. For normed spaces the
+answers are different, because the category $\Nor$ has its own free objects.
+These are the spaces $\lo{\Lambda}$ of finitely supported functions on a set
+$\Lambda$ with the $\ell_1$-norm. Gr{\o}nb{\ae}k~\cite{GronLiftProbNormSp}
+extended K\"othe's theorem to $\Nor$: a normed space $E$ is topologically
+projective if and only if it is topologically isomorphic to $\lo{\Lambda}$,
+where $\Lambda$ is a set whose cardinality is the density character of $E$
+(for infinite dimensional $E$).
+Helemskii~\cite{HelMetrFrQMod} proved the metric counterpart: a normed space
+is metrically projective if and only if it is isometrically isomorphic to some
+$\lo{\Lambda}$. For extreme projectivity the following facts were known. The
+spaces $\lo{\Lambda}$ are extremely projective, and a normed space is
+extremely projective if and only if it is a near-retract of some
+$\lo{\Lambda}$ \cite[proposition 2.2 and the proposition of the
+introduction]{HelExtrProjSeqAlg}. Every
+extremely projective normed space is, up to an isometric isomorphism, a
+dense subspace of $\ellone{\Lambda}$ for some set $\Lambda$
+\cite[proposition 2.3]{HelExtrProjSeqAlg}, see also
+\cite[section 3]{GronLiftProbNormSp}, and every separable topologically
+projective normed space has at most countable algebraic dimension
+\cite[proposition 2.4]{HelExtrProjSeqAlg}. Both Helemskii
+\cite[section 2]{HelExtrProjSeqAlg}, \cite[remark 3.6]{HelMetrFrQMod} and
+Gr{\o}nb{\ae}k
+\cite[conjecture 3.1]{GronLiftProbNormSp} asked whether, conversely, every
+extremely projective normed space is isometrically isomorphic to some
+$\lo{\Lambda}$; in a more detailed form, Helemskii asked which dense subspaces
+of $\ellone{\Lambda}$ are extremely projective.
+
+The main results of this paper are the following. First, the answer to the
+question of Helemskii and Gr{\o}nb{\ae}k is negative: the subspace of $\ell_1$
+spanned by the finitely supported sequences and a single sequence with
+infinite support is extremely projective but not isometrically isomorphic to
+any $\lo{\Lambda}$. Second, extreme projectivity is an almost isometric
+property: a normed space $P$ is extremely projective if and only if it is
+topologically projective and its completion is isometrically isomorphic to
+$\ellone{\Gamma}$ for some set $\Gamma$, if and only if for every
+$\varepsilon>0$ there is a linear bijection $T:P\to\lo{\Gamma}$ with
+$\norm{T}\norm{T^{-1}}<1+\varepsilon$. Thus, the conjecture of Gr{\o}nb{\ae}k
+holds in the almost isometric form. For spaces of countable algebraic
+dimension the condition of topological projectivity is superfluous: such a
+space is extremely projective if and only if its completion is isometrically
+isomorphic to $\ell_1$ or to $\ell_1^n$, so every dense subspace of $\ell_1$
+of countable algebraic dimension is extremely projective. Third, we extend
+the dimension restriction of Helemskii to non-separable spaces: every
+separable subspace of a topologically projective normed space has countable
+algebraic dimension, and therefore topologically projective normed spaces
+contain no infinite dimensional subspaces which are complete with respect to
+a norm dominating the original one. In particular, an infinite dimensional
+Banach space is never extremely projective in $\Nor$, although it may well
+be extremely projective in the category $\Ban$ of Banach spaces. The last
+fact explains the main technical difficulty of the subject: when the lifting
+problems are posed for all normed spaces rather than Banach spaces, the
+standard tools of Banach space geometry, which rely on completeness, are no
+longer available, and we must work with the finite dimensional pieces of our
+spaces directly. Our main tool is a back-and-forth construction, which in the
+case of countable dimension replaces the decomposition method of
+Pe{\l}czy\'nski in the proofs of K\"othe and Gr{\o}nb{\ae}k, and in the
+general case takes the form of a transfinite recursion along a filtration of
+$\Gamma$ whose perturbations are controlled on disjoint blocks of
+coordinates. Fourth, in the non-separable case the dimension restriction
+admits a set-theoretic refinement: by Fodor's lemma, the closed linear spans
+of the initial segments of an $\omega_1$-sequence of vectors in a
+topologically projective normed space must behave continuously at almost all
+limit stages. Using this we construct a dense subspace of $\ellone{\omega_1}$,
+built from a ladder system on $\omega_1$, which is not topologically
+projective, although all its separable subspaces have countable dimension and
+all its countably generated pieces are extremely projective. Thus, for
+uncountable $\Lambda$ the question of Helemskii on dense subspaces of
+$\ellone{\Lambda}$ does not reduce to the countable case: a dense subspace of
+$\ellone{\Lambda}$ is extremely projective if and only if it is topologically
+projective, and for uncountable $\Lambda$ this is a genuine restriction.
+
+Let us fix the notation and recall the definitions. All normed spaces are
+considered over the complex field; the real case is identical. For a normed
+space $E$ we denote by $B_E$ its closed unit ball and by $B_E^\circ$ its open
+unit ball. By $\Nor$ we denote the category of normed spaces and bounded linear
+operators and by $\Ban$ its full subcategory of Banach spaces. For a set
+$\Lambda$ we denote by $\ellone{\Lambda}$ the Banach space of absolutely
+summable families and by $\lo{\Lambda}$ its dense subspace consisting of finitely
+supported families. For $\lambda\in\Lambda$ the symbol $e_\lambda$ denotes the
+family which equals $1$ at $\lambda$ and $0$ elsewhere; the family
+${(e_\lambda)}_{\lambda\in\Lambda}$ is a Hamel basis of $\lo{\Lambda}$. For a
+normed space $E$ and a set $\Lambda$ there is a bijection between bounded
+families ${(x_\lambda)}_{\lambda\in\Lambda}$ in $E$ and bounded linear
+operators $T:\lo{\Lambda}\to E$, given by $T(e_\lambda)=x_\lambda$, and
+$\norm{T}=\sup_{\lambda\in\Lambda}\norm{x_\lambda}$
+\cite[proposition 2.1]{HelExtrProjSeqAlg}, \cite[proposition 1.10]{GronLiftProbNormSp}.
+This is the sense in which the spaces $\lo{\Lambda}$ are free objects of
+$\Nor$; note that no completeness of $E$ is required here, in contrast with
+the case of $\ellone{\Lambda}$.
+
+We say that a bounded linear operator
+$\xi:X\to Y$ between normed spaces is $c$-topologically surjective, where
+$c\geq 1$, if $c\,\xi(B_X^\circ)\supset B_Y^\circ$, and that $\xi$ is
+coisometric if it is contractive and $1$-topologically surjective, that is, if
+$\xi(B_X^\circ)=B_Y^\circ$. Equivalently, $\xi$ is $c$-topologically surjective
+if for every $y\in Y$ and every $\delta>0$ there exists $x\in X$ with
+$\xi(x)=y$ and $\norm{x}<c\norm{y}+\delta$. A linear bijection $T:E\to F$ is
+called a $c$-isomorphism if $\norm{T}\norm{T^{-1}}\leq c$. The Banach--Mazur
+distance between $E$ and $F$ is
+\[
+\BM(E,F)=\inf\{\norm{T}\norm{T^{-1}}:T:E\to F \mbox{ is a linear bijection}\},
+\]
+with $\BM(E,F)=+\infty$ if there are no bounded linear bijections with bounded
+inverses between $E$ and $F$. A bounded linear operator $\zeta:E\to F$ is
+called a $c$-retraction if there exists a bounded linear operator $\eta:F\to E$
+with $\zeta\eta=1_F$ and $\norm{\zeta}\norm{\eta}\leq c$. In this case $F$ is
+called a $c$-retract of $E$.
+
+\begin{definition}\label{DefTopProj} Let $C\geq 1$. A normed space $P$ is
+    called $C$-topologically projective if for every $c\geq 1$, every
+    $c$-topologically surjective operator $\xi:X\to Y$ between normed spaces
+    and every bounded linear operator $\phi:P\to Y$ there exists a bounded
+    linear operator $\psi:P\to X$ such that $\xi\psi=\phi$ and
+    $\norm{\psi}\leq cC\norm{\phi}$. A normed space is called topologically
+    projective if it is $C$-topologically projective for some $C\geq 1$, and
+    extremely projective if it is $C$-topologically projective for every
+    $C>1$.
+\end{definition}
+
+The operator $\psi$ in definition~\ref{DefTopProj} is called a lifting of
+$\phi$ along $\xi$. Extreme projectivity in the sense of
+definition~\ref{DefTopProj} is precisely the extreme projectivity of
+Helemskii, see proposition~\ref{EquivWithHelemskii}. We emphasize that
+the spaces $X$ and $Y$ in definition~\ref{DefTopProj} are arbitrary normed
+spaces. If we restrict them to Banach spaces, we obtain the notions of
+topological and extreme projectivity in $\Ban$, which we shall mention only
+for comparison. The two notions differ substantially, see
+section~\ref{SectionNecessaryConditions}.
+
+The paper is organized as follows. In section~\ref{SectionBasicTheory} we
+collect the basic properties of extremely projective normed spaces: the
+spaces $\lo{\Lambda}$ are extremely projective, extreme projectivity passes
+to $(1+\varepsilon)$-retracts, and a normed space is extremely projective if
+and only if it is a $(1+\varepsilon)$-retract of a free normed space for every
+$\varepsilon>0$. In section~\ref{SectionNecessaryConditions} we discuss the
+dimension restrictions on topologically projective normed spaces.
+Section~\ref{SectionMainTheorem} is devoted to the almost isometric
+characterization of extremely projective normed spaces of countable
+dimension, and section~\ref{SectionCounterexample} contains the
+counterexample to the question of Helemskii and Gr{\o}nb{\ae}k.
+Section~\ref{SectionUncountable} treats spaces of uncountable dimension; it
+contains the ladder space example and the main theorem.
+
+%-------------------------------------------------------------------------------
+%	Basic theory
+%-------------------------------------------------------------------------------
+
+\section{Basic properties of extremely projective normed
+  spaces}\label{SectionBasicTheory}
+
+We start by comparing definition~\ref{DefTopProj} with Helemskii's one.
+Our definition of extreme projectivity is equivalent to Helemskii's
+definition~\cite[definition I]{HelExtrProjSeqAlg}: a normed space $P$ is
+extremely projective in the sense of Helemskii if for every coisometric operator
+$\xi:X\to Y$, every bounded linear operator $\phi:P\to Y$ and every
+$\delta>0$ there exists a lifting $\psi:P\to X$ of $\phi$ along $\xi$ with
+$\norm{\psi}<\norm{\phi}+\delta$.
+
+\begin{proposition}\label{EquivWithHelemskii} A normed space is extremely
+    projective in the sense of definition~\ref{DefTopProj} if and only if it
+    is extremely projective in the sense of Helemskii.
+\end{proposition}
+\begin{proof} Let $P$ be extremely projective in the sense of
+    definition~\ref{DefTopProj}, $\xi:X\to Y$ be a coisometric
+    operator, $\phi:P\to Y$ be a bounded linear operator and $\delta>0$. If
+    $\phi=0$ we take $\psi=0$. Otherwise we put
+    $C=1+\delta\norm{\phi}^{-1}/2$. Since $\xi$ is $1$-topologically surjective,
+    $C$-topological projectivity of $P$ gives a lifting $\psi$ of $\phi$ along
+    $\xi$ with $\norm{\psi}\leq C\norm{\phi}<\norm{\phi}+\delta$.
+
+    Conversely, let $P$ be extremely projective in the sense of Helemskii,
+    $C>1$, $\xi:X\to Y$ be a
+    $c$-topologically surjective operator and $\phi:P\to Y$ be a non-zero
+    bounded linear operator. Consider the operator $\xi'=c\xi$ and endow the
+    vector space $X$ with the norm $\norm{x}'=\max(\norm{x},\norm{\xi'(x)})$,
+    which is equivalent to the original one since $\norm{x}\leq\norm{x}'\leq
+    \max(1,c\norm{\xi})\norm{x}$. Denote the resulting normed space by $X'$.
+    The operator $\xi':X'\to Y$ is contractive by construction. If $y\in
+    B_Y^\circ$, then by $c$-topological surjectivity of $\xi$ there is $x\in
+    B_X^\circ$ with $\xi'(x)=y$, and $\norm{x}'=\max(\norm{x},\norm{y})<1$.
+    Thus, $\xi':X'\to Y$ is coisometric. By Helemskii's definition there is a
+    lifting $\psi':P\to X'$ of $\phi$ along $\xi'$ with $\norm{\psi'}<
+    \norm{\phi}+(C-1)\norm{\phi}=C\norm{\phi}$. Regarded as an operator into
+    $X$, the operator $\psi=c\psi'$ satisfies $\xi\psi=\xi'\psi'=\phi$ and
+    $\norm{\psi}\leq c\norm{\psi'}'\leq cC\norm{\phi}$. Since $C>1$ is arbitrary,
+    $P$ is extremely projective in the sense of definition~\ref{DefTopProj}.
+\end{proof}
+
+Now we turn to the free objects of $\Nor$.
+
+\begin{proposition}\label{FreeIsExtrProj} Let $\Lambda$ be a set. Then
+    $\lo{\Lambda}$ is $(1+\varepsilon)$-topologically projective for every
+    $\varepsilon>0$. In particular, $\lo{\Lambda}$ is extremely projective.
+\end{proposition}
+\begin{proof} By \cite[proposition 2.2]{HelExtrProjSeqAlg} the space
+    $\lo{\Lambda}$ is extremely projective in the sense of Helemskii, and
+    the proof of proposition~\ref{EquivWithHelemskii} shows that Helemskii's extreme
+    projectivity gives exactly
+    $(1+\varepsilon)$-topological projectivity for every $\varepsilon>0$.
+\end{proof}
+
+The constant $1+\varepsilon$ in proposition~\ref{FreeIsExtrProj} cannot be
+replaced by $1$. In fact, with the convention of
+definition~\ref{DefTopProj}, $1$-topological projectivity is an empty notion
+in $\Nor$.
+
+\begin{proposition}\label{NoOneTopProj} The only $1$-topologically projective
+    normed space is the zero space.
+\end{proposition}
+\begin{proof} Let $X$ be the space of finitely supported sequences with the
+    $\sup$-norm and $f:X\to\mathbb{C}$ be the functional
+    $f(x)=s^{-1}\sum_{n=1}^\infty 2^{-n}(1-2^{-n})x_n$, where
+    $s=\sum_{n=1}^\infty 2^{-n}(1-2^{-n})$. Clearly, $\norm{f}\leq 1$. The
+    operator $f$ is coisometric: for $z\in B^\circ_\mathbb{C}$ choose $N$ with
+    $|z|<s^{-1}\sum_{n=1}^N 2^{-n}(1-2^{-n})$, then $z=f(x)$ for the sequence
+    $x=t\,\operatorname{sgn}(z)\sum_{n=1}^N e_n$ with a suitable $t\in[0,1)$,
+    and $\norm{x}<1$. On the other hand, $|f(x)|=1$ for $x\in B_X$ would
+    force $x_n=\operatorname{sgn}(f(x))$ for all $n$, which is impossible for
+    a finitely supported sequence. Thus, $f(B_X)=f(B_X^\circ)=B^\circ_\mathbb{C}$.
+
+    Now let $P$ be a non-zero $1$-topologically projective normed space. Take
+    $p\in P$ with $\norm{p}=1$ and, by the Hahn--Banach theorem, a functional
+    $g\in P^*$ with $\norm{g}=g(p)=1$. Lifting $g$ along the coisometric
+    operator $f$ we get an operator $\psi:P\to X$ with $f\psi=g$ and
+    $\norm{\psi}\leq 1$. Then $x=\psi(p)\in B_X$ and $f(x)=g(p)=1$, which
+    contradicts the previous paragraph.
+\end{proof}
+
+Proposition~\ref{NoOneTopProj} shows why in $\Nor$ it is natural to consider
+all constants $C>1$ at once, instead of the single constant $C=1$ of the
+metric theory.
+
+\begin{remark}\label{RemarkStrictConvention} The proof of
+    proposition~\ref{NoOneTopProj} uses only the fact that the coisometric
+    functional $f$ does not attain its norm. Functionals of this kind exist on
+    Banach spaces too, for example $x\mapsto\sum_{n=1}^\infty(1-2^{-n})x_n$ on
+    $\ell_1$. Therefore, if $c$-topologically surjective operators are defined
+    via open balls as in definition~\ref{DefTopProj}, then $1$-topological
+    projectivity is an empty notion in $\Ban$ as well, and the free Banach
+    spaces $\ellone{\Lambda}$ are only $(1+\varepsilon)$-topologically projective
+    for every $\varepsilon>0$. The metric theory of \cite{HelMetrFrQMod} avoids
+    this problem by posing lifting problems along strictly coisometric
+    operators, that is, operators mapping the closed unit ball onto the closed
+    unit ball; with this convention $\ellone{\Lambda}$ and $\lo{\Lambda}$ are
+    $1$-topologically projective in $\Ban$ and $\Nor$ respectively, and
+    $1$-topological projectivity coincides with metric projectivity in the
+    sense of \cite{HelMetrFrQMod}. For the purposes of this paper
+    the choice of convention is immaterial: if we call $\xi:X\to Y$ strictly
+    $c$-topologically surjective whenever $c\,\xi(B_X)\supset B_Y$ and define
+    strict $C$-topological projectivity by lifting along such operators with
+    the same bound $\norm{\psi}\leq cC\norm{\phi}$, then every
+    $C$-topologically projective space is strictly $C$-topologically projective,
+    and every strictly $C$-topologically projective space is
+    $C(1+\varepsilon)$-topologically projective for every $\varepsilon>0$. The
+    first claim is obvious, since strictly $c$-topologically surjective
+    operators are $c$-topologically surjective. For the second one, given a
+    $c$-topologically surjective operator $\xi:X\to Y$ and $\varepsilon>0$,
+    endow $X$ with the equivalent norm
+    $\norm{x}''=\max(\norm{x},(1+\varepsilon)c\norm{\xi(x)})$; then
+    $(1+\varepsilon)c\xi$ becomes a contractive operator mapping the closed
+    unit ball onto the closed unit ball (for $y\in B_Y$ the $c$-topological
+    surjectivity of $\xi$ gives $x$ with $(1+\varepsilon)c\xi(x)=y$ and
+    $\norm{x}<(1+\varepsilon)^{-1}\norm{y}+\varepsilon(1+\varepsilon)^{-1}\leq 1$,
+    and then $\norm{x}''\leq 1$), and a lifting $\psi''$ along it with
+    $\norm{\psi''}''\leq C\norm{\phi}$ gives the lifting
+    $\psi=(1+\varepsilon)c\psi''$ along $\xi$ with
+    $\norm{\psi}\leq(1+\varepsilon)cC\norm{\phi}$. In particular, the two
+    conventions lead to the same notion of extreme projectivity.
+\end{remark}
+
+Next we record the standard permanence property of projectivity. The proof
+is the same as in the Banach case, see \cite[lemma 2.7]{WhiteInjmoduAlg};
+for the second part see also
+\cite[proposition 1.1]{HelExtrProjSeqAlg}.
+
+\begin{proposition}\label{RetractOfProj} Let $P'$ be a $C$-topologically
+    projective normed space and $P$ be a $c$-retract of $P'$. Then $P$ is
+    $cC$-topologically projective. Consequently, a normed space which is a
+    $(1+\varepsilon)$-retract of an extremely projective normed space for every
+    $\varepsilon>0$ is extremely projective.
+\end{proposition}
+
+For a normed space $P$ consider the operator
+\[
+\pi_P:\lo{B_P}\to P,\quad e_x\mapsto x.
+\]
+It is well defined and contractive, because the family
+${(x)}_{x\in B_P}$ is bounded by $1$. Moreover, $\pi_P$ maps the closed unit
+ball of $\lo{B_P}$ onto $B_P$, since $\pi_P(e_x)=x$ for $x\in B_P$. Thus,
+$\pi_P$ is strictly coisometric and, a fortiori, coisometric.
+
+\begin{proposition}\label{CanonicalMorphismCriterion} Let $P$ be a normed
+    space and $C\geq 1$. Then
+    \begin{enumerate}[label = (\roman*)]
+        \item if $P$ is $C$-topologically projective, then $\pi_P$ has a right
+              inverse bounded linear operator of norm at most $C$;
+        \item if $\pi_P$ has a right inverse bounded linear operator of norm at
+              most $C$, then $P$ is $C(1+\varepsilon)$-topologically projective
+              for every $\varepsilon>0$.
+    \end{enumerate}
+\end{proposition}
+\begin{proof} $(i)$ Lift $1_P$ along the $1$-topologically surjective operator
+    $\pi_P$: we get $\sigma:P\to\lo{B_P}$ with $\pi_P\sigma=1_P$ and
+    $\norm{\sigma}\leq C$.
+
+    $(ii)$ If $\pi_P\sigma=1_P$ with $\norm{\sigma}\leq C$, then $P$ is a
+    $C$-retract of $\lo{B_P}$, which is $(1+\varepsilon)$-topologically
+    projective by proposition~\ref{FreeIsExtrProj}. It remains to apply
+    proposition~\ref{RetractOfProj}.
+\end{proof}
+
+The equivalence of conditions $(i)$ and $(iii)$ in the following theorem is
+the main observation of \cite[section 2]{HelExtrProjSeqAlg} on extremely
+projective normed spaces: a normed space is extremely projective if and only
+if it is a near-retract of a free normed space, where a near-retract is a
+retract via a contractive operator which has right inverses of norm
+$<1+\varepsilon$ for every $\varepsilon>0$.
+
+\begin{theorem}\label{ExtrProjCriterion} For a normed space $P$ the following
+    conditions are equivalent:
+    \begin{enumerate}[label = (\roman*)]
+        \item $P$ is extremely projective;
+        \item for every $\varepsilon>0$ the operator $\pi_P$ has a right
+              inverse bounded linear operator of norm at most $1+\varepsilon$;
+        \item for every $\varepsilon>0$ there is a set $\Lambda$ such that $P$
+              is a $(1+\varepsilon)$-retract of $\lo{\Lambda}$;
+        \item for every $\varepsilon>0$ there are a set $\Lambda$, a subspace
+              $Z\subset\lo{\Lambda}$ and a projection $Q:\lo{\Lambda}\to\lo{\Lambda}$
+              onto $Z$ with $\norm{Q}\leq 1+\varepsilon$ such that
+              $\BM(P,Z)\leq 1+\varepsilon$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof} $(i)\implies(ii)$ is proposition~\ref{CanonicalMorphismCriterion}~$(i)$,
+    and $(ii)\implies(iii)$ is obvious.
+
+    $(iii)\implies(iv)$ Let $\zeta:\lo{\Lambda}\to P$ and $\eta:P\to\lo{\Lambda}$
+    satisfy $\zeta\eta=1_P$ and $\norm{\zeta}\norm{\eta}\leq 1+\varepsilon$. Replacing
+    $\zeta$ by $\norm{\zeta}^{-1}\zeta$ and $\eta$ by $\norm{\zeta}\eta$ we may
+    assume that $\norm{\zeta}=1$ and $\norm{\eta}\leq 1+\varepsilon$. Put
+    $Z=\eta(P)$ and $Q=\eta\zeta$. Then $Q^2=\eta(\zeta\eta)\zeta=Q$,
+    $\Im(Q)=Z$ and $\norm{Q}\leq 1+\varepsilon$. The operator $\eta:P\to Z$
+    is a bijection with $\norm{\eta}\leq 1+\varepsilon$ and
+    $\eta^{-1}=\zeta|_Z$, so $\norm{\eta^{-1}}\leq 1$ and
+    $\BM(P,Z)\leq 1+\varepsilon$.
+
+    $(iv)\implies(i)$ Since $\BM(P,Z)\leq 1+\varepsilon$, there is a linear
+    bijection $T:P\to Z$ with $\norm{T}\norm{T^{-1}}\leq 1+2\varepsilon$. Put
+    $\eta=T$ and $\zeta=T^{-1}Q:\lo{\Lambda}\to P$. Then
+    $\zeta\eta=T^{-1}QT=T^{-1}T=1_P$ and
+    $\norm{\zeta}\norm{\eta}\leq(1+2\varepsilon)(1+\varepsilon)$. By
+    propositions~\ref{FreeIsExtrProj} and~\ref{RetractOfProj} the space $P$ is
+    $(1+2\varepsilon)(1+\varepsilon)^2$-topologically projective. As
+    $\varepsilon>0$ is arbitrary, $P$ is extremely projective.
+\end{proof}
+
+%-------------------------------------------------------------------------------
+%	Necessary conditions
+%-------------------------------------------------------------------------------
+
+\section{Dimension restrictions on topologically projective normed
+  spaces}\label{SectionNecessaryConditions}
+
+The free normed spaces $\lo{\Lambda}$ are far from being complete: for an
+infinite set $\Lambda$ the Hamel basis ${(e_\lambda)}_{\lambda\in\Lambda}$ of
+$\lo{\Lambda}$ has the same cardinality as a dense subset of $\lo{\Lambda}$
+of minimal cardinality, whereas the algebraic dimension of an infinite
+dimensional Banach space is uncountable by the Baire category theorem, and in
+fact at least continuum~\cite{LowigDimLinRaume}. In this section we show that
+this smallness is inherited by all topologically projective normed spaces.
+Helemskii proved that a separable topologically projective normed space has at
+most countable algebraic dimension \cite[proposition 2.4]{HelExtrProjSeqAlg},
+and deduced that $\ellone{\Lambda}$ is not topologically projective in $\Nor$
+for any infinite set $\Lambda$ \cite[proposition 2.5]{HelExtrProjSeqAlg}. His
+argument applies verbatim to subspaces of arbitrary density character, and in
+this hereditary form it will be convenient for us.
+
+\begin{theorem}\label{SeparableSubspaces} Let $P$ be a topologically
+    projective normed space and $Z$ be a subspace of $P$. Then the algebraic
+    dimension of $Z$ is at most $\max(\operatorname{dens}(Z),\aleph_0)$,
+    where $\operatorname{dens}(Z)$ is the density character of $Z$, that is,
+    the smallest cardinality of a dense subset of $Z$. In particular, every
+    separable subspace of $P$ has at most countable algebraic dimension.
+\end{theorem}
+\begin{proof} By proposition~\ref{CanonicalMorphismCriterion}~$(i)$ there
+    exists a bounded linear operator $\sigma:P\to\lo{B_P}$ with
+    $\pi_P\sigma=1_P$; in particular, $\sigma$ is injective. Let $M$ be a
+    dense subset of $Z$ of cardinality $\operatorname{dens}(Z)$ and
+    $S_0=\bigcup_{x\in M}\supp(\sigma(x))$; since the supports are finite,
+    $S_0$ has cardinality at most $\max(\operatorname{dens}(Z),\aleph_0)$. If
+    $z\in Z$, then $\sigma(z)$ is the limit in $\ellone{B_P}$ of a sequence of
+    elements of $\sigma(M)$, which are supported in $S_0$; since the coordinate
+    functionals are continuous, $\sigma(z)$ is supported in $S_0$ as well.
+    Thus, $\sigma(Z)\subset\lo{S_0}=\Lin\{e_s:s\in S_0\}$, a space whose
+    algebraic dimension is the cardinality of $S_0$, and $\sigma|_Z$ is
+    injective.
+\end{proof}
+
+\begin{corollary}\label{NoCompleteSubspaces} Let $P$ be a topologically
+    projective normed space, $Z$ be a subspace of $P$ and $\norm{\cdot}'$ be a
+    norm on $Z$ such that $(Z,\norm{\cdot}')$ is complete and
+    $\norm{z}\leq K\norm{z}'$ for all $z\in Z$ and some constant $K>0$. Then
+    $Z$ is finite dimensional. In particular, every complete subspace of $P$
+    is finite dimensional, and no infinite dimensional Banach space is
+    topologically projective in $\Nor$ (for the spaces $\ellone{\Lambda}$ this
+    is \cite[proposition 2.5]{HelExtrProjSeqAlg}).
+\end{corollary}
+\begin{proof} Assume that $Z$ is infinite dimensional. Choose a linearly
+    independent sequence ${(z_n)}_{n\in\mathbb{N}}$ in $Z$ and let $Z_0$ be
+    the closure of its linear span in $(Z,\norm{\cdot}')$. Then
+    $(Z_0,\norm{\cdot}')$ is a separable infinite dimensional Banach space, so
+    its algebraic dimension is uncountable. On the other hand, $Z_0$ is
+    separable with respect to $\norm{\cdot}$ because $\norm{\cdot}\leq
+    K\norm{\cdot}'$, so by theorem~\ref{SeparableSubspaces} the algebraic
+    dimension of $Z_0$ is countable. This contradiction proves the first
+    claim; the rest follows by taking $Z=P$ and $\norm{\cdot}'=\norm{\cdot}$.
+\end{proof}
+
+Let us compare theorem~\ref{SeparableSubspaces} with the theorem of
+Gr{\o}nb{\ae}k \cite[theorem 2.1]{GronLiftProbNormSp}: a normed space $E$ is
+topologically projective if and only if it is topologically isomorphic to
+$\lo{\Lambda}$, where the cardinality of $\Lambda$ is the density character
+of $E$. Since for infinite $\Lambda$ the algebraic dimension of $\lo{\Lambda}$
+equals the cardinality of $\Lambda$, the algebraic dimension of an infinite
+dimensional topologically projective normed space coincides with its density
+character. Theorem~\ref{SeparableSubspaces} is a hereditary version of this
+equality: it applies to all subspaces of $P$, which are, of course, not
+topologically projective in general.
+
+The following example shows that corollary~\ref{NoCompleteSubspaces} is
+sharper than its last claim: a normed space may have no infinite dimensional
+complete subspaces and still fail to be topologically projective. It also
+shows that topological projectivity of a normed space is not determined by its
+completion.
+
+\begin{example}\label{WeightedExample} Let ${(w_n)}_{n\in\mathbb{N}}$ be a
+    sequence of real numbers with $w_n\geq 1$ and $\lim_n w_n=+\infty$, and let
+    \[
+    P_w=\Bigl\{x\in\ell_1:\sum_{n=1}^\infty w_n|x_n|<+\infty\Bigr\}
+    \]
+    with the norm inherited from $\ell_1$. Then $P_w$ is a dense subspace of
+    $\ell_1$ containing $\lo{\mathbb{N}}$, so its completion is $\ell_1$, and
+    \begin{enumerate}[label = (\roman*)]
+        \item every complete subspace of $P_w$ is finite dimensional;
+        \item $P_w$ is not topologically projective.
+    \end{enumerate}
+\end{example}
+\begin{proof} Denote $\norm{x}_w=\sum_{n=1}^\infty w_n|x_n|$ for $x\in P_w$.
+    Then $(P_w,\norm{\cdot}_w)$ is the Banach space $\ell_1(w)$ of
+    $w$-weighted summable sequences and $\norm{x}\leq\norm{x}_w$ for $x\in
+    P_w$.
+
+    $(i)$ Let $Z$ be a complete subspace of $P_w$. If ${(z_k)}_{k\in\mathbb{N}}$
+    is a sequence in $Z$ converging to $z\in P_w$ with respect to
+    $\norm{\cdot}_w$, then it converges to $z$ in $\ell_1$, so $z\in Z$. Thus,
+    $Z$ is closed in $(P_w,\norm{\cdot}_w)$ and the two norms $\norm{\cdot}$
+    and $\norm{\cdot}_w$ are complete on $Z$. Since $\norm{\cdot}\leq
+    \norm{\cdot}_w$, by the open mapping theorem there is a constant $K$ with
+    $\norm{z}_w\leq K\norm{z}$ for all $z\in Z$. Assume that $Z$ is infinite
+    dimensional and fix $N\in\mathbb{N}$. The linear map $Z\to\mathbb{C}^N$,
+    $z\mapsto(z_1,\ldots,z_N)$ has a non-zero kernel, so there exists $z\in
+    Z$ with $\norm{z}=1$ and $z_n=0$ for $n\leq N$. Then
+    $K\geq\norm{z}_w=\sum_{n>N}w_n|z_n|\geq\inf_{n>N}w_n$. Since $N$ is
+    arbitrary and $\lim_n w_n=+\infty$, we get a contradiction.
+
+    $(ii)$ Apply corollary~\ref{NoCompleteSubspaces} to $Z=P_w$ and
+    $\norm{\cdot}'=\norm{\cdot}_w$. Alternatively, note that $P_w$ is
+    separable, being dense in $\ell_1$, while its algebraic dimension is
+    uncountable, since $(P_w,\norm{\cdot}_w)$ is an infinite dimensional
+    Banach space; so theorem~\ref{SeparableSubspaces} applies directly.
+\end{proof}
+
+%-------------------------------------------------------------------------------
+%	Main theorem
+%-------------------------------------------------------------------------------
+
+\section{Extremely projective normed spaces of countable
+  dimension}\label{SectionMainTheorem}
+
+We start with a necessary condition which holds in all dimensions. Recall that
+the completion $\overline{P}$ of a normed space $P$ is a Banach space containing
+$P$ as a dense subspace. Every bounded linear operator between normed spaces
+extends uniquely to a bounded linear operator between their completions with
+the same norm, and these extensions respect compositions. The following
+theorem is \cite[proposition 2.3]{HelExtrProjSeqAlg}; see also
+\cite[section 3]{GronLiftProbNormSp}.
+
+\begin{theorem}\label{CompletionIsEllOne} Let $P$ be an extremely projective
+    normed space. Then $\overline{P}$ is isometrically isomorphic to
+    $\ellone{\Gamma}$ for some set $\Gamma$.
+\end{theorem}
+\begin{proof} We only indicate the argument. By theorem~\ref{ExtrProjCriterion}
+    for every $\varepsilon>0$ the space $\overline{P}$ is a
+    $(1+\varepsilon)$-retract of the Banach space $\ellone{B_P}$, so by
+    Grothendieck's theorem \cite{GrothMetrProjFlatBanSp} in the form given
+    in~\cite[section 2]{HelExtrProjSeqAlg} (see also \cite[proposition 3.2]{HelMetrFrQMod})
+    $\overline{P}$ is isometrically isomorphic to $\ellone{\Gamma}$ for some
+    set $\Gamma$. Explicitly, let $\overline{\pi}:\ellone{B_P}\to\overline{P}$
+    be the extension of $\pi_P$ and $\overline{\sigma}_\varepsilon$ be the
+    extensions of right inverses of $\pi_P$ of norm at most $1+\varepsilon$.
+    Taking adjoints one sees that ${\overline{\pi}}^*$ is an isometric
+    weak$^*$-continuous embedding of ${\overline{P}}^*$ into
+    $\ell_\infty(B_P)$ with weak$^*$-closed range and that
+    ${\overline{\pi}}^*{\overline{\sigma}_\varepsilon}^*$ are projections onto
+    this range of norm at most $1+\varepsilon$; a limit point of these
+    projections in the weak$^*$ operator topology is a projection of norm
+    $1$, so ${\overline{P}}^*$ is a $1$-complemented subspace of the
+    $1$-injective space $\ell_\infty(B_P)$. Hence ${\overline{P}}^*$ is
+    $1$-injective, hence isometrically isomorphic to $C(K)$ for a Stonean
+    space $K$ \cite[chapter 3, \S 11, theorem 6]{LaceyIsomThOfClassicBanSp}; a Banach space
+    whose dual is $1$-injective is isometrically isomorphic to some
+    $L_1(\Omega,\mu)$ \cite[chapter 7]{LaceyIsomThOfClassicBanSp}; and
+    $\overline{P}$ has the Schur property as a subspace of
+    $\ellone{B_P}$, which forces $\mu$ to be purely atomic.
+\end{proof}
+
+Theorems~\ref{SeparableSubspaces}
+and~\ref{CompletionIsEllOne} describe extremely projective normed spaces
+from two opposite sides: they are dense subspaces of the spaces
+$\ellone{\Gamma}$ which are small enough to have separable subspaces of
+countable algebraic dimension only. In this section we show that for spaces of
+countable dimension there is nothing in between: every dense subspace of
+$\ell_1$ of countable algebraic dimension is extremely projective, and even
+almost isometric to $\lo{\mathbb{N}}$. This answers the question of
+Helemskii~\cite[section 2]{HelExtrProjSeqAlg} on dense subspaces of
+$\ellone{\Lambda}$ for countable $\Lambda$. The proof is a back-and-forth
+construction based on the following three lemmas. For a sequence
+$x\in\ell_1$ and $N\in\mathbb{N}\cup\{0\}$ we denote by $x|_N$ the sequence
+which coincides with $x$ at $n\leq N$ and vanishes at $n>N$.
+
+\begin{lemma}\label{OneVectorTheorem} Let $v\in\ell_1$,
+    $N\in\mathbb{N}\cup\{0\}$ and $0<\delta<1$. Then there exists a bounded
+    linear operator $R:\ell_1\to\ell_1$ with $\norm{R}\leq\delta$ such that
+    \begin{enumerate}[label = (\roman*)]
+        \item $R(x)=0$ for every $x\in\ell_1$ with $x=x|_N$;
+        \item $R(\lo{\mathbb{N}})\subset\lo{\mathbb{N}}$;
+        \item $(1_{\ell_1}-R)(v)\in\lo{\mathbb{N}}$;
+        \item ${(1_{\ell_1}-R)}^{-1}(\lo{\mathbb{N}})\subset\lo{\mathbb{N}}+\mathbb{C}v$.
+    \end{enumerate}
+    In particular, $T=1_{\ell_1}-R$ is a linear bijection of $\ell_1$ with
+    $\norm{T}\leq 1+\delta$ and $\norm{T^{-1}}\leq{(1-\delta)}^{-1}$ such
+    that $T(x)=x$ whenever $x=x|_N$, $T(\lo{\mathbb{N}})\subset\lo{\mathbb{N}}$
+    and $T(\lo{\mathbb{N}}+\mathbb{C}v)=\lo{\mathbb{N}}$.
+\end{lemma}
+\begin{proof} Since $\norm{R}\leq\delta<1$, the operator $T=1_{\ell_1}-R$ is a
+    linear bijection with $T^{-1}=\sum_{m=0}^\infty R^m$,
+    $\norm{T}\leq 1+\delta$ and $\norm{T^{-1}}\leq{(1-\delta)}^{-1}$, and the
+    properties of $T$ listed in the last sentence follow from $(i)$--$(iv)$.
+    So we only need to construct $R$ with the properties $(i)$--$(iv)$.
+
+    If $v-v|_N$ is finitely supported, take $R=0$. Assume that $v-v|_N$ has
+    infinite support. For $M\geq N$ put $t_M=\norm{v-v|_M}=\sum_{n>M}|v_n|$.
+    Then the sequence ${(t_M)}_{M\geq N}$ is non-increasing, $t_M>0$ for all
+    $M\geq N$ because $v-v|_N$ has infinite support, and $\lim_M t_M=0$.
+    Choose integers $N=N_0<N_1<N_2<\ldots$ such that
+    $t_{N_k}\leq(\delta/2)t_{N_{k-1}}$ for all $k\in\mathbb{N}$. The sets
+    $B_k=\{n\in\mathbb{N}:N_{k-1}<n\leq N_k\}$, $k\in\mathbb{N}$, are finite,
+    pairwise disjoint and cover $\{n\in\mathbb{N}:n>N\}$. Put
+    $w_k=v|_{N_k}-v|_{N_{k-1}}$, that is, $w_k$ is the restriction of $v$ to
+    $B_k$. Then $w_k\in\lo{\mathbb{N}}$, $v-v|_N=\sum_{k=1}^\infty w_k$ in
+    $\ell_1$, $\supp(w_k)\subset B_k$, and
+    \[
+    \norm{w_k}=t_{N_{k-1}}-t_{N_k}\geq(1-\delta/2)t_{N_{k-1}}>0,\qquad
+    \norm{w_{k+1}}\leq t_{N_k}\leq(\delta/2)t_{N_{k-1}}\leq
+    \frac{\delta/2}{1-\delta/2}\norm{w_k}\leq\delta\norm{w_k},
+    \]
+    where the last inequality holds because $\delta\leq 1$. For
+    $k\in\mathbb{N}$ define the functional
+    \[
+    g_k:\ell_1\to\mathbb{C},\quad
+    g_k(x)=\sum_{n\in B_k}\overline{\operatorname{sgn}(v_n)}\,x_n,
+    \]
+    where $\operatorname{sgn}(z)=z/|z|$ for $z\neq 0$ and
+    $\operatorname{sgn}(0)=0$. Then $|g_k(x)|\leq\sum_{n\in B_k}|x_n|$ for
+    all $x\in\ell_1$, $g_k(w_k)=\norm{w_k}$ and $g_k(w_j)=0$ for $j\neq k$,
+    because the supports of $w_j$ and $g_k$ are disjoint. Now define
+    \[
+    R:\ell_1\to\ell_1,\quad
+    R(x)=\sum_{k=1}^\infty\frac{g_k(x)}{\norm{w_k}}\,w_{k+1}.
+    \]
+    The series converges absolutely, since
+    \[
+    \sum_{k=1}^\infty\frac{|g_k(x)|}{\norm{w_k}}\norm{w_{k+1}}
+    \leq\delta\sum_{k=1}^\infty\sum_{n\in B_k}|x_n|\leq\delta\norm{x},
+    \]
+    so $R$ is a well defined bounded linear operator with $\norm{R}\leq\delta$.
+    We verify the properties $(i)$--$(iv)$.
+
+    $(i)$ If $x=x|_N$, then $g_k(x)=0$ for all $k$, because
+    $\supp(g_k)\subset B_k\subset\{n:n>N\}$. Hence $R(x)=0$.
+
+    $(ii)$ If $x\in\lo{\mathbb{N}}$, then $g_k(x)\neq 0$ only for the finitely
+    many $k$ with $B_k\cap\supp(x)\neq\varnothing$, so $R(x)$ is a finite
+    linear combination of the finitely supported sequences $w_{k+1}$.
+
+    $(iii)$ Since $g_k(v|_N)=0$ and
+    $g_k(v-v|_N)=\sum_{j=1}^\infty g_k(w_j)=g_k(w_k)=\norm{w_k}$, we get
+    $R(v)=\sum_{k=1}^\infty w_{k+1}=v-v|_N-w_1$, so
+    $(1_{\ell_1}-R)(v)=v|_N+w_1\in\lo{\mathbb{N}}$.
+
+    $(iv)$ Let $x\in\lo{\mathbb{N}}$ and let $K$ be the finite set of those
+    $k$ for which $g_k(x)\neq 0$. Put $c_k=g_k(x)/\norm{w_k}$ for $k\in K$.
+    Since $g_j(w_k)=\delta_{jk}\norm{w_k}$, we have $R(w_k)=w_{k+1}$ for all
+    $k$, hence $R^m(x)=\sum_{k\in K}c_k w_{k+m}$ for $m\geq 1$ and
+    \[
+    {(1_{\ell_1}-R)}^{-1}(x)=\sum_{m=0}^\infty R^m(x)
+    =x+\sum_{k\in K}c_k\sum_{m=1}^\infty w_{k+m}
+    =x+\sum_{k\in K}c_k(v-v|_{N_k})\in\lo{\mathbb{N}}+\mathbb{C}v.
+    \]
+\end{proof}
+
+\begin{lemma}\label{HittingLemma} Let $Y$ be a finite dimensional subspace
+    of $\lo{\mathbb{N}}$ and $n\in\mathbb{N}$ be such that $e_n\notin Y$.
+    Then there is a constant $C\geq 1$ such that for every
+    $z\in\lo{\mathbb{N}}$ with $\norm{z-e_n}\leq{(4C)}^{-1}$ there exists a
+    linear bijection $S:\ell_1\to\ell_1$ with
+    $\norm{S-1_{\ell_1}}\leq 2C\norm{z-e_n}\leq 1/2$,
+    $S(y)=y$ for all $y\in Y$ and $S(z)=e_n$.
+\end{lemma}
+\begin{proof} Since $Y$ is finite dimensional, it is closed in $\ell_1$, so
+    $d=\inf\{\norm{e_n-y}:y\in Y\}>0$. By the Hahn--Banach theorem there is
+    $f\in\ell_1^*$ with $f(y)=0$ for $y\in Y$, $f(e_n)=1$ and $\norm{f}=d^{-1}$.
+    Put $C=\max(1,d^{-1})$. Let $z\in\lo{\mathbb{N}}$ satisfy
+    $\norm{z-e_n}\leq{(4C)}^{-1}$. Then
+    $|f(z)-1|=|f(z-e_n)|\leq C\norm{z-e_n}\leq 1/4$, so $|f(z)|\geq 3/4$.
+    Define
+    \[
+    S:\ell_1\to\ell_1,\quad S(x)=x+\frac{f(x)}{f(z)}(e_n-z).
+    \]
+    Then $S(y)=y$ for $y\in Y$ because $f$ vanishes on $Y$, and
+    $S(z)=z+(e_n-z)=e_n$. Moreover,
+    $\norm{S-1_{\ell_1}}\leq\norm{f}|f(z)|^{-1}\norm{e_n-z}\leq
+    \frac43 C\norm{z-e_n}\leq 2C\norm{z-e_n}\leq 1/2$, so $S$ is a linear
+    bijection of $\ell_1$ by the Neumann series.
+\end{proof}
+
+\begin{lemma}\label{ProductLemma} Let $X$ be a Banach space and
+    ${(F_m)}_{m\in\mathbb{N}}$ be a sequence of bounded linear operators on $X$
+    such that $\theta_m=\norm{F_m-1_X}<1$ for all $m$ and
+    $\sum_{m=1}^\infty\theta_m<+\infty$. Put $A_j=F_jF_{j-1}\cdots F_1$ for
+    $j\in\mathbb{N}$. Then the sequence ${(A_j)}_{j\in\mathbb{N}}$ converges in
+    the operator norm to a linear bijection $T$ of $X$ with
+    \[
+    \norm{T}\leq\prod_{m=1}^\infty(1+\theta_m),\qquad
+    \norm{T^{-1}}\leq\prod_{m=1}^\infty{(1-\theta_m)}^{-1}.
+    \]
+\end{lemma}
+\begin{proof} Both products converge because $\sum_m\theta_m<+\infty$; denote
+    them by $M$ and $M'$. Then $\norm{A_j}\leq M$ and, since each $F_m$ is
+    invertible with $\norm{F_m^{-1}}\leq{(1-\theta_m)}^{-1}$ by the Neumann
+    series, $\norm{A_j^{-1}}\leq M'$ for all $j$. From
+    $\norm{A_j-A_{j-1}}=\norm{(F_j-1_X)A_{j-1}}\leq\theta_j M$ we see that
+    ${(A_j)}_j$ is a Cauchy sequence; let $T$ be its limit, so $\norm{T}\leq M$.
+    Also $\norm{A_j^{-1}-A_k^{-1}}=\norm{A_j^{-1}(A_k-A_j)A_k^{-1}}\leq
+    {M'}^2\norm{A_k-A_j}$, so ${(A_j^{-1})}_j$ is a Cauchy sequence with a
+    limit $B$, $\norm{B}\leq M'$. Passing to the limit in
+    $A_jA_j^{-1}=A_j^{-1}A_j=1_X$ we get $TB=BT=1_X$.
+\end{proof}
+
+\begin{theorem}\label{BackAndForth} Let $D$ be a dense subspace of $\ell_1$ of
+    countable algebraic dimension and $\varepsilon>0$. Then there exists a
+    linear bijection $T:\ell_1\to\ell_1$ with
+    $\norm{T}\norm{T^{-1}}\leq 1+\varepsilon$ and $T(D)=\lo{\mathbb{N}}$. In
+    particular, $\BM(D,\lo{\mathbb{N}})=1$.
+\end{theorem}
+\begin{proof} Since $\ell_1$ is infinite dimensional and $D$ is dense in
+    $\ell_1$, the algebraic dimension of $D$ is countably infinite. Let
+    ${(d_j)}_{j\in\mathbb{N}}$ be a Hamel basis of $D$. Choose a sequence
+    ${(\theta_m)}_{m\in\mathbb{N}}$ of numbers in $(0,1/2]$ with
+    $\prod_{m=1}^\infty(1+\theta_m){(1-\theta_m)}^{-1}\leq 1+\varepsilon$;
+    then $\sum_m\theta_m<+\infty$, since $(1+\theta)/(1-\theta)\geq 1+2\theta$.
+
+    We construct by induction linear bijections $F_1,F_2,\ldots$ of $\ell_1$
+    with $\norm{F_m-1_{\ell_1}}\leq\theta_m$ and finite dimensional subspaces
+    $Y_0=\{0\}\subset Y_1\subset Y_2\subset\ldots$ of $\lo{\mathbb{N}}$ such
+    that, with $A_0=1_{\ell_1}$ and $A_j=F_{2j}F_{2j-1}A_{j-1}$, for every
+    $j\in\mathbb{N}$ the following conditions hold:
+    \begin{enumerate}[label = (\alph*)]
+        \item $A_j(d_i)\in Y_j$ for $i\leq j$;
+        \item $e_i\in Y_j$ for $i\leq j$;
+        \item $Y_j\subset A_j(D)$;
+        \item $F_{2j-1}$ and $F_{2j}$ act as the identity on $Y_{j-1}$.
+    \end{enumerate}
+    Suppose that $A_{j-1}$ and $Y_{j-1}$ have been constructed (for $j=1$
+    there is nothing to suppose). Let $N$ be an integer not smaller than every
+    element of the supports of the vectors of some basis of $Y_{j-1}$, so that
+    $y=y|_N$ for all $y\in Y_{j-1}$. Apply lemma~\ref{OneVectorTheorem} to
+    the vector $v=A_{j-1}(d_j)$, the integer $N$ and $\delta=\theta_{2j-1}$,
+    and let $F_{2j-1}=1_{\ell_1}-R$ be the resulting operator. Then
+    $\norm{F_{2j-1}-1_{\ell_1}}\leq\theta_{2j-1}$, $F_{2j-1}$ acts as the
+    identity on $Y_{j-1}$, and $y_j=F_{2j-1}A_{j-1}(d_j)\in\lo{\mathbb{N}}$.
+    Put $A'=F_{2j-1}A_{j-1}$ and $Y'=Y_{j-1}+\mathbb{C}y_j\subset\lo{\mathbb{N}}$.
+    Note that $Y'\subset A'(D)$: indeed, $Y_{j-1}\subset A_{j-1}(D)$ by the
+    induction hypothesis (for $j=1$ trivially), $F_{2j-1}$ fixes $Y_{j-1}$, so
+    $Y_{j-1}=F_{2j-1}(Y_{j-1})\subset A'(D)$, and $y_j=A'(d_j)\in A'(D)$.
+
+    If $e_j\in Y'$, put $F_{2j}=1_{\ell_1}$ and $Y_j=Y'$. Otherwise, let $C$
+    be the constant given by lemma~\ref{HittingLemma} for $Y'$ and $n=j$, and
+    let $N'$ be an integer not smaller than $j$ and than every element of the
+    supports of the vectors of some basis of $Y'$. Since $A'$ is a linear
+    bijection of $\ell_1$ and $D$ is dense, $A'(D)$ is dense in $\ell_1$, so
+    there is $d\in D$ with
+    \[
+    \norm{A'(d)-e_j}\leq\frac{\theta_{2j}}{16C}.
+    \]
+    Apply lemma~\ref{OneVectorTheorem} to the vector $A'(d)$, the integer
+    $N'$ and $\delta=\theta_{2j}/2$, and let $G=1_{\ell_1}-R'$ be the
+    resulting operator. Then $G$ fixes $Y'$ and $e_j$,
+    $\norm{G-1_{\ell_1}}\leq\theta_{2j}/2$, $\norm{G}\leq 5/4$ because
+    $\theta_{2j}\leq 1/2$, and $z=GA'(d)\in\lo{\mathbb{N}}$ satisfies
+    \[
+    \norm{z-e_j}=\norm{G(A'(d)-e_j)}\leq\frac{5\theta_{2j}}{64C}\leq\frac{1}{4C}.
+    \]
+    Let $S$ be the operator given by lemma~\ref{HittingLemma} for $Y'$, $n=j$
+    and $z$. Then $S$ fixes $Y'$, $S(z)=e_j$ and
+    $\norm{S-1_{\ell_1}}\leq 2C\norm{z-e_j}\leq 5\theta_{2j}/32$. Put $F_{2j}=SG$
+    and $Y_j=Y'+\mathbb{C}e_j$. Then
+    \[
+    \norm{F_{2j}-1_{\ell_1}}\leq\norm{(S-1_{\ell_1})G}+\norm{G-1_{\ell_1}}
+    \leq\frac{5\theta_{2j}}{32}\cdot\frac54+\frac{\theta_{2j}}{2}
+    \leq\theta_{2j}.
+    \]
+    Let us check $(a)$--$(d)$ for $j$. The operator $F_{2j}$ acts as the
+    identity on $Y'\supset Y_{j-1}$, which together with the first step gives
+    $(d)$. For $i<j$ we have $A_{j-1}(d_i)\in Y_{j-1}$, so
+    $A_j(d_i)=F_{2j}F_{2j-1}A_{j-1}(d_i)=A_{j-1}(d_i)\in Y_j$, and
+    $A_j(d_j)=F_{2j}(y_j)=y_j\in Y_j$; this is $(a)$. Condition $(b)$ holds
+    by the definition of $Y_j$ and the induction hypothesis. Finally,
+    $Y'\subset A'(D)$ and $F_{2j}$ fixes $Y'$, so $Y'\subset F_{2j}A'(D)=A_j(D)$,
+    and $e_j=SGA'(d)=A_j(d)\in A_j(D)$ (in the case $e_j\in Y'$ there is
+    nothing to add); this is $(c)$.
+
+    By lemma~\ref{ProductLemma} the operators $A_j$ converge in norm to a
+    linear bijection $T$ of $\ell_1$ with
+    $\norm{T}\norm{T^{-1}}\leq\prod_m(1+\theta_m){(1-\theta_m)}^{-1}\leq
+    1+\varepsilon$. For every $i\in\mathbb{N}$ and $j\geq i$ we have
+    $A_j(d_i)\in Y_j$ by $(a)$, and by $(d)$ the operators $F_{2j+1},F_{2j+2},\ldots$
+    fix $Y_j$, so $A_k(d_i)=A_j(d_i)$ for all $k\geq j$ and
+    $T(d_i)=A_i(d_i)\in Y_i\subset\lo{\mathbb{N}}$. Hence
+    $T(D)\subset\lo{\mathbb{N}}$. Similarly, for every $i\in\mathbb{N}$ by
+    $(b)$ and $(c)$ there is $d\in D$ with $A_i(d)=e_i\in Y_i$, and by $(d)$
+    we get $T(d)=A_i(d)=e_i$. Hence $\lo{\mathbb{N}}\subset T(D)$.
+\end{proof}
+
+Now we are ready to prove the main result of the paper.
+
+\begin{theorem}\label{MainTheorem} Let $P$ be a normed space of countable
+    (finite or countably infinite) algebraic dimension. Then the following
+    conditions are equivalent:
+    \begin{enumerate}[label = (\roman*)]
+        \item $P$ is extremely projective;
+        \item $\overline{P}$ is isometrically isomorphic to $\ellone{\Gamma}$
+              for some countable set $\Gamma$;
+        \item $\BM(P,\lo{\Gamma})=1$ for some countable set $\Gamma$;
+        \item for every $\varepsilon>0$ there is a set $\Lambda$ with
+              $\BM(P,\lo{\Lambda})<1+\varepsilon$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof} $(i)\implies(ii)$ By theorem~\ref{CompletionIsEllOne} the space
+    $\overline{P}$ is isometrically isomorphic to $\ellone{\Gamma}$ for some
+    set $\Gamma$. The rational linear span of a countable Hamel basis of $P$
+    is a countable dense subset of $\overline{P}$, so $\overline{P}$ is
+    separable and $\Gamma$ is countable.
+
+    $(ii)\implies(iii)$ Let $J:\overline{P}\to\ellone{\Gamma}$ be an isometric
+    isomorphism. If $\Gamma$ is finite, then $\overline{P}$ is finite
+    dimensional, so $P=\overline{P}$ and $J$ maps $P$ onto
+    $\ellone{\Gamma}=\lo{\Gamma}$. If $\Gamma$ is infinite, we may assume that
+    $\Gamma=\mathbb{N}$. Then $D=J(P)$ is a dense subspace of $\ell_1$ of
+    countable algebraic dimension, and by theorem~\ref{BackAndForth}
+    $\BM(P,\lo{\mathbb{N}})=\BM(D,\lo{\mathbb{N}})=1$.
+
+    $(iii)\implies(iv)$ is obvious.
+
+    $(iv)\implies(i)$ Fix $\varepsilon>0$ and a linear bijection
+    $S:P\to\lo{\Lambda}$ with $\norm{S}\norm{S^{-1}}<1+\varepsilon$. Then $P$
+    is a $(1+\varepsilon)$-retract of $\lo{\Lambda}$ via $S^{-1}$ and $S$, so
+    $P$ is extremely projective by theorem~\ref{ExtrProjCriterion}.
+\end{proof}
+
+\begin{corollary}\label{DenseCountableSubspaces} Every subspace of $\ell_1$
+    of countable algebraic dimension which is dense in $\ell_1$ is extremely
+    projective and almost isometric to $\lo{\mathbb{N}}$, that is, has
+    Banach--Mazur distance $1$ to $\lo{\mathbb{N}}$.
+\end{corollary}
+
+Corollary~\ref{DenseCountableSubspaces} may be compared with the results of
+H\'ajek and Russo on densely isomorphic normed spaces
+\cite{HajekRussoDenselyIsom}: by \cite[theorem 2.4]{HajekRussoDenselyIsom}
+every dense subspace of $\ellone{\Gamma}$ contains a dense subspace
+topologically isomorphic to $\lo{\Gamma}$. Corollary~\ref{DenseCountableSubspaces}
+says that for dense subspaces of $\ell_1$ of countable algebraic dimension
+the subspace itself is almost isometric to $\lo{\mathbb{N}}$.
+
+%-------------------------------------------------------------------------------
+%	Counterexample
+%-------------------------------------------------------------------------------
+
+\section{Extremely projective spaces which are not free}\label{SectionCounterexample}
+
+In this section we show that extreme projectivity is not an isometric
+invariant of the form ``$P$ is isometrically isomorphic to $\lo{\Lambda}$''.
+By corollary~\ref{DenseCountableSubspaces}, for every subspace $V$ of $\ell_1$
+of countable algebraic dimension the space $\lo{\mathbb{N}}+V$ is extremely
+projective. To see that such spaces are not isometrically isomorphic to free normed
+spaces whenever $V\not\subset\lo{\mathbb{N}}$, we look at extreme points of
+unit balls. By $\ext(B)$ we denote the set of extreme points of a convex set
+$B$ and by $\conv(M)$ the convex hull of a set $M$.
+
+\begin{lemma}\label{ExtremePointsLemma} Let $S$ be a set and $E$ be a
+    subspace of $\ellone{S}$ containing $\lo{S}$, endowed with the norm of
+    $\ellone{S}$. Then
+    $\ext(B_E)=\{\lambda e_s:s\in S,\ \lambda\in\mathbb{C},\ |\lambda|=1\}$
+    and $\conv(\ext(B_E))=B_{\lo{S}}$.
+\end{lemma}
+\begin{proof} The points $\lambda e_s$ with $|\lambda|=1$ are extreme points
+    of $B_{\ellone{S}}$, and $B_E=B_{\ellone{S}}\cap E$, so they are extreme
+    points of $B_E$. Conversely, let $x\in B_E$ be not of this form. If
+    $x=0$, then $x=\frac12 e_s+\frac12(-e_s)$ for any $s\in S$. If
+    $0<\norm{x}<1$, then $x=\frac12(1+t)x+\frac12(1-t)x$ for $t=1-\norm{x}>0$,
+    and both $(1\pm t)x$ belong to $B_E$. If $\norm{x}=1$, then $x$ has at
+    least two non-zero coordinates $x_n$ and $x_m$, $n\neq m$. Put
+    $t=\min(|x_n|,|x_m|)>0$ and
+    $u=t(\operatorname{sgn}(x_n)e_n-\operatorname{sgn}(x_m)e_m)\in\lo{S}\subset E$.
+    Then $x\pm u\in E$ and
+    \[
+    \norm{x\pm u}=(|x_n|\pm t)+(|x_m|\mp t)+\sum_{s\neq n,m}|x_s|=\norm{x}=1,
+    \]
+    so $x=\frac12(x+u)+\frac12(x-u)$ with $u\neq 0$. In all three cases $x$ is
+    not an extreme point of $B_E$.
+
+    Every finite convex combination of the points $\lambda e_s$ is a finitely
+    supported element of $B_{\ellone{S}}$, so $\conv(\ext(B_E))\subset
+    B_{\lo{S}}$. Conversely, if $x\in B_{\lo{S}}$, then
+    \[
+    x=\sum_{s\in\supp(x)}|x_s|\,\operatorname{sgn}(x_s)e_s+(1-\norm{x})\cdot 0,
+    \]
+    and $0=\frac12 e_s+\frac12(-e_s)$, so $x\in\conv(\ext(B_E))$.
+\end{proof}
+
+\begin{theorem}\label{NotIsometricToFree} Let $S$ be a set and $E$ be a
+    subspace of $\ellone{S}$ containing $\lo{S}$, endowed with the norm of
+    $\ellone{S}$. If $E$ is isometrically isomorphic to $\lo{\Lambda}$ for
+    some set $\Lambda$, then $E=\lo{S}$.
+\end{theorem}
+\begin{proof} Let $T:\lo{\Lambda}\to E$ be an isometric isomorphism. Then
+    $T(B_{\lo{\Lambda}})=B_E$ and $T$ maps $\ext(B_{\lo{\Lambda}})$ onto
+    $\ext(B_E)$. Applying lemma~\ref{ExtremePointsLemma} to $E$ and to
+    $\lo{\Lambda}$ itself we get
+    \[
+    B_E=T(B_{\lo{\Lambda}})=T(\conv(\ext(B_{\lo{\Lambda}})))
+    =\conv(T(\ext(B_{\lo{\Lambda}})))=\conv(\ext(B_E))=B_{\lo{S}}.
+    \]
+    Hence $E=\lo{S}$.
+\end{proof}
+
+\begin{corollary}\label{CounterexampleCorollary} Let $V$ be a subspace of
+    $\ell_1$ of countable algebraic dimension with $V\not\subset\lo{\mathbb{N}}$,
+    for example $V=\mathbb{C}v$ for $v={(2^{-n})}_{n\in\mathbb{N}}$. Then
+    $\lo{\mathbb{N}}+V$ is an extremely projective normed space which is not
+    isometrically isomorphic to $\lo{\Lambda}$ for any set $\Lambda$.
+\end{corollary}
+\begin{proof} The space $\lo{\mathbb{N}}+V$ is dense in $\ell_1$ and has
+    countable algebraic dimension, so it is extremely projective by
+    corollary~\ref{DenseCountableSubspaces}, and it is not isometrically
+    isomorphic to any $\lo{\Lambda}$ by theorem~\ref{NotIsometricToFree}.
+\end{proof}
+
+Corollary~\ref{CounterexampleCorollary} answers the question of Helemskii
+from~\cite[section 2]{HelExtrProjSeqAlg} and~\cite[section 1]{HelMetrFrQMod}
+in the negative and disproves \cite[conjecture 3.1]{GronLiftProbNormSp}. Note
+that by theorem~\ref{NotIsometricToFree} every subspace
+$E$ with $\lo{\mathbb{N}}\subsetneq E\subset\ell_1$ fails to be isometrically
+isomorphic to a free normed space, but by example~\ref{WeightedExample} not
+all of these subspaces are extremely projective. Thus, between
+$\lo{\mathbb{N}}$ and $\ell_1$ there are both extremely projective and
+non-projective normed spaces, and the difference between them is invisible on
+the level of completions. The next section provides a criterion which
+distinguishes them.
+
+%-------------------------------------------------------------------------------
+%	Uncountable dimension
+%-------------------------------------------------------------------------------
+
+\section{Extremely projective normed spaces of uncountable
+  dimension}\label{SectionUncountable}
+
+Condition $(ii)$ of theorem~\ref{MainTheorem} shows that for normed spaces of
+countable dimension extreme projectivity is a property of the completion. By
+example~\ref{WeightedExample} this is no longer true for spaces of uncountable
+dimension: the dimension restriction of theorem~\ref{SeparableSubspaces} is an
+independent necessary condition.
+
+By theorems~\ref{SeparableSubspaces} and~\ref{CompletionIsEllOne}, an
+extremely projective normed space is, up to an isometric isomorphism, a
+dense subspace of some $\ellone{\Gamma}$ all of whose separable subspaces have
+countable algebraic dimension; by the theorem of Gr{\o}nb{\ae}k it is also
+topologically isomorphic to $\lo{\Gamma}$. For countable $\Gamma$ the first
+two conditions are also sufficient by theorems~\ref{SeparableSubspaces}
+and~\ref{MainTheorem}. We shall now show that for uncountable $\Gamma$ they
+are not. The obstruction is a
+set-theoretic refinement of theorem~\ref{SeparableSubspaces}. By a limit
+ordinal we always mean a non-zero ordinal which is not a successor. Recall
+that a subset of the first uncountable ordinal $\omega_1$ is called closed unbounded
+if it is unbounded in $\omega_1$ and contains the supremum of each of its
+countable subsets, and stationary if it intersects every closed unbounded
+set. The set of limit ordinals below $\omega_1$ is closed unbounded. We shall
+use Fodor's lemma \cite[theorem 8.7]{JechSetTheory}: if $E\subset\omega_1$ is
+stationary and $\gamma:E\to\omega_1$ satisfies $\gamma(\alpha)<\alpha$ for all
+$\alpha\in E$, then $\gamma$ is constant on some stationary subset of $E$.
+For a subset $M$ of a normed space $P$ we denote by $\overline{\Lin}(M)$ the
+closure of $\Lin(M)$ in $P$.
+
+\begin{theorem}\label{FodorObstruction} Let $P$ be a topologically
+    projective normed space, ${(X_\beta)}_{\beta<\omega_1}$ be a family of
+    countable subsets of $P$, $E$ be a stationary set of limit ordinals below
+    $\omega_1$, and ${(v_\alpha)}_{\alpha\in E}$ be a family in $P$ such that
+    $v_\alpha\in\overline{\Lin}\bigl(\bigcup_{\beta<\alpha}X_\beta\bigr)$ for
+    every $\alpha\in E$. Then there is a stationary set $E'\subset E$ such that
+    $\Lin\{v_\alpha:\alpha\in E'\}$ has countable algebraic dimension. In
+    particular, the family ${(v_\alpha)}_{\alpha\in E}$ is linearly dependent.
+\end{theorem}
+\begin{proof} By proposition~\ref{CanonicalMorphismCriterion}~$(i)$ there is
+    a bounded linear operator $\sigma:P\to\lo{B_P}$ with $\pi_P\sigma=1_P$; it
+    is injective. For $\alpha<\omega_1$ put
+    \[
+    S_\alpha=\bigcup_{\beta<\alpha}\ \bigcup_{x\in X_\beta}\supp(\sigma(x)),
+    \]
+    a countable subset of $B_P$. Let $\alpha\in E$. Then $\sigma(v_\alpha)$
+    lies in the closure in $\ellone{B_P}$ of
+    $\sigma\bigl(\Lin\bigcup_{\beta<\alpha}X_\beta\bigr)\subset\lo{S_\alpha}$,
+    and since the coordinate functionals are continuous, $\sigma(v_\alpha)$ is
+    supported in $S_\alpha$. Thus, the finite set $F_\alpha=\supp(\sigma(v_\alpha))$
+    is contained in $S_\alpha=\bigcup_{\beta<\alpha}S_{\beta+1}$, and since
+    $\alpha$ is a limit ordinal there is $\gamma(\alpha)<\alpha$ with
+    $F_\alpha\subset S_{\gamma(\alpha)}$. By Fodor's lemma there are a
+    stationary set $E'\subset E$ and $\gamma_0<\omega_1$ with
+    $\gamma(\alpha)=\gamma_0$ for all $\alpha\in E'$. Then
+    $\sigma(v_\alpha)\in\lo{S_{\gamma_0}}$ for all $\alpha\in E'$. The space
+    $\lo{S_{\gamma_0}}$ has countable algebraic dimension and $\sigma$ is
+    injective, so $\Lin\{v_\alpha:\alpha\in E'\}$ has countable algebraic
+    dimension. As $E'$ is uncountable, the family ${(v_\alpha)}_{\alpha\in E'}$,
+    and a fortiori ${(v_\alpha)}_{\alpha\in E}$, is linearly dependent.
+\end{proof}
+
+\begin{corollary}\label{OmegaOneContinuity} Let $P$ be a topologically
+    projective normed space and ${(X_\beta)}_{\beta<\omega_1}$ be a family of
+    countable subsets of $P$. For $\alpha<\omega_1$ put
+    $D_\alpha=\overline{\Lin}\bigl(\bigcup_{\beta<\alpha}X_\beta\bigr)$. Then
+    the set of limit ordinals $\alpha<\omega_1$ for which
+    $D_\alpha\neq\bigcup_{\alpha'<\alpha}D_{\alpha'}$ is not stationary.
+\end{corollary}
+\begin{proof} Assume that this set $E$ is stationary and for every
+    $\alpha\in E$ choose $v_\alpha\in D_\alpha\setminus\bigcup_{\alpha'<\alpha}D_{\alpha'}$.
+    The family ${(v_\alpha)}_{\alpha\in E}$ is linearly independent. Indeed,
+    let $\sum_{\alpha\in F}c_\alpha v_\alpha=0$ for a finite set $F\subset E$
+    and non-zero scalars $c_\alpha$, and let $\alpha_0=\max F$. Since
+    $v_{\alpha_0}\neq 0$, the set $F\setminus\{\alpha_0\}$ is non-empty; put
+    $\alpha_1=\max(F\setminus\{\alpha_0\})<\alpha_0$. The spaces $D_\alpha$
+    increase with $\alpha$, so
+    $v_{\alpha_0}=-c_{\alpha_0}^{-1}\sum_{\alpha\in F\setminus\{\alpha_0\}}c_\alpha v_\alpha
+    \in D_{\alpha_1}$, which contradicts the choice of $v_{\alpha_0}$. Now
+    theorem~\ref{FodorObstruction} gives a contradiction.
+\end{proof}
+
+Theorem~\ref{SeparableSubspaces} says that the closed linear span of
+countably many vectors of a topologically projective space has countable
+dimension; corollary~\ref{OmegaOneContinuity} says that, in addition, the
+closed linear spans of initial segments of an $\omega_1$-sequence of vectors
+must behave continuously at almost all limit stages. The following example
+shows that the second condition is not implied by the first one, even for
+dense subspaces of $\ellone{\Gamma}$.
+
+\begin{example}\label{LadderSpace} For every limit ordinal $\alpha<\omega_1$
+    fix a strictly increasing sequence ${(\alpha_n)}_{n\in\mathbb{N}}$ of
+    ordinals with $\sup_n\alpha_n=\alpha$ and put
+    $v_\alpha=\sum_{n=1}^\infty 2^{-n}e_{\alpha_n}\in\ellone{\omega_1}$. Let
+    \[
+    P_L=\lo{\omega_1}+\Lin\{v_\alpha:\alpha<\omega_1\text{ is a limit ordinal}\}
+    \subset\ellone{\omega_1}
+    \]
+    with the norm inherited from $\ellone{\omega_1}$. Then
+    \begin{enumerate}[label = (\roman*)]
+        \item $P_L$ is dense in $\ellone{\omega_1}$;
+        \item for every countable ordinal $\delta$ the space
+              $P_L\cap\ellone{\delta}=\lo{\delta}+\Lin\{v_\alpha:\alpha\leq\delta
+              \text{ is a limit ordinal}\}$ is an extremely projective normed
+              space of countable algebraic dimension; in particular, every
+              separable subspace of $P_L$ has countable algebraic dimension;
+        \item $P_L$ is not topologically projective.
+    \end{enumerate}
+\end{example}
+\begin{proof} $(i)$ is obvious, since $P_L\supset\lo{\omega_1}$.
+
+    First we note that for limit ordinals $\alpha<\beta$ the set
+    $\supp(v_\alpha)\cap\supp(v_\beta)$ is finite: $\supp(v_\alpha)\subset\alpha$,
+    while only finitely many $\beta_n$ are smaller than $\alpha$, because
+    $\sup_n\beta_n=\beta>\alpha$.
+
+    $(ii)$ Let $\delta$ be a countable ordinal and let
+    $x=y+\sum_{\alpha\in F}c_\alpha v_\alpha\in P_L\cap\ellone{\delta}$, where
+    $y\in\lo{\omega_1}$, $F$ is a finite set of limit ordinals and $c_\alpha\neq 0$
+    for $\alpha\in F$. Suppose that $F\not\subset[0,\delta]$ and put
+    $\alpha_0=\max F>\delta$. The set $\supp(v_{\alpha_0})\cap[\delta,\alpha_0)$
+    is infinite, because $\sup_n\alpha_{0,n}=\alpha_0>\delta$, while the sets
+    $\supp(y)$ and $\supp(v_\alpha)\cap\supp(v_{\alpha_0})$, $\alpha\in F\setminus\{\alpha_0\}$,
+    are finite. Hence $x$ has infinitely many non-zero coordinates in
+    $[\delta,\alpha_0)$, which contradicts $x\in\ellone{\delta}$. Therefore
+    $F\subset[0,\delta]$, and then also $\supp(y)\subset\delta$. This proves
+    the formula for $P_L\cap\ellone{\delta}$. The space $P_L\cap\ellone{\delta}$
+    has countable algebraic dimension, and it is dense in $\ellone{\delta}$,
+    because it contains $\lo{\delta}$. By theorem~\ref{MainTheorem} it is
+    extremely projective. Finally, if $Z$ is a separable subspace of $P_L$,
+    then the supports of the elements of $Z$ are contained in a countable
+    subset of $\omega_1$, hence in some countable ordinal $\delta$, so
+    $Z\subset P_L\cap\ellone{\delta}$ has countable algebraic dimension.
+
+    $(iii)$ Let $E$ be the set of limit ordinals below $\omega_1$; it is
+    closed unbounded, hence stationary. For $\alpha\in E$ we have
+    $v_\alpha=\lim_N\sum_{n=1}^N 2^{-n}e_{\alpha_n}\in\overline{\Lin}\{e_\beta:\beta<\alpha\}$.
+    The family ${(v_\alpha)}_{\alpha\in E}$ is linearly independent: if
+    $\sum_{\alpha\in F}c_\alpha v_\alpha=0$ with $F\subset E$ finite and
+    $c_\alpha\neq 0$, then for $\alpha_0=\max F$ and all sufficiently large
+    $n$ the coordinate of the left hand side at $\alpha_{0,n}$ equals
+    $2^{-n}c_{\alpha_0}\neq 0$, because the supports of the other $v_\alpha$
+    meet $\supp(v_{\alpha_0})$ in finite sets. By
+    theorem~\ref{FodorObstruction}, applied to $X_\beta=\{e_\beta\}$, the space
+    $P_L$ is not topologically projective.
+\end{proof}
+
+Ladder systems and Fodor's lemma have been used before in Banach space
+theory, for instance in the study of the spaces $C(K)$ of ladder system
+compacta \cite{AvilesKoszmiderLadder}; here they enter through the dimension
+restrictions of topologically projective normed spaces.
+
+Thus, a dense subspace of $\ellone{\Gamma}$ all of whose separable subspaces
+have countable algebraic dimension need not be topologically projective, and
+the answer to the question of Helemskii on dense subspaces of
+$\ellone{\Lambda}$ is more involved for uncountable $\Lambda$. Note that the
+space $P_L$ is ``locally'' extremely projective: all its countably generated
+pieces $P_L\cap\ellone{\delta}$ are extremely projective. So extreme
+projectivity of a normed space is not determined by its separable subspaces.
+
+We now turn to positive results. The obstruction in example~\ref{LadderSpace}
+is the discontinuity of the chain $P_L\cap\ellone{\delta}$ at limit stages.
+We shall show that for topologically projective spaces such discontinuities
+can always be avoided, and that this leads to a complete description of
+extremely projective normed spaces of arbitrary dimension. The proof is a
+transfinite version of theorem~\ref{BackAndForth} combined with an induction
+on the cardinality of $\Gamma$. The key point of the transfinite construction
+is that the perturbations used at different steps are controlled on pairwise
+disjoint blocks of coordinates, so that their ``product'' has norm bounded
+independently of the length of the construction.
+
+Let $\Gamma$ be a set, $\lambda$ be an ordinal and ${(\Gamma_\delta)}_{\delta\leq\lambda}$
+be an increasing family of subsets of $\Gamma$ such that $\Gamma_0=\varnothing$,
+$\Gamma_\lambda=\Gamma$ and $\Gamma_\delta=\bigcup_{\delta'<\delta}\Gamma_{\delta'}$
+for every limit ordinal $\delta\leq\lambda$. We call such a family a
+filtration of $\Gamma$ and put $N_\delta=\Gamma_{\delta+1}\setminus\Gamma_\delta$
+for $\delta<\lambda$. Then $\Gamma_\delta=\bigsqcup_{\delta'<\delta}N_{\delta'}$
+for all $\delta\leq\lambda$, and $\ellone{\Gamma_\delta}$ is the $\ell_1$-sum of
+the spaces $\ellone{N_{\delta'}}$, $\delta'<\delta$. For $x\in\ellone{\Gamma}$
+and $A\subset\Gamma$ we denote by $x|_A$ the restriction of $x$ to $A$,
+extended by zero; note that $x|_A$ need not belong to a given subspace
+$P\ni x$. For a subspace $P\subset\ellone{\Gamma}$ we put
+$P_\delta=P\cap\ellone{\Gamma_\delta}$ and
+\[
+D_\delta=\{x|_{N_\delta}:x\in P_{\delta+1}\}\subset\ellone{N_\delta},
+\qquad \delta<\lambda.
+\]
+Since the kernel of the restriction map $x\mapsto x|_{N_\delta}$ on
+$P_{\delta+1}$ is $P_{\delta+1}\cap\ellone{\Gamma_\delta}=P_\delta$, the space
+$D_\delta$ is isomorphic as a vector space to $P_{\delta+1}/P_\delta$.
+
+\begin{theorem}\label{TransfiniteBackAndForth} Let $\Gamma$ be a set, $P$ be
+    a dense subspace of $\ellone{\Gamma}$, ${(\Gamma_\delta)}_{\delta\leq\lambda}$
+    be a filtration of $\Gamma$ and $0<\theta<1/2$. Suppose that
+    \begin{enumerate}[label = (\roman*)]
+        \item $P_\delta$ is dense in $\ellone{\Gamma_\delta}$ for every
+              $\delta\leq\lambda$;
+        \item $P_\delta=\bigcup_{\delta'<\delta}P_{\delta'}$ for every limit
+              ordinal $\delta\leq\lambda$;
+        \item for every $\delta<\lambda$ there is a linear bijection $U_\delta$
+              of $\ellone{N_\delta}$ with $U_\delta(D_\delta)=\lo{N_\delta}$,
+              $\norm{U_\delta}\leq 1+\theta$ and $\norm{U_\delta^{-1}}\leq 1$.
+    \end{enumerate}
+    Then there exists a linear bijection $T:\ellone{\Gamma}\to\ellone{\Gamma}$
+    with $T(P)=\lo{\Gamma}$, $\norm{T}\leq{(1+\theta)}^2$ and
+    $\norm{T^{-1}}\leq{(1-\theta)}^{-1}$.
+\end{theorem}
+
+\begin{proof} We shall construct by transfinite recursion, for every
+    $\delta<\lambda$, a bounded linear operator
+    $V_\delta:\ellone{N_\delta}\to\ellone{\Gamma_\delta}$ with
+    $\norm{V_\delta}\leq\theta$. For $\delta\leq\lambda$ and
+    $x\in\ellone{\Gamma_\delta}$ put
+    \[
+    W_\delta(x)=x+\sum_{\delta'<\delta}V_{\delta'}(x|_{N_{\delta'}}),\qquad
+    U_{<\delta}(x)=\sum_{\delta'<\delta}U_{\delta'}(x|_{N_{\delta'}}),\qquad
+    T_\delta=U_{<\delta}W_\delta.
+    \]
+    Since the sets $N_{\delta'}$ are pairwise disjoint and
+    $\norm{x}=\sum_{\delta'<\delta}\norm{x|_{N_{\delta'}}}$, the series defining
+    $W_\delta(x)$ converges absolutely in $\ellone{\Gamma_\delta}$ and
+    $\norm{W_\delta-1}\leq\theta$, so $W_\delta$ is a linear bijection of
+    $\ellone{\Gamma_\delta}$ with $\norm{W_\delta^{-1}}\leq{(1-\theta)}^{-1}$;
+    the operator $U_{<\delta}$ is the $\ell_1$-sum of the operators
+    $U_{\delta'}$, so it is a linear bijection of $\ellone{\Gamma_\delta}$ with
+    $\norm{U_{<\delta}}\leq 1+\theta$ and $\norm{U_{<\delta}^{-1}}\leq 1$.
+    Hence $T_\delta$ is a linear bijection of $\ellone{\Gamma_\delta}$ with
+    $\norm{T_\delta}\leq{(1+\theta)}^2$ and $\norm{T_\delta^{-1}}\leq{(1-\theta)}^{-1}$.
+    Moreover, for $\delta'<\delta$ the operator $T_\delta$ coincides with
+    $T_{\delta'}$ on $\ellone{\Gamma_{\delta'}}$, because for
+    $x\in\ellone{\Gamma_{\delta'}}$ we have $x|_{N_{\delta''}}=0$ for
+    $\delta''\geq\delta'$. The operators $V_\delta$ will be chosen so that
+    \begin{equation}\label{InductiveClaim}
+    T_\delta(P_\delta)=\lo{\Gamma_\delta}\quad\text{for all }\delta\leq\lambda.
+    \end{equation}
+    Then $T=T_\lambda$ is the required operator.
+
+    Let $\delta<\lambda$ and suppose that $V_{\delta'}$ has been constructed
+    for all $\delta'<\delta$ in such a way that \eqref{InductiveClaim} holds
+    for all ordinals $\leq\delta$ (for $\delta=0$ this is trivial, since
+    $\Gamma_0=\varnothing$). We construct $V_\delta$ so that
+    \eqref{InductiveClaim} holds for $\delta+1$; note that
+    \eqref{InductiveClaim} for a limit ordinal $\mu\leq\lambda$ follows from
+    \eqref{InductiveClaim} for all $\delta<\mu$, because by $(ii)$ and the
+    compatibility of the operators $T_\delta$ we have
+    $T_\mu(P_\mu)=\bigcup_{\delta<\mu}T_\delta(P_\delta)
+    =\bigcup_{\delta<\mu}\lo{\Gamma_\delta}=\lo{\Gamma_\mu}$.
+
+    If $N_\delta=\varnothing$, then $P_{\delta+1}=P_\delta$,
+    $T_{\delta+1}=T_\delta$, and we put $V_\delta=0$. So let
+    $N_\delta\neq\varnothing$, and put $U=U_\delta$ and $y_n=U^{-1}(e_n)$ for
+    $n\in N_\delta$. By $(iii)$, ${(y_n)}_{n\in N_\delta}$ is a Hamel basis of
+    $D_\delta$ and
+    \[
+    \Bigl\lVert\sum_{n}c_ny_n\Bigr\rVert\geq\norm{U}^{-1}\Bigl\lVert\sum_n c_ne_n\Bigr\rVert
+    \geq{(1+\theta)}^{-1}\sum_n|c_n|
+    \]
+    for all finitely supported families ${(c_n)}_{n\in N_\delta}$ of scalars.
+    For every $n\in N_\delta$ choose $x_n\in P_{\delta+1}$ with
+    $x_n|_{N_\delta}=y_n$. Since $P_\delta$ is dense in $\ellone{\Gamma_\delta}$
+    by $(i)$, the coset $-x_n|_{\Gamma_\delta}+P_\delta$ is dense in
+    $\ellone{\Gamma_\delta}$, and we can choose $z_n\in\ellone{\Gamma_\delta}$ with
+    \[
+    x_n|_{\Gamma_\delta}+z_n\in P_\delta,\qquad\norm{z_n}\leq\theta{(1+\theta)}^{-2}.
+    \]
+    Define $V_\delta$ on $D_\delta$ by $V_\delta(\sum_n c_ny_n)=\sum_n c_nW_\delta(z_n)$.
+    Then
+    \[
+    \Bigl\lVert V_\delta\Bigl(\sum_n c_ny_n\Bigr)\Bigr\rVert
+    \leq\norm{W_\delta}\,\theta{(1+\theta)}^{-2}\sum_n|c_n|
+    \leq\theta{(1+\theta)}^{-1}\sum_n|c_n|
+    \leq\theta\Bigl\lVert\sum_n c_ny_n\Bigr\rVert,
+    \]
+    so $V_\delta$ extends by continuity from the dense subspace $D_\delta$ to
+    a bounded linear operator $V_\delta:\ellone{N_\delta}\to\ellone{\Gamma_\delta}$
+    with $\norm{V_\delta}\leq\theta$ (recall that $D_\delta$ is dense in
+    $\ellone{N_\delta}$ by $(i)$, since the restriction map is a contractive
+    surjection of $\ellone{\Gamma_{\delta+1}}$ onto $\ellone{N_\delta}$).
+
+    We claim that
+    \begin{equation}\label{KeyInclusion}
+    x|_{\Gamma_\delta}+W_\delta^{-1}V_\delta(x|_{N_\delta})\in P_\delta
+    \quad\text{for every }x\in P_{\delta+1}.
+    \end{equation}
+    Indeed, write $x|_{N_\delta}=\sum_n c_ny_n$ with finitely many non-zero
+    $c_n$. Then $x-\sum_n c_nx_n\in P_{\delta+1}$ vanishes on $N_\delta$, so it
+    belongs to $P_\delta$, and hence
+    $x|_{\Gamma_\delta}=\sum_n c_nx_n|_{\Gamma_\delta}+p$ for some $p\in P_\delta$.
+    Therefore
+    \[
+    x|_{\Gamma_\delta}+W_\delta^{-1}V_\delta(x|_{N_\delta})
+    =\sum_n c_n\bigl(x_n|_{\Gamma_\delta}+z_n\bigr)+p\in P_\delta.
+    \]
+
+    Now let $x\in P_{\delta+1}$. Since $W_{\delta+1}(x)=W_\delta(x|_{\Gamma_\delta})
+    +V_\delta(x|_{N_\delta})+x|_{N_\delta}$ and $U_{<\delta+1}$ acts as
+    $U_{<\delta}$ on $\ellone{\Gamma_\delta}$ and as $U$ on
+    $\ellone{N_\delta}$, we get
+    \[
+    T_{\delta+1}(x)=U_{<\delta}W_\delta\bigl(x|_{\Gamma_\delta}+W_\delta^{-1}V_\delta(x|_{N_\delta})\bigr)
+    +U(x|_{N_\delta})
+    =T_\delta\bigl(x|_{\Gamma_\delta}+W_\delta^{-1}V_\delta(x|_{N_\delta})\bigr)
+    +U(x|_{N_\delta}).
+    \]
+    By \eqref{KeyInclusion} and \eqref{InductiveClaim} for $\delta$, the
+    first summand belongs to $\lo{\Gamma_\delta}$, and the second one belongs
+    to $U(D_\delta)=\lo{N_\delta}$. Hence $T_{\delta+1}(P_{\delta+1})\subset\lo{\Gamma_{\delta+1}}$.
+    Conversely, $\lo{\Gamma_\delta}=T_\delta(P_\delta)=T_{\delta+1}(P_\delta)
+    \subset T_{\delta+1}(P_{\delta+1})$, and for every $n\in N_\delta$ the
+    above formula gives $T_{\delta+1}(x_n)\in\lo{\Gamma_\delta}+U(y_n)
+    =\lo{\Gamma_\delta}+e_n$, so $e_n\in T_{\delta+1}(P_{\delta+1})$. Thus,
+    $T_{\delta+1}(P_{\delta+1})=\lo{\Gamma_{\delta+1}}$, which completes the
+    recursion and the proof.
+\end{proof}
+
+If all the sets $N_\delta$ are at most countable and $P_{\delta+1}/P_\delta$
+has at most countable algebraic dimension for every $\delta<\lambda$, then
+condition $(iii)$ is automatically satisfied for every $\theta>0$: indeed,
+$D_\delta$ is a dense subspace of $\ellone{N_\delta}$ of countable algebraic
+dimension, so for infinite $N_\delta$ theorem~\ref{BackAndForth} provides a
+linear bijection $U_\delta$ with $U_\delta(D_\delta)=\lo{N_\delta}$ and
+$\norm{U_\delta}\norm{U_\delta^{-1}}\leq 1+\theta$, which can be normalized by
+a scalar, and for finite $N_\delta$ we have $D_\delta=\ellone{N_\delta}$ and
+$U_\delta=1_{\ellone{N_\delta}}$ works. Example~\ref{LadderSpace} shows that
+condition $(ii)$ cannot be dropped: for the filtration $\Gamma_\delta=\delta$
+of $\omega_1$ the space $P_L$ satisfies $(i)$ and $(iii)$, but fails $(ii)$
+at every countable limit ordinal (at $\delta=\omega_1$ itself condition
+$(ii)$ holds trivially, since every element of $\ellone{\omega_1}$ has
+countable support).
+
+We proceed to the construction of filtrations satisfying the hypotheses of
+theorem~\ref{TransfiniteBackAndForth}. For the rest of this section we fix a
+set $\Gamma$, a dense topologically
+projective subspace $P$ of $\ellone{\Gamma}$, a set $S$ and bounded linear
+operators $\sigma:P\to\lo{S}$ and $\pi:\lo{S}\to P$ with $\pi\sigma=1_P$ and
+$\norm{\pi}\leq 1$; these exist by proposition~\ref{CanonicalMorphismCriterion}.
+Since $P$ is dense in $\ellone{\Gamma}$, we can also fix for every
+$\gamma\in\Gamma$ a sequence ${(p^\gamma_n)}_{n\in\mathbb{N}}$ in $P$ converging
+to $e_\gamma$. For $A\subset\Gamma$ we put $P_A=P\cap\ellone{A}$.
+
+\begin{definition}\label{ClosedPair} A pair $(A,B)$ of subsets $A\subset\Gamma$
+    and $B\subset S$ is called closed if
+    \begin{enumerate}[label = (\alph*)]
+        \item $\supp(\pi(e_s))\subset A$ for all $s\in B$;
+        \item $\supp(\sigma(x))\subset B$ for all $x\in P_A$;
+        \item $\supp(p^\gamma_n)\subset A$ for all $\gamma\in A$ and
+              $n\in\mathbb{N}$.
+    \end{enumerate}
+\end{definition}
+
+\begin{lemma}\label{ClosedPairProps} Let $(A,B)$ be a closed pair. Then
+    $P_A=\pi(\lo{B})$, the space $P_A$ is dense in $\ellone{A}$, and
+    $\sigma|_{P_A}:P_A\to\lo{B}$, $\pi|_{\lo{B}}:\lo{B}\to P_A$ exhibit $P_A$ as
+    a retract of $\lo{B}$. In particular, $P_A$ is topologically projective.
+\end{lemma}
+\begin{proof} By $(a)$, $\pi(\lo{B})\subset P\cap\ellone{A}=P_A$. If $x\in P_A$,
+    then $\sigma(x)\in\lo{B}$ by $(b)$ and $x=\pi\sigma(x)\in\pi(\lo{B})$. By
+    $(c)$, $P_A$ contains the sequences $p^\gamma_n$, $\gamma\in A$, so its
+    closure contains $\lo{A}$ and $P_A$ is dense in $\ellone{A}$. The last
+    claim is now obvious.
+\end{proof}
+
+\begin{lemma}\label{ClosingOff} Let $\mu$ be an infinite cardinal,
+    $A\subset\Gamma$ and $B\subset S$ be sets of cardinality at most $\mu$.
+    Then there is a closed pair $(A',B')$ with $A\subset A'$, $B\subset B'$ and
+    $|A'|,|B'|\leq\mu$.
+\end{lemma}
+\begin{proof} Define increasing sequences $A=A_0\subset A_1\subset\ldots$ and
+    $B=B_0\subset B_1\subset\ldots$ as follows. Given $A_k$ and $B_k$ of
+    cardinality at most $\mu$, let $H_k$ be a Hamel basis of $P_{A_k}$. Since
+    $P_{A_k}\subset\ellone{A_k}$ has density character at most $\mu$ (the
+    density character of a metric space is inherited by its subspaces), by
+    theorem~\ref{SeparableSubspaces} $|H_k|\leq\mu$. Put
+    \[
+    B_{k+1}=B_k\cup\bigcup_{x\in H_k}\supp(\sigma(x)),\qquad
+    A_{k+1}=A_k\cup\bigcup_{s\in B_{k+1}}\supp(\pi(e_s))
+    \cup\bigcup_{\gamma\in A_k,\,n\in\mathbb{N}}\supp(p^\gamma_n).
+    \]
+    All supports are countable, so $|A_{k+1}|,|B_{k+1}|\leq\mu$. Put
+    $A'=\bigcup_k A_k$ and $B'=\bigcup_k B_k$. Conditions $(a)$ and $(c)$ hold
+    for $(A',B')$, since every $s\in B'$ and every $\gamma\in A'$ belongs to
+    some $B_{k+1}$ or $A_k$ respectively. To verify $(b)$, note first that
+    $\bigcup_k P_{A_k}$ is dense in $\ellone{A'}$: indeed, $P_{A_{k+1}}$
+    contains $p^\gamma_n$ for all $\gamma\in A_k$, so the closure of
+    $\bigcup_k P_{A_k}$ contains $\lo{A'}$. Let $x\in P_{A'}$ and choose
+    $x_j\in\bigcup_k P_{A_k}$ with $x_j\to x$. Then $\sigma(x_j)\in\lo{B_{k_j+1}}
+    \subset\ellone{B'}$ for suitable $k_j$, because $\supp(\sigma(y))\subset
+    B_{k+1}$ for $y\in P_{A_k}$ by the choice of $B_{k+1}$. Since $\sigma$ is
+    continuous and $\ellone{B'}$ is closed in $\ellone{S}$, we get
+    $\sigma(x)\in\ellone{B'}\cap\lo{S}=\lo{B'}$.
+\end{proof}
+
+Note that in the last argument the support of $x\in P_{A'}$ need not be
+contained in a single $A_k$; this is why density was used instead of a
+direct argument. The same argument proves the following lemma.
+
+\begin{lemma}\label{UnionsOfClosedPairs} Let ${((A_\delta,B_\delta))}_{\delta<\lambda}$
+    be an increasing family of closed pairs indexed by a limit ordinal
+    $\lambda$, and let $A_\lambda=\bigcup_{\delta<\lambda}A_\delta$,
+    $B_\lambda=\bigcup_{\delta<\lambda}B_\delta$. Then $(A_\lambda,B_\lambda)$
+    is a closed pair and $P_{A_\lambda}=\bigcup_{\delta<\lambda}P_{A_\delta}$.
+\end{lemma}
+\begin{proof} Conditions $(a)$ and $(c)$ are inherited from the pairs
+    $(A_\delta,B_\delta)$. By lemma~\ref{ClosedPairProps} each $P_{A_\delta}$
+    is dense in $\ellone{A_\delta}$, so $\bigcup_{\delta<\lambda}P_{A_\delta}$
+    is dense in $\ellone{A_\lambda}$. If $x\in P_{A_\lambda}$, choose
+    $x_j\in\bigcup_\delta P_{A_\delta}$ with $x_j\to x$; then
+    $\sigma(x_j)\in\ellone{B_\lambda}$ by $(b)$ for the pairs
+    $(A_\delta,B_\delta)$, hence $\sigma(x)\in\ellone{B_\lambda}\cap\lo{S}=\lo{B_\lambda}$.
+    This is $(b)$ for $(A_\lambda,B_\lambda)$. Finally, by
+    lemma~\ref{ClosedPairProps},
+    $P_{A_\lambda}=\pi(\lo{B_\lambda})=\bigcup_{\delta<\lambda}\pi(\lo{B_\delta})
+    =\bigcup_{\delta<\lambda}P_{A_\delta}$.
+\end{proof}
+
+\begin{lemma}\label{BlockRetract} Let $(A,B)\subset(A',B')$ be closed pairs,
+    that is, $A\subset A'$ and $B\subset B'$, and let $N=A'\setminus A$. Then
+    $D=\{x|_N:x\in P_{A'}\}$ is a dense subspace of $\ellone{N}$ which is a
+    retract of $\lo{B'\setminus B}$. In particular, $D$ is topologically
+    projective.
+\end{lemma}
+\begin{proof} The restriction map $r:\ellone{A'}\to\ellone{N}$, $x\mapsto x|_N$,
+    is a contractive surjection and $P_{A'}$ is dense in $\ellone{A'}$ by
+    lemma~\ref{ClosedPairProps}, so $D=r(P_{A'})$ is dense in $\ellone{N}$.
+    The kernel of $r|_{P_{A'}}$ is $P_{A'}\cap\ellone{A}=P_A$.
+
+    Let $y\in D$ and $x\in P_{A'}$ with $x|_N=y$. By $(b)$ for $(A',B')$ we
+    have $\sigma(x)\in\lo{B'}$. If $x'\in P_{A'}$ is another element with
+    $x'|_N=y$, then $x-x'\in P_A$, so $\sigma(x-x')\in\lo{B}$ by $(b)$ for
+    $(A,B)$, and $\sigma(x)|_{S\setminus B}=\sigma(x')|_{S\setminus B}$.
+    Therefore the map
+    \[
+    \rho:D\to\lo{B'\setminus B},\qquad\rho(y)=\sigma(x)|_{S\setminus B}
+    \quad(x\in P_{A'},\ x|_N=y),
+    \]
+    is well defined; it is linear, because if $x_1,x_2\in P_{A'}$ restrict
+    to $y_1,y_2$, then $x_1+cx_2$ restricts to $y_1+cy_2$. It is bounded:
+    given $y\in D$, $x_0\in P_{A'}$
+    with $x_0|_N=y$ and $\varepsilon>0$, use the density of $P_A$ in
+    $\ellone{A}$ to find $p\in P_A$ with $\norm{x_0|_A+p}\leq\varepsilon$;
+    then $x=x_0+p\in P_{A'}$ satisfies $x|_N=y$ and
+    $\norm{x}=\norm{x|_A}+\norm{y}\leq\norm{y}+\varepsilon$, so
+    $\norm{\rho(y)}\leq\norm{\sigma(x)}\leq\norm{\sigma}(\norm{y}+\varepsilon)$.
+    Hence $\norm{\rho}\leq\norm{\sigma}$. Finally, let $r\pi:\lo{B'\setminus B}\to\ellone{N}$
+    be the composition of $\pi$ with the restriction to $N$. For $y=x|_N$ as
+    above,
+    \[
+    r\pi\rho(y)=r\bigl(\pi\sigma(x)-\pi(\sigma(x)|_B)\bigr)
+    =r(x)-r\bigl(\pi(\sigma(x)|_B)\bigr)=y,
+    \]
+    because $\pi(\sigma(x)|_B)\in\pi(\lo{B})=P_A\subset\ellone{A}$ vanishes on
+    $N$. Thus, $r\pi$ maps $\lo{B'\setminus B}$ into $D$ (its range is
+    contained in $r(P_{A'})=D$) and $r\pi\rho=1_D$; so $D$ is a retract of
+    $\lo{B'\setminus B}$ and is topologically projective by
+    proposition~\ref{RetractOfProj}.
+\end{proof}
+
+\begin{theorem}\label{GeneralTheorem} Let $\Gamma$ be a set and $P$ be a
+    dense topologically projective subspace of $\ellone{\Gamma}$. Then for
+    every $\theta>0$ there is a linear bijection $T$ of $\ellone{\Gamma}$ with
+    $T(P)=\lo{\Gamma}$, $\norm{T}\leq 1+\theta$ and $\norm{T^{-1}}\leq 1$. In
+    particular, $\BM(P,\lo{\Gamma})=1$ and $P$ is extremely projective.
+\end{theorem}
+\begin{proof} We proceed by induction on the cardinality $\kappa$ of
+    $\Gamma$. If $\Gamma$ is finite, then $P=\ellone{\Gamma}=\lo{\Gamma}$ and
+    $T=1_{\ellone{\Gamma}}$ works. If $\Gamma$ is countably infinite, then
+    $P$ has countable algebraic dimension by theorem~\ref{SeparableSubspaces},
+    and theorem~\ref{BackAndForth} provides a linear bijection $T$ with
+    $T(P)=\lo{\Gamma}$ and $\norm{T}\norm{T^{-1}}\leq 1+\theta$; multiplying
+    $T$ by a scalar we get $\norm{T^{-1}}\leq 1$ and $\norm{T}\leq 1+\theta$.
+
+    Let $\kappa$ be uncountable and assume that the theorem holds for all
+    sets of cardinality less than $\kappa$. Since the conclusion for a smaller
+    $\theta$ is stronger, we may fix $\theta\in(0,1/2)$; put
+    $\theta'=\theta/8$, so that ${(1+\theta')}^2{(1-\theta')}^{-1}\leq 1+\theta$.
+    Fix $S$, $\sigma$, $\pi$ and the sequences $p^\gamma_n$ as above. Let
+    $\lambda$ be the cofinality of $\kappa$ and ${(\Gamma^\delta)}_{\delta<\lambda}$
+    be a family of subsets of $\Gamma$ of cardinality less than $\kappa$ with
+    $\bigcup_{\delta<\lambda}\Gamma^\delta=\Gamma$. Such a family exists: if
+    $\kappa$ is regular, then $\lambda=\kappa$ and we may take
+    $\Gamma^\delta=\{\gamma_\delta\}$ for an enumeration
+    ${(\gamma_\delta)}_{\delta<\kappa}$ of $\Gamma$; if $\kappa$ is singular,
+    we take an enumeration ${(\gamma_\alpha)}_{\alpha<\kappa}$ of $\Gamma$, an
+    increasing sequence of cardinals ${(\kappa_\delta)}_{\delta<\lambda}$ with
+    supremum $\kappa$, and $\Gamma^\delta=\{\gamma_\alpha:\alpha<\kappa_\delta\}$.
+    By transfinite recursion
+    we define an increasing family ${((A_\delta,B_\delta))}_{\delta\leq\lambda}$
+    of closed pairs with $|A_\delta|,|B_\delta|<\kappa$ for $\delta<\lambda$:
+    put $A_0=B_0=\varnothing$; given $(A_\delta,B_\delta)$ with $\delta<\lambda$,
+    let $(A_{\delta+1},B_{\delta+1})$ be a closed pair containing
+    $(A_\delta\cup\Gamma^\delta,B_\delta)$ with
+    $|A_{\delta+1}|,|B_{\delta+1}|\leq\max(|A_\delta|,|B_\delta|,|\Gamma^\delta|,\aleph_0)<\kappa$,
+    which exists by lemma~\ref{ClosingOff}; for a limit ordinal
+    $\delta\leq\lambda$ let $A_\delta$ and $B_\delta$ be the unions of the
+    previous sets. For a limit ordinal $\delta<\lambda$ the set $A_\delta$ is
+    a union of fewer than $\operatorname{cf}(\kappa)$ sets of cardinality
+    less than $\kappa$, so $|A_\delta|<\kappa$, and similarly $|B_\delta|<\kappa$;
+    by lemma~\ref{UnionsOfClosedPairs} the pairs $(A_\delta,B_\delta)$ are
+    closed for all $\delta\leq\lambda$. Finally, $A_\lambda=\Gamma$.
+
+    Thus, ${(A_\delta)}_{\delta\leq\lambda}$ is a filtration of $\Gamma$, and
+    we verify the hypotheses of theorem~\ref{TransfiniteBackAndForth} for
+    this filtration and $\theta'$, where $P_\delta=P_{A_\delta}$ and
+    $N_\delta=A_{\delta+1}\setminus A_\delta$. Condition $(i)$ holds by
+    lemma~\ref{ClosedPairProps}, and condition $(ii)$ holds by
+    lemma~\ref{UnionsOfClosedPairs}. For $(iii)$, let $\delta<\lambda$. By
+    lemma~\ref{BlockRetract} the space $D_\delta=\{x|_{N_\delta}:x\in P_{\delta+1}\}$
+    is a dense topologically projective subspace of $\ellone{N_\delta}$, and
+    $|N_\delta|\leq|A_{\delta+1}|<\kappa$. By the induction hypothesis there
+    is a linear bijection $U_\delta$ of $\ellone{N_\delta}$ with
+    $U_\delta(D_\delta)=\lo{N_\delta}$, $\norm{U_\delta}\leq 1+\theta'$ and
+    $\norm{U_\delta^{-1}}\leq 1$ (if $N_\delta=\varnothing$ there is nothing to
+    do). Now theorem~\ref{TransfiniteBackAndForth} gives a linear bijection
+    $T$ of $\ellone{\Gamma}$ with $T(P)=\lo{\Gamma}$ and
+    $\norm{T}\norm{T^{-1}}\leq{(1+\theta')}^2{(1-\theta')}^{-1}\leq 1+\theta$;
+    after multiplication by a scalar, $\norm{T^{-1}}\leq 1$ and
+    $\norm{T}\leq 1+\theta$. The last claim of the theorem follows from
+    theorem~\ref{ExtrProjCriterion}.
+\end{proof}
+
+Note that the filtration constructed in the proof of
+theorem~\ref{GeneralTheorem} has blocks $N_\delta$ of cardinality less than
+$|\Gamma|$, not necessarily countable ones; this is why
+theorem~\ref{TransfiniteBackAndForth} was formulated for arbitrary blocks.
+
+Together with theorem~\ref{CompletionIsEllOne}, theorem~\ref{GeneralTheorem}
+gives the main result of the paper.
+
+\begin{theorem}\label{FinalCharacterization} For a normed space $P$ the
+    following conditions are equivalent:
+    \begin{enumerate}[label = (\roman*)]
+        \item $P$ is extremely projective;
+        \item $P$ is topologically projective and $\overline{P}$ is
+              isometrically isomorphic to $\ellone{\Gamma}$ for some set
+              $\Gamma$;
+        \item $\BM(P,\lo{\Gamma})=1$ for some set $\Gamma$;
+        \item for every $\varepsilon>0$ there is a set $\Lambda$ with
+              $\BM(P,\lo{\Lambda})<1+\varepsilon$.
+    \end{enumerate}
+    Moreover, in $(iii)$ the set $\Gamma$ necessarily has the cardinality of
+    the algebraic dimension of $P$, and the Banach--Mazur distance in
+    $(iii)$ is realized by linear bijections
+    $T:\overline{P}\to\ellone{\Gamma}$ with $T(P)=\lo{\Gamma}$ and
+    $\norm{T}\norm{T^{-1}}$ arbitrarily close to $1$.
+\end{theorem}
+\begin{proof} $(i)\implies(ii)$ Extremely projective spaces are
+    topologically projective, and their completions are described by
+    theorem~\ref{CompletionIsEllOne}.
+
+    $(ii)\implies(iii)$ Let $J:\overline{P}\to\ellone{\Gamma}$ be an isometric
+    isomorphism. Then $J(P)$ is a dense topologically projective subspace of
+    $\ellone{\Gamma}$, and theorem~\ref{GeneralTheorem} gives
+    $\BM(P,\lo{\Gamma})=\BM(J(P),\lo{\Gamma})=1$, realized by linear
+    bijections of the required form.
+
+    $(iii)\implies(iv)$ is obvious, and $(iv)\implies(i)$ follows from
+    theorem~\ref{ExtrProjCriterion}, since a linear bijection $S:P\to\lo{\Lambda}$
+    with $\norm{S}\norm{S^{-1}}<1+\varepsilon$ makes $P$ a
+    $(1+\varepsilon)$-retract of $\lo{\Lambda}$. Finally, if
+    $\BM(P,\lo{\Gamma})<\infty$, then $P$ and $\lo{\Gamma}$ are isomorphic as
+    vector spaces, and the algebraic dimension of $\lo{\Gamma}$ is the
+    cardinality of $\Gamma$; so the set $\Gamma$ in $(iii)$ is determined up
+    to a bijection, and the realization of the distance obtained in
+    $(ii)\implies(iii)$ applies to it.
+\end{proof}
+
+\begin{corollary}\label{GronbaekConjecture} Every extremely projective
+    normed space $P$ is almost isometric to $\lo{\Gamma}$, where $\Gamma$ is a
+    set whose cardinality is the algebraic dimension of $P$. In particular,
+    the conjecture of Gr{\o}nb{\ae}k \cite[conjecture 3.1]{GronLiftProbNormSp}
+    holds in the almost isometric form, while corollary~\ref{CounterexampleCorollary}
+    shows that it fails in the isometric form.
+\end{corollary}
+
+We finish with some comments. Let us compare our argument with the proof
+of the theorem of Gr{\o}nb{\ae}k, which consists of two steps: a transfinite
+construction which finds in every subspace $Y$ of $\lo{\Lambda}$ a
+complemented subspace isomorphic to $\lo{\Lambda'}$, where the cardinality of
+$\Lambda'$ is the density character of $Y$
+\cite[proposition 2.2]{GronLiftProbNormSp}, and the decomposition method of
+Pe{\l}czy\'nski \cite[proposition 2.3]{GronLiftProbNormSp}. An inspection of
+the first step shows that it produces, for every $\varepsilon>0$, a subspace
+which is $(1+\varepsilon)$-isomorphic to $\lo{\Lambda'}$ and
+$(1+\varepsilon)$-complemented, so the constants are lost only in the second
+step. Theorems~\ref{BackAndForth} and~\ref{TransfiniteBackAndForth} replace
+the decomposition method by back-and-forth constructions which keep the
+constants, at the price of the continuity condition $(ii)$, and
+lemmas~\ref{ClosingOff} and~\ref{UnionsOfClosedPairs} show that this
+condition can always be achieved for topologically projective spaces. Next,
+theorem~\ref{FinalCharacterization}
+shows that for dense subspaces of the spaces $\ellone{\Gamma}$ topological and
+extreme projectivity coincide. This is a feature of the exact norm of
+$\ellone{\Gamma}$: if $E$ is an infinite dimensional Banach space which is
+topologically but not almost isometrically isomorphic to $\ellone{\Gamma}$,
+for instance $\ellone{\Gamma}$ with a suitable equivalent norm, then every
+dense subspace of $E$ of the form $J(\lo{\Gamma})$, $J$ a topological
+isomorphism, is topologically but not extremely projective by
+theorem~\ref{CompletionIsEllOne}. Further, by theorem~\ref{FinalCharacterization}
+and example~\ref{LadderSpace}, the question of Helemskii on dense subspaces of
+$\ellone{\Lambda}$ has the following answer: a dense subspace $P$ of
+$\ellone{\Lambda}$ is extremely projective if and only if it is
+topologically projective, if and only if it admits a filtration with the
+properties $(i)$--$(iii)$ of theorem~\ref{TransfiniteBackAndForth}; for
+countable $\Lambda$ this means that $P$ has countable algebraic dimension, but
+for uncountable $\Lambda$ the continuity condition $(ii)$ is a genuine
+restriction, as the ladder space shows. Finally, Fodor's lemma is used in this
+paper only in the negative direction, to show that the ladder space is not
+topologically projective; the positive results use only the closing-off
+arguments of lemmas~\ref{ClosingOff} and~\ref{UnionsOfClosedPairs}. We do not
+know an intrinsic description of topologically projective dense subspaces of
+$\ellone{\Lambda}$ for uncountable $\Lambda$ which would not refer to a
+retraction onto a free space.
+
+\begin{thebibliography}{999}
+    %
+    \bibitem{HelHomolBanTopAlg}
+    \textit{A. Ya. Helemskii} The homology of Banach and topological algebras,
+    Kluwer, Dordrecht (1989)
+    %
+    %
+    \bibitem{HelMetrFrQMod}
+    \textit{A. Ya. Helemskii} Metric freeness and projectivity for classical
+    and quantum normed modules, Sb. Math., 204:7 (2013), 1056--1083
+    %
+    %
+    \bibitem{HelExtrProjSeqAlg}
+    \textit{A. Ya. Helemskii} Extreme version of projectivity for normed
+    modules over sequence algebras, Canad. J. Math., 65:3 (2013), 559--574;
+    arXiv:1104.2463 (the numbering of statements refers to the arXiv
+    version, titled ``Metric version of projectivity for normed modules over
+    sequence algebras'')
+    %
+    %
+    \bibitem{WhiteInjmoduAlg}
+    \textit{M. C. White} Injective modules for uniform algebras, Proc. London
+    Math. Soc. (3), 73:1 (1996), 155--184
+    %
+    %
+    \bibitem{KotheTopProjBanSp}
+    \textit{G. K\"othe} Hebbare lokalkonvexe R\"aume, Math. Ann., 165 (1966),
+    181--195
+    %
+    %
+    \bibitem{GrothMetrProjFlatBanSp}
+    \textit{A. Grothendieck} Une caract\'erisation vectorielle-m\'etrique des
+    espaces $L_1$, Canad. J. Math., 7 (1955), 552--561
+    %
+    %
+    \bibitem{LaceyIsomThOfClassicBanSp}
+    \textit{H. E. Lacey} The isometric theory of classical Banach spaces,
+    Springer, Berlin (1974)
+    %
+    %
+    \bibitem{GronLiftProbNormSp}
+    \textit{N. Gr{\o}nb{\ae}k} Lifting problems for normed spaces, Ann. Funct.
+    Anal., 7:1 (2016), 118--126
+    %
+    %
+    \bibitem{HajekRussoDenselyIsom}
+    \textit{P. H\'ajek, T. Russo} On densely isomorphic normed spaces,
+    J. Funct. Anal., 279:11 (2020), 108773; arXiv:1910.01527
+    %
+    %
+    \bibitem{AvilesKoszmiderLadder}
+    \textit{A. Avil\'es, P. Koszmider} Almost disjoint families of countable
+    sets and separable complementation properties, J. Math. Anal. Appl.,
+    405:1 (2013), 252--263; arXiv:1209.0199
+    %
+    %
+    \bibitem{LowigDimLinRaume}
+    \textit{H. L\"owig} \"Uber die Dimension linearer R\"aume, Studia Math.,
+    5 (1934), 18--23
+    %
+    %
+    \bibitem{JechSetTheory}
+    \textit{T. Jech} Set theory. The third millennium edition, Springer,
+    Berlin (2003)
+    %
+\end{thebibliography}
+
+Norbert Nemesh, Faculty of Mechanics and Mathematics, Moscow State University,
+Moscow 119991 Russia
+
+\textit{E-mail address:} nemeshnorbert@yandex.ru
+
+\end{document}
