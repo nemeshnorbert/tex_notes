@@ -5,7 +5,8 @@ Clock times are cumulative targets at the *end* of each slide. Plan slides
 more than three minutes behind at a checkpoint, use the "if behind" cuts.
 
 Checkpoints: slide 7 at 8:00, slide 11 at 18:00, slide 13 at 26:00,
-slide 22 at 48:00, slide 25 at 54:00, slide 40 at 74:00, slide 44 at 80:00.
+slide 22 at 48:00, slide 25 at 54:00, slide 35 at 69:00, slide 40 at 77:00,
+slide 44 at 80:00.
 
 ## 1 Lifting problems (8 min)
 
@@ -182,116 +183,128 @@ countable dimensional ones are extremely projective and the weighted one is
 not. Transition: Section 6 gives the criterion that separates them in all
 dimensions.
 
-## 6 Uncountable dimension (20 min)
+## 6 Uncountable dimension (15 min)
 
 **26. What changes (56:00).** The hope: dense plus countable dimensional
-separable subspaces implies extremely projective. It fails at omega_1.
-Give the set theory in one minute: club, stationary, Fodor's lemma as the
-uncountable pigeonhole principle. Non-set-theorists only need the slogan "a
-regressive function is constant on a large set".
+separable subspaces implies extremely projective. Say that it fails already
+at omega_1 and that the ladder spaces come in Section 7. Then read the block:
+the true statement is a filtration criterion with three conditions, dense
+pieces, continuity, countable quotients. Announce the two tools: the
+transfinite back-and-forth along such a filtration, and closed pairs, which
+produce the filtration for every projective space.
 
-**27. The Fodor obstruction (59:00).** The proof is the dimension-bound
-argument plus one observation: the support of sigma(v_alpha) is finite, and
-S_alpha is a union of the earlier S_beta, so the support sits in one S_beta
-with beta below alpha. That is the regressive function. Fodor makes it
-constant on a stationary set, and then uncountably many v_alpha live in a
-countable dimensional space.
+**27. Filtrations and blocks (58:00).** Define filtration, blocks, the pieces
+P_delta and the block quotients D_delta. State the transfinite theorem and
+read the three hypotheses as: pieces are dense, the chain is continuous,
+blocks are small. Then the last line: a countable block is solved by the
+countable theorem of Section 4, which gives the block automorphism U_delta.
+This is the only place where Section 4 enters Section 6.
 
-**28. omega_1-continuity (61:00).** The corollary in words: the closed spans
-of initial segments of an omega_1-sequence are continuous at almost all limit
-stages. Linear independence of the witnesses is a two-line argument. The
-block compares with the dimension bound: countable spans have countable
-dimension, and in addition the chain is continuous.
-
-**29. The ladder space (64:00).** Use the picture: for each limit ordinal a
-ladder converging to it, and v_alpha is a geometric sum along the rungs. Two
-ladders share finitely many rungs. Properties: dense, every countable piece
-is extremely projective by Section 4, and not topologically projective
-because the v_alpha are independent and each lies in the closed span of the
-earlier unit vectors, which Fodor forbids. Details are on a backup slide.
-
-**30. The moral of the ladder (65:30).** Three sentences: locally extremely
-projective but globally not even projective; the chain of countable pieces
-jumps at every limit; projective spaces jump only on a non-stationary set.
-Then the strategy: find a continuous filtration and run back-and-forth
-transfinitely with perturbations on disjoint blocks.
-
-**31. Filtrations and blocks (67:30).** Define filtration, blocks N_delta,
-the pieces P_delta and the block quotients D_delta. State the transfinite
-theorem with its three hypotheses read as: pieces are dense, chain is
-continuous, each block is solved. Note that the ladder satisfies (i) and
-(iii) and fails (ii).
-
-**32. The shape of T (69:30).** The key design: T_delta is U (block
+**28. The shape of T (60:00).** The key design: T_delta is U (block
 automorphisms, l_1-sum) composed with W_delta, which is identity plus a sum
 of corrections V on disjoint blocks. Because the blocks are disjoint, W is
 within theta of the identity regardless of how many blocks there are. This
 replaces the product lemma: corrections add instead of multiplying. Limit
 stages are free by continuity.
 
-**33. The successor step (71:30).** y_n is the preimage basis of the block,
+**29. The successor step (62:00).** y_n is the preimage basis of the block,
 x_n lifts it to P_{delta+1}, z_n corrects the lower part into P_delta using
 density, and V_delta sends y_n to W_delta z_n. The key inclusion is what the
 correction buys. Then the formula for T_{delta+1} and both inclusions. If
 behind: state only the key inclusion and the formula.
 
-**34. Where do good filtrations come from? (72:30).** Fix the retraction
+**30. Where do good filtrations come from? (63:30).** Fix the retraction
 sigma, pi and approximating sequences. A closed pair is a pair of index sets
 closed under all three operations; think elementary submodel. Lemma: for a
 closed pair the piece P_A is the image of the free space on B, dense, and a
 retract of it.
 
-**35. Closing off, and continuity for free (73:30).** Closing off is the
-Löwenheim–Skolem argument: alternate omega times, the cardinality stays
-bounded by the hereditary dimension bound. The subtle point: condition (b)
-is proved by density, not by a support argument, because a support need not
-sit in one stage.
+**31. Countable quotients and countable closing off (65:30).** Two lemmas.
+First: over a closed pair, adding countably many coordinates changes the
+piece by a countable dimensional quotient, because the map rho injects the
+quotient boundedly into a free space and the dimension-bound argument
+applies. Second: closing off a countable set over a closed pair adds only
+countably many points, because at each stage only a basis modulo P_A is
+needed, and that basis is countable by the first lemma. The subtlety about
+density versus supports is the same as before.
 
-**36. Unions of closed pairs (74:00).** Same argument, any cofinality. The
+**32. Unions of closed pairs (66:30).** Same argument, any cofinality. The
 payoff: continuity along chains of closed pairs is automatic. This is exactly
-what the ladder space lacks, because it has no retraction sigma.
+what the ladder spaces lack.
 
-**37. Blocks are projective (75:30).** The block quotient D of two nested
-closed pairs is a retract of the free space on the difference of the B's,
-via rho(y) = sigma(x) restricted to the complement of B. Well defined,
-bounded with norm at most ||sigma|| by choosing a good lift, and r pi is a
-left inverse. So each block is again a dense projective subspace of a
-smaller l_1, and induction applies.
+**33. The criterion (68:00).** This is now the main theorem of the section.
+Read the three equivalent conditions and the almost-isometric conclusion.
+Proof in two lines: a projective P gets a chain of closed pairs by closing off
+one point at a time, which gives the filtration; conversely the transfinite
+theorem gives T, and T restricted to P is a near-isometric retraction onto a
+free space. Stress the alert: one transfinite construction with countable
+steps, no induction on cardinals.
 
-**38. The general theorem (77:00).** Induction on the cardinality of Gamma.
-Write Gamma as a union of fewer than kappa pieces along the cofinality;
-build closed pairs by closing off at successors and taking unions at limits;
-sizes stay below kappa. Verify (i), (ii), (iii) by the three lemmas plus the
-induction hypothesis. Mention that blocks have size below kappa, not
-necessarily countable, which is why the transfinite theorem allows
-arbitrary blocks.
-
-**39. The characterization in all dimensions (78:30).** The final theorem.
+**34. The characterization in all dimensions (69:00).** The final theorem.
 Read (ii): projective plus completion. Then the alert block: Grønbæk's
 conjecture holds almost isometrically and fails isometrically. This is the
 second main result; pause.
 
-**40. Helemskii's question on dense subspaces (79:00).** The answer in one
-line: extremely projective iff topologically projective iff a filtration
-with (i)–(iii) exists. For countable Lambda this is countable dimension; for
-uncountable Lambda continuity is a genuine restriction. Fodor is used only
-negatively. If behind: skip this slide and say the sentence from the
-summary slide instead.
+**35. Helemskii's question on dense subspaces (69:30).** The answer in one
+line, then the point that the answer is intrinsic: it refers only to the
+coordinate subspaces, and the coordinates of l_1(Lambda) are canonical by the
+extreme-point lemma of Section 5. If behind: skip this slide.
 
-## 7 Summary (6 min, compressible to 2)
+## 7 Dimension aleph_1 (8 min)
 
-**41. Where each ingredient was consumed (80:00).** Read three rows: the
-retraction sigma, the exact l_1-norm, and Fodor. Let the audience read the
-rest.
+**36. Set theory in one slide (71:00).** Clubs, stationary sets, the closure
+points of a function form a club, Solovay's splitting of omega_1 into
+aleph_1 disjoint stationary sets. Then the objects: the omega_1-chain of
+pieces P ∩ l_1(delta). The slogan to say aloud: everything about an
+omega_1-chain that matters happens on a club, and the enumeration of the index
+set changes the chain only off a club.
+
+**37. The invariant and the criterion (73:30).** Define Delta(P), the set of
+jumps. State the criterion: countable dimensional pieces and a non-stationary
+set of jumps. Proof of necessity: the chain of closed pairs from Section 6
+satisfies A_delta = delta on a club, and there the unions lemma gives
+continuity. Proof of sufficiency: pick a club where the pieces are dense and
+which misses the jumps, reindex the filtration along it, and apply the
+criterion of Section 6; the blocks are countable and the quotients are
+countable by the first condition.
+
+**38. Both conditions are needed; the invariant is invariant (75:00).** The
+weighted space padded by a free space has a single jump at omega but an
+uncountable dimensional piece; the ladder spaces have countable pieces and a
+stationary set of jumps. Then the proposition: a bounded bijection of
+l_1(omega_1) fixes l_1(delta) for club many delta, so it carries jumps to
+jumps. Hence the class of Delta(P) modulo non-stationary sets is an
+isomorphism invariant and does not depend on the enumeration.
+
+**39. Ladder spaces (76:30).** Use the picture: for alpha in E a ladder
+converging to alpha and v_alpha a geometric sum along the rungs. Two ladders
+share finitely many rungs. The theorem: every countable piece is extremely
+projective, the set of jumps is exactly E, so P_E is extremely projective iff
+E is non-stationary, and a stationary symmetric difference means
+non-isomorphic spaces.
+
+**40. 2^{aleph_1} spaces, and an old theory in new clothes (77:00).** Solovay
+gives aleph_1 disjoint stationary sets; unions of subfamilies give 2^{aleph_1}
+sets with pairwise stationary differences, hence 2^{aleph_1} pairwise
+non-isomorphic spaces, all containing the same dense subspace l_1^0(omega_1).
+Then the table: Pontryagin and Hill, Eklof's invariant, ladder-system groups.
+Say that in the group case the picture above aleph_1 depends on set theory
+and that the same is expected here.
+
+## 8 Summary (3 min, compressible to 1)
+
+**41. Where each ingredient was consumed (78:00).** Read three rows: the
+retraction sigma, the exact l_1-norm, and the stationary sets. Let the
+audience read the rest.
 
 **42. Comparison with Grønbæk's proof.** Only if time remains: his first
 step keeps constants, the decomposition method loses them; back-and-forth
 keeps them at the price of continuity, which closed pairs supply.
 
-**43. Open problems.** Read the first bullet (intrinsic description) and the
-alert block. The other bullets are for the discussion.
+**43. Open problems (79:30).** Read the first bullet, dimension aleph_2 and
+above, and the alert block. The other bullets are for the discussion.
 
-**44. Summary.** Six bullets, thirty seconds, thank the audience.
+**44. Summary (80:00).** Six bullets, thirty seconds, thank the audience.
 
 ## Likely questions
 
@@ -299,8 +312,14 @@ alert block. The other bullets are for the discussion.
   Pełczyński's method passes through isomorphisms of the form Y plus free
   equals free, whose constants are not controlled; the back-and-forth
   constructs the isomorphism directly.
-- *Does the ladder construction need any set theory beyond ZFC?* No. Ladder
-  systems exist in ZFC; Fodor's lemma is a ZFC theorem.
+- *Does Section 7 need any set theory beyond ZFC?* No. Ladder systems exist in
+  ZFC, clubs and stationary sets are ZFC notions, and Solovay's splitting
+  theorem is a ZFC theorem. Independence phenomena are expected only above
+  aleph_1, by analogy with almost free groups.
+- *Why is the invariant not visible on dense subspaces?* All ladder spaces
+  contain l_1^0(omega_1). The invariant lives in the way the whole chain of
+  pieces is glued, not in any dense subspace; compare Hájek and Russo, who
+  show that all dense subspaces of l_1(Gamma) are densely isomorphic.
 - *Is the weighted example extremely projective in Ban?* It is not a Banach
   space, so the question does not apply; its completion l_1 is extremely
   projective in Ban.
@@ -308,6 +327,8 @@ alert block. The other bullets are for the discussion.
   only place where the field is visible.
 - *Does Theorem 4.1 need the full Grothendieck machinery?* The talk uses it
   as a black box; the proof sketch is in the paper. The rest of the paper is
-  self-contained apart from Fodor's lemma.
-- *Is there an intrinsic description of projective dense subspaces for
-  uncountable Lambda?* Open; see the last slides.
+  self-contained apart from the standard facts on clubs and Solovay's theorem.
+- *Why did the earlier version use Fodor's lemma?* An earlier draft proved
+  that the ladder space on all limit ordinals is not projective by Fodor's
+  lemma; the aleph_1 criterion makes this unnecessary and gives the result
+  for every stationary set.
