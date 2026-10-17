@@ -109,7 +109,8 @@ These are the spaces $\lo{\Lambda}$ of finitely supported functions on a set
 $\Lambda$ with the $\ell_1$-norm. Gr{\o}nb{\ae}k~\cite{GronLiftProbNormSp}
 extended K\"othe's theorem to $\Nor$: a normed space $E$ is topologically
 projective if and only if it is topologically isomorphic to $\lo{\Lambda}$,
-where $\Lambda$ is a set whose cardinality is the density character of $E$.
+where $\Lambda$ is a set whose cardinality is the density character of $E$
+(for infinite dimensional $E$).
 Helemskii~\cite{HelMetrFrQMod} proved the metric counterpart: a normed space
 is metrically projective if and only if it is isometrically isomorphic to some
 $\lo{\Lambda}$. For extremal projectivity the following facts were known. The
@@ -358,7 +359,10 @@ metric theory.
     endow $X$ with the equivalent norm
     $\norm{x}''=\max(\norm{x},(1+\varepsilon)c\norm{\xi(x)})$; then
     $(1+\varepsilon)c\xi$ becomes a contractive operator mapping the closed
-    unit ball onto the closed unit ball, and a lifting $\psi''$ along it with
+    unit ball onto the closed unit ball (for $y\in B_Y$ the $c$-topological
+    surjectivity of $\xi$ gives $x$ with $(1+\varepsilon)c\xi(x)=y$ and
+    $\norm{x}<(1+\varepsilon)^{-1}\norm{y}+\varepsilon(1+\varepsilon)^{-1}\leq 1$,
+    and then $\norm{x}''\leq 1$), and a lifting $\psi''$ along it with
     $\norm{\psi''}''\leq C\norm{\phi}$ gives the lifting
     $\psi=(1+\varepsilon)c\psi''$ along $\xi$ with
     $\norm{\psi}\leq(1+\varepsilon)cC\norm{\phi}$. In particular, the two
@@ -440,13 +444,14 @@ $<1+\varepsilon$ for every $\varepsilon>0$.
     $\eta^{-1}=\zeta|_Z$, so $\norm{\eta^{-1}}\leq 1$ and
     $\BM(P,Z)\leq 1+\varepsilon$.
 
-    $(iv)\implies(i)$ Let $T:P\to Z$ be a linear bijection with
-    $\norm{T}\norm{T^{-1}}\leq 1+\varepsilon$. Put $\eta=T$ and
-    $\zeta=T^{-1}Q:\lo{\Lambda}\to P$. Then $\zeta\eta=T^{-1}QT=T^{-1}T=1_P$ and
-    $\norm{\zeta}\norm{\eta}\leq(1+\varepsilon)^2$. By
+    $(iv)\implies(i)$ Since $\BM(P,Z)\leq 1+\varepsilon$, there is a linear
+    bijection $T:P\to Z$ with $\norm{T}\norm{T^{-1}}\leq 1+2\varepsilon$. Put
+    $\eta=T$ and $\zeta=T^{-1}Q:\lo{\Lambda}\to P$. Then
+    $\zeta\eta=T^{-1}QT=T^{-1}T=1_P$ and
+    $\norm{\zeta}\norm{\eta}\leq(1+2\varepsilon)(1+\varepsilon)$. By
     propositions~\ref{FreeIsExtrProj} and~\ref{RetractOfProj} the space $P$ is
-    $(1+\varepsilon)^3$-topologically projective. As $\varepsilon>0$ is
-    arbitrary, $P$ is extremally projective.
+    $(1+2\varepsilon)(1+\varepsilon)^2$-topologically projective. As
+    $\varepsilon>0$ is arbitrary, $P$ is extremally projective.
 \end{proof}
 
 %-------------------------------------------------------------------------------
@@ -590,13 +595,22 @@ theorem is \cite[proposition 2.3]{HelExtrProjSeqAlg}; see also
     Grothendieck's theorem \cite{GrothMetrProjFlatBanSp} in the form given
     in~\cite[section 2]{HelExtrProjSeqAlg} (see also \cite[proposition 3.2]{HelMetrFrQMod})
     $\overline{P}$ is isometrically isomorphic to $\ellone{\Gamma}$ for some
-    set $\Gamma$. Explicitly, taking adjoints one sees that ${\overline{P}}^*$
-    is $(1+\varepsilon)$-injective for every $\varepsilon>0$, hence
+    set $\Gamma$. Explicitly, let $\overline{\pi}:\ellone{B_P}\to\overline{P}$
+    be the extension of $\pi_P$ and $\overline{\sigma}_\varepsilon$ be the
+    extensions of right inverses of $\pi_P$ of norm at most $1+\varepsilon$.
+    Taking adjoints one sees that ${\overline{\pi}}^*$ is an isometric
+    weak$^*$-continuous embedding of ${\overline{P}}^*$ into
+    $\ell_\infty(B_P)$ with weak$^*$-closed range and that
+    ${\overline{\pi}}^*{\overline{\sigma}_\varepsilon}^*$ are projections onto
+    this range of norm at most $1+\varepsilon$; a limit point of these
+    projections in the weak$^*$ operator topology is a projection of norm
+    $1$, so ${\overline{P}}^*$ is a $1$-complemented subspace of the
+    $1$-injective space $\ell_\infty(B_P)$. Hence ${\overline{P}}^*$ is
     $1$-injective, hence isometrically isomorphic to $C(K)$ for a Stonean
     space $K$ \cite[theorem 3.11.6]{LaceyIsomThOfClassicBanSp}; a Banach space
     whose dual is $1$-injective is isometrically isomorphic to some
     $L_1(\Omega,\mu)$ \cite[section 17]{LaceyIsomThOfClassicBanSp}; and
-    $\overline{P}$ has the Schur property as a complemented subspace of
+    $\overline{P}$ has the Schur property as a subspace of
     $\ellone{B_P}$, which forces $\mu$ to be purely atomic.
 \end{proof}
 
@@ -667,7 +681,7 @@ which coincides with $x$ at $n\leq N$ and vanishes at $n>N$.
     The series converges absolutely, since
     \[
     \sum_{k=1}^\infty\frac{|g_k(x)|}{\norm{w_k}}\norm{w_{k+1}}
-    \leq\delta\sum_{k=1}^\infty\sum_{n\in B_k}|x_n|=\delta\norm{x},
+    \leq\delta\sum_{k=1}^\infty\sum_{n\in B_k}|x_n|\leq\delta\norm{x},
     \]
     so $R$ is a well defined bounded linear operator with $\norm{R}\leq\delta$.
     We verify the properties $(i)$--$(iv)$.
@@ -753,7 +767,8 @@ which coincides with $x$ at $n\leq N$ and vanishes at $n>N$.
     $\ell_1$, the algebraic dimension of $D$ is countably infinite. Let
     ${(d_j)}_{j\in\mathbb{N}}$ be a Hamel basis of $D$. Choose a sequence
     ${(\theta_m)}_{m\in\mathbb{N}}$ of numbers in $(0,1/2]$ with
-    $\prod_{m=1}^\infty(1+\theta_m){(1-\theta_m)}^{-1}\leq 1+\varepsilon$.
+    $\prod_{m=1}^\infty(1+\theta_m){(1-\theta_m)}^{-1}\leq 1+\varepsilon$;
+    then $\sum_m\theta_m<+\infty$, since $(1+\theta)/(1-\theta)\geq 1+2\theta$.
 
     We construct by induction linear bijections $F_1,F_2,\ldots$ of $\ell_1$
     with $\norm{F_m-1_{\ell_1}}\leq\theta_m$ and finite dimensional subspaces
@@ -812,7 +827,8 @@ which coincides with $x$ at $n\leq N$ and vanishes at $n>N$.
     $A_j(d_j)=F_{2j}(y_j)=y_j\in Y_j$; this is $(a)$. Condition $(b)$ holds
     by the definition of $Y_j$ and the induction hypothesis. Finally,
     $Y'\subset A'(D)$ and $F_{2j}$ fixes $Y'$, so $Y'\subset F_{2j}A'(D)=A_j(D)$,
-    and $e_j=SGA'(d)=A_j(d)\in A_j(D)$; this is $(c)$.
+    and $e_j=SGA'(d)=A_j(d)\in A_j(D)$ (in the case $e_j\in Y'$ there is
+    nothing to add); this is $(c)$.
 
     By lemma~\ref{ProductLemma} the operators $A_j$ converge in norm to a
     linear bijection $T$ of $\ell_1$ with
@@ -975,8 +991,9 @@ topologically isomorphic to $\lo{\Gamma}$. For countable $\Gamma$ the first
 two conditions are also sufficient by theorems~\ref{SeparableSubspaces}
 and~\ref{MainTheorem}. We shall now show that for uncountable $\Gamma$ they
 are not. The obstruction is a
-set-theoretic refinement of theorem~\ref{SeparableSubspaces}. Recall that a
-subset of the first uncountable ordinal $\omega_1$ is called closed unbounded
+set-theoretic refinement of theorem~\ref{SeparableSubspaces}. By a limit
+ordinal we always mean a non-zero ordinal which is not a successor. Recall
+that a subset of the first uncountable ordinal $\omega_1$ is called closed unbounded
 if it is unbounded in $\omega_1$ and contains the supremum of each of its
 countable subsets, and stationary if it intersects every closed unbounded
 set. The set of limit ordinals below $\omega_1$ is closed unbounded. We shall
@@ -1277,7 +1294,9 @@ a scalar, and for finite $N_\delta$ we have $D_\delta=\ellone{N_\delta}$ and
 $U_\delta=1_{\ellone{N_\delta}}$ works. Example~\ref{LadderSpace} shows that
 condition $(ii)$ cannot be dropped: for the filtration $\Gamma_\delta=\delta$
 of $\omega_1$ the space $P_L$ satisfies $(i)$ and $(iii)$, but fails $(ii)$
-at every limit ordinal.
+at every countable limit ordinal (at $\delta=\omega_1$ itself condition
+$(ii)$ holds trivially, since every element of $\ellone{\omega_1}$ has
+countable support).
 
 We proceed to the construction of filtrations satisfying the hypotheses of
 theorem~\ref{TransfiniteBackAndForth}. For the rest of this section we fix a
@@ -1319,7 +1338,8 @@ to $e_\gamma$. For $A\subset\Gamma$ we put $P_A=P\cap\ellone{A}$.
 \begin{proof} Define increasing sequences $A=A_0\subset A_1\subset\ldots$ and
     $B=B_0\subset B_1\subset\ldots$ as follows. Given $A_k$ and $B_k$ of
     cardinality at most $\mu$, let $H_k$ be a Hamel basis of $P_{A_k}$. Since
-    $P_{A_k}\subset\ellone{A_k}$ has density character at most $\mu$, by
+    $P_{A_k}\subset\ellone{A_k}$ has density character at most $\mu$ (the
+    density character of a metric space is inherited by its subspaces), by
     theorem~\ref{SeparableSubspaces} $|H_k|\leq\mu$. Put
     \[
     B_{k+1}=B_k\cup\bigcup_{x\in H_k}\supp(\sigma(x)),\qquad
@@ -1488,8 +1508,8 @@ gives the main result of the paper.
               $\BM(P,\lo{\Lambda})<1+\varepsilon$.
     \end{enumerate}
     Moreover, in $(iii)$ the set $\Gamma$ necessarily has the cardinality of
-    the algebraic dimension of $P$ if $P$ is infinite dimensional, and the
-    Banach--Mazur distance in $(iii)$ is realized by linear bijections
+    the algebraic dimension of $P$, and the Banach--Mazur distance in
+    $(iii)$ is realized by linear bijections
     $T:\overline{P}\to\ellone{\Gamma}$ with $T(P)=\lo{\Gamma}$ and
     $\norm{T}\norm{T^{-1}}$ arbitrarily close to $1$.
 \end{theorem}
@@ -1506,10 +1526,12 @@ gives the main result of the paper.
     $(iii)\implies(iv)$ is obvious, and $(iv)\implies(i)$ follows from
     theorem~\ref{ExtrProjCriterion}, since a linear bijection $S:P\to\lo{\Lambda}$
     with $\norm{S}\norm{S^{-1}}<1+\varepsilon$ makes $P$ a
-    $(1+\varepsilon)$-retract of $\lo{\Lambda}$. Finally, if $P$ is infinite
-    dimensional and $\BM(P,\lo{\Gamma})<\infty$, then $P$ and $\lo{\Gamma}$ are
-    isomorphic as vector spaces, and the algebraic dimension of $\lo{\Gamma}$
-    is the cardinality of $\Gamma$.
+    $(1+\varepsilon)$-retract of $\lo{\Lambda}$. Finally, if
+    $\BM(P,\lo{\Gamma})<\infty$, then $P$ and $\lo{\Gamma}$ are isomorphic as
+    vector spaces, and the algebraic dimension of $\lo{\Gamma}$ is the
+    cardinality of $\Gamma$; so the set $\Gamma$ in $(iii)$ is determined up
+    to a bijection, and the realization of the distance obtained in
+    $(ii)\implies(iii)$ applies to it.
 \end{proof}
 
 \begin{corollary}\label{GronbaekConjecture} Every extremally projective
