@@ -1001,7 +1001,7 @@ $B$ and by $\conv(M)$ the convex hull of a set $M$.
 \end{proof}
 
 Corollary~\ref{CounterexampleCorollary} answers the question of Helemskii
-from~\cite[section 2]{HelExtrProjSeqAlg} and~\cite[section 1]{HelMetrFrQMod}
+from~\cite[section 2]{HelExtrProjSeqAlg} and~\cite[remark 3.6]{HelMetrFrQMod}
 in the negative and disproves \cite[conjecture 3.1]{GronLiftProbNormSp}. Note
 that by theorem~\ref{NotIsometricToFree} every subspace
 $E$ with $\lo{\mathbb{N}}\subsetneq E\subset\ell_1$ fails to be isometrically
@@ -1658,8 +1658,10 @@ P_E=\lo{\omega_1}+\Lin\{v_\alpha:\alpha\in E\}\subset\ellone{\omega_1}.
 \]
 We call $P_E$ the ladder space on $E$. Ladder systems have been used before
 in Banach space theory, for instance in the study of the spaces $C(K)$ of
-ladder system compacta \cite{AvilesKoszmiderLadder}; here they enter through
-the continuity condition of theorem~\ref{AlephOneCriterion}.
+ladder system compacta \cite{FerrerKoszmiderKubisLadder} and in the
+construction of $2^\kappa$ pairwise non-isomorphic spaces $C(K)$ of weight
+$\kappa$ \cite{KorpalskiKoszmiderMarciszewskiCounting}; here they enter
+through the continuity condition of theorem~\ref{AlephOneCriterion}.
 
 \begin{theorem}\label{LadderSpacesOnE} Let $E$ and $E'$ be sets of limit
     ordinals below $\omega_1$. Then
@@ -1732,16 +1734,26 @@ the continuity condition of theorem~\ref{AlephOneCriterion}.
     $P_{E_\varnothing}=\lo{\omega_1}$.
 \end{proof}
 
+Note that all the spaces $P_E$ contain the common dense subspace
+$\lo{\omega_1}$. Thus, the invariant $\Delta(P)$ is not determined by the
+dense subspaces of $P$; compare with the results of
+\cite{HajekRussoDenselyIsom} on densely isomorphic normed spaces.
+
 \begin{remark}\label{RemarkAlmostFree} The results of this section are parallel to the theory of
     almost free abelian groups, see \cite{EklofMeklerAlmostFree}:
     theorem~\ref{CountableBlocksCriterion} corresponds to the criteria of
-    Pontryagin and Hill for freeness in terms of filtrations by countable
+    Pontryagin and Hill \cite{HillFreeness} for freeness in terms of
+    filtrations by countable
     subgroups with free quotients, the class of $\Delta(P)$ modulo
-    non-stationary sets corresponds to the invariant $\Gamma(G)$ of Eklof,
+    non-stationary sets corresponds to the invariant $\Gamma(G)$ of
+    Eklof \cite{EklofKappaFree},
     and the spaces $P_E$ correspond to the $\aleph_1$-free groups of
     cardinality $\aleph_1$ built from ladder systems. In that theory the
     situation for cardinals above $\aleph_1$ depends on set-theoretic
-    hypotheses, and we expect the same here. We do not know whether
+    hypotheses, and we expect the same here. An analogue of the theory of
+    almost free groups for non-Archimedean Banach spaces, where freeness
+    means the existence of an orthonormal basis, has recently been
+    proposed in \cite{MiharaAlmostFree}. We do not know whether
     condition $(iii)$ of theorem~\ref{CountableBlocksCriterion} can be
     replaced, for $|\Gamma|\geq\aleph_2$, by a condition on the subspaces
     $P\cap\ellone{A}$ for $A$ ranging over a closed unbounded family of
@@ -1798,13 +1810,18 @@ the continuity condition of theorem~\ref{AlephOneCriterion}.
     %
     \bibitem{HajekRussoDenselyIsom}
     \textit{P. H\'ajek, T. Russo} On densely isomorphic normed spaces,
-    J. Funct. Anal., 279:11 (2020), 108773; arXiv:1910.01527
+    J. Funct. Anal., 279:7 (2020), 108667; arXiv:1910.01527
     %
     %
-    \bibitem{AvilesKoszmiderLadder}
-    \textit{A. Avil\'es, P. Koszmider} Almost disjoint families of countable
-    sets and separable complementation properties, J. Math. Anal. Appl.,
-    405:1 (2013), 252--263; arXiv:1209.0199
+    \bibitem{FerrerKoszmiderKubisLadder}
+    \textit{J. Ferrer, P. Koszmider, W. Kubi\'s} Almost disjoint families of
+    countable sets and separable complementation properties, J. Math. Anal.
+    Appl., 401:2 (2013), 939--949; arXiv:1209.0199
+    %
+    %
+    \bibitem{KorpalskiKoszmiderMarciszewskiCounting}
+    \textit{M. Korpalski, P. Koszmider, W. Marciszewski} Counting spaces of
+    functions on separable compact lines, arXiv:2602.09143 (2026)
     %
     %
     \bibitem{LowigDimLinRaume}
@@ -1813,14 +1830,29 @@ the continuity condition of theorem~\ref{AlephOneCriterion}.
     %
     %
     \bibitem{JechSetTheory}
-    \textit{T. Jech} Set theory. The third millennium edition, Springer,
-    Berlin (2003)
+    \textit{T. Jech} Set theory. The third millennium edition, revised and
+    expanded, Springer Monographs in Mathematics, Springer, Berlin (2003)
     %
     %
     \bibitem{EklofMeklerAlmostFree}
     \textit{P. C. Eklof, A. H. Mekler} Almost free modules. Set-theoretic
     methods, revised edition, North-Holland Mathematical Library, 65,
     North-Holland, Amsterdam (2002)
+    %
+    %
+    \bibitem{HillFreeness}
+    \textit{P. Hill} On the freeness of abelian groups: a generalization of
+    Pontryagin's theorem, Bull. Amer. Math. Soc., 76 (1970), 1118--1120
+    %
+    %
+    \bibitem{EklofKappaFree}
+    \textit{P. C. Eklof} On the existence of $\kappa$-free abelian groups,
+    Proc. Amer. Math. Soc., 47 (1975), 65--72
+    %
+    %
+    \bibitem{MiharaAlmostFree}
+    \textit{T. Mihara} Almost free non-Archimedean Banach spaces and relation
+    to large cardinals, arXiv:2604.10526 (2026)
     %
 \end{thebibliography}
 
