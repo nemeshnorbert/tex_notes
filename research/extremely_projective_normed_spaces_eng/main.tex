@@ -876,7 +876,7 @@ which coincides with $x$ at $n\leq N$ and vanishes at $n>N$.
     we get $T(d)=A_i(d)=e_i$. Hence $\lo{\mathbb{N}}\subset T(D)$.
 \end{proof}
 
-Now we are ready to prove the main result of the paper.
+Now we are ready to prove the main result of this section.
 
 \begin{theorem}\label{MainTheorem} Let $P$ be a normed space of countable
     (finite or countably infinite) algebraic dimension. Then the following
@@ -1030,8 +1030,7 @@ extremely projective normed space is, up to an isometric isomorphism, a
 dense subspace of some $\ellone{\Gamma}$ all of whose separable subspaces have
 countable algebraic dimension; by the theorem of Gr{\o}nb{\ae}k it is also
 topologically isomorphic to $\lo{\Gamma}$. For countable $\Gamma$ the first
-two conditions are also sufficient by theorems~\ref{SeparableSubspaces}
-and~\ref{MainTheorem}. In section~\ref{SectionIntrinsic} we shall see that
+two conditions are also sufficient by theorem~\ref{MainTheorem}. In section~\ref{SectionIntrinsic} we shall see that
 for uncountable $\Gamma$ they are not: the chain of the subspaces
 $P\cap\ellone{\delta}$, $\delta<\omega_1$, of a topologically projective
 dense subspace $P$ of $\ellone{\omega_1}$ must be continuous at almost all
@@ -1085,7 +1084,7 @@ $D_\delta$ is isomorphic as a vector space to $P_{\delta+1}/P_\delta$.
     $\BM(P,\lo{\Gamma})=1$.
 \end{theorem}
 
-\begin{proof} Fix $\theta\in(0,1/2)$ with
+\begin{proof} We may assume that $\Gamma\neq\varnothing$. Fix $\theta\in(0,1/2)$ with
     ${(1+\theta)}^2{(1-\theta)}^{-1}\leq 1+\varepsilon$. First we construct,
     for every $\delta<\lambda$, a linear bijection $U_\delta$ of
     $\ellone{N_\delta}$ with $U_\delta(D_\delta)=\lo{N_\delta}$,
@@ -1218,7 +1217,7 @@ $D_\delta$ is isomorphic as a vector space to $P_{\delta+1}/P_\delta$.
 \end{proof}
 
 We proceed to the construction of filtrations satisfying the hypotheses of
-theorem~\ref{TransfiniteBackAndForth}. For the rest of this section we fix a
+theorem~\ref{TransfiniteBackAndForth}. Until theorem~\ref{CountableBlocksCriterion} we fix a
 set $\Gamma$, a dense topologically
 projective subspace $P$ of $\ellone{\Gamma}$, a set $S$ and bounded linear
 operators $\sigma:P\to\lo{S}$ and $\pi:\lo{S}\to P$ with $\pi\sigma=1_P$ and
@@ -1627,7 +1626,7 @@ but only up to a non-stationary set.
     continuity of $T$ we have $T(\ellone{\delta'})\subset\ellone{F(\delta')}
     \subset\ellone{\delta}$, and since $\ellone{\delta}$ is the closure of
     $\bigcup_{\delta'<\delta}\ellone{\delta'}$, also
-    $T(\ellone{\delta})\subset\ellone{\delta}$. The same holds for $T^{-1}$
+    $T(\ellone{\delta})\subset\ellone{\delta}$. The same holds for $T^{-1}$, which is bounded by the open mapping theorem,
     with $G$ in place of $F$, so $T(\ellone{\delta})=\ellone{\delta}$ and
     $T(P_\delta)=T(P)\cap T(\ellone{\delta})=P'_\delta$. Moreover,
     $T(P_{\delta'})\subset P'\cap\ellone{F(\delta')}=P'_{F(\delta')}$ with
@@ -1682,7 +1681,8 @@ the continuity condition of theorem~\ref{AlephOneCriterion}.
     extremely projective itself.
 \end{theorem}
 \begin{proof} $(i)$ The space $P_E$ contains $\lo{\omega_1}$, so it is dense
-    and has algebraic dimension $\aleph_1$. For limit ordinals $\alpha<\beta$
+    and has algebraic dimension $\aleph_1$, being spanned by $\aleph_1$
+    vectors. For limit ordinals $\alpha<\beta$
     the set $\supp(v_\alpha)\cap\supp(v_\beta)$ is finite:
     $\supp(v_\alpha)\subset\alpha$, while only finitely many $\beta_n$ are
     smaller than $\alpha$, because $\sup_n\beta_n=\beta>\alpha$. Let
