@@ -74,7 +74,7 @@ retracts is standard; state the constant. Then pi_P: the free space on the
 unit ball mapping e_x to x. It is strictly coisometric. The proposition says
 one test case suffices: P is projective if and only if pi_P has a bounded
 right inverse. This right inverse sigma is used in every later section
-(dimension bound, Fodor, closed pairs), so name it now.
+(dimension bound, closed pairs, countable quotients), so name it now.
 
 **11. The criterion (18:00).** Four equivalent conditions. The proof of
 (iii) implies (iv) is a one-line normalization; (iv) implies (i) is the

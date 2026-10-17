@@ -4,5 +4,6 @@
 
     latexmk -pdf main.tex
 
-or run `pdflatex main.tex` twice. The compiled PDF is kept in `out/main.pdf`.
+or run `pdflatex main.tex` twice, and copy the result to `out/main.pdf`, where
+the compiled PDF is kept under version control.
 The talk based on this paper is in `../extremely_projective_normed_spaces_talk_eng`.

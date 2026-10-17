@@ -5,6 +5,7 @@
 
     latexmk -pdf main.tex
 
-or run `pdflatex main.tex` twice. The compiled PDF is kept in `out/main.pdf`.
+or run `pdflatex main.tex` twice, and copy the result to `out/main.pdf`, where
+the compiled PDF is kept under version control.
 `speaker_notes.md` contains per-slide notes with a cumulative time plan and
 likely audience questions.
