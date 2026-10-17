@@ -1,5 +1,5 @@
-% Talk: Extremally projective normed spaces.
-% Source: ../extremally_projective_normed_spaces_eng/main.tex (the paper). Style after the K(l_p) talk.
+% Talk: Extremely projective normed spaces.
+% Source: ../extremely_projective_normed_spaces_eng/main.tex (the paper). Style after the K(l_p) talk.
 %
 % Timing (minutes, target ~80):
 %   1 Lifting problems 8 | 2 Basic theory 10 | 3 Dimension restrictions 8 |
@@ -90,13 +90,13 @@
 \newcommand{\no}{\textcolor{accent}{$\boldsymbol\times$}}
 
 %------------------------------------------------------------------ title
-\title[Extremally projective normed spaces]{Extremally projective normed spaces}
+\title[Extremely projective normed spaces]{Extremely projective normed spaces}
 \subtitle{A characterization in all dimensions}
 \author[N.\,T.\,Nemesh]{Norbert Nemesh}
 \institute{Faculty of Mechanics and Mathematics\\
   Lomonosov Moscow State University}
 \date{Helemskii's seminar}
-\hypersetup{pdftitle={Extremally projective normed spaces},
+\hypersetup{pdftitle={Extremely projective normed spaces},
   pdfauthor={Norbert Nemesh}}
 
 \begin{document}
@@ -149,7 +149,7 @@
   \end{definition}
 \end{frame}
 
-\begin{frame}{Topological and extremal projectivity}
+\begin{frame}{Topological and extreme projectivity}
   \begin{definition}
     A normed space $P$ is \alert{$C$-topologically projective} ($C\ge1$) if for
     every $c\ge1$, every $c$-topologically surjective $\xi\colon X\to Y$ between
@@ -159,15 +159,15 @@
       \xi\psi=\varphi,\qquad \|\psi\|\le cC\|\varphi\| .
     \]
     $P$ is \alert{topologically projective} if this holds for some $C$, and
-    \alert{extremally projective} if it holds for \emph{every} $C>1$.
+    \alert{extremely projective} if it holds for \emph{every} $C>1$.
   \end{definition}
   \begin{itemize}
     \item $X$ and $Y$ are arbitrary \emph{normed} spaces. Restricting to Banach
       spaces gives the (different!) theory in $\Ban$.
     \item Normed spaces $=$ normed modules over the zero algebra. This is the
       simplest case of Helemskii's \emph{extreme projectivity} for normed modules;
-      the two definitions agree (later).
-    \item Extremal projectivity sits between the metric theory ($C=1$) and the
+      his definition looks different but agrees with this one (later).
+    \item Extreme projectivity sits between the metric theory ($C=1$) and the
       topological theory (some $C$).
   \end{itemize}
 \end{frame}
@@ -203,33 +203,33 @@
     $E$ is metrically projective in $\Nor$ $\iff$ $E$ is isometrically
     isomorphic to some $\lo\Lambda$.
   \end{theorem}
-  \textbf{Extremal projectivity} (Helemskii 2013):
-  $\lo\Lambda$ is extremally projective; \
-  $P$ extremally projective $\iff$ $P$ is a near-retract of some $\lo\Lambda$; \
-  $P$ extremally projective $\Rightarrow$ $\overline P\cong\ellone\Lambda$
+  \textbf{Extreme projectivity} (Helemskii 2013):
+  $\lo\Lambda$ is extremely projective; \
+  $P$ extremely projective $\iff$ $P$ is a near-retract of some $\lo\Lambda$; \
+  $P$ extremely projective $\Rightarrow$ $\overline P\cong\ellone\Lambda$
   isometrically, so $P$ is a dense subspace of some $\ellone\Lambda$; \
   $P$ separable and topologically projective $\Rightarrow$ $\dim P\le\aleph_0$.
   \begin{alertblock}{Question (Helemskii 2013; Gr{\o}nb{\ae}k 2016, Conjecture 3.1)}
-    Is every extremally projective normed space isometrically isomorphic to some
+    Is every extremely projective normed space isometrically isomorphic to some
     $\lo\Lambda$? \ More precisely: \emph{which dense subspaces of $\ellone\Lambda$
-    are extremally projective?}
+    are extremely projective?}
   \end{alertblock}
 \end{frame}
 
 \begin{frame}{The answers, I}
   \begin{block}{Theorem A (counterexample)}
-    $\lo\NN+\CC v$, $v=(2^{-n})_n$, is extremally projective but not
+    $\lo\NN+\CC v$, $v=(2^{-n})_n$, is extremely projective but not
     isometrically isomorphic to any $\lo\Lambda$.
   \end{block}
   \begin{block}{Theorem B (almost isometric characterization)}
     For a normed space $P$ the following are equivalent:
     \begin{enumerate}[(i)]
-      \item $P$ is extremally projective;
+      \item $P$ is extremely projective;
       \item $P$ is topologically projective and $\overline P\cong\ellone\Gamma$ isometrically;
       \item $\BM(P,\lo\Gamma)=1$ for some $\Gamma$;
       \item for every $\varepsilon>0$ there is $\Lambda$ with $\BM(P,\lo\Lambda)<1+\varepsilon$.
     \end{enumerate}
-    For $\dim P\le\aleph_0$: \ $P$ extremally projective $\iff$
+    For $\dim P\le\aleph_0$: \ $P$ extremely projective $\iff$
     $\overline P\cong\ell_1$ or $\ell_1^n$ isometrically.
   \end{block}
   So Gr{\o}nb{\ae}k's conjecture fails isometrically and holds almost
@@ -248,13 +248,13 @@
   \end{block}
   \medskip
   Theorem B says that for dense subspaces of $\ellone\Gamma$ topological and
-  extremal projectivity coincide. Theorem D says that for uncountable $\Gamma$
+  extreme projectivity coincide. Theorem D says that for uncountable $\Gamma$
   topological projectivity is a genuine restriction beyond the dimension bound
   of Theorem C.
 \end{frame}
 
 \begin{frame}{Why ``normed'' is the difficulty}
-  Theorem C says: an extremally projective space never contains an infinite
+  Theorem C says: an extremely projective space never contains an infinite
   dimensional Banach space. So the objects are \emph{incomplete in every
   direction}, and the usual toolbox is switched off:
   \begin{itemize}
@@ -283,7 +283,8 @@
   $\xi\colon X\to Y$, every $\varphi\colon P\to Y$ and every $\delta>0$ there
   is a lifting $\psi$ with $\|\psi\|<\|\varphi\|+\delta$.
   \begin{proposition}
-    Extremally projective $\iff$ extremely projective in the sense of Helemskii.
+    Extremely projective in the sense of the definition above $\iff$
+    extremely projective in the sense of Helemskii.
   \end{proposition}
   \begin{proof}[Proof sketch]
     $(\Rightarrow)$ Coisometric operators are $1$-topologically surjective;
@@ -299,11 +300,11 @@
     $\|\psi'\|'<C\|\varphi\|$ gives $\psi=c\psi'$ with $\xi\psi=\varphi$ and
     $\|\psi\|\le c\|\psi'\|'\le cC\|\varphi\|$.
   \end{proof}
-  The renorming trick will reappear: it makes the two conventions (open ball,
-  closed ball) interchangeable for extremal projectivity.
+  The same renorming makes the open-ball and closed-ball conventions
+  interchangeable for extreme projectivity.
 \end{frame}
 
-\begin{frame}{Free spaces are extremally projective}
+\begin{frame}{Free spaces are extremely projective}
   \begin{proposition}
     $\lo\Lambda$ is $(1+\varepsilon)$-topologically projective for every
     $\varepsilon>0$.
@@ -333,8 +334,8 @@
   \begin{proposition}[permanence]
     $P'$ $C$-topologically projective, $P$ a $c$-retract of $P'$
     $\Rightarrow$ $P$ is $cC$-topologically projective. \\
-    Hence: a $(1+\varepsilon)$-retract of an extremally projective space for every
-    $\varepsilon>0$ is extremally projective.
+    Hence: a $(1+\varepsilon)$-retract of an extremely projective space for every
+    $\varepsilon>0$ is extremely projective.
   \end{proposition}
   \medskip
   For a normed space $P$ consider the \alert{canonical morphism}
@@ -357,7 +358,7 @@
   \begin{theorem}
     For a normed space $P$ the following are equivalent:
     \begin{enumerate}[(i)]
-      \item $P$ is extremally projective;
+      \item $P$ is extremely projective;
       \item for every $\varepsilon>0$, $\pi_P$ has a right inverse of norm $\le1+\varepsilon$;
       \item for every $\varepsilon>0$, $P$ is a $(1+\varepsilon)$-retract of some $\lo\Lambda$;
       \item for every $\varepsilon>0$ there are $\Lambda$, a subspace
@@ -415,7 +416,7 @@
   \end{proof}
   Every complete subspace of $P$ is finite dimensional. No infinite dimensional
   Banach space is topologically projective in $\Nor$, although $\ellone\Lambda$
-  is extremally projective in $\Ban$.
+  is extremely projective in $\Ban$.
   \begin{exampleblock}{Example: completions do not decide}
     $w_n\ge1$, $w_n\to\infty$, \
     $P_w=\{x\in\ell_1:\sum_n w_n|x_n|<\infty\}$ with the $\ell_1$-norm:
@@ -431,7 +432,7 @@
 
 \begin{frame}{The completion}
   \begin{theorem}[Helemskii 2013; Gr{\o}nb{\ae}k 2016]
-    $P$ extremally projective $\Rightarrow$ $\overline P\cong\ellone\Gamma$
+    $P$ extremely projective $\Rightarrow$ $\overline P\cong\ellone\Gamma$
     isometrically for some set $\Gamma$.
   \end{theorem}
   \textit{Sketch.} By the criterion, $\overline P$ is a $(1+\varepsilon)$-retract
@@ -447,14 +448,14 @@
   subspace of $\ellone{B_P}$ (Grothendieck; Lacey, Thms 3.11.6 and \S17).
 
   \begin{block}{Two sides of the picture}
-    An extremally projective normed space is, up to isometry,
+    An extremely projective normed space is, up to isometry,
     \begin{center}
       a \textbf{dense subspace of $\ellone\Gamma$}
       \quad whose \quad
       \textbf{separable subspaces have countable dimension}.
     \end{center}
   \end{block}
-  \textbf{Question.} Is every such subspace extremally projective? \\
+  \textbf{Question.} Is every such subspace extremely projective? \\
   Countable $\Gamma$: \yes, and more. \quad Uncountable $\Gamma$: \no, but
   a correction works.
 \end{frame}
@@ -655,7 +656,7 @@
   \begin{theorem}
     Let $\dim P\le\aleph_0$. The following are equivalent:
     \begin{enumerate}[(i)]
-      \item $P$ is extremally projective;
+      \item $P$ is extremely projective;
       \item $\overline P\cong\ellone\Gamma$ isometrically, $\Gamma$ countable;
       \item $\BM(P,\lo\Gamma)=1$ for some countable $\Gamma$;
       \item for every $\varepsilon>0$ there is $\Lambda$ with $\BM(P,\lo\Lambda)<1+\varepsilon$.
@@ -668,18 +669,18 @@
   (iv)$\Rightarrow$(i): a $(1+\varepsilon)$-isomorphism onto $\lo\Lambda$ is a
   $(1+\varepsilon)$-retraction; criterion. \qed
   \begin{corollary}
-    Every dense subspace of $\ell_1$ of countable dimension is extremally
+    Every dense subspace of $\ell_1$ of countable dimension is extremely
     projective and has Banach--Mazur distance $1$ to $\lo\NN$.
   \end{corollary}
-  No projectivity assumption in (ii): extremal projectivity \emph{is} a
+  No projectivity assumption in (ii): extreme projectivity \emph{is} a
   property of the completion.
 \end{frame}
 
 %=========================================================================
-\section{Extremally projective spaces which are not free}
+\section{Extremely projective spaces which are not free}
 
 \begin{frame}{Extreme points}
-  By the corollary, $\lo\NN+V$ is extremally projective for every
+  By the corollary, $\lo\NN+V$ is extremely projective for every
   $V\subset\ell_1$ of countable dimension. Is it ever free?
   \begin{lemma}
     Let $\lo S\subset E\subset\ellone S$ with the $\ell_1$-norm. Then
@@ -717,7 +718,7 @@
   \end{proof}
   \begin{alertblock}{Corollary (answer to Helemskii and Gr{\o}nb{\ae}k)}
     For $V\subset\ell_1$ of countable dimension with $V\not\subset\lo\NN$,
-    e.g. $V=\CC v$, $v=(2^{-n})$, the space $\lo\NN+V$ is extremally projective
+    e.g. $V=\CC v$, $v=(2^{-n})$, the space $\lo\NN+V$ is extremely projective
     and \textbf{not} isometrically isomorphic to any free normed space.
   \end{alertblock}
 \end{frame}
@@ -726,7 +727,7 @@
   \begin{center}
     \begin{tabular}{@{}lll@{}}
       \toprule
-      space & extremally projective & isometric to a free space\\
+      space & extremely projective & isometric to a free space\\
       \midrule
       $\lo\NN$ & \yes & \yes\\
       $\lo\NN+V$, $\dim V\le\aleph_0$, $V\not\subset\lo\NN$ & \yes & \no\\
@@ -738,7 +739,7 @@
   All three have completion $\ell_1$: the difference is invisible on
   completions. By the theorem, \emph{no} space strictly between $\lo\NN$ and
   $\ell_1$ is free, yet by the corollary all those of countable dimension are
-  extremally projective.
+  extremely projective.
   \medskip
 
   The next section gives a criterion which distinguishes the projective ones
@@ -750,11 +751,11 @@
 
 \begin{frame}{What changes}
   Countable dimension: dense in $\ell_1$ $+$ countable dimension
-  $\Rightarrow$ extremally projective.
+  $\Rightarrow$ extremely projective.
   \medskip
 
   \textbf{Hope.} Dense in $\ellone\Gamma$ $+$ all separable subspaces of countable
-  dimension $\Rightarrow$ extremally projective?
+  dimension $\Rightarrow$ extremely projective?
   \medskip
 
   \textbf{No.} For $\Gamma=\omega_1$ there is a set-theoretic refinement of the
@@ -866,7 +867,7 @@
     \item $P_L$ is dense in $\ellone{\omega_1}$.
     \item For every countable $\delta$:
       $P_L\cap\ellone\delta=\lo\delta+\Lin\{v_\alpha:\alpha\le\delta\}$ has countable
-      dimension, hence is \textbf{extremally projective}; every separable
+      dimension, hence is \textbf{extremely projective}; every separable
       subspace of $P_L$ has countable dimension.
     \item $P_L$ is \alert{not topologically projective}: $v_\alpha\in\overline{\Lin}\{e_\beta:\beta<\alpha\}$
       for every limit $\alpha$ (a club), the $v_\alpha$ are linearly
@@ -877,8 +878,8 @@
 
 \begin{frame}{The moral of the ladder}
   \begin{itemize}
-    \item $P_L$ is ``locally'' extremally projective: every countably generated
-      piece $P_L\cap\ellone\delta$ is. Extremal projectivity is \emph{not}
+    \item $P_L$ is ``locally'' extremely projective: every countably generated
+      piece $P_L\cap\ellone\delta$ is. Extreme projectivity is \emph{not}
       determined by the separable subspaces.
     \item The chain $\delta\mapsto P_L\cap\ellone\delta$ is discontinuous at
       \emph{every} limit ordinal: $v_\delta$ enters at stage $\delta$ but lies in
@@ -1073,7 +1074,7 @@
     Let $P$ be a dense topologically projective subspace of $\ellone\Gamma$. For
     every $\theta>0$ there is an automorphism $T$ of $\ellone\Gamma$ with
     $T(P)=\lo\Gamma$, $\|T\|\le1+\theta$, $\|T^{-1}\|\le1$. In particular
-    $\BM(P,\lo\Gamma)=1$ and $P$ is extremally projective.
+    $\BM(P,\lo\Gamma)=1$ and $P$ is extremely projective.
   \end{theorem}
   \textit{Proof: induction on $\kappa=|\Gamma|$.}
   \begin{itemize}
@@ -1100,7 +1101,7 @@
   \begin{theorem}
     For a normed space $P$ the following are equivalent:
     \begin{enumerate}[(i)]
-      \item $P$ is extremally projective;
+      \item $P$ is extremely projective;
       \item $P$ is topologically projective and $\overline P\cong\ellone\Gamma$ isometrically;
       \item $\BM(P,\lo\Gamma)=1$ for some set $\Gamma$;
       \item for every $\varepsilon>0$ there is $\Lambda$ with $\BM(P,\lo\Lambda)<1+\varepsilon$.
@@ -1113,16 +1114,16 @@
   $J(P)$ is a dense topologically projective subspace of $\ellone\Gamma$; general
   theorem. (iv)$\Rightarrow$(i): criterion. \qed
   \begin{alertblock}{Gr{\o}nb{\ae}k's conjecture}
-    Every extremally projective normed space is \textbf{almost isometric} to
+    Every extremely projective normed space is \textbf{almost isometric} to
     $\lo\Gamma$, $|\Gamma|=\dim P$. The conjecture holds in the almost isometric
     form and fails in the isometric form.
   \end{alertblock}
 \end{frame}
 
 \begin{frame}{Helemskii's question on dense subspaces}
-  \textbf{Which dense subspaces $P\subset\ellone\Lambda$ are extremally projective?}
+  \textbf{Which dense subspaces $P\subset\ellone\Lambda$ are extremely projective?}
   \begin{block}{Answer}
-    $P$ extremally projective $\iff$ $P$ topologically projective $\iff$ $P$ admits
+    $P$ extremely projective $\iff$ $P$ topologically projective $\iff$ $P$ admits
     a filtration with (i) dense pieces, (ii) continuity, (iii) solvable blocks.
   \end{block}
   \begin{itemize}
@@ -1130,10 +1131,10 @@
     \item $\Lambda$ uncountable: a genuine restriction beyond dimension. The ladder
       space is dense, has countable dimensional separable subspaces, satisfies
       (i) and (iii), fails (ii), and is not topologically projective.
-    \item Topological and extremal projectivity coincide for dense subspaces of
+    \item Topological and extreme projectivity coincide for dense subspaces of
       $\ellone\Gamma$. This is a feature of the \emph{exact} norm: if $E$ is
       $\ellone\Gamma$ with an equivalent, not almost isometric, norm, then
-      $J(\lo\Gamma)\subset E$ is topologically but not extremally projective
+      $J(\lo\Gamma)\subset E$ is topologically but not extremely projective
       (its completion is $E$).
   \end{itemize}
   \medskip
@@ -1151,7 +1152,7 @@
     \toprule
     ingredient & used for & where\\
     \midrule
-    universal property of $\lo\Lambda$ & free spaces are extremally projective;
+    universal property of $\lo\Lambda$ & free spaces are extremely projective;
       canonical morphism $\pi_P$ & \S2\\
     retraction $\sigma$ onto a free space & supports are finite: dimension bound,
       Fodor obstruction, closed pairs & \S3, \S6\\
@@ -1197,10 +1198,10 @@
       ``all separable subspaces have countable dimension'' is not enough;
       $\omega_1$-continuity is necessary. Is some continuity condition sufficient?
     \item Dense subspaces of other Banach spaces: for $E\not\cong\ellone\Gamma$
-      almost isometrically there are topologically but not extremally projective
-      dense subspaces. Which $E$ admit extremally projective dense subspaces at all?
+      almost isometrically there are topologically but not extremely projective
+      dense subspaces. Which $E$ admit extremely projective dense subspaces at all?
       (Only those with $E\cong\ellone\Gamma$ isometrically.)
-    \item Extremal projectivity over non-zero algebras: Helemskii's original
+    \item Extreme projectivity over non-zero algebras: Helemskii's original
       setting of sequence algebras. Is there an analogue of the almost isometric
       characterization, and of the counterexample?
     \item The role of set theory: Fodor's lemma entered through $\omega_1$.
@@ -1216,11 +1217,11 @@
 
 \begin{frame}{Summary}
   \begin{itemize}
-    \item \textbf{Extremally projective} $=$ $C$-topologically projective for every
+    \item \textbf{Extremely projective} $=$ $C$-topologically projective for every
       $C>1$, in the category of normed spaces.
-    \item \textbf{Counterexample}: $\lo\NN+\CC v$ is extremally projective and not
+    \item \textbf{Counterexample}: $\lo\NN+\CC v$ is extremely projective and not
       free. The isometric conjecture of Helemskii and Gr{\o}nb{\ae}k fails.
-    \item \textbf{Characterization}: extremally projective $\iff$ topologically
+    \item \textbf{Characterization}: extremely projective $\iff$ topologically
       projective with completion $\ellone\Gamma$ $\iff$ $\BM(P,\lo\Gamma)=1$.
       The conjecture holds almost isometrically.
     \item \textbf{Countable dimension}: a property of the completion alone.
@@ -1251,7 +1252,7 @@
       Math.\ Soc.\ 73 (1996), 155--184.
     \item[] H.~L\"owig, \"Uber die Dimension linearer R\"aume, Studia Math.\ 5 (1934), 18--23.
     \item[] T.~Jech, Set theory, the third millennium edition, Springer, 2003.
-    \item[] N.\,T.~Nemesh, Extremally projective normed spaces, preprint.
+    \item[] N.\,T.~Nemesh, Extremely projective normed spaces, preprint.
   \end{itemize}
 \end{frame}
 
@@ -1281,7 +1282,7 @@
   The same functional on $\ell_1$, $x\mapsto\sum(1-2^{-n})x_n$, shows that with
   the open-ball convention $1$-topological projectivity is empty in $\Ban$ too.
   With closed balls (strictly coisometric operators) one recovers the metric
-  theory; for extremal projectivity the choice is immaterial.
+  theory; for extreme projectivity the choice is immaterial.
 \end{frame}
 
 \begin{frame}{Backup: the product lemma}
@@ -1317,7 +1318,7 @@
   \[
     P_L\cap\ellone\delta=\lo\delta+\Lin\{v_\alpha:\alpha\le\delta\},
   \]
-  countable dimensional and dense in $\ellone\delta$, hence extremally projective.
+  countable dimensional and dense in $\ellone\delta$, hence extremely projective.
   \medskip
 
   \textbf{Linear independence.} In $\sum_Fc_\alpha v_\alpha=0$ with $\alpha_0=\max F$,

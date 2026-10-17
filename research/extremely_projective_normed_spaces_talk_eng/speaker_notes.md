@@ -1,4 +1,4 @@
-# Speaker notes: Extremally projective normed spaces (80 minutes)
+# Speaker notes: Extremely projective normed spaces (80 minutes)
 
 Clock times are cumulative targets at the *end* of each slide. Plan slides
 (section dividers) take about 15 seconds each and are not listed. If you are
@@ -16,11 +16,11 @@ open mapping theorem turned into a definition, because there is no open
 mapping theorem for incomplete spaces. Mention the equivalent epsilon-form on
 the slide; it is the form used in every proof.
 
-**2. Topological and extremal projectivity (3:00).** Read the definition
+**2. Topological and extreme projectivity (3:00).** Read the definition
 once, slowly. Three remarks in this order: X and Y are *normed*, that is the
 whole point; this is Helemskii's extreme projectivity for the zero algebra;
 the three theories are C=1 (metric), some C (topological), every C>1
-(extremal). The audience should leave this slide knowing that extremal sits
+(extreme). The audience should leave this slide knowing that extreme sits
 strictly between the other two.
 
 **3. Banach spaces (4:30).** Köthe and Grothendieck are the two classical
@@ -31,9 +31,9 @@ an operator on finitely supported vectors with no limits involved.
 
 **4. Normed spaces (6:00).** Grønbæk and Helemskii are the normed analogues
 of Köthe and Grothendieck. List the four known facts quickly; they are
-re-derived or cited later. Land on the question: is every extremally
+re-derived or cited later. Land on the question: is every extremely
 projective space isometric to a free one, and which dense subspaces of
-l_1(Lambda) are extremally projective? This question is the thread of the
+l_1(Lambda) are extremely projective? This question is the thread of the
 talk.
 
 **5. The answers, I (7:00).** Theorem A: the answer is no. Theorem B: the
@@ -54,13 +54,13 @@ method. If behind: skip this slide, its content is repeated on slide 21.
 ## 2 Basic theory (10 min)
 
 **8. Helemskii's definition is the same (10:30).** The proof is a renorming.
-Explain the direction "extreme implies extremal": given a c-surjection, make
+Explain the direction "extreme implies extreme": given a c-surjection, make
 it coisometric by enlarging the norm on X with max(||x||, c||xi x||). Say
 that the same renorming trick makes the open-ball and closed-ball conventions
 interchangeable, so the audience need not worry about which convention the
 book uses.
 
-**9. Free spaces are extremally projective (12:30).** Give the proof in
+**9. Free spaces are extremely projective (12:30).** Give the proof in
 full, it is four lines and it shows the universal property at work: lift
 each basis vector with the epsilon-slack, then the family is bounded. Then
 the alert block: the constant cannot be one, because a coisometric functional
@@ -77,7 +77,7 @@ right inverse. This right inverse sigma is used in every later section
 
 **11. The criterion (18:00).** Four equivalent conditions. The proof of
 (iii) implies (iv) is a one-line normalization; (iv) implies (i) is the
-retract permanence. Takeaway for the rest of the talk: to prove extremal
+retract permanence. Takeaway for the rest of the talk: to prove extreme
 projectivity, build a bijection onto a free space with distortion close to
 one. Everything in Sections 4 and 6 is such a construction. If behind:
 state the theorem and the takeaway, skip the proof lines.
@@ -95,7 +95,7 @@ themselves. That is what the closing-off lemma needs later.
 **13. No complete pieces (26:00).** The corollary: no infinite dimensional
 subspace that is complete under a dominating norm. Hence no infinite
 dimensional Banach space is projective in Nor, though l_1(Lambda) is
-extremally projective in Ban. Then the weighted example, two minutes: its
+extremely projective in Ban. Then the weighted example, two minutes: its
 completion is l_1, it has no complete pieces, and it is not projective
 because the weighted norm makes it a Banach space of uncountable dimension.
 Moral, said aloud: topological projectivity is not seen by the completion.
@@ -107,9 +107,9 @@ Helemskii and Grønbæk, via Grothendieck. Walk the chain of implications once;
 the only non-formal step is "(1+epsilon)-injective for all epsilon implies
 1-injective", which works because the dual of the completion is a dual
 space and the near-contractive projections have a weak-star limit point.
-Then the block: an extremally projective space is a dense subspace of some
+Then the block: an extremely projective space is a dense subspace of some
 l_1(Gamma) whose separable subspaces have countable dimension. Ask the
-question: is every such subspace extremally projective? Answer: yes for
+question: is every such subspace extremely projective? Answer: yes for
 countable Gamma, no in general.
 
 **15. The countable theorem and the plan (31:00).** State the back-and-forth
@@ -162,7 +162,7 @@ conditions, proof in three lines. The corollary is the statement used for
 the counterexample. Say aloud: for countable dimension, no projectivity
 hypothesis is needed, the completion decides everything.
 
-## 5 Extremally projective spaces which are not free (6 min)
+## 5 Extremely projective spaces which are not free (6 min)
 
 **23. Extreme points (50:00).** Lemma: for any space between l_1^0(S) and
 l_1(S) with the l_1-norm, the extreme points of the ball are the signed unit
@@ -172,20 +172,20 @@ for any such E.
 
 **24. The counterexample (52:30).** Theorem: an isometry from a free space
 onto E forces E to be l_1^0(S), by transporting extreme points and convex
-hulls. Corollary: l_1^0 plus one infinitely supported vector is extremally
+hulls. Corollary: l_1^0 plus one infinitely supported vector is extremely
 projective (by Section 4) and not free. This answers Helemskii's question
 and refutes Grønbæk's conjecture. Pause here; this is the first main result.
 
 **25. Between l_1^0 and l_1 (54:00).** The table. All three rows have
 completion l_1. Nothing strictly between l_1^0 and l_1 is free, but the
-countable dimensional ones are extremally projective and the weighted one is
+countable dimensional ones are extremely projective and the weighted one is
 not. Transition: Section 6 gives the criterion that separates them in all
 dimensions.
 
 ## 6 Uncountable dimension (20 min)
 
 **26. What changes (56:00).** The hope: dense plus countable dimensional
-separable subspaces implies extremally projective. It fails at omega_1.
+separable subspaces implies extremely projective. It fails at omega_1.
 Give the set theory in one minute: club, stationary, Fodor's lemma as the
 uncountable pigeonhole principle. Non-set-theorists only need the slogan "a
 regressive function is constant on a large set".
@@ -206,11 +206,11 @@ dimension, and in addition the chain is continuous.
 **29. The ladder space (64:00).** Use the picture: for each limit ordinal a
 ladder converging to it, and v_alpha is a geometric sum along the rungs. Two
 ladders share finitely many rungs. Properties: dense, every countable piece
-is extremally projective by Section 4, and not topologically projective
+is extremely projective by Section 4, and not topologically projective
 because the v_alpha are independent and each lies in the closed span of the
 earlier unit vectors, which Fodor forbids. Details are on a backup slide.
 
-**30. The moral of the ladder (65:30).** Three sentences: locally extremally
+**30. The moral of the ladder (65:30).** Three sentences: locally extremely
 projective but globally not even projective; the chain of countable pieces
 jumps at every limit; projective spaces jump only on a non-stationary set.
 Then the strategy: find a continuous filtration and run back-and-forth
@@ -272,7 +272,7 @@ conjecture holds almost isometrically and fails isometrically. This is the
 second main result; pause.
 
 **40. Helemskii's question on dense subspaces (79:00).** The answer in one
-line: extremally projective iff topologically projective iff a filtration
+line: extremely projective iff topologically projective iff a filtration
 with (i)–(iii) exists. For countable Lambda this is countable dimension; for
 uncountable Lambda continuity is a genuine restriction. Fodor is used only
 negatively. If behind: skip this slide and say the sentence from the
@@ -301,8 +301,8 @@ alert block. The other bullets are for the discussion.
   constructs the isomorphism directly.
 - *Does the ladder construction need any set theory beyond ZFC?* No. Ladder
   systems exist in ZFC; Fodor's lemma is a ZFC theorem.
-- *Is the weighted example extremally projective in Ban?* It is not a Banach
-  space, so the question does not apply; its completion l_1 is extremally
+- *Is the weighted example extremely projective in Ban?* It is not a Banach
+  space, so the question does not apply; its completion l_1 is extremely
   projective in Ban.
 - *What about the real case?* Identical; the complex sign function is the
   only place where the field is visible.

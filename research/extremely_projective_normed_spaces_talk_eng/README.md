@@ -1,7 +1,7 @@
-# Extremally projective normed spaces: the talk
+# Extremely projective normed spaces: the talk
 
 `main.tex` is an 80-minute Beamer presentation of the paper in
-`../extremally_projective_normed_spaces_eng`. Build with
+`../extremely_projective_normed_spaces_eng`. Build with
 
     latexmk -pdf main.tex
 
