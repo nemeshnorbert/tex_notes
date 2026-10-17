@@ -24,13 +24,13 @@ Forward references: none
 | Lemma 4.4 (`ProductLemma`) | — | — | self-contained |
 | Theorem 4.5 (`BackAndForth`) | Lemma 4.2, Lemma 4.3, Lemma 4.4 | — |  |
 | Theorem 4.6 (`MainTheorem`) | Theorem 4.1, Theorem 4.5, Theorem 2.7 | — |  |
-| Corollary 4.7 (`DenseCountableSubspaces`) | Theorem 4.6 | — | no proof given (immediate) |
+| Corollary 4.7 (`DenseCountableSubspaces`) | Theorem 4.6 | HajekRussoDenselyIsom (thm. 2.4, comparison only) | no proof given (immediate) |
 | Lemma 5.1 (`ExtremePointsLemma`) | — | — | self-contained |
 | Theorem 5.2 (`NotIsometricToFree`) | Lemma 5.1 | — |  |
-| Corollary 5.3 (`CounterexampleCorollary`) | Corollary 4.7, Theorem 5.2 | HelExtrProjSeqAlg (sec. 2, question); HelMetrFrQMod (sec. 1); GronLiftProbNormSp (conj. 3.1) | text after it states what it answers |
+| Corollary 5.3 (`CounterexampleCorollary`) | Corollary 4.7, Theorem 5.2 | HelExtrProjSeqAlg (sec. 2, question); HelMetrFrQMod (sec. 1, remark 3.6); GronLiftProbNormSp (conj. 3.1) | text after it states what it answers |
 | Theorem 6.1 (`FodorObstruction`) | Proposition 2.6 | JechSetTheory (thm. 8.7, Fodor) |  |
 | Corollary 6.2 (`OmegaOneContinuity`) | Theorem 6.1 | — |  |
-| Example 6.3 (`LadderSpace`) | Theorem 4.6, Theorem 6.1 | — | (ii) uses 4.6, (iii) uses 6.1 |
+| Example 6.3 (`LadderSpace`) | Theorem 4.6, Theorem 6.1 | AvilesKoszmiderLadder (precedent only) | (ii) uses 4.6, (iii) uses 6.1 |
 | Theorem 6.4 (`TransfiniteBackAndForth`) | — | — | self-contained; remark after it uses 4.5 and 6.3 |
 | Definition 6.5 (`ClosedPair`) | Proposition 2.6 | — | standing data sigma, pi, p_n^gamma fixed before it |
 | Lemma 6.6 (`ClosedPairProps`) | Definition 6.5 | — |  |
