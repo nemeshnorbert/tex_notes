@@ -72,8 +72,10 @@ subspaces have countable dimension but which is not topologically projective.
 Finally, we show that a dense subspace of $\ellone{\Gamma}$ is extremely
 projective if and only if it admits a continuous filtration with countable
 blocks, dense pieces and countable dimensional successive quotients. For
-$|\Gamma|=\aleph_1$ this becomes a criterion in terms of a stationary set of
-discontinuities, in the spirit of the theory of almost free abelian groups,
+$|\Gamma|=\aleph_1$ this becomes a criterion in the spirit of the theory of
+almost free abelian groups, requiring the countably generated pieces to
+have countable dimension and the set of discontinuities of their chain to
+be non-stationary,
 and it yields $2^{\aleph_1}$ pairwise non-isomorphic dense subspaces of
 $\ellone{\omega_1}$ all of whose countably generated pieces are extremely
 projective.
@@ -1970,14 +1972,15 @@ Thus, $P_L=P_E$ for the set $E$ of all limit ordinals below $\omega_1$.
     Consequently, there are $2^{\aleph_1}$ pairwise non-isomorphic dense
     subspaces of $\ellone{\omega_1}$ of algebraic dimension $\aleph_1$ all of
     whose subspaces $P\cap\ellone{\delta}$, $\delta<\omega_1$, are extremely
-    projective, and only one of them, up to a topological isomorphism, is
+    projective, and exactly one of them, namely $\lo{\omega_1}$, is
     extremely projective itself.
 \end{theorem}
 \begin{proof} $(i)$ The space $P_E$ contains $\lo{\omega_1}$, so it is dense
     and has algebraic dimension $\aleph_1$. The proof of part $(ii)$ of
-    example~\ref{LadderSpace} uses only the fact that
-    $\supp(v_\alpha)\cap\supp(v_\beta)$ is finite for $\alpha<\beta$, which
-    holds for all limit ordinals $\alpha<\beta$ regardless of $E$; it gives
+    example~\ref{LadderSpace} uses only the facts that
+    $\supp(v_\alpha)\cap\supp(v_\beta)$ is finite for limit ordinals
+    $\alpha<\beta$ and that $\supp(v_\alpha)\cap[\delta,\alpha)$ is infinite
+    for $\delta<\alpha$, which hold regardless of $E$; it gives
     the formula for $(P_E)_\delta$, and this space has countable algebraic
     dimension and is dense in $\ellone{\delta}$, hence extremely projective
     by theorem~\ref{MainTheorem}.
@@ -2009,10 +2012,8 @@ Thus, $P_L=P_E$ for the set $E$ of all limit ordinals below $\omega_1$.
     $E_X=\bigcup_{\xi\in X}S_\xi$. If $X\neq Y$, then $E_X\triangle E_Y$
     contains some $S_\xi$ and is stationary, so by $(iv)$ the spaces
     $P_{E_X}$, $X\subset\omega_1$, are pairwise non-isomorphic. By $(iii)$,
-    $P_{E_X}$ is extremely projective only for $X=\varnothing$, and every
-    extremely projective normed space of algebraic dimension $\aleph_1$ is
-    topologically isomorphic to $\lo{\omega_1}$ by
-    theorem~\ref{FinalCharacterization}.
+    $P_{E_X}$ is extremely projective only for $X=\varnothing$, and
+    $P_{E_\varnothing}=\lo{\omega_1}$.
 \end{proof}
 
 \begin{remark}\label{RemarkAlmostFree} Theorems~\ref{AlephOneCriterion}
