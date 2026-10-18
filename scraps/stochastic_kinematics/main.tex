@@ -1,0 +1,708 @@
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{esvect}
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm,
+    bindingoffset=0cm]{geometry}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=blue,
+    pdfborder={0 0 0}]{hyperref}
+\usepackage{enumitem}
+
+\hypersetup{frenchlinks=true}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Лемма}
+\newtheorem{proposition}[theorem]{Предложение}
+\newtheorem{remark}[theorem]{Замечание}
+\newtheorem{corollary}[theorem]{Следствие}
+\newtheorem{definition}[theorem]{Определение}
+\newtheorem{example}[theorem]{Пример}
+
+\newenvironment{proof}{\par $\triangleleft$}{$\triangleright$}
+
+\pagestyle{plain}
+
+\begin{document}
+
+\begin{center}
+
+    \Large \textbf{Преобразования кинематических величин при переходе между разными системами координат}\\[0.5cm]
+    \small {Немеш Н. Т.}\\[0.5cm]
+
+\end{center}
+\date{March 2022}
+
+\section{Справочные материалы}
+
+\subsection{Некоторые свойства ортогональных матриц и векторного произведения}
+
+Пусть $a$, $b$ и $c$ -- три вектора из $\mathbb{R}^3$.
+Тогда, векторное произвдение будем обозначать через $a \times b$, a скалярное
+через $\langle a,b\rangle$.
+
+Напомним определение смешанного произвдения
+$$
+    (a, b, c)=\langle a, b\times c\rangle
+$$
+Поскольку,
+$$
+    (a, b, c)=\det[a, b, c],
+$$
+то смешанное произвдение (как и определитель) меняет знак при перестановке любых двух
+соседних аргументов.
+
+
+\begin{definition}
+    Пусть $a$ и $b$ -- два вектора из $R^3$.
+    Поскольку векторное произведение линейно по каждому аргументу,
+    то корректно определен линейный оператор
+    $$
+        [a]_\times : \mathbb{R}^3\to\mathbb{R}^3: x\mapsto a\times x
+    $$
+\end{definition}
+
+\begin{proposition}
+    Пусть $a, b\in\mathbb{R}^3$, тогда
+    \begin{enumerate}[label = (\roman*)]
+        \item $[a]_\times b=-[b]_\times a$
+        \item $([a]_\times)^T=-[a]_\times$
+        \item $[a]_\times [b]_\times=b a^T - (a^T b) E$
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    $(i)$ Непосредственно из определения
+    $$
+        [a]_\times b=a \times b=-b \times a=-[b]_\times a
+    $$
+    $(ii)$ Пусть $x,y\in\mathbb{R}^3$, тогда
+    $$
+        \begin{aligned}
+            \langle y, [a]_\times^T x\rangle
+             & =\langle [a]_\times y, x\rangle  \\
+             & =\langle x, [a]_\times y\rangle  \\
+             & =\langle x, a\times y\rangle     \\
+             & =(x, a, y)                       \\
+             & =-(y, a, x)                      \\
+             & =-\langle y, a\times x\rangle    \\
+             & =-\langle y, [a]_\times x\rangle
+        \end{aligned}
+    $$
+    Поскольку $x,y\in\mathbb{R}^3$ произвольны, то $([a]_\times)^T=-[a]_\times$
+
+    $(iii)$ Пусть $x\in\mathbb{R}^3$, тогда
+    $$
+        \begin{aligned}
+            \,[a]_\times [b]_\times x
+             & = a \times (b \times x)                        \\
+             & =\langle a, x\rangle b - \langle a, b\rangle x \\
+             & =(a^T x) b - (a^T b) x                         \\
+             & =b(a^T x) - (a^T b) x                          \\
+             & =(b a^T) x - (a^T b) x                         \\
+             & =(b a^T  - (a^T b) E)x                         \\
+        \end{aligned}
+    $$
+    Поскольку $x\in\mathbb{R}^3$
+    произвольно $[a]_\times [b]_\times=b a^T - (a^T b) E$.
+\end{proof}
+
+\begin{proposition}
+    Пусть $M$ -- произвольная матрица и $u,v\in\mathbb{R}^3$, тогда
+    $$
+        M^T(M u\times M v)=\det(M) (u \times v)
+    $$
+    В частности, для любой ортогональной матрицы $Q$
+    $$
+        Qu\times Qv=\det(Q) Q(u\times v)
+    $$
+    Наконец, если $R$ -- матрица вращения $\mathbb{R}^3$, то
+    \begin{equation}\label{eq:1}
+        Ru\times Rv=R(u\times v)
+    \end{equation}
+\end{proposition}
+\begin{proof}
+    Пусть $x\in\mathbb{R}^3$, тогда
+    $$
+        \begin{aligned}
+            \det(M)\langle x, u\times v\rangle
+             & =\det(M)(x,u,v)                      \\
+             & =\det(M)\det[x,u,v]                  \\
+             & =\det(M\cdot [x,u,v])                \\
+             & =\det[Mx,Mu,Mv]                      \\
+             & =(Mx,Mu,Mv)                          \\
+             & =\langle Mx, Mu\times Mv\rangle      \\
+             & =\langle x, M^T(Mu \times Mv)\rangle
+        \end{aligned}
+    $$
+    Поскольку $x\in\mathbb{R}^3$
+    произвольно, то $\det(M) (u\times v)=M^T(Mu\times Mv)$.
+
+    Если в качестве $M$ взять ортогональную матрицу $Q$, то так как $Q^T=Q^{-1}$,
+    то $\det(Q)(u\times v)=Q^{-1}(Qu\times Qv)$. Откуда
+    $$
+        Qu\times Qv=\det(Q) Q(u\times v).
+    $$
+    Осталось напомнить, что у матриц вращения определитель равен $1$.
+\end{proof}
+
+\begin{proposition}
+    Пусть $R$ -- матрица вращения и $a$ -- произвольный вектор
+    в $\mathbb{R}^3$, тогда
+    \begin{enumerate}[label = (\roman*)]
+        \item
+              \begin{equation}
+                  [a]_\times R=R[R^Ta]_\times, \quad [Ra]_\times=R[a]_\times R^T
+              \end{equation}
+        \item
+              \begin{equation}
+                  (E+[a]_\times)R=R(E+[R^Ta]_\times)
+              \end{equation}
+        \item
+              \begin{equation}
+                  (R(E+[a]_\times))^T=R^T(E-[Ra]_\times)
+              \end{equation}
+        \item
+              $$
+                  (R(E+[a]_\times))^{-1}=R^T(E-[Ra]_\times)+o(\Vert a\Vert^2)
+              $$
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    $(i)$ Пусть $x\in\mathbb{R}^3$, тогда
+    $$
+        \begin{aligned}
+            \,[a]_\times R x
+             & = a\times Rx         \\
+             & = RR^Ta\times Rx     \\
+             & = R(R^Ta\times x)    \\
+             & = R([R^Ta]_\times x) \\
+        \end{aligned}
+    $$
+    Поскольку $x\in\mathbb{R}^3$ произвольно $[a]_\times R=R[R^Ta]_\times$.
+
+    Заменяя $a$ на $Ra$ получим $[Ra]_\times R=R[R^TRa]_\times$. Откуда
+    $$
+        [Ra]_\times=[Ra]_\times RR^T=([Ra]_\times R)R^T
+        =R[R^TRa]_\times R^T=R[a]_\times R^T
+    $$
+
+    $(iii)$ Так как $[a]_\times^T=-[a]_\times$, то
+    $$
+        \begin{aligned}
+            (R(E+[a]_\times))^T
+             & =(E+[a]_\times)^T R^T \\
+             & =(E+[a]_\times^T) R^T \\
+             & =(E-[a]_\times) R^T   \\
+        \end{aligned}
+    $$
+
+    $(ii)$ Из $(ii)$ следует, что
+    $$
+        \begin{aligned}
+            (E+[a]_\times) R
+             & = R+[a]_\times R     \\
+             & = R+R[R^Ta]_\times   \\
+             & = R(E+[R^Ta]_\times) \\
+        \end{aligned}
+    $$
+
+    $(iii)$ Из пункта $(ii)$ следует, что
+    $$
+        \begin{aligned}
+            R(E+[a]_\times) R^T(E-[Ra]_\times)
+             & =(R+R[a]_\times)(R^T - R^T[Ra]_\times)                                \\
+             & =R R^T+R[a]_\times R^T - R R^T[Ra]_\times- R[a]_\times R^T[Ra]_\times \\
+             & =E+R[a]_\times R^T - [Ra]_\times- R[a]_\times R^T[Ra]_\times          \\
+             & =E - R[a]_\times R^T[Ra]_\times                                       \\
+             & =E - R[a]_\times R^TR[a]_\times R^T                                   \\
+             & =E - R[a]_\times [a]_\times R^T                                       \\
+             & =E + o(\Vert a\Vert^2)                                                \\
+        \end{aligned}
+    $$
+    Откуда
+    $$
+        (R(E+[a]_\times))^{-1}=R^T(E-[Ra]_\times)+o(\Vert a\Vert^2)
+    $$
+\end{proof}
+
+
+\subsection{Напоминания из теории многомерных нормальных распределений}
+
+\begin{definition} Пусть $\vv{\mu}\in\mathbb{R}^n$ -- $n$-мерный вектор,
+    и $\Sigma$ -- положительно определенная матрица размера $n\times n$. Тогда
+    случайный вектор $\pmb{X}=[X_1,\ldots,X_n]^T$ имеет многомерное
+    нормальное распределение если его плотность распределения  имеет вид
+    $$
+        f_{\pmb{X}}:\mathbb{R}^n\to\mathbb{R}
+        :\vv{x}\mapsto \frac{1}{(2\pi)^{n/2}\sqrt{\det(\Sigma)}}
+        \exp\left(
+        -\frac{1}{2}(\vv{x}-\vv{\mu})\Sigma^{-1}(\vv{x}-\vv{\mu})
+        \right).
+    $$
+    В этом случае мы будем писать
+    $\pmb{X}\sim \mathcal{N}(\vv{\mu}, \Sigma)$.
+\end{definition}
+
+\begin{remark} Допустим, что случайный вектор $\pmb{X}$ имеет
+    многомерное нормальное распределение с параметрами $\vv{\mu}$ и $\Sigma$,
+    т.е. $\pmb{X}\sim \mathcal{N}(\vv{\mu}, \Sigma)$.
+    Пусть $A$ -- произвольная матрица размера $k\times n$
+    и $\vv{b}\in\mathbb{R}^k$ -- произвольный $k$-мерный вектор,
+    тогда случайный вектор $\pmb{Y}=A \pmb{X}+\vv{b}$ имеет многомерное
+    нормальное распределение, причем
+    $$
+        \pmb{Y}\sim\mathcal{N}(A\vv{\mu}+\vv{b}, A\Sigma A^T)
+    $$
+\end{remark}
+
+
+
+\section{Преобразования кинематических величин при замене системы координат}
+
+В этом параграфе мы выведем формулы преобразования координат векторов
+различных кинематических величин: поза, скорость, угловая скорость, ускорение.
+Напомним, что поза -- это радиус-вектор и ориентация твердого тела.
+Во многих ситуациях мы будем считать, что эти величины имеют многомерное
+нормальное распределение и наша основная задача найти параметры
+этого распределения.
+
+Большинство векторных величин (поза, скорость, угловая скорость, ускорение)
+в нашем случае имеют простую модель. Если $\vv{x}$ некоторый вектор то мы
+будем считать, что к нему добваляется некоторый шум,
+т.е. случайный вектор с многомерным нормальным распределением с нулевым средним. 
+Такой случайный вектор мы будем обозначать $\pmb{x}$. Более подробно, 
+пусть $A$ некоторая система координат, тогда координаты $\pmb{x}$ в $A$ 
+будут иметь распределение $\mathcal{N}(x^A, \Sigma_x^A)$.
+
+Мы также будем предполагать, что переходы между некоторыми системами
+координат нам точно не известны и имеют некоторый шум. Точнее
+пусть $\pmb{R}$ -- случайная велична описывающая матрицу перехода между
+двумя системами координат. Будем считать, что существует фиксированная матрица
+перехода $R$ и случайный вектор $\delta\pmb{\theta}\sim\mathcal{N}(0, \Sigma)$,
+такие, что $\pmb{R}=R(E+[\delta\pmb{\theta}]_\times)$
+
+Теперь рассмотрим различные сценарии преобразования между двумя системами
+координат. В этих сценариях системы координат
+могут быть
+\begin{itemize}
+    \item неподвижными друг относительно друга
+    \item двигаться с линейной или с угловой или с обеими скоростями
+          друг относительно друга
+    \item иметь нетривиальную матрицу поворота
+    \item иметь матрицу поворота являющуюся случайной величиной
+\end{itemize}
+
+\subsection{Преобразования позиции для константной замены координат
+    относительно инерциальной системы отсчета
+}
+
+Допустим у нас есть три системы координат $A$, $B$ и $C$,
+причем $C$ -- инерциальная система координат.
+Пусть нам известны поза системы координат $A$ относительно $C$ и $B$
+относительно $A$, надо найти позу системы координат $B$ относительно $C$.
+Будем считать, что поза $A$ в $C$ является случайной величиной, а поза $B$
+в $A$ доподлинно известна. За модельный пример здесь можно
+взять $A=\mbox{imu}$, $B=\mbox{base link}$ и $C=\mbox{map}$.
+
+Пусть $(\pmb{R}_A^C, \pmb{p}_A^C)$ -- поза $A$ в $C$, тогда
+$$
+    \pmb{R}_A^C=R_A^C(E+[\delta\pmb{\theta}_A^C]_\times),
+    \quad
+    \delta\pmb{\theta}_A^C \sim\mathcal{N}(0, \Sigma_{\delta\theta}^A)
+$$
+$$
+    \pmb{p}_A^C=p_A^C+\delta \pmb{p}_A^C,
+    \quad
+    \delta\pmb{p}_A^C\sim\mathcal{N}(0, \Sigma_{\delta p}^A),
+$$
+Поза $B$ в $C$ описывается формулами
+$$
+    \begin{aligned}
+        \pmb{R}_B^C
+         & =\pmb{R}_A^C R_B^A                                              \\
+         & =R_A^C(E+[\delta\pmb{\theta}_A^C]_\times) R_B^A                 \\
+         & =R_A^C R_B^A(E+[(R_B^A)^T\delta\pmb{\theta}_A^C]_\times)        \\
+        \pmb{p}_B^C
+         & =\pmb{p}_A^C + \pmb{R}_A^C p_B^A                                \\
+         & =p_A^C + \delta \pmb{p}_A^C
+        + R_A^C(E+[\delta\pmb{\theta}_A^C]_\times) p_B^A                   \\
+         & =p_A^C + R_A^C p_B^A
+        + \delta \pmb{p}_A^C + R_A^C [\delta\pmb{\theta}_A^C]_\times p_B^A \\
+         & =p_A^C + R_A^C p_B^A
+        + \delta \pmb{p}_A^C - R_A^C [p_B^A]_\times \delta\pmb{\theta}_A^C \\
+    \end{aligned}
+$$
+Следовательно,
+\begin{equation}
+    \pmb{R}_B^C=R_A^CR_B^A(E+[\delta\pmb{\theta}_B^C]_\times),
+    \quad
+    \delta\pmb{\theta}_B^C \sim\mathcal{N}(0, (R_B^A)^T\Sigma_{\delta\theta}^A R_B^A)
+\end{equation}
+\begin{equation}
+    \pmb{p}_B^C=p_A^C + R_A^C p_B^A+\delta \pmb{p}_A^C,
+    \quad
+    \delta\pmb{p}_B^C\sim\mathcal{N}(
+    0,
+    \Sigma_{\delta p}^A
+    +R_A^C [p_B^A]_\times \Sigma_{\delta\theta}^A (R_A^C [p_B^A]_\times)^T
+    )
+\end{equation}
+
+
+\subsection{Преобразования скорости, угловой скорости и ускорения для
+    константной замены координат между инерциальными
+    системами координат связанными с твердым телом
+}
+
+Допустим у нас есть две инерциальные системы координат $A$ и $B$ связанные с
+некоторым твердым телом. Пускай нам известна некоторая векторная
+велична $\pmb{x}$ в системе координат $A$, и поза системы координат $A$
+относительно $B$. Надо найти $\pmb{x}$ в системе координат $B$. Будем считать,
+что поза $A$ в $B$ доподлинно известна. За модельный пример здесь можно
+взять $A=\mbox{imu}$, $B=\mbox{base link}$.
+
+Пусть
+$$
+    \pmb{x}^A=x^A+\delta \pmb{x}^A,
+    \quad
+    \delta x^A\sim\mathcal{N}(0, \Sigma_{\delta x}^A)
+$$
+Тогда
+$$
+    \begin{aligned}
+        \pmb{x}^B
+         & =R_A^B \pmb{x}^A                    \\
+         & =R_A^B (x^A + \delta \pmb{x}^A)     \\
+         & =R_A^B x^A + R_A^B \delta \pmb{x}^A \\
+    \end{aligned}
+$$
+Следовательно,
+\begin{equation}
+    \pmb{x}^B=R_A^Bx^A+\delta \pmb{x}^B,
+    \quad
+    \delta \pmb{x}^B\sim\mathcal{N}(0, R_A^B \Sigma_{\delta x}^A (R_A^B)^T)
+\end{equation}
+В последней формуле в качестве $\pmb{x}$ можно брать скороть $\pmb{v}$, угловую
+скорость $\pmb{\omega}$ или ускорение $\pmb{a}$.
+
+\subsection{Преобразования скорости, угловой скорости и ускорения для
+    неконстантной замены координат между инерциальными системами
+    координат связанными с твердым телом
+}
+
+Допустим у нас есть две системы координат $A$ и $B$ связанные с некоторым
+твердым телом. Пускай нам известна некоторая векторная велична $\pmb{x}$ в
+системе координат $A$, и поза системы координат $A$ относительно $B$.
+Надо найти $\pmb{x}$ в системе координат $B$. Будем считать, что поза $A$
+в $B$ является случайной величиной. За модельный пример здесь можно
+взять $A=\mbox{imu}$, $B=\mbox{base link}$.
+
+Пусть
+$$
+    \pmb{x}^A=x^A+\delta \pmb{x}^A, \quad \delta x^A\sim\mathcal{N}(0, \Sigma_{\delta x}^A)
+$$
+$$
+    \pmb{R}_A^B=R_A^B(E+[\delta \pmb{\theta}_A^B]_\times),
+    \quad
+    \delta\pmb{\theta}_A^B \sim \mathcal{N}(0, \Sigma_{\delta \theta})
+$$
+Тогда,
+$$
+    \begin{aligned}
+        \pmb{x}^B
+         & =\pmb{R}_A^B \pmb{x}^A                                        \\
+         & =R_A^B (E+[\delta \pmb{\theta}_A^B]) (x^A + \delta \pmb{x}^A) \\
+         & =R_A^B x^A + R_A^B \delta \pmb{x}^A
+        + R_A^B [\delta \pmb{\theta}_A^B]_\times x^A
+        + R_A^B [\delta \pmb{\theta}_A^B]_\times \delta \pmb{x}^A        \\
+         & =R_A^B x^A + R_A^B \delta \pmb{x}^A
+        - R_A^B [x^A]_\times \delta \pmb{\theta}_A^B
+        + o(\Vert \delta\pmb{x}^A \Vert)                                 \\
+    \end{aligned}
+$$
+Следовательно,
+\begin{equation}
+    \pmb{x}^B=R_A^Bx^A+\delta \pmb{x}^B,
+    \quad
+    \delta \pmb{x}^B\sim\mathcal{N}(
+    0,
+    R_A^B \Sigma_{\delta x}^A (R_A^B)^T
+    + R_A^B [x^A]_\times \Sigma_{\delta\theta} (R_A^B [x^A]_\times)^T
+    )
+\end{equation}
+В последней формуле в качестве $\pmb{x}$ можно брать скорость $\pmb{v}$,
+угловую скорость $\pmb{\omega}$ или ускорение $\pmb{a}$.
+
+\subsection{Нахождение скорости точек твердого тела в различных системах координат}
+
+Допустим, у нас есть две системы координат $A$ и $B$ связанные с твердым телом.
+Пусть в некоторой инерциальной системе координат $C$ твердое тело имеет
+угловую скорость $\pmb{\omega}$. Пусть $\pmb{v}_A$ линейная
+скорость начала системы координат $A$ относительно системы координат $C$.
+Аналогично $\pmb{v}_B$ линейная скорость начала системы координат $B$
+относительно системы координат $C$
+
+Так как $A$ и $B$ связаны с одним
+и тем же твердым телом, то $A$ и $B$ будет иметь в системе координат $C$ ту же
+самую угловую скорость. Тогда
+\begin{equation}
+    \pmb{v}_B=\pmb{v}_A+\pmb{\omega} \times \vv{AB}
+\end{equation}
+Мы выведем параметры распределения вектора $\pmb{v}_B$ в базисах
+$A$ и $C$.
+
+За модельный пример здесь можно взять $A=\mbox{imu}$, $B=\mbox{base link}$
+и $C=\mbox{map}$.
+
+Пусть координаты $\pmb{v}_A^A$ вектора $\pmb{v}_A$ в системе координат $A$ имеют
+распределение
+$$
+    \pmb{v}_A^A=v_A^A+\delta \pmb{v}_A^A,
+    \quad
+    \delta \pmb{v}_A^A \sim \mathcal{N}(0, \Sigma_{\delta v}^A)
+$$
+и угловая скорость в системе координат $A$ имеет распределение
+$$
+    \pmb{\omega}^A=\omega^A+\delta \pmb{\omega}^A,
+    \quad
+    \delta \pmb{\omega}^A\sim \mathcal{N}(0, \Sigma_{\delta \omega}^A)
+$$
+Тогда
+$$
+    \begin{aligned}
+        \pmb{v}_B^A
+         & =\pmb{v}_A^A+\pmb{\omega}^A \times p_B^A                 \\
+         & =\pmb{v}_A^A+\delta \pmb{v}_A^A
+        + (\omega^A+\delta \pmb{\omega}^A) \times p_B^A             \\
+         & =\pmb{v}_A^A+ \omega^A\times p_B^A
+        + \delta \pmb{v}_A^A + \delta \pmb{\omega}^A \times p_B^A   \\
+         & =\pmb{v}_A^A+ \omega^A\times p_B^A
+        + \delta \pmb{v}_A^A - [p_B^A]_\times \delta \pmb{\omega}^A \\
+    \end{aligned}
+$$
+Следовательно,
+\begin{equation}
+    \pmb{v}_B^A=\pmb{v}_A^A+ \omega^A\times p_B^A+\delta \pmb{v}_B^A,
+    \quad
+    \delta \pmb{v}_B^A\sim\mathcal{N}(
+    0,
+    \Sigma_{\delta v}^A
+    + [p_B^A]_\times \Sigma_{\delta\omega} ([p_B^A]_\times)^T
+    )
+\end{equation}
+
+Пусть координаты $\pmb{v}_A^C$ вектора $\pmb{v}_A$ в системе координат $C$ имеют
+распределение
+$$
+    \pmb{v}_A^C=v_A^C+\delta \pmb{v}_A^C,
+    \quad
+    \delta \pmb{v}_A^C \sim \mathcal{N}(0, \Sigma_{\delta v_A}^C)
+$$
+и угловая скорость в системе координат $A$ имеет распределение
+$$
+    \pmb{\omega}^A=\omega^A+\delta \omega^A,
+    \quad
+    \delta\omega^A\sim \mathcal{N}(0, \Sigma_{\delta \omega}^A)
+$$
+Будем считать, что матрица перехода от $A$ к $C$ сама является случайной
+величиной с распределением
+$$
+    \pmb{R}_A^C=R_A^C(E+[\delta \pmb{\theta}_A^C]_\times),
+    \quad
+    \delta\pmb{\theta}_A^C \sim \mathcal{N}(0, \Sigma_{\delta \theta})
+$$
+
+Тогда
+$$
+    \begin{aligned}
+        \pmb{v}_B^C
+         & =\pmb{v}_A^C+\pmb{\omega}^C \times \vv{AB}^C                                \\
+         & =\pmb{v}_A^C+\pmb{R}_A^C \pmb{\omega}^A \times \pmb{R}_A^C p_B^A            \\
+         & =\pmb{v}_A^C+\pmb{R}_A^C (\pmb{\omega}^A \times p_B^A)                      \\
+         & =v_A^C + \delta \pmb{v}_A^C + R_A^C (E+[\delta \pmb{\theta}_A^C]_\times)
+        ((\omega^A + \delta \pmb{\omega}^A) \times p_B^A)                              \\
+         & =v_A^C + \delta \pmb{v}_A^C + (R_A^C+R_A^C[\delta \pmb{\theta}_A^C]_\times)
+        (\omega^A \times p_B^A + \delta \pmb{\omega}^A \times p_B^A)                   \\
+         & =v_A^C + \delta \pmb{v}_A^C
+        + R_A^C (\omega^A \times p_B^A)
+        + R_A^C[\delta \pmb{\theta}_A^C]_\times (\omega^A \times p_B^A)
+        + R_A^C (\delta \pmb{\omega}^A \times p_B^A)
+        + R_A^C[\delta \pmb{\theta}_A^C]_\times (\delta \pmb{\omega}^A \times p_B^A)   \\
+         & =v_A^C + R_A^C (\omega^A \times p_B^A)
+        + \delta \pmb{v}_A^C
+        - R_A^C[\omega^A \times p_B^A]_\times \delta \pmb{\theta}_A^C
+        - R_A^C [p_B^A]_\times \delta \pmb{\omega}^A
+        + o(\Vert \delta\pmb{\omega}^A\Vert)
+    \end{aligned}
+$$
+Следовательно,
+\begin{equation}
+    \begin{aligned}
+        \pmb{v}_B^C        & =v_A^C + R_A^C (\omega^A \times p_B^A) + \delta \pmb{v}_B^C, \\
+        \delta \pmb{v}_B^C & \sim\mathcal{N}(
+        0,
+        \Sigma_{\delta v_A}^C
+        +  R_A^C[\omega^A \times p_B^A]_\times \Sigma_{\delta \theta} (R_A^C[\omega^A \times p_B^A]_\times)^T
+        + R_A^C[p_B^A]_\times \Sigma_{\delta\omega}^A (R_A^C[ p_B^A]_\times)^T
+        )
+    \end{aligned}
+\end{equation}
+
+\subsection{Нахождение ускорений точек твердого тела в различных системах координат}
+
+Допустим, у нас есть две системы координат $A$ и $B$ связанные с твердым телом.
+Пусть в некоторой инерциальной системе координат $C$ твердое тело имеет
+угловую скорость $\pmb{\omega}$ и угловое ускорение $\pmb{\epsilon}$.
+Пусть $\pmb{a}_A$ линейное ускорение начала системы координат $A$ относительно
+системы координат $C$. Аналогично $\pmb{a}_B$ линейное ускорение начала
+системы координат $B$ относительно системы координат $C$.
+
+Поскольку $\pmb{v}_B=\pmb{v}_A+\pmb{\omega} \times \vv{AB}$, то
+\begin{equation}
+    \begin{aligned}
+        \pmb{a}_B
+         & =\frac{d\pmb{v}_B}{dt}                                \\
+         & =\frac{d}{dt} (\pmb{v}_A+\pmb{\omega} \times \vv{AB}) \\
+         & =\frac{d \pmb{v}_A}{dt}
+        + \frac{d}{dt}(\pmb{\omega} \times \vv{AB})              \\
+         & =\pmb{a}_A
+        + \frac{d \pmb{\omega}}{dt} \times \vv{AB}
+        + \pmb{\omega} \times \frac{d}{dt} \vv{AB}               \\
+         & =\pmb{a}_A + \pmb{\epsilon} \times \vv{AB}
+        + \pmb{\omega} \times (\pmb{\omega} \times \vv{AB})      \\
+    \end{aligned}
+\end{equation}
+
+Мы выведем параметры распределения вектора $\pmb{a}_B$ в базисах
+$A$ и $C$.
+
+За модельный пример здесь можно взять $A=\mbox{imu}$, $B=\mbox{base link}$
+и $C=\mbox{map}$.
+
+Пусть координаты $\pmb{a}_A^A$ вектора $\pmb{a}_A$ в системе координат $A$ имеют
+распределение
+$$
+    \pmb{a}_A^A=a_A^A+\delta \pmb{a}_A^A,
+    \quad
+    \delta \pmb{a}_A^A \sim \mathcal{N}(0, \Sigma_{\delta a}^A)
+$$
+и угловая скорость в системе координат $A$ имеет распределение
+$$
+    \pmb{\omega}^A=\omega^A+\delta \pmb{\omega}^A,
+    \quad
+    \delta \pmb{\omega}^A\sim \mathcal{N}(0, \Sigma_{\delta \omega}^A)
+$$
+Угловое ускорение будем считать пренебрежимо малым, тогда
+$$
+    \begin{aligned}
+        \pmb{a}_B^A
+         & =\pmb{a}_A^A+\pmb{\omega}^A \times (\pmb{\omega}^A \times p_B^A)                                                   \\
+         & =a_A^A + \delta \pmb{a}_A^A
+        + (\omega^A+\delta \pmb{\omega}^A) \times ((\omega^A+\delta \pmb{\omega}^A) \times p_B^A)                             \\
+         & =a_A^A + \delta \pmb{a}_A^A
+        + (\omega^A+\delta \pmb{\omega}^A) \times (\omega^A\times p_B^A+\delta \pmb{\omega}^A\times p_B^A)                    \\
+         & =a_A^A + \delta \pmb{a}_A^A
+        + \omega^A \times (\omega^A\times p_B^A)+\delta \pmb{\omega}^A \times (\omega^A\times p_B^A)
+        + \omega^A\times (\delta \pmb{\omega}^A\times p_B^A)+\delta \pmb{\omega}^A \times (\delta \pmb{\omega}^A\times p_B^A) \\
+         & =a_A^A + \omega^A \times (\omega^A\times p_B^A)
+        + \delta \pmb{a}_A^A
+        - (\omega^A\times p_B^A) \times \delta \pmb{\omega}^A
+        - \omega^A\times (p_B^A \times \delta \pmb{\omega}^A)+o(\Vert \delta\omega^A\Vert^2)                                  \\
+         & =a_A^A + \omega^A \times (\omega^A\times p_B^A)
+        + \delta \pmb{a}_A^A
+        - [\omega^A\times p_B^A]_\times \delta \pmb{\omega}^A
+        - [\omega^A]_\times [p_B^A]_\times \delta \pmb{\omega}^A+o(\Vert \delta\omega^A\Vert^2)                               \\
+         & =a_A^A + \omega^A \times (\omega^A\times p_B^A)
+        + \delta \pmb{a}_A^A
+        - ([\omega^A\times p_B^A]_\times + [\omega^A]_\times [p_B^A]_\times) \delta \pmb{\omega}^A
+        +o(\Vert \delta\omega^A\Vert^2)                                                                                       \\
+    \end{aligned}
+$$
+Следовательно,
+\begin{equation}
+    \begin{aligned}
+        \pmb{a}_B^A        & =\pmb{a}_A^A
+        + \omega^A\times (\omega^A \times p_B^A)+\delta \pmb{a}_B^A \\
+        \delta \pmb{a}_B^A & \sim\mathcal{N}(
+        0,
+        \Sigma_{\delta a}^A
+        + ([\omega^A\times p_B^A]_\times + [\omega^A]_\times [p_B^A]_\times)
+        \Sigma_{\delta\omega}^A
+        ([\omega^A\times p_B^A]_\times + [\omega^A]_\times [p_B^A]_\times)^T
+        )
+    \end{aligned}
+\end{equation}
+
+Пусть координаты $\pmb{a}_A^C$ вектора $\pmb{a}_A$ в системе координат $C$ имеют
+распределение
+$$
+    \pmb{a}_A^C=a_A^A+\delta \pmb{a}_A^C,
+    \quad
+    \delta \pmb{a}_A^C \sim \mathcal{N}(0, \Sigma_{\delta a}^C)
+$$
+и угловая скорость в системе координат $A$ имеет распределение
+$$
+    \pmb{\omega}^A=\omega^A+\delta \pmb{\omega}^A,
+    \quad
+    \delta \pmb{\omega}^A\sim \mathcal{N}(0, \Sigma_{\delta \omega}^A)
+$$
+Будем считать, что матрица перехода от $A$ к $C$ сама является случайной
+величиной с распределением
+$$
+    \pmb{R}_A^C=R_A^C(E+[\delta \pmb{\theta}_A^C]_\times),
+    \quad
+    \delta\pmb{\theta}_A^C \sim \mathcal{N}(0, \Sigma_{\delta \theta})
+$$
+Угловое ускорение будем считать пренебрежимо малым, тогда
+$$
+    \small{
+        \begin{aligned}
+            \pmb{a}_B^C
+             & =\pmb{a}_A^C+\pmb{\omega}^C \times (\pmb{\omega}^C \times \vv{AB}^C)                                 \\
+             & =\pmb{a}_A^C+\pmb{R}_A^C \pmb{\omega}^A \times (\pmb{R}_A^C \pmb{\omega}^A \times \pmb{R}_A^C p_B^A) \\
+             & =\pmb{a}_A^C+\pmb{R}_A^C \pmb{\omega}^A \times \pmb{R}_A^C( \pmb{\omega}^A \times p_B^A)             \\
+             & =\pmb{a}_A^C+\pmb{R}_A^C (\pmb{\omega}^A \times ( \pmb{\omega}^A \times p_B^A))                      \\
+             & =\pmb{a}_A^C
+            +R_A^C (E+[\delta \pmb{\theta}_A^C]_\times)
+            ((\omega^A + \delta\pmb{\omega}^A) \times
+            ( (\omega^A + \delta \pmb{\omega}^A) \times p_B^A))                                                     \\
+             & =\pmb{a}_A^C
+            +R_A^C (E+[\delta \pmb{\theta}_A^C]_\times)
+            (\omega^A \times (\omega^A\times p_B^A)
+            +\delta \pmb{\omega}^A \times (\omega^A\times p_B^A)
+            + \omega^A\times (\delta \pmb{\omega}^A\times p_B^A)
+            +\delta \pmb{\omega}^A \times (\delta \pmb{\omega}^A\times p_B^A))                                      \\
+             & =\pmb{a}_A^C
+            + (R_A^C+R_A^C[\delta \pmb{\theta}_A^C]_\times)
+            (\omega^A \times (\omega^A\times p_B^A)
+            - ([\omega^A\times p_B^A]_\times+ [\omega^A]_\times [p_B^A]_\times) \delta \pmb{\omega}^A
+            +o(\Vert\delta \pmb{\omega}^A\Vert^2))                                                                  \\
+             & =\pmb{a}_A^C
+            + R_A^C (\omega^A \times (\omega^A\times p_B^A))
+            + R_A^C[\delta \pmb{\theta}_A^C]_\times (\omega^A \times (\omega^A\times p_B^A))
+            - R_A^C ([\omega^A\times p_B^A]_\times+ [\omega^A]_\times [p_B^A]_\times) \delta \pmb{\omega}^A
+            + o(\Vert\delta \pmb{\omega}^A\Vert)                                                                    \\
+             & =\pmb{a}_A^C
+            + R_A^C (\omega^A \times (\omega^A\times p_B^A))
+            - R_A^C[\omega^A \times (\omega^A\times p_B^A)]_\times \delta \pmb{\theta}_A^C
+            - R_A^C ([\omega^A\times p_B^A]_\times+ [\omega^A]_\times [p_B^A]_\times) \delta \pmb{\omega}^A
+            + o(\Vert\delta \pmb{\omega}^A\Vert)                                                                    \\
+        \end{aligned}
+    }
+$$
+Следовательно,
+\begin{equation}
+    \small{
+        \begin{aligned}
+            \pmb{a}_B^C                         & =a_A^C + R_A^C (\omega^A \times (\omega^A \times p_B^A)) + \delta \pmb{a}_B^C,                                                                                              \\
+            \delta \pmb{a}_B^C                  & \sim\mathcal{N}(0, \widetilde{\Sigma}_{\delta\theta} + \widetilde{\Sigma}_{\delta\omega}^A)                                                                                 \\
+            \widetilde{\Sigma}_{\delta\theta}   & =R_A^C[\omega^A \times (\omega^A\times p_B^A)]_\times\Sigma_{\delta\theta} (R_A^C[\omega^A \times (\omega^A\times p_B^A)]_\times)^T                                         \\
+            \widetilde{\Sigma}_{\delta\omega}^A & =R_A^C ([\omega^A\times p_B^A]_\times+ [\omega^A]_\times [p_B^A]_\times)\Sigma_{\delta\omega}^A (R_A^C ([\omega^A\times p_B^A]_\times+ [\omega^A]_\times [p_B^A]_\times))^T
+        \end{aligned}
+    }
+\end{equation}
+
+\end{document}

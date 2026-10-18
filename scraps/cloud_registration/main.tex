@@ -1,0 +1,1076 @@
+% chktex-file 1
+% chktex-file 19
+\documentclass[6pt,pdf,utf8,russian]{beamer}
+
+\usetheme[progressbar=frametitle]{metropolis}
+\usepackage{appendixnumberbeamer}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+\usepackage{amssymb,amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{mathrsfs}
+\usepackage[matrix,arrow,curve]{xy}
+
+\title{Алгоритмы регистрации облаков точек}
+\author{Немеш Норберт}
+\begin{document}
+
+\maketitle
+
+\section{Введение}
+
+\begin{frame}[fragile]{Трехмерные изображения}
+    \begin{block}{}
+        В последнее десятилетие стали достаточно распространены и доступны
+        устройства для получения трехмерных изображений.
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        Основное преимущество --- более точное описание объектов.
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        Применения:
+        \begin{itemize}
+            \item Восстановление 3D моделей
+            \item Инспекция состояния зданий
+            \item Локализация в робототехнике
+            \item ...
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Облака точек}
+    \begin{block}{}
+        Более распространенное название --- облако точек.
+    \end{block}
+
+    \pause
+
+    \begin{figure}
+        \includegraphics[width=0.6\textwidth]{images/point_cloud_example.jpg}
+    \end{figure}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Облака точек. Определение}
+    \begin{block}{}
+        Точка --- кортеж чисел содержащий координаты точки и возможно некоторые дополнительные
+        атрибуты учитывающие специфику сенсора. Координаты точки даются в системе координат сеносра.
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        Пример: координаты $x$, $y$, $z$ и цвет в формате $RGB$.
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        Облако точек -- множество точек и возможно некоторая дополнительная информация
+        учитывающая специфику сенсора из которого получено облако.
+        \[
+            C = (\{p_1,\ldots,p_n\}, \ldots)
+        \]
+        Пример дополнительной информации: порядок точек в облаке.
+    \end{block}
+\end{frame}
+
+\section{Типы облаков точек}
+
+\begin{frame}[fragile]{Способы получения облаков точек}
+    \begin{block}{}
+        Структура облака и свойства точек зависят от способа получения.
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        Пассивный способ --- используем свет приходящий от объекта и
+        с помощью дополнительных вычислений строим облако точек.
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        Активный способ --- излучаем свет и по отражениям восстанавливаем облако точек.
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Пассивный способ. Structure from motion}
+    \begin{block}{}
+        Движемся вокруг объекта и делаем снимки, по
+        изменению положения ключевых точкек на изображении и известной собственной
+        траектории восстанавливаем облако
+    \end{block}
+
+    \pause
+
+    \begin{figure}
+        \includegraphics[width=0.9\textwidth]{images/structure_from_motion.jpg}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Пассивный способ. Multi view stereo}
+    \begin{block}{}
+        Получаем изображение с двух близкорасположенных камер. Зная взаимное расположение камер
+        и их внутренние характеристики восстанавливаем облако точек.
+    \end{block}
+
+    \pause
+
+    \begin{figure}
+        \includegraphics[width=\textwidth]{images/multi_view_stereo.png}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Активный способ. Time of flight}
+    \begin{block}{}
+        Выпускаем в различных направлениях сигналы, находим время до возврата, оцениваем расстояние
+        до препятствия и восстанавливаем облако точек.
+
+        Пример: лидар
+    \end{block}
+
+    \pause
+
+    \begin{figure}
+        \includegraphics[width=0.9\textwidth]{images/time_of_flight.jpg}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Активный способ. Structured light}
+    \begin{block}{}
+        Проецируем на объект свет опрделенного формата, по искажениям восстанавливаем
+        облако точек.
+    \end{block}
+
+    \pause
+
+    \begin{figure}
+        \includegraphics[width=\textwidth]{images/structured_light.jpg}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Облака точек. Проблемы описания окружения}
+    \begin{block}{}
+        Ограничения:
+        \begin{itemize}
+            \item Окклюзии
+            \item Плохое покрытие точками на больших расстояниях
+            \item Ограниченный угол обзора
+            \item Шумные показания сенсоров, неточные координаты
+            \item У лидаров могут быть лишние точки, из-за отраженных лучей
+        \end{itemize}
+    \end{block}
+
+\end{frame}
+
+\section{Регистрация облаков точек}
+
+\begin{frame}[fragile]{Проблемы описания окружения}
+
+    \begin{block}{}
+        Проблема: одного облака недостаточно, надо получать трехмерные изображения с разных позиций.
+    \end{block}
+
+    \pause
+
+    \begin{figure}
+        \includegraphics[width=\textwidth]{images/multiple_point_clouds.jpg}
+    \end{figure}
+
+    \pause
+
+    \begin{block}{}
+        Решение: ``склеиваем'' точки в некоторой общей системе координат.
+
+        Более строго этот процесс называется регистрацией облаков.
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Постановка задачи}
+    \begin{block}{}
+        У нас есть два облака точек. Мы хотим найти такое преобразвание,
+        которое ``наиболее точно встраивало'' бы одно облако в другое.
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        Применения:
+        \begin{itemize}
+            \item Локализация робота в карте
+            \item Локализация и одновременное построение карты (Simultaneous localization and mapping)
+            \item Виртуальная и дополненная реальность
+        \end{itemize}
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        Каждое облако задано в системе координат сенсора на момент
+        получения данных. Достаточно найти преобразвания между этими системами координат.
+    \end{block}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Классификация регистраций. По количеству облаков}
+    \begin{block}{}
+        Попарная регистрация --- нужно зарегистрировать одно облако точек в другом
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        Множественная регистрация --- есть более двух облаков точек, нужно собрать их вместе в одно
+        большое облако точек. Наивным образом сводится к попарной регистрации.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Классификация регистраций. По точности}
+    \begin{block}{}
+        Точная регистрация --- ошибка должна быть минимальна
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        Грубая регистрация --- разрешается большая ошибка. Грубая регистрация обычно используется
+        как начальное приближение для точной.
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Классификация регистраций. По свойствам объекта}
+    \begin{block}{}
+        Жесткая регистрация --- преобразование между облаками точек должно сохранять расстояния.
+        Чаще всего ищут жесткую регистрацию.
+    \end{block}
+
+    \pause
+
+    \begin{figure}
+        \includegraphics[width=0.5\textwidth]{images/rigid_registration.jpg}
+    \end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{Классификация регистраций. По свойствам объекта}
+    \begin{block}{}
+        Нежесткая регистрация --- преобразование между облаками точек может дополнительно
+        использовать растяжение и инверсию.
+    \end{block}
+
+    \pause
+    \begin{figure}
+        \includegraphics[width=0.5\textwidth]{images/nonrigid_registration.jpg}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Классификация регистраций. По алгоритму нахождения}
+    \begin{block}{}
+        Условно есть 5 типов алгоритмов регистрации:
+        \begin{itemize}
+            \item Итеративные методы ближайшей точки (Iterative closest point)
+            \item Вероятностные методы
+            \item Методы ключевых точек (Interest points)
+            \item Методы машинного обучения
+            \item Все остальное
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Проблемы и ограничения регистраций}
+    \begin{block}{}
+        С регистрацией облаков точек много проблем и нюансов
+        \begin{itemize}
+            \item Облака точек могут иметь разное количество точек
+            \item Облака точек могут лишь частично перекрываться
+            \item Облака точек содержат выбросы и координаты зашумлены
+            \item Нахождение регистрации может занимать очень вычислительных ресурсов
+            \item Решение задачи, вообще говоря, неединственно
+            \item Нет однозначного определения близости облаков точек
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\section{Преобразования между облаками точек}
+
+\begin{frame}[fragile]{Аффинные преобразвания}
+    \begin{block}{}
+        Любая регистрация определяется аффинным преобразованием
+        \[
+            T:\mathbb{R}^3\to\mathbb{R}^3:x \mapsto R x + t,
+        \]
+        где $t\in\mathbb{R}^3$, $R\in Mat_{3,3}(\mathbb{R})$.
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        Жесткие регистрации описываются изометриями, т.е. сдвигом и вращением: $R^TR=I$, $\det(R)=1$
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        Нежесткие регистрации описываются невырожденными аффинными преобразованиями: $\det(R)\neq 0$.
+    \end{block}
+
+\end{frame}
+
+\section{Итеративные методы ближайшей точки (ICP методы)}
+
+\begin{frame}[fragile]{Схема ICP алгоритмов}
+    \begin{block}{}
+        Пусть нам заданы два облака точек $P=\{p_1,\ldots,p_n\}$ и $Q=\{q_1,\ldots,q_m\}$.
+        Облако $P$ будем называть референсным, а облако $Q$ текущим.
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        Задача регистрации заключается в нахождении аффинного преобразвания $T$ такого, что облако
+        $T(Q)\stackrel{def}{=}\{T(q_1),\ldots,T(q_n)\}$ будет ``мало отличаться'' от $P$.
+    \end{block}
+
+    \begin{block}{}
+        Отличие облаков оценивается некотрой функцией потерь $L$, а цель алгоритма 
+        минимизировать эту функцию итеративно подбирая преобразование $T$.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Схема ICP алгоритмов}
+    \begin{block}{}
+        Алгоритм ICP состоит из шагов
+        \begin{itemize}
+            \item Выбор точек из облаков (point selection)
+            \item Нахождение связок между точками (point matching)
+            \item Отклонение связок (point rejection)
+            \item Минимизация ошибки
+        \end{itemize}
+        Шаги повторяются пока алгоритм не сойдется (например, превышено максимальное количество итераций)
+    \end{block}
+
+    \begin{figure}
+        \includegraphics[width=0.5\textwidth]{images/icp_scheme.png}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Схема ICP алгоритмов. Выбор точек}
+    \begin{block}{}
+        Выбор точек (downsampling) в ICP алгоритме помогает
+        \begin{itemize}
+            \item Снизить количество точек которые надо обрабатывать
+            \item Выкинуть шумы и выбросы для увеличения точности алгоритма
+        \end{itemize}
+    \end{block}
+
+    \pause
+
+    \begin{figure}
+        \includegraphics[width=0.5\textwidth]{images/icp_downsampling.jpg}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Схема ICP алгоритмов. Выбор точек}
+
+    \begin{block}{}
+        Стратегии выбора точек:
+        \begin{itemize}
+            \item Случайный выбор (random sampling)
+            \item Каждый раз выбираем новую точку которая находится на некотором расстоянии от предыдущей (distance limit)
+            \item Разобъем пространство на ячейки в каждой ячеке все точки заменим одной - средним всех точек ячейки (uniform sampling)
+        \end{itemize}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Схема ICP алгоритмов. Нахождение связок}
+
+    \begin{block}{}
+        Нахождение связок необходимо для вычисления функции потерь.
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        В связку попадают точка $p$ из референсного облака и точка $q$ из текущего облака, причем
+        просле преобразования $T$ точка $T(q)$ --- ближайшая к $p$ в смысле какой-то метрики.
+    \end{block}
+
+    \begin{figure}
+        \includegraphics[width=0.6\textwidth]{images/correspondence_example.jpg}
+    \end{figure}
+
+
+\end{frame}
+
+\begin{frame}[fragile]{Схема ICP алгоритмов. Нахождение связок}
+
+    \begin{block}{}
+        Лобовое решение имело бы сложность $O(n\cdot m)$, где $n$ --- количество точек в референсном облаке, $m$ --- в текущем облаке.
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        Конечно, нужно что-то побыстрее. Обычно ускорения добиваются предварительным подсчетом над точками референсного облака.
+        Строится какая-нибудь структура данных которая позволит бысро находить соседнюю точку для заданной. Обычно получаем
+        ускорение до $O(m \log n)$.
+        Примеры таких структур данных:
+        \begin{itemize}
+            \item multi-z-buffer
+            \item kd-tree
+            \item octree
+        \end{itemize}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Схема ICP алгоритмов. Нахождение связок. Multi-z-buffer}
+
+    \begin{block}{}
+        Принцип работы:
+        \begin{itemize}
+            \item Разрезаем прострнство на ячейки (воксели)
+            \item Для каждой точки за $O(1)$ находим ее ячейку
+            \item В ячейке любым способом ищем соседей
+        \end{itemize}
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        \begin{figure}
+            \includegraphics[width=0.4\textwidth]{images/multi_z_buffer.png}
+        \end{figure}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Схема ICP алгоритмов. Нахождение связок. Kd-tree}
+
+    \begin{block}{}
+        Принцип работы:
+        \begin{itemize}
+            \item Разрезаем пространство `пополам' каждый раз переключая нормаль плоскости разрезания ($Ox$, $Oy$, $Oz$)
+            \item Этот процесс описывает построение некоторого бинарного дерева
+            \item Поиск ближайшей точки похож на поиск в бинарном дереве
+        \end{itemize}
+        \begin{figure}
+            \includegraphics[width=0.7\textwidth]{images/kd_tree.jpg}
+        \end{figure}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Схема ICP алгоритмов. Нахождение связок. Octree}
+
+    \begin{block}{}
+        Принцип работы:
+        \begin{itemize}
+            \item Разрезаем пространство на 8 октантов
+            \item В тех октантах где есть точки повторяем предыдущйи шаг
+            \item Поиск ближайшей точки похож на поиск в 8-арном дереве
+        \end{itemize}
+        \begin{figure}
+            \includegraphics[width=0.7\textwidth]{images/octree.png}
+        \end{figure}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Схема ICP алгоритмов. Удаление связок}
+    \begin{block}{}
+        Одной точке из текущего облака может соответствовать несколько точек из референсного.
+        Нам это будет мешать, от таких связок надо избавляться.
+    \end{block}
+
+    \begin{figure}
+        \includegraphics[width=0.6\textwidth]{images/correspondence_erasure_1.jpg}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Схема ICP алгоритмов. Удаление связок}
+    \begin{block}{}
+        Существует несколько алгоритмов удаления связок:
+        \begin{itemize}
+            \item Удаление определенного процента самых длинных связок
+            \item Удаление связок с длиной больше заданной
+            \item Удаление связок в которых есть задваивание точек
+            \item Удаление связок с длиной больше медианной
+            \item Удаление связок c несогласованными нормалями
+            \item ...
+        \end{itemize}
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        Можно применить сразу несколько алгоритмов
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Схема ICP алгоритмов. Удаление связок по длине}
+    \begin{block}{}
+        Удаление связок с длиной больше заданной интуитивно понятно, но требует подбора
+        максмального значения. Можно высчитывать медианную длину связок по всему облаку
+        или по окрестности
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        \begin{figure}
+            \includegraphics[]{images/correspondence_erasure_2.jpg}
+        \end{figure}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Схема ICP алгоритмов. Удаление связок c задваиванием}
+    \begin{block}{}
+        Удаление связок с задваиванием, гарантирует, что у нас каждой точке текущего облака будет
+        соответствовать одна точка из референсного. Не факт, что это будет ``удачная'' точка.
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        \begin{figure}
+            \includegraphics[]{images/correspondence_erasure_3.jpg}
+        \end{figure}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Схема ICP алгоритмов. Удаление связок по нормалям}
+    \begin{block}{}
+        Удаление связок с по нормалям, убирает точки у которых нормали к поверхности ``сильно'' разнонаправлены.
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        \begin{figure}
+            \includegraphics[]{images/correspondence_erasure_4.jpg}
+        \end{figure}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Схема ICP алгоритмов. Функция потерь}
+    \begin{block}{}
+        Ошибку регистрации облаков можно посчитать когда для каждой точки $q_i$ из текущего облака $Q$ найдена связанная
+        точка $p_i$ из референсного облака $P$.
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        Обзначим эту ошибку $L(P, Q, T)$, тогда искомое преобразование для жесткой регистрации находится из
+        оптимизационной задачи
+        \[
+            \hat{T}=\operatorname{argmin}\limits_{T\in \operatorname{Isometry}(\mathbb{R}^3)} L(P, Q, T)
+        \]
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Схема ICP алгоритмов. Функции потерь}
+    \begin{block}{}
+        Типы функций потерь:
+        \begin{itemize}
+            \item Точка к точке \[L(P,Q,T)=\sum_{i=1}^m\Vert p_i - T(q_i)\Vert^2 \]
+            \item Точка к плоскости \[L(P,Q,T)=\sum_{i=1}^m(n_i (p_i - T(q_i)))^2 \]
+            \item Точка к проекции. Находм ближашую точку в референсном облаке по направлению собственной нормали
+            \item ...
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Известные ICP алгоритмы}
+    \only<1>{
+        \begin{block}{}
+            Go-ICP --- ищет оптимальное преобразование по всему пространству $Isometry(\mathbb{R}^3)$
+            используя метод ветвей и границ
+        \end{block}
+        \begin{block}{}
+            \begin{figure}
+                \includegraphics[width=0.7\textwidth]{images/go_icp.png}
+            \end{figure}
+        \end{block}
+    }
+
+    \pause
+
+    \only<2>{
+        \begin{block}{}
+            GICP (Generalized-ICP) --- вводит вероятностную модель на распределение точек в облаке. Варьируя параметры вероятностной модели
+            можно получить ICP алгоритмы с функцией потерь точка к точке или точека к плоскости
+        \end{block}
+        \begin{block}{}
+            \begin{figure}
+                \includegraphics[width=0.7\textwidth]{images/gicp.jpg}
+            \end{figure}
+        \end{block}
+    }
+
+    \pause
+
+    \only<3>{
+        \begin{block}{}
+            VGICP (voxelized GICP) --- модфикация GICP в которой пространство разбивается на воксели и по точкам в вокселе
+            оцениваются параметры вероятностного распределения GICP. Хорошо адаптируется для видеокарт.
+        \end{block}
+        \begin{block}{}
+            \begin{figure}
+                \includegraphics[width=0.7\textwidth]{images/gicp.jpg}
+            \end{figure}
+        \end{block}
+    }
+\end{frame}
+
+\begin{frame}[fragile]{ICP алгоритмы}
+    \only<1>{
+        \begin{block}{}
+            Плюсы:
+            \begin{itemize}
+                \item Хорошо параллелизуются
+                \item Стабильные и робастные
+                \item Не требуют feature-инжениринга
+                \item Обобщаются на многомерный случай
+                \item Могут быть использованы в связке с другими алгоритмами
+            \end{itemize}
+        \end{block}
+    }
+    \pause
+
+    \only<2>{
+        \begin{block}{}
+            Минусы:
+            \begin{itemize}
+                \item Требуется начальное приближение
+                \item Требуются предварительные вычисления (например построение kd-дерева)
+                \item Медленные из-за необходимости построения связок
+                \item Во время оптимизации могут застрять в локальном минимуме
+            \end{itemize}
+        \end{block}
+    }
+
+\end{frame}
+
+\section{Вероятностные методы}
+
+\begin{frame}[fragile]{Вероятностные методы}
+    \only<1>{
+        \begin{block}{}
+            Основная идея:
+            \begin{itemize}
+                \item Все облака являются выборками из некоторого вероятностного распределения
+                \item Обычно вероятностное распределение это смесь Гауссовых распределений (Gaussian mixture model)
+                \item Оптимальное преобразвание минимизирует ``расстояние'' между этими распределениями
+            \end{itemize}
+        \end{block}
+    }
+
+    \pause
+
+    \only<2>{
+        \begin{block}{}
+            Мы обсудим два метода:
+            \begin{itemize}
+                \item Смесь гауссовских распределений (Gaussian mixture model, GMM)
+                \item Преобразование нормальных распределений (Normal distributions transform, NDT)
+            \end{itemize}
+        \end{block}
+    }
+\end{frame}
+
+\begin{frame}[fragile]{Вероятностные методы. GMM}
+    \only<1>{
+        \begin{block}{}
+            Для начала нам потребуется несколько предварительных сведений
+        \end{block}
+    }
+    \only<2>{
+        \begin{block}{}
+            Любое облако $C$ можно описать как смесь гауссовых распределений.
+
+            Допустим, что облако точек $C$ описывается смесью $N_C$ гауссовских распределений. Пусть
+            \begin{itemize}
+                \item вес $i$-го рапределения -- $\phi_i^C$
+                \item плотность $i$-го гауссовского распределения
+                      \[
+                          f_i^C(r)=\Gamma(r; \mu_i^c, \Sigma_i^C)
+                      \]
+            \end{itemize}
+            Тогда плотность распределения облака
+            \[
+                f^C(r)=\sum_{i=1}^{N_C}\phi_i^C f_i^C(r)
+            \]
+        \end{block}
+    }
+
+    \pause
+
+    \only<3>{
+        \begin{block}{}
+            Если к облаку применить преобразование $T$ задаваемое сдвигом $t$ и матрицей $R$, то плотность распределения
+            изменится следующим образом
+            \[
+                f^{T(C)}(r)=\sum_{i=1}^{N_c} \phi_i^C f_i^{T(C)}(r)
+            \]
+            где
+            \[
+                f_i^{T(C)}(r)=\Gamma(r; \mu_i^C + t, R \Sigma_i^C R^T)
+            \]
+        \end{block}
+    }
+
+    \pause
+
+    \only<4>{
+        \begin{block}{}
+            Мы хотим найти преобразование $T$ при котором распределение $f^P$ референсного облака как можно меньше отличалось
+            от распределения $f^{T(Q)}$ преобразованного текущего облака $Q$.
+        \end{block}
+        \begin{block}{}
+            В методе GMM расстояние между вероятностными распределениями вычисляется как интегральная $L_2$ норма
+            \[
+                d(f_1, f_2)=\int_{\mathbb{R}^3} (f_1(r)-f_2(r))^2dr
+            \]
+        \end{block}
+    }
+
+    \pause
+
+    \only<5>{
+        \begin{block}{}
+            В итоге мы получаем задачу минимизации
+            \[
+                \hat{T}=\operatorname{argmin}\limits_{T\in\operatorname{Isometry(\mathbb{R}^3)}}\int_{\mathbb{R}^3} (f^{T(Q)}(r)-f^P(r))^2dr
+            \]
+        \end{block}
+        \begin{block}{}
+            Поскольку величины
+            \[
+                \int_{\mathbb{R}^3} f^P(r)^2dr \quad \mbox{ и } \quad  \int_{\mathbb{R}^3} f^{T(Q)}(r)^2dr
+            \]
+            не зависят от $T$ то задача минимизации сводится к следующей
+            \[
+                \hat{T}=\operatorname{argmin}\limits_{T\in\operatorname{Isometry(\mathbb{R}^3)}}\int_{\mathbb{R}^3}(-2\cdot f^{T(Q)}(r) \cdot f^P(r))dr
+            \]
+        \end{block}
+    }
+
+    \pause
+
+    \only<6>{
+        \begin{block}{}
+            Эта задача может быть решена $EM$-алгоритмом или с помощью $SVM$.
+
+            Алгоритм вычислительно тяжелый. Поэтому люди искали альтернативы
+        \end{block}
+    }
+\end{frame}
+
+
+\begin{frame}[fragile]{Вероятностные методы. NDT}
+    \only<1>{
+        \begin{block}{}
+            Идея метода NDT похожа на GMM, но мы делаем несколько инженерных упрощений:
+            \begin{itemize}
+                \item Мы разбиваем референсное облако на воксели и считаем, что внутри вокселя точки распределены как смесь нормального и равномерного распределения
+                \item Параметры нормального распределения оцениваются по координатам точек вокселя
+                \item Для нахождения оптимального преобразвания мы применяем метод максимального правдоподобия к облаку $T(Q)$ и используем плотность распределения
+                      референсного облака
+            \end{itemize}
+        \end{block}
+    }
+    \only<2>{
+        \begin{block}{}
+            Обсудим алгоритм подробнее.
+
+            Пусть референсное облако разбито на воксели $\{V_1,\ldots,V_N\}$.
+
+            Рассмотрим произвольный воксель $V$. Пусть он содержит точки ${x_1,\ldots,x_{k_V}}$
+
+            Будем считать, что внутри вокселя распределение точек является смесью нормального и равномерного.
+            \[
+                p_V(r)=\phi_1 \Gamma(r; \mu_V, \Sigma_V) + \phi_2 p_2
+            \]
+            причем
+            \[
+                \mu_V=\frac{1}{k_V}\sum_{i=1}^{k_V} x_i \quad\;\;\;
+                \Sigma_V = \frac{1}{k_V-1}\sum_{i=1}^{k_V}(x_i-\mu_V)(x_i-\mu_V)^T
+            \]
+        \end{block}
+    }
+
+    \pause
+
+    \only<3>{
+        \begin{block}{}
+            Искомое преобразование $T$ должно максимизировать вероятность того что облако $T(Q)$ получено из
+            распределения облака $P$.
+
+            Таким образом мы получаем задачу оптимизации
+            \[
+                \hat{T}=\operatorname{argmin}\limits_{T\in\operatorname{Isometry(\mathbb{R}^3)}} \prod_{i=1}^m p_{V(T(q_i))}(T(q_i))
+            \]
+            где $V(r)$ это воксель в который попадает точка с радиус вектором $r$
+        \end{block}
+    }
+
+    \pause
+
+    \only<4>{
+        \begin{block}{}
+            В алгоритме NDT минимизируемую функцю $p_V$ заменяют на функцию вида
+            \[
+                \tilde{p}_V(r) = c_1 \exp\left( \frac{-c_2}{2}(r-\tilde{\mu}_v)^T \tilde{\Sigma}_V^{-1}(r-\tilde{\mu}_V)\right)
+            \]
+
+            Она ведет себя похожим образом, и более того такая ``замена'' позволяет записать простые аналитические выражения
+            для градиента и гессиана минимизируемой функции.
+
+            Это в свою очередь позволяет быстро решить задачу оптимизации с помощью методов второго порядка.
+        \end{block}
+    }
+
+    \pause
+
+\end{frame}
+
+\begin{frame}[fragile]{Вероятностные алгоритмы}
+    \only<1>{
+        \begin{block}{}
+            Плюсы:
+            \begin{itemize}
+                \item Хорошо параллелизуются
+                \item Стабильные и робастные
+                \item Не требуют feature-инжиниринга
+                \item Обобщается на многомерный случай
+                \item Могут быть использованы в связке с другими алгоритмами
+                \item Работают быстрее ICP так как не требуют вычисления связок точек
+            \end{itemize}
+        \end{block}
+    }
+    \pause
+
+    \only<2>{
+        \begin{block}{}
+            Минусы:
+            \begin{itemize}
+                \item Требуется начальное приближение
+                \item Во время оптимизации могут застрять в локальном минимуме
+            \end{itemize}
+        \end{block}
+    }
+
+\end{frame}
+
+
+
+\section{Методы ключевых точек}
+
+\begin{frame}[fragile]{Методы ключевых точек}
+    \begin{block}{}
+        Часто в облаке не все точки полезны и нужны.
+
+        Пример: большая часть точек на ровной стене не несет полезной информации.
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        Идея: найти ``интресные'' точки и оставить в облаке только их.
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        Какие точки ``интересные''?
+        \begin{itemize}
+            \item Углы объектов
+            \item Переход цвета или интенсивности
+            \item Границы объектов
+        \end{itemize}
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        Далее ``интересные'' точки будет называть ключевыми.
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Методы ключевых точек. Дескрипторы}
+    \begin{block}{}
+        Какие найти ключевые точки?
+        \begin{itemize}
+            \item Посчитать геометрические характеристики ее окретсности
+            \item Переход цвета или интенсивности
+            \item Границы объектов
+        \end{itemize}
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        Такие характеристики называются локальными дескрипторами.
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        Основное требование к дескрипторам --- они должны быть инвариантны относительно преобразований используемых в регистрации.
+        Так как мы чаще всего используем жесткие регистрации, то требуется инвариантность относительно изометрий.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Методы ключевых точек. Простешие дескрипторы}
+    \begin{block}{}
+        Примеры локальных дескрипторов:
+        \begin{itemize}
+            \item нормаль к поверхности в точке
+            \item кривизны поверхности в точке
+            \item плотность точек в окрестности
+        \end{itemize}
+    \end{block}
+
+    \pause
+
+    \begin{block}{}
+        \begin{figure}
+            \includegraphics[width=0.4\textwidth]{images/simple_descriptor.jpg}
+        \end{figure}
+    \end{block}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Методы ключевых точек. Продвинутые дескрипторы}
+    \only<1>{
+        \begin{block}{}
+            Придумано множество дескрипторов:
+            \begin{itemize}
+                \item Point Feature Histogram (PFH)
+                \item Signature of Histograms OrienTations (SHOT)
+                \item Intinsic shape signature (ISS)
+                \item BOrder Aware Repeatable Directions (BOARD)
+                \item ...
+            \end{itemize}
+        \end{block}
+    }
+
+    \pause
+
+    \only<2>{
+        \begin{block}{}
+            Для примера обсудим SHOT дескриптор. Он вычисляется следующим образом:
+            \begin{itemize}
+                \item Для каждой точки облака подсчитать какую либо характеристику (например угол между нормалью в точке и осью z)
+                \item Для каждой точки выбрать окрестность и по всем точкам из окрестности построить гистограмму выбранной характеристики
+                \item Данная гистограмма и будет дескрипторам точки
+            \end{itemize}
+        \end{block}
+    }
+
+    \pause
+
+    \only<3>{
+        \begin{block}{}
+            \begin{figure}
+                \includegraphics[width=\textwidth]{images/shot_descriptor.jpg}
+            \end{figure}
+        \end{block}
+    }
+\end{frame}
+
+\begin{frame}[fragile]{Методы ключевых точек. Регистрация}
+    \only<1>{
+        \begin{block}{}
+            \begin{itemize}
+                \item Как только получены дескрипторы всех точек можно начинать процесс регистрации.
+                \item Теперь сопоставлять между собой мы будем не сами координаты точек, а их локальные дескрипторы.
+                \item Сопоставляя дескрипторы мы получаем связки между точками
+                \item Перед сопоставлением дескрипторов можно уменьшить количество точек в референсном и текущем облаке, например с помощью кластеризации.
+                \item Как только получены связки можно вернутся к шагам алгоритма ICP
+            \end{itemize}
+        \end{block}
+    }
+\end{frame}
+
+\begin{frame}[fragile]{Методы ключевых точек}
+    \only<1>{
+        \begin{block}{}
+            Плюсы:
+            \begin{itemize}
+                \item Дают хорошее начальное приближение
+                \item Большой набор готовых дескрипторов
+                \item Можно использовать как начальное приближение для более точных алгоритмов регистрации
+            \end{itemize}
+        \end{block}
+    }
+
+    \pause
+
+    \only<2>{
+        \begin{block}{}
+            Минусы:
+            \begin{itemize}
+                \item Не дают точного решения
+                \item Медленно работают
+            \end{itemize}
+        \end{block}
+    }
+
+\end{frame}
+
+\begin{frame}[fragile]{}
+    \begin{block}{}
+        В этом обзоре мы не обсудили регистрации точек методами машинного обучения, но это слишком большая тема 
+        чтобы уместить ее в этой презентации. Здесь стоит сказать, что лидерами в этой области являются нейронные
+        сети.
+        \newline
+        \newline
+        \newline
+        Спасибо за внимание!
+    \end{block}
+
+\end{frame}
+
+\end{document}

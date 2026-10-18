@@ -1,0 +1,2061 @@
+%===============================================================================
+%  DISCARD ON MERGE --- mirrors book/main.tex
+%
+%  Nothing between this line and the marker "END OF DISCARD BLOCK" belongs in
+%  [B].  The macros \projtens, \convol, \projmodtens, \isom are copied verbatim
+%  from book/main.tex; the operators sep, sepd, asep, asepd, sng, dist and the
+%  four constants of the algebra are the preamble additions that Part IV asks
+%  to be vetted.  The body below uses only [B]'s macros.
+%
+%  Section and theorem numbers in this file are an artefact of the standalone
+%  document: everything is cited by label, never by number.
+%===============================================================================
+\documentclass[11pt]{article}
+\usepackage[margin=1.05in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+% --- copied verbatim from book/main.tex -------------------------------------
+\newcommand{\projtens}{\mathbin{\widehat{\otimes}}}
+\newcommand{\convol}{\ast}
+\newcommand{\projmodtens}[1]{\mathbin{\widehat{\otimes}}_{#1}}
+\newcommand{\isom}[1]{\mathrel{\mathop{\cong}\limits_{#1}}}
+
+% --- preamble additions required in book/main.tex (see Part IV) --------------
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\sep}{sep}
+\DeclareMathOperator{\sepd}{sepd}
+\DeclareMathOperator{\asep}{asep}
+\DeclareMathOperator{\asepd}{asepd}
+\DeclareMathOperator{\sng}{sng}
+\newcommand{\cri}{c_{\mathrm{ri}}}
+\newcommand{\cli}{c_{\mathrm{li}}}
+\newcommand{\crai}{c_{\mathrm{rai}}}
+\newcommand{\clai}{c_{\mathrm{lai}}}
+
+% --- proofreading convenience -----------------------------------------------
+% The labels below live in [B], not here; the stubs make every reference to
+% them print as the label itself, so that the file compiles clean on its own.
+% Delete the whole block on merge, where the labels resolve for real.
+\makeatletter
+\DeclareRobustCommand{\cite}[2][]{[\texttt{#2}\ifx\\#1\\\else,~#1\fi]}
+\makeatother
+\newlabel{AnnihCModIsRetAnnihMod}{{\texttt{AnnihCModIsRetAnnihMod}}{--}}
+\newlabel{CStarAlgIsTopFlatOverItsIdeal}{{\texttt{CStarAlgIsTopFlatOverItsIdeal}}{--}}
+\newlabel{DualMetTopProjIsMetrInj}{{\texttt{DualMetTopProjIsMetrInj}}{--}}
+\newlabel{GoodIdealMetTopProjIsUnital}{{\texttt{GoodIdealMetTopProjIsUnital}}{--}}
+\newlabel{L1MetTopProjAndMetrFlatOfMeasAlg}{{\texttt{L1MetTopProjAndMetrFlatOfMeasAlg}}{--}}
+\newlabel{MeasAlgIsL1TopFlat}{{\texttt{MeasAlgIsL1TopFlat}}{--}}
+\newlabel{MetCTopFlatMod}{{\texttt{MetCTopFlatMod}}{--}}
+\newlabel{MetCTopFreeMod}{{\texttt{MetCTopFreeMod}}{--}}
+\newlabel{MetCTopInjMod}{{\texttt{MetCTopInjMod}}{--}}
+\newlabel{MetCTopProjMod}{{\texttt{MetCTopProjMod}}{--}}
+\newlabel{MetCTopProjModViaCanonicMorph}{{\texttt{MetCTopProjModViaCanonicMorph}}{--}}
+\newlabel{MetInjIsOneTopInj}{{\texttt{MetInjIsOneTopInj}}{--}}
+\newlabel{MetTopFlatAnnihModCharac}{{\texttt{MetTopFlatAnnihModCharac}}{--}}
+\newlabel{MetTopFlatCycModCharac}{{\texttt{MetTopFlatCycModCharac}}{--}}
+\newlabel{MetTopFlatModCoProd}{{\texttt{MetTopFlatModCoProd}}{--}}
+\newlabel{MetTopFlatModEssQuotIsFlatBanSp}{{\texttt{MetTopFlatModEssQuotIsFlatBanSp}}{--}}
+\newlabel{MetTopInjModAnnihPartIsInjBanSp}{{\texttt{MetTopInjModAnnihPartIsInjBanSp}}{--}}
+\newlabel{MetTopInjModCCharac}{{\texttt{MetTopInjModCCharac}}{--}}
+\newlabel{MetTopInjModProd}{{\texttt{MetTopInjModProd}}{--}}
+\newlabel{MetTopInjOfAnnihModCharac}{{\texttt{MetTopInjOfAnnihModCharac}}{--}}
+\newlabel{MetTopProjCycModCharac}{{\texttt{MetTopProjCycModCharac}}{--}}
+\newlabel{MetTopProjIsMetTopFlat}{{\texttt{MetTopProjIsMetTopFlat}}{--}}
+\newlabel{MetTopProjModCCharac}{{\texttt{MetTopProjModCCharac}}{--}}
+\newlabel{MetTopProjModEssQuotIsProjBanSp}{{\texttt{MetTopProjModEssQuotIsProjBanSp}}{--}}
+\newlabel{MetTopProjOfAnnihModCharac}{{\texttt{MetTopProjOfAnnihModCharac}}{--}}
+\newlabel{MetTopRelFlatModCompIdealPartCompl}{{\texttt{MetTopRelFlatModCompIdealPartCompl}}{--}}
+\newlabel{MetTopRelFlatModPartCompl}{{\texttt{MetTopRelFlatModPartCompl}}{--}}
+\newlabel{MetTopRelInjModAnnihCompl}{{\texttt{MetTopRelInjModAnnihCompl}}{--}}
+\newlabel{MetTopRelInjModCompIdealAnnihCompl}{{\texttt{MetTopRelInjModCompIdealAnnihCompl}}{--}}
+\newlabel{MetTopRelProjModCompIdealPartCompl}{{\texttt{MetTopRelProjModCompIdealPartCompl}}{--}}
+\newlabel{MetTopRelProjModPartCompl}{{\texttt{MetTopRelProjModPartCompl}}{--}}
+\newlabel{SectionPreliminariesOnHarmonicAnalysis}{{\texttt{SectionPreliminariesOnHarmonicAnalysis}}{--}}
+\newlabel{SubSectionBanachAlgebrasAndTheirModules}{{\texttt{SubSectionBanachAlgebrasAndTheirModules}}{--}}
+\newlabel{SubSectionBanachSpaces}{{\texttt{SubSectionBanachSpaces}}{--}}
+\newlabel{SubSectionC0SModules}{{\texttt{SubSectionC0SModules}}{--}}
+\newlabel{SubSectionL1GModules}{{\texttt{SubSectionL1GModules}}{--}}
+\newlabel{SubSectionMetricAndTopologicalFlatness}{{\texttt{SubSectionMetricAndTopologicalFlatness}}{--}}
+\newlabel{SubSectionc0AndlInftyModules}{{\texttt{SubSectionc0AndlInftyModules}}{--}}
+\newlabel{c0AndlInftyModlIfty}{{\texttt{c0AndlInftyModlIfty}}{--}}
+
+\title{The essential and the annihilator part:\\
+material for section 2.2 of \emph{Metric and topological homology},\\
+with the accompanying insertions in chapters 1 and 3}
+\author{Book-ready form of the companion note}
+\date{25 August 2026 \\[2pt] {\small version \texttt{20260825\_0829};
+supersedes \texttt{20260825\_0530}}}
+%===============================================================================
+%  END OF DISCARD BLOCK
+%===============================================================================
+
+\begin{document}
+\maketitle
+
+\noindent
+This file is the companion note in the form in which it drops into [B]. It has
+four parts. Part I holds the prose paragraphs that belong in chapter 1, each
+headed by where it goes. Part II is the new section 2.2, ``The essential and the
+annihilator part'', in six subsections; at the head of each subsection the
+statements of [B] that are to be interleaved are listed by label, with the point
+of insertion. Part III holds the material for chapter 3. Part IV is the merge
+manifest and the list of preamble additions.
+
+Throughout, $\sep_X(x)=\dist(x,X_{ess})$ is the \emph{separation} of a vector
+from the essential part and
+$\sepd(X)=\sup\{\sep_X(x):x\in B_{X_{ann}}\}$ its \emph{separation defect};
+replacing annihilator vectors by nets annihilated only asymptotically gives a
+second defect $\asepd(X)$ and the chain $\sepd(X)\leq\sepd(X^*)\leq\asepd(X)$.
+Two constants of the algebra arise by evaluating the defect on the free module
+of rank one and on its dual,
+\[
+\sepd(A_+)=\frac{1}{1+\cri(A)},
+\qquad
+\sepd(A_+^*)=\frac{1}{1+\crai(A)},
+\]
+and the three homological properties then obey one estimate with two constants:
+a $\langle$~metrically / $C$-topologically~$\rangle$ projective $P$, injective
+$J$ or flat $F$ satisfies
+$\sepd(P)\leq\langle\,\sepd(A_+)\ /\ C\sepd(A_+)\,\rangle$ and
+$\sepd(J),\sepd(F)\leq\langle\,\sepd(A_+^*)\ /\ C\sepd(A_+^*)\,\rangle$.
+Since $\sepd=1$ on a non-zero annihilator module, these lines return the algebra
+clauses of the annihilator characterisations collected in subsection 2.2.6 --- a
+right identity in the projective case, a bounded right approximate identity in
+the other two.
+
+\section{For chapter 1}\label{PartI}
+
+The paragraphs below are prose: chapter 1 of [B] carries no numbered statement
+anywhere, and these do not change that. Each is headed by its destination.
+
+\subsection{For subsection~\ref{SubSectionBanachSpaces}, in the paragraph that
+already carries $E^*/F^\perp\isom{\mathbf{Ban}_1}F^*$ and
+${(E/F)}^*\isom{\mathbf{Ban}_1}F^\perp$}
+
+For a non-empty subset $M$ of a Banach space $E$ and a vector $x\in E$ we write
+$\dist(x,M)=\inf \{\lVert x-y\rVert:y\in M \}$. The function
+$\dist(\cdot,M):E\to\mathbb{R}_+$ is $1$-Lipschitz, and it is positively
+homogeneous whenever $M$ is a linear subspace. If $M$ is a closed subspace, the
+Hahn-Banach theorem gives the dual description
+\[
+\dist(x,M)=\max \{|f(x)|:f\in B_{M^\perp} \},
+\]
+the maximum being attained; combined with the isometric isomorphism
+$i:(E/M)^* \to M^\perp$ above, this says that
+\[
+\dist(x,M)=\lVert x+M\rVert_{E/M}=\max \{ |f(x)| : f\in B_{{(E/M)}^*} \}
+\]
+We shall use three further classical facts about weak topologies. By the 
+Banach-Alaoglu theorem the closed unit ball of a dual space is weak${}^*$ 
+compact. By Goldstine's theorem
+$\iota_E(B_E)$ is weak${}^*$ dense in $B_{E^{**}}$. By Mazur's theorem the weak
+closure of a convex subset of $E$ coincides with its norm closure.
+
+\subsection{For subsection~\ref{SubSectionBanachAlgebrasAndTheirModules}, after
+the paragraph introducing approximate identities}
+
+It is convenient to name the optimal bounds. By
+$\langle$~$\cri(A)$ / $\cli(A)$~$\rangle$ we denote the infimum of the norms of
+the $\langle$~right / left~$\rangle$ identities of $A$, and by
+$\langle$~$\crai(A)$ / $\clai(A)$~$\rangle$ the infimum of the bounds of the
+$\langle$~right / left~$\rangle$ approximate identities of $A$; each of the four
+is $+\infty$ if there is nothing to take the infimum over, and each of the four
+is $0$ for the zero algebra, whose only element is a two-sided identity and
+whose only net is a two-sided approximate identity. For $A\neq \{0 \}$ all four
+constants lie in $[1,+\infty]$. If $A$ is commutative, a left
+approximate identity is a right one and conversely, so $\clai(A)=\crai(A)$; it is
+not known whether $\clai(A)=\crai(A)$ whenever both are finite. If $A$ is unital
+then
+\[
+\cri(A)=\cli(A)=\crai(A)=\clai(A)=\lVert e_A\rVert ,
+\]
+the zero algebra included, with $e_A=0$ and all four constants $0$. Finally, 
+when $\langle$~$\clai(A)$ / $\crai(A)$~$\rangle$ is finite it is attained: some 
+ $\langle$~left / right~$\rangle$approximate identity is 
+bounded by $\langle$~$\clai(A)$ / $\crai(A)$~$\rangle$ itself. This is 
+theorem~\ref{SepOfDualUnitization} below.
+
+\subsection{After introduction of essential and faithful modules add the 
+following facts}.
+
+Suppose $A$ has a $\langle$~left / right~$\rangle$ approximate identity 
+${(e_\nu)}_{\nu\in N}$. For any $\langle$~left / right~$\rangle$ Banach $A$-module 
+$X$ and any $x\in X_{ess}$ the net $\langle$~${(e_\nu \cdot x)}_{\nu\in N}$ / 
+${(x\cdot e_\nu)}_{\nu\in N}$~$\rangle$ converges to $x$. If $Y$ is another 
+$\langle$~left / right~$\rangle$ Banach $A$-module and $\phi:X\to Y$ is an 
+$A$-mprphism, then $\phi(X_{ess})\subset Y_{ess}$ 
+and $\phi(X_{ann})\subset Y_{ann}$. 
+
+\subsection{Move this to the new subsection 2.2 before proposition 2.4 of this 
+note as a numbered definition}
+
+An \emph{annihilator net} in a $\langle$~left / right~$\rangle$ Banach
+$A$-module $X$ is a net ${(x_\nu)}_{\nu\in N}$ in $X$ such that
+$\langle$~${(a\cdot x_\nu)}_{\nu\in N}$ / ${(x_\nu\cdot a)}_{\nu\in N}$~$\rangle$ 
+is norm null for every $a\in A$.
+
+\subsection{For subsection~\ref{SubSectionBanachAlgebrasAndTheirModules}, in the
+paragraph that already records
+${(X^*)}^{\perp S}={\operatorname{cl}_X(S X)}^\perp$}
+
+Setting $S=A$ in the identity above and reading it on the two sides at once: for
+a left Banach $A$-module $X$ the dual right module $X^*$ has
+${(X^*)}_{ann}={(X_{ess})}^\perp$. The two subspaces ${(X^*)}_{ess}$ 
+and ${(X_{ann})}^\perp$ are in general different, though the first is always 
+contained in the second.
+
+\section{The essential and the annihilator part (the new section 2.2)}\label{PartII}
+
+The subsection headings below are those of the target structure. A new section
+2.2 is inserted between the present sections 2.1 and 2.2 of [B]; the present
+section 2.2 becomes 2.3 and the present 2.3 becomes 2.4, save for the present
+subsection 2.2.1, which becomes subsection 2.2.6 below.
+
+\subsection{Separation}\label{SubSectionSeparation}
+
+\emph{Nothing of [B] is interleaved here.}
+
+\begin{definition}\label{SepOfMod}
+Let $X$ be a $\langle$~left / right~$\rangle$ Banach $A$-module. 
+The \emph{separation} of a vector
+$x\in X$ is
+\[
+\sep_X(x):=\dist(x,X_{ess}),
+\]
+and the \emph{separation defect} of $X$ is
+\[
+\sepd(X):=\sup \{\sep_X(x):x\in B_{X_{ann}} \}.
+\]
+For $x\in X$ we write
+$\sng(x):=\inf \{\lVert a\cdot x\rVert/\lVert a\rVert:a\in A\setminus \{0 \} \}$
+for the \emph{singularity} of $x$, so for $x\in X_{ann}$ we have
+$\sng(x)=0$.
+\end{definition}
+
+The essential part is a closed linear subspace, so $\sep_X$ is $1$-Lipschitz and
+positively homogeneous; we use both properties below without further comment. In
+particular
+$\sepd(X)=\sup \{\sep_X(x)/\lVert x\rVert:x\in X_{ann}\setminus \{0 \} \}$ as
+soon as $X_{ann}\neq \{0 \}$, and $\sepd(X)=\sep_X(0)=0$ otherwise. The defect
+measures the directed gap from the annihilator part to the essential part. The 
+degenerate case is not idle: modules with $X_{ann}= \{0 \}$ but $X_{ess}\neq X$ 
+occur constantly and for them $\sepd(X)=0$ while the module is far from 
+essential.
+
+\begin{lemma}\label{SepLowerBound}
+Suppose $A$ has a $\langle$~left / right~$\rangle$ approximate identity bounded
+by $C$. Then in every $\langle$~left / right~$\rangle$ Banach $A$-module $X$, 
+for any $x\in X_{ann}$ holds
+\[
+\sep_X(x)\geq\frac{\lVert x\rVert}{1+C}\qquad(x\in X_{ann}).
+\]
+Note: one can put $\langle$~$C=\clai(A)$ / $C=\crai(A)$~$\rangle$.
+\end{lemma}
+
+\begin{proof} 
+We write the left-hand case, the right-hand one is a trivial adaptation. 
+Let ${(e_\nu)}_{\nu\in N}$ be a left approximate identity of $A$ 
+with $\sup_\nu\lVert e_\nu\rVert\leq C$. Dispose 
+first of $C=0$: then $A=\{0\}$, $X_{ess}=0$. So the assertion reads holds with 
+equality. Assume from now on $C>0$.
+
+Now let $x\in X_{ann}$ and $y\in X_{ess}$. Since $e_\nu\cdot x=0$, then
+\[
+\lVert e_\nu\cdot y\rVert=\lVert e_\nu\cdot(y-x)\rVert
+\leq\lVert e_\nu\rVert\lVert x-y\rVert\leq K\lVert x-y\rVert ,
+\]
+and letting $\nu$ run through $N$ turns the left-hand side into $\lVert g\rVert$. 
+So $\lVert x-y\rVert\geq\lVert y\rVert/C$, while the triangle inequality gives
+$\lVert x-y\rVert\geq\lVert x\rVert-\lVert y\rVert$. If
+$\lVert y\rVert\geq C\lVert x\rVert/(1+C)$ the first estimate gives
+$\lVert x-y\rVert\geq\lVert x\rVert/(1+C)$; if
+$\lVert y\rVert<K\lVert x\rVert/(1+C)$ the second gives the same. Taking the
+infimum over $y\in X_{ess}$ yields $\sep_X(x)\geq\lVert x\rVert/(1+C)$. By taking 
+supremum over all upper norm bounds of all left approximate identities 
+one can set $\langle$~$C=\clai(A)$ / $C=\crai(A)$~$\rangle$.
+\end{proof}
+
+\begin{proposition}\label{SepVsSepDual}
+For every $\langle$~left / right~$\rangle$ Banach $A$-module $X$ one has 
+$\sepd(X)\leq\sepd(X^*)$.
+\end{proposition}
+
+\begin{proof}
+If $X_{ann}= \{0 \}$ then $\sepd(X)=0$ and there is nothing to prove. Assume
+$X_{ann}\neq \{0 \}$. By the Hahn-Banach description of the distance to a closed
+subspace and the identity ${(X^*)}_{ann}={(X_{ess})}^\perp$, we get
+\[
+\sep_X(x)
+=\dist(x, X_{ess})
+=\max \{|f(x)|:f\in B_{(X_{ess})^{\perp}} \}
+=\max \{|f(x)|:f\in B_{{(X^*)}_{ann}} \}
+\]
+for all $x\in X$. Therefore,
+\[
+\sepd(X)
+=\sup \{ \sep_X(x) : x\in X_{ann} \}
+=\sup \{ |f(x)| : x\in X_{ann}, f\in B_{{(X^*)}_{ann}} \}
+\]
+On the other hand $(X_{ess})^*\subset(X_{ann})^\perp$. So 
+for $f\in{(X^*)}_{ann}\setminus \{0 \}$ holds
+\[
+\sep_{X^*}(f)=\dist \bigl(f,{(X^*)}_{ess} \bigr)
+\geq\dist \bigl(f,{(X_{ann})}^\perp \bigr)
+=\Vert f+{(X_{ann})}^{\perp}\Vert_{X/(X_{ann})^\perp}
+=\bigl\lVert f|_{X_{ann}}\bigr\rVert ,
+\]
+the last equality being the isometric identification of $X^*/Y^\perp$ with $Y^*$
+by restriction, applied to the closed subspace $Y=X_{ann}$. Taking the supremum 
+over $f\in B_{{(X^*)}_{ann}}$ and comparing with the previous
+calculation gives 
+$
+\sepd(X^*)
+\geq\sup \bigl \{ \lVert f|_{X_{ann}}\rVert : f\in B_{{(X^*)}_{ann}} \bigr \}
+=\sepd(X).
+$
+\end{proof}
+
+The gap between ${(X^*)}_{ess}$ and ${(X_{ann})}^\perp$ is exactly the slack in
+proposition~\ref{SepVsSepDual}. Since ${(X^*)}_{ann}={(X_{ess})}^\perp$, the
+defect of the dual is
+$\sepd(X^*)=\sup \{\sep_{X^*}(f):f\in{(X_{ess})}^\perp,\,\lVert f\rVert\leq 1 \}$,
+and the next proposition computes each of these numbers out of nets in $X$ that
+are annihilated only asymptotically. That is what makes it computable.
+
+\begin{proposition}\label{SepOfDualViaAnnihNets}
+Let $X$ be a $\langle$~left / right~$\rangle$ $A$-module 
+and $f\in{(X_{ess})}^\perp$. Then
+\begin{enumerate}[label = (\roman*)]
+\item $\sep_{X^*}(f)=\max \{|q(f)| : q\in B_{{({(X^*)}_{ess})}^{\perp}} \}$;
+
+\item $\sep_{X^*}(f)=\sup \bigl \{
+  \textstyle\limsup_\nu|f(x_\nu)|:
+  {(x_\nu)}_{\nu\in N}\ \text{an annihilator net in }B_X
+ \bigr \} $;
+
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+$(i)$ This is a direct conssequence of the formula for distance to ${(X^*)}_{ess}$ 
+in terms of functionals vanishing on ${(X^*)}_{ess}$. 
+
+===================================================
+
+$(ii)$ Writing  $L_a:X\to X,\,x\mapsto a\cdot x$, a bounded operator 
+with $L_a^*g=g\cdot a$, we have $E=\operatorname{cl}_{X^*}(\operatorname{span} \{L_a^*g \})$, and since
+$\langle L_a^{**}q,g\rangle=\langle q,L_a^*g\rangle$ the condition $q|_E=0$
+holds if and only if $L_a^{**}q=0$ for every $a\in A$.
+
+Nets give at most the distance. Let ${(x_\nu)}_{\nu\in N}$ be an annihilator net
+in $B_X$ and put $L=\limsup_\nu|f(x_\nu)|$. Refining twice --- once so that
+$|f(x_\nu)|\to L$, once by Banach-Alaoglu so that $\iota_X(x_\nu)\to q$
+weak${}^*$ for some $q\in B_{X^{**}}$ --- and using that a subnet of an
+annihilator net is one, we get
+$\langle L_a^{**}q,g\rangle=\lim_\nu g(a\cdot x_\nu)=0$ for all $a\in A$ and
+$g\in X^*$, because $\lVert a\cdot x_\nu\rVert\to 0$. So $q$ is admissible and
+$|q(f)|=L$.
+
+The distance is attained along a net. Let $q$ attain the maximum; after
+multiplying by a unimodular scalar we may assume $q(f)=\sep_{X^*}(f)$. By
+Goldstine's theorem there is a net ${(y_\mu)}$ in $B_X$ with
+$\iota_X(y_\mu)\to q$ weak${}^*$; then $f(y_\mu)\to q(f)$ and, for all $a\in A$
+and $g\in X^*$, $g(a\cdot y_\mu)=(g\cdot a)(y_\mu)\to q(g\cdot a)=0$ because
+$g\cdot a\in E$. That is, $a\cdot y_\mu\to 0$ weakly for every $a\in A$. Fix a
+finite $F\subset A$ and $\epsilon>0$; the set
+$ \{ \bigl(f(x),{(a\cdot x)}_{a\in F} \bigr):x\in B_X \}
+\subset\mathbb{C}\times X^F$ is convex, being the image of $B_X$ under a linear
+map, and $\bigl(q(f),0\bigr)$ lies in its weak closure, hence by Mazur's theorem
+in its norm closure; so there is $x\in B_X$ with $|f(x)-q(f)|<\epsilon$ and
+$\lVert a\cdot x\rVert<\epsilon$ for every $a\in F$. Directing the pairs
+$(F,\epsilon)$ by $(F,\epsilon)\preceq(F',\epsilon')$ when $F\subset F'$ and
+$\epsilon'\leq\epsilon$, and choosing such a vector at each index, produces an
+annihilator net in $B_X$ along which $|f(\cdot)|$ tends to
+$|q(f)|=\sep_{X^*}(f)$.
+\end{proof}
+
+\begin{definition}\label{AsympSepOfMod}
+The \emph{asymptotic separation} of an annihilator net ${(x_\nu)}_{\nu\in N}$ in
+a left $A$-module $X$ is
+$\asep_X \bigl({(x_\nu)}_{\nu\in N} \bigr):=\limsup_\nu\sep_X(x_\nu)$, and the
+\emph{asymptotic separation defect} of $X$ is
+\[
+\asepd(X):=\sup \bigl\{
+  \asep_X \bigl({(x_\nu)}_{\nu\in N} \bigr):
+  {(x_\nu)}_{\nu\in N}\ \text{an annihilator net in }B_X
+ \bigr\}\in[0,1].
+\]
+\end{definition}
+
+\begin{proposition}\label{TheChain}
+For every left Banach $A$-module $X$ one has
+$\sepd(X)\leq\sepd(X^*)\leq\asepd(X)$.
+\end{proposition}
+
+\begin{proof}
+The first inequality is proposition~\ref{SepVsSepDual}. For the second, let
+$f\in{(X_{ess})}^\perp$ with $\lVert f\rVert\leq 1$; if $0$ is the only such $f$
+there is nothing to prove. For $x\in X$ and $g\in X_{ess}$ one has $f(x)=f(x-g)$,
+so $|f(x)|\leq\lVert x-g\rVert$, and taking the infimum over $g$ gives
+$|f(x)|\leq\sep_X(x)$. Hence
+$\limsup_\nu|f(x_\nu)|\leq\limsup_\nu\sep_X(x_\nu)\leq\asepd(X)$ for every
+annihilator net in $B_X$, and proposition~\ref{SepOfDualViaAnnihNets} computes
+$\sep_{X^*}(f)$ as the supremum of the left-hand side over such nets. Taking the
+supremum over $f\in B_{{(X^*)}_{ann}}$ gives $\sepd(X^*)\leq\asepd(X)$.
+\end{proof}
+
+The three terms ask the same question with increasing generosity: exact
+annihilator vectors, annihilator directions in the dual, asymptotically
+annihilated nets. Both inequalities can be strict, and the next theorem says when
+they all collapse.
+
+\begin{theorem}\label{AsympSepDirectionalUnital}
+Let $X$ be a left Banach $A$-module such that every annihilator net ${(x_\nu)}$
+in $B_X$ satisfies $\dist(x_\nu,X_{ann})\to 0$; this holds for every module when
+$A$ is unital. Then $\sepd(X)=\sepd(X^*)=\asepd(X)$.
+\end{theorem}
+
+\begin{proof}
+By proposition~\ref{TheChain} it suffices to prove $\asepd(X)\leq\sepd(X)$. Let
+${(x_\nu)}_{\nu\in N}$ be an annihilator net in $B_X$ and $\epsilon>0$. By
+hypothesis there is $\nu_0$ such that for $\nu\geq\nu_0$ one may choose
+$y_\nu\in X_{ann}$ with $\lVert x_\nu-y_\nu\rVert<\epsilon$, and then
+$\lVert y_\nu\rVert\leq 1+\epsilon$; homogeneity of $\sep_X$ and the definition
+of $\sepd$ give $\sep_X(y_\nu)\leq(1+\epsilon)\sepd(X)$, trivially so when
+$y_\nu=0$. The Lipschitz property then gives
+$\sep_X(x_\nu)\leq(1+\epsilon)\sepd(X)+\epsilon$ for $\nu\geq\nu_0$. Take the
+limit superior in $\nu$, the supremum over annihilator nets in $B_X$, and let
+$\epsilon\to 0$.
+
+Finally, let $A$ be unital and ${(x_\nu)}$ any annihilator net in $B_X$. Put
+$y_\nu:=x_\nu-e_A\cdot x_\nu$; then
+$a\cdot y_\nu=a\cdot x_\nu-(ae_A)\cdot x_\nu=0$ for every $a\in A$, so
+$y_\nu\in X_{ann}$, while
+$\lVert x_\nu-y_\nu\rVert=\lVert e_A\cdot x_\nu\rVert\to 0$.
+\end{proof}
+
+Both defects are computed on $\bigoplus_1$- and $\bigoplus_\infty$-sums by two
+facts: the annihilator part of a sum is the sum of the annihilator parts, and the
+distance to a coordinatewise closed subspace is the sum, respectively the
+supremum, of the coordinate distances. The essential part is the sum of the
+essential parts only in the first case. The lower bounds all come from one
+observation, which we isolate because it is used again for free, cofree and
+injective modules.
+
+\begin{lemma}\label{SepUnderRetracts}
+Let $\pi:X\to Y$ and $\sigma:Y\to X$ be contractive $A$-morphisms with
+$\pi\sigma=1_Y$. Then $\sigma(Y_{ann})\subset X_{ann}$,
+$\pi(X_{ess})\subset Y_{ess}$ and $\sep_X(\sigma(y))\geq\sep_Y(y)$ for every
+$y\in Y$; consequently $\sepd(X)\geq\sepd(Y)$ and $\asepd(X)\geq\asepd(Y)$.
+\end{lemma}
+
+\begin{proof}
+For $y\in Y_{ann}$ one has $a\cdot\sigma(y)=\sigma(a\cdot y)=0$, and
+$\pi(a\cdot x)=a\cdot\pi(x)\in\operatorname{span}(AY)$ while $Y_{ess}$ is closed.
+Hence for $y\in Y$ and $z\in X_{ess}$,
+\[
+\lVert\sigma(y)-z\rVert\geq\lVert\pi\sigma(y)-\pi(z)\rVert
+=\lVert y-\pi(z)\rVert\geq\sep_Y(y) ,
+\]
+and taking the infimum over $z$ gives $\sep_X(\sigma(y))\geq\sep_Y(y)$. Since
+also $\lVert\sigma(y)\rVert\leq\lVert y\rVert$, restricting to $y\in Y_{ann}$ and
+forming the quotient of the two gives $\sepd(X)\geq\sepd(Y)$. Finally, if
+${(y_\nu)}$ is an annihilator net in $B_Y$ then so is ${(\sigma(y_\nu))}$ in
+$B_X$, and $\limsup_\nu\sep_X(\sigma(y_\nu))\geq\limsup_\nu\sep_Y(y_\nu)$; hence
+$\asepd(X)\geq\asepd(Y)$.
+\end{proof}
+
+\begin{proposition}\label{SepOfSums}
+Let ${(X_\lambda)}_{\lambda\in\Lambda}$ be left Banach $A$-modules with
+$\Lambda\neq\varnothing$, and let $X=\bigoplus_p \{X_\lambda:\lambda\in\Lambda \}$
+with the coordinatewise action, for $p=1$ or $p=\infty$. Then
+$X_{ann}=\bigoplus_p \{{(X_\lambda)}_{ann}:\lambda\in\Lambda \}$ for both $p$,
+and
+\begin{enumerate}[label = (\roman*)]
+\item $\sepd \bigl(\bigoplus_1 \{X_\lambda:\lambda\in\Lambda \} \bigr)
+=\sup_\lambda\sepd(X_\lambda)$;
+
+\item $\sepd \bigl(\bigoplus_\infty \{X_\lambda:\lambda\in\Lambda \} \bigr)
+\geq\sup_\lambda\sepd(X_\lambda)$, with equality when $\Lambda$ is finite;
+
+\item $\asepd \bigl(\bigoplus_p \{X_\lambda:\lambda\in\Lambda \} \bigr)
+\geq\sup_\lambda\asepd(X_\lambda)$ for $p=1$ and for $p=\infty$, with equality
+when $\Lambda$ is finite;
+
+\item for $p=1$,
+$X_{ess}=\bigoplus_1 \{{(X_\lambda)}_{ess}:\lambda\in\Lambda \}$ and
+$\sep_X(x)=\sum_\lambda\sep_{X_\lambda}(x_\lambda)$ for every $x\in X$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The action is contractive for both $p$, and $a\cdot x=0$ for every $a$ if and
+only if $a\cdot x_\lambda=0$ for every $a$ and every $\lambda$, which is the
+description of $X_{ann}$. Each $X_\mu$ is a $1$-retract of $X$ via the coordinate
+injection and projection, so lemma~\ref{SepUnderRetracts} gives all three lower
+bounds.
+
+$(iv)$ The inclusion $X_{ess}\subset\bigoplus_1 \{{(X_\lambda)}_{ess} \}$ holds
+because $a\cdot x$ lies in the right-hand side, a closed subspace. Conversely,
+given $y$ in the right-hand side and $\epsilon>0$, choose a finite
+$S\subset\Lambda$ with $n$ elements such that
+$\sum_{\lambda\notin S}\lVert y_\lambda\rVert<\epsilon/2$ and, for $\lambda\in S$,
+$z_\lambda\in\operatorname{span}(AX_\lambda)$ with
+$\lVert y_\lambda-z_\lambda\rVert<\epsilon/(2n)$; the vector with these
+coordinates on $S$ and $0$ elsewhere lies in $\operatorname{span}(AX)$ and is
+within $\epsilon$ of $y$. Next, if $M_\lambda\subset X_\lambda$ are closed
+subspaces and $M=\bigoplus_1 \{M_\lambda \}$, then
+$\dist(x,M)=\sum_\lambda\dist(x_\lambda,M_\lambda)$: the inequality $\geq$ is
+coordinatewise, and for $\leq$ one picks $m_\lambda\in M_\lambda$ with
+$\lVert x_\lambda-m_\lambda\rVert\leq\dist(x_\lambda,M_\lambda)+\epsilon_\lambda$
+for a summable family ${(\epsilon_\lambda)}$, the resulting $m$ being summable
+because $\lVert m_\lambda\rVert\leq 2\lVert x_\lambda\rVert+\epsilon_\lambda$.
+Together the two give the formula for $\sep_X$.
+
+$(i)$ For $x\in X_{ann}$ each $x_\lambda$ lies in ${(X_\lambda)}_{ann}$, so
+$\sep_{X_\lambda}(x_\lambda)\leq\sepd(X_\lambda)\lVert x_\lambda\rVert$ and
+$(iv)$ gives
+$\sep_X(x)\leq \bigl(\sup_\mu\sepd(X_\mu) \bigr)\lVert x\rVert$.
+
+$(ii)$ For $p=\infty$ the inclusion
+$X_{ess}\subset\bigoplus_\infty \{{(X_\lambda)}_{ess} \}$ holds by the argument
+of $(iv)$, but the reverse can fail, since $\operatorname{cl}_X(AX)$ need not
+reach every bounded family of essential vectors; and distances to a
+$\bigoplus_\infty$-sum of closed subspaces dominate the supremum of the
+coordinate distances. Distances to a larger set being smaller, this already gives
+$\sep_X(x)\geq\sup_\lambda\sep_{X_\lambda}(x_\lambda)$. When $\Lambda$ is finite
+there is no tail to discard, so the argument of $(iv)$ gives
+$X_{ess}=\bigoplus_\infty \{{(X_\lambda)}_{ess} \}$, while a near-optimal choice
+in each of the finitely many coordinates gives
+$\dist(x,M)=\max_\lambda\dist(x_\lambda,M_\lambda)$; hence
+$\sep_X(x)=\max_\lambda\sep_{X_\lambda}(x_\lambda)$, which for $x\in X_{ann}$ is
+the equality in $(ii)$.
+
+$(iii)$ Let $\Lambda$ be finite and ${(x^\nu)}$ an annihilator net in $B_X$. Pass
+to a subnet along which $\sep_X(x^\nu)$ converges to its limit superior and
+$\lVert x^\nu_\lambda\rVert\to t_\lambda$ for each of the finitely many
+$\lambda$; then $\sum_\lambda t_\lambda\leq 1$ for $p=1$ and $t_\lambda\leq 1$
+for $p=\infty$. If $t_\lambda=0$ then
+$\sep_{X_\lambda}(x^\nu_\lambda)\leq\lVert x^\nu_\lambda\rVert\to0$. If
+$t_\lambda>0$ then eventually $\lVert x^\nu_\lambda\rVert\geq t_\lambda/2>0$ and
+the normalised vectors $x^\nu_\lambda/\lVert x^\nu_\lambda\rVert$ form an
+annihilator net in $B_{X_\lambda}$, whence
+$\limsup_\nu\sep_{X_\lambda}(x^\nu_\lambda)\leq t_\lambda\asepd(X_\lambda)$. Now
+$(iv)$ for $p=1$ and $(ii)$ for $p=\infty$, together with the fact that the limit
+superior of a finite sum, respectively of a finite maximum, is at most the sum,
+respectively the maximum, of the limits superior, give
+$\limsup_\nu\sep_X(x^\nu)\leq\sup_\lambda\asepd(X_\lambda)$. Finiteness enters
+exactly here: it is what forces the masses $t_\lambda$ to account for the whole
+net.
+\end{proof}
+
+\subsection{The separation of the unitization}\label{SubSectionSeparationOfUnitization}
+
+\emph{Nothing of [B] is interleaved here.}
+
+Evaluating the separation defect on the free module of rank one, $A_+$, and on
+its dual produces two constants of the algebra. They differ exactly as an
+identity differs from an approximate one, and the dual is the more generous of
+the two for a structural reason: the dual of $A_+$ always has an annihilator
+direction, namely the augmentation
+$\varepsilon:A_+\to\mathbb{C},\,a\oplus_1\lambda\mapsto\lambda$, whereas $A_+$
+itself has one only when $A$ has a right identity.
+
+\begin{lemma}\label{AnnihPartOfUnitization}
+Regard $A_+$ as a left $A$-module and $A_+^*$ as the dual right $A$-module. Then
+${(A_+)}_{ess}=A$, so that $\sep_{A_+}(v)=|\varepsilon(v)|$ for every
+$v\in A_+$; and a vector $y=b\oplus_1\lambda$ lies in ${(A_+)}_{ann}$ if and
+only if either $\lambda=0$ and $Ab= \{0 \}$, or $\lambda\neq 0$ and
+$u:=-b/\lambda$ is a right identity of $A$, in which case
+$y=\lambda(e_{A_+}-u)$. Consequently
+\[
+\sepd(A_+)=\frac{1}{1+\cri(A)} ,
+\]
+which is positive if and only if $A$ has a right identity. Moreover
+${(A_+^*)}_{ann}=A^\perp=\mathbb{C}\varepsilon$ with $\lVert\varepsilon\rVert=1$,
+so that $\sepd(A_+^*)=\sep_{A_+^*}(\varepsilon)$: a single distance in a single
+direction.
+\end{lemma}
+
+\begin{proof}
+In $A_+=A\bigoplus_1\mathbb{C}$ the left action of $A$ is
+$a\cdot(b\oplus_1\lambda)=(ab+\lambda a)\oplus_1 0$, so
+$A\cdot A_+\subset A$; conversely $a=a\cdot e_{A_+}$, so
+$\operatorname{span}(A\cdot A_+)=A$, which is closed. Hence
+${(A_+)}_{ess}=A$ and, for $v=b\oplus_1\lambda$,
+$\dist(v,A)=\inf_{c\in A}(\lVert b-c\rVert+|\lambda|)=|\varepsilon(v)|$.
+
+The same formula shows that $y=b\oplus_1\lambda$ is annihilated by $A$ if and
+only if $ab+\lambda a=0$ for every $a\in A$. If $\lambda=0$ this says
+$Ab= \{0 \}$, and then $y\in A={(A_+)}_{ess}$, so $\sep_{A_+}(y)=0$. If
+$\lambda\neq 0$, put $u:=-b/\lambda\in A$; the condition becomes $au=a$ for every
+$a$, so $u$ is a right identity and $y=\lambda(e_{A_+}-u)$; conversely every
+vector of that form is annihilated. For such a $y$,
+$\sep_{A_+}(y)=|\lambda|$ while
+$\lVert y\rVert=|\lambda|(1+\lVert u\rVert)$, so the ratio
+$\sep_{A_+}(y)/\lVert y\rVert$ is $1/(1+\lVert u\rVert)$, the annihilator vectors
+with $\lambda=0$ contributing $0$. Hence $\sepd(A_+)$ is the supremum of
+$1/(1+\lVert u\rVert)$ over the right identities $u$ of $A$, which is
+$1/(1+\cri(A))$, the supremum over the empty set being $0$ and matching the
+convention $\cri(A)=+\infty$.
+
+Finally, ${(A_+^*)}_{ann}={\bigl({(A_+)}_{ess}\bigr)}^\perp=A^\perp$; a
+functional on $A\bigoplus_1\mathbb{C}$ vanishing on $A$ is determined by its
+value at $e_{A_+}$, so $A^\perp=\mathbb{C}\varepsilon$, and
+$\lVert\varepsilon\rVert=1$. The defect of $A_+^*$ is therefore the separation of
+the single unit vector $\varepsilon$.
+\end{proof}
+
+The dual constant is computed by approximate identities instead, and there the
+infimum is attained. No hypothesis on $A$ is needed: all three clauses hold for
+the zero algebra, where $A_+=\mathbb{C}$ has ${(A_+)}_{ess}= \{0 \}$ and
+${(A_+^*)}_{ess}= \{0 \}$, so that $\sepd(A_+^*)=\lVert\varepsilon\rVert=1$,
+matching $1/(1+\crai( \{0 \}))=1$, and the zero net attains the bound.
+
+\begin{theorem}\label{SepOfDualUnitization}
+\begin{enumerate}[label = (\roman*)]
+\item $\sep_{X^*}(f)\geq\lVert f\rVert/(1+\crai(A))$ for every left $A$-module
+$X$ and every $f\in{(X_{ess})}^\perp$; equivalently
+$\sepd(X^*)\geq\sepd(A_+^*)$ whenever $X$ is not essential;
+
+\item $\sepd(A_+^*)=\dfrac{1}{1+\crai(A)}$;
+
+\item $\crai(A)$, when finite, is attained by a right approximate identity.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+$(i)$ The dual $X^*$ is a right $A$-module with ${(X^*)}_{ann}={(X_{ess})}^\perp$,
+so lemma~\ref{SepLowerBound} in its right-hand form, applied to $X^*$, gives the
+displayed bound; if $A$ has no right approximate identity then $\crai(A)=+\infty$
+and the bound is vacuous. For the reformulation, $\sepd(X^*)$ is the supremum of
+$\sep_{X^*}(f)/\lVert f\rVert$ over $f\in{(X^*)}_{ann}\setminus \{0 \}$, and that
+set is non-empty exactly when $X_{ess}\neq X$, by the Hahn-Banach theorem; the
+bound then reads $\sepd(X^*)\geq 1/(1+\crai(A))$, which is $\sepd(A_+^*)$ by
+$(ii)$, proved below and independently of $(i)$.
+
+$(ii)$ By lemma~\ref{AnnihPartOfUnitization} we have
+$\sepd(A_+^*)=\sep_{A_+^*}(\varepsilon)$, so
+proposition~\ref{SepOfDualViaAnnihNets} at $X=A_+$ and $f=\varepsilon$ reads
+\[
+\sepd(A_+^*)=\sup \Bigl\{
+  \textstyle\limsup_\nu|\lambda_\nu|:
+  \lVert b_\nu\rVert+|\lambda_\nu|\leq 1,\
+  \lim_\nu\lVert ab_\nu+\lambda_\nu a\rVert=0\ \text{for all }a\in A
+ \Bigr\},
+\]
+the supremum being over nets $v_\nu=b_\nu\oplus_1\lambda_\nu$, since
+$\varepsilon(v_\nu)=\lambda_\nu$ and
+$a\cdot v_\nu=(ab_\nu+\lambda_\nu a)\oplus_1 0$. Call such a net admissible.
+
+For the lower bound, suppose $A$ has a right approximate identity and let
+$\epsilon>0$. Choose one, ${(e_\nu)}_{\nu\in N}$, with
+$\sup_\nu\lVert e_\nu\rVert\leq\crai(A)+\epsilon$, and put
+$v_\nu:=(e_{A_+}-e_\nu)/(1+\lVert e_\nu\rVert)$. These are unit vectors, hence
+admissible; $a\cdot v_\nu=(a-ae_\nu)/(1+\lVert e_\nu\rVert)\to 0$; and
+$\lambda_\nu=1/(1+\lVert e_\nu\rVert)\geq 1/(1+\crai(A)+\epsilon)$. Let
+$\epsilon\to 0$.
+
+For the upper bound, let ${(v_\nu)}$ be admissible with
+$\limsup_\nu|\lambda_\nu|=d>0$; pass to a subnet along which
+$|\lambda_\nu|\to d$, so that eventually $\lambda_\nu\neq 0$, and set
+$u_\nu:=-b_\nu/\lambda_\nu\in A$. Then
+\[
+\lVert a-au_\nu\rVert=\frac{\lVert a\cdot v_\nu\rVert}{|\lambda_\nu|}
+\longrightarrow 0\quad(a\in A),
+\qquad
+\lVert u_\nu\rVert=\frac{\lVert b_\nu\rVert}{|\lambda_\nu|}
+\leq\frac{1-|\lambda_\nu|}{|\lambda_\nu|}\longrightarrow\frac{1-d}{d} ,
+\]
+so ${(u_\nu)}$ is a right approximate identity and, for every $\epsilon>0$, its
+tail on which $\lVert u_\nu\rVert\leq(1-d)/d+\epsilon$ is one as well; hence
+$\crai(A)\leq(1-d)/d$, that is $d\leq 1/(1+\crai(A))$. The same computation shows
+that $d>0$ is impossible when $A$ has no right approximate identity, so
+$\sepd(A_+^*)=0$ there, again the value of $1/(1+\crai(A))$.
+
+$(iii)$ Assume $\crai(A)<+\infty$ and put $\delta:=\sepd(A_+^*)>0$. With
+$E={(A_+^*)}_{ess}$, proposition~\ref{SepOfDualViaAnnihNets} says that the
+distance $\delta=\dist(\varepsilon,E)$ is attained at some $q\in B_{A_+^{**}}$
+with $q|_E=0$; multiplying $q$ by a unimodular scalar we may assume
+$q(\varepsilon)=\delta$. Since $A_+=A\bigoplus_1\mathbb{C}$ we have
+$A_+^*\isom{\mathbf{Ban}_1}A^*\bigoplus_\infty\mathbb{C}$ and
+$A_+^{**}\isom{\mathbf{Ban}_1}A^{**}\bigoplus_1\mathbb{C}$, where $g\in A_+^*$ is
+written $g=(h,c)$ with $h=g|_A$ and $c=g(e_{A_+})$, so that
+$g=h+c\varepsilon$ and $\langle(m,t),(h,c)\rangle=m(h)+tc$. In these coordinates
+$q=(m,\delta)$ with $\lVert m\rVert+\delta\leq 1$, that is
+$\lVert m\rVert\leq 1-\delta$. The right action reads
+\[
+(g\cdot a)(b\oplus_1\lambda)=g \bigl((ab+\lambda a)\oplus_1 0 \bigr)
+=(h\cdot a)(b)+\lambda\,h(a),
+\]
+that is $g\cdot a=\bigl(h\cdot a,\ h(a)\bigr)$, which does not involve $c$; since
+$E$ is the closed span of the $g\cdot a$, the condition $q|_E=0$ says
+$m(h\cdot a)+\delta h(a)=0$ for all $h\in A^*$ and $a\in A$. Setting
+$p:=-m/\delta\in A^{**}$ we get
+\[
+p(h\cdot a)=h(a)\quad(h\in A^*,\ a\in A),
+\qquad
+\lVert p\rVert=\frac{\lVert m\rVert}{\delta}\leq\frac{1-\delta}{\delta}=\crai(A).
+\]
+By Goldstine's theorem applied to the ball of radius $\lVert p\rVert$ there is a
+net ${(x_\mu)}$ in $A$ with $\lVert x_\mu\rVert\leq\lVert p\rVert$ and
+$\iota_A(x_\mu)\to p$ weak${}^*$; then
+$h(ax_\mu)=(h\cdot a)(x_\mu)\to p(h\cdot a)=h(a)$, so $ax_\mu\to a$ weakly for
+every $a\in A$. A Mazur argument on the convex set
+$ \{{(ax-a)}_{a\in F}:x\in A,\ \lVert x\rVert\leq\lVert p\rVert \}$, followed by
+directing the pairs $(F,\epsilon)$ as in the proof of
+proposition~\ref{SepOfDualViaAnnihNets}, produces a right approximate identity
+bounded by $\lVert p\rVert\leq\crai(A)$; since $\crai(A)$ is the infimum of such
+bounds, this one attains it.
+\end{proof}
+
+\begin{lemma}\label{AugmCharDistEstimate}
+Let $A\neq \{0 \}$, let $a\in A$ with $\lVert a\rVert=1$, let
+$\varphi\in A_+^*$ satisfy $\lVert\varphi\rVert=1$ and $\varphi(a)=1$, and let
+$0<\gamma\leq 1$. Then
+$\lVert\varepsilon-\gamma\,\varphi\cdot a\rVert\leq\max \{\gamma,1-\gamma \}$. In
+particular $\sepd(A_+^*)\leq\tfrac{1}{2}$ for every $A\neq \{0 \}$.
+\end{lemma}
+
+\begin{proof}
+A vector $a$ of norm one exists because $A\neq \{0 \}$, and such a $\varphi$
+exists because on the line $\mathbb{C}a$ the functional $ta\mapsto t$ has norm
+one and the Hahn-Banach theorem extends it to $A_+$. For
+$b\oplus_1\lambda\in A_+$ one has
+$a\cdot(b\oplus_1\lambda)=(ab+\lambda a)\oplus_1 0$, so, using $\varphi(a)=1$,
+\[
+(\varepsilon-\gamma\,\varphi\cdot a)(b\oplus_1\lambda)
+=\lambda-\gamma\varphi(ab)-\gamma\lambda
+=\lambda(1-\gamma)-\gamma\varphi(ab),
+\]
+whose modulus is at most
+$(1-\gamma)|\lambda|+\gamma\lVert b\rVert
+\leq\max \{\gamma,1-\gamma \} \bigl(|\lambda|+\lVert b\rVert \bigr)$. Since
+$\varphi\cdot a\in{(A_+^*)}_{ess}$, lemma~\ref{AnnihPartOfUnitization} gives
+$\sepd(A_+^*)=\sep_{A_+^*}(\varepsilon)
+\leq\lVert\varepsilon-\gamma\,\varphi\cdot a\rVert
+\leq\max \{\gamma,1-\gamma \}$, which at $\gamma=\tfrac{1}{2}$ is
+$\tfrac{1}{2}$.
+\end{proof}
+
+\begin{corollary}\label{SepOfDualUnitizationValues}
+Let $A\neq \{0 \}$. Then $\sepd(A_+^*)=\tfrac{1}{2}$ if and only if $A$ has a
+contractive right approximate identity; $\sepd(A_+^*)=0$ if and only if $A$ has
+no right approximate identity, if and only if
+$\varepsilon\in{(A_+^*)}_{ess}$; and $\sepd(A_+^*)=1/(1+\lVert e_A\rVert)$ for
+unital $A$.
+\end{corollary}
+
+\begin{proof}
+By theorem~\ref{SepOfDualUnitization}$(ii)$ all three clauses are statements
+about $\crai(A)$, which for $A\neq \{0 \}$ satisfies $\crai(A)\geq 1$ by
+subsection~\ref{SubSectionBanachAlgebrasAndTheirModules} --- the same ceiling
+$\sepd(A_+^*)\leq\tfrac{1}{2}$ that lemma~\ref{AugmCharDistEstimate} gives
+independently. So $\sepd(A_+^*)=\tfrac{1}{2}$ if and only if $\crai(A)=1$, which
+holds if $A$ has a contractive right approximate identity and, conversely, forces
+one to exist by theorem~\ref{SepOfDualUnitization}$(iii)$. Next,
+$\sepd(A_+^*)=0$ if and only if $\crai(A)=+\infty$, that is, if and only if $A$
+has no right approximate identity; and
+$\sepd(A_+^*)=\dist \bigl(\varepsilon,{(A_+^*)}_{ess} \bigr)$ vanishes exactly
+when $\varepsilon$ lies in that closed subspace. The unital clause is
+$\crai(A)=\lVert e_A\rVert$, recorded in
+subsection~\ref{SubSectionBanachAlgebrasAndTheirModules}.
+
+The hypothesis $A\neq \{0 \}$ is not decoration, and this is the only place in
+this section where it bites: for $A= \{0 \}$ the conventions give
+$\crai(A)=0$ while $\sepd(A_+^*)=1$, so the first clause would fail, the zero net
+being a contractive right approximate identity.
+\end{proof}
+
+The dual constant runs over the whole of $(0,\tfrac{1}{2}]$. Let
+$A_t:=(\mathbb{C},t|\cdot|)$, the field $\mathbb{C}$ with the norm
+$\lVert z\rVert=t|z|$; this is a Banach algebra exactly for $t\geq 1$, since
+$\lVert zw\rVert=t|zw|$ while $\lVert z\rVert\lVert w\rVert=t^2|zw|$. Its
+identity is $1$, of norm $t$, so the unital clause of
+corollary~\ref{SepOfDualUnitizationValues} gives
+$\sepd \bigl({(A_t)}_+^* \bigr)=1/(1+t)$, and as $t$ runs over $[1,+\infty)$ this
+runs over $(0,\tfrac{1}{2}]$. The identity map $A_t\to A_s$ is a topological
+isomorphism of Banach algebras for all $s,t\geq 1$, so $\sepd(A_+^*)$ is an
+isometric and not a topological invariant of $A$.
+
+It depends on the side as well. Let
+$R= \bigl\{ \bigl(\begin{smallmatrix}a&b\\0&0\end{smallmatrix} \bigr) \bigr\}
+\subset M_2(\mathbb{C})$, a subalgebra because
+$\bigl(\begin{smallmatrix}a&b\\0&0\end{smallmatrix} \bigr)
+\bigl(\begin{smallmatrix}a'&b'\\0&0\end{smallmatrix} \bigr)
+=\bigl(\begin{smallmatrix}aa'&ab'\\0&0\end{smallmatrix} \bigr)$. The matrix unit
+$E_{11}$ lies in $R$, has norm one and satisfies $E_{11}x=x$ for every $x\in R$,
+so $\cli(R)=\clai(R)=1$ and the mirror constant, computed from left approximate
+identities, is $\tfrac{1}{2}$. On the other side, $E_{12}\in R$ satisfies
+$E_{12}x=0$ for every $x\in R$, so no net ${(e_\nu)}$ in $R$ can have
+$E_{12}e_\nu\to E_{12}\neq 0$: the algebra $R$ has no right approximate identity,
+$\crai(R)=+\infty$, and $\sepd \bigl(R_+^* \bigr)=0$.
+
+One reading of proposition~\ref{MetTopFlatCycModCharac} of [B] is worth
+recording here, since it is the first place in [B] where the dual constant
+occurs unnamed. For a closed left ideal $I$ of $A_+$ the quantity
+$\sup_\nu\lVert e_{A_+}-e_\nu\rVert$ appearing there equals
+$1+\sup_\nu\lVert e_\nu\rVert$, because $e_\nu\in I\subset A$; its infimum over
+the right bounded approximate identities of $I$ is therefore
+$1+\crai(I)=1/\sepd \bigl(I_+^* \bigr)$, and that proposition is the computation
+of this constant along the coset of the identity.
+Proposition~\ref{SepOfDualViaAnnihNets} and
+theorem~\ref{SepOfDualUnitization} give it directly.
+
+Both constants are constants of $A_+$ alone: free modules of higher rank add
+nothing to either. For $\sepd$ this is proposition~\ref{SepOfSums}$(i)$, a free
+module being an $\ell_1$-sum of copies of $A_+$; the asymptotic defect needs an
+argument.
+
+\begin{proposition}\label{AsympSepOfFreeMod}
+$\asepd \bigl(A_+\projtens\ell_1(\Lambda) \bigr)=\sepd(A_+^*)$ for every
+$\Lambda\neq\varnothing$, a value at most $\tfrac{1}{2}$ when $A\neq \{0 \}$:
+free modules have the minimal asymptotic separation defect.
+\end{proposition}
+
+\begin{proof}
+First, $\asepd(A_+)=\sepd(A_+^*)$. Indeed
+$\sep_{A_+}(v)=|\varepsilon(v)|$ by lemma~\ref{AnnihPartOfUnitization}, so an
+annihilator net ${(v_\nu)}$ in $B_{A_+}$ has
+$\asep_{A_+} \bigl({(v_\nu)} \bigr)=\limsup_\nu|\varepsilon(v_\nu)|$; taking the
+supremum over such nets, definition~\ref{AsympSepOfMod} and
+proposition~\ref{SepOfDualViaAnnihNets} at $(A_+,\varepsilon)$ give
+$\asepd(A_+)=\sep_{A_+^*}(\varepsilon)=\sepd(A_+^*)$.
+
+Write $P=A_+\projtens\ell_1(\Lambda)$. The canonical map carrying
+$u=\sum_\lambda u_\lambda\otimes\delta_\lambda$ to ${(u_\lambda)}$ is an
+isometric isomorphism of left $A$-modules onto
+$\bigoplus_1 \{A_+:\lambda\in\Lambda \}$, so by
+proposition~\ref{SepOfSums}$(iv)$ and lemma~\ref{AnnihPartOfUnitization} the
+essential part of $P$ is $A\projtens\ell_1(\Lambda)$ and, writing
+$u_\lambda=b_\lambda\oplus_1\beta_\lambda$,
+\[
+\sep_P(u)=\sum_\lambda\sep_{A_+}(u_\lambda)=\sum_\lambda|\beta_\lambda| .
+\]
+A coordinate copy of $A_+$ is a $1$-retract of $P$, so
+lemma~\ref{SepUnderRetracts} gives $\asepd(P)\geq\asepd(A_+)$.
+
+For the upper bound let ${(u^\nu)}_{\nu\in N}$ be an annihilator net in $B_P$.
+For each $\nu$ and $\lambda$ choose a unimodular $c^\nu_\lambda$ with
+$c^\nu_\lambda\beta^\nu_\lambda=|\beta^\nu_\lambda|$ and put
+$w_\nu:=\sum_\lambda c^\nu_\lambda u^\nu_\lambda\in A_+$, a series converging
+absolutely because $\sum_\lambda\lVert u^\nu_\lambda\rVert=\lVert u^\nu\rVert
+\leq 1$. Then $\lVert w_\nu\rVert\leq 1$ and
+$\lVert a\cdot w_\nu\rVert\leq\sum_\lambda\lVert a\cdot u^\nu_\lambda\rVert
+=\lVert a\cdot u^\nu\rVert\to 0$, so ${(w_\nu)}$ is an annihilator net in
+$B_{A_+}$; and, $\varepsilon$ being linear and continuous,
+$\varepsilon(w_\nu)=\sum_\lambda|\beta^\nu_\lambda|=\sep_P(u^\nu)$. Hence
+$\limsup_\nu\sep_P(u^\nu)=\limsup_\nu|\varepsilon(w_\nu)|$, which
+proposition~\ref{SepOfDualViaAnnihNets} at $(A_+,\varepsilon)$ bounds by
+$\sepd(A_+^*)$. Taking the supremum over annihilator nets in $B_P$ gives the
+stated equality, and the bound $\tfrac{1}{2}$ for $A\neq \{0 \}$ is
+lemma~\ref{AugmCharDistEstimate}.
+\end{proof}
+
+The dual of the free module of rank $\Lambda$ is the cofree module of rank
+$\Lambda$, and its separation defect is the second constant, not the first. The
+upper bound comes from the predual: that is the only use the chain of
+proposition~\ref{TheChain} gets outside subsection~\ref{SubSectionSeparation}.
+
+\begin{proposition}\label{SepOfCofreeMod}
+For every left $A$-module $X$ that is not essential,
+\[
+\sepd(A_+^*)\ \leq\ \sepd(X^*)\ \leq\ \asepd(X) ,
+\]
+so $\sepd(X^*)=\sepd(A_+^*)$ as soon as $X$ attains the minimal asymptotic
+separation defect. In particular, for every $\Lambda\neq\varnothing$ the cofree
+right $A$-module satisfies
+\[
+\sepd \bigl(\mathcal{B}(A_+,\ell_\infty(\Lambda)) \bigr)=\sepd(A_+^*)
+=\frac{1}{1+\crai(A)} .
+\]
+\end{proposition}
+
+\begin{proof}
+If $X$ is not essential then ${(X_{ess})}^\perp\neq \{0 \}$ by the Hahn-Banach
+theorem, so theorem~\ref{SepOfDualUnitization}$(i)$ gives
+$\sepd(X^*)\geq\sepd(A_+^*)$, while proposition~\ref{TheChain} gives
+$\sepd(X^*)\leq\asepd(X)$; if $\asepd(X)=\sepd(A_+^*)$ the outer terms coincide.
+
+Write $F_\Lambda=A_+\projtens\ell_1(\Lambda)$. Since
+$\ell_\infty(\Lambda)\isom{\mathbf{Ban}_1}{\ell_1(\Lambda)}^*$, the law of
+adjoint associativity gives isometric isomorphisms of right $A$-modules
+\[
+\mathcal{B} \bigl(A_+,\ell_\infty(\Lambda) \bigr)
+\isom{\mathbf{mod}_1\text{-}A}
+\mathcal{B} \bigl(A_+,\mathcal{B}(\ell_1(\Lambda),\mathbb{C}) \bigr)
+\isom{\mathbf{mod}_1\text{-}A}
+\mathcal{B} \bigl(A_+\projtens\ell_1(\Lambda),\mathbb{C} \bigr)=F_\Lambda^* .
+\]
+By proposition~\ref{SepOfSums}$(iv)$ and lemma~\ref{AnnihPartOfUnitization} the
+essential part of $F_\Lambda$ is $A\projtens\ell_1(\Lambda)$, a proper closed
+subspace since $A$ is proper in $A_+$ and $\Lambda\neq\varnothing$; so
+$F_\Lambda$ is not essential, and
+proposition~\ref{AsympSepOfFreeMod} gives $\asepd(F_\Lambda)=\sepd(A_+^*)$. The
+two bounds therefore meet at $X=F_\Lambda$, and the value is
+$1/(1+\crai(A))$ by theorem~\ref{SepOfDualUnitization}$(ii)$.
+\end{proof}
+
+So the free modules see the identities of $A$ and the cofree ones its
+approximate identities:
+$\sepd(F_\Lambda)=\sepd(A_+)=1/(1+\cri(A))$ by
+proposition~\ref{SepOfSums}$(i)$ and lemma~\ref{AnnihPartOfUnitization}, against
+$\sepd(F_\Lambda^*)=1/(1+\crai(A))$. Corollary~\ref{SepOfInjMod} will recover the
+second value in one line and for all metrically injective modules at once.
+
+\subsection{The annihilator part of a projective module}\label{SubSectionAnnihPartOfProjMod}
+
+\emph{Interleaved from [B], in this order, before the material below:}
+proposition~\ref{MetTopRelProjModCompIdealPartCompl},
+corollary~\ref{MetTopRelProjModPartCompl},
+proposition~\ref{MetTopProjModEssQuotIsProjBanSp}.
+
+Those three say that the essential part of a projective module is complemented
+and that the quotient by it is a projective Banach space. What follows measures
+how far the annihilator part stands out of the essential one, and it does so
+through a single lifting problem: the augmentation $\varepsilon:A_+\to\mathbb{C}$.
+The retract characterisation~\ref{MetCTopProjModViaCanonicMorph} is not needed
+anywhere in this subsection.
+
+\begin{lemma}\label{ProjLiftAlongAugmentation}
+Let $P$ be a $\langle$~metrically / $C$-topologically~$\rangle$ projective left
+$A$-module. Then for every $x\in P$ there is an $A$-morphism $\psi:P\to A_+$ with
+$\lVert\psi\rVert\leq\langle\,1\ /\ C\,\rangle$ and
+$\varepsilon(\psi(x))=\sep_P(x)$.
+\end{lemma}
+
+\begin{proof}
+Regard $\mathbb{C}$ as a left $A$-module with the zero action. By the
+Hahn-Banach description of $\sep_P(x)=\dist(x,P_{ess})$ there is
+$g\in{(P_{ess})}^\perp$ with $\lVert g\rVert\leq 1$ and $g(x)=\sep_P(x)$; take
+$g=0$ if $x\in P_{ess}$. Then $g:P\to\mathbb{C}$ is an $A$-morphism, since
+$a\cdot y\in P_{ess}$ gives $g(a\cdot y)=0=a\cdot g(y)$. For the same two reasons
+$\varepsilon$ is an $A$-morphism,
+$\varepsilon(a\cdot v)=0=a\cdot\varepsilon(v)$; it has norm one and carries
+$B_{A_+}$ onto $B_{\mathbb{C}}$, since $\varepsilon(0\oplus_1\mu)=\mu$ with
+$\lVert 0\oplus_1\mu\rVert=|\mu|$, so it is strictly coisometric and in
+particular strictly $1$-topologically surjective. By
+definition~\ref{MetCTopProjMod}, with $c=1$ in the topological bracket,
+projectivity of $P$ lifts $g$ along $\varepsilon$: there is an $A$-morphism
+$\psi:P\to A_+$ with $\varepsilon\psi=g$ and
+$\lVert\psi\rVert\leq\langle\,\lVert g\rVert\ /\ C\lVert g\rVert\,\rangle
+\leq\langle\,1\ /\ C\,\rangle$. Finally
+$\varepsilon(\psi(x))=g(x)=\sep_P(x)$.
+\end{proof}
+
+\begin{theorem}\label{SepOfProjMod}
+Let $P$ be a $\langle$~metrically / $C$-topologically~$\rangle$ projective left
+$A$-module. Then
+\[
+\sep_P(x)\leq\langle\,\sepd(A_+)\ /\ C\,\sepd(A_+)\,\rangle\lVert x\rVert
+\qquad(x\in P_{ann}),
+\]
+that is, $\sepd(P)\leq\langle\,\sepd(A_+)\ /\ C\sepd(A_+)\,\rangle$.
+\end{theorem}
+
+\begin{proof}
+Fix $x\in P_{ann}$ and let $\psi$ be as in
+lemma~\ref{ProjLiftAlongAugmentation}. The vector $\psi(x)$ lies in
+${(A_+)}_{ann}$, because $a\cdot\psi(x)=\psi(a\cdot x)=0$ for every $a\in A$, so
+lemma~\ref{AnnihPartOfUnitization} and the definition of $\sepd$ give
+\[
+\sep_P(x)=\varepsilon(\psi(x))=\sep_{A_+} \bigl(\psi(x) \bigr)
+\leq\sepd(A_+)\lVert\psi(x)\rVert
+\leq\langle\,\sepd(A_+)\ /\ C\,\sepd(A_+)\,\rangle\lVert x\rVert .
+\]
+Dividing by $\lVert x\rVert$ and taking the supremum over
+$x\in P_{ann}\setminus \{0 \}$ gives the statement about $\sepd(P)$.
+\end{proof}
+
+One lifting problem suffices, and it is the one dual to the extension problem
+that governs injectivity: projectivity meets the annihilator module
+$\mathbb{C}\isom{A\text{-}\mathbf{mod}_1}A_+/A$ as a \emph{quotient} of $A_+$ and
+lifts along the augmentation, while injectivity and flatness meet its dual
+$\mathbb{C}\varepsilon=A^\perp$ as a \emph{subobject} of $A_+^*$ and extend along
+the inclusion or tensor with it --- see
+propositions~\ref{SepOfAnnihVectorInInjMod} and~\ref{SepViaAnnihVector}$(ii)$.
+That the projective constant is the smaller of the two ---
+proposition~\ref{SepVsSepDual} at $X=A_+$ --- is nothing but the difference
+between splitting the augmentation sequence exactly and splitting it
+approximately.
+
+\begin{corollary}\label{ProjAnnihMod}
+Let $P\neq \{0 \}$ be an annihilator $A$-module which is
+$\langle$~metrically / $C$-topologically~$\rangle$ projective. Then
+$\langle$~$A= \{0 \}$ / $\cri(A)\leq C-1$~$\rangle$.
+\end{corollary}
+
+\begin{proof}
+Since $P$ is a non-zero annihilator module, $P_{ess}= \{0 \}$ and $P_{ann}=P$, so
+$\sep_P(x)=\lVert x\rVert$ for every $x\in P$ and $\sepd(P)=1$.
+Theorem~\ref{SepOfProjMod} therefore gives
+$\sepd(A_+)\geq\langle\,1\ /\ 1/C\,\rangle$, and
+lemma~\ref{AnnihPartOfUnitization} turns this into a statement about $\cri(A)$
+through $\sepd(A_+)=1/(1+\cri(A))$. In the topological bracket it reads
+$\cri(A)\leq C-1$. In the metric bracket it reads $\cri(A)\leq 0$; but
+$\cri(A)\geq 1$ for $A\neq \{0 \}$ by
+subsection~\ref{SubSectionBanachAlgebrasAndTheirModules}, so only $A= \{0 \}$ is
+compatible with it.
+\end{proof}
+
+Corollary~\ref{ProjAnnihMod} is stated as a necessary condition only. Its
+converse is the implication $(ii)\Rightarrow(i)$ of
+proposition~\ref{MetTopProjOfAnnihModCharac}, into which the corollary is
+dissolved in subsection~\ref{SubSectionHomoligicallyTrivialAnnihilatorModules};
+it is recorded here because it is what
+theorem~\ref{SepOfProjMod} contributes, and it is not cited anywhere else in
+this subsection.
+
+\begin{corollary}\label{ProjOverNonUnital}
+Let $A$ have no right identity. Then $\sepd(A_+)=0$, so in every topologically
+projective $A$-module $P$ one has $P_{ann}\subset P_{ess}$, and no non-zero
+annihilator module is projective, metrically or topologically.
+\end{corollary}
+
+\begin{proof}
+If $A$ has no right identity then $\cri(A)=+\infty$, so $\sepd(A_+)=0$ by
+lemma~\ref{AnnihPartOfUnitization}. Let $P$ be $C$-topologically projective for
+some $C$ and let $x\in P_{ann}$; theorem~\ref{SepOfProjMod} gives
+$\sep_P(x)\leq C\,\sepd(A_+)\lVert x\rVert=0$, and $P_{ess}$ is closed, so
+$x\in P_{ess}$.
+
+For the last assertion let $P\neq \{0 \}$ be an annihilator module. Then
+$P_{ess}= \{0 \}$ and $P_{ann}=P$, so $\sepd(P)=1$, and
+theorem~\ref{SepOfProjMod} forces
+$\sepd(A_+)\geq\langle\,1\ /\ 1/C\,\rangle>0$ in either bracket, contradicting
+$\sepd(A_+)=0$.
+\end{proof}
+
+On the asymptotic layer the answer changes, and it is the dual constant that
+appears.
+
+\begin{proposition}\label{AsympSepOfProjMod}
+Let $A\neq \{0 \}$ and let $P$ be a
+$\langle$~metrically / $C$-topologically~$\rangle$ projective left $A$-module. If
+$P$ is essential, then $\asepd(P)=0$; otherwise
+\[
+\langle\,\asepd(P)=\sepd(A_+^*)\ /\
+\sepd(A_+^*)\leq\asepd(P)\leq C\,\sepd(A_+^*)\,\rangle .
+\]
+\end{proposition}
+
+\begin{proof}
+If $P$ is essential then $\sep_P$ vanishes identically and $\asepd(P)=0$.
+
+Let $P$ be non-essential, let ${(x_\nu)}_{\nu\in N}$ be an annihilator net in
+$B_P$ and write $M:=\langle\,1\ /\ C\,\rangle$, a number at least $1$. For each
+$\nu$ let $\psi_\nu$ be the morphism supplied by
+lemma~\ref{ProjLiftAlongAugmentation} at $x_\nu$ and put
+$v_\nu:=\psi_\nu(x_\nu)$. Then $\lVert v_\nu\rVert\leq M$ and
+$\lVert a\cdot v_\nu\rVert=\lVert\psi_\nu(a\cdot x_\nu)\rVert
+\leq M\lVert a\cdot x_\nu\rVert\to 0$, so ${(v_\nu/M)}$ is an annihilator net in
+$B_{A_+}$, while $\varepsilon(v_\nu)=\sep_P(x_\nu)$.
+Proposition~\ref{SepOfDualViaAnnihNets} at $(A_+,\varepsilon)$ therefore gives
+$\limsup_\nu\sep_P(x_\nu)/M\leq\sep_{A_+^*}(\varepsilon)=\sepd(A_+^*)$, and
+taking the supremum over annihilator nets in $B_P$ gives
+$\asepd(P)\leq\langle\,\sepd(A_+^*)\ /\ C\,\sepd(A_+^*)\,\rangle$.
+
+For the lower bound, $P$ is not essential, so proposition~\ref{TheChain} and
+theorem~\ref{SepOfDualUnitization}$(i)$ give
+$\asepd(P)\geq\sepd(P^*)\geq\sepd(A_+^*)$. In the metric bracket the two bounds
+coincide.
+\end{proof}
+
+Comparing this with theorem~\ref{SepOfProjMod} shows that the two layers must be
+kept apart. Over $c_0(\Lambda)$ a non-essential projective module has
+$\sepd(P)=0$ and $\asepd(P)=\tfrac{1}{2}$: every annihilator vector lies inside
+$P_{ess}$, and the whole defect is carried by annihilator nets in $B_P$ that stay
+at positive distance from $P_{ann}$.
+
+\subsection{The annihilator part of an injective module}\label{SubSectionAnnihPartOfInjMod}
+
+\emph{Interleaved from [B], in this order, before the material below:}
+proposition~\ref{MetTopRelInjModCompIdealAnnihCompl},
+corollary~\ref{MetTopRelInjModAnnihCompl},
+proposition~\ref{MetTopInjModAnnihPartIsInjBanSp}.
+
+Injectivity and flatness are governed by the dual constant instead, and by the
+same mechanism: an annihilator direction of a dual module is transported into the
+module under test. For injectivity the transport is an extension, for flatness a
+tensor factor. Lemma~\ref{SepLowerBound} is the pointwise content of the
+averaging projection built in the proof of
+proposition~\ref{MetTopRelInjModCompIdealAnnihCompl}: the annihilator part is not
+merely complemented, each of its vectors stands at a definite distance from the
+essential part.
+
+\begin{proposition}\label{SepOfAnnihVectorInInjMod}
+Let $J$ be a $\langle$~metrically / $C$-topologically~$\rangle$ injective right
+$A$-module, let $X$ be a left $A$-module and let $f\in{(X_{ess})}^\perp$ with
+$\lVert f\rVert=1$. Then
+\[
+\sep_J(f_0)\leq\langle\,1\ /\ C\,\rangle\,\sep_{X^*}(f)\,\lVert f_0\rVert
+\qquad(f_0\in J_{ann});
+\]
+in particular
+$\sep_J(f_0)\leq\langle\,\sepd(A_+^*)\ /\ C\sepd(A_+^*)\,\rangle\lVert f_0\rVert$.
+\end{proposition}
+
+\begin{proof}
+Since $f\in{(X_{ess})}^\perp={(X^*)}_{ann}$, the line
+$\mathbb{C}f\subset X^*$ is a closed submodule on which the action is zero, and
+the inclusion $\xi:\mathbb{C}f\to X^*$ is an isometric $A$-morphism, hence
+$1$-topologically injective. The map
+$\varphi:\mathbb{C}f\to J,\,\lambda f\mapsto\lambda f_0$ is well defined and
+linear with $\lVert\varphi\rVert=\lVert f_0\rVert$, and it is an $A$-morphism:
+$\varphi \bigl((\lambda f)\cdot a \bigr)=\varphi(0)=0$ while
+$\varphi(\lambda f)\cdot a=\lambda(f_0\cdot a)=0$ because $f_0\in J_{ann}$. By
+definition~\ref{MetCTopInjMod}, with $c=1$, injectivity of $J$ extends $\varphi$
+along $\xi$: there is an $A$-morphism $\psi:X^*\to J$ with $\psi(f)=f_0$ and
+$\lVert\psi\rVert\leq\langle\,\lVert f_0\rVert\ /\ C\lVert f_0\rVert\,\rangle$.
+
+A morphism carries essential parts into essential parts, since
+$\psi(g\cdot a)=\psi(g)\cdot a\in\operatorname{span}(JA)$ and $J_{ess}$ is
+closed; so $\psi \bigl({(X^*)}_{ess} \bigr)\subset J_{ess}$ and, for every
+$g\in{(X^*)}_{ess}$,
+\[
+\sep_J(f_0)\leq\lVert f_0-\psi(g)\rVert=\lVert\psi(f)-\psi(g)\rVert
+\leq\lVert\psi\rVert\lVert f-g\rVert .
+\]
+Taking the infimum over $g$ turns the right-hand side into
+$\lVert\psi\rVert\sep_{X^*}(f)$, which is the displayed bound. For the last
+assertion take $(X,f)=(A_+,\varepsilon)$, admissible by
+lemma~\ref{AnnihPartOfUnitization}, which also gives
+$\sep_{A_+^*}(\varepsilon)=\sepd(A_+^*)$.
+\end{proof}
+
+\begin{corollary}\label{ExactSepOfAnnihVectorInInjMod}
+Let $A$ have a right approximate identity. Then in every metrically injective
+right $A$-module $J$,
+\[
+\sep_J(f_0)=\sepd(A_+^*)\lVert f_0\rVert=\frac{\lVert f_0\rVert}{1+\crai(A)}
+\qquad(f_0\in J_{ann}),
+\]
+and $\sepd(A_+^*)\lVert f_0\rVert\leq\sep_J(f_0)
+\leq C\sepd(A_+^*)\lVert f_0\rVert$ in every $C$-topologically injective one. The
+value is attained on $A_+^*$ at $f_0=\varepsilon$. If $A$ has no right
+approximate identity, then $J_{ann}\subset J_{ess}$ in every topologically
+injective right $A$-module.
+\end{corollary}
+
+\begin{proof}
+The upper bounds are proposition~\ref{SepOfAnnihVectorInInjMod} with
+$(X,f)=(A_+,\varepsilon)$. For the lower bound, let $\epsilon>0$ and let
+${(e_\nu)}$ be a right approximate identity bounded by $K=\crai(A)+\epsilon$;
+lemma~\ref{SepLowerBound} in its right-hand form, applied to $J$, gives
+$\sep_J(f_0)\geq\lVert f_0\rVert/(1+K)$, and letting $\epsilon\to 0$ and using
+theorem~\ref{SepOfDualUnitization}$(ii)$ gives
+$\sep_J(f_0)\geq\sepd(A_+^*)\lVert f_0\rVert$. In the metric bracket the two
+bounds agree.
+
+The value is attained: $A_+$ is free of rank one, hence metrically projective by
+proposition~\ref{MetCTopFreeMod}, so $A_+^*$ is metrically injective by
+proposition~\ref{DualMetTopProjIsMetrInj}, and its annihilator part is the line
+$\mathbb{C}\varepsilon$ with $\lVert\varepsilon\rVert=1$, on which
+lemma~\ref{AnnihPartOfUnitization} gives
+$\sep_{A_+^*}(\varepsilon)=\sepd(A_+^*)$.
+
+Finally, suppose $A$ has no right approximate identity; then $A\neq \{0 \}$,
+since the zero net is one for the zero algebra, so
+corollary~\ref{SepOfDualUnitizationValues} gives $\sepd(A_+^*)=0$ and the
+topological upper bound reads $\sep_J(f_0)\leq 0$ for every $f_0\in J_{ann}$. As
+$J_{ess}$ is closed, this says $J_{ann}\subset J_{ess}$.
+\end{proof}
+
+\begin{corollary}\label{InjAnnihModApprIdent}
+Let $J\neq \{0 \}$ be an annihilator right $A$-module which is
+$\langle$~metrically / $C$-topologically~$\rangle$ injective. Then
+$\langle$~$A= \{0 \}$ / $A$ has a right $(C-1)$-bounded approximate
+identity~$\rangle$.
+\end{corollary}
+
+\begin{proof}
+Since $J$ is a non-zero annihilator module, $J_{ess}= \{0 \}$ and $J_{ann}=J$, so
+$\sep_J(f_0)=\lVert f_0\rVert$ for every $f_0\in J$. Applying
+proposition~\ref{SepOfAnnihVectorInInjMod} at some $f_0\neq 0$ with
+$(X,f)=(A_+,\varepsilon)$ gives
+$\sepd(A_+^*)\geq\langle\,1\ /\ 1/C\,\rangle$. In the metric bracket this says
+$\sepd(A_+^*)\geq 1$, contradicting the ceiling $\tfrac{1}{2}$ of
+lemma~\ref{AugmCharDistEstimate} unless the hypothesis of that lemma fails, that
+is unless $A= \{0 \}$. In the topological bracket it says
+$1/(1+\crai(A))\geq 1/C$, that is $\crai(A)\leq C-1$; by
+theorem~\ref{SepOfDualUnitization}$(iii)$ this bound is attained, so $A$ has a
+right approximate identity bounded by $C-1$.
+\end{proof}
+
+Corollary~\ref{ExactSepOfAnnihVectorInInjMod} is pointwise, and taking the
+supremum over $B_{J_{ann}}$ turns it into a statement about the defect itself: on
+metrically injective modules $\sepd$ is two-valued.
+
+\begin{corollary}\label{SepOfInjMod}
+Let $J$ be a $\langle$~metrically / $C$-topologically~$\rangle$ injective right
+$A$-module. If $J$ is faithful, then $\sepd(J)=0$; otherwise
+\[
+\langle\,\sepd(J)=\sepd(A_+^*)\ /\
+\sepd(A_+^*)\leq\sepd(J)\leq C\,\sepd(A_+^*)\,\rangle ,
+\]
+so that on metrically injective modules the separation defect takes only the two
+values $0$ and $\sepd(A_+^*)$. Consequently, in the metric case:
+\begin{enumerate}[label = (\roman*)]
+\item $\sepd(P^*)=\sepd(A_+^*)$ for every left $A$-module $P$ that is metrically
+projective and not essential --- the cofree modules of
+proposition~\ref{SepOfCofreeMod} being the case
+$P=A_+\projtens\ell_1(\Lambda)$;
+
+\item $\sepd \bigl(\bigoplus_\infty \{J_\gamma:\gamma\in\Gamma \} \bigr)
+=\sup_\gamma\sepd(J_\gamma)$ for every family of metrically injective right
+$A$-modules, where proposition~\ref{SepOfSums}$(ii)$ gives only an inequality
+once the family is infinite.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Faithfulness means $J_{ann}= \{0 \}$, and then $\sepd(J)=\sep_J(0)=0$. Assume
+$J_{ann}\neq \{0 \}$, so that $J_{ann}$ contains a vector of norm one. If $A$ has
+a right approximate identity, corollary~\ref{ExactSepOfAnnihVectorInInjMod} gives
+the pointwise equality, respectively the two pointwise bounds, and taking the
+supremum over $f_0\in B_{J_{ann}}$ gives the displayed bracket, the supremum
+being attained at a vector of norm one. If $A$ has no right approximate identity
+then $A\neq \{0 \}$, so corollary~\ref{SepOfDualUnitizationValues} gives
+$\sepd(A_+^*)=0$, while the last clause of
+corollary~\ref{ExactSepOfAnnihVectorInInjMod} gives $J_{ann}\subset J_{ess}$ and
+hence $\sepd(J)=0$; both brackets then read $0=0$.
+
+$(i)$ Let $P$ be metrically projective and not essential. Its dual is metrically
+injective by proposition~\ref{DualMetTopProjIsMetrInj}, and
+${(P^*)}_{ann}={(P_{ess})}^\perp$ is non-zero precisely because
+$P_{ess}\neq P$; so the main clause gives $\sepd(P^*)=\sepd(A_+^*)$. The cofree
+modules are the case $P=A_+\projtens\ell_1(\Lambda)$, which is metrically
+projective by proposition~\ref{MetCTopFreeMod} and whose dual is
+$\mathcal{B}(A_+,\ell_\infty(\Lambda))$ by the identification made in the proof
+of proposition~\ref{SepOfCofreeMod}.
+
+$(ii)$ The sum is metrically injective by
+proposition~\ref{MetTopInjModProd}, and each $J_\gamma$ is a $1$-retract of it,
+so lemma~\ref{SepUnderRetracts} gives $\geq$. For the reverse, apply the main
+clause to the sum itself: by proposition~\ref{SepOfSums} its annihilator part is
+$\bigoplus_\infty \{{(J_\gamma)}_{ann}:\gamma\in\Gamma \}$, which is non-zero
+exactly when some ${(J_\gamma)}_{ann}$ is. If none is, both sides are $0$. If
+some is, the left-hand side equals $\sepd(A_+^*)$, and so does $\sepd(J_\gamma)$
+for that $\gamma$.
+\end{proof}
+
+\subsection{The annihilator part of a flat module}\label{SubSectionAnnihPartOfFlatMod}
+
+\emph{Interleaved from [B], in this order, before the material below:}
+proposition~\ref{MetTopRelFlatModCompIdealPartCompl},
+corollary~\ref{MetTopRelFlatModPartCompl},
+proposition~\ref{MetTopFlatModEssQuotIsFlatBanSp}.
+
+The engine here is not the separation defect but a statement about the module
+tensor product; the defect appears in its corollaries.
+
+\begin{proposition}\label{SepViaAnnihVector}
+Let $F$ be a left $A$-module.
+\begin{enumerate}[label = (\roman*)]
+\item For every right $A$-module $Y$, every $y_0\in Y_{ann}$ and every $x\in F$,
+\[
+\lVert y_0\otimes x\rVert_{Y\projmodtens{A}F}\leq\lVert y_0\rVert\,\sep_F(x).
+\]
+
+\item If $F$ is $\langle$~metrically / $C$-topologically~$\rangle$ flat, then
+\[
+\bigl\langle\,
+\lVert y_0\otimes x\rVert_{Y\projmodtens{A}F}=\lVert y_0\rVert\,\sep_F(x)
+\ /\
+\lVert y_0\rVert\,\sep_F(x)\leq C\lVert y_0\otimes x\rVert_{Y\projmodtens{A}F}
+\,\bigr\rangle .
+\]
+
+\item Consequently, if $F$ is $\langle$~metrically / $C$-topologically~$\rangle$
+flat, then for every left $A$-module $X$, every $f\in{(X_{ess})}^\perp$ with
+$\lVert f\rVert=1$, every $x\in F$ and all finite families
+$g_1,\dots,g_n\in X^*$ and $a_1,\dots,a_n\in A$,
+\[
+\sep_F(x)\leq\langle\,1\ /\ C\,\rangle\cdot \Bigl(
+  \bigl\lVert f-\textstyle\sum_i g_i\cdot a_i\bigr\rVert\lVert x\rVert
+  +\textstyle\sum_i\lVert g_i\rVert\lVert a_i\cdot x\rVert
+ \Bigr).
+\]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+$(i)$ By the law of adjoint associativity there is an isometric isomorphism
+$\mathcal{B}(Y\projmodtens{A}F,\mathbb{C})
+\isom{\mathbf{Ban}_1}\mathcal{B}_A(Y,F^*)$, under which a functional $\Phi$
+corresponds to the morphism $T$ with
+$\langle\Phi,y\otimes x\rangle=\langle Ty,x\rangle$. The norm of a vector being
+the supremum of the moduli of the unit functionals at it,
+\[
+\lVert y_0\otimes x\rVert_{Y\projmodtens{A}F}
+=\sup \{|\langle Ty_0,x\rangle|:T\in\mathcal{B}_A(Y,F^*),\,\lVert T\rVert\leq 1 \}.
+\]
+Fix such a $T$. It is a morphism into the right module $F^*$, so
+$(Ty_0)\cdot a=T(y_0\cdot a)=0$ for every $a\in A$; that is,
+$Ty_0\in{(F^*)}_{ann}={(F_{ess})}^\perp$ with
+$\lVert Ty_0\rVert\leq\lVert y_0\rVert$. Hence
+$|\langle Ty_0,x\rangle|=|\langle Ty_0,x-z\rangle|\leq\lVert y_0\rVert
+\lVert x-z\rVert$ for every $z\in F_{ess}$, and the infimum over $z$ is
+$\lVert y_0\rVert\sep_F(x)$.
+
+$(ii)$ Both sides are positively homogeneous of degree one in $y_0$ and vanish at
+$y_0=0$, so we may assume $\lVert y_0\rVert=1$. The line $Y_0:=\mathbb{C}y_0$ is
+a closed submodule of $Y$ on which the action is zero, and the inclusion
+$\xi:Y_0\to Y$ is an isometric $A$-morphism, hence also $1$-topologically
+injective, so it belongs to the test class of definition~\ref{MetCTopFlatMod} in
+both brackets with $c=1$; flatness of $F$ therefore makes
+$\xi\projmodtens{A}1_F$ $\langle$~isometric / $C$-topologically
+injective~$\rangle$. Now identify the source. The assignment
+$y_0\otimes x\mapsto x$ extends to an isometric isomorphism
+$Y_0\projtens F\to F$, since $Y_0$ is one-dimensional and spanned by a unit
+vector; under it the subspace by which one divides to form
+$Y_0\projmodtens{A}F$, namely
+$\operatorname{cl}(\operatorname{span} \{
+  y_0\cdot a\otimes x-y_0\otimes a\cdot x \})
+=\operatorname{cl}(\operatorname{span} \{y_0\otimes a\cdot x \})$, corresponds to
+$F_{ess}$. Passing to quotients gives an isometric isomorphism
+$Y_0\projmodtens{A}F\isom{\mathbf{Ban}_1}F/F_{ess}$ carrying $y_0\otimes x$ to
+the coset $x+F_{ess}$, so that
+$\lVert y_0\otimes x\rVert_{Y_0\projmodtens{A}F}=\sep_F(x)$. Feeding this through
+$\xi\projmodtens{A}1_F$ gives $(ii)$ in both brackets.
+
+$(iii)$ Apply $(ii)$ with $(Y,y_0)=(X^*,f)$, legitimate because
+$f\in{(X_{ess})}^\perp={(X^*)}_{ann}$ and $\lVert f\rVert=1$; it gives
+$\sep_F(x)\leq\langle\,1\ /\ C\,\rangle\lVert f\otimes x\rVert_{X^*\projmodtens{A}F}$.
+In $X^*\projmodtens{A}F$ the balancing relation
+$(g\cdot a)\otimes x=g\otimes(a\cdot x)$ holds, so
+$f\otimes x= \bigl(f-\sum_i g_i\cdot a_i \bigr)\otimes x
++\sum_i g_i\otimes(a_i\cdot x)$, whence the displayed bound by the triangle
+inequality and $\lVert u\otimes v\rVert\leq\lVert u\rVert\lVert v\rVert$.
+\end{proof}
+
+\begin{corollary}\label{SepInFlatMod}
+Let $F$ be a $\langle$~metrically / $C$-topologically~$\rangle$ flat left
+$A$-module. Then for every $x\in F$, every $a\in A\setminus \{0 \}$ and every
+$0<\gamma\leq 1$,
+\[
+\sep_F(x)\leq\langle\,1\ /\ C\,\rangle \Bigl(
+  \max \{\gamma,1-\gamma \}\lVert x\rVert
+  +\gamma\frac{\lVert a\cdot x\rVert}{\lVert a\rVert}
+ \Bigr);
+\]
+with $\gamma=\tfrac{1}{2}$,
+$\ 2\sep_F(x)\leq\langle\,1\ /\ C\,\rangle
+\bigl(\lVert x\rVert+\lVert a\cdot x\rVert/\lVert a\rVert \bigr)$.
+\end{corollary}
+
+\begin{proof}
+The statement quantifies over $a\in A\setminus \{0 \}$, so it is vacuous for
+$A= \{0 \}$ and we may assume $A\neq \{0 \}$;
+lemma~\ref{AugmCharDistEstimate} is then available. Apply
+proposition~\ref{SepViaAnnihVector}$(iii)$ with $(X,f)=(A_+,\varepsilon)$ ---
+admissible by lemma~\ref{AnnihPartOfUnitization} --- and with the single term
+$g_1:=(\gamma/\lVert a\rVert)\varphi$, $a_1:=a$, where $\varphi\in A_+^*$
+satisfies $\lVert\varphi\rVert=1$ and $\varphi(a/\lVert a\rVert)=1$. Then
+$g_1\cdot a_1=\gamma\,\varphi\cdot(a/\lVert a\rVert)$, so
+lemma~\ref{AugmCharDistEstimate} applied to the norm-one element
+$a/\lVert a\rVert$ bounds
+$\lVert\varepsilon-g_1\cdot a_1\rVert$ by $\max \{\gamma,1-\gamma \}$, while
+$\lVert g_1\rVert\lVert a_1\cdot x\rVert
+=\gamma\lVert a\cdot x\rVert/\lVert a\rVert$. Substituting the two bounds gives
+the display, and $\max \{\gamma,1-\gamma \}=\tfrac{1}{2}$ at
+$\gamma=\tfrac{1}{2}$.
+\end{proof}
+
+Taking the infimum over $a\neq 0$ in the second display gives the form in which
+the estimate holds at every vector of $F$, not only the annihilator ones:
+\[
+2\sep_F(x)\leq\langle\,1\ /\ C\,\rangle \bigl(\lVert x\rVert+\sng(x) \bigr)
+\qquad(x\in F),
+\]
+and $\gamma=\tfrac{1}{2}$ is the optimal choice there because
+$\sng(x)\leq\lVert x\rVert$ always. This is not subsumed by the annihilator
+estimate that follows, nor does it subsume it: the constant $\tfrac{1}{2}$ is the
+value of $\sepd(A_+^*)$ only when $A$ has a contractive right approximate
+identity.
+
+\begin{corollary}\label{SepOfAnnihVectorInFlatMod}
+Let $F$ be $\langle$~metrically / $C$-topologically~$\rangle$ flat and
+$x\in F_{ann}$. Then
+$\sep_F(x)\leq\langle\,1\ /\ C\,\rangle\sep_{X^*}(f)\lVert x\rVert$ for every
+admissible pair $(X,f)$, that is, for every left $A$-module $X$ and every
+$f\in{(X_{ess})}^\perp$ with $\lVert f\rVert=1$; and the best choice is
+$(A_+,\varepsilon)$:
+\[
+\sep_F(x)\leq\langle\,\sepd(A_+^*)\ /\ C\sepd(A_+^*)\,\rangle\lVert x\rVert .
+\]
+\end{corollary}
+
+\begin{proof}
+For $x\in F_{ann}$ every term $\lVert a_i\cdot x\rVert$ in
+proposition~\ref{SepViaAnnihVector}$(iii)$ vanishes, so that proposition reads
+$\sep_F(x)\leq\langle\,1\ /\ C\,\rangle
+\lVert f-\sum_i g_i\cdot a_i\rVert\lVert x\rVert$ for all finite families. The
+elements $\sum_i g_i\cdot a_i$ are exactly the members of
+$\operatorname{span} \{g\cdot a \}$, which is dense in ${(X^*)}_{ess}$; taking
+the infimum over them replaces the norm by
+$\dist \bigl(f,{(X^*)}_{ess} \bigr)=\sep_{X^*}(f)$.
+
+For the best choice, theorem~\ref{SepOfDualUnitization}$(i)$ gives
+$\sep_{X^*}(f)\geq\lVert f\rVert/(1+\crai(A))=\sepd(A_+^*)$ for every admissible
+pair, so none yields a coefficient smaller than $\sepd(A_+^*)$; and the pair
+$(A_+,\varepsilon)$ attains it, since
+$\sep_{A_+^*}(\varepsilon)=\sepd(A_+^*)$ by
+lemma~\ref{AnnihPartOfUnitization}. No hypothesis on $A$ is used.
+\end{proof}
+
+\begin{corollary}\label{FlatAnnihModHaveApprIdent}
+Let $F\neq \{0 \}$ be an annihilator
+$\langle$~metrically / $C$-topologically~$\rangle$ flat $A$-module. Then
+$\langle$~$A= \{0 \}$ / $A$ has a right $(C-1)$-bounded approximate
+identity~$\rangle$.
+\end{corollary}
+
+\begin{proof}
+Since $F$ is a non-zero annihilator module, $F_{ess}= \{0 \}$ and $F_{ann}=F$, so
+$\sep_F(x)=\lVert x\rVert$ for every $x\in F$; applying
+corollary~\ref{SepOfAnnihVectorInFlatMod} at some $x\neq 0$ gives
+$\sepd(A_+^*)\geq\langle\,1\ /\ 1/C\,\rangle$. In the metric bracket this says
+$\sepd(A_+^*)\geq 1$, contradicting the ceiling $\tfrac{1}{2}$ of
+lemma~\ref{AugmCharDistEstimate} unless the hypothesis of that lemma fails, that
+is unless $A= \{0 \}$. In the topological bracket
+theorem~\ref{SepOfDualUnitization}$(ii)$ turns it into $\crai(A)\leq C-1$, and
+$(iii)$ of the same theorem says the bound is attained.
+\end{proof}
+
+\begin{corollary}\label{ExactSepOfAnnihVectorInFlatMod}
+Let $F$ be a $\langle$~metrically / $C$-topologically~$\rangle$ flat left
+$A$-module. Then, with no hypothesis on $A$,
+\[
+\frac{\lVert x\rVert}{1+\clai(A)}\ \leq\ \sep_F(x)\ \leq\
+\langle\,\sepd(A_+^*)\ /\ C\sepd(A_+^*)\,\rangle\lVert x\rVert
+\qquad(x\in F_{ann}).
+\]
+If moreover $\clai(A)\leq\crai(A)$, the metric bracket collapses to the equality
+\[
+\sep_F(x)=\sepd(A_+^*)\lVert x\rVert=\frac{\lVert x\rVert}{1+\crai(A)}
+\qquad(x\in F_{ann}),
+\]
+which holds in particular when $A$ is commutative, when $A$ is unital, where the
+value is $\lVert x\rVert/(1+\lVert e_A\rVert)$, and when $A\neq \{0 \}$ has a
+contractive two-sided approximate identity, where it is $\tfrac{1}{2}\lVert
+x\rVert$. Conversely, if some metrically flat left $A$-module has a non-zero
+annihilator vector, then $\crai(A)\leq\clai(A)$.
+\end{corollary}
+
+\begin{proof}
+The upper bound is corollary~\ref{SepOfAnnihVectorInFlatMod}. For the lower
+bound, if $A$ has a left approximate identity then for every $\epsilon>0$ there
+is one bounded by $K=\clai(A)+\epsilon$, and lemma~\ref{SepLowerBound} applied to
+the left module $F$ gives $\sep_F(x)\geq\lVert x\rVert/(1+K)$; let
+$\epsilon\to 0$. If $A$ has none then $\clai(A)=+\infty$ and the bound is vacuous.
+
+Suppose $\clai(A)\leq\crai(A)$. Then
+$\lVert x\rVert/(1+\clai(A))\geq\lVert x\rVert/(1+\crai(A))
+=\sepd(A_+^*)\lVert x\rVert$ by
+theorem~\ref{SepOfDualUnitization}$(ii)$, so in the metric bracket the lower
+bound is at least the upper one and the two meet.
+
+The three instances are the elementary relations recorded in
+subsection~\ref{SubSectionBanachAlgebrasAndTheirModules}: a commutative algebra
+has $\clai(A)=\crai(A)$; a unital one has
+$\clai(A)=\crai(A)=\lVert e_A\rVert$, the zero algebra included, with $e_A=0$ and
+value $\lVert x\rVert$; and an algebra $A\neq \{0 \}$ with a contractive
+two-sided approximate identity has $\clai(A)=\crai(A)=1$, since such a net is
+bounded by $1$ on both sides while every approximate identity of a non-zero
+algebra is bounded below by $1$. The hypothesis $A\neq \{0 \}$ is not removable
+in the third instance: the zero algebra has the zero net as a contractive
+two-sided approximate identity, yet $\clai=\crai=0$ there and the value is
+$\lVert x\rVert$.
+
+For the converse, let $F$ be metrically flat with some $x\in F_{ann}$,
+$x\neq 0$. Reading the displayed sandwich at that single $x$ and dividing by
+$\lVert x\rVert$ gives $1/(1+\clai(A))\leq\sepd(A_+^*)=1/(1+\crai(A))$, that is
+$\crai(A)\leq\clai(A)$.
+\end{proof}
+
+On the asymptotic layer the estimate simplifies: the master inequality bounds
+$\sep_F$ at every vector, not only the annihilator ones, so it survives the
+passage to nets.
+
+\begin{proposition}\label{AsympSepOfFlatMod}
+Let $A\neq \{0 \}$ and let $X$ be a
+$\langle$~metrically / $C$-topologically~$\rangle$ flat left $A$-module. Then
+$\asepd(X)\leq\langle\,1/2\ /\ C/2\,\rangle$; equivalently, every topological
+flatness constant of $X$ satisfies $C\geq 2\asepd(X)$.
+\end{proposition}
+
+\begin{proof}
+Since $A\neq \{0 \}$ we may fix $a_0\in A$ with $\lVert a_0\rVert=1$. Let
+${(x_\nu)}_{\nu\in N}$ be an annihilator net in $B_X$;
+corollary~\ref{SepInFlatMod} at $\gamma=\tfrac{1}{2}$ and $a=a_0$ gives
+$2\sep_X(x_\nu)\leq\langle\,1\ /\ C\,\rangle
+\bigl(1+\lVert a_0\cdot x_\nu\rVert \bigr)$. Take the limit superior, use
+$\lVert a_0\cdot x_\nu\rVert\to 0$, and take the supremum over annihilator nets
+in $B_X$.
+\end{proof}
+
+The metric bracket is sharp on free modules, which are metrically flat by
+propositions~\ref{MetCTopFreeMod} and~\ref{MetTopProjIsMetTopFlat}: by
+proposition~\ref{AsympSepOfFreeMod} they have $\asepd=\sepd(A_+^*)$, and that
+equals $\tfrac{1}{2}$ exactly when $A$ has a contractive right approximate
+identity.
+
+\begin{corollary}\label{AsympSepQuantization}
+Let $A\neq \{0 \}$ have a right approximate identity. Then every non-essential
+$\langle$~metrically / $C$-topologically~$\rangle$ flat left $A$-module $X$
+satisfies
+\[
+\frac{1}{1+\crai(A)}\leq\asepd(X)\leq\langle\,1/2\ /\ C/2\,\rangle .
+\]
+In particular, over an algebra with a contractive right approximate identity the
+asymptotic separation defect of a metrically flat module takes exactly two
+values: $\asepd(X)=0$ if $X$ is essential and $\asepd(X)=\tfrac{1}{2}$ otherwise.
+\end{corollary}
+
+\begin{proof}
+The upper bound is proposition~\ref{AsympSepOfFlatMod}. For the lower one, $X$ is
+not essential, so proposition~\ref{TheChain} and
+theorem~\ref{SepOfDualUnitization}$(i)$, $(ii)$ give
+$\asepd(X)\geq\sepd(X^*)\geq\sepd(A_+^*)=1/(1+\crai(A))$. If $A$ has a
+contractive right approximate identity then $\crai(A)=1$ by the first clause of
+corollary~\ref{SepOfDualUnitizationValues}, so for non-essential metrically flat
+$X$ the display reads $\tfrac{1}{2}\leq\asepd(X)\leq\tfrac{1}{2}$; and if $X$ is
+essential then $\sep_X$ vanishes identically.
+\end{proof}
+
+\begin{corollary}\label{MaxAsympSepImpliesNotFlat}
+Let $A\neq \{0 \}$. A left $A$-module of asymptotic separation defect $1$ is
+never metrically flat, and its topological flatness constants satisfy $C\geq 2$.
+\end{corollary}
+
+\begin{proof}
+If $X$ were metrically flat, proposition~\ref{AsympSepOfFlatMod} would give
+$\asepd(X)\leq\tfrac{1}{2}$, contradicting $\asepd(X)=1$; and if $X$ is
+$C$-topologically flat the same proposition gives $1\leq C/2$.
+
+The hypothesis $A\neq \{0 \}$ is needed, and $\mathbb{C}$ is the witness. Over
+the zero algebra every module is an annihilator module, so
+$\mathbb{C}_{ess}= \{0 \}$, $\sep_{\mathbb{C}}=\lVert\cdot\rVert$ and
+$\asepd(\mathbb{C})=1$; on the other hand, as recorded in
+subsection~\ref{SubSectionMetricAndTopologicalFlatness}, modules over the zero
+algebra are Banach spaces and metric flatness for them is Grothendieck's
+$L_1$ condition \cite[theorem 1]{GrothMetrProjFlatBanSp}, which $\mathbb{C}$
+satisfies as the $L_1$-space of a one-point measure space. So $\mathbb{C}$ is a
+metrically flat module of asymptotic separation defect $1$ over $A= \{0 \}$.
+\end{proof}
+
+\subsection{Homologically trivial annihilator modules}\label{SubSectionHomoligicallyTrivialAnnihilatorModules}
+
+\emph{This subsection is the present subsection 2.2.1 of [B], moved here
+unchanged in content and order:} proposition~\ref{AnnihCModIsRetAnnihMod},
+proposition~\ref{MetTopProjModCCharac},
+proposition~\ref{MetTopProjOfAnnihModCharac},
+proposition~\ref{MetTopInjModCCharac},
+proposition~\ref{MetTopInjOfAnnihModCharac},
+proposition~\ref{MetTopFlatAnnihModCharac}, and the proposition asserting that no
+Banach algebra makes all of its modules flat, which is unlabelled in [B] and
+needs a label before it can be cited (\texttt{NoAlgWithAllModFlat} is proposed in
+Part~\ref{PartIV}). \emph{What changes is the proof of the algebra clause of each
+$(i)\Rightarrow(ii)$ half, and two corollaries are added.} The three
+characterisations then have one proof with two constants: $\sepd(A_+)$ for the
+projective case and $\sepd(A_+^*)$ for the other two.
+
+\paragraph{The algebra clause of
+proposition~\ref{MetTopProjModCCharac}$(i)\Rightarrow(ii)$ and of
+proposition~\ref{MetTopProjOfAnnihModCharac}$(i)\Rightarrow(ii)$.} Let $P$ be a
+non-zero annihilator $A$-module which is
+$\langle$~metrically / $C$-topologically~$\rangle$ projective; the case
+$P=\mathbb{C}$ is proposition~\ref{MetTopProjModCCharac}. By
+corollary~\ref{ProjAnnihMod}, $\langle$~$A= \{0 \}$ / $\cri(A)\leq C-1$~$\rangle$.
+This is one application of theorem~\ref{SepOfProjMod} to the single lifting
+problem $\varepsilon:A_+\to\mathbb{C}$, in place of the idempotent argument of
+proposition~\ref{MetTopProjCycModCharac}, and by
+corollary~\ref{ProjOverNonUnital} it says more than the existence of the
+identity: over an algebra without a right identity every annihilator vector of a
+projective module already lies in its essential part.
+
+\emph{One caveat on the topological bracket.} The clause as printed in [B] asks
+for a right identity of norm at most $C-1$, and the separation estimate gives
+$\cri(A)\leq C-1$, that is, a right identity of norm at most $C-1+\epsilon$ for
+every $\epsilon>0$. The two are not the same, because the infimum defining
+$\cri(A)$ need not be attained: the right identities of $A$ form a closed coset
+$u+ \{z\in A:Az= \{0 \} \}$, and closed subspaces of a Banach space are not in
+general proximinal. This is exactly where the projective constant differs from
+the dual one, whose infimum \emph{is} attained
+(theorem~\ref{SepOfDualUnitization}$(iii)$). Either restate the clause as
+$\cri(A)\leq C-1$ --- which is the invariant form, and which we recommend --- or
+keep the attained form and with it the appeal to
+proposition~\ref{MetTopProjCycModCharac}, which is legal here since that
+proposition lies in section 2.1.
+
+\paragraph{The algebra clause of
+proposition~\ref{MetTopInjModCCharac} and of
+proposition~\ref{MetTopInjOfAnnihModCharac}$(i)\Rightarrow(ii)$.} Let
+$J\neq \{0 \}$ be an annihilator right $A$-module which is
+$\langle$~metrically / $C$-topologically~$\rangle$ injective. By
+corollary~\ref{InjAnnihModApprIdent}, $\langle$~$A= \{0 \}$ / $A$ has a right
+$(C-1)$-bounded approximate identity~$\rangle$; here the bound \emph{is}
+attained, by theorem~\ref{SepOfDualUnitization}$(iii)$. This is three lines and
+replaces the passage through metric and topological flatness of $A_+/A$.
+
+\paragraph{The algebra clause of
+proposition~\ref{MetTopFlatAnnihModCharac}$(i)\Rightarrow(ii)$.} Identical, with
+corollary~\ref{FlatAnnihModHaveApprIdent} in place of
+corollary~\ref{InjAnnihModApprIdent}.
+
+The constant $C-1$ is moreover optimal, and the least admissible $C$ is the
+reciprocal of the dual constant.
+
+\begin{corollary}\label{InjAnnihModApprIdentOptimal}
+Let $J\neq \{0 \}$ be an annihilator right $A$-module which is metrically
+injective as a Banach space. Then
+\[
+\inf \{C:J\ \text{is a $C$-topologically injective $A$-module} \}
+=\frac{1}{\sepd(A_+^*)}=1+\crai(A),
+\]
+and the infimum is attained; it is infinite exactly when $A$ has no right
+approximate identity. The same holds, with the same proof, for an annihilator
+$A$-module $F\neq \{0 \}$ that is metrically flat as a Banach space and for the
+constant of proposition~\ref{MetTopFlatAnnihModCharac}.
+\end{corollary}
+
+\begin{proof}
+By corollary~\ref{InjAnnihModApprIdent} every admissible $C$ satisfies
+$C\geq 1+\crai(A)=1/\sepd(A_+^*)$, which is also the assertion about
+finiteness. For the upper bound let $\crai(A)<+\infty$ and put
+$C:=1+\crai(A)$. By theorem~\ref{SepOfDualUnitization}$(iii)$ the algebra $A$ has
+a right $(C-1)$-bounded approximate identity; and $J$, being metrically injective
+as a Banach space, is $1$-topologically injective as a Banach space by
+proposition~\ref{MetInjIsOneTopInj} read over the zero algebra, hence
+$C$-topologically injective as a Banach space for every $C\geq 1$. These are
+exactly the hypotheses of
+proposition~\ref{MetTopInjOfAnnihModCharac} in the direction
+$(ii)\Rightarrow(i)$, whose conclusion is that $J$ is $C$-topologically injective
+as an $A$-module. The flat statement is the same argument with
+proposition~\ref{MetTopFlatAnnihModCharac} in place of
+proposition~\ref{MetTopInjOfAnnihModCharac}, a metrically flat Banach space being
+an $\mathscr{L}_{1,1}^g$-space and hence an $\mathscr{L}_{1,C}^g$-space for every
+$C\geq 1$.
+\end{proof}
+
+Finally, the asymptotic layer carries the same three characterisations one step
+further: propositions~\ref{AsympSepOfProjMod} and~\ref{AsympSepOfFlatMod} with
+corollaries~\ref{AsympSepQuantization} and~\ref{MaxAsympSepImpliesNotFlat} say
+that over an algebra with a contractive right approximate identity a metrically
+flat module has $\asepd\in \{0,\tfrac{1}{2} \}$, and that a module of asymptotic
+separation defect $1$ over a non-zero algebra is never metrically flat. That last
+statement is what the measure algebra needs, and it is proved in
+Part~\ref{PartIII}.
+
+\section{For chapter 3}\label{PartIII}
+
+\subsection{For subsection~\ref{SectionPreliminariesOnHarmonicAnalysis}, replacing
+the sentences on the Lebesgue decomposition of $M(G)$}
+
+\emph{Delete} the assertions that $M(G)$ is a coproduct of $M_a(G)$ and $M_s(G)$
+in $L_1(G)\text{-}\mathbf{mod}_1$, that $M_s(G)$ is a subalgebra of $M(G)$, and
+that $M_s(G)$ is an annihilator $L_1(G)$-module. All three fail for non-discrete
+$G$, because $M_s(G)$ is then not even an $L_1(G)$-submodule of $M(G)$: points
+are $m_G$-null, so $\delta_x\in M_s(G)$ for every $x\in G$, while
+$gm_G\convol\delta_x$ is non-zero and absolutely continuous for every $g\neq 0$
+in $L_1(G)$; hence $L_1(G)\convol M_s(G)\not\subset M_s(G)$ and
+$M_s(G)\convol L_1(G)\neq \{0 \}$. Nor is $M_s(G)$ a subalgebra: Wiener and
+Wintner constructed on $\mathbb{T}$ a singular probability measure $\mu$ with
+$\widehat\mu(n)=O(|n|^{-1/2+\epsilon})$, and then $\mu^{\convol 4}$ has
+absolutely convergent Fourier series and is a non-zero absolutely continuous
+measure.
+
+\emph{Insert} instead: $M_a(G)$ is a closed two-sided ideal of $M(G)$ with
+$M_a(G)\isom{M(G)\text{-}\mathbf{mod}_1}L_1(G)$; the Lebesgue decomposition
+$M(G)\isom{\mathbf{Ban}_1}M_a(G)\bigoplus_1 M_s(G)$ is an isomorphism of Banach
+spaces and of Banach spaces only; and ${M(G)}_{ess}=M_a(G)$, so that
+$M(G)/{M(G)}_{ess}\isom{\mathbf{Ban}_1}M_s(G)$, this last being proved in
+proposition~\ref{AsympSepOfMeasAlg} below. That is what the proofs of
+proposition~\ref{L1MetTopProjAndMetrFlatOfMeasAlg}$(iii)$ and of
+proposition~\ref{MeasAlgIsL1TopFlat} already use, and all that they need; the
+opening paragraph of the latter, which proves ${M(G)}_{ess}=M_a(G)$ a second
+time, can be cut and replaced by a citation.
+
+One sentence is worth adding at the point of deletion, because it is how the
+error arose. Subsection~\ref{SubSectionC0SModules} correctly asserts that
+$M_s(S,\mu)$ \emph{is} a closed $C_0(S)$-submodule of $M(S)$: there the action is
+pointwise multiplication, which preserves singularity with respect to $\mu$.
+Here the action is convolution, which does not.
+
+\subsection{For subsection~\ref{SubSectionL1GModules}}
+
+The following proposition goes at the head of the subsection. It is the
+supporting statement for the correction above and for the replacement proof
+that follows it.
+
+\begin{proposition}\label{AsympSepOfMeasAlg}
+Let $G$ be a non-discrete locally compact group and regard $M(G)$ as a left
+$L_1(G)$-module. Then ${M(G)}_{ess}=M_a(G)$ and ${M(G)}_{ann}= \{0 \}$, and
+\[
+\asepd(M(G))=1,\qquad \sepd(M{(G)}^*)=1,\qquad \sepd(M(G))=0 .
+\]
+\end{proposition}
+
+\begin{proof}
+Points are Haar-null. By left invariance $m_G( \{x \})=m_G( \{e_G \})=:c$ for
+every $x\in G$. If $c>0$, take a compact neighbourhood $W$ of $e_G$, so that
+$m_G(W)<+\infty$; any $n$ distinct points of $W$ give $m_G(W)\geq nc$, so $W$ is
+finite, and a finite neighbourhood of $e_G$ in a Hausdorff group contains a
+finite open set, which makes $ \{e_G \}$ open and $G$ discrete. Hence $c=0$ and
+$\delta_x\in M_s(G)$ for every $x\in G$.
+
+The essential part. On the one hand $L_1(G)\convol M(G)\subset M_a(G)$, a
+convolution with an absolutely continuous measure being absolutely continuous; on
+the other hand $M_a(G)$ is isometrically isomorphic to $L_1(G)$ as a module and
+$L_1(G)$ has a contractive approximate identity, so $M_a(G)$ is essential. Hence
+${M(G)}_{ess}=M_a(G)$. The annihilator part is zero: if $f\convol\mu=0$ for every
+$f\in L_1(G)$, take $f=\chi_U/m_G(U)$ over a shrinking neighbourhood base at
+$e_G$, so that $f\convol\mu\to\mu$ weak${}^*$ and $\mu=0$. Consequently
+$B_{{M(G)}_{ann}}= \{0 \}$ and $\sepd(M(G))=0$: the measure algebra is a witness
+for the strictness of the first inequality of proposition~\ref{TheChain}, and it
+realises the maximal asymptotic defect without a single annihilator vector.
+
+The separation of a difference of point masses. For $z\neq e_G$ put
+$\mu_z:=\tfrac{1}{2}(\delta_{e_G}-\delta_z)$. The two point masses are mutually
+singular, so $\lVert\mu_z\rVert=1$, and $\mu_z\in M_s(G)$; the
+$\bigoplus_1$-decomposition gives
+$\lVert\mu_z-\nu\rVert=\lVert\mu_z\rVert+\lVert\nu\rVert\geq 1$ for every
+$\nu\in M_a(G)$, whence $\sep_{M(G)}(\mu_z)=1$.
+
+An annihilator net at separation one. Let $N$ be a neighbourhood base at $e_G$,
+directed by reverse inclusion. Since $G$ is not discrete, no $V\in N$ reduces to
+$ \{e_G \}$, so we may choose $z_V\in V\setminus \{e_G \}$. For $g\in L_1(G)$ one
+has $g\convol\mu_{z_V}=\tfrac{1}{2}(g-g\convol\delta_{z_V})$, and
+$\lVert g-g\convol\delta_z\rVert_1\to 0$ as $z\to e_G$ by the norm continuity of
+translation in $L_1(G)$ together with the continuity of the modular function; so
+${(\mu_{z_V})}_{V\in N}$ is an annihilator net in $B_{M(G)}$ with
+$\sep_{M(G)}(\mu_{z_V})=1$ at every index, and $\asepd(M(G))\geq 1$. As
+$\asepd\leq 1$ always, this is an equality.
+
+The dual. Every $\mu\in M(G)$ has at most countably many atoms and
+$\sum_x|\mu( \{x \})|\leq\lVert\mu\rVert$, so
+$f(\mu):=\mu( \{e_G \})-\sum_{x\neq e_G}\mu( \{x \})$ is a well-defined linear
+functional with $\lVert f\rVert\leq 1$. It vanishes on $M_a(G)$, an absolutely
+continuous measure having no atoms, that is
+$f\in{({M(G)}_{ess})}^\perp={\bigl(M{(G)}^* \bigr)}_{ann}$; and
+$f(\mu_z)=\tfrac{1}{2}+\tfrac{1}{2}=1$, so $\lVert f\rVert=1$ and
+proposition~\ref{SepOfDualViaAnnihNets} applied to the net above gives
+$\sep_{M{(G)}^*}(f)\geq 1$. Hence $\sepd(M{(G)}^*)=1$.
+\end{proof}
+
+\emph{Replacing the proof of
+proposition~\ref{L1MetTopProjAndMetrFlatOfMeasAlg}$(iv)\Rightarrow(i)$.} Delete
+the present argument, which opens with
+$M(G)\isom{L_1(G)\text{-}\mathbf{mod}_1}L_1(G)\bigoplus_1 M_s(G)$ and concludes
+through propositions~\ref{MetTopFlatModCoProd} and~\ref{MetTopFlatAnnihModCharac}.
+Insert:
+
+\begin{quote}
+$(iv)\Rightarrow(i)$ Suppose $G$ is not discrete. By
+proposition~\ref{AsympSepOfMeasAlg} the $L_1(G)$-module $M(G)$ has asymptotic
+separation defect $1$, and $L_1(G)\neq \{0 \}$; so
+corollary~\ref{MaxAsympSepImpliesNotFlat} says that $M(G)$ is not metrically
+flat. Hence a metrically flat $M(G)$ forces $G$ to be discrete.
+\end{quote}
+
+Items $(i)$--$(iii)$ of that proposition stand as printed. The same estimate
+bounds the topological constant from below, which the present text does not
+record.
+
+\begin{corollary}\label{MeasAlgL1TopFlatConst}
+Let $G$ be a non-discrete locally compact group. Then every constant of
+topological flatness of the $L_1(G)$-module $M(G)$ is at least $2$. The module is
+topologically flat by proposition~\ref{MeasAlgIsL1TopFlat}, so the least such
+constant lies in $[2,+\infty)$.
+\end{corollary}
+
+\begin{proof}
+By proposition~\ref{AsympSepOfMeasAlg} we have $\asepd(M(G))=1$, and
+$L_1(G)\neq \{0 \}$; apply corollary~\ref{MaxAsympSepImpliesNotFlat}.
+\end{proof}
+
+\subsection{For subsection~\ref{SubSectionc0AndlInftyModules}, the metric half of
+proposition~\ref{c0AndlInftyModlIfty}$(ii)$}
+
+\emph{Replace} the appeal to proposition~\ref{CStarAlgIsTopFlatOverItsIdeal} by
+the asymptotic separation defect. The paragraph becomes:
+
+\begin{quote}
+$(ii)$ Let $\Lambda$ be infinite. We claim that
+$\asepd(\ell_\infty(\Lambda))=1$ over $c_0(\Lambda)$. The essential part is
+$\operatorname{cl}(c_0(\Lambda)\ell_\infty(\Lambda))=c_0(\Lambda)$. For a finite
+$S\subset\Lambda$ put $v_S:=\chi_{\Lambda\setminus S}$; these are unit vectors,
+they satisfy $\lVert av_S\rVert_\infty=\sup_{\lambda\notin S}|a(\lambda)|\to 0$
+for every $a\in c_0(\Lambda)$ as $S$ runs over the finite subsets of $\Lambda$
+directed by inclusion, so they form an annihilator net in
+$B_{\ell_\infty(\Lambda)}$; and
+$\sep_{\ell_\infty(\Lambda)}(v_S)=\dist(v_S,c_0(\Lambda))=1$, a norming direction
+being $f(x)=\lim_{\mathfrak{U}}x(\lambda_n)$ along a free ultrafilter
+$\mathfrak{U}$ on $\mathbb{N}$ and a sequence of distinct
+$\lambda_n\in\Lambda\setminus S$, which vanishes on $c_0(\Lambda)$, has norm at
+most one and takes the value $1$ at $v_S$. Since $c_0(\Lambda)\neq \{0 \}$,
+corollary~\ref{MaxAsympSepImpliesNotFlat} applies and gives that
+$\ell_\infty(\Lambda)$ is not a metrically flat $c_0(\Lambda)$-module. Both
+claims regarding projectivity follow from
+proposition~\ref{MetTopProjIsMetTopFlat}. If $\Lambda$ is finite, then
+$c_0(\Lambda)=\ell_\infty(\Lambda)$ and the result follows from paragraph $(i)$.
+\end{quote}
+
+The same estimate gives, as prose after the proposition, that every constant of
+topological flatness of the $c_0(\Lambda)$-module $\ell_\infty(\Lambda)$ is at
+least $2$ for infinite $\Lambda$ --- a quantitative refinement that the appeal to
+proposition~\ref{CStarAlgIsTopFlatOverItsIdeal} does not give. The topological
+half of $(ii)$ is unaffected and keeps its present proof.
+
+\section{Merge manifest}\label{PartIV}
+
+\subsection{Preamble additions required in \texttt{book/main.tex}}
+
+The following go beside the existing definitions of \texttt{\textbackslash
+projtens}, \texttt{\textbackslash convol}, \texttt{\textbackslash projmodtens}
+and \texttt{\textbackslash isom}. Nothing else in the preamble changes, and in
+particular \texttt{\textbackslash sp} is left alone: [B] uses
+$\operatorname{sp}_A(a)$ for the spectrum of an algebra element throughout
+chapter 3, so the separation operator is called $\sep$ and not $\operatorname{sp}$.
+
+\begin{verbatim}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\sep}{sep}
+\DeclareMathOperator{\sepd}{sepd}
+\DeclareMathOperator{\asep}{asep}
+\DeclareMathOperator{\asepd}{asepd}
+\DeclareMathOperator{\sng}{sng}
+\newcommand{\cri}{c_{\mathrm{ri}}}
+\newcommand{\cli}{c_{\mathrm{li}}}
+\newcommand{\crai}{c_{\mathrm{rai}}}
+\newcommand{\clai}{c_{\mathrm{lai}}}
+\end{verbatim}
+
+The four constants may equally be spelled out in the text; the operators cannot,
+and $\sng$ is the only one of the six whose name was free in [B] already.
+
+\subsection{Chapter 1}
+
+\begin{itemize}
+\item \emph{Insertion}, subsection~\ref{SubSectionBanachSpaces}, in the paragraph
+carrying $E^*/F^\perp\isom{\mathbf{Ban}_1}F^*$: the $\dist$ notation, the
+Hahn-Banach distance formula, Banach-Alaoglu, Goldstine and Mazur. Part I.1.
+Prose, no numbered statement.
+
+\item \emph{Insertion}, subsection~\ref{SubSectionBanachAlgebrasAndTheirModules},
+after the paragraph on approximate identities: the four constants
+$\cri,\cli,\crai,\clai$, their conventions, the elementary relations, the open
+question, and the forward pointer to attainment. Part I.2.
+
+\item \emph{Insertion}, same subsection: the definition of an annihilator net,
+with the disclaimer that no norm bound is part of it. Part I.3.
+
+\item \emph{Insertion}, same subsection, in the paragraph that already records
+${(X^*)}^{\perp S}={\operatorname{cl}_X(SX)}^\perp$: the two dual identities
+spelled out at $S=A$. Part I.4. Note that [B] already has the first of them; only
+the second, and the remark that ${(X^*)}_{ess}\subset{(X_{ann})}^\perp$ can be
+proper, are new.
+\end{itemize}
+
+\subsection{Chapter 2}
+
+\begin{itemize}
+\item \emph{Renumbering.} A new section 2.2, ``The essential and the annihilator
+part'', is inserted between the present 2.1 and the present 2.2. The present
+subsection 2.2.1, \texttt{SubSectionHomoligicallyTrivialAnnihilatorModules},
+becomes subsection 2.2.6 of the new section; the rest of the present section 2.2
+becomes section 2.3, and the present section 2.3 becomes section 2.4. No label of
+[B] changes, and no statement of [B] is renumbered by hand: every citation in
+this note is by label.
+
+\item \emph{Relocation, no change of content}, into
+subsection~\ref{SubSectionAnnihPartOfProjMod} at its head:
+proposition~\ref{MetTopRelProjModCompIdealPartCompl},
+corollary~\ref{MetTopRelProjModPartCompl},
+proposition~\ref{MetTopProjModEssQuotIsProjBanSp}.
+
+\item \emph{Relocation, no change of content}, into
+subsection~\ref{SubSectionAnnihPartOfInjMod} at its head:
+proposition~\ref{MetTopRelInjModCompIdealAnnihCompl},
+corollary~\ref{MetTopRelInjModAnnihCompl},
+proposition~\ref{MetTopInjModAnnihPartIsInjBanSp}.
+
+\item \emph{Relocation, no change of content}, into
+subsection~\ref{SubSectionAnnihPartOfFlatMod} at its head:
+proposition~\ref{MetTopRelFlatModCompIdealPartCompl},
+corollary~\ref{MetTopRelFlatModPartCompl},
+proposition~\ref{MetTopFlatModEssQuotIsFlatBanSp}.
+
+\item \emph{Insertion}, subsections~\ref{SubSectionSeparation}
+to~\ref{SubSectionAnnihPartOfFlatMod}: everything else in Part II, in the order
+printed there.
+
+\item \emph{Replacement}, proposition~\ref{MetTopProjModCCharac} and
+proposition~\ref{MetTopProjOfAnnihModCharac}, the algebra clause of
+$(i)\Rightarrow(ii)$: by corollary~\ref{ProjAnnihMod}. See the caveat in
+subsection~\ref{SubSectionHomoligicallyTrivialAnnihilatorModules} and item
+(c) below.
+
+\item \emph{Replacement}, proposition~\ref{MetTopInjModCCharac} and
+proposition~\ref{MetTopInjOfAnnihModCharac}, the algebra clause of
+$(i)\Rightarrow(ii)$: by corollary~\ref{InjAnnihModApprIdent}.
+
+\item \emph{Replacement}, proposition~\ref{MetTopFlatAnnihModCharac}, the algebra
+clause of $(i)\Rightarrow(ii)$: by corollary~\ref{FlatAnnihModHaveApprIdent}.
+
+\item \emph{Insertion}, subsection
+\ref{SubSectionHomoligicallyTrivialAnnihilatorModules}, after
+proposition~\ref{MetTopFlatAnnihModCharac}:
+corollary~\ref{InjAnnihModApprIdentOptimal}.
+
+\item \emph{Labelling}, subsection
+\ref{SubSectionHomoligicallyTrivialAnnihilatorModules}: the proposition
+asserting that no Banach algebra makes all of its modules flat carries no label
+in [B] and cannot be cited. Proposed label:
+\texttt{NoAlgWithAllModFlat}.
+\end{itemize}
+
+\subsection{Chapter 3}
+
+\begin{itemize}
+\item \emph{Deletion and replacement},
+subsection~\ref{SectionPreliminariesOnHarmonicAnalysis}: the coproduct, the
+subalgebra and the annihilator-module assertions about $M_s(G)$, replaced by the
+text of Part III.1.
+
+\item \emph{Insertion}, subsection~\ref{SubSectionL1GModules} at its head:
+proposition~\ref{AsympSepOfMeasAlg}.
+
+\item \emph{Replacement}, proposition~\ref{L1MetTopProjAndMetrFlatOfMeasAlg},
+the proof of $(iv)\Rightarrow(i)$: by the three lines of Part III.2. Items
+$(i)$--$(iii)$ stand as printed.
+
+\item \emph{Insertion}, subsection~\ref{SubSectionL1GModules}, after
+proposition~\ref{MeasAlgIsL1TopFlat}:
+corollary~\ref{MeasAlgL1TopFlatConst}.
+
+\item \emph{Deletion}, proposition~\ref{MeasAlgIsL1TopFlat}: its opening
+paragraph, which proves ${M(G)}_{ess}=M_a(G)$ a second time, replaced by a
+citation of proposition~\ref{AsympSepOfMeasAlg}.
+
+\item \emph{Replacement}, proposition~\ref{c0AndlInftyModlIfty}$(ii)$, the metric
+half: by the paragraph of Part III.3, which removes the appeal to
+proposition~\ref{CStarAlgIsTopFlatOverItsIdeal}. The topological half is
+unaffected.
+\end{itemize}
+
+\subsection{Points to vet before merging}
+
+\begin{enumerate}[label = (\alph*)]
+\item \emph{The $K=0$ gap in lemma~\ref{SepLowerBound}} is closed by disposing of
+$K=0$ in a sentence, not by imposing $K\geq 1$. Imposing $K\geq 1$ would be
+consistent with [B]'s notion of a $c$-bounded approximate identity, but it would
+break the lemma's own consequence at $A= \{0 \}$, where
+corollary~\ref{ExactSepOfAnnihVectorInFlatMod} invokes it with
+$K=\clai(A)+\epsilon=\epsilon<1$. Since $K\geq 1$ is automatic for
+$A\neq \{0 \}$, the hypothesis would bite only on the zero algebra --- the exact
+case the rest of the sweep is trying to include.
+
+\item \emph{The zero algebra in
+subsection~\ref{SubSectionSeparationOfUnitization}.} The hypothesis
+$A\neq \{0 \}$ has been dropped from theorem~\ref{SepOfDualUnitization}
+altogether, and all three clauses were checked at $A= \{0 \}$:
+${(A_+)}_{ess}= \{0 \}$, ${(A_+^*)}_{ann}=A_+^*=\mathbb{C}\varepsilon$,
+${(A_+^*)}_{ess}= \{0 \}$, so $\sepd(A_+^*)=1=1/(1+\crai( \{0 \}))$; the zero net
+is admissible in the lower bound of $(ii)$ and attains the value in $(iii)$,
+where $\delta=1$ forces $m=0$ and $p=0$; and $(i)$ reads
+$\sep_{X^*}(f)\geq\lVert f\rVert$, which holds with equality because
+$X_{ess}= \{0 \}$. The hypothesis is kept exactly where it bites:
+lemma~\ref{AugmCharDistEstimate}, which needs an element of norm one, and hence
+corollary~\ref{SepOfDualUnitizationValues}, whose first clause fails at
+$A= \{0 \}$. The asymmetry with lemma~\ref{AnnihPartOfUnitization}, which never
+needed the hypothesis, is thereby removed, and the zero-algebra paragraph
+formerly buried in the proof of
+corollary~\ref{SepOfAnnihVectorInFlatMod} disappears, along with the case splits
+it forced on corollaries~\ref{FlatAnnihModHaveApprIdent}
+and~\ref{ExactSepOfAnnihVectorInFlatMod}.
+
+\item \emph{Attainment of $\cri(A)$.} The separation estimate proves
+$\cri(A)\leq C-1$, whereas propositions~\ref{MetTopProjModCCharac}
+and~\ref{MetTopProjOfAnnihModCharac} as printed assert a right identity of norm
+at most $C-1$. The infimum defining $\cri(A)$ need not be attained: the right
+identities of $A$ form the closed coset $u+ \{z\in A:Az= \{0 \} \}$, and closed
+subspaces of a Banach space are not in general proximinal. This is a real
+difference from the injective and flat clauses, where
+theorem~\ref{SepOfDualUnitization}$(iii)$ does give attainment. Recommendation:
+restate the two projective clauses as $\cri(A)\leq C-1$. If the attained form is
+to be kept, the appeal to proposition~\ref{MetTopProjCycModCharac} must be kept
+with it; that is legal, since it lies in section 2.1.
+
+\item \emph{Theorem~\ref{SepOfDualUnitization}$(iii)$ has been retained.} The
+instruction was to check whether the attainment of $\crai(A)$ is classical ---
+Doran and Wichmann, \cite{AppIdAndFactorInBanAlg} --- and, if so, to cite it and
+delete $(iii)$. That could not be verified against the source, and deleting a
+short self-contained proof on the strength of an unverified citation seemed the
+worse risk. The clause is used in
+corollaries~\ref{InjAnnihModApprIdent},~\ref{FlatAnnihModHaveApprIdent}
+and~\ref{InjAnnihModApprIdentOptimal} and in
+corollary~\ref{SepOfDualUnitizationValues}, so if the reference is confirmed it
+is those four citations that change, not the argument.
+
+\item \emph{One label is split.} The former
+\texttt{InjAnnihModApprIdentOptimal} had two clauses. Clause $(i)$ is
+corollary~\ref{InjAnnihModApprIdent} and stays in
+subsection~\ref{SubSectionAnnihPartOfInjMod}; clause $(ii)$ keeps the old label
+and moves to subsection
+\ref{SubSectionHomoligicallyTrivialAnnihilatorModules}. The move is forced: the
+proof of $(ii)$ quotes propositions~\ref{MetTopInjOfAnnihModCharac}
+and~\ref{MetTopFlatAnnihModCharac} in the direction $(ii)\Rightarrow(i)$, and
+those live in subsection 2.2.6. Leaving it in 2.2.4 would be a forward reference
+of exactly the kind the reorganization is meant to remove.
+
+\item \emph{One statement is shortened.} Corollary~\ref{ProjAnnihMod} is stated
+as a necessary condition only. Its converse, in the note, was a citation of
+proposition~\ref{MetTopProjOfAnnihModCharac}, which now sits later; and since the
+corollary dissolves into that very proposition, nothing is lost.
+
+\item \emph{Proof-internal cross-references removed, beyond the four the
+instruction listed.} Three more were found and are handled the same way. The
+identity $X_{ann}=\bigoplus_p \{{(X_\lambda)}_{ann} \}$ is now part of the
+statement of proposition~\ref{SepOfSums}, since
+corollary~\ref{SepOfInjMod}$(ii)$ used it. The identities
+${(A_+^*)}_{ann}=\mathbb{C}\varepsilon$, $\lVert\varepsilon\rVert=1$ and
+$\sepd(A_+^*)=\sep_{A_+^*}(\varepsilon)$ are now part of the statement of
+lemma~\ref{AnnihPartOfUnitization}, since
+proposition~\ref{SepOfAnnihVectorInInjMod},
+corollary~\ref{SepOfAnnihVectorInFlatMod} and
+proposition~\ref{AsympSepOfFreeMod} all quoted them from inside the proof of
+theorem~\ref{SepOfDualUnitization}$(ii)$. And
+proposition~\ref{SepOfCofreeMod}, which quoted the essential part of the free
+module from inside the proof of proposition~\ref{AsympSepOfFreeMod}, now derives
+it from proposition~\ref{SepOfSums}$(iv)$ directly.
+
+\item \emph{The reading of proposition~\ref{MetTopFlatCycModCharac}} recorded at
+the end of subsection~\ref{SubSectionSeparationOfUnitization} is stated for the
+unitization $A_+$. It is there, and only there, that
+$\lVert e_{A_+}-e_\nu\rVert=1+\lVert e_\nu\rVert$ for $e_\nu\in I\subset A$; over
+$A_\times$ the quantity is not $1/\sepd(I_+^*)$.
+
+\item \emph{Length.} No proof in Part II exceeds the longest proofs of chapter 2
+of [B], namely those of lemma~\ref{GoodIdealMetTopProjIsUnital} and
+proposition~\ref{MetTopFlatCycModCharac}. The step-numbered format is gone
+everywhere, and the verifications [B] habitually compresses --- three-epsilon
+arguments, checks that a constructed map is a morphism, directing a net over
+pairs $(F,\epsilon)$, and the $1$-Lipschitz and positively homogeneous character
+of $\sep_X$ --- are compressed here as well, the last being stated once after
+definition~\ref{SepOfMod} and used silently thereafter.
+\end{enumerate}
+
+\end{document}
