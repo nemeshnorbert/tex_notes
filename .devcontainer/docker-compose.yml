@@ -1,0 +1,19 @@
+services:
+  latex:
+    build:
+      context: .
+      dockerfile: ../.docker/Dockerfile
+      args:
+        uid: 1000
+        gid: 1000
+        home: /home/scribbler
+        username: scribbler
+    image: latex
+    user: scribbler
+    volumes:
+      - ../:/home/scribbler
+    environment:
+      - TZ=Europe/Moscow
+      - SHELL=/usr/bin/bash
+    # Overrides default command so things don't shut down after the process ends.
+    command: /bin/sh -c "while sleep 1000; do :; done"

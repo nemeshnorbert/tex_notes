@@ -1,0 +1,140 @@
+{
+    // A display name for the container.
+    "name": "latex-tex-notes",
+    // Required. Path or an ordered list of paths to Docker Compose files
+    // relative to the devcontainer.json file. Using an array is useful when
+    // extending your Docker Compose configuration. The order of the array
+    // matters since the contents of later files can override values set in
+    // previous ones. The default .env file is picked up from the root of
+    // the project, but you can use env_file in your Docker Compose
+    // file to specify an alternate location.
+    "dockerComposeFile": [
+        "docker-compose.yml"
+    ],
+    // Required. The name of the service
+    // VS Code should connect to once running.
+    "service": "latex",
+    // An array of services in your Docker Compose configuration that should
+    // be started by VS Code. These will also be stopped when you disconnect
+    // unless "shutdownAction" is "none". Defaults to all services.
+    "runServices": [
+        "latex"
+    ],
+    // Indicates whether VS Code should stop the containers when the
+    // VS Code window is closed / shut down.
+    // Values are none and stopCompose (default).
+    // Does not apply to Codespaces.
+    "shutdownAction": "stopCompose",
+    // Sets the default path that VS Code should open when connecting to
+    // the container. Typically used with workspaceMount. Defaults to the
+    // automatic source code mount location. Only supported for Docker
+    // Compose in Codespaces and when using Clone Repository
+    // in Container Volume.
+    "workspaceFolder": "/home/scribbler",
+    // A command string or list of command arguments to run inside the
+    // container after it is created. The commands execute from the
+    // workspaceFolder in the container. Use && in a string to execute
+    // multiple commands. For example, "yarn install" or
+    // "apt-get update && apt-get install -y curl".
+    // The array syntax ["yarn", "install"] will invoke the command
+    // (in this case yarn) directly without using a shell. It fires after
+    // your source code has been mounted, so you can also run shell
+    // scripts from your source tree. For example:
+    // bash scripts/install-dev-tools.sh. Not set by default.
+    "postCreateCommand": "",
+    // Product specific properties
+    "customizations": {
+        // Configure properties specific to VS Code.
+        "vscode": {
+            // Set *default* container specific settings.json values on container create.
+            "settings": {
+                // Adds default settings.json values into a
+                // container/machine specific settings file.
+                // Editor
+                "editor.formatOnSave": false,
+                "editor.rulers": [80],
+                // File settings
+                "files.eol": "\n",
+                "files.trimFinalNewlines": false,
+                "files.trimTrailingWhitespace": false,
+                "files.associations": {
+                    "*.tex": "latex"
+                },
+                // Latex-workshop
+                "latex-workshop.latex.autoBuild.run": "onSave",
+                "latex-workshop.linting.chktex.enabled": true,
+                "latex-workshop.linting.run": "onType",
+                "latex-workshop.latex.outDir": "./out",
+                "latex-workshop.latex.clean.subfolder.enabled": true,
+                "latex-workshop.latex.autoClean.run": "onBuilt",
+                "latex-workshop.formatting.latexindent.args": [
+                    "-c",
+                    "%DIR%/",
+                    "%TMPFILE%",
+                    "-y",
+                    "defaultIndent: '    '"
+                ],
+                "latex-workshop.view.pdf.viewer": "tab",
+                "latex-workshop.linting.chktex.exec.args": [
+                    "-wall",
+                    "-n22",
+                    "-n30",
+                    "-e16",
+                    "-n44",
+                    "-n45",
+                    "-n46",
+                    "-q"
+                ],
+                // Define LaTeX compiling recipes.
+                // Each recipe in the list is an object containing its name and the names
+                // of tools to be used sequentially, which are defined in
+                // `latex-workshop.latex.tools`. By default, the first recipe is used to
+                // compile the project. For details, please visit
+                // https://github.com/James-Yu/LaTeX-Workshop/wiki/Compile#latex-recipe.
+                "latex-workshop.latex.recipes": [
+                    {
+                        "name": "latexmk (latexmkrc)",
+                        "tools": [
+                            "latexmk_rconly"
+                        ]
+                    }
+                ],
+                // Define LaTeX compiling tools to be used in recipes.
+                // Each tool is labeled by its `name`. When invoked, `command` is
+                // spawned with arguments defined in `args` and environment variables
+                // defined in `env`. Typically no spaces should appear in each argument
+                // unless in paths. Placeholders `%DOC%`, `%DOC_W32%, %DOC_EXT%`,
+                // `%DOC_EXT_W32%`, `%DOCFILE%`, `%DOCFILE_EXT%`, `%DIR%`, `%DIR_W32%`,
+                // `%TMPDIR%` and `%OUTDIR%`, `%OUTDIR_W32%` are available. For more
+                // details, please visit
+                // https://github.com/James-Yu/LaTeX-Workshop/wiki/Compile#placeholders.
+                "latex-workshop.latex.tools": [
+                    {
+                        "name": "latexmk_rconly",
+                        "command": "latexmk",
+                        "args": [
+                            "--outdir=%OUTDIR%",
+                            "--interaction=nonstopmode",
+                            "--file-line-error",
+                            "--synctex=1",
+                            "--pdf",
+                            "%DOC%"
+                        ],
+                        "env": {}
+                    }
+                ],
+                // Workbench
+                "workbench.panel.defaultLocation": "bottom",
+                "workbench.settings.editor": "json"
+            },
+            "extensions": [
+                // Spell check
+                "valentjn.vscode-ltex",
+                // LaTeX
+                "james-yu.latex-workshop",
+                // VIM
+                "vscodevim.vim"
+            ]
+        }
+    }
+}
