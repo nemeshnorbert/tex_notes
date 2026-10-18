@@ -1,0 +1,710 @@
+% chktex-file 19
+% chktex-file 35
+% chktex-file 36
+ \documentclass[12pt]{article}
+ \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+ \usepackage{amssymb}
+ \usepackage{amsmath}
+ \usepackage{amsthm}
+ \usepackage[T1]{fontenc}
+ \usepackage[utf8]{inputenc}
+ \usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=blue,
+     pdfborder={0 0 0}]{hyperref}
+\usepackage{enumitem}
+
+ \newtheorem{theorem}{Theorem}[section]
+ \newtheorem{lemma}[theorem]{Lemma}
+ \newtheorem{proposition}[theorem]{Proposition}
+ \newtheorem{corollary}[theorem]{Corollary}
+ \theoremstyle{definition}
+ \newtheorem{definition}[theorem]{Definition}
+ \newtheorem{example}[theorem]{Example}
+ \newtheorem{exercise}[theorem]{Exercise}
+ \theoremstyle{remark}
+ \newtheorem{remark}[theorem]{Remark}
+
+ \newcommand{\lo}[1]{\ell_1^0(#1)}
+ \newcommand{\ellone}[1]{\ell_1(#1)}
+ \newcommand{\norm}[1]{\lVert #1\rVert}
+ \newcommand{\supp}{\operatorname{supp}}
+ \newcommand{\Lin}{\operatorname{span}}
+ \newcommand{\Lim}{\operatorname{Lim}}
+ \newcommand{\NN}{\mathbb{N}}
+
+\begin{document}
+
+\begin{center}
+    \Large \textbf{Set theory for the paper ``Extremely projective normed spaces''}\\[0.3cm]
+    \large A crash course\\[0.5cm]
+\end{center}
+
+\thispagestyle{empty}
+
+\medskip
+\noindent\textbf{What this is.} The paper ``Extremely projective normed
+spaces'' uses, in its sections 6 and 7, a handful of tools from set theory:
+ordinals and transfinite recursion, the first uncountable ordinal $\omega_1$,
+closed unbounded and stationary subsets of $\omega_1$, and one theorem of
+Solovay. These notes explain exactly those tools, assuming only naive set
+theory and the notion of cardinality. Section~\ref{SecOrdinals} introduces
+well-orders, ordinals and transfinite recursion; section~\ref{SecCardinals}
+reviews cardinals and the axiom of choice; section~\ref{SecOmegaOne} treats
+$\omega_1$ and its closed unbounded sets; section~\ref{SecReading} walks
+through the set-theoretic steps of the paper one by one; and
+section~\ref{SecGlossary} is a glossary. Exercises come with hints; the ones
+marked with an asterisk are used in the paper and are worth doing in full.
+For a textbook treatment see Jech, \emph{Set theory}, chapters 2, 3, 5 and 8,
+or, for a gentler start, Hrbacek and Jech, \emph{Introduction to set theory}.
+\medskip
+
+%-------------------------------------------------------------------------------
+\section{Well-orders, ordinals and transfinite recursion}\label{SecOrdinals}
+
+\subsection{Well-orders}
+
+\begin{definition} A \emph{well-order} is a linearly ordered set $(W,<)$ in
+    which every non-empty subset has a least element.
+\end{definition}
+
+\begin{example} $\NN$ with its usual order is a well-order. So is any finite
+    linear order. So is $\NN\cup\{\infty\}$ with $\infty$ placed after all
+    natural numbers: a non-empty subset either contains a natural number, and
+    then has a least one, or is $\{\infty\}$. So is ``two copies of $\NN$ one
+    after the other'', the set $\{0,1\}\times\NN$ ordered lexicographically
+    with the first coordinate dominant. The sets $\mathbb{Z}$, $\mathbb{Q}$ and
+    $[0,1]$ with their usual orders are not well-orders: $\mathbb{Z}$ has no
+    least element, and $(0,1]\subset[0,1]$ has none.
+\end{example}
+
+Two consequences of the definition are used all the time. First, a well-order
+has no infinite strictly decreasing sequence $x_0>x_1>x_2>\cdots$, since the
+set $\{x_n:n\in\NN\}$ would have no least element. Second, the
+\emph{principle of induction}: if a property $\Phi(x)$ fails for some
+$x\in W$, then it fails for a least $x$, so to prove $\Phi$ for all $x$ it
+suffices to prove $\Phi(x)$ under the assumption that $\Phi(y)$ holds for all
+$y<x$.
+
+For $x\in W$ the \emph{initial segment} $W_{<x}=\{y\in W:y<x\}$ is again a
+well-order. The basic structure theorem, which we state without proof, is
+that well-orders are linearly ordered by ``being an initial segment'':
+
+\begin{theorem}\label{ComparabilityOfWellOrders} Let $V$ and $W$ be
+    well-orders. Then exactly one of the following holds: $V$ and $W$ are
+    order isomorphic; $V$ is order isomorphic to $W_{<x}$ for a unique
+    $x\in W$; $W$ is order isomorphic to $V_{<y}$ for a unique $y\in V$. In
+    each case the isomorphism is unique.
+\end{theorem}
+
+\subsection{Ordinals}
+
+Ordinals are canonical representatives of well-orders, chosen so that the
+order relation becomes membership. Following von Neumann, put
+\begin{gather*}
+0=\varnothing,\quad 1=\{0\},\quad 2=\{0,1\},\quad\ldots,\quad
+n=\{0,1,\ldots,n-1\},\quad\ldots,\\
+\omega=\{0,1,2,\ldots\}=\NN,\quad \omega+1=\omega\cup\{\omega\},
+\end{gather*}
+and so on: each ordinal is the set of all smaller ordinals, ordered by
+membership. Formally, an \emph{ordinal} is a set $\alpha$ which is well-ordered
+by $\in$ and \emph{transitive}, meaning that every element of an element of
+$\alpha$ is an element of $\alpha$. We write $\beta<\alpha$ for
+$\beta\in\alpha$. The facts to remember are the following.
+\begin{enumerate}[label = (\alph*)]
+    \item Every well-ordered set is order isomorphic to exactly one ordinal,
+          called its \emph{order type}. Ordinals are therefore ``the''
+          well-orders, and theorem~\ref{ComparabilityOfWellOrders} says that
+          any two ordinals $\alpha,\beta$ satisfy exactly one of
+          $\alpha<\beta$, $\alpha=\beta$, $\beta<\alpha$, where $\alpha<\beta$
+          also means $\alpha\subsetneq\beta$.
+    \item Every element of an ordinal is an ordinal, and the elements of
+          $\alpha$ are exactly the ordinals $\beta<\alpha$. Thus,
+          $\alpha=\{\beta:\beta<\alpha\}$. This is why the paper writes
+          $\ellone{\delta}$ for the families supported in
+          $\{\beta:\beta<\delta\}$: the ordinal $\delta$ \emph{is} that set.
+    \item Every non-empty set of ordinals has a least element (it is a subset of a
+          well-order), and a supremum, namely its union, which is again an
+          ordinal. There is no set of all ordinals: for every set $M$ of
+          ordinals, $\sup M+1$ is an ordinal not in $M$.
+    \item The \emph{successor} of $\alpha$ is $\alpha+1=\alpha\cup\{\alpha\}$,
+          the least ordinal above $\alpha$. An ordinal is a \emph{successor
+          ordinal} if it is of the form $\alpha+1$, and a \emph{limit
+          ordinal} if it is not a successor and not $0$. (Some authors count
+          $0$ as a limit ordinal; the paper explicitly does not.) A limit
+          ordinal $\delta$ is the supremum, that is, the union, of the ordinals
+          below it: $\delta=\bigcup_{\beta<\delta}\beta$. Every ordinal is
+          $0$, a successor or a limit.
+\end{enumerate}
+
+\begin{example}\label{SmallOrdinals} The finite ordinals are the natural
+    numbers. The first infinite ordinal is $\omega$, the order type of $\NN$,
+    a limit. Then come $\omega+1,\omega+2,\ldots$, successors; their supremum
+    $\omega+\omega=\omega\cdot 2$, the order type of two copies of $\NN$ one
+    after the other, is the second limit ordinal; then
+    $\omega\cdot 2+1,\ldots,\omega\cdot 3,\ldots,\omega\cdot\omega=\omega^2$, the
+    order type of $\NN\times\NN$ ordered lexicographically; and so on. All of
+    these are countable sets. The limit ordinals among them are exactly the
+    non-zero multiples of $\omega$.
+\end{example}
+
+\begin{exercise} Show that $\omega$ and $\omega+1$ are not order isomorphic.
+    (Hint: one of them has a largest element.) Show that $\omega\cdot 2$ is
+    not order isomorphic to $\omega$. (Hint: in $\omega\cdot 2$ the element
+    $\omega$ has infinitely many predecessors but no immediate predecessor.)
+\end{exercise}
+
+\begin{exercise} Let $(W,<)$ be a linear order with no infinite strictly
+    decreasing sequence. Show that $W$ is a well-order. (Hint: if a non-empty
+    subset $M$ has no least element, choose $x_0\in M$, then $x_1<x_0$ in
+    $M$, and so on; this uses the axiom of dependent choice, a weak form of the axiom of
+    choice discussed in section~\ref{SecChoice}.)
+\end{exercise}
+
+\subsection{Transfinite induction and recursion}
+
+The principle of induction for well-orders becomes, for ordinals, the
+principle of \emph{transfinite induction}: to prove $\Phi(\alpha)$ for all
+ordinals $\alpha$ (or for all $\alpha\leq\lambda$) it suffices to prove
+$\Phi(\alpha)$ assuming $\Phi(\beta)$ for all $\beta<\alpha$. In practice one
+splits into three cases: $\alpha=0$; $\alpha=\beta+1$, where one assumes
+$\Phi(\beta)$; and $\alpha$ a limit, where one assumes $\Phi(\beta)$ for all
+$\beta<\alpha$.
+
+More important for the paper is \emph{transfinite recursion}: an object
+$F(\alpha)$ may be defined for all ordinals $\alpha<\lambda$ by a rule which
+produces $F(\alpha)$ from the family ${(F(\beta))}_{\beta<\alpha}$. The
+theorem of transfinite recursion says that such a rule determines a unique
+function $F$ on $\lambda$. Again one usually gives the rule in three parts:
+what $F(0)$ is, how $F(\beta+1)$ is obtained from $F(\beta)$, and how
+$F(\alpha)$ is obtained from ${(F(\beta))}_{\beta<\alpha}$ at a limit
+$\alpha$, typically as a union or a limit.
+
+\begin{example}[the chains of closed pairs in the paper] In the proof of
+    theorem~6.7 of the paper a family ${((A_\alpha,B_\alpha))}_{\alpha\leq\kappa}$
+    is defined by transfinite recursion: $(A_0,B_0)=(\varnothing,\varnothing)$;
+    $(A_{\alpha+1},B_{\alpha+1})$ is obtained from $(A_\alpha,B_\alpha)$ by
+    adding one point and closing off; at a limit $\alpha$ the pair
+    $(A_\alpha,B_\alpha)$ is the union of the previous pairs. In the proof of
+    theorem~6.1 the operators $V_\delta$ are defined by recursion on
+    $\delta<\lambda$: the rule producing $V_\delta$ uses $W_\delta$ and
+    $T_\delta$, which depend only on the $V_{\delta'}$ with $\delta'<\delta$.
+    The accompanying claim $T_\delta(P_\delta)=\lo{\Gamma_\delta}$ is then
+    proved by transfinite induction on $\delta$, with the limit case handled
+    by the continuity hypothesis.
+\end{example}
+
+\subsection{Filtrations}
+
+The paper calls a family ${(\Gamma_\delta)}_{\delta\leq\lambda}$ of subsets
+of a set $\Gamma$ a \emph{filtration} if it is increasing,
+$\Gamma_0=\varnothing$, $\Gamma_\lambda=\Gamma$, and it is \emph{continuous}:
+$\Gamma_\delta=\bigcup_{\delta'<\delta}\Gamma_{\delta'}$ for every limit
+ordinal $\delta\leq\lambda$. Thus, a filtration grows only at successor
+steps, by the \emph{blocks} $N_\delta=\Gamma_{\delta+1}\setminus\Gamma_\delta$,
+and at limit steps it merely collects what has been built. Continuity is a
+genuine condition: the family given by $\Gamma_n=\{0,\ldots,n-1\}$ for
+$n<\omega$, $\Gamma_\omega=\NN\cup\{\star\}$ and $\Gamma_{\omega+1}=\NN\cup\{\star,\star\star\}$
+is increasing but not continuous at $\omega$, because the point $\star$
+appears at the limit stage without ever appearing in a block.
+
+\begin{exercise}[*] Prove by transfinite induction on $\delta\leq\lambda$ that,
+    for a filtration, $\Gamma_\delta=\bigsqcup_{\delta'<\delta}N_{\delta'}$,
+    a disjoint union. (Hint: the successor step is the definition of
+    $N_\delta$; the limit step is continuity.) Deduce that every $x\in\ellone{\Gamma}$
+    satisfies $\norm{x}=\sum_{\delta'<\lambda}\norm{x|_{N_{\delta'}}}$, and
+    that only countably many of the summands are non-zero.
+\end{exercise}
+
+\begin{exercise}[*] Let $C\subset\omega_1$ be a set and
+    ${(c_\alpha)}_{\alpha<\mu}$ its increasing enumeration (the elements of
+    $C$ listed in increasing order; the index set is an ordinal because $C$
+    is well-ordered, see section~\ref{SecOrdinals}). Show that $\Gamma_\alpha=c_\alpha$ defines a
+    continuous family if and only if $C$ is closed under suprema of its
+    bounded subsets. This is how the paper turns a closed unbounded set into
+    a filtration in the proof of theorem~7.2.
+\end{exercise}
+
+%-------------------------------------------------------------------------------
+\section{Cardinals and the axiom of choice}\label{SecCardinals}
+
+\subsection{Cardinals as initial ordinals}
+
+Two sets have the same cardinality if there is a bijection between them. To
+have a canonical representative of each cardinality one uses ordinals again:
+the \emph{cardinal} $|X|$ of a set $X$ is the least ordinal which is in
+bijection with $X$. For this to make sense $X$ must be in bijection with some
+ordinal in the first place, that is, $X$ must admit a well-order; that every set does is
+the \emph{well-ordering theorem}, equivalent to the axiom of choice, see
+section~\ref{SecChoice}. An ordinal which is the cardinal of some set, that
+is, which is not in bijection with any smaller ordinal, is called an
+\emph{initial ordinal}. The finite ordinals are initial, and $\omega$ is
+initial; it is also written $\aleph_0$ when regarded as a cardinal. The
+ordinals $\omega+1$, $\omega\cdot 2$, $\omega^2$ of example~\ref{SmallOrdinals}
+are not initial: they are countable, hence in bijection with $\omega$.
+
+\begin{definition} $\omega_1$ is the least uncountable ordinal, that is, the
+    least ordinal which is neither finite nor in bijection with $\omega$. Regarded as a cardinal it
+    is written $\aleph_1$. Likewise $\omega_2=\aleph_2$ is the least ordinal
+    of cardinality greater than $\aleph_1$, and so on.
+\end{definition}
+
+Such ordinals exist: the order types of well-orderings of subsets of $\NN$
+form a set of ordinals, all countable, and every countable ordinal is among
+them; the supremum of this set is uncountable, and the least
+uncountable ordinal exists because every non-empty set of ordinals has a least element.
+By definition, the elements of $\omega_1$ are exactly the countable ordinals:
+\[
+\omega_1=\{\alpha:\alpha\text{ is a countable ordinal}\}.
+\]
+This double role is the source of most confusion for beginners. The symbol
+$\omega_1$ denotes both a well-ordered set, the set of countable ordinals in
+their natural order, and a cardinality $\aleph_1$, the cardinality of that
+set. When the paper says ``let $\Gamma=\omega_1$'' it uses the first role: the
+index set is well-ordered, and the subspaces $\ellone{\delta}$,
+$\delta<\omega_1$, correspond to its initial segments. When it says
+``$|\Gamma|=\aleph_1$'' it uses the second role.
+
+The \emph{continuum hypothesis}, the statement $2^{\aleph_0}=\aleph_1$, is
+independent of the usual axioms and is \emph{not} used anywhere in the paper.
+Nothing in the paper depends on how large $2^{\aleph_0}$ or $2^{\aleph_1}$
+is; the latter only appears as the number of subsets of $\omega_1$.
+
+\subsection{Cardinal arithmetic used in the paper}
+
+Only the most basic facts are needed, all of which hold for an infinite
+cardinal $\kappa$:
+\begin{enumerate}[label = (\alph*)]
+    \item $\kappa\cdot\aleph_0=\kappa$ and $\kappa+\kappa=\kappa$; more
+          generally $\kappa\cdot\mu=\max(\kappa,\mu)$ for infinite $\kappa,\mu$;
+    \item the set of finite subsets of a set of cardinality $\kappa$ has
+          cardinality $\kappa$; in particular, a countable set has countably
+          many finite subsets. (A set of cardinality $\kappa$ has
+          $\kappa^{\aleph_0}\geq\kappa$ countable subsets; already a
+          countable set has $2^{\aleph_0}$ of them.) The paper only needs the
+          finite case and the fact that a countable union of countable sets
+          is countable;
+    \item the algebraic dimension of $\lo{\Gamma}$ is $|\Gamma|$ for infinite
+          $\Gamma$, because the unit vectors $e_\gamma$ form a Hamel basis,
+          and a vector space spanned by $\kappa$ vectors has dimension at most
+          $\kappa$;
+    \item the paper writes $\max(\operatorname{dens}(Z),\aleph_0)$ in
+          theorem~3.2 only to cover the zero space, whose density
+          character is $1$.
+\end{enumerate}
+
+\begin{exercise}[*] Show that every element $x\in\ellone{\Gamma}$ has countable
+    support. (Hint: for each $n$ the set $\{\gamma:|x_\gamma|>1/n\}$ is
+    finite.) Deduce that every $x\in\ellone{\omega_1}$ lies in $\ellone{\delta}$
+    for some countable ordinal $\delta$, using lemma~\ref{BoundedSubsets}
+    below.
+\end{exercise}
+
+\subsection{The axiom of choice}\label{SecChoice}
+
+The paper works, as most of functional analysis does, in ZFC: the
+Zermelo--Fraenkel axioms with the axiom of choice. Choice enters in three
+forms. The \emph{well-ordering theorem}: every set can be enumerated by an
+ordinal, that is, written as $\{\gamma_\alpha:\alpha<\kappa\}$ with distinct
+$\gamma_\alpha$; the paper does this with $\Gamma$ in the proof of
+theorem~6.7, and with $\kappa=|\Gamma|$ one may take the enumeration to be
+indexed by the cardinal itself. \emph{Zorn's lemma}: every vector space has a
+Hamel basis, used throughout. \emph{Countable choice}: a countable union of
+countable sets is countable, used whenever the paper says that the union of
+countably many countable supports is countable, and in the proof that a
+countable set of countable ordinals has a countable supremum. None of these
+uses is delicate, and the reader may simply take all three as basic facts.
+
+%-------------------------------------------------------------------------------
+\section{The first uncountable ordinal}\label{SecOmegaOne}
+
+\subsection{Basic properties of $\omega_1$}
+
+\begin{lemma}\label{BoundedSubsets} Every countable subset of $\omega_1$ is
+    bounded in $\omega_1$: if $M\subset\omega_1$ is countable, then
+    $\sup M<\omega_1$.
+\end{lemma}
+\begin{proof} $\sup M=\bigcup M$ is a countable union of countable sets, hence
+    a countable ordinal.
+\end{proof}
+
+This is the single most important property of $\omega_1$. It says that one
+cannot reach $\omega_1$ in countably many steps: $\omega_1$ has
+\emph{uncountable cofinality}. Contrast this with every limit ordinal
+\emph{below} $\omega_1$, which can be reached in countably many steps.
+
+\begin{lemma}[ladders]\label{Ladders} Every limit ordinal $\delta<\omega_1$ is
+    the supremum of a strictly increasing sequence ${(\delta_n)}_{n\in\NN}$ of
+    ordinals below $\delta$.
+\end{lemma}
+\begin{proof} Since $\delta$ is countable, enumerate it as $\{\beta_n:n\in\NN\}$.
+    Put $\delta_0=\beta_0$ and $\delta_{n+1}=\max(\delta_n+1,\beta_{n+1})$;
+    this is below $\delta$ because $\delta$ is a limit. The sequence is
+    strictly increasing and $\beta_n\leq\delta_n$ for all $n$, so its
+    supremum is $\delta$.
+\end{proof}
+
+Such a sequence is called a \emph{ladder} at $\delta$, and a choice of a
+ladder at every limit ordinal $\delta<\omega_1$, or at every $\delta$ in a
+given set $E$ of limit ordinals, is a \emph{ladder system}. The ladder spaces
+of section 7 of the paper are built from a ladder system: the vector
+$v_\delta=\sum_n 2^{-n}e_{\delta_n}$ ``climbs'' the ladder at $\delta$.
+Two ladders at different limit ordinals $\alpha<\beta$ have only finitely
+many rungs in common, because the rungs of the ladder at $\beta$ eventually
+exceed $\alpha$.
+
+\begin{exercise} Show that for every $\delta<\omega_1$ the subspace
+    $\ellone{\delta}$ of $\ellone{\omega_1}$ is separable, and that
+    $\ellone{\omega_1}$ is not. Show that
+    $\ellone{\omega_1}=\bigcup_{\delta<\omega_1}\ellone{\delta}$, while
+    $\ellone{\delta}\neq\bigcup_{\delta'<\delta}\ellone{\delta'}$ for every
+    limit ordinal $\delta<\omega_1$. (Hint: lemma~\ref{Ladders}.) So the chain
+    ${(\ellone{\delta})}_{\delta\leq\omega_1}$ is continuous at the top and
+    discontinuous at every limit below; this is the situation the paper's
+    condition $(b)$ of theorem~6.7 rules out for the pieces $P_\delta$.
+\end{exercise}
+
+\subsection{Closed unbounded sets}
+
+\begin{definition} A set $C\subset\omega_1$ is \emph{closed} if the supremum
+    of every non-empty countable subset of $C$ belongs to $C$, equivalently,
+    if the supremum of every strictly increasing sequence in $C$ belongs to
+    $C$. It is \emph{unbounded} if for every $\beta<\omega_1$ there is
+    $\delta\in C$ with $\delta>\beta$. A \emph{closed unbounded set}, or
+    \emph{club}, is a set which is both.
+\end{definition}
+
+The word ``closed'' is the topological one: in the order topology on
+$\omega_1$ the closed unbounded sets are the closed sets which are unbounded.
+A club is to be thought of as a \emph{large} set: it contains ``almost all''
+countable ordinals in a sense made precise by the next lemmas. The simplest
+club is $\omega_1$ itself. The next one is the set $\Lim$ of limit ordinals
+below $\omega_1$: it is closed because a supremum of limit ordinals is a
+limit ordinal (a supremum of a strictly increasing sequence is never a
+successor), and unbounded because $\beta+\omega$ is a limit above $\beta$.
+
+\begin{lemma}\label{ClosurePoints} Let $h:\omega_1\to\omega_1$ be any
+    function. The set $C_h$ of ordinals $\delta<\omega_1$ such that
+    $h(\alpha)<\delta$ for all $\alpha<\delta$ is a club. We say that the
+    elements of $C_h$ are \emph{closed under $h$}.
+\end{lemma}
+\begin{proof} Closed: let $\delta$ be the supremum of a strictly increasing
+    sequence ${(\delta_n)}$ in $C_h$ and $\alpha<\delta$. Then $\alpha<\delta_n$
+    for some $n$, so $h(\alpha)<\delta_n\leq\delta$. Unbounded: given $\beta$,
+    put $\delta_0=\beta+1$ and
+    $\delta_{n+1}=\sup\{h(\alpha)+1:\alpha<\delta_n\}\cup\{\delta_n+1\}$,
+    a countable ordinal by lemma~\ref{BoundedSubsets}. The sequence is strictly
+    increasing; let $\delta$ be its supremum, again countable. If
+    $\alpha<\delta$, then $\alpha<\delta_n$ for some $n$, so
+    $h(\alpha)<\delta_{n+1}<\delta$. Thus, $\delta\in C_h$ and $\delta>\beta$.
+\end{proof}
+
+\begin{lemma}\label{IntersectionOfClubs} The intersection of two clubs is a
+    club. Consequently, the intersection of finitely many clubs is a club.
+\end{lemma}
+\begin{proof} Let $C,D$ be clubs. Their intersection is closed, being an
+    intersection of closed sets. To see that it is unbounded, let
+    $\beta<\omega_1$ and choose alternately
+    $c_0<d_0<c_1<d_1<\cdots$ with $c_n\in C$, $d_n\in D$ and $c_0>\beta$, which
+    is possible because both sets are unbounded. The two sequences have the
+    same supremum $\delta$, which is countable by lemma~\ref{BoundedSubsets},
+    and $\delta\in C\cap D$ because both sets are closed.
+\end{proof}
+
+\begin{lemma}\label{ContinuousEnumeration} Let $C$ be a club and
+    ${(c_\alpha)}_{\alpha<\omega_1}$ its increasing enumeration. Then
+    $c_\alpha=\sup_{\alpha'<\alpha}c_{\alpha'}$ for every limit ordinal
+    $\alpha<\omega_1$.
+\end{lemma}
+\begin{proof} The enumeration exists because $C$ is a well-ordered set; it is
+    indexed by $\omega_1$ because $C$ is uncountable (unbounded) and every
+    proper initial segment of $C$ is bounded, hence countable. Let $\alpha$ be
+    a limit and $\gamma=\sup_{\alpha'<\alpha}c_{\alpha'}$. Then $\gamma\in C$
+    because $C$ is closed, $\gamma\geq c_{\alpha'}$ for all $\alpha'<\alpha$,
+    and $\gamma$ is not among the $c_{\alpha'}$ with $\alpha'<\alpha$, since
+    the sequence has no largest term. Hence $\gamma$ is the least element of
+    $C$ above all $c_{\alpha'}$, $\alpha'<\alpha$, which is $c_\alpha$.
+\end{proof}
+
+\begin{exercise}[*] Let $f:\omega_1\to\omega_1$ be a bijection. Show that
+    $\{\delta<\omega_1:f(\delta)=\delta\}$, where $f(\delta)$ denotes the image
+    of the set $\delta=\{\beta:\beta<\delta\}$, is a club. (Hint: apply
+    lemma~\ref{ClosurePoints} to $f$ and to $f^{-1}$ and intersect.) This is
+    the mechanism behind proposition~7.3 of the paper and behind the remark
+    that the enumeration of the index set does not matter.
+\end{exercise}
+
+\begin{exercise} Show that the intersection of countably many clubs is a
+    club. (Hint: for unboundedness build a sequence which visits every club
+    infinitely often.) The paper needs only finite intersections.
+\end{exercise}
+
+\subsection{Stationary sets}
+
+\begin{definition} A set $S\subset\omega_1$ is \emph{stationary} if it
+    intersects every club. A set is \emph{non-stationary} if it is not
+    stationary, that is, if it is disjoint from some club.
+\end{definition}
+
+If clubs are the large sets, then non-stationary sets are the small ones,
+and stationary sets are the sets which are not small. Every club is
+stationary by lemma~\ref{IntersectionOfClubs}; in particular $\Lim$ is
+stationary. Every countable set is non-stationary, being disjoint from the
+club of ordinals above its supremum. A set containing a club is stationary,
+but a stationary set need not contain a club: Solovay's theorem below
+provides stationary sets whose complements are stationary too, and neither
+of them contains a club.
+
+\begin{lemma}\label{NonStationaryIdeal} A subset of a non-stationary set is
+    non-stationary, and the union of two non-stationary sets is
+    non-stationary. If $S$ is stationary and $C$ is a club, then $S\cap C$ is
+    stationary.
+\end{lemma}
+\begin{proof} The first claim is obvious. If $S\cap C=\varnothing$ and
+    $S'\cap C'=\varnothing$ for clubs $C,C'$, then $(S\cup S')\cap(C\cap C')=\varnothing$
+    and $C\cap C'$ is a club. For the last claim, if $D$ is a club, then
+    $(S\cap C)\cap D=S\cap(C\cap D)\neq\varnothing$.
+\end{proof}
+
+The lemma says that the non-stationary sets form an \emph{ideal}, and
+therefore the relation ``$E\triangle E'$ is non-stationary'' is an
+equivalence relation on subsets of $\omega_1$: this is what ``$\Delta(P)$
+modulo non-stationary sets'' means in section 7 of the paper. Two sets which
+differ by a non-stationary set are stationary or non-stationary together.
+
+\begin{theorem}[Solovay; for $\omega_1$ already Ulam]\label{Solovay} There
+    is a family ${(S_\xi)}_{\xi<\omega_1}$ of pairwise disjoint stationary
+    subsets of $\omega_1$ with union $\omega_1$. More generally, every
+    stationary subset of $\omega_1$ is the union of $\aleph_1$ pairwise
+    disjoint stationary sets.
+\end{theorem}
+
+We do not prove this; it is theorem~8.10 of Jech's book. The paper uses it
+in the following way. Intersecting each $S_\xi$ with the club $\Lim$ we may
+assume that all $S_\xi$ consist of limit ordinals (lemma~\ref{NonStationaryIdeal}).
+For $X\subset\omega_1$ put $E_X=\bigcup_{\xi\in X}S_\xi$. If $X\neq Y$, pick
+$\xi\in X\triangle Y$; then $S_\xi\subset E_X\triangle E_Y$, so
+$E_X\triangle E_Y$ is stationary, and in particular $E_X\neq E_Y$ modulo
+non-stationary sets. There are $2^{\aleph_1}$ sets $X$, hence $2^{\aleph_1}$
+pairwise inequivalent sets $E_X$, and only $E_\varnothing=\varnothing$ is
+non-stationary.
+
+\subsection{Fodor's lemma, for orientation}
+
+The paper does not use the following theorem, but it is the first thing one
+meets after clubs and stationary sets, and it explains why ladder systems on
+stationary sets are so rigid. A function $g:S\to\omega_1$ on a set $S$ of
+non-zero ordinals is \emph{regressive} if $g(\alpha)<\alpha$ for all
+$\alpha\in S$.
+
+\begin{theorem}[Fodor] If $S\subset\omega_1$ is stationary and $g:S\to\omega_1$
+    is regressive, then $g$ is constant on some stationary subset of $S$.
+\end{theorem}
+
+\begin{example} Let $E\subset\Lim$ be stationary and let a ladder $L_\alpha$
+    at $\alpha$ be chosen for every $\alpha\in E$. Then the ladders cannot be
+    pairwise disjoint: the function $g(\alpha)=\min L_\alpha$ is regressive on
+    $E$, so by Fodor's lemma it takes the same value $\gamma_0$ at two
+    different $\alpha$, and the corresponding ladders share the rung
+    $\gamma_0$. For a non-stationary $E$ pairwise disjoint ladders can exist
+    (exercise). This is the kind of phenomenon behind the fact that the
+    ladder space $P_E$ of the paper is extremely projective exactly when $E$ is
+    non-stationary, although the paper proves that fact without Fodor's
+    lemma.
+\end{example}
+
+\begin{exercise} Let $E$ be a non-stationary set of limit ordinals. Show that
+    there are pairwise disjoint ladders $L_\alpha$, $\alpha\in E$. (Hint: let
+    $C$ be a club disjoint from $E$; for $\alpha\in E$ let $c(\alpha)$ be the
+    largest element of $C$ below $\alpha$, which exists because $C$ is closed
+    and $\alpha\notin C$ (add $0$ to $C$ if necessary), and choose the ladder at $\alpha$ inside the
+    interval $(c(\alpha),\alpha)$; distinct $\alpha$ with the same $c(\alpha)$
+    lie in the same interval $(c(\alpha),c^+)$, where $c^+$ is the next element
+    of $C$, and there are only countably many of them, so their ladders can
+    be chosen disjoint by an inductive argument.)
+\end{exercise}
+
+%-------------------------------------------------------------------------------
+\section{Reading guide to sections 6 and 7 of the paper}\label{SecReading}
+
+\subsection*{Theorem 6.1, the transfinite back-and-forth}
+
+The data are a filtration ${(\Gamma_\delta)}_{\delta\leq\lambda}$ with
+countable blocks $N_\delta$ and the pieces $P_\delta=P\cap\ellone{\Gamma_\delta}$.
+The set-theoretic content is: a transfinite recursion of length $\lambda$
+defining the operators $V_\delta$, and a transfinite induction proving
+$T_\delta(P_\delta)=\lo{\Gamma_\delta}$. The successor step is analysis. The
+limit step is pure bookkeeping, and it is exactly where the continuity
+condition $(ii)$ is used: at a limit $\mu$ the piece $P_\mu$ must be the
+union of the earlier pieces, because the operators $T_\delta$ are compatible
+and the images $\lo{\Gamma_\delta}$ have union $\lo{\Gamma_\mu}$. The
+operator $W_\delta$ is a sum over all $\delta'<\delta$, possibly uncountably
+many; it converges because every $x\in\ellone{\Gamma_\delta}$ has countable
+support and meets only countably many blocks (exercise in
+section~\ref{SecOrdinals}).
+
+\subsection*{Closed pairs and closing off}
+
+Fix the retraction $\sigma:P\to\lo{S}$, $\pi:\lo{S}\to P$ and the
+approximating sequences $p^\gamma_n\to e_\gamma$. A \emph{closed pair}
+$(A,B)$ is a pair of index sets which is closed under three operations:
+taking the support of $\pi(e_s)$ for $s\in B$, taking the support of
+$\sigma(x)$ for $x\in P_A$, and taking the supports of the $p^\gamma_n$ for
+$\gamma\in A$. This is the same idea as a subgroup generated by a set, or a
+Skolem hull in logic: given any sets $A_0,B_0$, apply the operations, collect
+the new elements, apply them again, and so on $\omega$ times; the union is
+closed under the operations, because each element of it entered at some
+finite stage and its images entered at the next stage. The only subtlety,
+which the paper points out, is the second operation: an element of $P_{A'}$
+need not lie in any $P_{A_k}$ (its support may spread over all stages), so
+closedness under $\sigma$ is proved by continuity of $\sigma$ and density of
+$\bigcup_kP_{A_k}$ rather than by a support argument.
+
+Lemma~6.5 of the paper says that if one starts from a closed pair and adds a
+countable set, then $\omega$ steps of closing off add only countably many
+points. The reason is lemma~6.4: over a closed pair, a countable extension
+of $A$ changes $P_A$ by a quotient of countable dimension, so only countably
+many new supports are needed at each stage. This is the analogue of the
+downward L\"owenheim--Skolem theorem: a countable set generates a countable
+closed structure.
+
+\subsection*{Theorem 6.7, the chain of closed pairs}
+
+Enumerate $\Gamma=\{\gamma_\alpha:\alpha<\kappa\}$ (well-ordering theorem)
+and define closed pairs by transfinite recursion: add $\gamma_\alpha$ and
+close off at successor steps, take unions at limits. Lemma~6.6 says that a
+union of closed pairs along a chain is closed, and this is what makes the
+limit step work and gives the continuity condition for free. The resulting
+family ${(A_\alpha)}_{\alpha\leq\kappa}$ is a filtration with countable blocks,
+and the three hypotheses of theorem~6.1 are verified by the three lemmas on
+closed pairs. Nothing about the size of $\Gamma$ matters here; this is why
+the paper no longer needs an induction on cardinals.
+
+\subsection*{Theorem 7.2, the criterion for $\omega_1$}
+
+Here $\Gamma=\omega_1$ and $P_\delta=P\cap\ellone{\delta}$. The theorem says:
+$P$ is extremely projective if and only if the pieces have countable
+dimension and the chain ${(P_\delta)}$ is continuous on a club, that is, the
+set $\Delta(P)$ of limit ordinals at which it jumps is non-stationary.
+
+For the forward direction one runs the chain of closed pairs with
+$\gamma_\alpha=\alpha$. Each $A_\alpha$ is a countable subset of $\omega_1$
+(countable increments, countable unions of countable sets). Define
+$f(\alpha)=\sup A_\alpha+1$ and $g(\beta)=$ the first $\alpha$ with
+$\beta\in A_\alpha$. On the club of limit ordinals closed under $f$ and $g$
+(lemmas~\ref{ClosurePoints} and~\ref{IntersectionOfClubs}) one has
+$A_\delta=\delta$: closure under $f$ gives $A_\delta\subset\delta$, closure
+under $g$ gives $\delta\subset A_\delta$. At such $\delta$ lemma~6.6 on unions of
+closed pairs turns $P_\delta$ into a union of earlier pieces, so
+$\delta\notin\Delta(P)$.
+
+For the converse one needs a filtration. Let
+\[
+h(\gamma)=\sup\textstyle\bigcup_n\supp(p^\gamma_n)+1 .
+\]
+The club $C_1$ of ordinals closed under $h$ consists of ordinals at
+which the piece is dense; a club $C_2$ misses $\Delta(P)$; the enumeration
+of $(C_1\cap C_2)\cup\{0\}$ is continuous
+(lemma~\ref{ContinuousEnumeration}) and
+defines a filtration of $\omega_1$ with countable blocks. Continuity of the
+chain of pieces along it holds because its limit points are limit ordinals
+in $C_2$, and the quotients have countable dimension because the pieces do. Theorem~6.7
+finishes the proof.
+
+\subsection*{Proposition 7.3, invariance}
+
+Given a bounded bijection $T$ of $\ellone{\omega_1}$, the function
+$F(\delta)=\sup_{\beta<\delta}(\sup\supp T(e_\beta)+1)$ records how far $T$
+moves the coordinates below $\delta$. On the club of limit ordinals closed
+under $F$ and under the analogous $G$ for $T^{-1}$, $T$ maps $\ellone{\delta}$
+onto itself, hence maps the chain of pieces of $P$ onto that of $T(P)$, and
+jumps correspond. So $\Delta(P)$ and $\Delta(T(P))$ agree on a club, that is,
+modulo a non-stationary set. Applied to a permutation of the index set this
+shows that the choice of enumeration is immaterial.
+
+\subsection*{Theorem 7.4, ladder spaces}
+
+For a set $E$ of limit ordinals the ladder space is
+$P_E=\lo{\omega_1}+\Lin\{v_\alpha:\alpha\in E\}$ with $v_\alpha$ climbing a
+ladder at $\alpha$ (lemma~\ref{Ladders}). The computation
+$\Delta(P_E)=E$ uses only that two ladders share only finitely many rungs. Then
+theorem~7.2 says that $P_E$ is extremely projective exactly when $E$ is
+non-stationary, proposition~7.3 says that $P_E\not\cong P_{E'}$ when
+$E\triangle E'$ is stationary, and Solovay's theorem~\ref{Solovay} produces
+$2^{\aleph_1}$ sets $E_X$ with pairwise stationary symmetric differences.
+
+\subsection*{Remark 7.5, almost free abelian groups}
+
+An abelian group is free if it has a basis; it is $\aleph_1$-free if all its
+countable subgroups are free. Pontryagin's criterion and Hill's lemma say
+that a group of cardinality $\aleph_1$ is free if and only if it is the union
+of a continuous $\omega_1$-chain of countable free subgroups with free
+successive quotients; Eklof's invariant is the set of limit stages at which
+such a chain cannot be continued with a free quotient, taken modulo
+non-stationary sets; and ladder systems on stationary sets give
+$\aleph_1$-free groups which are not free. The paper's theorem~6.7,
+definition~7.1 and theorem~7.4 are the exact counterparts, with ``countable
+dimension'' in place of ``free''. The reader who wants to see where this
+leads above $\aleph_1$ may consult chapters IV and VII of Eklof and Mekler.
+
+%-------------------------------------------------------------------------------
+\section{Glossary}\label{SecGlossary}
+
+\begin{description}[style=nextline,leftmargin=1em]
+    \item[well-order] a linear order in which every non-empty subset has a
+          least element (section~\ref{SecOrdinals}).
+    \item[ordinal] a canonical well-order; the set of all smaller ordinals
+          (section~\ref{SecOrdinals}).
+    \item[successor ordinal, limit ordinal] $\alpha+1$, respectively a non-zero
+          ordinal which is not a successor; a limit is the union of the
+          ordinals below it (section~\ref{SecOrdinals}).
+    \item[$\omega$] the first infinite ordinal, the set of natural numbers;
+          as a cardinal, $\aleph_0$.
+    \item[$\omega_1$] the first uncountable ordinal, the set of countable
+          ordinals; as a cardinal, $\aleph_1$ (section~\ref{SecCardinals}).
+    \item[$\omega_2$, $\aleph_2$] the next initial ordinal and cardinal;
+          mentioned in the paper only in the open questions.
+    \item[transfinite induction, recursion] proving a property, respectively
+          defining an object, at $\alpha$ from the ordinals below $\alpha$
+          (section~\ref{SecOrdinals}).
+    \item[enumeration by an ordinal] a bijection $\alpha\mapsto\gamma_\alpha$
+          from an ordinal $\kappa$ onto a set $\Gamma$; exists by the
+          well-ordering theorem (section~\ref{SecChoice}).
+    \item[filtration, block] an increasing continuous family of subsets of
+          $\Gamma$ starting at $\varnothing$ and ending at $\Gamma$; the
+          differences of consecutive members (section~\ref{SecOrdinals}).
+    \item[cardinality of $\Gamma$, $|\Gamma|$] the least ordinal in bijection
+          with $\Gamma$ (section~\ref{SecCardinals}).
+    \item[density character] the least cardinality of a dense subset; for
+          $\ellone{\Gamma}$ with $\Gamma$ infinite it is $|\Gamma|$.
+    \item[closed unbounded set, club] a subset of $\omega_1$ closed under
+          countable suprema and unbounded (section~\ref{SecOmegaOne}).
+    \item[closed under $h$] an ordinal $\delta$ with $h(\alpha)<\delta$ for all
+          $\alpha<\delta$; these ordinals form a club (lemma~\ref{ClosurePoints}).
+    \item[stationary, non-stationary] meeting every club, respectively
+          disjoint from some club (section~\ref{SecOmegaOne}).
+    \item[modulo non-stationary sets] the equivalence relation
+          ``$E\triangle E'$ is non-stationary'' (lemma~\ref{NonStationaryIdeal}).
+    \item[ladder, ladder system] a strictly increasing $\omega$-sequence
+          converging to a limit ordinal; a choice of one at every limit
+          ordinal of a given set (lemma~\ref{Ladders}).
+    \item[Solovay's theorem] $\omega_1$ splits into $\aleph_1$ disjoint
+          stationary sets (theorem~\ref{Solovay}).
+    \item[Fodor's lemma] a regressive function on a stationary set is
+          constant on a stationary set; not used in the paper
+          (section~\ref{SecOmegaOne}).
+    \item[continuum hypothesis] $2^{\aleph_0}=\aleph_1$; not used in the paper.
+\end{description}
+
+\begin{thebibliography}{9}
+    \bibitem{Jech} \textit{T. Jech}, Set theory. The third millennium edition,
+    revised and expanded, Springer, Berlin (2003). Chapters 2 (ordinals),
+    3 (cardinals), 5 (the axiom of choice), 8 (stationary sets).
+    \bibitem{HrbacekJech} \textit{K. Hrbacek, T. Jech}, Introduction to set
+    theory, third edition, Marcel Dekker, New York (1999).
+    \bibitem{Kunen} \textit{K. Kunen}, Set theory, College Publications,
+    London (2011).
+    \bibitem{EklofMekler} \textit{P. C. Eklof, A. H. Mekler}, Almost free
+    modules. Set-theoretic methods, revised edition, North-Holland, Amsterdam
+    (2002).
+\end{thebibliography}
+
+\end{document}

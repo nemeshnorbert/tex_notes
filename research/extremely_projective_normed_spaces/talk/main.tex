@@ -1,0 +1,1316 @@
+% Talk: Extremely projective normed spaces.
+% Source: ../paper_eng/main.tex (the paper). Style after the K(l_p) talk.
+%
+% Timing (minutes, target ~80):
+%   1 Lifting problems 8 | 2 Basic theory 10 | 3 Dimension restrictions 8 |
+%   4 Countable dimension 22 | 5 Not free 6 | 6 Uncountable dimension 15 |
+%   7 Dimension aleph_1 8 | 8 Summary 3
+\documentclass[10pt,aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathreplacing}
+\usepackage{tikz-cd}
+\usepackage{appendixnumberbeamer}
+
+%------------------------------------------------------------------- look
+\usefonttheme[onlymath]{serif}
+\definecolor{ink}{HTML}{1E2A44}
+\definecolor{accent}{HTML}{B5412C}
+\definecolor{muted}{HTML}{6B7280}
+\definecolor{good}{HTML}{2F6B3F}
+
+\setbeamersize{text margin left=0.9cm,text margin right=0.9cm}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{structure}{fg=ink}
+\setbeamercolor{normal text}{fg=black}
+\setbeamercolor{alerted text}{fg=accent}
+\setbeamercolor{title}{fg=ink}
+\setbeamercolor{subtitle}{fg=accent}
+\setbeamercolor{frametitle}{fg=ink}
+\setbeamerfont{frametitle}{series=\bfseries,size=\large}
+\setbeamerfont{title}{series=\bfseries,size=\LARGE}
+\setbeamerfont{footline}{size=\tiny}
+\setbeamerfont{footnote}{size=\tiny}
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip\vskip0.45em
+  \begin{beamercolorbox}[wd=\paperwidth,leftskip=0.9cm,rightskip=0.9cm]{frametitle}%
+    \usebeamerfont{frametitle}\insertframetitle\strut
+  \end{beamercolorbox}%
+  \vskip-0.2em
+  \hbox to\paperwidth{\hskip0.9cm{\color{ink!20}\vrule height0.6pt depth0pt
+    width\dimexpr\paperwidth-1.8cm\relax}\hss}%
+}
+\setbeamertemplate{footline}{%
+  \leavevmode
+  \hbox{\begin{beamercolorbox}[wd=\paperwidth,ht=2.4ex,dp=1.4ex,leftskip=0.9cm,rightskip=0.9cm]{footline}%
+    \usebeamerfont{footline}\color{muted}%
+    \insertshortauthor\ \ $\cdot$\ \ \insertshorttitle
+    \hfill\insertsectionhead\hspace{1.5em}\insertframenumber\,/\,\inserttotalframenumber
+  \end{beamercolorbox}}%
+}
+\setbeamertemplate{itemize items}[circle]
+\setbeamercolor{itemize item}{fg=accent}
+\setbeamercolor{itemize subitem}{fg=muted}
+\setbeamercolor{enumerate item}{fg=accent}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamercolor{block title}{fg=white,bg=ink}
+\setbeamercolor{block body}{fg=black,bg=ink!6}
+\setbeamercolor{block title alerted}{fg=white,bg=accent}
+\setbeamercolor{block body alerted}{fg=black,bg=accent!7}
+\setbeamercolor{block title example}{fg=white,bg=good}
+\setbeamercolor{block body example}{fg=black,bg=good!7}
+\setbeamertemplate{section in toc}[sections numbered]
+
+\AtBeginSection[]{%
+  \begin{frame}[noframenumbering]{Plan}
+    \tableofcontents[currentsection,hideallsubsections]
+  \end{frame}}
+
+\newtheorem{proposition}[theorem]{Proposition}
+
+%----------------------------------------------------------------- macros
+\newcommand{\Nor}{\mathbf{Nor}}
+\newcommand{\Ban}{\mathbf{Ban}}
+\newcommand{\lo}[1]{\ell_1^0(#1)}
+\newcommand{\ellone}[1]{\ell_1(#1)}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\ext}{\operatorname{ext}}
+\newcommand{\conv}{\operatorname{conv}}
+\newcommand{\Lin}{\operatorname{span}}
+\newcommand{\dens}{\operatorname{dens}}
+\newcommand{\cf}{\operatorname{cf}}
+\newcommand{\BM}{d_{BM}}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\yes}{\textcolor{good}{$\checkmark$}}
+\newcommand{\no}{\textcolor{accent}{$\boldsymbol\times$}}
+
+%------------------------------------------------------------------ title
+\title[Extremely projective normed spaces]{Extremely projective normed spaces}
+\subtitle{A characterization in all dimensions}
+\author[N.\,T.\,Nemesh]{Norbert Nemesh}
+\institute{Faculty of Mechanics and Mathematics\\
+  Lomonosov Moscow State University}
+\date{Helemskii's seminar}
+\hypersetup{pdftitle={Extremely projective normed spaces},
+  pdfauthor={Norbert Nemesh}}
+
+\begin{document}
+
+\begin{frame}[plain,noframenumbering]
+  \titlepage
+\end{frame}
+
+\begin{frame}[noframenumbering]{Plan}
+  \tableofcontents[hideallsubsections]
+\end{frame}
+
+%=========================================================================
+\section{Lifting problems}
+
+\begin{frame}{Lifting problems}
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.58\textwidth}
+      Given a ``surjection'' $\xi\colon X\to Y$ and a map $\varphi\colon P\to Y$:
+      does $\varphi$ lift to $X$?
+      \medskip
+
+      $P$ is \alert{projective} if every such problem has a solution $\psi$
+      with $\|\psi\|\le cC\|\varphi\|$.
+      \medskip
+
+      Which surjections? In $\Nor$, the category of \emph{normed} spaces and
+      bounded operators, the right notion is quantitative.
+    \end{column}
+    \begin{column}{0.36\textwidth}
+      \centering
+      \begin{tikzcd}[ampersand replacement=\&, row sep=large, column sep=large]
+        \& P \arrow[d,"\varphi"] \arrow[dl,dashed,"\psi"'] \\
+        X \arrow[r,"\xi"'] \& Y
+      \end{tikzcd}
+
+      {\small $\xi\circ\psi=\varphi$}
+    \end{column}
+  \end{columns}
+  \medskip
+  \begin{definition}
+    $\xi\colon X\to Y$ is \alert{$c$-topologically surjective} ($c\ge1$) if
+    $c\,\xi(B_X^\circ)\supset B_Y^\circ$, i.e.
+    \[
+      \forall y\in Y\ \ \forall\delta>0\ \ \exists x\in X:\quad
+      \xi(x)=y,\qquad \|x\|<c\|y\|+\delta .
+    \]
+    \alert{Coisometric}: contractive and $1$-topologically surjective,
+    $\xi(B_X^\circ)=B_Y^\circ$.
+  \end{definition}
+\end{frame}
+
+\begin{frame}{Topological and extreme projectivity}
+  \begin{definition}
+    A normed space $P$ is \alert{$C$-topologically projective} ($C\ge1$) if for
+    every $c\ge1$, every $c$-topologically surjective $\xi\colon X\to Y$ between
+    normed spaces and every bounded $\varphi\colon P\to Y$ there is a bounded
+    $\psi\colon P\to X$ with
+    \[
+      \xi\psi=\varphi,\qquad \|\psi\|\le cC\|\varphi\| .
+    \]
+    $P$ is \alert{topologically projective} if this holds for some $C$, and
+    \alert{extremely projective} if it holds for \emph{every} $C>1$.
+  \end{definition}
+  \begin{itemize}
+    \item $X$ and $Y$ are arbitrary \emph{normed} spaces. Restricting to Banach
+      spaces gives the (different!) theory in $\Ban$.
+    \item Normed spaces $=$ normed modules over the zero algebra. This is the
+      simplest case of Helemskii's \emph{extreme projectivity} for normed modules;
+      his definition looks different but agrees with this one (later).
+    \item Extreme projectivity sits between the metric theory ($C=1$) and the
+      topological theory (some $C$).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Banach spaces: the classical answers}
+  \begin{theorem}[K\"othe 1966]
+    A Banach space is topologically projective in $\Ban$ $\iff$ it is
+    topologically isomorphic to $\ellone\Lambda$ for some set $\Lambda$.
+  \end{theorem}
+  \begin{theorem}[Grothendieck 1955]
+    A Banach space has the metric lifting property $\iff$ it is isometrically
+    isomorphic to some $\ellone\Lambda$.
+  \end{theorem}
+  Both proofs use completeness: open mapping, Pe{\l}czy\'nski's decomposition method.
+  \begin{alertblock}{In $\Nor$ the free objects are different}
+    \[
+      \lo\Lambda=\{\text{finitely supported families on }\Lambda\},\qquad
+      \|x\|=\sum_\lambda|x_\lambda| .
+    \]
+    Bounded families ${(x_\lambda)}_{\lambda\in\Lambda}$ in a \emph{normed} space $E$
+    $\leftrightarrow$ bounded operators $T\colon\lo\Lambda\to E$, \
+    $T(e_\lambda)=x_\lambda$, \ $\|T\|=\sup_\lambda\|x_\lambda\|$.
+    No completeness of $E$ is needed, in contrast with $\ellone\Lambda$.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Normed spaces: what was known}
+  \begin{theorem}[Gr{\o}nb{\ae}k 2016]
+    $E$ is topologically projective in $\Nor$ $\iff$ $E$ is topologically
+    isomorphic to $\lo\Lambda$, $|\Lambda|=\dens(E)$.
+  \end{theorem}
+  \begin{theorem}[Helemskii 2013]
+    $E$ is metrically projective in $\Nor$ $\iff$ $E$ is isometrically
+    isomorphic to some $\lo\Lambda$.
+  \end{theorem}
+  \textbf{Extreme projectivity} (Helemskii 2013):
+  $\lo\Lambda$ is extremely projective; \
+  $P$ extremely projective $\iff$ $P$ is a near-retract of some $\lo\Lambda$; \
+  $P$ extremely projective $\Rightarrow$ $\overline P\cong\ellone\Lambda$
+  isometrically, so $P$ is a dense subspace of some $\ellone\Lambda$; \
+  $P$ separable and topologically projective $\Rightarrow$ $\dim P\le\aleph_0$.
+  \begin{alertblock}{Question (Helemskii 2013; Gr{\o}nb{\ae}k 2016, Conjecture 3.1)}
+    Is every extremely projective normed space isometrically isomorphic to some
+    $\lo\Lambda$? \ More precisely: \emph{which dense subspaces of $\ellone\Lambda$
+    are extremely projective?}
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{The answers, I}
+  \begin{block}{Theorem A (counterexample)}
+    $\lo\NN+\CC v$, $v=(2^{-n})_n$, is extremely projective but not
+    isometrically isomorphic to any $\lo\Lambda$.
+  \end{block}
+  \begin{block}{Theorem B (almost isometric characterization)}
+    For a normed space $P$ the following are equivalent:
+    \begin{enumerate}[(i)]
+      \item $P$ is extremely projective;
+      \item $P$ is topologically projective and $\overline P\cong\ellone\Gamma$ isometrically;
+      \item $\BM(P,\lo\Gamma)=1$ for some $\Gamma$;
+      \item for every $\varepsilon>0$ there is $\Lambda$ with $\BM(P,\lo\Lambda)<1+\varepsilon$.
+    \end{enumerate}
+    For $\dim P\le\aleph_0$: \ $P$ extremely projective $\iff$
+    $\overline P\cong\ell_1$ or $\ell_1^n$ isometrically.
+  \end{block}
+  So Gr{\o}nb{\ae}k's conjecture fails isometrically and holds almost
+  isometrically.
+\end{frame}
+
+\begin{frame}{The answers, II}
+  \begin{block}{Theorem C (dimension restrictions)}
+    Topologically projective normed spaces contain no infinite dimensional
+    complete subspaces. In particular, no infinite dimensional Banach space is
+    topologically projective in $\Nor$.
+  \end{block}
+  \begin{block}{Theorem D (dense subspaces of $\ellone\Gamma$)}
+    A dense $P\subset\ellone\Gamma$ is extremely projective $\iff$ $\Gamma$ has a
+    continuous filtration with countable blocks along which the pieces are
+    dense, form a continuous chain and have countable successive quotients.
+  \end{block}
+  \begin{block}{Theorem E (dimension $\aleph_1$)}
+    For $\Gamma=\omega_1$: $\iff$ the pieces $P\cap\ellone\delta$ have countable
+    dimension and the chain jumps only on a non-stationary set. There are
+    $2^{\aleph_1}$ pairwise non-isomorphic dense subspaces of $\ellone{\omega_1}$
+    with extremely projective countable pieces, none of them projective.
+  \end{block}
+  So for dense subspaces of $\ellone\Gamma$ topological and extreme
+  projectivity coincide, and for uncountable $\Gamma$ this is a genuine
+  restriction beyond Theorem C.
+\end{frame}
+
+\begin{frame}{Why ``normed'' is the difficulty}
+  Theorem C says: an extremely projective space never contains an infinite
+  dimensional Banach space. So the objects are \emph{incomplete in every
+  direction}, and the usual toolbox is switched off:
+  \begin{itemize}
+    \item no Baire category, no open mapping, no closed graph;
+    \item no Pe{\l}czy\'nski decomposition method ($\ell_1$-sums of the pieces
+      are not inside $P$);
+    \item no Grothendieck-type duality for $P$ itself, only for $\overline P$.
+  \end{itemize}
+  \medskip
+  \begin{alertblock}{What survives}
+    The finite dimensional pieces of $P$, the Hamel basis, Hahn--Banach, the
+    Neumann series in the \emph{completion}, and the exact $\ell_1$-norm.
+  \end{alertblock}
+  \medskip
+  The main tool will be a \alert{back-and-forth construction}: an automorphism of
+  $\ellone\Gamma$ of distortion $<1+\varepsilon$ built step by step, which moves
+  $P$ exactly onto $\lo\Gamma$. In the uncountable case the steps are indexed by
+  ordinals and controlled on disjoint blocks of coordinates.
+\end{frame}
+
+%=========================================================================
+\section{Basic theory}
+
+\begin{frame}{Helemskii's definition is the same}
+  Helemskii: $P$ is \emph{extremely projective} if for every \emph{coisometric}
+  $\xi\colon X\to Y$, every $\varphi\colon P\to Y$ and every $\delta>0$ there
+  is a lifting $\psi$ with $\|\psi\|<\|\varphi\|+\delta$.
+  \begin{proposition}
+    Extremely projective in the sense of the definition above $\iff$
+    extremely projective in the sense of Helemskii.
+  \end{proposition}
+  \begin{proof}[Proof sketch]
+    $(\Rightarrow)$ Coisometric operators are $1$-topologically surjective;
+    take $C=1+\delta/(2\|\varphi\|)$.
+
+    $(\Leftarrow)$ Given a $c$-topologically surjective $\xi$, renorm $X$:
+    \[
+      \|x\|'=\max\bigl(\|x\|,\;c\|\xi(x)\|\bigr).
+    \]
+    Then $\xi'=c\xi\colon X'\to Y$ is coisometric: contractive by construction,
+    and $y\in B_Y^\circ$ has a preimage $x\in B_X^\circ$ under $c\xi$ with
+    $\|x\|'=\max(\|x\|,\|y\|)<1$. A lifting $\psi'$ along $\xi'$ with
+    $\|\psi'\|'<C\|\varphi\|$ gives $\psi=c\psi'$ with $\xi\psi=\varphi$ and
+    $\|\psi\|\le c\|\psi'\|'\le cC\|\varphi\|$.
+  \end{proof}
+
+\end{frame}
+
+\begin{frame}{Free spaces are extremely projective}
+  \begin{proposition}
+    $\lo\Lambda$ is $(1+\varepsilon)$-topologically projective for every
+    $\varepsilon>0$.
+  \end{proposition}
+  \begin{proof}
+    Let $\xi\colon X\to Y$ be $c$-topologically surjective and
+    $\varphi\colon\lo\Lambda\to Y$, $\varphi\ne0$. For each $\lambda$ choose
+    $x_\lambda\in X$ with
+    \[
+      \xi(x_\lambda)=\varphi(e_\lambda),\qquad
+      \|x_\lambda\|<c\|\varphi(e_\lambda)\|+c\varepsilon\|\varphi\|\le c(1+\varepsilon)\|\varphi\| .
+    \]
+    The family is bounded, so $\psi(e_\lambda):=x_\lambda$ defines a bounded
+    operator with $\|\psi\|=\sup_\lambda\|x_\lambda\|\le c(1+\varepsilon)\|\varphi\|$
+    and $\xi\psi=\varphi$ on the Hamel basis.
+  \end{proof}
+  \begin{alertblock}{The constant cannot be $1$}
+    The only $1$-topologically projective normed space is $\{0\}$: a
+    coisometric functional on $(c_{00},\|\cdot\|_\infty)$ need not attain its
+    norm (backup slide). So in $\Nor$ one considers all $C>1$ at once.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Retracts and the canonical morphism}
+  $\zeta\colon E\to F$ is a \alert{$c$-retraction} if $\zeta\eta=1_F$ for some
+  $\eta$ with $\|\zeta\|\|\eta\|\le c$; then $F$ is a \emph{$c$-retract} of $E$.
+  \begin{proposition}[permanence]
+    $P'$ $C$-topologically projective, $P$ a $c$-retract of $P'$
+    $\Rightarrow$ $P$ is $cC$-topologically projective. \\
+    Hence: a space which is, for every $\varepsilon>0$, a $(1+\varepsilon)$-retract
+    of an extremely projective space is extremely projective.
+  \end{proposition}
+  \medskip
+  For a normed space $P$ consider the \alert{canonical morphism}
+  \[
+    \pi_P\colon\lo{B_P}\to P,\qquad e_x\mapsto x .
+  \]
+  Contractive, and $\pi_P(B_{\lo{B_P}})=B_P$: strictly coisometric.
+  \begin{proposition}
+    \begin{enumerate}[(i)]
+      \item $P$ $C$-topologically projective $\Rightarrow$ $\pi_P$ has a right
+        inverse $\sigma$ with $\|\sigma\|\le C$ (lift $1_P$ along $\pi_P$);
+      \item $\pi_P$ has a right inverse of norm $\le C$ $\Rightarrow$ $P$ is
+        $C(1+\varepsilon)$-topologically projective for all $\varepsilon>0$.
+    \end{enumerate}
+  \end{proposition}
+  One test case suffices: the universal surjection $\pi_P$.
+\end{frame}
+
+\begin{frame}{The criterion}
+  \begin{theorem}
+    For a normed space $P$ the following are equivalent:
+    \begin{enumerate}[(i)]
+      \item $P$ is extremely projective;
+      \item for every $\varepsilon>0$, $\pi_P$ has a right inverse of norm $\le1+\varepsilon$;
+      \item for every $\varepsilon>0$, $P$ is a $(1+\varepsilon)$-retract of some $\lo\Lambda$;
+      \item for every $\varepsilon>0$ there are $\Lambda$, a subspace
+        $Z\subset\lo\Lambda$ and a projection $Q$ of $\lo\Lambda$ onto $Z$ with
+        $\|Q\|\le1+\varepsilon$ and $\BM(P,Z)\le1+\varepsilon$.
+    \end{enumerate}
+  \end{theorem}
+  (i)$\Leftrightarrow$(iii) is Helemskii's near-retract criterion.
+  (iii)$\Rightarrow$(iv): normalize $\|\zeta\|=1$, $\|\eta\|\le1+\varepsilon$,
+  put $Z=\eta(P)$, $Q=\eta\zeta$.
+  (iv)$\Rightarrow$(i): $\zeta=T^{-1}Q$, $\eta=T$ make $P$ a
+  ${(1+\varepsilon)}^2$-retract of $\lo\Lambda$; use permanence.
+  \begin{alertblock}{Takeaway}
+    For every $\varepsilon$, $P$ sits inside a free space
+    $(1+\varepsilon)$-isomorphically and $(1+\varepsilon)$-complemented.
+    We shall construct \textbf{isomorphisms onto free spaces} of
+    distortion $<1+\varepsilon$.
+  \end{alertblock}
+\end{frame}
+
+%=========================================================================
+\section{Dimension restrictions}
+
+\begin{frame}{Free spaces are small}
+  For infinite $\Lambda$: $\dim\lo\Lambda=|\Lambda|=\dens\lo\Lambda$. An infinite
+  dimensional Banach space has uncountable Hamel dimension (Baire), in fact
+  $\ge\mathfrak c$ (L\"owig 1934).
+  \begin{theorem}[hereditary dimension bound]
+    Let $P$ be topologically projective and $Z\subset P$ a subspace. Then
+    \[
+      \dim Z\le\max(\dens Z,\aleph_0).
+    \]
+    In particular every separable subspace of $P$ has countable dimension.
+  \end{theorem}
+  \begin{proof}
+    Take $\sigma\colon P\to\lo{B_P}$ with $\pi_P\sigma=1_P$; $\sigma$ is injective.
+    Let $M\subset Z$ be dense, $|M|=\dens Z$, and
+    $S_0=\bigcup_{x\in M}\supp\sigma(x)$, so $|S_0|\le\max(\dens Z,\aleph_0)$.
+    For $z\in Z$, $\sigma(z)$ is a limit of elements supported in $S_0$;
+    coordinate functionals are continuous, so $\sigma(z)$ is supported in $S_0$.
+    Hence $\sigma(Z)\subset\lo{S_0}$, a space of dimension $|S_0|$.
+  \end{proof}
+  Helemskii's argument for separable $P$, in the hereditary form needed later.
+\end{frame}
+
+\begin{frame}{No complete pieces}
+  \begin{corollary}
+    Let $P$ be topologically projective, $Z\subset P$, and $\|\cdot\|'$ a norm on
+    $Z$ with $(Z,\|\cdot\|')$ complete and $\|\cdot\|\le K\|\cdot\|'$. Then
+    $\dim Z<\infty$.
+  \end{corollary}
+  \begin{proof}
+    A separable infinite dimensional $\|\cdot\|'$-closed subspace $Z_0$ would be
+    $\|\cdot\|$-separable with uncountable dimension.
+  \end{proof}
+  Every complete subspace of $P$ is finite dimensional. No infinite dimensional
+  Banach space is topologically projective in $\Nor$, although $\ellone\Lambda$
+  is extremely projective in $\Ban$.
+  \begin{exampleblock}{Example: completions do not decide}
+    $w_n\ge1$, $w_n\to\infty$, \
+    $P_w=\{x\in\ell_1:\sum_n w_n|x_n|<\infty\}$ with the $\ell_1$-norm:
+    dense in $\ell_1$, contains $\lo\NN$, so $\overline{P_w}=\ell_1$;
+    every complete subspace is finite dimensional (open mapping in $\ell_1(w)$);
+    \alert{not} topologically projective, as $P_w$ is separable but
+    $\dim P_w=\dim\ell_1(w)>\aleph_0$.
+  \end{exampleblock}
+\end{frame}
+
+%=========================================================================
+\section{Countable dimension}
+
+\begin{frame}{The completion}
+  \begin{theorem}[Helemskii 2013; Gr{\o}nb{\ae}k 2016]
+    $P$ extremely projective $\Rightarrow$ $\overline P\cong\ellone\Gamma$
+    isometrically for some set $\Gamma$.
+  \end{theorem}
+  \textit{Sketch.} By the criterion, $\overline P$ is a $(1+\varepsilon)$-retract
+  of the Banach space $\ellone{B_P}$ for every $\varepsilon$. Then
+  \begin{gather*}
+    {\overline P}^*\ \text{is $(1+\varepsilon)$-injective }\forall\varepsilon
+    \ \Rightarrow\ \text{$1$-injective}
+    \ \Rightarrow\ {\overline P}^*\cong C(K),\ K\text{ Stonean}\\
+    \Rightarrow\ \overline P\cong L_1(\mu)
+    \ \Rightarrow\ \mu\text{ atomic},
+  \end{gather*}
+  the last step because $\overline P$ has the Schur property as a complemented
+  subspace of $\ellone{B_P}$ (Grothendieck; Lacey, Thm.\ 3.11.6 and \S17).
+
+  \begin{block}{Two sides of the picture}
+    An extremely projective normed space is, up to isometry,
+    \begin{center}
+      a \textbf{dense subspace of $\ellone\Gamma$}
+      \quad whose \quad
+      \textbf{separable subspaces have countable dimension}.
+    \end{center}
+  \end{block}
+  \textbf{Question.} Is every such subspace extremely projective? \\
+  Countable $\Gamma$: \yes, and more. \quad Uncountable $\Gamma$: \no, but
+  a correction works.
+\end{frame}
+
+\begin{frame}{The countable theorem and the plan}
+  \begin{theorem}[back-and-forth]
+    Let $D\subset\ell_1$ be a dense subspace of countable dimension and
+    $\varepsilon>0$. There is a linear bijection $T$ of $\ell_1$ with
+    \[
+      \|T\|\|T^{-1}\|\le1+\varepsilon,\qquad T(D)=\lo\NN .
+    \]
+    In particular $\BM(D,\lo\NN)=1$.
+  \end{theorem}
+  \textbf{Plan.} $(d_j)$ a Hamel basis of $D$; $\theta_m\in(0,1/2]$ with
+  $\prod_m(1+\theta_m)/(1-\theta_m)\le1+\varepsilon$. Build automorphisms
+  $F_1,F_2,\dots$ of $\ell_1$ with $\|F_m-1\|\le\theta_m$ and put
+  $A_j=F_{2j}F_{2j-1}A_{j-1}$, \ $T=\lim A_j$.
+  \medskip
+
+  \begin{tabular}{@{}ll@{}}
+    \textcolor{accent}{forth} ($F_{2j-1}$): & make $A_{j-1}(d_j)$ finitely supported;\\[2pt]
+    \textcolor{good}{back} ($F_{2j}$): & make $e_j$ an element of $A_j(D)$;
+  \end{tabular}
+  \medskip
+
+  while \textbf{fixing} a growing finite dimensional $Y_{j-1}\subset\lo\NN$
+  that records what was already achieved.
+  \medskip
+
+  Three lemmas: a \emph{one-vector} lemma, a \emph{hitting} lemma, and a
+  \emph{product} lemma.
+\end{frame}
+
+\begin{frame}{The one-vector lemma}
+  Notation: $x|_N$ = $x$ truncated after coordinate $N$.
+  \begin{lemma}
+    Let $v\in\ell_1$, $N\ge0$, $0<\delta<1$. There is $R\colon\ell_1\to\ell_1$,
+    $\|R\|\le\delta$, with
+    \begin{enumerate}[(i)]
+      \item $R(x)=0$ whenever $x=x|_N$;
+      \item $R(\lo\NN)\subset\lo\NN$;
+      \item $(1-R)(v)\in\lo\NN$;
+      \item ${(1-R)}^{-1}(\lo\NN)\subset\lo\NN+\CC v$.
+    \end{enumerate}
+    Hence $T=1-R$ is an automorphism of $\ell_1$, $\|T\|\le1+\delta$,
+    $\|T^{-1}\|\le{(1-\delta)}^{-1}$, $T$ fixes everything supported in $[1,N]$,
+    $T(\lo\NN)\subset\lo\NN$ and
+    \[
+      T(\lo\NN+\CC v)=\lo\NN .
+    \]
+  \end{lemma}
+  One small perturbation of the identity swallows one vector into $\lo\NN$,
+  without disturbing a prescribed finite block of coordinates and without
+  letting anything else out of $\lo\NN$ except multiples of $v$.
+\end{frame}
+
+\begin{frame}{Proof: shift along blocks}
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.5\textwidth}
+      \centering
+      \begin{tikzpicture}[x=1cm,y=1cm]
+        \draw[->,muted] (0,0) -- (6.4,0) node[below right] {\footnotesize $n$};
+        \draw[muted] (0.8,-0.08) -- (0.8,0.08) node[below=4pt] {\footnotesize $N$};
+        \fill[muted!40] (0,0) rectangle (0.8,0.5);
+        \node at (0.4,0.7) {\footnotesize $v|_N$};
+        \fill[ink!70] (0.9,0) rectangle (2.4,1.6);
+        \fill[ink!55] (2.5,0) rectangle (3.8,0.75);
+        \fill[ink!40] (3.9,0) rectangle (4.9,0.36);
+        \fill[ink!25] (5.0,0) rectangle (5.8,0.17);
+        \node at (1.65,1.8) {\footnotesize $w_1$};
+        \node at (3.15,0.95) {\footnotesize $w_2$};
+        \node at (4.4,0.56) {\footnotesize $w_3$};
+        \node at (5.4,0.37) {\footnotesize $w_4$};
+        \draw[decorate,decoration={brace,mirror,amplitude=3pt}] (0.9,-0.15) -- (2.4,-0.15) node[midway,below=3pt] {\footnotesize $B_1$};
+        \draw[decorate,decoration={brace,mirror,amplitude=3pt}] (2.5,-0.15) -- (3.8,-0.15) node[midway,below=3pt] {\footnotesize $B_2$};
+        \draw[decorate,decoration={brace,mirror,amplitude=3pt}] (3.9,-0.15) -- (4.9,-0.15) node[midway,below=3pt] {\footnotesize $B_3$};
+        \draw[->,accent,thick] (1.65,1.65) to[bend left=25] node[above,pos=0.5] {\footnotesize $R$} (3.15,1.0);
+        \draw[->,accent,thick] (3.15,0.8) to[bend left=25] (4.4,0.6);
+        \draw[->,accent,thick] (4.4,0.4) to[bend left=25] (5.4,0.4);
+      \end{tikzpicture}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      Cut the tail $v-v|_N$ into finite blocks $w_k=v|_{B_k}$ with
+      \[
+        \|w_{k+1}\|\le\delta\|w_k\| .
+      \]
+      Possible since $t_M=\sum_{n>M}|v_n|\downarrow0$.
+      \medskip
+
+      $g_k(x)=\sum_{n\in B_k}\overline{\operatorname{sgn}v_n}\,x_n$: \ then
+      $g_k(w_j)=\delta_{jk}\|w_k\|$, $|g_k(x)|\le\sum_{B_k}|x_n|$.
+      \[
+        R(x)=\sum_{k\ge1}\frac{g_k(x)}{\|w_k\|}\,w_{k+1},\qquad \|R\|\le\delta .
+      \]
+    \end{column}
+  \end{columns}
+  \medskip
+  \begin{itemize}
+    \item $R(w_k)=w_{k+1}$: $R$ shifts the blocks one step to the right.
+    \item $R(v)=\sum_k w_{k+1}=v-v|_N-w_1$, so $(1-R)(v)=v|_N+w_1\in\lo\NN$.
+    \item For $x\in\lo\NN$: $R^m(x)=\sum_{k\in K}c_kw_{k+m}$ (finite $K$), so
+      ${(1-R)}^{-1}x=\sum_m R^mx=x+\sum_{k\in K}c_k(v-v|_{N_k})\in\lo\NN+\CC v$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{The hitting lemma}
+  \begin{lemma}[hitting]
+    Let $Y\subset\lo\NN$ be finite dimensional and $e_n\notin Y$. There is $C\ge1$
+    such that for every $z\in\lo\NN$ with $\|z-e_n\|\le{(4C)}^{-1}$ there is an
+    automorphism $S$ of $\ell_1$ with
+    \[
+      \|S-1\|\le2C\|z-e_n\|\le\tfrac12,\qquad S|_Y=1_Y,\qquad S(z)=e_n .
+    \]
+  \end{lemma}
+  \textit{Proof.} Hahn--Banach: $f\in\ell_1^*$, $f|_Y=0$, $f(e_n)=1$,
+  $\|f\|=d^{-1}$, $d=\operatorname{dist}(e_n,Y)$; $C=\max(1,d^{-1})$. Then
+  $|f(z)|\ge3/4$ and
+  \[
+    S(x)=x+\frac{f(x)}{f(z)}\,(e_n-z)
+  \]
+  does the job; it is invertible by the Neumann series. \qed
+  \medskip
+
+  A finite dimensional obstacle $Y$ is avoided by a rank-one correction; the
+  closer $z$ is to $e_n$, the smaller the correction. Density of $D$ will
+  supply $z$.
+\end{frame}
+
+\begin{frame}{The product lemma}
+  \begin{lemma}[product]
+    $X$ Banach, $\theta_m=\|F_m-1_X\|<1$, $\sum_m\theta_m<\infty$,
+    $A_j=F_j\cdots F_1$. Then $A_j\to T$ in norm, $T$ is an automorphism, and
+    \[
+      \|T\|\le\prod_m(1+\theta_m),\qquad \|T^{-1}\|\le\prod_m{(1-\theta_m)}^{-1}.
+    \]
+  \end{lemma}
+  Completeness is used here, in $\ell_1=\overline D$, never in $D$.
+  \medskip
+
+  Choose the budgets $\theta_m\in(0,1/2]$ in advance with
+  $\prod_m(1+\theta_m)/(1-\theta_m)\le1+\varepsilon$. Each step may spend at
+  most $\theta_m$ on its perturbation; the one-vector lemma ($\|R\|\le\delta$)
+  and the hitting lemma ($\|S-1\|\le2C\|z-e_n\|$) respect any budget.
+\end{frame}
+
+\begin{frame}{The back-and-forth step}
+  Invariants for $A_j$ and the finite dimensional $Y_j\subset\lo\NN$:
+  \begin{enumerate}[(a)]
+    \item $A_j(d_i)\in Y_j$ for $i\le j$; \hfill (forth: basis vectors are caught)
+    \item $e_i\in Y_j$ for $i\le j$; \hfill (back: unit vectors are caught)
+    \item $Y_j\subset A_j(D)$; \hfill (everything caught comes from $D$)
+    \item $F_{2j-1}$, $F_{2j}$ fix $Y_{j-1}$. \hfill (nothing caught is lost)
+  \end{enumerate}
+  \medskip
+  \textcolor{accent}{\textbf{Forth.}} $N\ge$ all supports of $Y_{j-1}$. One-vector
+  lemma for $v=A_{j-1}(d_j)$, $N$, $\delta=\theta_{2j-1}$: $F_{2j-1}=1-R$ fixes
+  $Y_{j-1}$, and $y_j=F_{2j-1}A_{j-1}(d_j)\in\lo\NN$. Put $A'=F_{2j-1}A_{j-1}$,
+  $Y'=Y_{j-1}+\CC y_j\subset A'(D)$.
+  \medskip
+
+  \textcolor{good}{\textbf{Back.}} If $e_j\in Y'$, done. Otherwise $A'(D)$ is dense,
+  so pick $d\in D$ with $\|A'(d)-e_j\|\le\theta_{2j}/(16C)$.
+  \begin{itemize}
+    \item one-vector lemma for $A'(d)$ (fixing $Y'$ and $e_j$), $\delta=\theta_{2j}/2$:
+      $G=1-R'$ with $z=GA'(d)\in\lo\NN$, $\|z-e_j\|\le{(4C)}^{-1}$;
+    \item hitting lemma: $S$ fixes $Y'$, $S(z)=e_j$, $\|S-1\|\le5\theta_{2j}/32$.
+  \end{itemize}
+  $F_{2j}=SG$, $\|F_{2j}-1\|\le\theta_{2j}$, $Y_j=Y'+\CC e_j$, and
+  $e_j=A_j(d)\in A_j(D)$.
+\end{frame}
+
+\begin{frame}{Passing to the limit}
+  By the product lemma $A_j\to T$, an automorphism of $\ell_1$ with
+  \[
+    \|T\|\|T^{-1}\|\le\prod_m\frac{1+\theta_m}{1-\theta_m}\le1+\varepsilon .
+  \]
+  \begin{itemize}
+    \item $T(D)\subset\lo\NN$: \ $A_i(d_i)\in Y_i$ by (a), and all later $F_m$
+      fix $Y_i$ by (d), so $T(d_i)=A_i(d_i)\in\lo\NN$.
+    \item $\lo\NN\subset T(D)$: \ by (b), (c) there is $d\in D$ with
+      $A_i(d)=e_i\in Y_i$, and again $T(d)=A_i(d)=e_i$.
+  \end{itemize}
+  So $T(D)=\lo\NN$. \qed
+  \begin{alertblock}{What made it work}
+    \begin{itemize}
+      \item each step is a perturbation of the identity of size $\theta_m$, and
+        $\sum\theta_m$ is as small as we like: the constants are \emph{kept};
+      \item each step is \emph{local}: it fixes a finite block of coordinates and
+        acts on the tail; the one-vector lemma produces nothing outside
+        $\lo\NN+\CC v$;
+      \item the Hamel basis is countable, so a single $\omega$-sequence of steps
+        exhausts $D$.
+    \end{itemize}
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Countable dimension: the characterization}
+  \begin{theorem}
+    Let $\dim P\le\aleph_0$. The following are equivalent:
+    \begin{enumerate}[(i)]
+      \item $P$ is extremely projective;
+      \item $\overline P\cong\ellone\Gamma$ isometrically, $\Gamma$ countable;
+      \item $\BM(P,\lo\Gamma)=1$ for some countable $\Gamma$;
+      \item for every $\varepsilon>0$ there is $\Lambda$ with $\BM(P,\lo\Lambda)<1+\varepsilon$.
+    \end{enumerate}
+  \end{theorem}
+  \textit{Proof.} (i)$\Rightarrow$(ii): completion theorem; $\overline P$ is
+  separable, so $\Gamma$ is countable.
+  (ii)$\Rightarrow$(iii): $J(P)\subset\ell_1$ is dense and of countable dimension;
+  back-and-forth.
+  (iv)$\Rightarrow$(i): a $(1+\varepsilon)$-isomorphism onto $\lo\Lambda$ is a
+  $(1+\varepsilon)$-retraction; criterion. \qed
+  \begin{corollary}
+    Every dense subspace of $\ell_1$ of countable dimension is extremely
+    projective and has Banach--Mazur distance $1$ to $\lo\NN$.
+  \end{corollary}
+  No projectivity assumption in (ii): extreme projectivity \emph{is} a
+  property of the completion.
+\end{frame}
+
+%=========================================================================
+\section{Extremely projective spaces which are not free}
+
+\begin{frame}{Extreme points}
+  By the corollary, $\lo\NN+V$ is extremely projective for every
+  $V\subset\ell_1$ of countable dimension. Is it ever free?
+  \begin{lemma}
+    Let $\lo S\subset E\subset\ellone S$ with the $\ell_1$-norm. Then
+    \[
+      \ext(B_E)=\{\lambda e_s:\ s\in S,\ |\lambda|=1\},\qquad
+      \conv(\ext B_E)=B_{\lo S}.
+    \]
+  \end{lemma}
+  \begin{proof}[Proof idea]
+    The $\lambda e_s$ are extreme in $B_{\ellone S}$, hence in $B_E=B_{\ellone S}\cap E$.
+    If $x\in E$, $\|x\|=1$, has two non-zero coordinates $x_n,x_m$, put
+    $t=\min(|x_n|,|x_m|)$ and
+    \[
+      u=t\bigl(\operatorname{sgn}(x_n)e_n-\operatorname{sgn}(x_m)e_m\bigr)\in\lo S\subset E .
+    \]
+    Then $\|x\pm u\|=(|x_n|\pm t)+(|x_m|\mp t)+\dots=1$, so $x$ is not extreme.
+    Finite convex combinations of the $\lambda e_s$ are exactly the elements of
+    $B_{\lo S}$.
+  \end{proof}
+  The lemma only sees finitely supported vectors: $E$ may be any space
+  between $\lo S$ and $\ellone S$.
+\end{frame}
+
+\begin{frame}{The counterexample}
+  \begin{theorem}
+    Let $\lo S\subset E\subset\ellone S$ with the $\ell_1$-norm. If
+    $E\cong\lo\Lambda$ isometrically, then $E=\lo S$.
+  \end{theorem}
+  \begin{proof}
+    An isometry $T\colon\lo\Lambda\to E$ maps extreme points onto extreme points, so
+    \[
+      B_E=T\bigl(\conv\ext B_{\lo\Lambda}\bigr)=\conv\bigl(T\ext B_{\lo\Lambda}\bigr)
+      =\conv\ext B_E=B_{\lo S}.
+    \]
+  \end{proof}
+  \begin{alertblock}{Corollary (answer to Helemskii and Gr{\o}nb{\ae}k)}
+    For $V\subset\ell_1$ of countable dimension with $V\not\subset\lo\NN$,
+    e.g. $V=\CC v$, $v=(2^{-n})$, the space $\lo\NN+V$ is extremely projective
+    and \textbf{not} isometrically isomorphic to any free normed space.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Between $\lo\NN$ and $\ell_1$}
+  \begin{center}
+    \begin{tabular}{@{}lll@{}}
+      \toprule
+      space & extremely projective & isometric to a free space\\
+      \midrule
+      $\lo\NN$ & \yes & \yes\\
+      $\lo\NN+V$, $\dim V\le\aleph_0$, $V\not\subset\lo\NN$ & \yes & \no\\
+      $P_w$ (weighted) & \no & \no\\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  \medskip
+  All three have completion $\ell_1$: the difference is invisible on
+  completions. By the theorem, \emph{no} space strictly between $\lo\NN$ and
+  $\ell_1$ is free, yet by the corollary all those of countable dimension are
+  extremely projective.
+  \medskip
+
+  The next section gives a criterion which distinguishes the projective ones
+  among all dense subspaces, in any dimension.
+\end{frame}
+
+%=========================================================================
+\section{Uncountable dimension}
+
+\begin{frame}{What changes}
+  Countable dimension: dense in $\ell_1$ $+$ countable dimension
+  $\Rightarrow$ extremely projective.
+  \medskip
+
+  \textbf{Hope.} Dense in $\ellone\Gamma$ $+$ all separable subspaces of countable
+  dimension $\Rightarrow$ extremely projective?
+  \medskip
+
+  \textbf{No.} Already for $\Gamma=\omega_1$ (ladder spaces, Section 7).
+  \begin{block}{What is true (Theorem 6.7)}
+    A dense $P\subset\ellone\Gamma$ is extremely projective $\iff$ $\Gamma$ has a
+    continuous filtration with \textbf{countable blocks} along which the pieces
+    $P\cap\ellone{\Gamma_\delta}$ are dense, form a \textbf{continuous chain},
+    and have \textbf{countable dimensional successive quotients}.
+  \end{block}
+  \medskip
+  Two tools:
+  \begin{itemize}
+    \item a transfinite back-and-forth along such a filtration, each countable
+      block solved by the countable theorem, perturbations confined to
+      disjoint blocks;
+    \item closed pairs, an elementary-submodel argument producing such a
+      filtration for every projective $P$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Filtrations and blocks}
+  A \alert{filtration} of $\Gamma$: an increasing family ${(\Gamma_\delta)}_{\delta\le\lambda}$,
+  $\Gamma_0=\varnothing$, $\Gamma_\lambda=\Gamma$, continuous at limits.
+  Blocks $N_\delta=\Gamma_{\delta+1}\setminus\Gamma_\delta$, so
+  $\Gamma_\delta=\bigsqcup_{\delta'<\delta}N_{\delta'}$ and
+  $\ellone{\Gamma_\delta}=\bigl(\bigoplus_{\delta'<\delta}\ellone{N_{\delta'}}\bigr)_{\ell_1}$.
+  \medskip
+
+  For $P\subset\ellone\Gamma$: \ $P_\delta=P\cap\ellone{\Gamma_\delta}$ and
+  \[
+    D_\delta=\{x|_{N_\delta}:x\in P_{\delta+1}\}\subset\ellone{N_\delta},
+    \qquad D_\delta\cong P_{\delta+1}/P_\delta .
+  \]
+  \begin{theorem}[transfinite back-and-forth]
+    Let $P$ be dense in $\ellone\Gamma$ and ${(\Gamma_\delta)}$ a filtration with
+    countable blocks such that
+    \begin{enumerate}[(i)]
+      \item $P_\delta$ is dense in $\ellone{\Gamma_\delta}$ for all $\delta\le\lambda$;
+      \item $P_\delta=\bigcup_{\delta'<\delta}P_{\delta'}$ for limit $\delta\le\lambda$ \hfill (continuity);
+      \item $\dim P_{\delta+1}/P_\delta\le\aleph_0$ for all $\delta<\lambda$ \hfill (small blocks).
+    \end{enumerate}
+    Then for every $\varepsilon>0$ there is an automorphism $T$ of $\ellone\Gamma$
+    with $T(P)=\lo\Gamma$, $\|T\|\le1+\varepsilon$, $\|T^{-1}\|\le1$.
+  \end{theorem}
+  Each block is solved first: $D_\delta$ is dense in $\ellone{N_\delta}$ and of
+  countable dimension, so the countable theorem gives $U_\delta$ with
+  $U_\delta(D_\delta)=\lo{N_\delta}$, $\|U_\delta\|\le1+\theta$, $\|U_\delta^{-1}\|\le1$.
+\end{frame}
+
+\begin{frame}{The shape of $T$}
+  Recursively choose $V_\delta\colon\ellone{N_\delta}\to\ellone{\Gamma_\delta}$ with
+  $\|V_\delta\|\le\theta$, and put for $x\in\ellone{\Gamma_\delta}$
+  \[
+    W_\delta(x)=x+\sum_{\delta'<\delta}V_{\delta'}(x|_{N_{\delta'}}),\qquad
+    U_{<\delta}=\bigoplus_{\delta'<\delta}U_{\delta'},\qquad
+    T_\delta=U_{<\delta}W_\delta .
+  \]
+  \begin{itemize}
+    \item The $N_{\delta'}$ are disjoint and $\|x\|=\sum_{\delta'}\|x|_{N_{\delta'}}\|$, so
+      \alert{$\|W_\delta-1\|\le\theta$ regardless of $\delta$}: no product of
+      $\lambda$ factors ever appears.
+    \item $\|U_{<\delta}\|\le1+\theta$, $\|U_{<\delta}^{-1}\|\le1$ ($\ell_1$-sum).
+    \item $T_\delta$ extends $T_{\delta'}$ for $\delta'<\delta$.
+  \end{itemize}
+  \begin{block}{Inductive claim}
+    \[
+      T_\delta(P_\delta)=\lo{\Gamma_\delta}\qquad\text{for all }\delta\le\lambda .
+    \]
+    Limit stages are free: by (ii) and compatibility,
+    $T_\mu(P_\mu)=\bigcup_{\delta<\mu}T_\delta(P_\delta)=\bigcup_{\delta<\mu}\lo{\Gamma_\delta}=\lo{\Gamma_\mu}$.
+  \end{block}
+  Compare with the countable proof: there $T$ was an infinite product of
+  perturbations and the limit stage needed the product lemma. Here the
+  perturbations live on disjoint blocks and \emph{add} instead of multiplying.
+\end{frame}
+
+\begin{frame}{The successor step}
+  Let $U=U_\delta$, $y_n=U^{-1}(e_n)$ for $n\in N_\delta$: a Hamel basis of $D_\delta$ with
+  $\|\sum c_ny_n\|\ge{(1+\theta)}^{-1}\sum|c_n|$.
+  \begin{itemize}
+    \item Lift: $x_n\in P_{\delta+1}$ with $x_n|_{N_\delta}=y_n$.
+    \item Correct: $P_\delta$ is dense in $\ellone{\Gamma_\delta}$ by (i), so there is
+      $z_n\in\ellone{\Gamma_\delta}$ with
+      \[
+        x_n|_{\Gamma_\delta}+z_n\in P_\delta,\qquad\|z_n\|\le\theta{(1+\theta)}^{-2}.
+      \]
+    \item Define $V_\delta(\sum c_ny_n)=\sum c_nW_\delta(z_n)$ on $D_\delta$; then
+      $\|V_\delta\|\le\theta$, extend to $\ellone{N_\delta}$.
+  \end{itemize}
+  \begin{block}{Key inclusion}
+    \[
+      x|_{\Gamma_\delta}+W_\delta^{-1}V_\delta(x|_{N_\delta})\in P_\delta
+      \qquad\text{for every }x\in P_{\delta+1}.
+    \]
+    ($x|_{N_\delta}=\sum c_ny_n$; $x-\sum c_nx_n$ vanishes on $N_\delta$, hence lies in $P_\delta$.)
+  \end{block}
+  Then for $x\in P_{\delta+1}$:
+  \[
+    T_{\delta+1}(x)=T_\delta\bigl(x|_{\Gamma_\delta}+W_\delta^{-1}V_\delta(x|_{N_\delta})\bigr)+U(x|_{N_\delta})
+    \in\lo{\Gamma_\delta}+\lo{N_\delta},
+  \]
+  and $T_{\delta+1}(x_n)\in\lo{\Gamma_\delta}+e_n$ gives the reverse inclusion. \qed
+\end{frame}
+
+\begin{frame}{Where do good filtrations come from?}
+  Fix a dense topologically projective $P\subset\ellone\Gamma$, a retraction
+  $\sigma\colon P\to\lo S$, $\pi\colon\lo S\to P$, $\pi\sigma=1_P$, $\|\pi\|\le1$,
+  and sequences $p^\gamma_n\in P$ with $p^\gamma_n\to e_\gamma$. \ $P_A=P\cap\ellone A$.
+  \begin{definition}
+    $(A,B)$, $A\subset\Gamma$, $B\subset S$, is \alert{closed} if
+    \begin{enumerate}[(a)]
+      \item $\supp\pi(e_s)\subset A$ for $s\in B$;
+      \item $\supp\sigma(x)\subset B$ for $x\in P_A$;
+      \item $\supp p^\gamma_n\subset A$ for $\gamma\in A$, $n\in\NN$.
+    \end{enumerate}
+  \end{definition}
+  \begin{lemma}
+    For a closed pair: $P_A=\pi(\lo B)$, $P_A$ is dense in $\ellone A$, and
+    $\sigma|_{P_A}$, $\pi|_{\lo B}$ exhibit $P_A$ as a retract of $\lo B$.
+    So $P_A$ is topologically projective.
+  \end{lemma}
+  \textit{Proof.} (a): $\pi(\lo B)\subset P_A$. (b): $x=\pi\sigma(x)\in\pi(\lo B)$.
+  (c): $\overline{P_A}\ni e_\gamma$ for $\gamma\in A$. \qed
+  \medskip
+
+  Closed pairs are the ``elementary submodels'' of the situation.
+\end{frame}
+
+\begin{frame}{Countable quotients and countable closing off}
+  \begin{lemma}[countable quotient]
+    $(A,B)$ closed, $A'\supset A$ with $A'\setminus A$ countable. Then
+    $\dim P_{A'}/P_A\le\aleph_0$.
+  \end{lemma}
+  \textit{Proof.} $D=\{x|_{A'\setminus A}:x\in P_{A'}\}\cong P_{A'}/P_A$ is
+  separable. The map $\rho(y)=\sigma(x)|_{S\setminus B}$ ($x\in P_{A'}$, $x|_{A'\setminus A}=y$)
+  is well defined, bounded and \textbf{injective}: $\rho(y)=0$ forces
+  $\sigma(x)\in\lo B$, so $x=\pi\sigma(x)\in P_A$ and $y=0$. A bounded injection
+  into a free space bounds the dimension by the density (the argument of the
+  dimension bound). \qed
+  \begin{lemma}[countable closing off]
+    $(A,B)$ closed, $N\subset\Gamma$ countable. There is a closed pair
+    $(A',B')\supset(A\cup N,B)$ with $A'\setminus A$, $B'\setminus B$ countable.
+  \end{lemma}
+  \textit{Proof.} Alternate $\omega$ times: add the supports of $\sigma(x)$ for $x$ in a
+  basis of $P_{A_k}$ \emph{modulo} $P_A$ (countable by the first lemma), then
+  supports of $\pi(e_s)$ and of the $p^\gamma_n$ for the new points. Unions.
+  (a), (c) are clear; (b) by density: $\bigcup_kP_{A_k}$ is dense in $\ellone{A'}$,
+  and $\sigma$ is continuous. \qed
+  \medskip
+
+  Subtlety: $\supp x$ need not sit in one $A_k$, so density, not a support
+  argument, proves (b).
+\end{frame}
+
+\begin{frame}{Unions of closed pairs}
+  \begin{lemma}[unions]
+    The union of an increasing chain ${((A_\delta,B_\delta))}_{\delta<\lambda}$ of
+    closed pairs is a closed pair, and
+    \[
+      P_{A_\lambda}=\pi(\lo{B_\lambda})=\bigcup_{\delta<\lambda}\pi(\lo{B_\delta})=\bigcup_{\delta<\lambda}P_{A_\delta}.
+    \]
+  \end{lemma}
+  \textit{Proof.} (a), (c) are inherited. (b): $\bigcup_\delta P_{A_\delta}$ is
+  dense in $\ellone{A_\lambda}$ (each $P_{A_\delta}$ is dense in $\ellone{A_\delta}$),
+  and the same continuity argument gives $\sigma(x)\in\lo{B_\lambda}$ for
+  $x\in P_{A_\lambda}$. The formula for $P_{A_\lambda}$ follows from
+  $P_A=\pi(\lo B)$ for closed pairs. \qed
+  \begin{alertblock}{}
+    Continuity (ii) is \textbf{automatic} along chains of closed pairs, for
+    any cofinality. This is exactly what the ladder spaces of the next section
+    lack: there is no retraction $\sigma$, and the chain jumps on a
+    stationary set.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{The criterion}
+  \begin{theorem}
+    Let $P$ be a dense subspace of $\ellone\Gamma$. The following are equivalent:
+    \begin{enumerate}[(i)]
+      \item $P$ is extremely projective;
+      \item $P$ is topologically projective;
+      \item $\Gamma$ has a filtration with countable blocks satisfying
+        (a) dense pieces, (b) continuity, (c) countable successive quotients.
+    \end{enumerate}
+    If so, for every $\varepsilon>0$ there is an automorphism $T$ of $\ellone\Gamma$
+    with $T(P)=\lo\Gamma$, $\|T\|\le1+\varepsilon$, $\|T^{-1}\|\le1$; in particular
+    $\BM(P,\lo\Gamma)=1$.
+  \end{theorem}
+  \textit{Proof.} (ii)$\Rightarrow$(iii): enumerate $\Gamma=\{\gamma_\alpha\}_{\alpha<\kappa}$
+  and build closed pairs: $A_0=B_0=\varnothing$; close off $A_\alpha\cup\{\gamma_\alpha\}$
+  at successors (countable increment); unions at limits. (a) closed pairs are
+  dense; (b) unions lemma; (c) countable quotient lemma.
+  (iii)$\Rightarrow$(i): the transfinite theorem gives $T$; then $T|_P$ and
+  $T^{-1}|_{\lo\Gamma}$ make $P$ a $(1+\varepsilon)$-retract of $\lo\Gamma$;
+  the criterion of Section 2. \qed
+  \begin{alertblock}{}
+    One transfinite construction with countable steps; no induction on cardinals.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{The characterization in all dimensions}
+  \begin{theorem}
+    For a normed space $P$ the following are equivalent:
+    \begin{enumerate}[(i)]
+      \item $P$ is extremely projective;
+      \item $P$ is topologically projective and $\overline P\cong\ellone\Gamma$ isometrically;
+      \item $\BM(P,\lo\Gamma)=1$ for some set $\Gamma$;
+      \item for every $\varepsilon>0$ there is $\Lambda$ with $\BM(P,\lo\Lambda)<1+\varepsilon$.
+    \end{enumerate}
+    In (iii), $|\Gamma|=\dim P$ for infinite dimensional $P$, and the distance is
+    realized by bijections $T\colon\overline P\to\ellone\Gamma$ with $T(P)=\lo\Gamma$
+    and $\|T\|\|T^{-1}\|$ arbitrarily close to $1$.
+  \end{theorem}
+  \textit{Proof.} (i)$\Rightarrow$(ii): completion theorem. (ii)$\Rightarrow$(iii):
+  $J(P)$ is a dense topologically projective subspace of $\ellone\Gamma$; general
+  theorem. (iv)$\Rightarrow$(i): criterion. \qed
+  \begin{alertblock}{Gr{\o}nb{\ae}k's conjecture}
+    Every extremely projective normed space is \textbf{almost isometric} to
+    $\lo\Gamma$, $|\Gamma|=\dim P$. The conjecture holds in the almost isometric
+    form and fails in the isometric form.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Helemskii's question on dense subspaces}
+  \textbf{Which dense subspaces $P\subset\ellone\Lambda$ are extremely projective?}
+  \begin{block}{Answer}
+    $P$ extremely projective $\iff$ $P$ topologically projective $\iff$ $P$ admits
+    a filtration with countable blocks, dense pieces, continuity and countable
+    quotients.
+  \end{block}
+  \begin{itemize}
+    \item $\Lambda$ countable: $\iff$ $\dim P\le\aleph_0$.
+    \item $\Lambda$ uncountable: a genuine restriction beyond dimension; the
+      continuity condition fails for the ladder spaces of the next section.
+    \item The answer refers only to the subspaces $P\cap\ellone A$, and the
+      coordinates of $\ellone\Lambda$ are intrinsic: the extreme points of the
+      unit ball are the $\lambda e_\gamma$ (Section 5). No retraction onto a
+      free space is mentioned.
+    \item Topological and extreme projectivity coincide for dense subspaces of
+      $\ellone\Gamma$. This is a feature of the \emph{exact} norm: if $E$ is
+      $\ellone\Gamma$ with an equivalent, not almost isometric, norm, then
+      $J(\lo\Gamma)\subset E$ is topologically but not extremely projective.
+  \end{itemize}
+\end{frame}
+
+%=========================================================================
+\section{Dimension $\aleph_1$}
+
+\begin{frame}{Set theory in one slide}
+  \begin{itemize}
+    \item $\omega_1$ = the first uncountable ordinal; its elements are the
+      countable ordinals. Every $x\in\ellone{\omega_1}$ has countable support,
+      hence lives in some $\ellone\delta$, $\delta<\omega_1$.
+    \item $C\subset\omega_1$ is \alert{closed unbounded} (club) if unbounded and
+      closed under countable suprema. The limit ordinals form a club; two clubs
+      meet in a club; for $h\colon\omega_1\to\omega_1$ the ordinals closed under
+      $h$ form a club.
+    \item $E\subset\omega_1$ is \alert{stationary} if it meets every club;
+      \emph{non-stationary} = disjoint from some club = ``small''.
+    \item \textbf{Solovay.} $\omega_1$ is the union of $\aleph_1$ pairwise disjoint
+      stationary sets.
+  \end{itemize}
+  \medskip
+  \begin{block}{The objects}
+    $P$ dense in $\ellone{\omega_1}$, \ $P_\delta=P\cap\ellone\delta$ for
+    $\delta<\omega_1$: an increasing $\omega_1$-chain of subspaces with union $P$.
+  \end{block}
+  All that matters about an $\omega_1$-chain is what happens on a club. The
+  enumeration of the index set changes the chain only off a club.
+\end{frame}
+
+\begin{frame}{The invariant and the criterion}
+  \begin{definition}
+    $\Delta(P)=\{\delta<\omega_1\text{ limit}:\ P_\delta\neq\bigcup_{\delta'<\delta}P_{\delta'}\}$,
+    the set of \alert{jumps} of the chain.
+  \end{definition}
+  \begin{theorem}
+    A dense $P\subset\ellone{\omega_1}$ is extremely projective $\iff$
+    \begin{enumerate}[(i)]
+      \item every $P_\delta$, $\delta<\omega_1$, has countable dimension
+        (equivalently: every separable subspace of $P$ does), and
+      \item $\Delta(P)$ is not stationary.
+    \end{enumerate}
+  \end{theorem}
+  \textit{Proof.} ($\Rightarrow$) (i) is the dimension bound. For (ii) take the
+  chain of closed pairs $(A_\alpha,B_\alpha)$ from the criterion with
+  $\gamma_\alpha=\alpha$. On a club, $A_\delta=\delta$; there $P_\delta=P_{A_\delta}=\bigcup_{\alpha<\delta}P_{A_\alpha}$
+  by the unions lemma, and each $A_\alpha$ sits below some $\delta'<\delta$. \\
+  ($\Leftarrow$) Density of $P_\delta$ holds on a club $C_1$; a club $C_2$ misses
+  $\Delta(P)$. Enumerate $C_1\cap C_2\cup\{0\}$ as ${(c_\alpha)}$ and take
+  $\Gamma_\alpha=c_\alpha$: countable blocks, (a) by $C_1$, (b) by $C_2$ and
+  continuity of the enumeration, (c) by (i). Apply the criterion. \qed
+\end{frame}
+
+\begin{frame}{Both conditions are needed; the invariant is invariant}
+  \begin{itemize}
+    \item $P_w+\lo{\omega_1\setminus\omega}$ ($P_w$ the weighted space on $\omega$):
+      $\Delta(P)=\{\omega\}$, not stationary, but $P_\omega=P_w$ has uncountable
+      dimension. Not projective.
+    \item Ladder spaces on stationary sets (next slide): (i) holds, (ii) fails.
+  \end{itemize}
+  \begin{proposition}
+    If $T$ is a bounded bijection of $\ellone{\omega_1}$ with $T(P)=P'$, then
+    $\Delta(P)\triangle\Delta(P')$ is not stationary. Hence the class of
+    $\Delta(P)$ modulo non-stationary sets is an isomorphism invariant of the
+    normed space $P$, independent of the enumeration of the index set.
+  \end{proposition}
+  \textit{Proof.} $F(\delta)=\sup_{\beta<\delta}(\sup\supp T e_\beta+1)$, similarly
+  $G$ for $T^{-1}$. For limit $\delta$ closed under $F$ and $G$ (a club):
+  $T(\ellone\delta)=\ellone\delta$, so $T(P_\delta)=P'_\delta$ and
+  $T\bigl(\bigcup_{\delta'<\delta}P_{\delta'}\bigr)=\bigcup_{\delta'<\delta}P'_{\delta'}$;
+  jumps correspond. An isomorphism $P\to P'$ extends to the completions. \qed
+\end{frame}
+
+\begin{frame}{Ladder spaces}
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.5\textwidth}
+      $E$ a set of limit ordinals $<\omega_1$. For $\alpha\in E$ fix a ladder
+      $\alpha_1<\alpha_2<\dots\nearrow\alpha$ and put
+      \[
+        v_\alpha=\sum_{n\ge1}2^{-n}e_{\alpha_n},
+      \]
+      \[
+        P_E=\lo{\omega_1}+\Lin\{v_\alpha:\alpha\in E\}.
+      \]
+      Two ladders share only finitely many rungs.
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \centering
+      \begin{tikzpicture}[x=1cm,y=1cm]
+        \draw[->,muted] (0,0) -- (6.2,0) node[right] {\footnotesize $\omega_1$};
+        \foreach \x/\l in {2.2/\alpha,4.6/\beta}{
+          \draw[ink,thick] (\x,-0.1) -- (\x,0.1);
+          \node[below] at (\x,-0.1) {\footnotesize $\l$};
+        }
+        \foreach \i in {1,...,6}{
+          \pgfmathsetmacro{\px}{2.2-1.6*0.6^(\i-1)}
+          \pgfmathsetmacro{\h}{0.9*0.7^(\i-1)}
+          \draw[accent,thick] (\px,0) -- (\px,\h);
+        }
+        \foreach \i in {1,...,6}{
+          \pgfmathsetmacro{\px}{4.6-2.6*0.6^(\i-1)}
+          \pgfmathsetmacro{\h}{0.9*0.7^(\i-1)}
+          \draw[good,thick] (\px,0) -- (\px,\h);
+        }
+        \node[accent] at (1.0,1.2) {\footnotesize $v_\alpha$};
+        \node[good] at (2.6,1.2) {\footnotesize $v_\beta$};
+      \end{tikzpicture}
+    \end{column}
+  \end{columns}
+  \begin{theorem}
+    \begin{enumerate}[(i)]
+      \item $(P_E)_\delta=\lo\delta+\Lin\{v_\alpha:\alpha\in E,\ \alpha\le\delta\}$:
+        countable dimension, dense, hence \textbf{extremely projective} for every $\delta<\omega_1$;
+      \item $\Delta(P_E)=E$ \quad ($v_\delta$ enters at stage $\delta$ but is not a
+        finite combination of earlier vectors modulo $\lo\delta$);
+      \item $P_E$ is extremely projective $\iff$ $E$ is not stationary;
+      \item $E\triangle E'$ stationary $\Rightarrow$ $P_E\not\cong P_{E'}$.
+    \end{enumerate}
+  \end{theorem}
+\end{frame}
+
+\begin{frame}{$2^{\aleph_1}$ spaces, and an old theory in new clothes}
+  Solovay: pairwise disjoint stationary $S_\xi\subset\omega_1$, $\xi<\omega_1$. For
+  $X\subset\omega_1$ put $E_X=\bigcup_{\xi\in X}S_\xi$. Then $E_X\triangle E_Y\supset S_\xi$
+  for $X\ne Y$.
+  \begin{alertblock}{}
+    $2^{\aleph_1}$ pairwise non-isomorphic dense subspaces of $\ellone{\omega_1}$,
+    all with extremely projective countable pieces; only $P_\varnothing=\lo{\omega_1}$
+    is extremely projective. All of them contain the same dense subspace $\lo{\omega_1}$.
+  \end{alertblock}
+  \medskip
+  {\small
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{@{}p{0.46\textwidth}p{0.48\textwidth}@{}}
+    \toprule
+    almost free abelian groups & extremely projective normed spaces\\
+    \midrule
+    Pontryagin, Hill: filtrations by countable subgroups with free quotients
+      & Theorem 6.7: filtrations with countable blocks and countable quotients\\
+    Eklof's invariant $\Gamma(G)$ & $\Delta(P)$ modulo non-stationary sets\\
+    $\aleph_1$-free non-free groups built from ladder systems & the spaces $P_E$\\
+    \bottomrule
+  \end{tabular}}
+  \medskip
+
+  In the group case the picture above $\aleph_1$ depends on set theory; expect
+  the same here.
+\end{frame}
+
+%=========================================================================
+\section{Summary}
+
+\begin{frame}{Where each ingredient was consumed}
+  \small
+  \renewcommand{\arraystretch}{1.3}
+  \begin{tabular}{@{}p{0.3\textwidth}p{0.5\textwidth}p{0.14\textwidth}@{}}
+    \toprule
+    ingredient & used for & where\\
+    \midrule
+    universal property of $\lo\Lambda$ & free spaces are extremely projective;
+      canonical morphism $\pi_P$ & \S2\\
+    retraction $\sigma$ onto a free space & supports are finite: dimension bound,
+      closed pairs, countable quotients & \S3, \S6\\
+    Grothendieck (via duality of $\overline P$) & completion is $\ellone\Gamma$ & \S4\\
+    exact $\ell_1$-norm: disjoint blocks add & $\|R\|\le\delta$ in the one-vector lemma;
+      $\|W_\delta-1\|\le\theta$ transfinitely & \S4, \S6\\
+    Hahn--Banach, Neumann series in $\overline P$ & hitting lemma; invertibility & \S4\\
+    density of $P_\delta$ in $\ellone{\Gamma_\delta}$ & corrections $z_n$ at
+      successor steps & \S6\\
+    extreme points of $B_{\ell_1}$ & no space strictly between $\lo S$ and $\ellone S$ is free;
+      coordinates are intrinsic & \S5, \S7\\
+    clubs and stationary sets, Solovay & the $\aleph_1$ criterion; $2^{\aleph_1}$ ladder spaces & \S7\\
+    \bottomrule
+  \end{tabular}
+\end{frame}
+
+\begin{frame}{Comparison with Gr{\o}nb{\ae}k's proof}
+  Gr{\o}nb{\ae}k: topologically projective $\Rightarrow$ isomorphic to $\lo\Lambda$, in two steps.
+  \begin{enumerate}
+    \item Transfinite construction: every subspace $Y\subset\lo\Lambda$ contains a
+      complemented copy of $\lo{\Lambda'}$, $|\Lambda'|=\dens Y$. \\
+      \textcolor{good}{Inspection: the copy is $(1+\varepsilon)$-isomorphic and
+      $(1+\varepsilon)$-complemented.}
+    \item Pe{\l}czy\'nski's decomposition method. \\
+      \textcolor{accent}{Here the constants are lost.}
+  \end{enumerate}
+  \medskip
+  \begin{itemize}
+    \item decomposition method: $Y\oplus\lo\Lambda\cong\lo\Lambda$, then
+      $Y\cong Y\oplus\lo\Lambda\cong\lo\Lambda$, with uncontrolled constants;
+    \item back-and-forth: an automorphism of $\ellone\Gamma$ of distortion
+      $<1+\varepsilon$ moving $P$ exactly onto $\lo\Gamma$.
+  \end{itemize}
+
+  The price of keeping the constants is the continuity condition (ii), and the
+  closed pairs show that it is always available for projective spaces.
+\end{frame}
+
+\begin{frame}{Open problems}
+  \begin{itemize}
+    \item Dimension $\ge\aleph_2$. Can the filtration condition be replaced by a
+      condition on the pieces $P\cap\ellone A$ for $A$ in a club of subsets of
+      $\Gamma$? Is there a dense subspace of $\ellone{\omega_2}$ which is not
+      projective although every piece of size $\aleph_1$ is? For groups the
+      answers depend on set theory.
+    \item Dense subspaces of other Banach spaces: for $E\not\cong\ellone\Gamma$
+      almost isometrically there are topologically but not extremely projective
+      dense subspaces. Which $E$ admit extremely projective dense subspaces at all?
+      (Only those with $E\cong\ellone\Gamma$ isometrically.)
+    \item Extreme projectivity over non-zero algebras: Helemskii's original
+      setting of sequence algebras. Is there an analogue of the almost isometric
+      characterization, of the counterexample, of the invariant?
+  \end{itemize}
+  \begin{alertblock}{The real question}
+    In $\Nor$ the free objects are tiny and the projective objects are
+    almost free. What replaces the Banach space toolbox when every complete
+    subspace is finite dimensional?
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Summary}
+  \begin{itemize}
+    \item \textbf{Extremely projective} $=$ $C$-topologically projective for every
+      $C>1$, in the category of normed spaces.
+    \item \textbf{Counterexample}: $\lo\NN+\CC v$ is extremely projective and not
+      free. The isometric conjecture of Helemskii and Gr{\o}nb{\ae}k fails.
+    \item \textbf{Characterization}: extremely projective $\iff$ topologically
+      projective with completion $\ellone\Gamma$ $\iff$ $\BM(P,\lo\Gamma)=1$.
+      The conjecture holds almost isometrically.
+    \item \textbf{Countable dimension}: a property of the completion alone.
+    \item \textbf{Uncountable dimension}: filtrations with countable blocks;
+      for $\aleph_1$ a stationary-set invariant and $2^{\aleph_1}$ ladder spaces.
+    \item \textbf{Method}: back-and-forth, countable and transfinite, with
+      perturbations on disjoint blocks; closed pairs.
+  \end{itemize}
+  \vfill
+  \centering{\Large Thank you!}
+  \vfill
+\end{frame}
+
+\begin{frame}{References}
+  \footnotesize
+  \begin{itemize}
+    \item[] A.\,Ya.~Helemskii, Extreme version of projectivity for normed modules
+      over sequence algebras, Canad.\ J.\ Math.\ 65 (2013), 559--574.
+    \item[] A.\,Ya.~Helemskii, Metric freeness and projectivity for classical and
+      quantum normed modules, Sb.\ Math.\ 204 (2013), 1056--1083.
+    \item[] N.~Gr{\o}nb{\ae}k, Lifting problems for normed spaces, Ann.\ Funct.\ Anal.\
+      7 (2016), 118--126.
+    \item[] G.~K\"othe, Hebbare lokalkonvexe R\"aume, Math.\ Ann.\ 165 (1966), 181--195.
+    \item[] A.~Grothendieck, Une caract\'erisation vectorielle-m\'etrique des
+      espaces $L_1$, Canad.\ J.\ Math.\ 7 (1955), 552--561.
+    \item[] P.~H\'ajek, T.~Russo, On densely isomorphic normed spaces,
+      J.\ Funct.\ Anal.\ 279 (2020), 108667.
+    \item[] J.~Ferrer, P.~Koszmider, W.~Kubi\'s, Almost disjoint families of
+      countable sets and separable complementation properties,
+      J.\ Math.\ Anal.\ Appl.\ 401 (2013), 939--949.
+    \item[] P.\,C.~Eklof, A.\,H.~Mekler, Almost free modules. Set-theoretic
+      methods, North-Holland, 2002.
+    \item[] T.~Jech, Set theory, the third millennium edition, Springer, 2003.
+    \item[] N.\,T.~Nemesh, Extremely projective normed spaces, preprint.
+  \end{itemize}
+\end{frame}
+
+%=========================================================================
+\appendix
+\section*{Backup}
+
+\begin{frame}{Backup: no $1$-topologically projective spaces}
+  Let $X=c_{00}$ with the sup-norm, $s=\sum_n2^{-n}(1-2^{-n})$ and
+  \[
+    f(x)=s^{-1}\sum_{n\ge1}2^{-n}(1-2^{-n})\,x_n ,\qquad \|f\|\le1 .
+  \]
+  \begin{itemize}
+    \item $f$ is coisometric: for $|z|<1$ pick $N$ with
+      $|z|<s^{-1}\sum_{n\le N}2^{-n}(1-2^{-n})$ and $x=t\operatorname{sgn}(z)\sum_{n\le N}e_n$
+      with suitable $t\in[0,1)$; then $f(x)=z$, $\|x\|<1$.
+    \item $f$ does not attain its norm: $|f(x)|=1$, $\|x\|\le1$ would force
+      $x_n=\operatorname{sgn}f(x)$ for all $n$.
+  \end{itemize}
+  \medskip
+  Let $P\ne0$ be $1$-topologically projective, $p\in P$, $\|p\|=1$, and
+  $g\in P^*$ with $\|g\|=g(p)=1$ (Hahn--Banach). Lift $g$ along $f$:
+  $\psi\colon P\to X$, $f\psi=g$, $\|\psi\|\le1$. Then $x=\psi(p)\in B_X$ and
+  $f(x)=g(p)=1$. Contradiction. \qed
+  \medskip
+
+  The same functional on $\ell_1$, $x\mapsto\sum(1-2^{-n})x_n$, shows that with
+  the open-ball convention $1$-topological projectivity is empty in $\Ban$ too.
+  With closed balls (strictly coisometric operators) one recovers the metric
+  theory; for extreme projectivity the choice is immaterial.
+\end{frame}
+
+\begin{frame}{Backup: the product lemma}
+  $\theta_m=\|F_m-1_X\|<1$, $\sum\theta_m<\infty$, $A_j=F_j\cdots F_1$,
+  $M=\prod(1+\theta_m)$, $M'=\prod{(1-\theta_m)}^{-1}$.
+  \begin{itemize}
+    \item $\|A_j\|\le M$ and, by the Neumann series, $\|F_m^{-1}\|\le{(1-\theta_m)}^{-1}$,
+      so $\|A_j^{-1}\|\le M'$.
+    \item $\|A_j-A_{j-1}\|=\|(F_j-1)A_{j-1}\|\le\theta_jM$: Cauchy, $A_j\to T$, $\|T\|\le M$.
+    \item $\|A_j^{-1}-A_k^{-1}\|=\|A_j^{-1}(A_k-A_j)A_k^{-1}\|\le{M'}^2\|A_k-A_j\|$:
+      Cauchy, $A_j^{-1}\to B$, $\|B\|\le M'$.
+    \item $A_jA_j^{-1}=A_j^{-1}A_j=1$ in the limit: $TB=BT=1$. \qed
+  \end{itemize}
+  \medskip
+  In the countable back-and-forth the $\theta_m$ are chosen in advance with
+  $\prod(1+\theta_m)/(1-\theta_m)\le1+\varepsilon$; every step then has a fixed
+  budget $\theta_m$ for its perturbation, and the budget is respected by the
+  one-vector lemma ($\|R\|\le\delta$) and the hitting lemma ($\|S-1\|\le2C\|z-e_n\|$,
+  with $z$ chosen close enough to $e_n$ by density).
+\end{frame}
+
+\end{document}
