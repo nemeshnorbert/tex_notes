@@ -1,0 +1,81 @@
+%%% Проверка используемого TeX-движка %%%
+\usepackage{ifxetex}
+
+%%% Поля и разметка страницы %%%
+% Для включения альбомных страниц
+\usepackage{lscape}                                 
+% Для последующего задания полей
+\usepackage{geometry}                               
+
+%%% Математические пакеты %%%
+% Математические дополнения от AMS
+%\usepackage{amsthm,amsfonts,amsmath,amssymb,amscd}  
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage[utf8]{inputenc} 
+\usepackage{mathrsfs}
+\usepackage[matrix,arrow,curve]{xy}
+\usepackage{enumitem}
+
+%%% Кодировки и шрифты %%%
+\ifxetex{}
+  % Поддержка многоязычности
+  \usepackage{polyglossia}                          
+  % TrueType-шрифты
+  \usepackage{fontspec}                             
+\else
+  % Улучшенный поиск русских слов в полученном pdf-файле
+  \usepackage{cmap}                                 
+  % Поддержка русских букв
+  \usepackage[T2A]{fontenc}                         
+  % Кодировка utf8
+  \usepackage[utf8]{inputenc}                       
+  % Языки: русский, английский
+  \usepackage[english, russian]{babel}              
+  % Красивые русские шрифты
+  \IfFileExists{pscyr.sty}{\usepackage{pscyr}}{}    
+\fi
+
+%%% Оформление абзацев %%%
+% Красная строка
+\usepackage{indentfirst}                            
+
+%%% Цвета %%%
+\usepackage[usenames]{color}
+\usepackage{color}
+\usepackage{colortbl}
+
+%%% Таблицы %%%
+% Длинные таблицы
+\usepackage{longtable}                              
+% Улучшенное форматирование таблиц
+\usepackage{multirow,makecell,array}                
+
+%%% Общее форматирование
+% Многострочные подписи
+\usepackage[singlelinecheck=off,center]{caption}    
+% Поддержка переносоустойчивых подчёркиваний и зачёркиваний
+\usepackage{soul}                                   
+% Запятая в десятичных дробях
+\usepackage{icomma}                                 
+
+%%% Библиография %%%
+% Красивые ссылки на литературу
+%\usepackage{cite}                                   
+\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
+\usepackage[autostyle]{csquotes}
+
+%%% Гиперссылки %%%
+\usepackage[linktocpage=true,plainpages=false,pdfpagelabels=false]{hyperref}
+
+%%% Изображения %%%
+% Подключаем пакет работы с графикой
+\usepackage{graphicx}                               
+
+%%% Оглавление %%%
+\usepackage{tocloft}
+
+%%% Интервалы %%%
+\usepackage{setspace}
+
+%%% Колонтитулы %%%
+\usepackage{fancyhdr}
